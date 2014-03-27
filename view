@@ -1,0 +1,5 @@
+#!/bin/sh
+
+static-nuns &&
+open _site/index.html
+

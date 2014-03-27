@@ -11,6 +11,7 @@
 </head>
 <body {% block bodyClass %}{% endblock %}>
   <div class="content">
+    {% block topOfContent %}{% endblock %}
     <h1><a href="{{ root }}index.html">Apostrophe</a>: {{ title }}</h1>
     {{ content }}
   </div>
