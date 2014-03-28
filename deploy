@@ -1,6 +1,6 @@
 #!/bin/sh
 
-static-nuns &&
+habit &&
 rsync -e 'ssh -p 22123' -a _site/ apostro2@apostrophenow.org:/var/www/docs &&
 echo "Done!"
 

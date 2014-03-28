@@ -1,5 +1,5 @@
 #!/bin/sh
 
-static-nuns &&
+habit &&
 open _site/index.html
 

@@ -14,7 +14,7 @@ REQUIREMENTS
 
 Install the static site generator:
 
-npm install -g static-nuns
+npm install -g habit
 
 Clone the project:
 
