@@ -7,6 +7,7 @@
   <title>Apostrophe: {{ title }}</title>
   <link rel="stylesheet" type="text/css" href="{{ root }}stylesheets/main.css">
   <script src="{{ root }}javascript/prism.js"></script>
+  <script src="{{ root }}javascript/main.js"></script>
 </head>
 <body {% block bodyClass %}{% endblock %}>
   <div class="nav outer">
@@ -14,11 +15,11 @@
       <a class="logo" href="/">Apostrophe 2</a>{#
       #}<ul class="page-links">
         <li class="page-link">
-          <a href="#">Tutorials</a>
+          <a href="#" class="selected">Tutorials</a>
         </li>{# 
-        #}<li class="page-link">
+        <li class="page-link">
           <a href="#">Reference</a>
-        </li>
+        </li>#}
       </ul>
     </div>
   </div>
@@ -26,6 +27,7 @@
   <div class="header">
     <div class="inner">
       {% block header %}
+        <div class="logo-dark"></div>
         <h1>{{ title }}</h1>
       {% endblock %}
     </div>
