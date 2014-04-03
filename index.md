@@ -11,3 +11,4 @@ Apostrophe is a user-friendly content management system powered by node.js. All 
 * [Snippets: custom content types](howtos/snippets/index.html)
 * [app.js and apostrophe-site: configuring your site](howtos/apostrophe-site/index.html)
 * [Apostrophe Maps](howtos/maps/index.html)
+* [Adding properties to pages](howtos/pages/index.html)
