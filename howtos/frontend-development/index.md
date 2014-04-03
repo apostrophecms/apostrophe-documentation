@@ -7,3 +7,4 @@ These HOWTOs cover intermediate frontend development topics: configuring slidesh
 * [Image sizes in Apostrophe](image-sizes-in-apostrophe.html)
 * [Custom image sizes](custom-image-sizes.html)
 * [Accessing images and files directly](accessing-images-and-files-directly.html)
+* [Working with lockups](working-with-lockups.html)
