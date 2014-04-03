@@ -6,4 +6,4 @@ These HOWTOs cover intermediate frontend development topics: configuring slidesh
 * [Detecting empty areas and singletons](detecting-empty-areas-and-singletons.html)
 * [Image sizes in Apostrophe](image-sizes-in-apostrophe.html)
 * [Custom image sizes](custom-image-sizes.html)
-* [Accessing images and files directly](accessing-imagews-and-files-directly.html)
+* [Accessing images and files directly](accessing-images-and-files-directly.html)

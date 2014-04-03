@@ -6,4 +6,4 @@
 * [Internationalization](4-i18n.html)
 
 
-The Apostrophe Site module is a powerful configuration tool for Apostrophe projects expressed in JSON. It is included in your `app.js` file and takes care of importing and setting up your various apostrophe modules.
+The Apostrophe Site module is a powerful configuration tool for configuring Apostrophe projects in a friendly way. Your `app.js` file will begin by requiring this module and configuring it to import and initialize various apostrophe modules.
