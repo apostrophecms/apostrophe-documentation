@@ -1,74 +1,85 @@
-@a2blue: #175d90;
+@import './_reset.less';
+@import './_utils.less';
+@import './_fonts.less';
+@import './_colors.less';
+@import './_prism.less';
 
-body {
-  color: #212121;
+body
+{
+  color: @bluedark;
   font-size: 16px;
-  font-family: Helvetica;
-  line-height: 1.75rem;
+  font-family: 'inika';
+  line-height: 26px;
   background-color: #f0f0f0;
 }
 
+.outer { width: 100%; }
+.inner { width: 768px; margin: 0 auto; }
+.nav { background: #fff; height: 64px; .box-shadow; }
+.nav .inner { width: 1024px; }
+.header { background: @aqua; height: 192px; }
+
 .logo
+{ 
+  .dib;
+  font-size: 22px;
+  font-family: 'Montserrat';
+  line-height: 64px;
+  font-weight: bold;
+  text-transform: uppercase; 
+  color: @dark;
+}
+
+.logo::before
+{ 
+  display: inline-block;
+  content: '';
+  width: 40px;
+  height: 40px;
+  margin-right: 16px;
+  .bg-image('../images/logo-a2-2color.png');
+  vertical-align: middle;
+}
+
+.page-links { .dib; }
+.page-link { .dib; }
+
+.wrap { margin-top: -64px; }
+.sidebar { .dib; width: 192px; margin-top: 32px; background-color: #ccc; min-height: 64px; }
+.main { .dib; width: 576px; background-color: #fff; }
+
+.content { padding: 32px; }
+
+h1 { font-size: 50px; color: #fff; font-family: 'marvel'; line-height: 128px;}
+
+a
 {
-  padding-bottom: 2rem;
-  border-bottom: 2px solid #232323;
-
-  img
-  {
-    display: block;
-    width: 75px;
-    height: auto;
-    margin: 0 auto;
-  }
-}
-
-.content {
-  width: 80%;
-  max-width: 1040px;
-  // border-radius: 1rem;
-  background-color: white;
-  padding: 2rem;
-  margin: auto;
-}
-
-footer {
-  width: 80%;
-  border-radius: 1rem;
-  background-color: #008;
-  padding: 2rem;
-  margin: auto;
-  margin-top: 4em;
-}
-
-a {
-  color: @a2blue;
+  color: @aqua;
   text-decoration: none;
 }
 
 pre, p code, pre code
 {
-  font-family: Consolas, Monaco, 'Andale Mono', monospace;
+  font-family: 'Inconsolata', 'Consolas', 'Monaco', 'Andale Mono', monospace;
+  font-size: 14px;
+  line-height: 20px;
 }
 
-pre {
+pre
+{
   background-color: #f5f2f0;
-  padding: 1em;
+  padding: 16px;
 }
 
 p code
 {
-  font-size: 0.9rem;
   background-color: #f5f2f0;
   padding-left: 4px;
   padding-right: 4px;
   padding-bottom: 2px;
   margin-left: 2px;
   margin-right: 2px;
-  border: 1px solid darken(#f5f2f0, 20%);
-  border-radius: 2px;
+  border: 1px solid #ddd;
+  .border-radius(3px);
 }
 
-h1, h2, h3, h4, h5, h6 {
-  margin-top: 1.25em;
-  margin-bottom: 0.75em;
-}

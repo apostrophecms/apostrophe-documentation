@@ -1,20 +1,11 @@
-<!DOCTYPE html>
-<html lang="en-US">
-<head>
-  <meta charset="utf-8">
-  <meta name="keywords" content="key, words">
-  <meta name="description" content="description">
-  <title>Apostrophe: {{ title }}</title>
-  <link rel="stylesheet" type="text/css" href="{{ root }}stylesheets/main.css">
-  <link rel="stylesheet" type="text/css" href="{{ root }}stylesheets/prism.css">
-  <script src="{{ root }}javascript/prism.js"></script>
-</head>
-<body {% block bodyClass %}{% endblock %}>
-  <div class="content">
-    {% block topOfContent %}{% endblock %}
-    <h1><a href="{{ root }}index.html">Apostrophe</a>: {{ title }}</h1>
-    {{ content }}
-  </div>
-  {% block footer %}{% endblock %}
-</body>
-</html>
+{% extends "layout.html" %}
+
+{% block main %}
+<div class="content">
+  {% block topOfContent %}{% endblock %}
+
+  {{ content }}
+</div>
+{% endblock %}
+
+{% block footer %}{% endblock %}
