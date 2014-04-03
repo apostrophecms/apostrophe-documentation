@@ -19,7 +19,7 @@ git remote set-url origin git@github.com:myaccount/myproject.git
    You can then check the remote has been properly set by issuing `git remote -v` and looking at the output.
 
 4. Edit the `package.json` file to reflect your project a little better. This is less important for node apps than it is for reusable modules, but you may as well be thorough. Make sure you keep the `dependencies` section.
- 
+
 5. *Edit `app.js` and change the `shortname` setting*. Otherwise, you'll use the same database for all of your projects, and it will be called `apostrophe-sandbox`. And that's not good, right?
 
 6. Commit your changes to `package.json`:
@@ -38,3 +38,7 @@ git push origin master
 Boom! You're done. You now have your own Apostrophe project in github, based on `apostrophe-sandbox` as a starting point.
 
 (Remember that you don't actually have to use github to perform these steps. You can do exactly the same thing with Beanstalk and other git hosting providers.)
+
+### Next Steps
+
+[Editing existing page templates](editing-existing-page-templates.html)

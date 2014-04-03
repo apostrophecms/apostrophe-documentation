@@ -50,4 +50,4 @@ You can create and remove pages in addition to editing their content and managin
 
 ### Next Steps
 
-[Create your own project, separate from the sandbox](create-your-own.html)
+[Create your own project, separate from the sandbox](create-your-own-project.html)

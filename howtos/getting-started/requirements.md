@@ -2,8 +2,6 @@
 
 ## Installing the requirements on MacOS
 
-*If you are not using a Mac, this guide is still helpful. Basically you need git, node, npm, MongoDB and ImageMagick installed on your system. You need at least node 10.x and MongoDB 2.4.x. We recommend the latest version of ImageMagick.*
-
 This is the minimum necessary to get an apostrophe project up and running in OS X Mavericks, and possibly other versions of OS X. This was tested on a new Macbook Pro with no software on it. Here's what this covers:
 
 - XCode (required for all compilation on Macs)

@@ -6,6 +6,4 @@ Apostrophe is a user-friendly content management system powered by node.js. All 
 
 ## HOWTOs
 
-* [Setting up your computer for Apostrophe](howtos/requirements.html)
-* [Install the Sandbox](howtos/install-sandbox.html)
-* [Create Your Own Project, Separate From the Sandbox](howtos/create-your-own.html)
+* [Getting Started](howtos/getting-started/index.html)
