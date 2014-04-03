@@ -7,3 +7,5 @@ Apostrophe is a user-friendly content management system powered by node.js. All 
 ## Topics
 
 * [Getting started](howtos/getting-started/index.html)
+* [Snippets](howtos/snippets/index.html)
+* [Apostrophe-site](howtos/apostrophe-site/index.html)
