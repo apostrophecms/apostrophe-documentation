@@ -1,4 +1,7 @@
-# Image sizes in Apostrophe
+---
+title: "Image sizes in Apostrophe"
+previous: slideshow-options
+---
 
 When an image is uploaded to Apostrophe, via a slideshow or the media library, it is automatically scaled to a set of convenient sizes.
 

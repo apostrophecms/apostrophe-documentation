@@ -1,4 +1,6 @@
-# RSS Feed Options
+---
+title: "RSS Feed Options"
+---
 
 The RSS feed feature can be configured via the `feed` option when configuring the module.
 

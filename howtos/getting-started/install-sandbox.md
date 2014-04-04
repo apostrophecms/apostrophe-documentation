@@ -1,4 +1,6 @@
-# Install the sandbox
+---
+title: "Install the sandbox"
+---
 
 ## Cloning the Sandbox Project
 

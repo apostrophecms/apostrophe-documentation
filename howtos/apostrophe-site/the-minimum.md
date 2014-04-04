@@ -1,4 +1,6 @@
-# The minimum
+---
+title: "The minimum"
+---
 
 Here's a basic `app.js` file that uses `apostrophe-site` to power a project. While `pages` is not strictly required, it is necessary if you want custom page templates.
 

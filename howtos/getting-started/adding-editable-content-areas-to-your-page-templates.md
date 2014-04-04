@@ -1,4 +1,6 @@
-# Adding editable content areas to your page templates
+---
+title: "Adding editable content areas to your page templates"
+---
 
 You'll notice that the various page templates, like `views/pages/default.html`, contain editable content areas. There are two basic types: regular areas and singletons. A regular area lets you add any number of rich text blocks, slideshows, videos, snippets, blog posts and other content types if the developer desires. A singleton displays just one "widget," such as a slideshow, of a fixed type at that particular point in the page.
 
@@ -6,7 +8,7 @@ You'll notice that the various page templates, like `views/pages/default.html`, 
 
 Here's an example of template code to insert a named area that lives in the current page.
 
-```html
+```markup
 {{ aposArea(page, 'content1') }}
 ```
 
@@ -14,13 +16,13 @@ The `page` object is made available to your page templates by Apostrophe. The na
 
 You can use that third parameter to create a text-only area:
 
-```html
+```markup
 {{ aposArea(page, 'content1', { textOnly: true }) }}
 ```
 
 You can also limit the set of controls offered to the user. The `controls` option takes a list of rich text editor controls and widget names as explained below:
 
-```html
+```markup
 {{ aposArea(global, 'footer', {
   controls: [ 'style', 'bold', 'italic', 'createLink', 'image', 'video' ]
 }) }}
@@ -65,7 +67,7 @@ If the `styles` control is present, you can also adjust the elements that it off
 
 For example:
 
-```html
+```markup
 {{ aposArea(global, 'footer', {
   styles: [ { value: 'div', label: 'Normal' }, { value: 'h3', label: 'Heading' }]
 }) }}
@@ -79,7 +81,7 @@ TODO: link to separate HOWTO about our HTML filtering.
 
 Here's an example of template code to insert a standalone slideshow:
 
-```html
+```markup
 {{ aposSingleton(page, 'splash', 'slideshow') }}
 ```
 

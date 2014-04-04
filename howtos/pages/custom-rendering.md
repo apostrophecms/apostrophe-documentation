@@ -1,4 +1,6 @@
-# Custom Page Rendering
+---
+title: "Custom Page Rendering"
+---
 
 By default, you'll just write a `company.html` in your project's `views/pages` folder, like you would with regular page types.
 

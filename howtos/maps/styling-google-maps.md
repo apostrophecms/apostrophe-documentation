@@ -1,4 +1,6 @@
-# Styling Google Maps
+---
+title: "Styling Google Maps"
+---
 
 TODO: write this.
 

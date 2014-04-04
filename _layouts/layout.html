@@ -27,20 +27,47 @@
     <div class="inner">
       {% block header %}
         <h1>{{ title }}</h1>
+        {# I am a breadcrumb trail #}
+        <h4>
+          {% for ancestor in ancestors %}
+            {% if not loop.first %} | {% endif %}
+            <a href="{{ root }}{{ ancestor.url }}">{{ ancestor.title }}</a>
+          {% endfor %}
+        </h4>
       {% endblock %}
     </div>
-  </div>  
+  </div>
 
   <div class="wrap outer">
     <div class="inner">
       <div class="sidebar">
         {% block sidebar %}
-
+          {# List children, or peers if there are no children #}
+          {% set list = children or parent.children %}
+          {% if list %}
+            <ul>
+              {% for child in list %}
+                <li><a href="{{ root }}{{ child.url }}">{{ child.title }}</a></li>
+              {% endfor %}
+            </ul>
+          {% endif %}
         {% endblock %}
       </div>{#
       #}<div class="main">
+        {% block previous %}
+          {% if previous %}
+            <h4><a href="{{ root }}{{ previous.url }}">Previous: {{ previous.title }}</a></h4>
+          {% endif %}
+        {% endblock %}
+
         {% block main %}
 
+        {% endblock %}
+
+        {% block next %}
+          {% if next %}
+            <h4><a href="{{ root }}{{ next.url }}">Next: {{ next.title }}</a></h4>
+          {% endif %}
         {% endblock %}
       </div>
     </div>

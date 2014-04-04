@@ -1,4 +1,6 @@
-# Location geocoding
+---
+title: "Location geocoding"
+---
 
 The map module will automatically geocode newly created or imported locations using [Geocoder](https://github.com/wyattdanger/geocoder) as long as they contain an address. When creating a single map location, the geocoding is fairly instantaneous. When dealing with a large number of locations simultaneously, the geocoder may hit rate limits, in which case it will continue geocoding as long as the node process continues to run.
 

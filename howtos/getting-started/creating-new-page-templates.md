@@ -1,4 +1,6 @@
-# Creating new page templates
+---
+title: "Creating new page templates"
+---
 
 Apostrophe offers a choice of page templates to the user when adding a page via the "Pages" menu. Adding a new one is straightforward. Just copy the `default.html` template in the `views/pages` folder. Let's assume you call your template `myPage.html`.
 

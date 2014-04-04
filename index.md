@@ -1,14 +1,10 @@
-<!--- layout: home -->
+---
+title: "Home"
+children:
+  - howtos
+  - reference
+---
 
-# Everything You Need To Know
+## Apostrophe
 
-Apostrophe is a user-friendly content management system powered by node.js. All editing is performed in-context. Our documentation covers everything from installation to frontend development to advanced backend techniques. For a solid foundation, start with the first topic and just keep going. Or just skip around. It's OK, we know you're going to. Just promise to read at least "getting started" first.
-
-## Topics
-
-* [Getting started](howtos/getting-started/index.html)
-* [Frontend development](howtos/frontend-development/index.html)
-* [Snippets: custom content types](howtos/snippets/index.html)
-* [app.js and apostrophe-site: configuring your site](howtos/apostrophe-site/index.html)
-* [Apostrophe Maps](howtos/maps/index.html)
-* [Adding properties to pages](howtos/pages/index.html)
+Apostrophe is amazing. TODO: links to completely different places for people who aren't part of the developer audience go here, also a link to the demo, also calls to action to visit howtos and reference, which needs to exist.

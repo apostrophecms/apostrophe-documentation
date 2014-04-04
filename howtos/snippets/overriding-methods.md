@@ -1,4 +1,6 @@
-# Advanced Techniques: Overriding Methods in Your Subclass
+---
+title: "Advanced Techniques: Overriding Methods in Your Subclass"
+---
 
 TODO: a more complete list of common use cases for overriding methods. What do we do in p'unk projects?
 

@@ -1,4 +1,6 @@
-# Creating Your Own Content Types: Subclassing Snippets (The Basics)
+---
+title: "Creating Your Own Content Types: Subclassing Snippets (The Basics)"
+---
 
 It's possible to create your own content types based on snippets. This has many advantages. All of the tools to manage snippets have already been built for you and are easily extended without code duplication to accommodate new content. The snippets module also implements an Apostrophe page loader function for you, ready to display "index pages" and "show pages" out of the box. And of course a widget for reusing snippets anywhere on the site is built in. All of this functionality is easily obtained for your new content type as well.
 

@@ -1,4 +1,7 @@
-# Custom image sizes
+---
+title: "Custom image sizes"
+previous: image-sizes-in-apostrophe
+---
 
 Although Apostrophe [provides standard image sizes to cover almost any situation](image-sizes-in-apostrophe.html), sometimes you'll want images that are larger or smaller than our standard options. In those cases, just add the `addImageSizes` option to your `apostrophe-site` configuration in `app.js`, like this:
 

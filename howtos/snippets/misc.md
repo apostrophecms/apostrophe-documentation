@@ -1,3 +1,7 @@
+---
+title: "Misc"
+---
+
 TODO: is there a theme here?
 
 ### Showing Custom Fields In The "Manage" View

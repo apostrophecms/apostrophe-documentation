@@ -1,10 +1,13 @@
-## Accessing images and files directly
+---
+title: "Accessing images and files directly"
+previous: custom-image-sizes
+---
 
 Sometimes you might want to display a thumbnail image directly with your own markup, bypassing the normal markup for the slideshow widget. Sometimes you don't even care if the image is in the first slideshow widget in a content area, or somewhere further down in the area. There is a safe and simple way to do this.
 
 Let's say we want the first image in the `body` area, if any:
 
-```html
+```markup
 {% if aposAreaImage(page, 'body') %}
   <img src="{{ aposFilePath(aposAreaImage(page, 'body'), { size: 'one-sixth' }) }}" />
 {% endif %}
@@ -22,7 +25,7 @@ TODO: separate HOWTO on how to add additional sizes at project level, and how to
 
 You can also fetch all the images:
 
-```html
+```markup
 {% for image in aposAreaImages(page, 'body') %}
   <img src="{{ aposFilePath(image, { size: 'one-sixth' }) }}" />
 {% endif %}
@@ -30,7 +33,7 @@ You can also fetch all the images:
 
 You can use the `limit` option to specify just two images at most:
 
-```html
+```markup
 {% for image in aposAreaImages(page, 'body', { limit: 2 }) %}
   <img src="{{ aposFilePath(image, { size: 'one-sixth' }) }}" />
 {% endif %}
@@ -38,7 +41,7 @@ You can use the `limit` option to specify just two images at most:
 
 Or use the `extension` option to specify we only care about JPEGs:
 
-```html
+```markup
 {% set image = aposAreaImage(page, 'body', { extension: 'jpg' }) %}
 {% if image %}
   <img src="{{ aposFilePath(image, { size: 'one-sixth' }) }}" />
@@ -47,7 +50,7 @@ Or use the `extension` option to specify we only care about JPEGs:
 
 Or `extensions` to allow JPEG and PNG but not GIF:
 
-```html
+```markup
 {% set image = aposAreaImage(page, 'body', { extensions: [ 'jpg', 'png' ] }) %}
 {% if image %}
   <img src="{{ aposFilePath(image, { size: 'one-sixth' }) }}" />
@@ -58,7 +61,7 @@ Or `extensions` to allow JPEG and PNG but not GIF:
 
 If you're interested in PDFs and other non-image files, as might be found in the files widget, call `aposAreaFile` and `aposAreaFiles` instead. You might want to use the `group` option to restrict the results to office documents, like csv, docx and pdf files:
 
-```html
+```markup
 {% set file = aposAreaFile(page, 'body', group: 'office') %}
 {% if file %}
   <a href="{{ aposFilePath(file) }}">{{ file.name | e }}</a>

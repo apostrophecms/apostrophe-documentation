@@ -1,4 +1,6 @@
-# Requirements
+---
+title: "Requirements"
+---
 
 ## Installing the requirements on MacOS
 

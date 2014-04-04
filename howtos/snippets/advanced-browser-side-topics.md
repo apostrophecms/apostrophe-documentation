@@ -1,4 +1,6 @@
-# Sending Extra Properties to the Server: Subclassing on the Browser Side
+---
+title: "Sending Extra Properties to the Server: Subclassing on the Browser Side"
+---
 
 *NOTE: you can skip this if you are using schemas. You really want to use schemas if they support your field type.*
 

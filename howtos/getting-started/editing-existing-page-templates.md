@@ -1,4 +1,6 @@
-# Editing existing page templates
+---
+title: "Editing existing page templates"
+---
 
 Take a look in the `views/pages` subdirectory of your project. Here you'll find `.html` files, including `default.html` and `home.html`. These are templates for the `default` and `home` page types. Typically most ordinary pages on your site will use the `default` type, while the home page will use the `home` type.
 
@@ -8,7 +10,7 @@ See the [jinja documentation](http://jinja.pocoo.org/docs/) for complete informa
 
 One of the nicest features is that you can extend another template, overriding "blocks" to change parts of it, like this:
 
-```html
+```markup
 {% extends "layout.html" %}
 ```
 
@@ -16,7 +18,7 @@ When you use `extends` in a page template, Apostrophe looks for the template you
 
 Now, in `home.html`, we can override the `hero` block that starts out empty in `layout.html`:
 
-```html
+```markup
 {% block hero %}
   <div class="block hero">
     <div class="inner">
@@ -30,7 +32,7 @@ Now, in `home.html`, we can override the `hero` block that starts out empty in `
 
 There's one more really critical template: `views/global/outerLayout.html`. This special template provides the basic structure of your HTML page. Everything output by your page template is inserted into the outer layout where you see this code:
 
-```html
+```markup
 {{ content }}
 ```
 

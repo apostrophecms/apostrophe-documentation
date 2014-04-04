@@ -1,4 +1,6 @@
-## Using Snippets Directly
+---
+title: "Using Snippets Directly"
+---
 
 Snippets are quite useful by themselves. Quite often, the snippet widget is enabled in a project to allow reuse of frequently-changing content displayed in a variety of places at the end user's discretion, rather than hardcoding a shared area or singleton into the page templates.
 

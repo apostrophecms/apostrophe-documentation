@@ -1,15 +1,16 @@
-# Snippets
-
-* [Using snippets directly](1-using-snippets-directly.html)
-* [Custom content types: subclassing snippets](2-subclassing-snippets.html)
-* [Joins in schemas](3-joins.html)
-* [Advanced server-side topics](4-advanced-server-side-topics.html)
-* [Overriding methods](5-overriding-methods.html)
-* [Extending the widget](6-extending-the-widget.html)
-* [Advanced browser-side topics](7-advanced-browser-side-topics.html)
-* [Misc](8-misc.html)
-* [RSS feed options](9-rss-feed-options.html)
-
+---
+title: "Snippets"
+children:
+  - using-snippets-directly
+  - subclassing-snippets
+  - joins
+  - advanced-server-side-topics
+  - overriding-methods
+  - extending-the-widget
+  - advanced-browser-side-topics
+  - misc
+  - rss-feed-options
+---
 
 TODO: 30,000ft explanation of snippets for dummies (include a simple & an advanced use case)
 

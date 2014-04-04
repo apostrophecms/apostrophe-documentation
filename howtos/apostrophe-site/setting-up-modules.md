@@ -1,4 +1,6 @@
-# Setting up Modules
+---
+title: "Setting up Modules"
+---
 
 ## Adding Modules to the Admin Bar
 

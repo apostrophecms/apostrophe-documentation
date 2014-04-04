@@ -1,4 +1,6 @@
-# With all of the options
+---
+title: "With all of the options"
+---
 
 Here's an `app.js` file with most of the options you'd want to include in a large apostrophe project.
 

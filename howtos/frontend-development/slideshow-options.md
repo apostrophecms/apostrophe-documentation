@@ -1,10 +1,12 @@
-# Slideshow options
+---
+title: "Slideshow options"
+---
 
 Here's how to change the appearance and behavior of a slideshow via options in your templates.
 
-The simplest way to try out slideshow options is in a [singleton](../getting-started/adding-editable-content-areas-to-your-page.html):
+The simplest way to try out slideshow options is in a [singleton](../getting-started/adding-editable-content-areas-to-your-page-templates.html):
 
-```html
+```markup
 {{ aposSingleton(page, 'mypicture', 'slideshow', { size: 'one-third' } ) }}
 ```
 
@@ -14,7 +16,7 @@ It is also possible to [add custom sizes](custom-image-sizes.html). But  most of
 
 In addition, you can limit the number of images permitted in the slideshow:
 
-```html
+```markup
 {{ aposSingleton(page, 'mypicture', 'slideshow', { limit: 3 } ) }}
 ```
 
@@ -22,9 +24,11 @@ A limit of `1` gives you a single-image widget.
 
 ## Slideshow options in an area
 
-You can pass these options to [areas](../getting-started/adding-editable-content-areas-to-your-page.html) too, in order to change the appearance of all slideshows the user may add to that area:
+You can pass these options to [areas](../getting-started/adding-editable-content-areas-to-your-page-templates.html) too, in order to change the appearance of all slideshows the user may add to that area:
 
+```markup
 {{ aposArea(page, 'content1', { slideshow: { limit: 3 }  }) }}
+```
 
 TODO: document more slideshow options.
 

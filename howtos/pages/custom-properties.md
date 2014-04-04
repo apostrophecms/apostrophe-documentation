@@ -1,4 +1,6 @@
-# Custom Page Properties
+---
+title: "Custom Page Properties"
+---
 
 Let's say we already have a page type called "Company," set up with the rest of our page types in `app.js`:
 

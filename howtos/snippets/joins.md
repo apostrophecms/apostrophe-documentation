@@ -1,4 +1,6 @@
-# Joins in Schemas
+---
+title: "Joins in Schemas"
+---
 
 TODO: 30,000ft overview of a join and what it allows you to do.
 

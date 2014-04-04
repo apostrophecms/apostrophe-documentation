@@ -1,4 +1,10 @@
-# Apostrophe Fancy Page: Getting more out of regular pages
+---
+title: "Apostrophe Fancy Page: Getting more out of regular pages"
+children:
+  - custom-properties
+  - custom-rendering
+  - greedy-pages
+---
 
 The `apostrophe-fancy-page` module is designed to extend a regular page, allowing you to add custom properties and functionality without relying on the `apostrophe-snippets` module.
 
@@ -9,6 +15,3 @@ Pages and snippets are two different approaches to content in Apostrophe. If you
 * **Do your pages need to have child pages?** If so, you should use pages. Snippets cannot have subpages.
 * **Does your page need to have a permanent url?** If so, you should use pages. Snippets have different URLs depending on where they are used and accessed.
 
-* [Adding custom properties and joins](custom-properties.html)
-* [Custom rendering](custom-rendering.html)
-* [Beautiful URLs with Greedy Pages](greedy-pages.html)

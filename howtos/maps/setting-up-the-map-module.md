@@ -1,4 +1,6 @@
-# Setting up the map module
+---
+title: "Setting up the map module"
+---
 
 To include the map module in your project, add it to the `modules` section of your `app.js` configuration:
 

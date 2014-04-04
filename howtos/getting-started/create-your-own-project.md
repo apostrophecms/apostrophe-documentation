@@ -1,4 +1,6 @@
-# Create your own project, separate from the sandbox
+---
+title: "Create your own project, separate from the sandbox"
+---
 
 You can easily create your own open source or private Apostrophe project using apostrophe-sandbox as a starting point. Here's how we do it (supposing the project name is `myproject`):
 

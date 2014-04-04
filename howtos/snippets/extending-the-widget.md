@@ -1,4 +1,6 @@
-# Extending the Widget
+---
+title: "Extending the Widget"
+---
 
 A "widget" is used to display selected snippets in the context of a page. The standard widget for snippets is automatically subclassed when you subclass snippets, and it works well: you can pick your own pieces by title or pull them in by tag. But what if we want to add a new field to the widget editor, or change its behavior more significantly?
 

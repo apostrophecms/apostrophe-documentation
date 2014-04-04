@@ -1,4 +1,6 @@
-# Advanced Server Side Topics
+---
+title: "Advanced Server Side Topics"
+---
 
 Let's return to the server side for a few advanced topics.
 

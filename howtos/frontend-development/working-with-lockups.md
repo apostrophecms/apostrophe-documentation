@@ -1,6 +1,8 @@
-# Working with lockups
+---
+title: "Working with lockups"
+---
 
-`apostrophe-editor-2` supports lockups. A lockup is a marriage between one rich text item and one widget, such as a slideshow.
+Apostrophe supports "lockups." A lockup is a marriage between one rich text item and one widget, such as a slideshow. Lockups provide a sane way to allow users to float things without wrecking your design.
 
 Users begin by adding text blocks and widgets to the area. Then, they may drag any widget via its handle and drop it on a text block. This locks the two together.
 
