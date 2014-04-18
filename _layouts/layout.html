@@ -16,7 +16,7 @@
       #}<ul class="page-links">
         <li class="page-link">
           <a href="#" class="selected">Tutorials</a>
-        </li>{# 
+        </li>{#
         <li class="page-link">
           <a href="#">Reference</a>
         </li>#}
@@ -30,7 +30,7 @@
         <div class="logo-dark"></div>
         <h1>{{ title }}</h1>
         {# I am a breadcrumb trail #}
-        <h4>
+        <h4 class="breadcrumb">
           {% for ancestor in ancestors %}
             {% if not loop.first %} | {% endif %}
             <a href="{{ root }}{{ ancestor.url }}">{{ ancestor.title }}</a>
@@ -58,7 +58,7 @@
       #}<div class="main">
         {% block previous %}
           {% if previous %}
-            <h4><a href="{{ root }}{{ previous.url }}">Previous: {{ previous.title }}</a></h4>
+            <h4 class="previous-article"><a href="{{ root }}{{ previous.url }}">Previous: {{ previous.title }}</a></h4>
           {% endif %}
         {% endblock %}
 
@@ -68,7 +68,7 @@
 
         {% block next %}
           {% if next %}
-            <h4><a href="{{ root }}{{ next.url }}">Next: {{ next.title }}</a></h4>
+            <h4 class="next-article"><a href="{{ root }}{{ next.url }}">Next: {{ next.title }}</a></h4>
           {% endif %}
         {% endblock %}
       </div>
