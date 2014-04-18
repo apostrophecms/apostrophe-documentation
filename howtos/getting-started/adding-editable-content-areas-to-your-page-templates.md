@@ -87,7 +87,4 @@ Here's an example of template code to insert a standalone slideshow:
 
 You may pass a fourth argument containing options to be passed to that particular widget.
 
-### Next Steps
-
-[Creating new page templates](creating-new-page-templates.html)
 
