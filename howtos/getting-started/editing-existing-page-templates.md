@@ -40,6 +40,3 @@ Thanks to the shared outer and inner layouts, your templates are able to avoid d
 
 *Tip: you will need to restart the node app when you make code changes, even in templates.* In the terminal window, press control-C, then type "node app" again (or just press the up arrow key to get back to that command). Since each node app is its own webserver, you'll need to get used to restarting when you make code changes. Tools like `nodemon` can help by automatically restarting your site when files are modified.
 
-### Next Steps
-
-[Adding editable content areas to your page templates](adding-editable-content-areas-to-your-page-templates.html)

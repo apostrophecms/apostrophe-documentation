@@ -41,6 +41,3 @@ Boom! You're done. You now have your own Apostrophe project in github, based on 
 
 (Remember that you don't actually have to use github to perform these steps. You can do exactly the same thing with Beanstalk and other git hosting providers.)
 
-### Next Steps
-
-[Editing existing page templates](editing-existing-page-templates.html)

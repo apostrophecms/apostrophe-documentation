@@ -126,8 +126,5 @@ brew install imagemagick
 
 Now you have the `convert` and `identify` command line tools, which Apostrophe uses to scale and crop images.
 
-### Next Steps
-
-[Install the sandbox](install-sandbox.html)
 
 

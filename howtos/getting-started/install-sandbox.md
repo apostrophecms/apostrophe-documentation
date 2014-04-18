@@ -50,6 +50,3 @@ The test username is `admin` and the test password is `demo`.
 
 You can create and remove pages in addition to editing their content and managing blog articles and other content types.
 
-### Next Steps
-
-[Create your own project, separate from the sandbox](create-your-own-project.html)
