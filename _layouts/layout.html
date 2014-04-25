@@ -14,12 +14,14 @@
     <div class="inner">
       <a class="logo" href="/">Apostrophe 2</a>{#
       #}<ul class="page-links">
-        <li class="page-link">
-          <a href="#" class="selected">Tutorials</a>
-        </li>{#
-        <li class="page-link">
-          <a href="#">Reference</a>
-        </li>#}
+          {# ancestors[0] == home, so its kids are the tabs #}
+          {% for tab in ancestors[0].children %}
+            <li class="page-link">
+              {# If this tab is our ancestor, it's selected #}
+              <a href="{{ tab.url }}" class="{% if ancestors[1] and (tab.url == ancestors[1].url) %}selected{% endif %}">{{ tab.title | e }}</a>
+            </li>
+          {% endfor %}
+        </ul>
       </ul>
     </div>
   </div>
@@ -27,13 +29,13 @@
   <div class="header">
     <div class="inner">
       {% block header %}
-        <div class="logo-dark"></div>
-        <h1>{{ title }}</h1>
+        <a href="/"><div class="logo-dark"></div></a>
+        <h1>{{ title | e }}</h1>
         {# I am a breadcrumb trail #}
         <h4 class="breadcrumb">
           {% for ancestor in ancestors %}
             {% if not loop.first %} | {% endif %}
-            <a href="{{ root }}{{ ancestor.url }}">{{ ancestor.title }}</a>
+            <a href="{{ root }}{{ ancestor.url }}">{{ ancestor.title | e }}</a>
           {% endfor %}
         </h4>
       {% endblock %}
@@ -49,7 +51,7 @@
           {% if list %}
             <ul>
               {% for child in list %}
-                <li><a href="{{ root }}{{ child.url }}">{{ child.title }}</a></li>
+                <li><a href="{{ root }}{{ child.url }}">{{ child.title | e }}</a></li>
               {% endfor %}
             </ul>
           {% endif %}
@@ -58,7 +60,7 @@
       #}<div class="main">
         {% block previous %}
           {% if previous %}
-            <h4 class="previous-article"><a href="{{ root }}{{ previous.url }}">Previous: {{ previous.title }}</a></h4>
+            <h4 class="previous-article"><a href="{{ root }}{{ previous.url }}">Previous: {{ previous.title | e }}</a></h4>
           {% endif %}
         {% endblock %}
 
@@ -68,7 +70,7 @@
 
         {% block next %}
           {% if next %}
-            <h4 class="next-article"><a href="{{ root }}{{ next.url }}">Next: {{ next.title }}</a></h4>
+            <h4 class="next-article"><a href="{{ root }}{{ next.url }}">Next: {{ next.title | e }}</a></h4>
           {% endif %}
         {% endblock %}
       </div>

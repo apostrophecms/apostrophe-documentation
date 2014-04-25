@@ -1,13 +1,5 @@
 ---
-title: "Tutorials"
-children:
-  - getting-started
-  - frontend-development
-  - snippets
-  - apostrophe-site
-  - maps
-  - pages
+title: HOWTOs
 ---
 
-Our breathtaking tutorials will take you to the peak of your profession, or at least teach you Apostrophe. Feel free to skip around after you complete the [getting started](getting-started/index.html) tutorial.
-
+This section is devoted to HOWTOs on miscellaneous topics beyond the tutorial. Many began life as messages to the [apostrophenow google group](https://groups.google.com/forum/#!forum/apostrophenow), which you should join!
