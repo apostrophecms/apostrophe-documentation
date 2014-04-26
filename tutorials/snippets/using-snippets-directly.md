@@ -13,8 +13,6 @@ To enable snippets in a project, just add the `apostrophe-snippets` module to yo
   }
 ```
 
-(Here we assume you are using the [apostrophe-site](http://github.com/punkave/apostrophe-site) module to organize your project in `app.js`. You should be.)
-
 ### Overriding Snippet Templates
 
 If you'd like to just create custom templates for the snippets module or one of its derivatives, you can create a project-specific override of that module. The current Apostrophe "best-practice" for this involves creating a top-level directory named "lib" (i.e. `/my-project/lib/`), and then creating custom versions of the template there (i.e. `/my-project/lib/modules/apostrophe-snippets`).

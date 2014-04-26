@@ -18,7 +18,7 @@
           {% for tab in ancestors[0].children %}
             <li class="page-link">
               {# If this tab is our ancestor, it's selected #}
-              <a href="{{ tab.url }}" class="{% if ancestors[1] and (tab.url == ancestors[1].url) %}selected{% endif %}">{{ tab.title | e }}</a>
+              <a href="{{ root }}{{ tab.url }}" class="{% if ancestors[1] and (tab.url == ancestors[1].url) %}selected{% endif %}">{{ tab.title | e }}</a>
             </li>
           {% endfor %}
         </ul>

@@ -12,7 +12,7 @@ Apostrophe is an open source CMS designed for maximum flexibility with a minimal
 
 You can [check out a live demo here.](http://demo2.apostrophenow.com)
 
-This site provides documentation for Apostrophe 2, our next-generation version  version built from the ground up with [node.js](http://nodejs.org). You can [find information about the older PHP-based version here](http://trac.apostrophenow.org).
+This site provides developer documentation for Apostrophe 2, our next-generation version  version built from the ground up with [node.js](http://nodejs.org). You can [find information about the older PHP-based version here](http://trac.apostrophenow.org).
 
 If you're a beginning A2 developer, you should [start with the tutorials](tutorials/index.html). We also have [HOWTOs on a variety of advanced topics](howtos/index.html) and an [API reference](api-reference/index.html).
 

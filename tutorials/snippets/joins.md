@@ -14,7 +14,7 @@ Long answer: sometimes. Mostly in so-called "webscale" projects, which have noth
 
 Of course you have to be smart about how you use joins, and we've included options that help with that.
 
-##### One-To-One Joins
+### One-To-One Joins
 
 In your configuration for the events module, you might write this:
 
@@ -52,7 +52,7 @@ The id of the map location "lives" in the `location_id` property of each event, 
 
 *Always give your joins a name starting with an underscore.* This warns Apostrophe not to store this information in the database permanently where it will just take up space, then get re-joined every time anyway.
 
-##### Reverse Joins
+### Reverse Joins
 
 This is awesome. But what about the map module? Can we see all the events in a map location?
 
@@ -84,7 +84,7 @@ Now, in the `show` template for the map module, we can write:
 
 Note that the user always edits the relationship on the "owning" side, not the "reverse" side. The event has a `location_id` property pointing to the map, so users pick a map location when editing an event, not the other way around.
 
-##### Nested Joins: You Gotta Be Explicit
+### Nested Joins: You Gotta Be Explicit
 
 *"Won't this cause an infinite loop?"* When an event fetches a location and the location then fetches the event, you might expect an infinite loop to occur. However Apostrophe does not carry out any further joins on the fetched objects unless explicitly asked to.
 
@@ -122,7 +122,7 @@ withJoins: [ '_promoters._assistants', '_promoters._bouncers' ]
 
 Remember, each of these joins must be present in the configuration for the appropriate module.
 
-#### Many-To-Many Joins
+### Many-To-Many Joins
 
 Events can only be in one location, but stories can be in more than one book, and books also contain more than one story. How do we handle that?
 
@@ -178,7 +178,7 @@ Now any call to fetch books that retrieves only one object will carry out the jo
 
 Hint: in index views of many objects, consider using AJAX to load related objects when the user indicates interest if you don't want to navigate to a new URL in the browser.
 
-#### Reverse Many-To-Many Joins
+### Reverse Many-To-Many Joins
 
 We can also access the books from the story if we set the join up in the stories module as well:
 
@@ -199,7 +199,7 @@ We can also access the books from the story if we set the join up in the stories
 
 Now we can access the `._books` property for any story. But users still must select stories when editing books, not the other way around.
 
-#### When Relationships Get Complicated
+### When Relationships Get Complicated
 
 What if each story comes with an author's note that is specific to each book? That's not a property of the book, or the story. It's a property of *the relationship between the book and the story*.
 
@@ -249,7 +249,7 @@ Two important changes here: *the actual story is `story.item`*, not just `story`
 
 Doing it this way saves a lot of memory because we can still share book objects between stories and vice versa.
 
-#### Accessing Relationship Properties in a Reverse Join
+### Accessing Relationship Properties in a Reverse Join
 
 You can do this in a reverse join too:
 
@@ -323,6 +323,8 @@ Index pages carry out their joins when the page is visited, so if you decide to 
 
 It is also possible to fetch all the index pages of a particular index type programmatically:
 
+```javascript
     snippets.getIndexes(req, criteria, options, callback)
+```
 
 Your callback receives an error if any, and if no error, an array of index pages. Joins are carried out according to the schema.
