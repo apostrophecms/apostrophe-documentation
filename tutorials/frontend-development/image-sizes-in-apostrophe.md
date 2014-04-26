@@ -5,7 +5,7 @@ previous: slideshow-options
 
 When an image is uploaded to Apostrophe, via a slideshow or the media library, it is automatically scaled to a set of convenient sizes.
 
-You can take advantage of these sizes when using the [slideshow widget](slideshow-options.html) and also when [accessing-images-and-files-directly](accessing images directly).
+You can take advantage of these sizes when using the [slideshow widget](slideshow-options.html) and also when [accessing images and files directly](accessing-images-and-files-directly.html).
 
 The standard sizes are:
 

@@ -38,15 +38,15 @@ modules: {
 
 Now restart your site and add a page with the "Company" page type. Boom! There's an "Incorporated" field in "Page Settings."
 
-You can access this field in your templates:
+You can access this field in your `company.html` page template:
 
     {{ page.typeSettings.incorporated }}
 
-"OK, but what other field types are there?" `apostrophe-fancy-page` uses Apostrophe schemas. You can do anything that is [supported by Apostrophe schemas](http://github.com/punkave/apostrophe-schemas). It's exactly like adding fields to snippet subclasses like `apostrophe-blog` and `apostrophe-events`.
+"OK, but what other field types are there?" `apostrophe-fancy-page` uses Apostrophe schemas. You can do anything that is [supported by Apostrophe schemas](http://github.com/punkave/apostrophe-schemas). It's exactly like adding fields to [snippet subclasses](../snippets/subclassing-snippets.html) like `apostrophe-blog` and `apostrophe-events`.
 
 ## Passing Extra Information to Templates
 
-You can pass extra information to the page template by adding it as properties of the `req.extras` object. Any properties of that object are automatically visible to Nunjucks when the page is rendered. They appear as top-level variables, so `req.extras.myThing` becomes `myThing` in the template.
+You can pass extra information to the page template by adding properties to the `req.extras` object. Any properties of that object are automatically visible to Nunjucks when the page is rendered. They appear as top-level variables, so `req.extras.myThing` becomes `myThing` in the template.
 
 ## Adding Joins
 

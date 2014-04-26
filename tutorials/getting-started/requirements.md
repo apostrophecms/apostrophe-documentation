@@ -17,7 +17,7 @@ This is the minimum necessary to get an apostrophe project up and running in OS 
 
 XCode is provided free of charge by Apple. Install it via the Mac App Store.
 
-XCode Command Line Tools
+#### XCode Command Line Tools
 
 You will also need the Xcode Command Line Tools, which can be installed by going to Xcode -> Preferences ... -> Downloads.
 
