@@ -21,6 +21,8 @@ There are many helper methods defined in `migrationTools.js`, such as the `apos.
 
 Your migration must:
 
+* Have a unique name (the first argument to `addMigration`). Use a short prefix such as a module name or project name to prevent conflict with similar migrations added by unrelated modules.
+
 * Tolerate being run more than once on the same database. If you cannot guarantee a "safe" migration, write a separate task instead and use it only once.
 
 * Tolerate being run on a brand-new site.
