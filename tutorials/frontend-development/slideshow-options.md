@@ -54,7 +54,8 @@ You can also pass these options when creating or extending a schema for [a snipp
       widgetType: 'slideshow',
       options: {
         aspectRatio: [ 4, 3 ],
-        minSize: [ 400, 300 ]
+        minSize: [ 400, 300 ],
+        limit: 1
       }
     }
   ]
