@@ -40,5 +40,28 @@ You can pass these options to [areas](../getting-started/adding-editable-content
 {{ aposArea(page, 'content1', { slideshow: { limit: 3 }  }) }}
 ```
 
+## Slideshow options in schemas
+
+You can also pass these options when creating or extending a schema for [a snippet subclass, like the blog](../snippets/subclassing-snippets.html). Here's an example of adding sensible constraints to the `thumbnail` property in `app.js` when configuring the blog module:
+
+```javascript
+'apostrophe-blog': {
+  addFields: [
+    {
+      name: 'thumbnail',
+      label: 'Thumbnail',
+      type: 'singleton',
+      widgetType: 'slideshow',
+      options: {
+        aspectRatio: [ 4, 3 ],
+        minSize: [ 400, 300 ]
+      }
+    }
+  ]
+}
+```
+
+Note that even though `thumbnail` already exists by default, we can still override it via the `addFields` option.
+
 TODO: document more slideshow options.
 
