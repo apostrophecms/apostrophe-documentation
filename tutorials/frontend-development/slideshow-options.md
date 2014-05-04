@@ -22,6 +22,16 @@ In addition, you can limit the number of images permitted in the slideshow:
 
 A limit of `1` gives you a single-image widget.
 
+## Aspect Ratios and Minimum Sizes
+
+You can also control the aspect ratio and the minimum size of images the editor is allowed to choose. Images with different aspect ratios are center-cropped if the user does not use the crop button to change that. The user will not be permitted to change the aspect ratio when cropping, or to crop below the minimum size.
+
+Here is an example:
+
+```markup
+{{ aposSingleton(page, 'mypicture', 'slideshow', { aspectRatio: [ 4, 3 ], minSize: [ 800, 600 ] } })
+```
+
 ## Slideshow options in an area
 
 You can pass these options to [areas](../getting-started/adding-editable-content-areas-to-your-page-templates.html) too, in order to change the appearance of all slideshows the user may add to that area:
