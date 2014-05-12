@@ -3,6 +3,7 @@ title: "Snippets"
 children:
   - using-snippets-directly
   - subclassing-snippets
+  - arrays-in-schemas
   - joins
   - advanced-server-side-topics
   - overriding-methods
