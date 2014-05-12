@@ -29,7 +29,9 @@ These mechanisms ensure that the user's permissions are checked, perform joins, 
 
 However, once in a while you may want access to the `aposPages` collection object itself. And that's easy to get.
 
-Let's turn all the purple pages blue:
+Just ask yourself: "do I care about permissions here? Or do I already know the user has the right to do this? Is there a performance concern, like updating 500 objects, that warrants writing a little Mongo code of my own?"
+
+Here's a simple example. Let's turn all the purple pages blue:
 
 ```javascript
 return apos.pages.update(
@@ -38,6 +40,7 @@ return apos.pages.update(
   { multi: true },
   callback
 );
+```
 
 *It's not our job to teach you MongoDB, but... don't forget to use `$set` if you're only trying to update a few properties. Without `$set`, you replace the entire object.*
 
