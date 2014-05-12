@@ -12,6 +12,14 @@ git clone https://github.com/punkave/apostrophe-sandbox
 cd apostrophe-sandbox
 ```
 
+## Installing the dependencies
+
+Node's package manager to the rescue! Just type:
+
+```bash
+npm install
+```
+
 ## Creating `local.js`
 
 This file contains settings that distinguish your servers from one another... TL;DR: just copy the provided example!
