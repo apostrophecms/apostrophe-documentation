@@ -1,8 +1,6 @@
 ---
-title: "Advanced Techniques: Overriding Methods in Your Subclass"
+title: "Advanced Server Side Topics: Part 1"
 ---
-
-TODO: a more complete list of common use cases for overriding methods. What do we do in p'unk projects?
 
 It's surprising how much you can do with just `app.js` configuration and a few overridden templates. But sometimes you'll want to go beyond that. Maybe you need more than just `index` and `show` views of your content type. Or maybe you need to enhance the criteria by which items are fetched from MongoDB, adding more filters for instance.
 

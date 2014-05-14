@@ -1,10 +1,12 @@
 ---
-title: "Sending Extra Properties to the Server: Subclassing on the Browser Side"
+title: "Advanced Browser Side Topics"
 ---
 
-*NOTE: you can skip this if you are using schemas. You really want to use schemas if they support your field type.*
+### Implementing Custom Fields on the Browser Side
 
-Next we'll need to send our extra properties to the server when a snippet is saved. Until this point all of the code we've looked at has been on the server side. But of course snippets also have browser-side JavaScript code to implement the "new," "edit" and "manage" dialogs. You can find that code in `apostrophe-snippets/public/js/editor.js`.
+*NOTE: in most cases you can avoid the need for these techniques by [using schemas](subclassing-snippets.html). Also check out the [apostrophe-schemas module](https://github.com/punkave/apostrophe-schemas) for coverage of how to add custom schema field types to your project.*
+
+Sometimes we'll want to send extra properties to the server when a snippet is saved. Until this point all of the code we've looked at has been on the server side. But of course snippets also have browser-side JavaScript code to implement the "new," "edit" and "manage" dialogs. You can find that code in `apostrophe-snippets/public/js/editor.js`.
 
 Just like the server side code, this browser side code can be subclassed and extended. In fact, we must extend it for our new subclass of snippets to work. Here's how to do that:
 
@@ -66,7 +68,7 @@ self.beforeSave = function($el, data, callback) {
 
  `$el` is a jQuery reference to the modal dialog in which the blog post is being edited or created.
 
-*IMPORTANT: we ALWAYS use `$el.find` to locate the field we want within the context of the dialog. We NEVER use `$('[name="our-field"]')`. Otherwise your code WILL eventually conflict with unrelated code. Scope is a good thing.*
+*IMPORTANT: we ALWAYS use `$el.find` to locate the field we want within the context of the dialog. We NEVER use `$('[name="our-field"]')`. Otherwise your code WILL eventually conflict with unrelated code. Scope is a good thing. In the presence of array fields you may need to be even more careful with scoping your selectors.*
 
 Again, if you need to treat new and updated snippets differently, you can write separate `beforeInsert` and `beforeUpdate` methods.
 

@@ -1,8 +1,6 @@
 ---
-title: "Advanced Server Side Topics"
+title: "Advanced Server Side Topics: Part 2"
 ---
-
-Let's return to the server side for a few advanced topics.
 
 ### Manipulating snippet objects in the database
 

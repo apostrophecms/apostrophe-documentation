@@ -5,10 +5,10 @@ children:
   - subclassing-snippets
   - arrays-in-schemas
   - joins
-  - advanced-server-side-topics
-  - overriding-methods
-  - extending-the-widget
+  - advanced-server-side-1
+  - advanced-server-side-2
   - advanced-browser-side-topics
+  - extending-the-widget
   - misc
   - rss-feed-options
 ---
