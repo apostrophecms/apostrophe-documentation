@@ -1,6 +1,7 @@
 ---
 title: HOWTOs
 children:
+  - adding-nunjucks-filters-and-functions
   - database-migrations
   - accessing-the-database-directly
 ---

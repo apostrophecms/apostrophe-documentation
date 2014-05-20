@@ -1,5 +1,8 @@
 ---
 title: API Reference
+children:
+  - nunjucks-filters
 ---
 
-TODO: populate the reference section with automatically generated API documentation. The [tutorials section](../tutorials/index.html) is where it's really at right now.
+We are gradually populating this section with API reference documentation. The [tutorials section](../tutorials/index.html) is where it's really at right now and covers the great majority of A2 development questions.
+
