@@ -115,13 +115,13 @@ Here is a super-simple example of a project-level subclass of the people module 
 
 Currently:
 
-`string`, `boolean`, `integer`, `float`, `select`, `url`, `date`, `time`, `slug`, `tags`, `password`, `area`, `singleton`
+`string`, `boolean`, `integer`, `float`, `select`, `checkboxes`, `url`, `date`, `time`, `slug`, `tags`, `password`, `area`, `singleton`
 
 Except for `area`, all of these types accept a `def` option which provides a default value if the field's value is not specified.
 
 The `integer` and `float` types also accept `min` and `max` options and automatically clamp values to stay in that range.
 
-The `select` type accepts a `choices` option which should contain an array of objects with `value` and `label` properties.
+The `select` and `checkboxes` types accept a `choices` option which should contain an array of objects with `value` and `label` properties.
 
 The `date` type pops up a jQuery UI datepicker when clicked on, and the `time` type tolerates many different ways of entering the time, like "1pm" or "1:00pm" and "13:00".
 
