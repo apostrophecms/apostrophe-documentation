@@ -20,12 +20,24 @@ You can use that third parameter to create a text-only area:
 {{ aposArea(page, 'content1', { textOnly: true }) }}
 ```
 
+You can also remove text items from the area completely, allowing only widgets like slideshows:
+
+```markup
+{{ aposArea(page, 'content1', { richText: false }) }}
+```
+
 You can also limit the set of controls offered to the user. The `controls` option takes a list of rich text editor controls and widget names as explained below:
 
 ```markup
 {{ aposArea(global, 'footer', {
   controls: [ 'style', 'bold', 'italic', 'createLink', 'image', 'video' ]
 }) }}
+```
+
+One more trick: you can limit the number of items in an area.
+
+```markup
+{{ aposArea(page, 'content1', { limit: 5 }) }}
 ```
 
 ## Apostrophe controls

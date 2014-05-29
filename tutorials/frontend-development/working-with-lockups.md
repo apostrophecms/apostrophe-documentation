@@ -98,3 +98,7 @@ var site = require('apostrophe-site')({
   },
 })
 ```
+
+## Lockups and the `limit` option of areas
+
+Lockups are not intended to mix with the `limit` option of areas. You should not use `limit` and lockups for the same area.
