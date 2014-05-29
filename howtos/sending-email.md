@@ -40,6 +40,7 @@ return self.email(
   },
   function(err) { ... }
 );
+```
 
 ## Understanding the Parameters
 
@@ -52,13 +53,11 @@ return self.email(
 "from" is the full name and email address of the sender. You may
 pass a string formatted like this:
 
-"Bob Smith <bob@example.com>"
+```javascript
+Bob Smith <bob@example.com>
+```
 
-OR, an object with "email" and "fullName" properties;
-
-OR, an object with "email" and "title" properties;
-
-OR, req.user, or a person object from apostrophe-people.
+Or an object with `email` and "fullName` properties; or an object with "email" and "title" properties; or req.user; or a `person` object from `apostrophe-people`.
 
 **You may omit the "from" argument and set it via configuration in
 app.js instead** as described below.
@@ -93,9 +92,9 @@ as nunjucks data. They are also available in the subject line.
 
 In addition, the following variables are automatically supplied:
 
-"host" is the hostname of the site, as determined from req.
+`host` is the hostname of the site, as determined from req.
 
-"baseUrl" is the base URL of the site, like: `http://sitename.com`
+`baseUrl` is the base URL of the site, like: `http://sitename.com`
 
 ### Absolute URLs
 
