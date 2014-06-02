@@ -119,6 +119,8 @@ Currently:
 
 Except for `area`, all of these types accept a `def` option which provides a default value if the field's value is not specified.
 
+The `string` type accepts the `textArea` option, which causes the input to appear as a textarea in the new and edit menus when set to `true`.
+
 The `integer` and `float` types also accept `min` and `max` options and automatically clamp values to stay in that range.
 
 The `select` and `checkboxes` types accept a `choices` option which should contain an array of objects with `value` and `label` properties.
