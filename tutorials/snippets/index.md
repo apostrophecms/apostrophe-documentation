@@ -13,9 +13,15 @@ children:
   - rss-feed-options
 ---
 
-TODO: 30,000ft explanation of snippets for dummies (include a simple & an advanced use case)
+## Introducing snippets: reusable content types for Apostrophe
 
-`apostrophe-snippets` adds a repository of reusable content snippets to the [Apostrophe](http://github.com/punkave/apostrophe) content management system. Just as important, `apostrophe-snippets` provides a base on which the `apostrophe-blog`, `apostrophe-events` and other modules are built, among other modules that introduce new types of content. One can add a page to the site that displays a collection of snippet titles in alphabetical order and click on these to access individual snippets at their own "permalink" URLs. The blog and events modules extend this behavior to achieve similar goals with a minimum of code duplication.
+Lots of projects need a way to store, edit, and display custom data. For instance, you might need to keep track of companies, products, suppliers and the relationships between them. These content types don't necessarily lend themselves to being represented as "pages" on the site; they stand on their own as independent concepts. But it may make sense to display them on various pages around the site. This is where `apostrophe-snippets` comes to the rescue.
+
+As a fringe benefit, `apostrophe-snippets` can be used directly as a repository of reusable bits of text and media to display in multiple places around your site.
+
+## How snippets are used in Apostrophe
+
+`apostrophe-snippets` provides a base on which `apostrophe-map`, `apostrophe-events`, `apostrophe-people` and other modules are built, among other modules that introduce new types of content. One can add a page to the site that displays a collection of snippet titles in alphabetical order and click on these to access individual snippets at their own "permalink" URLs. Various modules extend and change this behavior to achieve similar, slightly different goals without duplicating code.
 
 In addition, snippets can be inserted into any content area via the snippet widget. This is the most common direct use of the snippets module: inserting, for instance, driving directions in many places on the site, while maintaining the ability to edit that content in just one place.
 
