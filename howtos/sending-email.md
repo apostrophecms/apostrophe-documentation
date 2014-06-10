@@ -11,7 +11,7 @@ A2 also provides a convenient mixin that adds an easy `email` method to your mod
 Just invoke the mixin like this in your constructor:
 
 ```javascript
-self._apos.mixinModuleEmail(self);`
+self._apos.mixinModuleEmail(self);
 ```
 
 Your module must also use the asset mixin. This is already in place if you are subclassing almost any of the standard A2 modules. If not, make sure you invoke it in your constructor:

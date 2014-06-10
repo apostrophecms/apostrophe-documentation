@@ -17,7 +17,7 @@ You should use arrays when:
 * The items in the array don't have an independent life of their own that should continue if the larger document is gone
 * You will not have thousands of items, pushing MongoDB's limit for a single document and impacting performance
 
-If your needs don't match these requirements, you should [joins](use joins instead).
+If your needs don't match these requirements, you should use [joins](use joins instead).
 
 ### Example
 
@@ -49,7 +49,7 @@ If your needs don't match these requirements, you should [joins](use joins inste
     }
   ]
 }
-```javascript
+```
 
 Each `array` has its own `schema`, which supports all of the usual field types. You an even nest an `array` in another `array`.
 
@@ -82,4 +82,5 @@ For an area you would write:
 
 Since the area is not a direct property of the page, we can't use the `(page, areaname)` syntax that is typically more convenient.
 
-Areas and thumbnails in arrays cannot be edited "in context" on a page, they must be updated through the schema editor.
+Areas and thumbnails in arrays that are part of an `apostrophe-fancy-page` schema cannot be edited "in context" on a page, they must be updated through page settings. However, be sure to check out [schema widgets](http://github.com/punkave/apostrophe-schema-widgets).
+
