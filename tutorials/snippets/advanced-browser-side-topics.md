@@ -82,28 +82,6 @@ self.afterPopulatingEditor = function($el, snippet, callback) {
 };
 ```
 
-*"Great, but what about areas in snippets?"* Good question. It's all well and good to expect you to just call `.val()` on a jQuery object for a text field or a select element, but Apostrophe areas are a different animal. Fortunately there are conveniences to help you.
-
-Let's set up an additional area called `parking`. We'll need a call in `afterPopulatingEditor`:
-
-```javascript
-self.enableArea($el, 'parking', snippet.parking, function() {
-  return superAfterPopulatingEditor($el, snippet, callback);
-});
-```
-
-The second argument is the field name as passed to the `snippetArea` macro. The third is the area object in the snippet (which may not exist yet; that's OK). And the last is a callback to be invoked when the area is ready. We should do the rest of our work in that callback.
-
-Here we have no further areas to initialize so we invoke the `superAfterPopulatingEditor` from the callback for this area.
-
-We also need to add our custom area to the `findExtraFields` function:
-
-```javascript
-data.parking = self.getAreaJSON($el, 'parking');
-```
-
-As the name implies, this method converts the area to a JSON string ready to send to the server.
-
 ### Other methods to consider overriding on the browser side
 
 There are other methods you can override or extend. `addingToManager` is called before a snippet is added to the "manage blog posts" list view. The blog module overrides this method to add the publication date and tags of the snippet to fields that have been customized in each row of the `manage.html` template. (Note this method does not take a callback, as a reminder to keep it light and fast; loading something asynchronously for every row in the list view is just too slow.)
