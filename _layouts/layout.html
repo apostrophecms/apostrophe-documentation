@@ -1,3 +1,20 @@
+{% macro buildMenuTree(currentIndex) %}
+  <ul class="sidebar-items">
+    {% for child in ancestors[currentIndex].children %}
+      <li class="sidebar-item{% if url == child.url %} current-page{% endif %}">
+        {% if url == child.url %}
+          {{ child.title | e }}
+        {% else %}
+          <a href="{{ root }}{{ child.url }}">{{ child.title | e }}</a>
+        {% endif %}
+      </li>
+      {% if currentIndex < (ancestors.length - 1) and child.url == ancestors[currentIndex + 1].url %}
+        {{ buildMenuTree(currentIndex + 1) }}
+      {% endif %}
+    {% endfor %}
+  </ul>
+{% endmacro %}
+
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -30,15 +47,8 @@
   <div class="header">
     <div class="inner">
       {% block header %}
-        <a href="/"><div class="logo-dark"></div></a>
-        <h1>{{ title | e }}</h1>
-        {# I am a breadcrumb trail #}
-        <h4 class="breadcrumb">
-          {% for ancestor in ancestors %}
-            {% if not loop.first %} | {% endif %}
-            <a href="{{ root }}{{ ancestor.url }}">{{ ancestor.title | e }}</a>
-          {% endfor %}
-        </h4>
+        <a href="{{ root }}" class="logo-dark-container"><div class="logo-dark"></div></a>{#
+      #}<h1 class="{% if title.length > 30 %}long{% endif %}">{{ title | e }}</h1>
       {% endblock %}
     </div>
   </div>
@@ -47,21 +57,21 @@
     <div class="inner">
       <div class="sidebar">
         {% block sidebar %}
-          {# List children, or peers if there are no children #}
-          {% set list = children or parent.children %}
-          {% if list %}
-            <ul>
-              {% for child in list %}
-                <li><a href="{{ root }}{{ child.url }}">{{ child.title | e }}</a></li>
+          <ul>
+            {%  if ancestors.length == 1 %}
+              {% for child in children %}
+                <li class="sidebar-item"><a href="{{ root }}{{ child.url }}">{{ child.title | e }}</a></li>
               {% endfor %}
-            </ul>
-          {% endif %}
+            {% endif %}
+            <li class="sidebar-title"><a href="{{ root }}{{ ancestors[1].url }}">{{ ancestors[1].title | e }}</a></li>
+            {{ buildMenuTree(1) }}
+          </ul>
         {% endblock %}
       </div>{#
       #}<div class="main">
         {% block previous %}
           {% if previous %}
-            <h4 class="previous-article"><a href="{{ root }}{{ previous.url }}">Previous: {{ previous.title | e }}</a></h4>
+            <p class="previous-article"><a href="{{ root }}{{ previous.url }}">&larr; Previous: {{ previous.title | e }}</a></p>
           {% endif %}
         {% endblock %}
 
@@ -71,7 +81,7 @@
 
         {% block next %}
           {% if next %}
-            <h4 class="next-article"><a href="{{ root }}{{ next.url }}">Next: {{ next.title | e }}</a></h4>
+            <p class="next-article"><a href="{{ root }}{{ next.url }}">Next: {{ next.title | e }} &rarr;</a></p>
           {% endif %}
         {% endblock %}
       </div>
