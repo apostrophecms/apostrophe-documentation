@@ -1,5 +1,5 @@
 ---
-title: Creating Custom Widgets
+title: Creating custom widgets
 ---
 
 Apostrophe provides [lots of widgets out of the box](../getting-started/adding-editable-content-areas-to-your-page-templates.html). And creating new ones can be really easy. If you [subclass snippets to create a new content type](../snippets/subclassing-snippets.html), a widget to pull that content into pages is created automatically. And you can create [schema widgets](https://github.com/punkave/apostrophe-schema-widgets) with very little effort.
