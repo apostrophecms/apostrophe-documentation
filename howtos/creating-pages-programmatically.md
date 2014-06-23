@@ -61,5 +61,6 @@ afterInit: function(callback) {
 
 ## Creating snippets programmatically
 
-Check out the `putOne` method of the snippets module, as well as subclasses like `events` and `map`.
+Start by creating the snippet with `snippets.newInstance()`. Then use `snippets.putOne(req, slug, options, snippet, callback)` to store it. See the snippets module source code for examples.
+
 
