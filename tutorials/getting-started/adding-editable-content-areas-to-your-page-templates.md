@@ -69,7 +69,7 @@ Here's a list of widgets available in Apostrophe. Users can add these to any con
 * `rss`: an RSS feed (if the `apostrophe-rss` module is in your project).
 * `twitter`: a Twitter feed (if the `apostrophe-twitter` module is in your project). TODO: configuration notes re: API key.
 
-See also [slideshow options](slideshow-options.html).
+See also [slideshow options](/tutorials/frontend-development/slideshow-options.html).
 
 If you're interested in creating new widgets, check out the [Twitter](http://github.com/punkave/apostrophe-twitter) module and the [RSS](http://github.com/punkave/apostrophe-rss) module as examples. The Twitter module includes a player powered by client-side JavaScript, while the RSS module demonstrates how to fetch content on the server side before the widget is rendered.
 
