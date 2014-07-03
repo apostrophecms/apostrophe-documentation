@@ -116,7 +116,7 @@ Specifying classes allows you to add more than one version of a single element. 
 {{ aposArea(global, 'footer', {
   styles: [
     { value: 'div', label: 'Normal' },
-    { value: 'h3', label: 'Heading', attributes: { class: '' } },
+    { value: 'h3', label: 'Heading', attributes: { class: 'normal-heading' } },
     { value: 'h3', label: 'Blue Heading', attributes: { class: 'blue-text' } }
   ]
 }) }}
