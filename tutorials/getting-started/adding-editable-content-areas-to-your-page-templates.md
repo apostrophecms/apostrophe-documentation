@@ -110,6 +110,18 @@ sanitizeHtml: {
 }
 ```
 
+Specifying classes allows you to add more than one version of a single element. When doing this, make sure to include an `attributes.class` property for each one, even if it doesn't have a class.
+
+```markup
+{{ aposArea(global, 'footer', {
+  styles: [
+    { value: 'div', label: 'Normal' },
+    { value: 'h3', label: 'Heading', attributes: { class: '' } },
+    { value: 'h3', label: 'Blue Heading', attributes: { class: 'blue-text' } }
+  ]
+}) }}
+```
+
 ## Inserting singletons
 
 Here's an example of template code to insert a standalone slideshow widget, with no "add content" button for adding more widgets at that location:
