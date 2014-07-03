@@ -17,7 +17,7 @@ You should use arrays when:
 * The items in the array don't have an independent life of their own that should continue if the larger document is gone
 * You will not have thousands of items, pushing MongoDB's limit for a single document and impacting performance
 
-If your needs don't match these requirements, you should use [joins](use joins instead).
+If your needs don't match these requirements, you should use [use joins instead](joins.html).
 
 ### Example
 
