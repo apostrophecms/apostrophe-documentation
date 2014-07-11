@@ -82,5 +82,7 @@ For an area you would write:
 
 Since the area is not a direct property of the page, we can't use the `(page, areaname)` syntax that is typically more convenient.
 
-Areas and thumbnails in arrays that are part of an `apostrophe-fancy-page` schema cannot be edited "in context" on a page, they must be updated through page settings. However, be sure to check out [schema widgets](http://github.com/punkave/apostrophe-schema-widgets).
+Areas and thumbnails in arrays can be edited "in context" on a page.
+
+Also check out [schema widgets](http://github.com/punkave/apostrophe-schema-widgets) for an alternative approach to related problems.
 
