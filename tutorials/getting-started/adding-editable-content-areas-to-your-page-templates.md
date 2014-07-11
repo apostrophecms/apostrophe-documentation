@@ -85,9 +85,42 @@ For example:
 }) }}
 ```
 
-We recommend that you always make `div` the first style.
+## Custom classes in rich text styles
 
-TODO: write a separate HOWTO about our HTML filtering and its impact on the elements you add.
+CKEditor allows you to give these elements a class name by adding the `attributes.class` option. This requires some additional configuration on the server.
+
+```markup
+{{ aposArea(global, 'footer', {
+  styles: [
+    { value: 'div', label: 'Normal' },
+    { value: 'h3', label: 'Blue Heading', attributes: { class: 'blue-text' } }
+  ]
+}) }}
+```
+
+When rich text content is saved in Apostrophe it is sanitized so that potentially harmful classes and elements are removed. By default it removes all classes from tags, so you must explicitly allow your new class to pass through the sanitizer.
+
+In your `app.js` configuration:
+
+```javascript
+sanitizeHtml: {
+  allowedClasses: {
+    'h3': ['blue-text']
+  }
+}
+```
+
+Specifying classes allows you to add more than one version of a single element. When doing this, make sure to include an `attributes.class` property for each one, even if it doesn't have a class.
+
+```markup
+{{ aposArea(global, 'footer', {
+  styles: [
+    { value: 'div', label: 'Normal' },
+    { value: 'h3', label: 'Heading', attributes: { class: 'normal-heading' } },
+    { value: 'h3', label: 'Blue Heading', attributes: { class: 'blue-text' } }
+  ]
+}) }}
+```
 
 ## Inserting singletons
 
