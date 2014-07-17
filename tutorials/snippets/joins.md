@@ -217,7 +217,7 @@ But if the relationship just has a few simple attributes, there is an easier way
       type: 'joinByArray',
       withType: 'story',
       idsField: 'storyIds',
-      relationshipField: 'storyRelationships',
+      relationshipsField: 'storyRelationships',
       relationship: [
         {
           name: 'authorsNote',
@@ -262,7 +262,7 @@ You can do this in a reverse join too:
       type: 'joinByArrayReverse',
       withType: 'book',
       idsField: 'storyIds',
-      relationshipField: 'storyRelationships',
+      relationshipsField: 'storyRelationships',
       relationship: [
         {
           name: 'authorsNote',
@@ -285,7 +285,7 @@ Now you can write:
 
 As always, the relationship fields are edited only on the "owning" side (that is, when editing a book).
 
-*"What is the `relationshipField` option for? I don't see `story_relationships` in the templates anywhere."*
+*"What is the `relationshipsField` option for? I don't see `story_relationships` in the templates anywhere."*
 
 Apostrophe stores the actual data for the relationship fields in `story_relationships`. But since it's not intuitive to write this in a template:
 
