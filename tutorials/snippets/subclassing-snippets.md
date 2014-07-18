@@ -123,7 +123,7 @@ The `string` type accepts the `textarea` option, which causes the input to appea
 
 The `integer` and `float` types also accept `min` and `max` options and automatically clamp values to stay in that range.
 
-The `select` and `checkboxes` types accept a `choices` option which should contain an array of objects with `value` and `label` properties.
+The `select` and `checkboxes` types accept a `choices` option which should contain an array of objects with `value` and `label` properties. In addition to `value` and `label`, each choice option can include a `showFields` option, which can be used to toggle visibility of other fields when being edited.
 
 The `date` type pops up a jQuery UI datepicker when clicked on, and the `time` type tolerates many different ways of entering the time, like "1pm" or "1:00pm" and "13:00".
 
