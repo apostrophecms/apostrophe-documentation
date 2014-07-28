@@ -123,7 +123,7 @@ The `string` type accepts the `textarea` option, which causes the input to appea
 
 The `integer` and `float` types also accept `min` and `max` options and automatically clamp values to stay in that range.
 
-The `select` and `checkboxes` types accept a `choices` option which should contain an array of objects with `value` and `label` properties.
+The `select` and `checkboxes` types accept a `choices` option which should contain an array of objects with `value` and `label` properties. An optional `showFields` property in each choice object is an array of field names you wish to toggle on when this choice is selected (they are hidden when the choice is not selected). See [conditional fields](#conditional-fields) for more info.
 
 The `date` type pops up a jQuery UI datepicker when clicked on, and the `time` type tolerates many different ways of entering the time, like "1pm" or "1:00pm" and "13:00".
 
@@ -181,6 +181,59 @@ If this is not enough, you can explicitly change the order of the fields with `o
 ```
 
 Any fields you do not specify will appear in the original order, after the last field you do specify (use `removeFields` if you want a field to go away).
+
+### <a name="conditional-fields"></a>Making Fields Conditional
+
+You can use a `select` field to create sets of conditional fields in your snippet. For example, if you have a type `select` field which requires different sets of fields depending on what type of your snippet class you are creating (e.g. eventType `select` for different kinds of events), or if you want to add additional fields only if a snippet `select` field is a certain value. 
+
+Keep in mind if your sets of fields are very different, they should be two different subclasses of snippets, not conditional fields. This is more to create different sets of options for the same snippet subclass.
+
+To make fields conditional, all you need to do is add them to the `showFields` property of a choice array on a `select` field.
+
+```javascript
+'apostrophe-events': {
+  addFields: [
+    {
+      name: 'host',
+      label: 'Host',
+      type: 'string'
+    },
+    {
+      name: 'dj',
+      label: 'DJ',
+      type: 'string'
+    },
+    {
+      name: 'bands',
+      label: 'Bands Playing',
+      type: 'string'
+    },
+    {
+      name: 'eventType',
+      label: 'Event Type',
+      type: 'select',
+      choices: [
+        {
+          value: 'party',
+          label: 'Party',
+          showFields: ['host', 'dj']
+        },
+        {
+          value: 'concert',
+          label: 'Concert',
+          showFields: ['bands']
+        }
+      ]
+    }
+  ]
+}
+```
+
+This will toggle between showing the party fields (host and dj) and the concert fields (bands) depending on the value of the eventType `select` field. You can also specify `showFields` in only one of the choices to show those fields only when that choice is selected, and hide them otherwise.
+
+It's recommended to keep any fields that are included in a `showFields` array `req: false`, as conditional requirements is not yet supported, and this feature only affects the display of the fields.
+
+Additionally, this feature works not just on snippets, but anything that uses [apostrophe-schemas](http://github.com/punkave/apostrophe-schemas) to display a form.
 
 ### Altering Fields: The Easy Way
 
