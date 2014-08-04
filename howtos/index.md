@@ -8,6 +8,7 @@ children:
   - csv-import
   - custom-widgets
   - creating-pages-programmatically
+  - making-media-fields-mandatory
   - migrate-from-0-4
 ---
 
