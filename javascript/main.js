@@ -1,6 +1,9 @@
-$('body').on('click', '[data-search-button]').click(function() {
-  $('[data-search]').toggle();
-  return false;
+$( function() {
+  $('[data-search-button]').on('click', function() {
+    $(this).toggleClass('active');
+    $('[data-search]').slideToggle();
+    return false;
+  });
 });
 
 // document.addEventListener('DOMContentLoaded', function() {
