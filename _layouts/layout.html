@@ -42,6 +42,9 @@
           <li class="page-link">
             <a href="https://groups.google.com/forum/#!forum/apostrophenow">➡ Forum</a>
           </li>
+          <li class="page-link">
+            <a href="#" class="search">Search</a>
+          </li>
           <li class="donate-button">
             <form class="donate" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
               <input type="hidden" name="cmd" value="_s-xclick">
@@ -80,6 +83,26 @@
         {% endblock %}
       </div>{#
       #}<div class="main">
+        <div data-search>
+          <div class="search-box">
+            <script>
+              (function() {
+                var cx = '005543154079868254739:jxhstkgpui4';
+                var gcse = document.createElement('script');
+                gcse.type = 'text/javascript';
+                gcse.async = true;
+                gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                    '//www.google.com/cse/cse.js?cx=' + cx;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(gcse, s);
+              })();
+            </script>
+            <gcse:searchbox></gcse:searchbox>
+          </div>
+          <div class="search-results">
+            <gcse:searchresults></gcse:searchresults>
+          </div>
+        </div>
         {% block previous %}
           {% if previous %}
             <p class="previous-article"><a href="{{ root }}{{ previous.url }}">&larr; Previous: {{ previous.title | e }}</a></p>

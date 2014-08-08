@@ -1,3 +1,8 @@
+$('body').on('click', '[data-search-button]').click(function() {
+  $('[data-search]').toggle();
+  return false;
+});
+
 // document.addEventListener('DOMContentLoaded', function() {
 //   var h1 = document.querySelectorAll('h1');
 //   if(h1[0].innerText.length > 30) {
