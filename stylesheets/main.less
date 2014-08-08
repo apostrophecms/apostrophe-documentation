@@ -46,7 +46,7 @@ body
 }
 
 .nav .inner {
-  max-width: 960px;
+  max-width: 1080px;
 }
 
 .header
@@ -287,17 +287,43 @@ em {
   font-style: italic;
 }
 
-.donate {
-  margin-top: 2em;
-  input {
-    font-size: 200%;
-    border: none;
-    background-color: #def;
-    border: 1px dotted #ccc;
-    display: block;
-    text-align: center;
-    width: 100%;
-    margin-bottom: 0.5em;
+// .donate {
+//   margin-top: 2em;
+//   input {
+//     font-size: 200%;
+//     border: none;
+//     background-color: #def;
+//     border: 1px dotted #ccc;
+//     display: block;
+//     text-align: center;
+//     width: 100%;
+//     margin-bottom: 0.5em;
+//     cursor: pointer;
+//   }
+// }
+
+@apos-red: #ea4339;
+
+.donate-button .donate input
+{
+  float: right;
+  padding: 10px 20px;
+  margin-top: 14px;
+
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  background-color: @apos-red;
+
+  font-family: 'Montserrat';
+  font-size: 14px;
+  color: white;
+
+  transition: background-color 0.15s;
+
+  &:hover
+  {
+    background-color: darken(@apos-red, 20%);
     cursor: pointer;
   }
 }
