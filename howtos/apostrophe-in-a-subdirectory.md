@@ -6,9 +6,9 @@ title: Apostrophe in a subdirectory
 
 Most of the time, your Apostrophe site should be just that: a site. It shouldn't be a subdirectory of "some other" site. Doing that leads to design problems, security problems (you can see their cookies and they can see yours), and technical hassles.
 
-If you can, use a subdomain. That is, use "http://newsite.mycompany.com", not "http://mycompany.com/newsite". It's much easier and cleaner all around.
+**If you can, use a subdomain.** That is, use "http://newsite.mycompany.com", not "http://mycompany.com/newsite". It's much easier and cleaner all around.
 
-However, sometimes you'll face an iron-clad customer requirement to use a subdirectory. This HOWTO explains how to do that.
+However, sometimes you'll face an iron-clad customer requirement to use a subdirectory. This HOWTO explains how to do that. And Apostrophe will help make it easier.
 
 ## Serving sites in subdirectories: reverse proxy configuration
 
