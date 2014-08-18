@@ -1,3 +1,11 @@
+$( function() {
+  $('[data-search-button]').on('click', function() {
+    $(this).toggleClass('active');
+    $('[data-search]').slideToggle();
+    return false;
+  });
+});
+
 // document.addEventListener('DOMContentLoaded', function() {
 //   var h1 = document.querySelectorAll('h1');
 //   if(h1[0].innerText.length > 30) {

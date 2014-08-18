@@ -3,6 +3,7 @@
 @import './_fonts.less';
 @import './_colors.less';
 @import './_prism.less';
+@import './_google-search.less';
 
 body
 {
@@ -302,7 +303,34 @@ em {
 //   }
 // }
 
-@apos-red: #ea4339;
+.search
+{
+  position: relative;
+  .transition(color 0.15s, background-color 0.15s;);
+
+  &.active
+  {
+    background-color: transparent;
+
+    &::before
+    {
+      border-color: @apos-red;
+    }
+  }
+
+  &::before
+  {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 1em; right: 0.5em; bottom: 1em; left: 0.5em;
+    // background-color: @apos-red;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    z-index: -1;
+    .transition(border-color 0.15s);
+  }
+}
 
 .donate-button .donate input
 {
