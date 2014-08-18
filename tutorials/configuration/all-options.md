@@ -141,7 +141,7 @@ var site = require('apostrophe-site')({
   // argv is powered by optimist
   tasks: {
     project: {
-      frobulate: function(apos, argv, callback) {
+      frobulate: function(site, apos, argv, callback) {
         console.log('Frobulated the hibblesnotz');
         console.log('You passed these arguments: ' + argv._);
         return callback(null);

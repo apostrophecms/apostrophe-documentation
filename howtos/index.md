@@ -9,6 +9,12 @@ children:
   - custom-widgets
   - creating-pages-programmatically
   - making-media-fields-mandatory
+  - pushing-data-to-the-browser
+  - pushing-calls-to-the-browser
+  - cross-module-includes
+  - scene-upgrades
+  - tasks
+  - apostrophe-in-a-subdirectory
   - migrate-from-0-4
 ---
 
