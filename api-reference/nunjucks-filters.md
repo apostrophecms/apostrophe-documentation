@@ -96,11 +96,21 @@ var data = {{ item | json }};
 </script>
 ```
 
-TODO: document the possible use of `apos.pushGlobalData` and `req.pushData` as alternatives.
-
 ###jsonAttribute
 
-The `jsonAttribute` filter escapes its input for use as a DOM attribute value. If the value is an object, it is escaped as JSON and then as HTML. Otherwise it is simply escaped as HTML.
+The `jsonAttribute` filter escapes its input for use as a DOM attribute value. If the value is an object, it is escaped as JSON and then as HTML. Otherwise it is simply escaped as HTML. Double-quotes are escaped to ensure the attribute does not end prematurely.
+
+Example:
+
+```markup
+<div data="{{ item | jsonAttribute }}"> ... </div>
+```
+
+To save a great deal of space, single-quote your attributes and use the `single: true` option when calling the `jsonAttribute` filtr:
+
+```markup
+<div data='{{ item | jsonAttribute({ single: true }) }}'> ... </div>
+```
 
 ###nlbr
 
