@@ -2,6 +2,7 @@
 title: "Fancy pages"
 children:
   - custom-properties
+  - restricting-child-page-types
   - custom-rendering
   - greedy-pages
   - two-pages-in-one-module
