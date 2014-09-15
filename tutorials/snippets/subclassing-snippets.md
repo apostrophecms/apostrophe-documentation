@@ -135,9 +135,9 @@ When using the `area` and `singleton` types, you may include an `options` proper
 
 When using the `singleton` type, you must always specify `widgetType` to indicate what type of widget should appear.
 
-`arrays` allow you to add one or more items which have their own schema. See the [apostrophe-schemas](https://github.com/punkave/apostrophe-schemas) documentation for details.
+`arrays` allow you to add one or more items which have their own schema. See [arrays in schemas](arrays-in-schemas.html) for more information.
 
-Joins are also supported as described below.
+[Joins](joins.html) with other snippet and page types are also supported.
 
 ### Removing Fields
 
