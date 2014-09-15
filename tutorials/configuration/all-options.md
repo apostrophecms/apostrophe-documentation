@@ -216,7 +216,18 @@ var site = require('apostrophe-site')({
   // as apos.get is sometimes used just to fetch distinct tags or
   // other metadata.
   afterGet: function(req, results, callback) {
+    // Do something, then invoke the callback
+  },
 
-  }
+  // Out of the box, our video and embed widgets trust
+  // quality services like wufoo, infogr.am, youtube and
+  // vimeo. Add additional domain names to this list
+  // to allow oembed to be used with other services. Even
+  // if you don't do this, a very basic embedded view based
+  // on safe Open Graph tags (those used for Facebook sharing)
+  // is always provided.
+  oembedWhitelist: [
+    'nifty-video-service.com'
+  ]
 });
 ```

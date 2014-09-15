@@ -115,9 +115,9 @@ Here is a super-simple example of a project-level subclass of the people module 
 
 Currently:
 
-`string`, `boolean`, `integer`, `float`, `select`, `checkboxes`, `url`, `date`, `time`, `slug`, `tags`, `password`, `area`, `singleton`
+`string`, `boolean`, `integer`, `float`, `select`, `checkboxes`, `url`, `date`, `time`, `slug`, `tags`, `password`, `area`, `singleton`, `array
 
-Except for `area`, all of these types accept a `def` option which provides a default value if the field's value is not specified.
+Except for `area` and `array, all of these types accept a `def` option which provides a default value if the field's value is not specified.
 
 The `string` type accepts the `textarea` option, which causes the input to appear as a textarea in the new and edit menus when set to `true`.
 
@@ -134,6 +134,8 @@ The `password` field type stores a salted hash of the password via `apos.hashPas
 When using the `area` and `singleton` types, you may include an `options` property which will be passed to that area or singleton exactly as if you were passing it to `aposArea` or `aposSingleton`.
 
 When using the `singleton` type, you must always specify `widgetType` to indicate what type of widget should appear.
+
+`arrays` allow you to add one or more items which have their own schema. See the [apostrophe-schemas](https://github.com/punkave/apostrophe-schemas) documentation for details.
 
 Joins are also supported as described below.
 
