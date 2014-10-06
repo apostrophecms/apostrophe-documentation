@@ -258,8 +258,10 @@ Options for individual widget types can be passed as part of the second, optiona
 
 Example:
 
+```markup
 {# Output just the richText items in the body area #}
 {{ aposAreaContent(piece.body.items, { allowed: [ 'richText' ] }) }}
+```
 
 ### aposAreaImage(page, name, options)
 
@@ -425,6 +427,7 @@ Example:
     {{ aposItemNormalView(item, { size: 'medium' }) }}
   {% endif %}
 {% endfor %}
+```
 
 ### aposFilePath(file, options)
 
