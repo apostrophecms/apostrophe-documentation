@@ -140,7 +140,7 @@ The default `styles` array is:
   { value: 'h6', label: 'Heading 6' },
   { value: 'pre', label: 'Preformatted' }
 ]
-```javascript
+```
 
 You may specify any valid HTML tag as a style. However, Apostrophe's HTML filtering will automatically remove tags not on a whitelist. See the `sanitizeHtml` option in the `app.js` file of the sandbox project for more information.
 
@@ -319,6 +319,187 @@ Example:
 </ul>
 ```
 
-TODO CONTINUE
+### aposAreaFile(page, areaName, options)
 
+### aposAreaFile({ area: area, options... })
 
+Find an file referenced within an area, such as a PDF in a file widget or an image in a slideshow widget. Returns the first `file` object matching the criteria.
+
+The returned object can be passed to [aposFilePath](#aposFilePath) to obtain a URL.
+
+#### Options
+
+##### extension
+
+To force Apostrophe to return only images with a specific file extension (`gif`, `jpg`, `pdf`, `xlsx`, `png`, etc.), specify the `extension` option. Do **not** specify a leading `.`. Note that Apostrophe always uses specific extensions, always lower case, typically three letters except for `xlsx` and other recent Microsoft Office formats.
+
+##### extensions
+
+Specify an array of allowed file extensions.
+
+Example:
+
+```markup
+{% set pdf = aposAreaFile(page, 'body', { extension: 'pdf'}) %}
+{% if pdf %}
+  <a href="{{ aposFilePath(pdf) }}">Download PDF</a>
+{% endif %}
+```
+
+### aposAreaFiles(page, areaName, options)
+
+### aposAreaFiles({ area: area, options... })
+
+Find files referenced within an area, such as a PDF in a file widget or an image in a slideshow widget. Returns an array of `file` objects that meet the criteria.
+
+The returned objects can be passed to [aposFilePath](#aposFilePath) to obtain a URL.
+
+#### Options
+
+##### extension
+
+To force Apostrophe to return only images with a specific file extension (`gif`, `jpg`, `pdf`, `xlsx`, `png`, etc.), specify the `extension` option. Do **not** specify a leading `.`. Note that Apostrophe always uses specific extensions, always lower case, typically three letters except for `xlsx` and other recent Microsoft Office formats.
+
+##### extensions
+
+Specify an array of allowed file extensions.
+
+Example:
+
+```markup
+{% set pdfs = aposAreaFiles(page, 'body', { extension: 'pdf' }) %}
+<ul>
+  {% for pdf in pdfs %}
+    <li>
+      <a href="{{ aposFilePath(pdf) }}">Download {{ pdf.name | e }}</a></a>
+    </li>
+  {% endif %}
+</ul>
+```
+
+### aposMediaMenu(options)
+
+Outputs markup for a button that accesses the media admin interface. Normally called from `outerLayout.html` as part of the admin bar markup.
+
+#### Options
+
+`edit` should be true if the user is permitted to see the button, false otherwise. Typically `permissions.guest` is passed, allowing users who are permitted to contribute media to edit their media.
+
+Example:
+
+```markup
+{{ aposMediaMenu({ edit: permissions.guest }) }}
+```
+
+### aposTagsMenu(options)
+
+Outputs markup for a button that accesses the media admin interface. Normally called from `outerLayout.html` as part of the admin bar markup.
+
+#### Options
+
+`edit` should be true if the user is permitted to see the button, false otherwise. `permissions.admin` should be passed as only admins are permitted to edit tags globally. *Passing other values here will not prevent the server from verifying permissions before actually allowing tags to be edited.*
+
+Example:
+
+```markup
+{{ aposTagsMenu({ edit: permissions.admin }) }}
+```
+
+### aposItemNormalView(item, options)
+
+Renders the normal, public view of a widget or rich text item.
+Typically invoked by [aposAreaContent](#aposAreaContent), which
+is usually invoked by [aposArea](#aposArea) or [aposSingleton](#aposSingleton).
+
+**Normally you do not need to call this function yourself.** However you may do so if you are bypassing the normal wrapper elements output as part of an editable singleton or area.
+
+The provided `options` object is passed to the renderer for the widget. For instance, for a slideshow item you might pass the `size` option.
+
+Example:
+
+```markup
+{# Let's render just the slideshows from the body #}
+{# area, with no editing controls or wrappers #}
+{% for item in page.body.items %}
+  {% if item.type == 'slideshow' %}
+    {{ aposItemNormalView(item, { size: 'medium' }) }}
+  {% endif %}
+{% endfor %}
+
+### aposFilePath(file, options)
+
+Given a file object, as returned by [aposAreaFile](#aposAreaFile) for instance, return the file URL. If `options.size` is set, return the URL for that size (`one-sixth`, `one-third`, `one-half`, `two-thirds`, `full`).
+
+`full` is "full width" (1140px), not the original. For the original, don't pass `size`.
+
+Additional image sizes can be configured on a per-project basis.
+
+There is a matching client-side JavaScript implementation accessible as `apos.filePath`.
+
+**Always use this function to create URLs to files.** Otherwise your code will cease to work if your project's file storage is moved to Amazon S3 at a later date.
+
+Example:
+
+```markup
+{% set image = aposAreaImage(page, 'body') %}
+{% if image %}
+  <img src="{{ aposFilePath(image, { size: 'small' }) }}" />
+{% endif %}
+```
+
+### aposLog(s)
+
+Passes `s` to `console.log`. Very useful for debugging.
+
+Example:
+
+```markup
+{{ aposLog(page.slug) }}
+```
+
+### aposGenerateId()
+
+Generates a unique identifier. Useful when you want many things to coexist without interfering with each other. Most of the time you won't need this, but it can be handy when attaching JavaScript to your template markup.
+
+Example:
+
+```markup
+{% macro map() %}
+  {% set mapId = aposGenerateId() %}
+  <div id="{{ mapId }}">Lovely Map Goes Here</div>
+  <script type="text/javascript">
+    $(function() {
+      var mapId = "{{ mapId }}";
+      $('#' + mapId).doCleverThings();
+    });
+  </script>
+{% endmacro %}
+```
+
+### aposPageRange(options)
+
+Returns an array of numbers representing the page numbers that should appear in Apostrophe's standard pager. **This function exists to assist the macros in `pagerMacros.html` and work around a limitation of Nunjucks.** Typically if you are calling this yourself you would be happier invoking the `renderPager` macro from that file.
+
+#### Options
+
+`options.page` is the current page number.
+`options.shown` is the number of page numbers to be shown (typically `5` in our pager).
+
+Example:
+
+See `pagerMacros.html`.
+
+### aposIsCurrentYear(date)
+
+Returns `true` if the provided date object refers to a date in the present year.
+
+Example:
+
+```markup
+{# Output 2-digit year but only if it is not the present year #}
+{% if not aposIsCurrentYear(item.publishedAt) %}
+  '{{ item.publishedAt | date('YY') }}
+{% endif %}
+```
+
+## TODO: complete this list (75%)
