@@ -173,7 +173,7 @@ Example:
 
 ###aposAreaContent(item, options)
 
-**Usually not called directly.* Outputs the normal views of all of the content items (widgets
+**Usually not called directly.** Outputs the normal views of all of the content items (widgets
 and/or rich text blocks) present in the first array, passing on
 the specified options. Typically invoked for you by `aposArea`
 or `aposSingleton`, via the `area.html` or `singleton.html` template, this function may also be called
