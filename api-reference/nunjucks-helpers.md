@@ -691,7 +691,7 @@ Example:
 
 ### aposGroupBy(items, property)
 
-Group the elements of the array `items` into separate arrays, one for each value of `property`. If `property` is `red`, and there are three elements whose `color` is `red`, then the returned object will have a `red` property containing an array of those three properties, and so on for every value of `property`.
+Group the elements of the array `items` into separate arrays, one for each value of `property`. If `property` is `color`, and there are three elements whose `color` property is `red`, then the returned object will have a `red` property containing an array of those three elements, and so on for every value of `property`.
 
 If the value of `property` is an array, then the element will be "grouped" for each value in the array. Note that this means the object will appear in more than one place. *This works only if the value of `property` is an array for the very first element.*
 
