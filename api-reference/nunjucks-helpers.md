@@ -96,6 +96,21 @@ When `textOnly` is set to `true`, there is no "Add Content" menu, just a simple 
 
 You may pass options to all widgets of a given type that appear in an area. If you pass an option named `slideshow`, its value should be an object containing the options you wish to pass to all slideshows.
 
+Example:
+
+```markup
+{{
+  aposArea(page, 'sidebar', {
+    controls: [
+      'style', 'bold', 'italic', 'createLink', 'slideshow', 'video'
+    ],
+    slideshow: {
+      size: 'one-half'
+    }
+  })
+}}
+```
+
 ###aposSingleton(page, areaName, widgetType, options)
 
 ###aposSingleton({ area: areaObject, type: widgetType, options... })
