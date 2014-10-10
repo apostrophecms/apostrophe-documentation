@@ -12,10 +12,10 @@ Brief description about what this method does
 
 Any real meaty details
 
-#### methodName(argument, anotherArgument)
+#### methodName(argument, [anotherArgument])
 
-*argument*: (type) description of argument
-(*anotherArgument*)[#methodName-anotherArgument]: (type) description of anotherArgument
+`argument` (type) Description of argument
+`anotherArgument` (type) Start with caps, don't use period
 
 Any additional details or things developers should know regarding this syntax
 
@@ -27,7 +27,7 @@ methodName(foo, 'bar')
 
 ##### anotherArgument
 
-###### property of anotherArgument
+###### property of anotherArgument (type)
 
 Description of the property
 
@@ -37,7 +37,7 @@ Syntax example
 [ 'array', 'of', 'values']
 ```
 
-###### anotherProperty of anotherArgument
+###### anotherProperty of anotherArgument (type)
 
 Description of another property
 
