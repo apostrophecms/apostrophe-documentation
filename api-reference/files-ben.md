@@ -58,7 +58,7 @@ This is convenient and protects you from accidentally getting a PDF file.
 
 #### apos.areaFile(options) *Alternative Syntax*
 
-*options* (object): An object containing all options. The `area` property is required.
+*options* (object) An object containing all options. The `area` property is required.
 
 This alternative syntax takes a direct reference to the area that refernces a file. 
 
@@ -73,7 +73,7 @@ apos.areaFile({ area: page.body })
 
 
 
-### apos.areaFiles
+### areaFiles
 
 Find a file referenced within an area, such as an image in a slideshow widget,
 or a PDF in a file widget.
@@ -112,7 +112,7 @@ Example
 
 #### apos.areaFiles(options) *Alternative Syntax*
 
-*options* (object): An object containing all options. The `area` property is required.
+*options* (object) An object containing all options. The `area` property is required.
 
 This alternative syntax takes a direct reference to the area that refernces a file. 
 
@@ -122,6 +122,35 @@ This alternative syntax takes a direct reference to the area that refernces a fi
 apos.areaFiles({ area: page.body })
 ```
 
-### apos.areaFindFile
+### acceptFiles
+
+Attempts an upload of one or more files, as submitted by an HTTP file upload. 
+
+This function will ensure the user has permissions to upload the files, as well as ensure the files are an acceptable type. If accepted, the files are uploaded using uploadfs, and then documents are created in the aposFiles collection for each file. 
+
+The callback receives an error, if any, followed by an array of new file objects as they were stored in the aposFiles collection.
+
+#### acceptFiles(req, files, callback)
+
+`req` (object) The current Express request object [TODO: link to tutorial re: req objects], for permissions
+
+`files` (array or object) An object or array of objects with "name" and "path" properties
+
+`callback` (function) Invoked on completion, with error if any and an array of new file objects as they were stored in the aposFiles collection.
+
+The `files` argument accepts object to keep this function flexible for command line task usage. It's usually easy enough to pass it something from `req.files`.
+
+##### Example
+
+```javascript
+// get the file details from an input called 'upload'
+var fileInfo = req.files['upload'];  
+
+apos.acceptFiles(req, fileInfo, function(err, files){
+	...
+	// do something with the files we just uploaded
+	...
+});
+```
 
 
