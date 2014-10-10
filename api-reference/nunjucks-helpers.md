@@ -1,5 +1,5 @@
 ---
-title: Nunjucks Helpers
+title: Nunjucks helpers
 ---
 
 Apostrophe provides lots of helpful functions you can call from your Nunjucks templates. Here is the complete list. For a gentler introduction, see [adding editable areas to your page templates](../tutorials/getting-started/adding-editable-content-areas-to-your-page-templates.html).
