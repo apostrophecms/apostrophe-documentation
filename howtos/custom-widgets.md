@@ -24,6 +24,8 @@ There are two great modules that provide simple implementations of widgets. You 
 
 [Check out the `apostrophe-rss` module](https://github.com/punkave/apostrophe-rss). This is an equally simple module that takes a slightly different approach. Rather than fetching the feed via JavaScript in the browser, the RSS module fetches it on the server before the page renders, via a `load` method. If a widget has a `load` method, it is invoked to fetch content asynchronously. We use this feature to reach out and fetch an RSS feed URL.
 
+**Important update:** since fetching content server-side via a loader delays the rendering of the entire page, we have changed the RSS widget to use an AJAX request unless that particular feed has already been cached. But the RSS widget still does have a `load` method, which still demonstrates how to attach additional content asynchronously at page load time.
+
 ### Create your own module
 
 Choose either the `apostrophe-twitter` or `apostrophe-rss` module as a template for your own module, whether in npm or in `lib/modules`. Copy that code and globally replace `twitter` or `rss` as appropriate. In the `views` folder, you'll need to rename `twitter.html` to `mything.html`, and `twitterEditor.html` to `mythingEditor.html`.

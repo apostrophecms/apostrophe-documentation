@@ -2,9 +2,13 @@
 title: Title of Document
 ---
 
-## Header for page
+# Header for page
 
 Paragraph describing the domain we are documenting and any new conventions in this documentation.
+
+## Subheader for group of related methods
+
+Paragraph about this group of related methods.
 
 ### methodName
 
