@@ -752,6 +752,23 @@ Example:
 {% endfor %}
 ```
 
+### aposConcat(arrOrObj1, arrOrObj2, ...)
+
+Concatenate any number of arrays and objects into a single array.
+If an argument is an array, all of its elements are individually pushed onto the resulting array; you **do not** get an array of arrays.
+
+
+Example:
+
+```markup
+{# Find the first landing page among the ancestors #}
+{# of this page, including itself #}
+
+{% set landingPage = aposFind(aposConcat(page.ancestors, page), 'type', 'landing') %}
+
+<h3>{{ landingPage.title | e }}</h3>
+```
+
 ## Miscellaneous
 
 Not everything fits into a neat category. You'll functions for logging, ID generation, checking whether a date falls in the current year and other miscellaneous tasks here.
