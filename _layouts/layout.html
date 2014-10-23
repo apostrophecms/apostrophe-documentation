@@ -49,8 +49,20 @@
               <input type="submit" value="Donate" />
             </form>
           </li>
-          <li class="page-link">
-            <input class="search" type="search" />
+          <li class="page-link search-box">
+            <script>
+              (function() {
+                var cx = '005543154079868254739:jxhstkgpui4';
+                var gcse = document.createElement('script');
+                gcse.type = 'text/javascript';
+                gcse.async = true;
+                gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                    '//www.google.com/cse/cse.js?cx=' + cx;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(gcse, s);
+              })();
+            </script>
+            <gcse:searchbox></gcse:searchbox>
           </li>
         </ul>
 
@@ -89,21 +101,6 @@
       </div>{#
       #}<div class="main">
         <div data-search style="display: none;">
-          <div class="search-box">
-            <script>
-              (function() {
-                var cx = '005543154079868254739:jxhstkgpui4';
-                var gcse = document.createElement('script');
-                gcse.type = 'text/javascript';
-                gcse.async = true;
-                gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-                    '//www.google.com/cse/cse.js?cx=' + cx;
-                var s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(gcse, s);
-              })();
-            </script>
-            <gcse:searchbox></gcse:searchbox>
-          </div>
           <div class="search-results">
             <gcse:searchresults></gcse:searchresults>
           </div>
@@ -126,5 +123,15 @@
       </div>
     </div>
   </div>
+  <footer>
+    <div class="inner">
+      <div class="right">
+        <a href="http://punkave.com" class="punk-logo"></a>
+      </div>
+      <div>
+        Apostrophe is led by <a href="http://punkave.com">P'unk Avenue</a> in Philadelphia, PA.
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

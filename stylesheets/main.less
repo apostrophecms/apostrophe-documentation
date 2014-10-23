@@ -17,6 +17,7 @@ h1,h2,h3,h4,h5,h6
 {
   .KarlaBold();
   margin-bottom: 1em;
+  line-height: 1.5em;
 }
 
 p
@@ -44,6 +45,11 @@ body.home
   {
     display: none;
   }
+
+  a
+  {
+    color: @red;
+  }
 }
 
 // the nav
@@ -54,3 +60,6 @@ body.home
 
 // the content
 @import './_content.less';
+
+// footer
+@import './_footer.less';

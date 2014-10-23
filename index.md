@@ -7,9 +7,9 @@ children:
 layout: "home"
 ---
 
-## Apostrophe
+#### Apostrophe is an open source CMS designed for maximum flexibility with a minimal learning curve.
 
-Apostrophe is an open source CMS designed for maximum flexibility with a minimal learning curve.
+
 
 You can [check out a live demo here.](http://demo2.apostrophenow.com)
 
