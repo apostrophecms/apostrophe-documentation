@@ -1,0 +1,102 @@
+.wrap
+{
+  padding-top: 14rem;
+}
+
+// --------------------------------------------------
+// SIDEBAR
+// --------------------------------------------------
+
+.sidebar
+{
+  .inline-block(top);
+  width: 18%;
+  margin-right: 4%;
+
+  .sidebar-title
+  {
+    margin-bottom: 1em;
+
+    .KarlaBold();
+    &, a {  color: @red; }
+
+  }
+
+  .sidebar-items
+  {
+    margin-left: 0.5em;
+  }
+
+  .sidebar-item
+  {
+    margin-bottom: 0.75em;
+    a, &.current-page
+    {
+      font-size: 16px;
+      color: @dark;
+    }
+
+    &.current-page
+    {
+      color: @red;
+      // text-decoration: underline;
+    }
+  }
+
+  .sidebar-section
+  {
+    width: 100%;
+    padding-bottom: 1em;
+    border-bottom: 1px solid @pink;
+  }
+
+  .internal-links
+  {
+    margin-top: 2rem;
+
+    li
+    {
+      margin-bottom: 0.25em;
+
+      &.h2
+      {
+        .KarlaBold();
+        margin-top: 0.75em;
+      }
+    }
+  }
+}
+
+// --------------------------------------------------
+// MAIN
+// --------------------------------------------------
+
+.main
+{
+  .inline-block(top);
+  width: 61%;
+
+  pre
+  {
+    margin-bottom: 2rem;
+  }
+
+  p code
+  {
+    padding: 0.2em 0.5em;
+    background-color: fade(#000000, 5%);
+    border-radius: 2px;
+    font-size: 16px;
+  }
+
+  ul
+  {
+    margin-left: 1rem;
+    margin-bottom: 2rem;
+    li
+    {
+      margin-left: 1rem;
+      list-style-type: disc;
+    }
+  }
+}

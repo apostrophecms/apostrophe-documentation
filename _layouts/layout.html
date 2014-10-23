@@ -25,10 +25,10 @@
   <script src="{{ root }}javascript/jquery.min.js"></script>
   <script src="{{ root }}javascript/main.js"></script>
 </head>
-<body {% block bodyClass %}{% endblock %}>
+<body class="{% block bodyClass %}{% endblock %}">
   <nav class="outer">
     <div class="mark left">
-      <a class="logo" href="/" alt="Apostrophe 2"></a>
+      <a class="logo" href="{{ root }}" alt="Apostrophe 2"></a>
     </div>
     <div class="links right">
         <ul class="page-links">
@@ -40,7 +40,7 @@
             </li>
           {% endfor %}
           <li class="page-link">
-            <a href="https://groups.google.com/forum/#!forum/apostrophenow">➡ Forum</a>
+            <a href="https://groups.google.com/forum/#!forum/apostrophenow" target="_blank">Forum</a>
           </li>
           <li class="page-link donate-button">
             <form class="donate" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -58,11 +58,13 @@
     </div>
   </nav>
 
-  <div class="header">
+  <div class="header {% block headerClass %}{% endblock %}">
     <div class="inner">
       {% block header %}
-        <a href="{{ root }}" class="logo-dark-container"><div class="logo-dark"></div></a>{#
-      #}<h1 class="{% if title.length > 30 %}long{% endif %}">{{ title | e }}</h1>
+        <div class="doc-type">
+          <div class="type-image tutorial"></div>
+        </div>
+        <h1 class="{% if title.length > 30 %}long{% endif %}">{{ title | e }}</h1>
       {% endblock %}
     </div>
   </div>
@@ -70,8 +72,11 @@
   <div class="wrap outer">
     <div class="inner">
       <div class="sidebar">
+        <div class="sidebar-section sidebar-title">
+          <a href="http://demo.apostrophenow.com">Try Apostrophe</a>
+        </div>
         {% block sidebar %}
-          <ul>
+          <ul class="sidebar-section">
             {%  if ancestors.length == 1 %}
               {% for child in children %}
                 <li class="sidebar-item"><a href="{{ root }}{{ child.url }}">{{ child.title | e }}</a></li>

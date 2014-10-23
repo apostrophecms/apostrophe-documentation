@@ -13,7 +13,44 @@ body
   font-size: 18px;
 }
 
+h1,h2,h3,h4,h5,h6
+{
+  .KarlaBold();
+  margin-bottom: 1em;
+}
+
+p
+{
+  line-height: 1.75em;
+  margin-bottom: 1.4em;
+}
+
+h1 { font-size: 3rem;    }
+h2 { font-size: 2rem;  }
+h3 { font-size: 1.75rem;    }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem;  }
+h6 { font-size: 1rem;    }
+
+a
+{
+  color: @purple;
+  text-decoration: none;
+}
+
+body.home
+{
+  .internal-links
+  {
+    display: none;
+  }
+}
+
 // the nav
 @import './_nav.less';
 
 // the header
+@import './_header.less';
+
+// the content
+@import './_content.less';

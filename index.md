@@ -4,6 +4,7 @@ children:
   - tutorials
   - howtos
   - api-reference
+layout: "home"
 ---
 
 ## Apostrophe

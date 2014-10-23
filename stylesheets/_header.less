@@ -1,0 +1,62 @@
+.header
+{
+  padding: 8.75rem 0 8.75rem 0;
+  background-color: @purple;
+
+  color: @white;
+  h1
+  {
+    margin-bottom: 0;
+    max-width: 60%;
+    &.long
+    {
+      font-size: 2em;
+    }
+  }
+
+  .doc-type
+  {
+    position: relative;
+    .right;
+
+    .type-image
+    {
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      width: 322px;
+      height: 356px;
+
+      background-size: 322px 356px;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      &.tutorial
+      {
+        background-image: url('../images/tutorial.png');
+      }
+    }
+
+  }
+}
+
+.header.home
+{
+  background-color: @tan;
+  padding: 200px 0 40px 0;
+  text-align: center;
+
+  .big-logo
+  {
+    .inline-block(top);
+
+    width: 167px;
+    height: 200px;
+
+    background-image: url('../images/big-mark.png');
+    background-size: 167px 200px;
+    bakground-position: center;
+    background-repeat: no-repeat;
+  }
+}
