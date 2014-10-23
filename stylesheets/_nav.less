@@ -1,0 +1,63 @@
+nav.outer
+{
+  .clearfix();
+  width: 100%;
+  padding: 0.25em;
+  background-color: @white;
+}
+
+.logo
+{
+  display: block;
+  width: 140px;
+  height: 30px;
+
+  margin-top: 0.25em;
+
+  background-image: url('../images/a2-mark.png');
+  background-size: 138px 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.page-link
+{
+  .inline-block(middle);
+  padding: 0.25rem 0;
+  margin-right: 1.25rem;
+
+  a
+  {
+    .KarlaBold();
+    color: @red;
+    text-decoration: none;
+  }
+}
+
+.donate-button
+{
+  input[type=submit]
+  {
+    display: inline;
+    padding: 0;
+
+    .KarlaBold();
+    font-size: 18px;
+    color: @red;
+    line-height: 1rem;
+
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+}
+
+input.search
+{
+  border: 1px solid @red;
+  padding: 0.25em;
+
+  .Karla();
+  color: @dark;
+  font-size: 18px;
+}
