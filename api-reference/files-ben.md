@@ -11,6 +11,7 @@ Some details on the file objects that are returned from most of these functions
 	_id: 9913834171,
 	group: 'image',
 	extention: 'jpg',
+	// ...incomplete?
 }
 ```
 
@@ -36,6 +37,7 @@ The returned object contains the following information
 	result: [{...}],
 	// distinct set of tags for all of the files returned
 	tags: ['cool', 'awesome'],
+	// ...incomplete?
 }
 ```
 
