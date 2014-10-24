@@ -9,7 +9,7 @@ docType: "api"
 
 ## Introduction
 
-Welcome to the Apostrophe API reference! Perfect when you know what you want. If you don't know what you want yet, you should be [reading the tutorials](../tutorials/index.html).
+Welcome to the Apostrophe API reference! Perfect when you know what you want. If you don't know what you want yet, you should be [reading the tutorials](../tutorials/index.html) or [looking at some FAQs](../howtos/index.html).
 
 ## Modules
 
@@ -17,7 +17,7 @@ Welcome to the Apostrophe API reference! Perfect when you know what you want. If
 
 This module provides tools to configure your site at the very top level. This is often the only npm module you require directly in `app.js`.
 
-### [apostrophe: core CMS services](apostrophe.html)
+### [apostrophe: core CMS services](apostrophe/index.html)
 
 This module provides core services needed by every site, such as files, document storage, template rendering, video, and the core widgets.
 
