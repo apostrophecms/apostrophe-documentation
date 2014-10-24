@@ -1,6 +1,8 @@
 ---
-title: Manipulating files
+title: Files - server-side methods
 ---
+
+## Overview
 
 Something about files being stored in a the aposFiles collection, and how using these methods on the apos object will allow you to get or create or manipulate these files.
 
@@ -8,10 +10,10 @@ Some details on the file objects that are returned from most of these functions
 
 ```javascript
 {
-	_id: 9913834171,
-	group: 'image',
-	extension: 'jpg',
-	// ...incomplete?
+  _id: 9913834171,
+  group: 'image',
+  extension: 'jpg',
+  // ...incomplete?
 }
 ```
 
@@ -35,13 +37,13 @@ The returned object contains the following information
 
 ```javascript
 {
-	// count of files that match criteria
-	total: 1
-	// array of file object
-	result: [{...}],
-	// distinct set of tags for all of the files returned
-	tags: ['cool', 'awesome'],
-	// ...incomplete?
+  // count of files that match criteria
+  total: 1
+  // array of file object
+  result: [{...}],
+  // distinct set of tags for all of the files returned
+  tags: ['cool', 'awesome'],
+  // ...incomplete?
 }
 ```
 
@@ -49,39 +51,39 @@ The returned object contains the following information
 
 ```javascript
 // in context
-	// TODO
+  // TODO
 
 // with all available options, with defaults if applicable
 apos.getFiles(req, {
-	// Populates a ._owner propery on each file object that is the Person object of the owner if set to true
-	// This is set to false by default for performance reasons
-	owners: false,
-	// Specifies the file type group, by default 'images' and 'office' are available, pass as string
-	group: null,
-	// Specifies to only returns images owned by current user if set to 'user'
-	owner: 'all',
-	// Specifies ids to match, pass as array
-	ids: null,
-	// Specifies the owner id to filter on, pass as string
-	ownerId: null,
-	// Specifies the tags to filter on, pass as array
-	tags: null,
-	// Specifies to exclude images that contain the tags, pass as array
-	notTags: null,
-	// Specifies the extenion to filter on, pass as array
-	extension: null,
-	// Specifies to filter base on if the file is in the trash or not
-	trash: 0,
-	// Specifies minimum width and height for photos, pass as array [width, height]
-	minSize: null,
-	//
-	browsing: ,
-	q: ,
-	skip: ,
-	limit: ,
+  // Populates a ._owner propery on each file object that is the Person object of the owner if set to true
+  // This is set to false by default for performance reasons
+  owners: false,
+  // Specifies the file type group, by default 'images' and 'office' are available, pass as string
+  group: null,
+  // Specifies to only returns images owned by current user if set to 'user'
+  owner: 'all',
+  // Specifies ids to match, pass as array
+  ids: null,
+  // Specifies the owner id to filter on, pass as string
+  ownerId: null,
+  // Specifies the tags to filter on, pass as array
+  tags: null,
+  // Specifies to exclude images that contain the tags, pass as array
+  notTags: null,
+  // Specifies the extenion to filter on, pass as array
+  extension: null,
+  // Specifies to filter base on if the file is in the trash or not
+  trash: 0,
+  // Specifies minimum width and height for photos, pass as array [width, height]
+  minSize: null,
+  //
+  browsing: ,
+  q: ,
+  skip: ,
+  limit: ,
 
 }, function(err, files){
-	// ... do sometthing with the files ...
+  // ... do sometthing with the files ...
 });
 ```
 
@@ -115,10 +117,10 @@ Returns all the files matching the criteria.
 var superBeforeShow = self.beforeShow;
 self.beforeShow = function(req, snippet, callback) {
 
-	// pass all of the files from my snippet body to the template
-	req.extras.bodyFiles = options.apos.areaFiles(snippet, 'body');
+  // pass all of the files from my snippet body to the template
+  req.extras.bodyFiles = options.apos.areaFiles(snippet, 'body');
 
-	return superBeforeShow(req, snippet, callback);
+  return superBeforeShow(req, snippet, callback);
 }
 ```
 
@@ -126,14 +128,14 @@ self.beforeShow = function(req, snippet, callback) {
 
 ```javascript
 apos.areaFiles(page, 'myArea', {
-	// Specifies the acceptable file extension
-	extension: 'gif',
-	// Specifies multiple acceptable file extensions
-	extensions: ['gif', 'png'],
-	// Specifies the file type group, by default 'images' and 'office' are available
-	group: 'office',
-	// Specifies the limit for amount of returned files
-	limit: 3
+  // Specifies the acceptable file extension
+  extension: 'gif',
+  // Specifies multiple acceptable file extensions
+  extensions: ['gif', 'png'],
+  // Specifies the file type group, by default 'images' and 'office' are available
+  group: 'office',
+  // Specifies the limit for amount of returned files
+  limit: 3
 });
 
 
