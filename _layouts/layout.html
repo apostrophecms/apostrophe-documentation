@@ -15,6 +15,12 @@
   </ul>
 {% endmacro %}
 
+{% macro docTypeClass() -%}
+  {%- for _page in ancestors -%}
+    {%- if _page.docType -%}{{ _page.docType }}{%- endif -%}
+  {%- endfor -%}
+{%- endmacro -%}
+
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -74,7 +80,7 @@
     <div class="inner">
       {% block header %}
         <div class="doc-type">
-          <div class="type-image tutorial"></div>
+          <div class="type-image {{ docTypeClass() }}"></div>
         </div>
         <h1 class="{% if title.length > 30 %}long{% endif %}">{{ title | e }}</h1>
       {% endblock %}
