@@ -1,7 +1,7 @@
 $( function() {
   $('body').on('focus', 'input.gsc-input', function(e) {
     // $(this).toggleClass('active');
-    $('[data-search]').show();
+    $('[data-search]').slideDown();
   });
 });
 

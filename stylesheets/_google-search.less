@@ -11,7 +11,7 @@
 
   .gsc-input-box input
   {
-    font-family: 'open_sans';
+    font-family: 'Karla';
   }
 
   .gsst_a
@@ -100,37 +100,55 @@ input[type="image"].gsc-search-button-v2
 
 .search-results
 {
-  padding: 1.5em;
-  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 2rem;
+
+  background-color: @tan;
+
 
   * {
     box-sizing: content-box;
-    font-family: 'open_sans' !important;
+    font-family: 'Karla' !important;
+  }
+
+  .gsc-above-wrapper-area
+  {
+    border-bottom: none;
   }
 
   .gsc-control-cse
   {
     padding: 0;
+    background-color: @tan;
+    border: none;
 
     .gsc-table-result
     {
-      font-family: 'open_sans';
+      font-family: 'Karla';
     }
+  }
+
+  .gsc-webResult.gsc-result
+  {
+    background-color: @tan !important;
+    border: none !important;
   }
 
   .gs-result
   {
-    font-family: 'open_sans' !important;
+    font-family: 'Karla' !important;
+    background-color: @tan !important;
 
     .gs-title, .gs-title b
     {
+      font-size: 18px !important;
       overflow: visible;
-      color: darken(#00768b, 5%) !important;
+      color: @purple !important;
       text-decoration: none !important;
     }
     .gsc-url-top .gs-visibleUrl
     {
-      color: #6babba !important;
+      color: lighten(@dark, 10%) !important;
+      margin-bottom: 0.25em;
     }
 
     .gsc-thumbnail-inside, .gsc-url-top
@@ -143,5 +161,6 @@ input[type="image"].gsc-search-button-v2
   .gsc-results .gsc-cursor-box .gsc-cursor-page
   {
     color: darken(#00768b, 5%);
+    background-color: @tan;
   }
 }
