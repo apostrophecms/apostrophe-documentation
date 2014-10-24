@@ -4,7 +4,7 @@ children:
   - server-side
   - browser-side
   - nunjucks-helpers
-  - web-apis
+  - web-api
 ---
 
 ## Overview
@@ -25,7 +25,7 @@ These methods are used to manipulate and access files on the browser.
 
 These functions are used in Nunjucks page templates to access information about files and construct URLs.
 
-### [Web APIs](web-apis.html)
+### [Web API](web-api.html)
 
 These URLs are accessed by browser-side JavaScript to manipulate and access files on the server.
 
