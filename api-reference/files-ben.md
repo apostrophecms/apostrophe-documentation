@@ -81,16 +81,17 @@ apos.getFiles(req, {
 });
 ```
 
+### `getFiles(req, options, callback)` `(object)`
 
-
-
+Fetch files according to the parameters specified by the
+`options` object. These properties are sanitized to ensure they are in the proper format. A sanitizing wrapper for [getFiles](#getFiles), which also always sets the `browsing` option to ensure that we only receive files we are entitled to add to our pages.
 
 
 ## Finding Files In Areas
 
 Use these methods to find files that live in areas that belong to a page or snippet. Because they are referencing an area we already have in memory, they are syncronous.
 
-### `areaFiles(page, 'body', [options])` `(array)`
+### `areaFiles(page, 'body'[, options])` `(array)`
 
 Find files referenced within an area, such as an image in a slideshow widget,
 or a PDF in a file widget.
@@ -135,14 +136,14 @@ var files = apos.areaFiles(page, 'myArea', {
 var files = apos.areaFiles({area: snippet.body});
 ```
 
-### `areaFile(page, 'body', [options])` `(object)`
+### `areaFile(page, 'body' [, options])` `(object)`
 
 This is a convenience method that returns the first file referenced within an area (an option of `limit: 1`), and takes all of the same parameters as [areaFiles](#area-files). It also allows for the alternative syntax.
 
-### `areaImages(page, 'body', [options])` `(array)`
+### `areaImages(page, 'body' [, options])` `(array)`
 
 This is a convenience method that returns files with a `group: 'image'` property referenced within an area, and takes all of the same parameters as [areaFiles](#area-files). It also allows for the alternative syntax.
 
-### `areaImage(page, 'body', [options])` `(object)`
+### `areaImage(page, 'body' [, options])` `(object)`
 
 This is a convenience method that returns the first file with a `group: 'image'` property referenced within an area (an option of `limit: 1`), and takes all of the same parameters as [areaFiles](#area-files). It also allows for the alternative syntax.
