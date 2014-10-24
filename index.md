@@ -7,9 +7,7 @@ children:
 layout: "home"
 ---
 
-#### Apostrophe is content management system that helps you stay on mission.
-
-
+#### Apostrophe is a content management system that helps you stay on mission.
 
 You can [check out a live demo here.](http://demo2.apostrophenow.com)
 
