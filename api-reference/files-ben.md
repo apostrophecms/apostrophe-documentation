@@ -1,156 +1,151 @@
+---
+title: Manipulating files
+---
 
-### areaFile
+Something about files being stored in a the aposFiles collection, and how using these methods on the apos object will allow you to get or create or manipulate these files.
 
-Find a file referenced within an area, such as an image in a slideshow widget,
-or a PDF in a file widget.
-
-Returns the first file matching the criteria.
-
-#### areaFile(page, name, [options])
-
-`page` (object) A page or snippet object that contains the area
-
-`name` (string) Name of the area
-
-`options` (object) *optional*. An object containing additional options
-
-##### Example
+Some details on the file objects that are returned from most of these functions
 
 ```javascript
-apos.areaFile(page, 'body');
-
-// with options object
-apos.areaFile(page, 'body', { extension: 'jpg' });
-```
-##### options
-
-###### extension (string)
-
-An extension to use for filtering the results.
-
-Example
-
-```javascript
-{ extension: 'jpg' }
+{
+	_id: 9913834171,
+	group: 'image',
+	extention: 'jpg',
+	// ...incomplete?
+}
 ```
 
-###### extentions (array)
+## Finding Files
 
-Extensions to use for filtering the results.
+Use these methods to search across all files in your Apostrophe website. Because they are going to the database to find files, they are asyncronous.
 
-Example
+### `getFiles(req, options, callback)` `(object)`
+
+Fetch files according to the parameters specified by the `options` object.
+
+`req` (object) the current Express request object [TODO: link to tutorial re: req objects], for permissions.
+`options` (object) An object containing all options.
+`callback` (function) called on completion, with error if any.
+
+The returned object contains the following information
 
 ```javascript
-{ extensions: ['jpg','png'] }
+{
+	// count of files that match criteria
+	total: 1
+	// array of file object
+	result: [{...}],
+	// distinct set of tags for all of the files returned
+	tags: ['cool', 'awesome'],
+	// ...incomplete?
+}
 ```
 
-###### group (string)
+#### Example
 
-A group to use for filtering the results. By default the `images` and `office` groups
-are available.
+```javscript
+// in context 
+	// TODO
 
-```javascript
-{ group: 'office' }
-```
+// with all available options, with defaults if applicable
+apos.getFiles(req, {
+	// Populates a ._owner propery on each file object that is the Person object of the owner if set to true
+	// This is set to false by default for performance reasons
+	owners: false,
+	// Specifies the file type group, by default 'images' and 'office' are available, pass as string
+	group: null,
+	// Specifies to only returns images owned by current user if set to 'user'
+	owner: 'all',
+	// Specifies ids to match, pass as array
+	ids: null,
+	// Specifies the owner id to filter on, pass as string
+	ownerId: null,
+	// Specifies the tags to filter on, pass as array
+	tags: null,
+	// Specifies to exclude images that contain the tags, pass as array
+	notTags: null,
+	// Specifies the extenion to filter on, pass as array
+	extension: null,
+	// Specifies to filter base on if the file is in the trash or not
+	trash: 0,
+	// Specifies minimum width and height for photos, pass as array [width, height]
+	minSize: null,
+	//
+	browsing: ,
+	q: ,
+	skip: ,
+	limit: ,
 
-*Note:* If you are using `group: "images"` consider calling apos.areaImage instead.
-This is convenient and protects you from accidentally getting a PDF file.
-
-#### apos.areaFile(options) *Alternative Syntax*
-
-*options* (object) An object containing all options. The `area` property is required.
-
-This alternative syntax takes a direct reference to the area that refernces a file. 
-
-##### Example
-
-```javascript
-apos.areaFile({ area: page.body })
-```
-
-
-* * * 
-
-
-
-### areaFiles
-
-Find a file referenced within an area, such as an image in a slideshow widget,
-or a PDF in a file widget.
-
-Returns all the files matching the criteria unless the "limit" option is used.
-
-#### areaFiles(page, name, [options])
-
-`page` (object) A page or snippet object that contains the area
-
-`name` (string) Name of the area
-
-`options` (object) *optional*. An object containing additional options
-
-##### Example
-
-```javascript
-apos.areaFiles(page, 'body');
-
-// with options object
-apos.areaFiles(page, 'body', { extension: 'jpg' });
-```
-##### options
-
-All options available in [areaFile](#area-file) are available in _areaFiles_.
-
-###### limit (integer)
-
-Limits the number of files returned.
-
-Example
-
-```javascript
-{ limit: 3 }
-```
-
-#### apos.areaFiles(options) *Alternative Syntax*
-
-*options* (object) An object containing all options. The `area` property is required.
-
-This alternative syntax takes a direct reference to the area that refernces a file. 
-
-##### Example
-
-```javascript
-apos.areaFiles({ area: page.body })
-```
-
-### acceptFiles
-
-Attempts an upload of one or more files, as submitted by an HTTP file upload. 
-
-This function will ensure the user has permissions to upload the files, as well as ensure the files are an acceptable type. If accepted, the files are uploaded using uploadfs, and then documents are created in the aposFiles collection for each file. 
-
-The callback receives an error, if any, followed by an array of new file objects as they were stored in the aposFiles collection.
-
-#### acceptFiles(req, files, callback)
-
-`req` (object) The current Express request object [TODO: link to tutorial re: req objects], for permissions
-
-`files` (array or object) An object or array of objects with "name" and "path" properties
-
-`callback` (function) Invoked on completion, with error if any and an array of new file objects as they were stored in the aposFiles collection.
-
-The `files` argument accepts object to keep this function flexible for command line task usage. It's usually easy enough to pass it something from `req.files`.
-
-##### Example
-
-```javascript
-// get the file details from an input called 'upload'
-var fileInfo = req.files['upload'];  
-
-apos.acceptFiles(req, fileInfo, function(err, files){
-	...
-	// do something with the files we just uploaded
-	...
+}, function(err, files){
+	// ... do sometthing with the files ...
 });
 ```
 
+
+
+
+
+
+## Finding Files In Areas
+
+Use these methods to find files that live in areas that belong to a page or snippet. Because they are referencing an area we already have in memory, they are syncronous.
+
+### `areaFiles(page, 'body', [options])` `(array)`
+
+Find files referenced within an area, such as an image in a slideshow widget,
+or a PDF in a file widget.
+
+Returns all the files matching the criteria.
+
+`page` (object) A page or snippet object that contains the area
+
+`name` (string) Name of the area
+
+`options` (object) *optional*. An object containing additional options
+
+#### Example
+
+```javascript
+// in context
+var superBeforeShow = self.beforeShow;
+self.beforeShow = function(req, snippet, callback) {
+
+	// pass all of the files from my snippet body to the template
+	req.extras.bodyFiles = options.apos.areaFiles(snippet, 'body');
+	
+	return superBeforeShow(req, snippet, callback);
+}
+
+
+// with all available options
+var files = apos.areaFiles(page, 'myArea', {
+	// Specifies the acceptable file extension
+	extension: 'gif',
+	// Specifies multiple acceptable file extensions
+	extensions: ['gif', 'png'],
+	// Specifies the file type group, by default 'images' and 'office' are available
+	group: 'office',
+	// Specifies the limit for amount of returned files
+	limit: 3
+});
+
+
+// alternative syntax using only an options object
+// The area option is required, and it is a direct reference to your area
+var files = apos.areaFiles({area: snippet.body});
+```
+
+### `areaFile(page, 'body', [options])` `(object)`
+
+This is a convenience method that returns the first file referenced within an area (an option of `limit: 1`), and takes all of the same parameters as [areaFiles](#area-files). It also allows for the alternative syntax.
+
+### `areaImages(page, 'body', [options])` `(array)`
+
+This is a convenience method that returns files with a `group: 'image'` property referenced within an area, and takes all of the same parameters as [areaFiles](#area-files). It also allows for the alternative syntax.
+
+### `areaImage(page, 'body', [options])` `(object)`
+
+This is a convenience method that returns the first file with a `group: 'image'` property referenced within an area (an option of `limit: 1`), and takes all of the same parameters as [areaFiles](#area-files). It also allows for the alternative syntax.
+
+## 
 
