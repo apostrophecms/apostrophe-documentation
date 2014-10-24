@@ -10,22 +10,26 @@ Some details on the file objects that are returned from most of these functions
 {
 	_id: 9913834171,
 	group: 'image',
-	extention: 'jpg',
+	extension: 'jpg',
 	// ...incomplete?
 }
 ```
 
 ## Finding Files
 
-Use these methods to search across all files in your Apostrophe website. Because they are going to the database to find files, they are asyncronous.
+Use these methods to search across all files in your Apostrophe website. Because they are going to the database to find files, they are asynchronous.
 
-### `getFiles(req, options, callback)` `(object)`
+### `getFiles(req, options, callback)`
 
 Fetch files according to the parameters specified by the `options` object.
 
-`req` (object) the current Express request object [TODO: link to tutorial re: req objects], for permissions.
-`options` (object) An object containing all options.
-`callback` (function) called on completion, with error if any.
+#### Arguments
+
+* `req` `(object)` the current Express request object [TODO: link to tutorial re: req objects], for permissions.
+* `options` `(object)` An object containing all options.
+* `callback` `(function)` called on completion, with error if any.
+
+#### Returns `(object)`
 
 The returned object contains the following information
 
@@ -89,7 +93,7 @@ Fetch files according to the parameters specified by the
 
 ## Finding Files In Areas
 
-Use these methods to find files that live in areas that belong to a page or snippet. Because they are referencing an area we already have in memory, they are syncronous.
+Use these methods to find files that live in areas that belong to a page or snippet. Because they are referencing an area we already have in memory, they are synchronous.
 
 ### `areaFiles(page, 'body'[, options])` `(array)`
 
@@ -104,7 +108,7 @@ Returns all the files matching the criteria.
 
 `options` (object) *optional*. An object containing additional options
 
-#### Example
+#### Real-World Example
 
 ```javascript
 // in context
@@ -116,10 +120,12 @@ self.beforeShow = function(req, snippet, callback) {
 
 	return superBeforeShow(req, snippet, callback);
 }
+```
 
+#### All Options
 
-// with all available options
-var files = apos.areaFiles(page, 'myArea', {
+```javascript
+apos.areaFiles(page, 'myArea', {
 	// Specifies the acceptable file extension
 	extension: 'gif',
 	// Specifies multiple acceptable file extensions
