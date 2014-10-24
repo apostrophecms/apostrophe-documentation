@@ -1,5 +1,5 @@
 ---
-title: apostrophe: core CMS services
+title: apostrophe - core CMS services
 children:
   - files
 ---
@@ -18,7 +18,7 @@ On the browser side the `apos` object is global.
 
 Functions for each of these core services are part of the `apos` object, and are documented separately below.
 
-### [Files](files)
+### [Files](files/index.html)
 
 Services related to files, such as images and office documents.
 

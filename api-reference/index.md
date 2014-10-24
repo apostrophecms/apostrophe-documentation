@@ -1,6 +1,7 @@
 ---
 title: API Reference
 children:
+  - apostrophe
   - nunjucks-filters
   - nunjucks-helpers
 docType: "api"

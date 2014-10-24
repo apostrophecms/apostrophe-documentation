@@ -1,6 +1,8 @@
 ---
-title: Files: server-side methods
+title: Files - server-side methods
 ---
+
+## Overview
 
 Something about files being stored in a the aposFiles collection, and how using these methods on the apos object will allow you to get or create or manipulate these files.
 
