@@ -43,8 +43,8 @@ The returned object contains the following information
 
 #### Example
 
-```javscript
-// in context 
+```javascript
+// in context
 	// TODO
 
 // with all available options, with defaults if applicable
@@ -112,7 +112,7 @@ self.beforeShow = function(req, snippet, callback) {
 
 	// pass all of the files from my snippet body to the template
 	req.extras.bodyFiles = options.apos.areaFiles(snippet, 'body');
-	
+
 	return superBeforeShow(req, snippet, callback);
 }
 
@@ -146,6 +146,3 @@ This is a convenience method that returns files with a `group: 'image'` property
 ### `areaImage(page, 'body', [options])` `(object)`
 
 This is a convenience method that returns the first file with a `group: 'image'` property referenced within an area (an option of `limit: 1`), and takes all of the same parameters as [areaFiles](#area-files). It also allows for the alternative syntax.
-
-## 
-
