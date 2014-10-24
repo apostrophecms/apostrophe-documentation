@@ -6,9 +6,9 @@ Apostrophe provides lots of helpful functions you can call from your Nunjucks te
 
 ## Editable Content: Areas and Singletons
 
-###aposArea(page, areaName, options)
+### `aposArea(page, areaName, options)`
 
-###aposArea({ area: areaObject, options... })
+### `aposArea({ area: areaObject, options... })`
 
 Renders an editable content area. See [adding editable areas to your page templates](../tutorials/getting-started/adding-editable-content-areas-to-your-page-templates.html) for more information about areas.
 
@@ -18,7 +18,7 @@ The second syntax is usually only used when an area is nested in another propert
 
 #### Options
 
-##### controls
+##### `controls`
 
 `controls` specifies the text editing controls and Apostrophe widgets to be permitted here. The list of available controls includes:
 
@@ -55,7 +55,7 @@ The list of available widgets includes:
 
 And any others introduced by the modules in your project. For instance, the sandbox project also has the `snippets`, `blog`, `events`, `rss` and `twitter` widgets.
 
-##### styles
+##### `styles`
 
 When the `styles` control is present in the editor, the `styles` option is used to override the list of styles that are offerred.
 
@@ -78,21 +78,21 @@ You may also specify `styles` and `attributes` properties, however again `saniti
 
 See the [CKEditor documentation](http://docs.ckeditor.com/#!/guide/dev_styles) for the syntax of the `styles` and `attributes` properties.
 
-##### edit
+##### `edit`
 
 By default, if you use the first syntax, Apostrophe will figure out whether the user is allowed to edit the page and then permit them to edit this area. If you wish you can forbid editing by passing `edit: false` as an option.
 
 With the second syntax editing is not possible. Areas nested in schemas should only be edited as part of the snippet or schema widget in which they are found.
 
-##### initialContent
+##### `initialContent`
 
 By default, an area with nothing in it displays a welcome message saying "Click the pencil to get started" or "Use the Add Content button to get started," depending on whether it has the `textOnly` property or not. You can override this message by setting the `initialContent` option to a new string.
 
-##### textOnly
+##### `textOnly`
 
 When `textOnly` is set to `true`, there is no "Add Content" menu, just a simple rich text editing field with no widgets.
 
-##### slideshow, video, etc.
+##### `slideshow`, `video`, etc.
 
 You may pass options to all widgets of a given type that appear in an area. If you pass an option named `slideshow`, its value should be an object containing the options you wish to pass to all slideshows.
 
@@ -111,9 +111,9 @@ Example:
 }}
 ```
 
-###aposSingleton(page, areaName, widgetType, options)
+### `aposSingleton(page, areaName, widgetType, options)`
 
-###aposSingleton({ area: areaObject, type: widgetType, options... })
+### `aposSingleton({ area: areaObject, type: widgetType, options... })`
 
 This function renders a singleton (a standalone widget, with no "Add Content" menu).
 
@@ -123,18 +123,18 @@ Since singletons are really just areas with only one item, you may also use `apo
 
 See [aposArea](#apos-area) for a list of possible widget types.
 
-####Options
+#### Options
 
-#####edit
+##### `edit`
 
 When you use the first syntax, Apostrophe automatically determines
 if the user is permitted to edit the widget. However if you wish you may override this to prevent editing in an inconvenient location. Just set the `edit` option to `false`.
 
 With the second syntax editing in context is not possible.
 
-###aposAreaIsEmpty(page, areaName)
+### `aposAreaIsEmpty(page, areaName)`
 
-###aposAreaIsEmpty({ area: page.areaName })
+### `aposAreaIsEmpty({ area: page.areaName })`
 
 This function returns true if the area is considered empty. This is useful for skipping unnecessary wrappers and headers when there is no content.
 
@@ -151,9 +151,9 @@ Example:
 {% endif %}
 ```
 
-###aposSingletonIsEmpty(page, areaName, type)
+### `aposSingletonIsEmpty(page, areaName, type)`
 
-###aposSingletonIsEmpty({ area: page.areaName, type: type })
+### `aposSingletonIsEmpty({ area: page.areaName, type: type })`
 
 This function returns true if a singleton is considered empty. Although similar to [aposAreaIsEmpty](#apos-area-is-empty), this function will make sure there is a widget of the appropriate type that is not empty, ignoring any other content.
 
@@ -171,7 +171,7 @@ Example:
 {% endif %}
 ```
 
-###aposAreaContent(item, options)
+### `aposAreaContent(item, options)`
 
 **Usually not called directly.** Outputs the normal views of all of the content items (widgets
 and/or rich text blocks) present in the first array, passing on
@@ -185,13 +185,13 @@ The individual items still have wrapper `div`s, but these are minimal and necess
 
 #### Options
 
-##### allowed
+##### `allowed`
 
 The `allowed` option, if present, should be a list
 of permitted item types; any items not on that list are not
 rendered. "Item types" include all widget types and also `richText`.
 
-##### slideshow, etc.
+##### `slideshow`, etc.
 
 Options for individual widget types can be passed as part of the second, optional argument:
 
@@ -204,8 +204,8 @@ Example:
 {{ aposAreaContent(piece.body.items, { allowed: [ 'richText' ] }) }}
 ```
 
-### aposAreaPlaintext(page, name, options)
-### aposAreaPlaintext(options)
+### `aposAreaPlaintext(page, name, options)`
+### `aposAreaPlaintext(options)`
 
 Convert an area to plaintext.
 
@@ -243,7 +243,7 @@ Example:
 </div>
 ```
 
-### aposItemNormalView(item, options)
+### `aposItemNormalView(item, options)`
 
 Renders the normal, public view of a widget or rich text item.
 Typically invoked by [aposAreaContent](#apos-area-content), which
@@ -269,7 +269,7 @@ Example:
 
 These functions are usually called for you by `views/global/outerLayout.html` (or `views/global/base.html` if `outerLayout.html` extends that in your project). You will encounter them when you make changes to those templates.
 
-###aposStylesheets(when)
+### `aposStylesheets(when)`
 
 The `aposStylesheets` function inserts markup to load Apostrophe's stylesheets. This includes Apostrophe's own stylesheets as well as those you "push" from your modules or from app.js. If `minify: true` is turned on in production, the browser loads just one combined and minified file. You don't have to worry about any of this.
 
@@ -285,11 +285,11 @@ Example:
 
 Outputs (minified example):
 
-```
+```markup
 <link href="/apos-minified/user-518435323655062621.css" rel="stylesheet" />
 ```
 
-###aposScripts(when)
+### `aposScripts(when)`
 
 The `aposScripts` function inserts markup to load Apostrophe's browser-side JavaScript files. This includes Apostrophe's own scripts as those you "push" from your modules or from app.js. If `minify: true` is turned on in production, the browser loads just one combined and minified JavaScript file. You don't have to worry about any of this.
 
@@ -307,7 +307,7 @@ Example:
 
 Outputs (minified example, with user logged in):
 
-```
+```markup
 <script>
   if (!window.apos) {
     window.apos = {};
@@ -318,7 +318,7 @@ Outputs (minified example, with user logged in):
 <script>apos.scene = "user";</script>
 ```
 
-###aposTemplates(when)
+### `aposTemplates(when)`
 
 The `aposTemplates` function inserts markup for Apostrophe's browser-side "DOM templates." These are typically modal dialog boxes and other markup that Apostrophe displays often but doesn't display right away. The markup inside these templates will typically have the `apos-template` class to ensure nothing displays until it is needed, at which time these templates are cloned and put to work.
 
@@ -341,7 +341,7 @@ Outputs (just a partial sample):
 ... More dialogs ...
 ```
 
-### aposMediaMenu(options)
+### `aposMediaMenu(options)`
 
 Outputs markup for a button that accesses the media admin interface. Normally called from `outerLayout.html` as part of the admin bar markup.
 
@@ -355,7 +355,7 @@ Example:
 {{ aposMediaMenu({ edit: permissions.guest }) }}
 ```
 
-### aposTagsMenu(options)
+### `aposTagsMenu(options)`
 
 Outputs markup for a button that accesses the media admin interface. Normally called from `outerLayout.html` as part of the admin bar markup.
 
@@ -372,9 +372,9 @@ Example:
 
 These functions help you access files and images directly, bypassing the normal markup for a slideshow or file widget.
 
-### aposAreaImage(page, name, options)
+### `aposAreaImage(page, name, options)`
 
-### aposAreaImage({ area: area, options... })
+### `aposAreaImage({ area: area, options... })`
 
 Find an image referenced within an area, such as an image in a slideshow widget. Returns the first `file` object matching the criteria. Only GIF, JPEG and PNG images will be returned.
 
@@ -382,11 +382,11 @@ The returned object can be passed to [aposFilePath](#apos-file-path) to obtain a
 
 #### Options
 
-##### extension
+##### `extension`
 
 To force Apostrophe to return only images with a specific file extension (`gif`, `jpg` or `png`), specify the `extension` option. Do **not** specify a leading `.`. Note that Apostrophe always uses these three extensions for images.
 
-##### extensions
+##### `extensions`
 
 Specify an array of allowed file extensions. (You do not need to specify `jpeg`, `JPG`, etc. Apostrophe always uses `jpg`.)
 
@@ -399,9 +399,9 @@ Example:
 {% endif %}
 ```
 
-### aposAreaImages(page, name, options)
+### `aposAreaImages(page, name, options)`
 
-### aposAreaImages({ area: area, options... })
+### `aposAreaImages({ area: area, options... })`
 
 Find images referenced within an area, such as an image in a slideshow widget. Returns an array of `file` objects that meet the criteria. Only GIF, JPEG and PNG images will be returned.
 
@@ -409,11 +409,11 @@ The returned objects can be passed to [aposFilePath](#apos-file-path) to obtain 
 
 #### Options
 
-##### extension
+##### `extension`
 
 To force Apostrophe to return only images with a specific file extension (`gif`, `jpg` or `png`), specify the `extension` option. Do **not** specify a leading `.`. Note that Apostrophe always uses these three extensions for images.
 
-##### extensions
+##### `extensions`
 
 Specify an array of allowed file extensions. (You do not need to specify `jpeg`, `JPG`, etc. Apostrophe always uses `jpg`.)
 
@@ -430,9 +430,9 @@ Example:
 </ul>
 ```
 
-### aposAreaFile(page, areaName, options)
+### `aposAreaFile(page, areaName, options)`
 
-### aposAreaFile({ area: area, options... })
+### `aposAreaFile({ area: area, options... })`
 
 Find an file referenced within an area, such as a PDF in a file widget or an image in a slideshow widget. Returns the first `file` object matching the criteria.
 
@@ -440,11 +440,11 @@ The returned object can be passed to [aposFilePath](#apos-file-path) to obtain a
 
 #### Options
 
-##### extension
+##### `extension`
 
 To force Apostrophe to return only images with a specific file extension (`gif`, `jpg`, `pdf`, `xlsx`, `png`, etc.), specify the `extension` option. Do **not** specify a leading `.`. Note that Apostrophe always uses specific extensions, always lower case, typically three letters except for `xlsx` and other recent Microsoft Office formats.
 
-##### extensions
+##### `extensions`
 
 Specify an array of allowed file extensions.
 
@@ -457,9 +457,9 @@ Example:
 {% endif %}
 ```
 
-### aposAreaFiles(page, areaName, options)
+### `aposAreaFiles(page, areaName, options)`
 
-### aposAreaFiles({ area: area, options... })
+### `aposAreaFiles({ area: area, options... })`
 
 Find files referenced within an area, such as a PDF in a file widget or an image in a slideshow widget. Returns an array of `file` objects that meet the criteria.
 
@@ -467,11 +467,11 @@ The returned objects can be passed to [aposFilePath](#apos-file-path) to obtain 
 
 #### Options
 
-##### extension
+##### `extension`
 
 To force Apostrophe to return only images with a specific file extension (`gif`, `jpg`, `pdf`, `xlsx`, `png`, etc.), specify the `extension` option. Do **not** specify a leading `.`. Note that Apostrophe always uses specific extensions, always lower case, typically three letters except for `xlsx` and other recent Microsoft Office formats.
 
-##### extensions
+##### `extensions`
 
 Specify an array of allowed file extensions.
 
@@ -488,7 +488,7 @@ Example:
 </ul>
 ```
 
-### aposFilePath(file, options)
+### `aposFilePath(file, options)`
 
 Given a file object, as returned by [aposAreaFile](#apos-area-file) for instance, return the file URL. If `options.size` is set, return the URL for that size (`one-sixth`, `one-third`, `one-half`, `two-thirds`, `full`).
 
@@ -513,7 +513,7 @@ Example:
 
 In our JavaScript, we always use [lodash](http://lodash.com) to help out with common tasks like finding elements in an array, or grouping array elements by a property. These functions provide similar capabilities for your Nunjucks templates. Many of these functions are simple wrappers for lodash.
 
-### aposContains(list, value)
+### `aposContains(list, value)`
 
 Returns `true` if the array `list` contains `value`.
 
@@ -527,8 +527,8 @@ Example:
 {% endif %}
 ```
 
-### aposContainsProperty(list, propertyName)
-### aposContainsProperty(object, propertyName)
+### `aposContainsProperty(list, propertyName)`
+### `aposContainsProperty(object, propertyName)`
 
 Returns true if the array `list` contains at least one
 object with the property `propertyName`. The property need not have any specific value, it only has to exist.
@@ -545,7 +545,7 @@ Example:
 {% endif %}
 ```
 
-### aposReverse(array)
+### `aposReverse(array)`
 
 Reverses the order of the array. This **modifies the original array**. In addition, for convenience, the reversed array is returned.
 
@@ -572,8 +572,8 @@ Example:
 </ul>
 ```
 
-### aposBeginsWith(haystackString, needleString)
-### aposBeginsWith(haystackArray, needleString)
+### `aposBeginsWith(haystackString, needleString)`
+### `aposBeginsWith(haystackArray, needleString)`
 
 `aposBeginsWith` returns true if the `haystackString` begins with the `needleString`.
 
@@ -594,7 +594,7 @@ Example:
   <h4>{{ item.title | e }}</h4>
 </div>
 
-### aposMerge(object1, object2, object3...)
+### `aposMerge(object1, object2, object3...)`
 
 Recursively merges the properties of the specified objects. If a later object has a property of the same name, it overrides the earlier object's property.
 
@@ -617,7 +617,7 @@ Example:
 {% endmacro %}
 ```
 
-### aposFind(array, property, value)
+### `aposFind(array, property, value)`
 
 Returns the first element of `array`, if any, that has the specified `value` for the specified `property`.
 
@@ -631,7 +631,7 @@ Example:
 {% endif %}
 ```
 
-### aposFilter(array, property, value)
+### `aposFilter(array, property, value)`
 
 Returns all elements of `array` that have the specified `value` for the specified `property`.
 
@@ -650,7 +650,7 @@ Example:
 {% endif %}
 ```
 
-### aposFilterNonempty(array, property)
+### `aposFilterNonempty(array, property)`
 
 Returns all elements of `array` for which the specified `property` is "truthy." "Truthy" values include:
 
@@ -677,7 +677,7 @@ Example:
 {% endif %}
 ```
 
-### aposPluck(array, property)
+### `aposPluck(array, property)`
 
 Given an array of objects and a property name, this function returns an array containing the value of `property` for each object in the original array.
 
@@ -689,7 +689,7 @@ Example:
 </script>
 ```
 
-### aposGroupBy(items, property)
+### `aposGroupBy(items, property)`
 
 Group the elements of the array `items` into separate arrays, one for each value of `property`. If `property` is `color`, and there are three elements whose `color` property is `red`, then the returned object will have a `red` property containing an array of those three elements, and so on for every value of `property`.
 
@@ -708,7 +708,7 @@ If the value of `property` is an array, then the element will be "grouped" for e
 {% endfor %}
 ```
 
-### aposObject(key, value, key, value, ...)
+### `aposObject(key, value, key, value, ...)`
 
 Given a series of alternating keys and values, this
 function returns a new object with the given values
@@ -752,7 +752,7 @@ Example:
 {% endfor %}
 ```
 
-### aposConcat(arrOrObj1, arrOrObj2, ...)
+### `aposConcat(arrOrObj1, arrOrObj2, ...)`
 
 Concatenate any number of arrays and objects into a single array.
 If an argument is an array, all of its elements are individually pushed onto the resulting array; you **do not** get an array of arrays.
@@ -773,7 +773,7 @@ Example:
 
 Not everything fits into a neat category. You'll functions for logging, ID generation, checking whether a date falls in the current year and other miscellaneous tasks here.
 
-### aposCanEditSomething(permissions)
+### `aposCanEditSomething(permissions)`
 
 Returns true if this user can edit *something*. It doesn't matter what. As long as they have some kind of editing access, this function returns true.
 
@@ -789,7 +789,7 @@ Example:
 {% endif %}
 ```
 
-### aposGenerateId()
+### `aposGenerateId()`
 
 Generates a unique identifier. Useful when you want many things to coexist without interfering with each other. Most of the time you won't need this, but it can be handy when attaching JavaScript to your template markup.
 
@@ -808,7 +808,7 @@ Example:
 {% endmacro %}
 ```
 
-### aposIsCurrentYear(date)
+### `aposIsCurrentYear(date)`
 
 Returns `true` if the provided date object refers to a date in the present year.
 
@@ -821,7 +821,7 @@ Example:
 {% endif %}
 ```
 
-### aposLog(s)
+### `aposLog(s)`
 
 Passes `s` to `console.log`. Very useful for debugging.
 
@@ -831,7 +831,7 @@ Example:
 {{ aposLog(page.slug) }}
 ```
 
-### aposPageRange(options)
+### `aposPageRange(options)`
 
 Returns an array of numbers representing the page numbers that should appear in Apostrophe's standard pager. **This function exists to assist the macros in `pagerMacros.html` and work around a limitation of Nunjucks.** Typically if you are calling this yourself you would be happier invoking the `renderPager` macro from that file.
 
@@ -844,7 +844,7 @@ Example:
 
 See `pagerMacros.html`.
 
-###aposSlugify(string)
+### `aposSlugify(string)`
 
 This function returns a "slug" based on the given string. All sequences of punctuation and whitespace are removed and replaced with a single `-`. Note that you should *not* use this function to link to Apostrophe pages and singletons, which already have a `slug` property that is guaranteed to be unique. Just use `page.slug`.
 
