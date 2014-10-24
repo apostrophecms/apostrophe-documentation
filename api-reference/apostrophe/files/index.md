@@ -11,7 +11,7 @@ children:
 
 These methods and API calls relate to the management of files, such as images and office documents. All methods are attached to the `apos` object.
 
-These are lower-level features for those who are not satisfied with simply [including the `slideshow` or `files` widget in editable content areas and singletons](../../tutorials/frontend-development/slideshow-options.html).
+Most of the time, the files you want access to are available through [the `slideshow` or `files` widget in editable content areas and singletons](../../tutorials/frontend-development/slideshow-options.html). If you need to do something at a lower-level, you may want to look into the options below.
 
 ### [Server-side methods](server-side.html)
 
