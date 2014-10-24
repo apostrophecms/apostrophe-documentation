@@ -47,5 +47,6 @@ $(function() {
       $ul.append($li);
     });
     $sidebar.append($ul);
+    $ul.before('<p class="on-this-page">On this page</p>');
   }
 });
