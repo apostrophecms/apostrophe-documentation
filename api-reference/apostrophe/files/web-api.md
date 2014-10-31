@@ -208,3 +208,37 @@ $(function() {
 Previously generated crops can be discovered via the `crops` property of each `file` object.
 
 **This is a low-level API. If you just want to let people crop images,** use the slideshow widget which already fully supports that.
+
+### `GET /apos/browse-files`
+
+Fetches information about files in Apostrophe's media library matching particular criteria.
+
+#### Query-string parameters
+
+* `owners` `(boolean)` if set to `1`, a `._owner` property is provided on each returned file. Defaults to false for performance.
+* `group` `(string)` returns only files with the specified `group` property, such as `images` or `office`.
+* `owner` `(string)` if set to `user`, only files belonging to the current user are returned.
+* `ids` `(array of strings)` if set, only the files with the specified `_id` properties are returned.
+* `ownerId` `(string)` if set, only files uploaded by the user with the specified `_id` are returned.
+* `tags` `(array of strings)` if set, only files with one or more of the specified tags are returned.
+* `notTags` `(array of strings)` if set, only files with none of the specified tags are returned.
+* `extension` `(string)` if set, only files with the specified extension are returned.
+* `trash` `(boolean)` if set to `1`, only files in the trash are returned. If set to `any`, files are returned regardless of whether they are in the trash. Otherwise, only files not in the trash are returned.
+* `minSize` `(array of two integers)` if specified, only images larger than the specified minimum width and height (in that order) are returned.
+* `q` `(string)` if specified, only images matching the specified search text are returned.
+* `skip` `(integer)` if `skip` is 10, the response begins with the eleventh file. For pagination.
+* `limit` `(integer)` if `limit` is 10, no more than 10 files are returned.
+
+### Response
+
+If an error occurs, a `500` status code is reported. No additional information is available.
+
+If no files are available, a `404` status code is reported. No additional information is available. This is true even if `offset` is the cause. This ensures compatibility with [jquery-bottomless](https://github.com/punkave/jquery-bottomless).
+
+If files are available, a JSON array is sent as follows:
+
+```javascript
+
+```
+
+
