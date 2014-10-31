@@ -83,10 +83,10 @@ Those are very reasonable requests. Here's how to do it. Once again we'll use th
 // Establish the default sort order for blog posts
 var superGet = self.get;
 
-self.get = function(req, optionsArg, callback) {
+self.get = function(req, userCriteria, optionsArg, callback) {
   var options = {};
 
-  extend(options, optionsArg || {}, true);
+  extend(true, options, optionsArg || {});
 
   if (options.publicationDate === 'any') {
     delete options.publicationDate;
@@ -99,7 +99,7 @@ self.get = function(req, optionsArg, callback) {
   if (!options.sort) {
     options.sort = { publicationDate: -1 };
   }
-  return superGet.call(self, req, options, callback);
+  return superGet.call(self, req, userCriteria, options, callback);
 };
 ```
 
