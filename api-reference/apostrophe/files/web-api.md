@@ -211,13 +211,13 @@ Previously generated crops can be discovered via the `crops` property of each `f
 
 ### `GET /apos/browse-files`
 
-Fetches information about files in Apostrophe's media library matching particular criteria.
+Fetches information about files in Apostrophe's media library matching particular criteria. The response also includes information about the total number of files available and the distinct tags that exist.
 
 #### Query-string parameters
 
-* `owners` `(boolean)` if set to `1`, a `._owner` property is provided on each returned file. Defaults to false for performance.
 * `group` `(string)` returns only files with the specified `group` property, such as `images` or `office`.
 * `owner` `(string)` if set to `user`, only files belonging to the current user are returned.
+* `owners` `(boolean)` if set to `1`, a `._owner` property is provided on each returned file. Defaults to false for performance. This property is an object with `title` and `_id` properties.
 * `ids` `(array of strings)` if set, only the files with the specified `_id` properties are returned.
 * `ownerId` `(string)` if set, only files uploaded by the user with the specified `_id` are returned.
 * `tags` `(array of strings)` if set, only files with one or more of the specified tags are returned.
@@ -235,10 +235,46 @@ If an error occurs, a `500` status code is reported. No additional information i
 
 If no files are available, a `404` status code is reported. No additional information is available. This is true even if `offset` is the cause. This ensures compatibility with [jquery-bottomless](https://github.com/punkave/jquery-bottomless).
 
-If files are available, a JSON array is sent as follows:
+If files are available, a JSON object is sent as follows. Note that `total` represents all available files, even if `skip` and `limit` were used. Also note that a list of distinct `tags` is provided for use in displaying filters.
 
 ```javascript
-
+{
+  "total": 5039,
+  "files": [
+    {
+      "_id": "78120023818271972",
+      "group": "images",
+      "createdAt": "2014-11-06T20:52:24.656Z",
+      "name": "bloque-cover",
+      "title": "bloque cover",
+      "extension": "jpg",
+      "width": 1553,
+      "height": 971,
+      "landscape": true,
+      "ownerId": "674614893112991444",
+      "crops": [
+        {
+          "top": "17",
+          "left": "0",
+          "width": "1553",
+          "height": "936"
+        }
+      ],
+      "description": "",
+      "credit": "how about me",
+      "tags": [
+        "bayonet"
+      ],
+    },
+    ... Many more images ...
+  ],
+  "tags": [
+    "academic advising",
+    "bayonet",
+    "clubs",
+    "zeppelin"
+  ]
+}
 ```
 
 
