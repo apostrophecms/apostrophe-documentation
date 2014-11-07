@@ -46,15 +46,15 @@ Page Types begin as a configuration in `app.js`, and the sandbox comes pre-loade
 
 ```javascript
 var site = require('apostrophe-site')({
-	…
+	...
 	pages: {
-    types: [
-      { name: 'default', label: 'Default (Two Column)' },
-      { name: 'home', label: 'Home Page' },
-      { name: 'contact', label: 'Contact' }
-    			]
-  		},
-...
+      types: [
+        { name: 'default', label: 'Default (Two Column)' },
+        { name: 'home', label: 'Home Page' },
+        { name: 'contact', label: 'Contact' }
+	 ]
+	},
+  ...
 });
 ```
 
