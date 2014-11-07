@@ -395,7 +395,7 @@ Example:
 ```markup
 {% set image = aposAreaImage(page, 'body') %}
 {% if image %}
-  <img src="{{ aposFilePath(image, { size: 'small' }) }}" />
+  <img src="{{ aposFilePath(image, { size: 'one-third' }) }}" />
 {% endif %}
 ```
 
@@ -424,7 +424,7 @@ Example:
 <ul>
   {% for image in images %}
     <li>
-      <img src="{{ aposFilePath(image, { size: 'small' }) }}" />
+      <img src="{{ aposFilePath(image, { size: 'one-third' }) }}" />
     </li>
   {% endif %}
 </ul>
@@ -505,7 +505,7 @@ Example:
 ```markup
 {% set image = aposAreaImage(page, 'body') %}
 {% if image %}
-  <img src="{{ aposFilePath(image, { size: 'small' }) }}" />
+  <img src="{{ aposFilePath(image, { size: 'one-third' }) }}" />
 {% endif %}
 ```
 
@@ -606,7 +606,7 @@ Example:
 
 ```markup
 {% macro photo(options) %}
-  {% set defaults = { size: 'large' } %}
+  {% set defaults = { size: 'two-thirds' } %}
   {# Properties of options will override properties #}
   {# of defaults #}
   {% set _options = aposMerge(defaults, options) %}

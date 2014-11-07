@@ -51,7 +51,9 @@ A typical file object looks like this:
 }
 ```
 
-## Finding Files
+**All of these methods are methods of the `apos` object.** You can access the `apos` object in `app.js` as `site.apos`. When subclassing one of Apostrophe's modules it is accessible as `self._apos`.
+
+## Finding files in the database
 
 Use these methods to search across all files in your Apostrophe website. Because they are going to the database to find files, they are asynchronous.
 
@@ -202,3 +204,52 @@ This is a convenience method that returns files with a `group: 'images'` propert
 ### `areaImage(page, 'body' [, options])` `(object)`
 
 This is a convenience method that returns the first file with a `group: 'images'` property referenced within an area (an option of `limit: 1`), and takes all of the same parameters as [areaFiles](#area-files). It also allows for the alternative syntax.
+
+### Obtaining paths to files
+
+### `aposFilePath(file, options)`
+
+Given a file object, as returned by [aposAreaFile](#apos-area-file) for instance, return the file's URL. If `options.size` is set, return the URL for that size (`one-sixth`, `one-third`, `one-half`, `two-thirds`, `full`).
+
+`full` is "full width" (1140px), not the original. For the original, don't pass `size`. Note that the `size` option only makes sense for images.
+
+Additional image sizes can be configured on a per-project basis.
+
+There is a matching client-side JavaScript implementation accessible as `apos.filePath`.
+
+**Always use this function to create URLs to files.** Otherwise your code will cease to work if your project's file storage is moved to Amazon S3 at a later date.
+
+By default this function returns a URL, which is almost always what you want. If you need an `uploadfs` path instead, include `uploadfsPath: true` among your options. This is useful if you want to retrieve the original file from [uploadfs](https://github.com/punkave/uploadfs).
+
+Real-world example:
+
+Let's add a route in our subclass of the `people` module that allows the thumbnail portrait of the current user to be fetched as `/profile`.
+
+```javascript
+// Send the user's profile image, if any
+app.get('/profile', function(req, res) {
+  if (!req.user) {
+    return fail();
+  }
+  var image = self._apos.areaImage(req.user, 'thumbnail');
+  if (!image) {
+    return fail();
+  }
+  return res.redirect(
+    self._apos.filePath(image, { size: 'one-third' })
+  });
+
+  function fail() {
+    res.statusCode = 404;
+    return res.send('notfound');
+  }
+});
+```
+
+Now we can write:
+
+```javascript
+<img src="/profile" />
+```
+
+Of course, we could just use `aposAreaImage` and `aposFilePath` in our Nunjucks template instead.
