@@ -4,16 +4,50 @@ title: Files - server-side methods
 
 ## Overview
 
-Something about files being stored in a the aposFiles collection, and how using these methods on the apos object will allow you to get or create or manipulate these files.
+User-uploaded files, such as images, PDFs or Word documents, are part of every Apostrophe site.
 
-Some details on the file objects that are returned from most of these functions
+Apostrophe stores information about these in the `aposFiles` MongoDB collection. A rich API is provided to browse, upload, annotate and display files.
+
+The actual files themselves can be found in the `public/uploads/files` folder, if you're not using Amazon S3 for storage via [uploadfs](https://github.com/punkave/uploadfs). However, for best compatibility, you should always use the methods and Nunjucks helpers of Apostrophe to determine URLs for them.
+
+A typical file object looks like this:
 
 ```javascript
 {
-  _id: 9913834171,
-  group: 'images',
-  extension: 'jpg',
-  // ...incomplete?
+  "_id": "78120023818271972",
+  // Might be "images" or "office"
+  "group": "images",
+  "createdAt": "2014-11-06T20:52:24.656Z",
+  // Part of the filename
+  "name": "bloque-cover",
+  "title": "bloque cover",
+  // Standardized, always 3 lowercase letters
+  "extension": "jpg",
+  // Dimensions of original
+  "width": 1553,
+  "height": 971,
+  // Or "portrait": true
+  "landscape": true,
+  // Corresponding person is in aposPages
+  "ownerId": "674614893112991444",
+  // An array of existing cropped versions
+  // of the file
+  "crops": [
+    {
+      "top": "17",
+      "left": "0",
+      "width": "1553",
+      "height": "936"
+    }
+  ],
+  // Detailed description, if provided
+  "description": "Lots of details",
+  // The artist
+  "credit": "Ansel Adams",
+  // Tags improve media library searches
+  "tags": [
+    "bayonet"
+  ]
 }
 ```
 
@@ -78,16 +112,30 @@ apos.getFiles(req, {
   trash: 0,
   // Specifies minimum width and height for photos, pass as array [width, height]
   minSize: null,
-  //
-  browsing: ,
-  q: ,
-  skip: ,
-  limit: ,
-
-}, function(err, files){
-  // ... do sometthing with the files ...
+  // If true, only files not marked private
+  // are returned
+  browsing: false,
+  // Optional search string
+  q: undefined,
+  // To start with the 11th file, set skip to 10
+  skip: 0,
+  // To limit the number of files returned
+  // for this particular request
+  limit: undefined
+}, function(err, files) {
+  // ... do something with the files ...
 });
 ```
+
+### `browseFiles(req, options, callback)`
+
+This method is identical to [getFiles](#code-get-files) except that:
+
+1. The `browsing` option is always set.
+
+2. All parameters are fully validated as if they came directly from an untrusted web browser. Specifically, it is safe to pass `req.body` as `options`.
+
+This method is intended for use in implementing routes that accept browser input.
 
 ## Finding files in areas
 
@@ -108,6 +156,8 @@ Returns all the files matching the criteria.
 
 #### Real-World Example
 
+Consider this example as might be found in a subclass of [snippets](../../../tutorials/snippets/index.html).
+
 ```javascript
 // in context
 var superBeforeShow = self.beforeShow;
@@ -124,13 +174,14 @@ self.beforeShow = function(req, snippet, callback) {
 
 ```javascript
 apos.areaFiles(page, 'myArea', {
-  // Specifies the acceptable file extension
+  // Specifies just one acceptable file extension
   extension: 'gif',
   // Specifies multiple acceptable file extensions
   extensions: ['gif', 'png'],
-  // Specifies the file type group, by default 'images' and 'office' are available
+  // Specifies the file type group, by
+  // default 'images' and 'office' are available
   group: 'office',
-  // Specifies the limit for amount of returned files
+  // Specifies the maximum number of files returned
   limit: 3
 });
 
