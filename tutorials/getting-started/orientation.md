@@ -1,1 +1,1 @@
-This article will cover the file structure of an Apostrophe project.
+This article will cover the file structure of an Apostrophe project, adding a new page template, and loading custom JS and CSS assets.
