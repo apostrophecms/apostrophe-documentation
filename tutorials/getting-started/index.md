@@ -2,6 +2,7 @@
 title: "Getting started"
 children:
   - getting-started
+  - orientation
   - editing-existing-page-templates
   - adding-editable-content-areas-to-your-page-templates
   - creating-new-page-templates

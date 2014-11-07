@@ -1,0 +1,1 @@
+This article will cover the file structure of an Apostrophe project.
