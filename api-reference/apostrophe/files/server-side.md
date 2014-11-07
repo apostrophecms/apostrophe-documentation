@@ -11,7 +11,7 @@ Some details on the file objects that are returned from most of these functions
 ```javascript
 {
   _id: 9913834171,
-  group: 'image',
+  group: 'images',
   extension: 'jpg',
   // ...incomplete?
 }
@@ -33,17 +33,19 @@ Fetch files according to the parameters specified by the `options` object.
 
 #### Returns `(object)`
 
-The returned object contains the following information
+The returned object contains the following information:
 
 ```javascript
 {
-  // count of files that match criteria
-  total: 1
-  // array of file object
-  result: [{...}],
-  // distinct set of tags for all of the files returned
+  // count of files that match criteria, even
+  // if not part of this response due to
+  // skip or limit
+  total: 100
+  // array of file objects
+  files: [{...}],
+  // distinct set of tags for all of the files
+  // matching the criteria
   tags: ['cool', 'awesome'],
-  // ...incomplete?
 }
 ```
 
@@ -87,13 +89,7 @@ apos.getFiles(req, {
 });
 ```
 
-### `getFiles(req, options, callback)` `(object)`
-
-Fetch files according to the parameters specified by the
-`options` object. These properties are sanitized to ensure they are in the proper format. A sanitizing wrapper for [getFiles](#getFiles), which also always sets the `browsing` option to ensure that we only receive files we are entitled to add to our pages.
-
-
-## Finding Files In Areas
+## Finding files in areas
 
 Use these methods to find files that live in areas that belong to a page or snippet. Because they are referencing an area we already have in memory, they are synchronous.
 
@@ -150,8 +146,8 @@ This is a convenience method that returns the first file referenced within an ar
 
 ### `areaImages(page, 'body' [, options])` `(array)`
 
-This is a convenience method that returns files with a `group: 'image'` property referenced within an area, and takes all of the same parameters as [areaFiles](#area-files). It also allows for the alternative syntax.
+This is a convenience method that returns files with a `group: 'images'` property referenced within an area, and takes all of the same parameters as [areaFiles](#area-files). It also allows for the alternative syntax.
 
 ### `areaImage(page, 'body' [, options])` `(object)`
 
-This is a convenience method that returns the first file with a `group: 'image'` property referenced within an area (an option of `limit: 1`), and takes all of the same parameters as [areaFiles](#area-files). It also allows for the alternative syntax.
+This is a convenience method that returns the first file with a `group: 'images'` property referenced within an area (an option of `limit: 1`), and takes all of the same parameters as [areaFiles](#area-files). It also allows for the alternative syntax.
