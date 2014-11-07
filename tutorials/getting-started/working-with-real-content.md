@@ -46,6 +46,8 @@ The `controls` option allows us to determine what widgets are included. It also 
 
 #### Rich text controls
 
+Apostrophe uses [CKEditor](http://ckeditor.com/) to allow in-context editing of text. We can pass options to the `controls` array that dictate which CKEditor buttons to show.
+
 * `style`: the style menu, which offers heading levels, etc.
 * `bold` and `italic`: you know what these are!
 * `createLink`: allows the user to add a hyperlink.
@@ -65,3 +67,30 @@ Here's a list of widgets available in Apostrophe. Users can add these to any con
 * `files`: allows the user to download files.
 * `pullquote`: a "pull quote" displayed to the side of the text.
 * `html`: the raw HTML widget. We do not recommend giving your users access to this unless absolutely necessary, as it can easily break your page design.
+
+#### Configuring rich text controls
+
+![Contact page](../../images/styles-menu-open.png)
+
+The default text style controls located in the left-hand dropdown menu of the rich text editor include:
+
+- "Normal" (a `<p>` tag)
+- "Headings" 3 - 6 (representing `<h3>` through `<h6>`)
+- "Preformatted" (`<pre>`)
+
+Depending on the requirements of your design this might be too much control for a given area. We can use the `styles` option to specify which block-level elements to use and what their names should be in the menu.
+
+```markup
+{{ aposArea(page, 'myArea', {
+  styles: [
+    { value: 'p', label: 'Text' },
+    { value: 'h3', label: 'Title' }
+  ]
+}) }}
+```
+
+[screenshot of this version of the menu]
+
+#### Adding custom classes in rich text styles
+
+To make writing CSS for your editable text areas a bit easier you can specify classes for each of the `styles` options.
