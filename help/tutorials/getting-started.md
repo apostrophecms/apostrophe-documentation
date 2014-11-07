@@ -5,12 +5,10 @@ title: "Getting Started"
 Welcome to the first tutorial in a series that aims to make you an expert user of Apostrophe. In this first step, we'll learn about logging in and editing your password. We'll also take a look at some of the higher-level parts of Apostrophe's interface and introduce you to some terms that we'll continue to use throughout these tutorials. If you already have a website built on Apostrophe, feel free to follow along with these tutorials using your own site, but these tutorials will specifically reference pages and functionality on our demo site which you can access at demo.apostrophenow.org.
 
 ## Step 1: Logging into Apostrophe
-[Insert image of home page]
-
+<img src="/images/tutorials/editor/home-page.png">
 Now that we've arrived on the homepage, let's get to logging in. On all Apostrophe sites, you can access a login for simply by visiting http://yoursitename.com/login. In the case of our demo site, that means that you can visit http://demo.apostrophenow.org/login or simply add "/login" to the end of the URL on the homepage.
 
-[Insert image of login page]
-
+<img src="/images/tutorials/editor/login.gif">
 For our demo site, you can see that the username and password are given as hints in the login window (don't worry, this is the only Apostrophe site that should do that). Go ahead and enter the username "admin" into the username field and the password "demo" into the password field. Click login and prepare to see Apostrophe's editing interface.
 
 ## Step 2: Understanding the Admin Bar
