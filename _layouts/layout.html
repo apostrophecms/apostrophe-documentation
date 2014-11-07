@@ -95,7 +95,7 @@
     <div class="inner">
       {% block header %}
         <div class="doc-type">
-          <div class="type-image {{ docTypeClass() }}"></div>
+          <div class="type-image {{ typeCheck() }} {{ docTypeClass() }}"></div>
         </div>
         <h1 class="{% if title.length > 30 %}long{% endif %}">{{ title | e }}</h1>
       {% endblock %}
