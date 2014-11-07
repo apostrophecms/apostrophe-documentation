@@ -41,7 +41,7 @@ In a later tutorial, we'll explore how to use these tools.
 
 ## Step 4: Understanding Modals
 
-<img src="/images/tutorials/editor/modal.gif" class="shadow">
+<img src="/images/tutorials/editor/modal-window.gif" class="shadow">
 Another important piece of Apostrophe's interface that we'll be talking about is the modal [link to glossary term], which is a term we use to refer to popup windows that are used to edit information that is not a part of a page. For the most part, all content type and settings that you access from either the admin bar or the page menu will appear in a modal window.
 >##Pro-tip:
 You can close any modal by simply hitting the escape key.
