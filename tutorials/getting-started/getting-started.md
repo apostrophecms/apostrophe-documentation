@@ -85,7 +85,7 @@ npm
 If you get a "not found" error, run this:
 
 ```bash
-curl https://npmjs.org/install.sh | sh
+curl -L https://npmjs.org/install.sh | sh
 ```
 
 ##### Install git
