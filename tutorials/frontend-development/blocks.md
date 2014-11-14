@@ -107,12 +107,12 @@ Like areas, we supply a name for the block group with the second argument.  We a
 
 On the page where you added the blocks, we’ll now find the control to “Add Blocks” much similar to the way we’ve been adding areas.
 
-![Add Blocks](../../images/tutorials/developer/Blocks_add.png)
+![Add Blocks](../../images/tutorials/developer/Blocks_add.png)<br>
 *Creating new Blocks is as simple as creating new areas.*
 
 You’ll notice our one and two column layouts are here, and clicking either will generate a block with the markup from the respective template.  Each block gets its own controls.  You have the ability to move and rearrange blocks around each other, switch the template layout of the block, and delete it.  Switching the layout works well if you are switching between layouts that use the same name for a similar area.  In our case, since we used “left” as the name for the area within the one-column layout, when we switch it to the two-column layout, our content will adapt to the new layout and become the left column.
 
-![Block Controls](../../images/tutorials/developer/Blocks_controls.png)
+![Block Controls](../../images/tutorials/developer/Blocks_controls.png)<br>
 *Each Block’s controls allow you to move it around, change the layout, and delete it from the page.*
 
 
