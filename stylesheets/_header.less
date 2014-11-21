@@ -1,5 +1,6 @@
 .header
 {
+  position: relative;
   padding: 6.75rem 0;
   background-color: @purple;
 
@@ -56,25 +57,78 @@
     }
 
   }
+
+  &::before
+  {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+
+    display: block;
+    content: '';
+    height: 8px;
+
+    background-color: fade(#000000, 10%);
+
+  }
 }
 
 .header.home
 {
-  background-color: @tan;
-  padding-top: 200px;
-  padding-bottom: 0;
-  text-align: center;
+  background-color: @red;
+  padding: 4rem inherit;
 
-  .big-logo
+
+  .home-text-outer
   {
-    .inline-block(top);
+    display: table;
+    height: 380px;
+  }
 
-    width: 167px;
-    height: 200px;
+  .home-text-inner
+  {
+    display: table-cell;
+    vertical-align: middle;
+  }
 
-    background-image: url('../images/big-mark.png');
-    background-size: 167px 200px;
+  .home-illustration
+  {
+    float: left;
+    margin-right: 4rem;
+
+    width: 377px;
+    height: 380px;
+
+    background-image: url('../images/home-illustration.png');
+    background-size: 377px 380px;
     bakground-position: center;
     background-repeat: no-repeat;
+  }
+
+  h3
+  {
+    font-size: 3rem;
+    line-height: 1em;
+    color: @white;
+  }
+
+  .home-button
+  {
+    .inline-block(top);
+    padding: 0.75rem 1rem;
+
+    border: 1px solid @white;
+    border-radius: 2px;
+
+    .Karla();
+    font-size: 1.25rem;
+    color: @white;
+
+    .transition(background-color 0.06s, color 0.06s;);
+
+    &:hover
+    {
+      background-color: @white;
+      color: @red;
+    }
   }
 }
