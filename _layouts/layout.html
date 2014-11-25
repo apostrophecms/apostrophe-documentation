@@ -92,7 +92,7 @@
   </nav>
 
   <div class="header {% block headerClass %}{% endblock %}">
-    <div class="inner">
+    <div class="inner {% block headerInnerClass %}{% endblock %}">
       {% block header %}
         <div class="doc-type">
           <div class="type-image {{ typeCheck() }} {{ docTypeClass() }}"></div>

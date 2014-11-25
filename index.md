@@ -7,9 +7,7 @@ children:
 layout: "home"
 ---
 
-#### Apostrophe is a content management system that helps you stay on mission.
-
-You can [check out a live demo here.](http://demo2.apostrophenow.com)
+#### Learn about building a site in Apostrophe.
 
 This site provides developer documentation for Apostrophe 2, our next-generation version built from the ground up with [node.js](http://nodejs.org). You can [find information about the older PHP-based version here](http://trac.apostrophenow.org).
 
