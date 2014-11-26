@@ -4,7 +4,7 @@ children:
   - tutorials
   - faqs
   - glossary
-layout: "home"
+layout: "editor"
 type: "help"
 ---
 
