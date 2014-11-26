@@ -119,6 +119,13 @@
             {{ buildMenuTree(1) }}
           </ul>
         {% endblock %}
+        <p class="sidebar-help">
+          {% if typeCheck() == 'help' %}
+            Are you a developer? You may want to checkout our <a href="{{ root }}">documentation site</a>.
+          {% else %}
+            Are you an editor? You may want to checkout our <a href="{{ root }}/help">help site</a>.
+          {% endif %}
+        </p>
       </div>{#
       #}<div class="main">
         <div data-search style="display: none;">

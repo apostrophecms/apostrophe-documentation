@@ -72,36 +72,55 @@
   }
 }
 
-.header.home
+.header.landing
 {
   background-color: @red;
   padding: 4rem inherit;
 
 
-  .home-text-outer
+  &.landing--developer
+  {
+    //This will eventually be blue
+    background-color: @red;
+  }
+  &.landing--editor
+  {
+    //This will eventually be blue
+    background-color: @green;
+  }
+
+  .landing-text-outer
   {
     display: table;
     height: 380px;
   }
 
-  .home-text-inner
+  .landing-text-inner
   {
     display: table-cell;
     vertical-align: middle;
   }
 
-  .home-illustration
+  .landing-illustration
   {
     float: left;
     margin-right: 4rem;
 
     width: 377px;
     height: 380px;
-
-    background-image: url('../images/home-illustration.png');
     background-size: 377px 380px;
     bakground-position: center;
     background-repeat: no-repeat;
+    &.landing-illustration--developer
+    {
+      background-image: url('../images/home-illustration.png');
+    }
+    &.landing-illustration--editor
+    {
+      float: right;
+      background-image: url('../images/editor-illustration.png');
+      background-size: 377px 308px;
+    }
   }
 
   h3
@@ -111,7 +130,7 @@
     color: @white;
   }
 
-  .home-button
+  .landing-button
   {
     .inline-block(top);
     padding: 0.75rem 1rem;
