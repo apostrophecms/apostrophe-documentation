@@ -16,6 +16,7 @@ children:
   - tasks
   - apostrophe-in-a-subdirectory
   - migrate-from-0-4
+  - windows
 docType: "howto"
 ---
 

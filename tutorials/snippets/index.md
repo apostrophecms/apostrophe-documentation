@@ -9,6 +9,7 @@ children:
   - advanced-server-side-2
   - advanced-browser-side-topics
   - extending-the-widget
+  - exporting-snippets
   - misc
   - rss-feed-options
 ---
