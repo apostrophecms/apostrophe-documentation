@@ -6,9 +6,11 @@ title: "Getting Started with Apostrophe"
 
 We're going to start from the very beginning by installing the software necessary to develop with Apostrophe and setting up an empty project to work with. At the end of this tutorial you will have all the tools you need to start building a website.
 
-### Step 1: Install the Software on OS X
+### Step 1: Install the Software
 
-This will get you set up on a Mac running OSX 10.9 or 10.10 (Windows instructions are coming soon).
+**These instructions are for MacOS X,** which most developers use to test code that will eventually deploy to Linux. Also see this lovely [HOWTO for Windows](../../howtos/windows.html) contributed by Michael Brown.
+
+This will get you set up on a Mac running OSX 10.9 or better.
 
 We're going to install the following software:
 

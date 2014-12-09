@@ -54,6 +54,16 @@
       padding-bottom: 1em;
     }
   }
+  .sidebar-help
+  {
+    margin-top: 16px; //Roughing in 1em
+    font-size: 14px;
+    color: lighten(@dark, 10%);
+    a
+    {
+      color: @red;
+    }
+  }
 
   .on-this-page
   {
@@ -96,7 +106,7 @@
     margin-bottom: 2rem;
   }
 
-  p code
+  p code, ul code, ol code
   {
     padding: 0.2em 0.5em;
     background-color: fade(#000000, 5%);
@@ -163,5 +173,37 @@
       margin-bottom: 20px;
       box-shadow: 0px 13px 50px 1px #666;
     }
+    &.retina-image
+    {
+      margin-left: 5%;
+      margin-right: 5%;
+      max-width: 38%;
+      &.client-logo
+      {
+        height: 80px;
+        margin-left: 0;
+        margin-right: 0;
+        width: auto;
+      }
+    }
   }
+
+  //Special Styles for the client-link section.
+  .client-link + .client-link
+  {
+    margin-left: 2em;
+
+  }
+  .twitter-tweet-rendered
+  {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+
+  img[src$=".gif"]
+  {
+    border: 10px solid @green;
+  }
+
 }
