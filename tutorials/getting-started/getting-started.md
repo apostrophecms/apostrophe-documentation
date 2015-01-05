@@ -165,6 +165,9 @@ mkdir data
 cp local.example.js data/local.js
 ```
 
+Edit the new `local.js` to remove or comment out the `uri` property.
+
+
 ##### Create the Database
 
 ```bash
@@ -196,6 +199,8 @@ The test username is `admin` and the test password is `demo`. If you've never us
 Now that you have the Apostrophe Sandbox there are a few steps you can take to turn it into your own project with a dedicated git repo.
 
 Start by editing `package.json` to reflect your project. You should also change the `shortName` variable in `app.js`– this is what your database will be called.
+
+Remove the `apostrophe-demo-login` module from `app.js` and from your `package.json`.
 
 ##### Start a new Git repo
 

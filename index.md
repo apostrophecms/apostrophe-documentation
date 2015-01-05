@@ -22,6 +22,8 @@ Apostrophe is a design-driven, in-context CMS built on Node.js and MongoDB. It p
 
 Apostrophe is built on an accessible technology stack that focuses on ease of use as well as performance. Node.js provides an easy entry point for front-end Javascript developers and a playground for experienced back-end developers. The Nunjucks templating language allows for easily including data and editable content on any page. And MongoDB provides the necessary speed to serve Apostrophe’s content-driven pages.
 
+Looking to get started with Apostrophe development? Check out the [tutorials](tutorials/index.html).
+
 <p>&nbsp;</p>
 
 #### Apostrophe is Robust
