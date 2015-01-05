@@ -22,6 +22,7 @@ uploadfs: {
   bucket: 'your-bucket-name',
   region: 'us-west-2'
 }
+```
 
 With this configuration all file uploads are written to S3 instead of the local file system.
 
