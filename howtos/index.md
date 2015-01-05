@@ -1,6 +1,7 @@
 ---
 title: HOWTOs
 children:
+  - slideshow-with-links
   - adding-nunjucks-filters-and-functions
   - database-migrations
   - accessing-the-database-directly
@@ -15,8 +16,9 @@ children:
   - scene-upgrades
   - tasks
   - apostrophe-in-a-subdirectory
-  - migrate-from-0-4
+  - storing-images-and-files-in-amazon-s3
   - windows
+  - migrate-from-0-4
 docType: "howto"
 ---
 
