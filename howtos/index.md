@@ -1,7 +1,6 @@
 ---
 title: HOWTOs
 children:
-  - slideshow-with-links
   - adding-nunjucks-filters-and-functions
   - database-migrations
   - accessing-the-database-directly
