@@ -14,7 +14,7 @@ Finally, I'll assume your server actually has more than one CPU core. If you hav
 
 **Tip:** You might want to reserve one core for `mongodb`. Take that into account when you decide how many processes to run.
 
-## Multiple ports, multiple cores, multiple processes
+## Multicore: multiple ports, multiple processes
 
 Let's say your site is called `mysite`. On your server, check out the text file  `/opt/stagecoach/apps/mysite/current/data/port`. This will contain a single port number, probably `3000` unless you are deploying multiple sites to the same server.
 
