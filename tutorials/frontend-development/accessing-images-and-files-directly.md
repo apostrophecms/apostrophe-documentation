@@ -28,7 +28,7 @@ You can also fetch all the images:
 ```markup
 {% for image in aposAreaImages(page, 'body') %}
   <img src="{{ aposFilePath(image, { size: 'one-sixth' }) }}" />
-{% endif %}
+{% endfor %}
 ```
 
 You can use the `limit` option to specify just two images at most:
@@ -36,7 +36,7 @@ You can use the `limit` option to specify just two images at most:
 ```markup
 {% for image in aposAreaImages(page, 'body', { limit: 2 }) %}
   <img src="{{ aposFilePath(image, { size: 'one-sixth' }) }}" />
-{% endif %}
+{% endfor %}
 ```
 
 Or use the `extension` option to specify we only care about JPEGs:
