@@ -40,7 +40,7 @@ Now restart your site and add a page with the "Company" page type. Boom! There's
 
 You can access this field in your `company.html` page template:
 
-    {{ page.typeSettings.incorporated }}
+    {{ page.incorporated }}
 
 "OK, but what other field types are there?" `apostrophe-fancy-page` uses Apostrophe schemas. You can do anything that is [supported by Apostrophe schemas](http://github.com/punkave/apostrophe-schemas). It's exactly like adding fields to [snippet subclasses](../snippets/subclassing-snippets.html) like `apostrophe-blog` and `apostrophe-events`.
 
