@@ -15,4 +15,20 @@
       <a href="http://demo.apostrophenow.com" class="landing-button">Try the Live Demo</a>
     </div>
   </div>
+
+{% endblock %}
+
+{% block extraHeader%}
+<div class="extra-header">
+  <div class="inner">
+    <h3 style="margin-bottom: 1rem;">You can start building with Apostrophe right now</h3>
+    <pre>
+      <code>
+        <span class="red">$</span> npm install apostrophe-cli -g
+        <span class="red">$</span> apostrophe create 'project-name'
+      </code>
+    </pre>
+    <p style="margin-top: 1rem;">Don't know what <strong>npm</strong> means? Don't have <strong>Mongo</strong> and <strong>Imagemagick</strong>? Using Windows? Check out our <a href="/tutorials/getting-started/getting-started.html">Getting Started</a> tutorial.</p>
+  </div>
+</div>
 {% endblock %}
