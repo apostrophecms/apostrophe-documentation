@@ -9,6 +9,7 @@ children:
   - custom-widgets
   - creating-pages-programmatically
   - making-media-fields-mandatory
+  - adding-file-types-in-the-media-library
   - pushing-data-to-the-browser
   - pushing-calls-to-the-browser
   - cross-module-includes
