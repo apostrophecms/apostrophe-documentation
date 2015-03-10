@@ -63,7 +63,7 @@ Configuring lockups for areas in the schema of a snippet subclass works as you'd
 
 
 ```css
-.apostrophe-lockup.left .apos-widget {
+.apos-lockup.left .apos-widget {
   float: left;
   width: 300px;
 }
