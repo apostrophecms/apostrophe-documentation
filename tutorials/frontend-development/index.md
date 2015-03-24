@@ -1,6 +1,7 @@
 ---
 title: "Frontend development"
 children:
+  - navigation
   - slideshow-options
   - image-sizes-in-apostrophe
   - custom-image-sizes
