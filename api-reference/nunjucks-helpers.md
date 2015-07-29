@@ -613,6 +613,7 @@ Example:
 ">
   <h4>{{ item.title | e }}</h4>
 </div>
+```
 
 ### `aposMerge(object1, object2, object3...)`
 
