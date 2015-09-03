@@ -160,3 +160,23 @@ Or use an object with fullName and email properties.
 
 PLEASE NOTE: if you pass an object rather than a string as the "from" argument when calling `self.email`, configuration options are always ignored in favor of what you passed. However if you pass a string it is assumed to be a hard-coded default and options are allowed to override it.
 
+## Sending email via Postmark and other services
+
+It's easy to send email via Postmark. Just include a `mailer` configuration in `app.js`:
+
+```javascript
+mailer: {
+ transportOptions: {
+   service: "Postmark",
+   auth: {
+     user: 'your-server-api-token-here',
+     pass: 'your-server-api-token-here'
+   }
+ },
+ transport: 'SMTP'
+}
+```
+
+Note that your Postmark server API token must be passed as both the `user` option and the `pass` option.
+
+You can also configure any other transport supported by nodemailer 0.6.x.
