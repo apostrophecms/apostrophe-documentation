@@ -139,24 +139,26 @@ option "resetRequestEmailSubject" overrides the subject.
 
 If the "from" option is a string or is absent, and the template name is "resetRequestEmail", then the "resetRequestEmailFrom" option determines who the email comes from, if present.
 
-If there is no such option then the "from" option
-determines who the email comes from. This allows you to set a global "from" address for all email in your module.
+If there is no such option then the "from" option passed when configuring your module determines who the email comes from. This allows you to set a single fallback "from" address for all email in your module.
 
-If this option is not set either and the "from" argument was omitted, then the email comes from:
+You can also set a default "from" address for all email in your entire application. In `app.js` that looks like:
+
+```javascript
+  // other configuration
+  mailer: {
+    // transport and transportOptions may also be here
+    from: 'Great Philly Schools <info@greatphillyschools.org>'
+  }
+```
+
+If this option is not set at any level, and the `from` argument is omitted when calling `self.email`, then the email comes from:
 
 ```
 Do Not Reply <donotreply@example.com>
 ```
 
-But this is terrible, so make sure you set the appropriate options.
+But **this is terrible, so make sure you set the appropriate options**.
 
-In app.js you may set the from address to a string in this format:
-
-```
-Bob Smith <donotreply@example.com>
-```
-
-Or use an object with fullName and email properties.
 
 PLEASE NOTE: if you pass an object rather than a string as the "from" argument when calling `self.email`, configuration options are always ignored in favor of what you passed. However if you pass a string it is assumed to be a hard-coded default and options are allowed to override it.
 
