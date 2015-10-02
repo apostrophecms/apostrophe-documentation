@@ -488,6 +488,26 @@ Example:
 </ul>
 ```
 
+### `aposAreaImagePath(page, name, options)`
+
+### `aposAreaImagePath({ area: area, options... })`
+
+Find an image referenced within an area, such as an image in a slideshow widget. Returns the path of the `file` object for that image. Only searches for GIF, JPEG and PNG images.
+
+This is a convenience wrapper for [aposAreaImage](#apos-area-image) [aposFilePath](#apos-file-path) to obtain a URL for use in an `img` element.
+
+If `options.size` is set, return the URL for that size (`one-sixth`, `one-third`, `one-half`, `two-thirds`, `full`).
+
+`full` is "full width" (1140px), not the original. For the original, don't pass `size`.
+
+Additional image sizes can be configured on a per-project basis.
+
+Example:
+
+```markup
+  <img src="{{ aposAreaImagePath(page, 'image', { size: 'one-third' }) }}" />
+```
+
 ### `aposFilePath(file, options)`
 
 Given a file object, as returned by [aposAreaFile](#apos-area-file) for instance, return the file URL. If `options.size` is set, return the URL for that size (`one-sixth`, `one-third`, `one-half`, `two-thirds`, `full`).
@@ -593,6 +613,7 @@ Example:
 ">
   <h4>{{ item.title | e }}</h4>
 </div>
+```
 
 ### `aposMerge(object1, object2, object3...)`
 

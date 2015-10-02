@@ -12,7 +12,7 @@ Here's an example of template code to insert a named area that lives in the curr
 {{ aposArea(page, 'content1') }}
 ```
 
-The `page` object is made available to your page templates by Apostrophe. The name `content1 indicates that we are addressing a particular named content area within the page. It's possible to pass options via a third parameter.
+The `page` object is made available to your page templates by Apostrophe. The name `content1` indicates that we are addressing a particular named content area within the page. It's possible to pass options via a third parameter.
 
 You can use that third parameter to create a text-only area:
 
@@ -42,7 +42,7 @@ One more trick: you can limit the number of items in an area.
 
 ## Apostrophe controls
 
-There are two types of controls: those that influence the rich text editor and those that introduce "widgets" like slideshows.
+There are two types of controls: those that influence the rich text editor and those that introduce "widgets" like slideshows. Both can appear on the `controls` list.
 
 ### Rich text controls
 
@@ -69,9 +69,17 @@ Here's a list of widgets available in Apostrophe. Users can add these to any con
 * `rss`: an RSS feed (if the `apostrophe-rss` module is in your project).
 * `twitter`: a Twitter feed (if the `apostrophe-twitter` module is in your project). TODO: configuration notes re: API key.
 
-See also [slideshow options](/tutorials/frontend-development/slideshow-options.html).
+### Passing options to widgets
 
-If you're interested in creating new widgets, check out the [Twitter](http://github.com/punkave/apostrophe-twitter) module and the [RSS](http://github.com/punkave/apostrophe-rss) module as examples. The Twitter module includes a player powered by client-side JavaScript, while the RSS module demonstrates how to fetch content on the server side before the widget is rendered.
+Just add a property with the same name as the widget and pass options relevant to that widget:
+
+```markup
+{{ aposArea(page, 'content1', { slideshow: { limit: 3 } } ) }}
+```
+
+See also [slideshow options](../frontend-development/slideshow-options.html).
+
+If you're interested in creating new widgets, check out [creating custom widgets](../howtos/custom-widgets.html).
 
 ## Rich text styles
 

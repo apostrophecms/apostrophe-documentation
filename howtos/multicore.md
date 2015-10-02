@@ -118,7 +118,15 @@ module.exports = {
 
 Here I assume you're using passwords with mongodb, since your `mongodb` server must be set up to allow connections from other servers.
 
-A single instance of mongodb is smart enough to use multiple cores. But depending on your needs you might need to set up a [mongodb replica set](http://docs.mongodb.org/manual/replication/).
+A single instance of mongodb is smart enough to use multiple cores. You may be tempted to set up a [mongodb replica set](http://docs.mongodb.org/manual/replication/).
+
+If you are doing that in order to have high reliability, great! It will make sure your mongodb database remains availability if one of the servers go down.
+
+But if you are doing it for performance reasons, be aware that Apostrophe needs to be able to immediately read what it has written in order for things like sessions to work. And this means that it always reads from the primary node (the default behavior in MongoDB replica sets).
+
+At a future date we may relax this behavior so that database reads for logged-out users who have no session data so far are permitted to read from secondary nodes. This would yield a performance benefit without compromising the consistency of what users experience.
+
+Another possible solution is to use alternative session middleware, which will be easier in Apostrophe 0.6.
 
 ### Sharing one set of uploaded media files
 

@@ -82,8 +82,8 @@ stories.Stories = function(options, callback) {
 
   self.extendWidget = function(widget) {
     // Make a note of the old addCriteria method
-    var superAddCriteria = self.addCriteria;
-    self.addCriteria = function(item, criteria, options) {
+    var superAddCriteria = widget.addCriteria;
+    widget.addCriteria = function(item, criteria, options) {
       // Call the old addCriteria method
       superAddCriteria(item, criteria, options);
       // Now add custom criteria
