@@ -34,7 +34,7 @@ sh deployment/stop && sh deployment/start
 
 You'll note that stagecoach launches *four* "forever" processes instead of just one. Each one is listening on a separate port.
 
-Now we need to configure nginx to balance the load over the four ports. Here's our recommended configuration:
+Now we need to configure nginx to balance the load over the four ports. You should be able to find your site configuartion in ```/etc/nginx/sites-enabled/```. Here's our recommended configuration:
 
 ```
 upstream upstream-EXAMPLE  { 
@@ -78,7 +78,9 @@ The `upstream` block lists all four back-end ports that node is listening on. Wh
 
 The above configuration also includes smart settings to take advantage of compression and to deliver static files directly from nginx.
 
-Now restart `nginx` and you're ready to go. Use the `siege` utility to test your site, and watch `top` to see that all four node processes are consuming CPU.
+Now restart `nginx` and you're ready to go. If you're on an Ubuntu server, use the command ```service nginx restart``` as root user. If you're on CentOS 7, use ```systemctl restart nginx.service``` as root user. 
+
+Use the `siege` utility to test your site, and watch `top` to see that all four node processes are consuming CPU.
 
 ## Multiple servers
 
