@@ -135,11 +135,26 @@ The subject line can be overridden in app.js when configuring your module.
 If the template name (fifth argument) is "resetRequestEmail", then the
 option "resetRequestEmailSubject" overrides the subject.
 
-### Overriding the "From" Address
+### Overriding the "From" Address at the module level
 
 If the "from" option is a string or is absent, and the template name is "resetRequestEmail", then the "resetRequestEmailFrom" option determines who the email comes from, if present.
 
 If there is no such option then the "from" option passed when configuring your module determines who the email comes from. This allows you to set a single fallback "from" address for all email in your module.
+
+Example:
+
+```
+// in app.js
+
+modules: {
+  // other stuff, then...
+  mymodule: {
+    email: {
+      from: 'Great Philly Schools <info@greatphillyschools.org>'
+    }
+  }
+}
+```
 
 You can also set a default "from" address for all email in your entire application. In `app.js` that looks like:
 
@@ -148,8 +163,11 @@ You can also set a default "from" address for all email in your entire applicati
   mailer: {
     // transport and transportOptions may also be here
     from: 'Great Philly Schools <info@greatphillyschools.org>'
-  }
+  },
+  modules: { ... etc ... }
 ```
+
+Note the use of the `mailer` key rather than `email`.
 
 If this option is not set at any level, and the `from` argument is omitted when calling `self.email`, then the email comes from:
 
