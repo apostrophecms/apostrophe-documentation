@@ -500,6 +500,8 @@ If `options.size` is set, return the URL for that size (`one-sixth`, `one-third`
 
 `full` is "full width" (1140px), not the original. For the original, don't pass `size`.
 
+If this function is used on an area/singleton that does not contain an image, it will throw an error. You can prevent this by passing a `def` option as a fallback in this case.
+
 Additional image sizes can be configured on a per-project basis.
 
 Example:
@@ -517,6 +519,8 @@ Given a file object, as returned by [aposAreaFile](#apos-area-file) for instance
 Additional image sizes can be configured on a per-project basis.
 
 There is a matching client-side JavaScript implementation accessible as `apos.filePath`.
+
+If this function is used on an file object that is empty, it will throw an error. You can prevent this by passing a `def` option as a fallback in this case.
 
 **Always use this function to create URLs to files.** Otherwise your code will cease to work if your project's file storage is moved to Amazon S3 at a later date.
 
