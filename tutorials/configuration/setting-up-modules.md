@@ -9,12 +9,14 @@ Adding a module to the `modules` property in the `apostrophe-site` configuration
 In our sandbox site or a project cloned from it, you would do that in `outerLayout.html`. Just look for calls like this one:
 
 ```
-{{ aposBlogMenu({ permissions }) }}
+{{ aposEventsMenu({ permissions }) }}
 ```
 
 ... And add the appropriate call for the module you're introducing, as described in its documentation. (Tip: if you're [subclassing snippets](../snippets/subclassing-snippets.html) to add a new data type, and your module is named "stories", the menu name will be `aposStoriesMenu`.)
 
 Conversely, if you choose to remove a module but haven't removed it from the admin bar, don't be surprised when you get a template error.
+
+**TIP: The `apostrophe-blog-2` module is different.** That module creates blog posts "in context" as child pages of a particular blog, so you will create them by clicking on the big gear button (the "context menu" button) and selecting "New Blog Post."
 
 ## Overriding the templates of a module
 
