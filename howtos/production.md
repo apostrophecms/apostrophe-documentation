@@ -4,6 +4,16 @@ title: Hosting Apostrophe in production
 
 ## Configuring your Linux server for Apostrophe
 
+### System requirements
+
+In our experience a virtual machine with 2GB of RAM and at least 20GB of free storage space is appropriate to comfortably run most Apostrophe sites. MongoDB requires that a minimum of 5GB of free disk space be maintained at all times. Apostrophe's node process and MongoDB will complete for scarce memory on a server with 1GB of RAM.
+
+Disk space requirements will increase if users routinely upload large files to the media library.
+
+Sites running in a [multicore](multicore.html) configuration will require additional RAM and, of course, CPU cores.
+
+### Packages you'll need
+
 You will need (STOP: use the package manager of your operating system! Do NOT install everything from source code!)
 
 * [nodejs](https://nodejs.org/en/) version 0.10 or better
