@@ -17,6 +17,7 @@ children:
   - tasks
   - apostrophe-in-a-subdirectory
   - storing-images-and-files-in-amazon-s3
+  - production
   - multicore
   - windows
   - migrate-from-0-4
