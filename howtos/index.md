@@ -1,6 +1,8 @@
 ---
 title: HOWTOs
 children:
+  - production
+  - multicore
   - adding-nunjucks-filters-and-functions
   - database-migrations
   - accessing-the-database-directly
@@ -17,8 +19,6 @@ children:
   - tasks
   - apostrophe-in-a-subdirectory
   - storing-images-and-files-in-amazon-s3
-  - production
-  - multicore
   - windows
   - migrate-from-0-4
 docType: "howto"
