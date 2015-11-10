@@ -1,5 +1,5 @@
 ---
-title: API Reference
+title: API
 children:
   - apostrophe
   - nunjucks-filters
