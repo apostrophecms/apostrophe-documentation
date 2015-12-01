@@ -63,4 +63,21 @@ afterInit: function(callback) {
 
 Start by creating the snippet with `snippets.newInstance()`. Then use `snippets.putOne(req, slug, options, snippet, callback)` to store it. See the snippets module source code for examples.
 
+**But what is this `snippets` object? Where do I get it?** Good question. What you really need is a reference to the manager object for your subclass of snippets.
+
+So if your code will live inside that module's `index.js` then you can just use `self`.
+
+If your code will be in another module, you can obtain the manager object for snippets of type `event` like this:
+
+```javascript
+return self._pages.getManager('event')
+```
+
+If your code will be in `app.js` or a command line task, the `pages` object is a property of the `site` object:
+
+```javascript
+return site.pages.getManager('event')
+```
+
+**Note the word `event` is singular here.** It is the **instance type name**, not the module name.
 
