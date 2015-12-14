@@ -26,7 +26,7 @@ uploadfs: {
 
 With this configuration all file uploads are written to S3 instead of the local file system.
 
-## Why not US-East?
+## Special requirements for the US-East region
 
 The US-East region is misnamed; it is really "US Standard," and it serves files from both Oregon and Virginia.
 
@@ -35,3 +35,9 @@ As a consequence, it does not offer "read after write" consistency. This means t
 [See this article for a detailed description of how long "eventual" consistency can really take.](http://www.stackdriver.com/eventual-consistency-really-eventual/)
 
 So, just use a bucket in any other region, such as `us-west-2`.
+
+*Update:* if the East Coast is the best fit for you, use this as your "region" setting:
+
+`external-1`
+
+In June 2015, Amazon announced that the US-East region supports read-after-write consistency, but [only if you use the s3-external-1 endpoint](https://forums.aws.amazon.com/ann.jspa?annID=3112). Setting `region` to `external-1` will cause uploadfs to use the proper URLs for this. (Note: do not include the `s3-` in the string.)
