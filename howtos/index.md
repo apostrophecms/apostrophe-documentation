@@ -17,6 +17,7 @@ children:
   - cross-module-includes
   - scene-upgrades
   - tasks
+  - indent-and-outdent
   - apostrophe-in-a-subdirectory
   - storing-images-and-files-in-amazon-s3
   - windows
