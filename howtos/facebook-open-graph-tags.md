@@ -73,7 +73,7 @@ It's pretty easy, since `page.url` is now absolute, and so are your image URLs. 
     <meta property="og:image" content="{{ aposFilePath(firstImage, { size: 'full' }) }}" />
   {% endif %}
   {% if description %}
-  <meta name="description" property="og:description" content="{{description | e | truncate(200)}}" />
+  <meta name="description" property="og:description" content="{{description | truncate(200) | e }}" />
   {% endif %}
   <meta property="og:url" content="{{page.url}}">
   <meta property="og:title" content="{{page.title}}">
