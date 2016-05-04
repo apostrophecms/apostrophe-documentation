@@ -16,22 +16,22 @@ On 2016-04-04 we made it easier to get absolute URLs by implementing a straightf
 ```
 var site = require('apostrophe-site')({
   // Other options, then...
-  shortName: 'mycompany.com',
+  hostName: 'mycompany.com',
   absoluteUrls: true,
   // Then other options...
 });
 ```
 
-The `shortName` option sets the hostname of the production site, and the `absoluteUrls` option indicates that `page.url`, `snippet.url`, the URLs of images in slideshows, etc. should always be absolute URLs pointing to the `hostName` that you configured.
+The `hostName` option sets the hostname of the production site, and the `absoluteUrls` option indicates that `page.url`, `snippet.url`, the URLs of images in slideshows, etc. should always be absolute URLs pointing to the `hostName` that you configured.
 
 ## What about secure sites?
 
-`shortname` isn't enough information to figure out if the site requires `https`. Here's an alternative:
+`hostName` isn't enough information to figure out if the site requires `https`. Here's an alternative:
 
 ```
 var site = require('apostrophe-site')({
   // Other options, then...
-  shortName: 'mycompany.com',
+  hostName: 'mycompany.com',
   baseUrl: 'https://mycompany.com',
   absoluteUrls: true,
   // Then other options...
