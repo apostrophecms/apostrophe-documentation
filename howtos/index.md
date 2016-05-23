@@ -21,6 +21,7 @@ children:
   - apostrophe-in-a-subdirectory
   - storing-images-and-files-in-amazon-s3
   - facebook-open-graph-tags
+  - pci-compliance
   - windows
   - migrate-from-0-4
 docType: "howto"
