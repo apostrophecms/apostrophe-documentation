@@ -137,5 +137,3 @@ Now you have the `convert` and `identify` command line tools, which Apostrophe u
 ## Build a website!
 
 Now that you have your environment configured it's time to create our first Apostrophe project.
-
-[Next: Create your first project →](/)
