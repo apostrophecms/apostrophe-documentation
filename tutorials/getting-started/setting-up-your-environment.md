@@ -1,10 +1,10 @@
 ---
-title: "Getting Started with Apostrophe"
+title: "Setting up your environment"
 ---
 
-## Setting up your environment for Apostrophe
+## Setting up your environment
 
-We're going to start from the very beginning by installing the software necessary to develop with Apostrophe and setting up an empty project to work with. At the end of this tutorial you will have all the tools you need to start building a website.
+We're going to start from the very beginning by installing the software necessary to develop with Apostrophe.  In the next tutorial, we'll set up an empty Apostrophe site.
 
 ### Step 1: Install the Software
 
@@ -133,3 +133,9 @@ brew install imagemagick
 ```
 
 Now you have the `convert` and `identify` command line tools, which Apostrophe uses to scale and crop images.
+
+## Build a website!
+
+Now that you have your environment configured it's time to create our first Apostrophe project.
+
+[Next: Create your first project →](/)
