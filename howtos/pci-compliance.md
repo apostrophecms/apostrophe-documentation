@@ -50,6 +50,17 @@ Then restart Apostrophe.
 
 This instructs your site to send session cookies only on `https` request so they can't be intercepted on an `http` request. `proxy: true` is only appropriate if you are using a frontend proxy like nginx to do the actual `https` work. Without it the site can't tell the request was secure and won't send any session cookies at all.
 
+### Restrict access to port 3000
+
+Also, by default Apostrophe will accept direct connections on its own port (usually 3000) from outside the local server, even when a reverse proxy is present. You will need to lock this down to prevent complaints that you still have an unsecured site, even if users are never directed to the site at that port.
+
+Just create a `data/port` file on the server (the `data` folder is server specific and is never deployed), and populate it with one line:
+
+`127.0.0.1`
+
+Signaling that Apostrophe should only listen for connections from the reverse proxy running on the same server.
+
+Now restart Apostrophe again.
 
 ## Code a secure site!
 
