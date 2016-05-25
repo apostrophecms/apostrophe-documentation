@@ -6,7 +6,7 @@ title: "Setting up your environment"
 
 We're going to start from the very beginning by installing the software necessary to develop with Apostrophe.  In the next tutorial, we'll set up an empty Apostrophe site.
 
-### Step 1: Install the Software
+### Install the Software
 
 **These instructions are for MacOS X,** which most developers use to test code that will eventually deploy to Linux. Also see this lovely [HOWTO for Windows](../../howtos/windows.html) contributed by Michael Brown.
 
@@ -137,5 +137,3 @@ Now you have the `convert` and `identify` command line tools, which Apostrophe u
 ## Build a website!
 
 Now that you have your environment configured it's time to create our first Apostrophe project.
-
-[Next: Create your first project →](/)
