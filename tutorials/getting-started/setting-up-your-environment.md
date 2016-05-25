@@ -1,8 +1,8 @@
 ---
-title: "Getting Started with Apostrophe"
+title: "Setting up your environment"
 ---
 
-## Setting up your environment for Apostrophe
+## Setting up your environment
 
 We're going to start from the very beginning by installing the software necessary to develop with Apostrophe.  In the next tutorial, we'll set up an empty Apostrophe site.
 
