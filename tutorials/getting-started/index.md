@@ -1,7 +1,7 @@
 ---
 title: "Getting started"
 children:
-  - setting-up-your-enviroment
+  - setting-up-your-environment
   - creating-your-first-project
 ---
 
