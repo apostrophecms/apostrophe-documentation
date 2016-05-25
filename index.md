@@ -2,9 +2,6 @@
 title: "Home"
 children:
   - tutorials
-  - glossary
-  - howtos
-  - api-reference
 layout: "home"
 ---
 

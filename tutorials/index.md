@@ -2,12 +2,6 @@
 title: "Tutorials"
 children:
   - getting-started
-  - frontend-development
-  - configuration
-  - snippets
-  - maps
-  - pages
-  - custom-modules
 docType: "tutorial"
 ---
 
