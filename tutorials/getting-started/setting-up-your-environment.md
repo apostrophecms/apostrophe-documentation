@@ -1,5 +1,5 @@
 ---
-title: "Setting up your environment"
+title: "Setting Up Your Environment"
 ---
 
 ## Setting up your environment

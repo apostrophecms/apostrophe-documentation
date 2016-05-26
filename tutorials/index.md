@@ -2,6 +2,7 @@
 title: "Tutorials"
 children:
   - getting-started
+  - creating-a-simple-blog
 docType: "tutorial"
 ---
 

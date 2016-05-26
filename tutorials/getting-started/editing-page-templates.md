@@ -1,5 +1,5 @@
 ---
-title: "Editing page templates"
+title: "Editing Page Templates"
 ---
 ## Editing Page Templates
 
