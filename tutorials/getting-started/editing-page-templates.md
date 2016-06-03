@@ -37,7 +37,9 @@ Now let's take a look at how to add content to the page.
 
 ### Extending Templates
 
-Using [Nunjucks](http://nunjucks.jlongster.com/), allows you to extend another template, with the option of overriding `blocks` to update or change the template, for example:
+With an empty `default.html`, we don't get much; not even a page title. But we can get quite a bit for free just by extending a layout template.
+
+[Nunjucks](http://nunjucks.jlongster.com/) allows you to extend another template, with the option of overriding `blocks` to update or change the template. For example:
 
 ```markup
 {% extends data.outerLayout %}
@@ -53,7 +55,13 @@ Extending the `outerLayout` provides the basic Apostrophe scaffolding for a page
 </div>
 ```
 
-Using these blocks on your pages means everything output by your page template will be inserted into the outer layout.  
+Blocks are another great Nunjucks feature; they are defined in `outerLayout.html`, and you can override them in your page template just by using the `block` keyword.
+
+So using these blocks on your pages means everything output by your page template will be inserted into the outer layout in the appropriate spot.
+
+**Tip:** you *can* override `outerLayout.html` in your own `lib/modules/apostrophe-templates/views` folder, but try not to. You already have complete control of the body, and overriding the outer layout makes you responsible for tracking changes in Apostrophe's version.
+
+**"So why `data.outerLayout`? Why not just a filename?"** Apostrophe can actually refresh just the body of the page in certain situations. This variable points to the appropriate template, either the real outer layout or a simple "ajax layout" for refreshing the body. But you don't have to worry about it: just use `data.outerLayout`.
 
 ### Adding a section to the home page
 
@@ -71,4 +79,6 @@ Now that we've extended `outerLayout` in `default.html`, we can override the `be
 {% endblock %}
 ```
 
-Because we extended the `outerLayout`, you can avoid duplicating a lot of markup.
+Because we extended the `outerLayout`, we can avoid duplicating a lot of markup.
+
+**But what about editable content?** Good question! That's the next topic.

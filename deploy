@@ -1,6 +1,7 @@
 #!/bin/sh
 
-habit &&
-rsync -a _site/ apostro2@45.56.109.144:/var/www/docs &&
-echo "Done!"
+echo "DISABLED until we're ready to deploy the 0.6 doc site. -Tom"
+#habit &&
+#rsync -a _site/ apostro2@45.56.109.144:/var/www/docs &&
+#echo "Done!"
 
