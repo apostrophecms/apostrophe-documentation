@@ -40,9 +40,7 @@ An object that allows us to pass type-specific options to the widget.
 
 If we restart our server and refresh our site's home page while logged in, we'll see a gray block with a button prompting us to add rich text.
 
-TODO add new image
-
-<img src="/images/tutorials/developer/boilerplate_loggedin.png" class="shadow">
+<img src="/images/tutorials/developer/boilerplate_singleton.png" class="shadow">
 
 ### Areas
 
