@@ -1,3 +1,56 @@
 ---
 title: "Adding Editable Content To Pages"
 ---
+
+## Adding Editable Content to Pages
+
+Central to Apostrophe is the philosophy that editors can edit their content in context. In order for a developer to enable this functionality in their templates, Apostrophe provides `singleton` and `area` helpers in Nunjucks.
+
+### Singletons
+
+Singletons are a slot on a page that allow an editor to add a single widget of a specific type. Let's add a singleton to our `home.html` template!
+
+```html
+{% block main %}
+  {{ apos.singleton(data.page, 'textBlock', 'apostrophe-rich-text', {
+    toolbar: [ 'bold', 'italic' ]
+  }) }}
+{% endblock %}
+```
+
+If we restart our server and refresh our site's home page while logged in, we'll see a gray block with a button prompting us to add rich text.
+
+TODO add new image
+
+<img src="/images/tutorials/developer/boilerplate_loggedin.png" class="shadow">
+
+Let's deconstruct the arguments we are passing to `apos.singleton`.
+
+The first argument, `data.page`, is the object you want to save the singleton to. In this case, we are editing content on a page, so the content should be saved to that page.
+
+The second argument, `'textBlock'`, is the name of the area. This denotes what field the singleton will be saved to in the object. In this case, it would be saved to `data.page['textBlock']`.
+
+The third argument, `apostrophe-rich-text`, is the widget type we want to allow in the singleton.
+
+The final argument, `{ toolbar: [ 'bold', 'italic' ] }`, is an object that allows us to pass type-specific options to the widget.
+
+### Areas
+
+```html
+{{ apos.area(data.page, 'body', {
+  widgets: {
+    'apostrophe-rich-text': {
+      toolbar: [ 'styles', 'bold', 'italic' ]
+    },
+    'apostrophe-images': {}
+  }
+}) }}
+```
+
+### Widget Types
+
+#### apostrophe-rich-text
+
+#### apostrophe-images
+
+#### apostrophe-html
