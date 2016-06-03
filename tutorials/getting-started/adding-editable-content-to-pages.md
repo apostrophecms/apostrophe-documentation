@@ -10,7 +10,7 @@ Central to Apostrophe is the philosophy that editors can edit their content in c
 
 Singletons are a slot on a page that allow an editor to add a single widget of a specific type. Let's add a singleton to our `home.html` template!
 
-```html
+```markup
 {% block main %}
   <div class="main-content">
     {{ apos.singleton(data.page, 'textBlock', 'apostrophe-rich-text', {
@@ -20,27 +20,35 @@ Singletons are a slot on a page that allow an editor to add a single widget of a
 {% endblock %}
 ```
 
+Let's deconstruct the arguments we are passing here.
+
+#### data.page
+
+The object you want to save the singleton to. In this case, we are editing content on a page, so the content should be saved to that page.
+
+#### 'textBlock'
+
+The name of the area. This denotes what field the singleton will be saved to in the object. In this case, it would be saved to `data.page['textBlock']`.
+
+#### 'apostrophe-rich-text'
+
+The widget type we want to allow in the singleton. In this case, we are using the default rich text widget.
+
+#### { toolbar: [ 'Bold', 'Italic' ] }
+
+An object that allows us to pass type-specific options to the widget.
+
 If we restart our server and refresh our site's home page while logged in, we'll see a gray block with a button prompting us to add rich text.
 
 TODO add new image
 
 <img src="/images/tutorials/developer/boilerplate_loggedin.png" class="shadow">
 
-Let's deconstruct the arguments we are passing to `apos.singleton`.
-
-The first argument, `data.page`, is the object you want to save the singleton to. In this case, we are editing content on a page, so the content should be saved to that page.
-
-The second argument, `'textBlock'`, is the name of the area. This denotes what field the singleton will be saved to in the object. In this case, it would be saved to `data.page['textBlock']`.
-
-The third argument, `apostrophe-rich-text`, is the widget type we want to allow in the singleton. In this case, we are using the default rich text widget.
-
-The final argument, `{ toolbar: [ 'Bold', 'Italic' ] }`, is an object that allows us to pass type-specific options to the widget.
-
 ### Areas
 
 Oftentimes, we'll want to enable an editor to add several widgets of different types to build out a page. For this, we can use the `apos.area` helper.
 
-```html
+```markup
 {{ apos.area(data.page, 'body', {
   widgets: {
     'apostrophe-rich-text': {

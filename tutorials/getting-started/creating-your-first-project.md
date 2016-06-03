@@ -93,7 +93,7 @@ In your project's frontend build.
 
 If you want more LESS files, you could add them to the `stylesheets` array above. But most developers prefer to use `@import` in their `site.less`:
 
-```less
+```css
 // Import a reset stylesheet
 @import 'reset.less';
 ```
