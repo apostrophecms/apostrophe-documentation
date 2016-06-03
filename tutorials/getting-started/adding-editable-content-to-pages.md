@@ -52,7 +52,9 @@ Oftentimes, we'll want to enable an editor to add several widgets of different t
     'apostrophe-rich-text': {
       toolbar: [ 'Bold', 'Italic' ]
     },
-    'apostrophe-images': {}
+    'apostrophe-images': {
+      size: 'full'
+    }
   }
 }) }}
 ```
