@@ -101,7 +101,8 @@ Here is an example with the popular options:
   {{ apos.singleton(data.page, 'heroPic', 'apostrophe-images', {
     minSize: [ 700, 350 ],
     aspectRatio: [ 2, 1 ],
-    limit: 1
+    limit: 1,
+    size: 'full'
   }) }}
 ```
 
@@ -116,6 +117,21 @@ Here is an example with the popular options:
 ##### `limit`
 
 `limit` prevents the user from selecting more than the given number of images. A `limit` of `1` is appropriate where you don't want a slideshow treatment.
+
+##### `size`
+
+`size` controls the size of the image that gets displayed. To conserve bandwidth Apostrophe never sends the original image. Apostrophe resizes your image to the following sizes by default, always preserving the aspect ratio:
+
+`max`: no larger than 1600x1600.
+`full`: no larger than 1140x1140.
+`two-thirds': no larger than 760x760.
+`one-half`: no larger than 570x700.
+`one-third`: no larger than 380x700.
+`one-sixth`: no larger than 190x350.
+
+If you don't specify a size, the `full` size is displayed.
+
+We'll talk about custom image sizes in a later tutorial.
 
 #### `apostrophe-files`
 
@@ -133,6 +149,14 @@ Here's a simple example:
 
 `limit` prevents the user from selecting more than the given number of files.
 
+#### `apostrophe-html`
+
+There is an `apostrophe-html` widget. It allows users to paste raw HTML into your site. Don't use it. It tends to have a negative impact on well-designed sites.
+
+But if you must turn it on, educate your end users to use it very sparingly, and never to use it in ways that wreck your beautiful, mobile-friendly design. Because nobody wants that.
+
+It doesn't take any options.
+
 ##### More about files and Apostrophe
 
 Users editing these widgets have the option of uploading files or reusing them. By default the office-oriented file types accepted by Apostrophe are:
@@ -147,6 +171,4 @@ This can be adjusted by configuring the `apostrophe-attachments` module.
 
 ### More Widgets
 
-Is that all? Definitely not! We'll discuss "pieces" and other strategies for creating custom widgets in a later tutorial.
-
-Oh, and there's the `apostrophe-html` widget. If you absolutely must.
+Is that all? Definitely not! We'll discuss custom widgets, "pieces" and other strategies for creating editable content in later tutorials. But first, let's look at some intermediate frontend topics, like navigation and image sizes.
