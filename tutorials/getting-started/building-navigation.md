@@ -36,7 +36,9 @@ Now let's add a CSS class indicating the current tab (the one that is the curren
 <ul class="tabs">
   {% for tab in data.home._children %}
     <li class="
-      {% if data.page and (data.page._id == tab.id or data.page._ancestors[1]._id == tab._id) %}
+      {% if data.page and
+        (apos.pages.isAncestorOf(tab, data.page) or tab._id == data.page.__id)
+      %}
         current
       {% endif %}
     "><a href="{{ tab._url }}">{{ tab.title }}</a></li>
