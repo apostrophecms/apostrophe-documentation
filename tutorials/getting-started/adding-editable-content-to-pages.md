@@ -151,14 +151,6 @@ Here's a simple example:
 
 `limit` prevents the user from selecting more than the given number of files.
 
-#### `apostrophe-html`
-
-There is an `apostrophe-html` widget. It allows users to paste raw HTML into your site. Don't use it. It tends to have a negative impact on well-designed sites.
-
-But if you must turn it on, educate your end users to use it very sparingly, and never to use it in ways that wreck your beautiful, mobile-friendly design. Because nobody wants that.
-
-It doesn't take any options.
-
 ##### More about files and Apostrophe
 
 Users editing these widgets have the option of uploading files or reusing them. By default the office-oriented file types accepted by Apostrophe are:
@@ -170,6 +162,13 @@ In addition to GIF, JPEG and PNG files.
 
 This can be adjusted by configuring the `apostrophe-attachments` module.
 
+#### `apostrophe-html`
+
+There is an `apostrophe-html` widget. It allows users to paste raw HTML into your site. Don't use it. It tends to have a negative impact on well-designed sites.
+
+But if you must turn it on, educate your end users to use it very sparingly, and never to use it in ways that wreck your beautiful, mobile-friendly design. Because nobody wants that.
+
+It doesn't take any options.
 
 ### More Widgets
 
