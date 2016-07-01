@@ -18,7 +18,7 @@ Let's look at some custom widgets that help provide navigation. We'll start with
 
 First we'll need a folder for the module:
 
-```
+```bash
 mkdir -p lib/modules/link-widgets
 ```
 
@@ -58,7 +58,7 @@ module.exports = {
 
 Next we'll need a folder to hold our widget's `widget.html` template, which renders it on the page:
 
-```
+```bash
 mkdir -p lib/modules/link-widgets/views
 ```
 
