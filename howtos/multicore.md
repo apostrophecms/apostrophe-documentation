@@ -2,7 +2,7 @@
 title: Running Apostrophe on multiple cores and/or servers
 ---
 
-Although Apostrophe runs very well as a single process, and we often deploy production sites that way, if your traffic levels are high enough you may need multiple cores or servers to keep up. Here's how to do that.
+Although Apostrophe runs very well as a single process, and you can deploy production sites that way, you should run at least two processes to provide reliability when one process is restarting. And for higher traffic levels you'll want to take advantage of multiple cores, or even multiple servers. Here's how to do that.
 
 ## Requirements
 
@@ -10,9 +10,11 @@ I'll assume you are deploying your site with [stagecoach](https://github.com/pun
 
 I'll also assume you are using `nginx` as your reverse proxy server. If you're not, you should be. It's simple, effective, reliable and has built-in load balancing and fault tolerance.
 
-Finally, I'll assume your server actually has more than one CPU core. If you have a dirt-cheap VPS plan, it might not. Running more processes than you have cores available generally doesn't help in nodejs apps. So check what is included in your plan.
+We recommend using [mechanic](http://npmjs.org/mechanic) to manage nginx. It's soooo much easier. But I'll give an example without mechanic too.
 
-**Tip:** You might want to reserve one core for `mongodb`. Take that into account when you decide how many processes to run.
+You should run at least two processes for reliability. Beyond that, don't run more processes than you actually have CPU cores according to your hosting plan. It doesn't help much in nodejs apps.
+
+**Tip:** You might want to reserve one core for `mongodb`. Take that into account when you decide how many processes to run. But, don't go below two node processes.
 
 ## Multicore: multiple ports, multiple processes
 
@@ -21,7 +23,7 @@ Let's say your site is called `mysite`. On your server, check out the text file 
 Edit that file and add multiple ports, like this:
 
 ```
-3000 3001 3002 3003
+3000 3001
 ```
 
 Now restart the site the stagecoach way:
@@ -29,19 +31,49 @@ Now restart the site the stagecoach way:
 ```
 [log in as the non-root user]
 cd /opt/stagecoach/apps/mysite/current
-sh deployment/stop && sh deployment/start
+bash deployment/stop && bash deployment/start
 ```
 
 You'll note that stagecoach launches *four* "forever" processes instead of just one. Each one is listening on a separate port.
 
-Now we need to configure nginx to balance the load over the four ports. You should be able to find your site configuartion in ```/etc/nginx/sites-enabled/```. Here's our recommended configuration:
+Now we need to configure nginx to balance the load over the four ports.
+
+## If you are using mechanic
+
+Good for you! This is so much easier with [mechanic](https://npmjs.org/mechanic).
+
+Let's check our current setup:
 
 ```
-upstream upstream-EXAMPLE  { 
-  server localhost:3000; 
-  server localhost:3001; 
-  server localhost:3002; 
-  server localhost:3003; 
+mechanic list
+```
+
+We'll get back something like this:
+
+```
+mechanic add EXAMPLE '--backends=localhost:3000' '--canonical=true' '--host=www.EXAMPLE.com' '--static=/opt/stagecoach/apps/EXAMPLE/current/public/' '--default=true'
+```
+
+Let's update mechanic to add port 3001 as a second backend:
+
+```
+mechanic update EXAMPLE --backends=localhost:3000,localhost:3001
+```
+
+Boom! That's it... you're done.
+
+Use the `siege` utility to test your site, and watch `top` to make sure that both node processes are consuming CPU.
+
+## If you're not using mechanic
+
+That's OK. Here's a sample configuration without it.
+
+You should be able to find your site configuration in ```/etc/nginx/sites-enabled/```. Here's our recommended configuration with two processes:
+
+```
+upstream upstream-EXAMPLE  {
+  server localhost:3000;
+  server localhost:3001;
 } 
 
 server { 
@@ -74,11 +106,11 @@ http_503 http_504;
 } 
 ```
 
-The `upstream` block lists all four back-end ports that node is listening on. When we configure nginx this way, it automatically balances the load via the "round-robin" algorithm. In addition, it automatically "fails over" to another port if one of the four stops responding, for instance because it has just encountered a bug and `forever` is busy restarting it.
+The `upstream` block lists both back-end ports that node is listening on. When we configure nginx this way, it automatically balances the load via the "round-robin" algorithm. In addition, it automatically "fails over" to another port if one of the four stops responding, for instance because it has just encountered a bug and `forever` is busy restarting it.
 
 The above configuration also includes smart settings to take advantage of compression and to deliver static files directly from nginx.
 
-Now restart `nginx` and you're ready to go. If you're on an Ubuntu server, use the command ```service nginx restart``` as root user. If you're on CentOS 7, use ```systemctl restart nginx.service``` as root user. 
+Now restart `nginx` and you're ready to go. If you're on an Ubuntu server, use the command ```service nginx restart``` as the root user. If you're on CentOS 7, use ```systemctl restart nginx.service``` as the root user.
 
 Use the `siege` utility to test your site, and watch `top` to see that all four node processes are consuming CPU.
 
@@ -90,7 +122,7 @@ You can do that following the same technique as above, with a few tweaks.
 
 ### Load balancing multiple servers
 
- You'll need an nginx configuration that balances the load across multiple backend servers, like this:
+You'll need an nginx configuration that balances the load across multiple backend servers, like this:
 
 ```
 upstream upstream-EXAMPLE  {
@@ -118,11 +150,11 @@ module.exports = {
 
 Here I assume you're using passwords with mongodb, since your `mongodb` server must be set up to allow connections from other servers.
 
-A single instance of mongodb is smart enough to use multiple cores. You may be tempted to set up a [mongodb replica set](http://docs.mongodb.org/manual/replication/).
+A single instance of mongodb is smart enough to use multiple cores. But you may be tempted to set up a [mongodb replica set](http://docs.mongodb.org/manual/replication/).
 
 If you are doing that in order to have high reliability, great! It will make sure your mongodb database remains availability if one of the servers go down.
 
-But if you are doing it for performance reasons, be aware that Apostrophe needs to be able to immediately read what it has written in order for things like sessions to work. And this means that it always reads from the primary node (the default behavior in MongoDB replica sets).
+But if you are doing it for performance reasons, be aware that *Apostrophe needs to be able to immediately read what it has written in order for things like sessions to work.* And this means that it always reads from the primary node (the default behavior in MongoDB replica sets).
 
 At a future date we may relax this behavior so that database reads for logged-out users who have no session data so far are permitted to read from secondary nodes. This would yield a performance benefit without compromising the consistency of what users experience.
 
