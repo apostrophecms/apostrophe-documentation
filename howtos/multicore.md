@@ -34,9 +34,9 @@ cd /opt/stagecoach/apps/mysite/current
 bash deployment/stop && bash deployment/start
 ```
 
-You'll note that stagecoach launches *four* "forever" processes instead of just one. Each one is listening on a separate port.
+You'll note that stagecoach launches *two* "forever" processes instead of just one. Each one is listening on a separate port.
 
-Now we need to configure nginx to balance the load over the four ports.
+Now we need to configure nginx to balance the load over the two ports.
 
 ## If you are using mechanic
 
@@ -106,13 +106,13 @@ http_503 http_504;
 } 
 ```
 
-The `upstream` block lists both back-end ports that node is listening on. When we configure nginx this way, it automatically balances the load via the "round-robin" algorithm. In addition, it automatically "fails over" to another port if one of the four stops responding, for instance because it has just encountered a bug and `forever` is busy restarting it.
+The `upstream` block lists both back-end ports that node is listening on. When we configure nginx this way, it automatically balances the load via the "round-robin" algorithm. In addition, it automatically "fails over" to another port if one of the two stops responding, for instance because it has just encountered a bug and `forever` is busy restarting it.
 
 The above configuration also includes smart settings to take advantage of compression and to deliver static files directly from nginx.
 
 Now restart `nginx` and you're ready to go. If you're on an Ubuntu server, use the command ```service nginx restart``` as the root user. If you're on CentOS 7, use ```systemctl restart nginx.service``` as the root user.
 
-Use the `siege` utility to test your site, and watch `top` to see that all four node processes are consuming CPU.
+Use the `siege` utility to test your site, and watch `top` to see that both node processes are consuming CPU.
 
 ## Multiple servers
 
