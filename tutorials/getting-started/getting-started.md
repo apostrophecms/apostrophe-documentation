@@ -165,8 +165,6 @@ mkdir data
 cp local.example.js data/local.js
 ```
 
-Edit the new `local.js` to remove or comment out the `uri` property.
-
 
 ##### Create the Database
 
