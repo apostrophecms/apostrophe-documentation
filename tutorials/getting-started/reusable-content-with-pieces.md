@@ -62,7 +62,7 @@ module.exports = {
       widgetType: 'apostrophe-images',
       options: {
         limit: 1,
-        minSize: [ 800, 800 ],
+        minSize: [ 200, 200 ],
         aspectRatio: [ 1, 1 ]
       }
     }
@@ -76,7 +76,7 @@ Now let's turn the module on in `app.js`. *From now on, we'll show `modules` wit
 
 ```javascript
 modules: {
-  // ...,
+  // ... other modules ...,
   'people': {}
 }
 ```
@@ -105,6 +105,7 @@ module.exports = {
   construct: function(self, options) {
     self.beforeSave = function(req, piece, callback) {
       piece.title = piece.firstName + ' ' + piece.lastName;
+      return callback();
     };
   }
 };
@@ -120,9 +121,9 @@ You'll notice there is still a separate prompt to enter the full name. Let's get
   // In `addFields`
   {
     name: 'title',
+    label: 'Full Name',
     type: 'string',
     required: true,
-    label: 'Full Name',
     contextual: true
   }
 ]
@@ -205,30 +206,24 @@ Widgets are not the only way to display pieces. They are designed for displaying
 
 For a really useful directory, we'll want to create a page that offers a paginated list of people, with the ability to filter by name. We can even create lots of those pages, "locked down" to display people with certain tags.
 
-Let's create `lib/modules/people-pages/index.js`. Our new module extends the `apostrophe-pieces-pages` module:
-
-```javascript
-module.exports = {
-  extend: 'apostrophe-pieces-pages'
-};
-```
-
-> `people-pages` will automatically figure out that its job is to display the pieces that come from the `people` module, by removing `-pages` from its name. If you don't want to follow that pattern, you'll have to set the `piecesModuleName` option, and possibly also set the `name` option to a sensible name for the page type that displays an index of pieces. We usually just follow the pattern.
-
-We also need to add the new module in `app.js`:
+Let's add this new module to our `app.js`. Our new module extends the `apostrophe-pieces-pages` module:
 
 ```javascript
 modules: {
-  ... other modules ...
-  'people-pages': {}
+  // ... other modules ...,
+  'people-pages': {
+    extend: 'apostrophe-pieces-pages'
+  }
 }
 ```
+
+> `people-pages` will automatically figure out that its job is to display the pieces that come from the `people` module, by removing `-pages` from its name. If you don't want to follow that pattern, you'll have to set the `piecesModuleName` option, and possibly also set the `name` option to a sensible name for the page type that displays an index of pieces. We usually just follow the pattern.
 
 This module provides a new type of page on the site, `people-page`. This new page type displays an index of pieces. Before it can be used, we need to configure `apostrophe-pages` to add it to the menu of page types that can be given to pages. In `app.js` it might look like this:
 
 ```javascript
 modules: {
-  ... other modules ...
+  // ... other modules ...,
   'apostrophe-pages': {
     types: [
       // Ordinary page types
@@ -250,15 +245,15 @@ modules: {
 }
 ```
 
->> As with other modules, it's a good idea to create `lib/modules/apostrophe-pages/index.js` and move configuration there to reduce clutter.
+> As with other modules, it's a good idea to create `lib/modules/apostrophe-pages/index.js` and move configuration there to reduce clutter.
 
-### Creating templates for our index of people
+### Creating custom templates for our index of people
 
 If you add a `People` page now, you'll see a plain-vanilla list of people; clicking the name of each takes you to a page that displays... just their name. Not very exciting. Let's dress it up.
 
 First make a folder for our templates:
 
-```
+```bash
 mkdir -p lib/modules/people-pages/views
 ```
 
@@ -283,7 +278,7 @@ First off, by now you probably have a `layout.html` template of your own that yo
 {% extends "layout.html" %}
 ```
 
-Next, let's dress up the people with their headshots:
+Next, let's dress up the people with their headshots by replacing the existing `for` loop with the following:
 
 ```markup
   {% for piece in data.pieces %}
