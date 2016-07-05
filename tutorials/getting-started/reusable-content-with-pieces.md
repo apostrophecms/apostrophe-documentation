@@ -6,14 +6,13 @@ We've already learned how to add editable content to pages, and how to create so
 
 ## A directory of people: working with pieces
 
-Let's say we want to create a directory of people who work for a company. People are "global content," or "pieces:" they are useful to display here and there all over the site, they aren't tied down to one page. The `apostrophe-pieces` module provides a great starting point to create many types of global content. We'll extend it to make our own `people` module. You can extend `apostrophe-pieces` many times in the same project.
+Let's say we want to create a directory of people who work for a company. People are "global content": they are useful to display here and there all over the site, they aren't tied down to one page. The `apostrophe-pieces` module provides a great starting point to create many types of global content. We'll extend it to make our own `people` module. You can extend `apostrophe-pieces` many times in the same project.
 
 > **"What about users?"** Yes, you already have a "Users" menu on your admin bar. And yes, users are powered by pieces. But we've found that confusing website editors with the publicly visible staff directory tends to cause problems in the long run. Plus, this way, it's a teachable moment. :)
 
 Let's create a `lib/modules/people/index.js` file:
 
 ```javascript
-
 module.exports = {
   extend: 'apostrophe-pieces',
   name: 'person',
@@ -22,17 +21,19 @@ module.exports = {
   addFields: [
     {
       name: 'title',
+      label: 'Full Name',
       type: 'string',
-      required: true,
-      label: 'Full Name'
+      required: true
     },
     {
       name: 'firstName',
+      label: 'First Name',
       type: 'string',
       required: true
     },
     {
       name: 'lastName',
+      label: 'Last Name',
       type: 'string',
       required: true
     },
@@ -51,10 +52,12 @@ module.exports = {
     },
     {
       name: 'phone',
+      label: 'Phone',
       type: 'string'
     },
     {
       name: 'thumbnail',
+      label: 'Thumbnail',
       type: 'singleton',
       widgetType: 'apostrophe-images',
       options: {
@@ -73,6 +76,7 @@ Now let's turn the module on in `app.js`. *From now on, we'll show `modules` wit
 
 ```javascript
 modules: {
+  // ...,
   'people': {}
 }
 ```
@@ -329,4 +333,3 @@ Next we'll want to override the `show.html` template as well. This is the templa
 ```
 
 > *Here we chose to set `edit: false` for the thumbnail,* so we don't have to repeat all of its options. But we're allowing in-context editing for the `body` area. Generally speaking, it makes sense to allow in-context editing of areas because it givs a better sense of how they will look on the page. If you *do* allow in-context editing of the thumbnail, and there is an `aspectRatio` option for it anywhere, *make sure you specify the same `aspectRatio` everywhere.* Otherwise users will be frustrated by inconsistent results.
-
