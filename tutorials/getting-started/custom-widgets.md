@@ -18,13 +18,22 @@ Let's look at some custom widgets that help provide navigation. We'll start with
 
 First we'll need a folder for the module:
 
-```
+```bash
 mkdir -p lib/modules/link-widgets
 ```
 
 > Just about everything new you create in Apostrophe will be a "module." Project-specific modules live in `lib/modules`. Apostrophe will spot them there if you list them in `app.js`.
 > You can also publish and install modules with `npm`. Apostrophe looks in both places. Your module name **should not start with `apostrophe`**. That's reserved for our official modules.
 > Modules almost always have plural names. The name of a module that provides widgets should end in `-widgets`.
+
+Then we'll include the module in our `app.js` by adding the following to the `modules` object:
+
+```javascript
+  modules: {
+    // ...,
+    'link-widgets': {}
+  }
+```
 
 Now we'll write the code for our module in `lib/modules/custom-navigation-widgets/index.js`:
 
@@ -58,11 +67,9 @@ module.exports = {
 
 Next we'll need a folder to hold our widget's `widget.html` template, which renders it on the page:
 
-```
+```bash
 mkdir -p lib/modules/link-widgets/views
 ```
-
-> **Tip:** you could skip the first `mkdir` command. `mkdir -p` creates any missing folders in between.
 
 Now let's create a Nunjucks template in `lib/modules/link-widgets/widget.html`:
 
@@ -72,7 +79,7 @@ Now let's create a Nunjucks template in `lib/modules/link-widgets/widget.html`:
 
 > *"Hey, don't we need to escape the label before we output it as HTML?"* No, Nunjucks does it automatically. If you need to output content that is already valid, safe markup, you must use the `| safe` filter to output it without escaping.
 
-Now we'll want to add this widget to an area or singleton in one of our page templates or our layout template, like we learned in [adding editable content to pages](adding-editable-content-to-pages.html):
+Now we'll want to add this widget to an area in one of our page templates, like we learned in [adding editable content to pages](adding-editable-content-to-pages.html). Let's add the following to the `main` block of our `lib/modules/apostrophe-pages/views/pages/home.html`:
 
 ```markup
 {{
@@ -94,8 +101,18 @@ Let's solve the problem by allowing the user to pick a page on the site instead.
 
 Let's make another module and its views folder in one step:
 
-```
+```bash
 mkdir -p lib/modules/page-link-widgets/views
+```
+
+Now we add this new widget to the `modules` object in our app.js:
+
+```javascript
+  modules: {
+    /// ...,
+    'link-widgets': {},
+    'page-link-widgets': {}
+  }
 ```
 
 Now let's write `lib/modules/page-link-widgets/index.js`:
@@ -119,7 +136,7 @@ module.exports = {
 
 > *"What do `type: 'joinByOne'` and `idField: 'pageId` do?`* We want this widget to remember a connection to another page. To do that, we use the `joinByOne` field type and ask Apostrophe to store the MongoDB `_id` of the other page in a `pageId` property of the widget.
 
-> *"Why does the `name` start with a `_`?" Joins get fetched every time this widget is loaded. The relationship is *dynamic*. Properties that are dynamic and should not be stored back to MongoDB as part of this widget must start with a `_` (underscore). Apostrophe automatically ignores them when saving the widget in the database.
+> *"Why does the `name` start with a `_`?" Joins get fetched every time this widget is loaded. The relationship is dynamic*. Properties that are dynamic and should not be stored back to MongoDB as part of this widget must start with a `_` (underscore). Apostrophe automatically ignores them when saving the widget in the database.
 
 Now we're ready for the Nunjucks template, `lib/modules/page-link-widgets/widget.html`:
 
@@ -129,7 +146,7 @@ Now we're ready for the Nunjucks template, `lib/modules/page-link-widgets/widget
 
 > *"Whoa! So I can access the other page in my template?"* Yep. You can access any property of the other page. You can even make `apos.area` and `apos.singleton` calls with the other page object.
 
-Actually using the widget in an area is just like using the first one. But this time, let's enable both kinds:
+Actually using the widget in an area is just like using the first one. But this time, let's enable both kinds in our area on `home.html`:
 
 ```markup
 {{
@@ -148,13 +165,13 @@ Now our users have a choice between do-it-yourself links that can point anywhere
 
 You probably noticed that our widgets don't take any options yet. We can use options to do cool things in our templates. Let's add a simple one to choose between two presentation styles.
 
-All we have to do is access `data.options` in our template:
+All we have to do is access `data.options` in our `widget.html` template for `page-link-widgets`:
 
 ```markup
-<h4 class="{{ special if data.options.special }}"><a href="{{ data.widget._page._url }}">{{ data.widget._page.title }}</a></h4>
+<h4 class="{{ 'special' if data.options.special }}"><a href="{{ data.widget._page._url }}">{{ data.widget._page.title }}</a></h4>
 ```
 
-And pass the option in our `apos.area` call:
+And pass the option in our `apos.area` call on `home.html`:
 
 ```markup
 {{
@@ -173,7 +190,7 @@ Now all the page links in this particular area will get the special class. You c
 
 #### Giving choices to the user
 
-We can also leave the choice up to the user by adding a `boolean` field:
+We can also leave the choice up to the user by adding a `boolean` field to the schema for `page-link-widgets` in its `index.js`:
 
 ```javascript
 module.exports = {
@@ -191,7 +208,7 @@ module.exports = {
     {
       name: 'special',
       label: 'Special',
-      type: 'checkbox'
+      type: 'boolean'
     }
   ]
 };
@@ -202,7 +219,7 @@ The new bit here is the `special` field.
 In our template, we just access it via `data.widget` rather than `data.options`:
 
 ```markup
-<h4 class="{{ special if data.widget.special }}"><a href="{{ data.widget._page._url }}">{{ data.widget._page.title }}</a></h4>
+<h4 class="{{ 'special' if data.widget.special }}"><a href="{{ data.widget._page._url }}">{{ data.widget._page.title }}</a></h4>
 ```
 
 >`data.widget` contains the form fields the user can edit. `data.options` contains the options passed to `apos.area` or `apos.singleton` by the frontend developer.
@@ -233,7 +250,6 @@ module.exports = {
           slug: 1
         }
       }
-    }
     }
   ]
 };
