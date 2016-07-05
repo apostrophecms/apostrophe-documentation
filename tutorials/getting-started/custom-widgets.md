@@ -30,7 +30,7 @@ Then we'll include the module in our `app.js` by adding the following to the `mo
 
 ```javascript
   modules: {
-    ...,
+    // ...,
     'link-widgets': {}
   }
 ```
@@ -105,6 +105,16 @@ Let's make another module and its views folder in one step:
 mkdir -p lib/modules/page-link-widgets/views
 ```
 
+Now we add this new widget to the `modules` object in our app.js:
+
+```javascript
+  modules: {
+    /// ...,
+    'link-widgets': {},
+    'page-link-widgets': {}
+  }
+```
+
 Now let's write `lib/modules/page-link-widgets/index.js`:
 
 ```javascript
@@ -136,7 +146,7 @@ Now we're ready for the Nunjucks template, `lib/modules/page-link-widgets/widget
 
 > *"Whoa! So I can access the other page in my template?"* Yep. You can access any property of the other page. You can even make `apos.area` and `apos.singleton` calls with the other page object.
 
-Actually using the widget in an area is just like using the first one. But this time, let's enable both kinds:
+Actually using the widget in an area is just like using the first one. But this time, let's enable both kinds in our area on `home.html`:
 
 ```markup
 {{
@@ -155,13 +165,13 @@ Now our users have a choice between do-it-yourself links that can point anywhere
 
 You probably noticed that our widgets don't take any options yet. We can use options to do cool things in our templates. Let's add a simple one to choose between two presentation styles.
 
-All we have to do is access `data.options` in our template:
+All we have to do is access `data.options` in our `widget.html` template for `page-link-widgets`:
 
 ```markup
-<h4 class="{{ special if data.options.special }}"><a href="{{ data.widget._page._url }}">{{ data.widget._page.title }}</a></h4>
+<h4 class="{{ 'special' if data.options.special }}"><a href="{{ data.widget._page._url }}">{{ data.widget._page.title }}</a></h4>
 ```
 
-And pass the option in our `apos.area` call:
+And pass the option in our `apos.area` call on `home.html`:
 
 ```markup
 {{
@@ -180,7 +190,7 @@ Now all the page links in this particular area will get the special class. You c
 
 #### Giving choices to the user
 
-We can also leave the choice up to the user by adding a `boolean` field:
+We can also leave the choice up to the user by adding a `boolean` field to the schema for `page-link-widgets` in its `index.js`:
 
 ```javascript
 module.exports = {
@@ -198,7 +208,7 @@ module.exports = {
     {
       name: 'special',
       label: 'Special',
-      type: 'checkbox'
+      type: 'boolean'
     }
   ]
 };
@@ -209,7 +219,7 @@ The new bit here is the `special` field.
 In our template, we just access it via `data.widget` rather than `data.options`:
 
 ```markup
-<h4 class="{{ special if data.widget.special }}"><a href="{{ data.widget._page._url }}">{{ data.widget._page.title }}</a></h4>
+<h4 class="{{ 'special' if data.widget.special }}"><a href="{{ data.widget._page._url }}">{{ data.widget._page.title }}</a></h4>
 ```
 
 >`data.widget` contains the form fields the user can edit. `data.options` contains the options passed to `apos.area` or `apos.singleton` by the frontend developer.
@@ -240,7 +250,6 @@ module.exports = {
           slug: 1
         }
       }
-    }
     }
   ]
 };
