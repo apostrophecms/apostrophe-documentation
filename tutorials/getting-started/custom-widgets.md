@@ -26,6 +26,15 @@ mkdir -p lib/modules/link-widgets
 > You can also publish and install modules with `npm`. Apostrophe looks in both places. Your module name **should not start with `apostrophe`**. That's reserved for our official modules.
 > Modules almost always have plural names. The name of a module that provides widgets should end in `-widgets`.
 
+Then we'll include the module in our `app.js` by adding the following to the `modules` object:
+
+```javascript
+  modules: {
+    ...,
+    'link-widgets': {}
+  }
+```
+
 Now we'll write the code for our module in `lib/modules/custom-navigation-widgets/index.js`:
 
 ```javascript
@@ -70,7 +79,7 @@ Now let's create a Nunjucks template in `lib/modules/link-widgets/widget.html`:
 
 > *"Hey, don't we need to escape the label before we output it as HTML?"* No, Nunjucks does it automatically. If you need to output content that is already valid, safe markup, you must use the `| safe` filter to output it without escaping.
 
-Now we'll want to add this widget to an area or singleton in one of our page templates or our layout template, like we learned in [adding editable content to pages](adding-editable-content-to-pages.html):
+Now we'll want to add this widget to an area in one of our page templates, like we learned in [adding editable content to pages](adding-editable-content-to-pages.html). Let's add the following to the `main` block of our `lib/modules/apostrophe-pages/views/pages/home.html`:
 
 ```markup
 {{
@@ -92,7 +101,7 @@ Let's solve the problem by allowing the user to pick a page on the site instead.
 
 Let's make another module and its views folder in one step:
 
-```
+```bash
 mkdir -p lib/modules/page-link-widgets/views
 ```
 
@@ -117,7 +126,7 @@ module.exports = {
 
 > *"What do `type: 'joinByOne'` and `idField: 'pageId` do?`* We want this widget to remember a connection to another page. To do that, we use the `joinByOne` field type and ask Apostrophe to store the MongoDB `_id` of the other page in a `pageId` property of the widget.
 
-> *"Why does the `name` start with a `_`?" Joins get fetched every time this widget is loaded. The relationship is *dynamic*. Properties that are dynamic and should not be stored back to MongoDB as part of this widget must start with a `_` (underscore). Apostrophe automatically ignores them when saving the widget in the database.
+> *"Why does the `name` start with a `_`?" Joins get fetched every time this widget is loaded. The relationship is dynamic*. Properties that are dynamic and should not be stored back to MongoDB as part of this widget must start with a `_` (underscore). Apostrophe automatically ignores them when saving the widget in the database.
 
 Now we're ready for the Nunjucks template, `lib/modules/page-link-widgets/widget.html`:
 
