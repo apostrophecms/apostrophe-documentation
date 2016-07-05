@@ -131,7 +131,50 @@ You'll notice there is still a separate prompt to enter the full name. Let's get
 
 > There are many other methods you can override or extend to change the behavior of pieces. See [the apostrophe-pieces API methods](../../reference/apostrophe-pieces/api.html) for more information.
 
-** TODO: talk about `arrangeFields` here **
+### Arranging fields
+
+As we create increasingly complex schemas for pieces and widgets, we will want to arrange the fields in the modal in a way that supports a logical workflow for editors. We can specify an order for the fields in the editor modal by passing an array of field names to `arrangeFields`:
+
+```javascript
+  addFields: [ ... ],
+  arrangeFields: [
+    'firstName',
+    'lastName',
+    'slug',
+    'published',
+    'tags',
+    'phone',
+    'thumbnail',
+    'body'
+  ],
+```
+
+If you restart your server and look at the editor modal again, you'll see the the fields in the order we specified here. Any non-`contextual` fields excluded from this configuration will be put at the bottom of the schema.
+
+If the schema is especially long, we can use `arrangeFields` to break the schema across multiple tabs in the editor modal. This can be achieved by passing an array of objects, each containing a name, label, and array of fields, to `arrangeFields`:
+
+```javascript
+  addFields: [ ... ],
+  arrangeFields: [
+    {
+      name: 'contact',
+      label: 'Contact',
+      fields: [ 'firstName', 'lastName', 'phone' ]
+    },
+    {
+      name: 'admin',
+      label: 'Administrative',
+      fields: [ 'slug', 'published', 'tags' ]
+    },
+    {
+      name: 'content',
+      label: 'Biographical',
+      fields: [ 'thumbnail', 'body' ]
+    }
+  ],
+```
+
+Any non-`contextual` fields excluded from this configuration will be placed in an additional tab.
 
 ## Displaying pieces with widgets
 
