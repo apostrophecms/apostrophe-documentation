@@ -62,8 +62,6 @@ Next we'll need a folder to hold our widget's `widget.html` template, which rend
 mkdir -p lib/modules/link-widgets/views
 ```
 
-> **Tip:** you could skip the first `mkdir` command. `mkdir -p` creates any missing folders in between.
-
 Now let's create a Nunjucks template in `lib/modules/link-widgets/widget.html`:
 
 ```markup
