@@ -356,18 +356,11 @@ Next we'll want to override the `show.html` template as well. This is the templa
 
 {% block main %}
 <h2>{{ data.piece.title }}
-{{ apos.singleton(data.piece, 'thumbnail', 'apostrophe-images', { edit: false }) }}
+{{ apos.singleton(data.piece, 'thumbnail', 'apostrophe-images') }}
 </h2>
 
-{{ apos.area(data.piece, 'body', {
-    widgets: {
-      'apostrophe-rich-text': { controls: [ 'Bold', 'Italic', 'Link', 'Unlink' ]},
-      'apostrophe-images': {}
-    }
-  }
-) }}
-
+{{ apos.area(data.piece, 'body') }}
 {% endblock %}
 ```
 
-> *Here we chose to set `edit: false` for the thumbnail,* so we don't have to repeat all of its options. But we're allowing in-context editing for the `body` area. Generally speaking, it makes sense to allow in-context editing of areas because it givs a better sense of how they will look on the page. If you *do* allow in-context editing of the thumbnail, and there is an `aspectRatio` option for it anywhere, *make sure you specify the same `aspectRatio` everywhere.* Otherwise users will be frustrated by inconsistent results.
+> *We didn't pass an options object to `apos.area` or `apos.singleton` because we already specified the options in the schema,* as part of `addFields`. If you *do* pass an options object to `apos.area` or `apos.singleton`, the original options object passed to the schema is ignored, so be sure to repeat anything that is relevant.
