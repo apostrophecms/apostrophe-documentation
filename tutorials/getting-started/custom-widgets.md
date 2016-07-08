@@ -14,7 +14,7 @@ You could use a rich text widget and just tell users to add links manually. But 
 
 Let's look at some custom widgets that help provide navigation. We'll start with a simple widget that adds a link in a well-formatted way.
 
-#### `link`: the simplest widget
+### `link`: the simplest widget
 
 First we'll need a folder for the module:
 
@@ -71,7 +71,7 @@ Next we'll need a folder to hold our widget's `widget.html` template, which rend
 mkdir -p lib/modules/link-widgets/views
 ```
 
-Now let's create a Nunjucks template in `lib/modules/link-widgets/widget.html`:
+Now let's create a Nunjucks template in `lib/modules/link-widgets/views/widget.html`:
 
 ```markup
 <h4><a href="{{ data.widget.url }}">{{ data.widget.label }}</a></h4>
@@ -93,7 +93,7 @@ Now we'll want to add this widget to an area in one of our page templates, like 
 
 We've just created a content area in which only `link` widgets are allowed. Each one has a `url` field and a `label` field, and they are always output in the same style.
 
-#### `page-link`: using joins in widgets
+### `page-link`: using joins in widgets
 
 The `link` widget is cool, but if the URL of a page changes, the link breaks. And if the title changes, that is not reflected in the widget.
 
@@ -161,7 +161,7 @@ Actually using the widget in an area is just like using the first one. But this 
 
 Now our users have a choice between do-it-yourself links that can point anywhere and "page" links that can only point to a page. Both can be useful.
 
-#### Passing options to widgets
+### Passing options to widgets
 
 You probably noticed that our widgets don't take any options yet. We can use options to do cool things in our templates. Let's add a simple one to choose between two presentation styles.
 
@@ -188,7 +188,7 @@ And pass the option in our `apos.area` call on `home.html`:
 
 Now all the page links in this particular area will get the special class. You can probably think of much fancier uses for this feature.
 
-#### Giving choices to the user
+### Giving choices to the user
 
 We can also leave the choice up to the user by adding a `boolean` field to the schema for `page-link-widgets` in its `index.js`:
 
@@ -224,7 +224,7 @@ In our template, we just access it via `data.widget` rather than `data.options`:
 
 >`data.widget` contains the form fields the user can edit. `data.options` contains the options passed to `apos.area` or `apos.singleton` by the frontend developer.
 
-#### Performance note: limiting joins
+### Performance note: limiting joins
 
 Having access to the entire page object is a neat trick, but it can be very slow. That page might have its own widgets which load a lot of information we don't care about in this situation. Multiply that by 20 links and it starts to impact performance.
 
@@ -262,3 +262,91 @@ It's almost always a good idea to limit the projection to the fields you care ab
 >*`_url`, `slug`... what's the difference?* For most sites, nothing. But for sites with a `prefix` option, the `_url` property might have a folder name prepended to it. And there are other ways to transform `_url` to suit your needs. So always remember to use it instead of `slug` when you output page URLs.
 
 >*What else can I do with `filters`?* That's an advanced topic, but you can do anything that [page cursors](../../reference/apostrophe-pages/pageCursor.html) can do. Check those out if you're in a rush.
+
+### Editing widgets in-context
+
+If we look at the widgets we've created so far, they all prompt a user to configure them through a modal. However, there are certain fields which can be edited contextually, which means we can take advantage of Apostrophe's in-context editing capabilities to allow users to edit widgets as they appear on the page.
+
+To demonstrate this, create a new widget: the `content-block` widget. This widget will contain "Title" field, which will be an `apostrophe-rich-text` singleton, and a "Body" field, which will be an area that can contain rich text and images.
+
+In order to create this widget, we'll add a `lib/modules/content-block-widgets/index.js`:
+
+```javascript
+module.exports = {
+  extend: 'apostrophe-widgets',
+  label: 'Link to Anywhere',
+  addFields: [
+    {
+      name: 'title',
+      label: 'Title',
+      type: 'singleton',
+      widgetType: 'apostrophe-rich-text'
+    },
+    {
+      name: 'body',
+      label: 'Body',
+      type: 'area',
+      contextual: true,
+      options: {
+        widgets: {
+          'apostrophe-rich-text': { toolbar: [ 'Bold', 'Italic' ] },
+          'apostrophe-images': {}
+        }
+      }
+    }
+  ]
+};
+```
+
+Note the `contextual: true` flag in the 'body' field configuration: this tells Apostrophe to exclude this field from the editor modal, so that it is exclusively edited in context.
+
+Now we add this new widget to the `modules` object in our app.js:
+
+```javascript
+  modules: {
+    /// ...,
+    'link-widgets': {},
+    'page-link-widgets': {},
+    'content-block-widgets': {}
+  }
+```
+
+In order to display this new field, we'll also need to modify our `views/widget.html` for `content-block-widgets`:
+
+```markup
+<div class="content-block">
+  {{ apos.singleton(data.widget, 'title', 'apostrophe-rich-text') }}
+  {{ apos.area(data.widget, 'body') }}
+</div>
+```
+
+**TODO** add to an area
+
+> **It's important to note** that contextually edited areas and singletons (or other fields) within a widget **MUST** be included in the schema for that widget. Otherwise, Apostrophe won't know to autosave the field.
+
+#### Widgets without modals
+
+Our `content-block` widget still currently generates an editor modal, where we edit the "Title" field. However, that field is already a singleton, and as such can be edited in-context. If that field is edited in-context, we can do away with the modal altogether by modifying the `index.js` of `content-block-widgets`
+
+```javascript
+module.exports = {
+  extend: 'apostrophe-widgets',
+  label: 'Content Block',
+  contextualOnly: true, // Don't open an editor modal when
+                        // creating a new widget, because
+                        // all fields can be edited contextually
+  addFields: [
+    {
+      name: 'title',
+      label: 'Title',
+      type: 'singleton',
+      contextual: true, // Make this field edited contextually
+                        // instead of in the modal
+      widgetType: 'apostrophe-rich-text'
+    },
+    // ...
+  ]
+};
+```
+
+> **"Why would I want to use `contextualOnly` widgets?" These types of widgets are very useful for creating building blocks for layout on a site. For example, you might have a "One Column", "Two Column", and "Three Column" widgets on your site, each of which are full-width widgets containing a number of content areas (with their own set of widgets) that corresponds to their number of columns. This can be used to give an editor a lot of editing flexibility with fewer templates.
