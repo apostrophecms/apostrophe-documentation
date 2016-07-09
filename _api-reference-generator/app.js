@@ -11,8 +11,22 @@ _.each(modules, function(module) {
   processModule(module);
 });
 
+mkdirp('reference');
+var file = 'reference/index.md';
+fs.writeFileSync(file,
+  '---\n' +
+  'title: "API reference: modules"\n' +
+  'children: \n' +
+  _.map(modules, indentModule).join("\n") +
+  '---\n'
+);
+
 function getAllModules() {
   return fs.readdirSync(argv._[0] + '/lib/modules');
+}
+
+function indentModule(name) {
+  return '  ' + name;
 }
 
 function processModule(module) {
@@ -46,6 +60,9 @@ function filterOutVendor(files, vendor) {
 }
 
 function processFile(module, subcategory, file, info) {
+  var folder = 'reference/apostrophe/' + module;
+  mkdirp(folder);
+
   var code = fs.readFileSync(file, 'utf8');
   var matches;
   var base = file.replace(/\/[^\/]+$/, '');
@@ -64,33 +81,86 @@ function processFile(module, subcategory, file, info) {
   }
 
   var requireRegex = /require\('(\.\/lib\/(\w+))(\.js)?'\)/g;
+  var serverFiles = [];
   while ((matches = requireRegex.exec(code)) !== null) {
+    serverFiles.push(matches[1]);
     processFile(module, matches[2], path.resolve(base, matches[1]) + '.js', info);
   }
 
   var methodRegex = /self\.(\w+)\s*=\s*function\((.*?)\)/g;
   var methods = [];
   while ((matches = methodRegex.exec(code)) !== null) {
-    processMethod(module, subcategory, file, matches, code, info);
+    methods.push(processMethod(module, subcategory, file, matches, code, info));
   }
 
   if (file.match(/cursor/i)) {
     var filterRegex = /self\.addFilter\(\'(\w+)/g;
-    var filters = [];
     while ((matches = filterRegex.exec(code)) !== null) {
       matches[2] = 'value';
-      processMethod(module, subcategory, file, matches, code, info);
+      var method = processMethod(module, subcategory, file, matches, code, info);
+      method.type = 'filter';
+      methods.push(method);
     }
   }
 
   var assetRegex = /self\.pushAsset\(\'script\',\s*\'(\w+)\',\s*\{\s*when: \'(\w+)/g;
-  var assets = [];
+
+  var browserFiles = [];
   while ((matches = assetRegex.exec(code)) !== null) {
     var _info = _.cloneDeep(info);
     info.when = matches[2];
+    browserFiles.push(matches[1]);
     processFile(module, matches[1], argv._[0] + '/lib/modules/' + module + '/public/js/' + matches[1] + '.js', info);
   }
-  console.log(file + ': ' + info.type, info.options);
+
+  var basename = getMarkdownName(file);
+  var file = folder + '/' + basename + '.md';
+  fs.writeFileSync(file,
+    '---\n' +
+    'title: "' + getTitle(module, basename) + '"\n' +
+    'children: \n' +
+    _.map(serverFiles, indentMarkdownName(name)) +
+    _.map(browserFiles, indentMarkdownName(name)) +
+    '---\n' +
+    _.map(methods, function(method) {
+      return documentMethod(method, info);
+    }).join("\n")
+  );
+}
+
+// Get the best markdown filename for the given filename
+function getMarkdownName(file) {
+  var basename = path.basename(file);
+  if (file.match(/\/public\//)) {
+    basename = 'browser-' + basename;
+  }
+  return basename;
+}
+
+function indentMarkdownName(name) {
+  return '  ' + getMarkdownName(name);
+}
+
+function getTitle(module, basename) {
+  if (basename.match(/^browser\-/)) {
+    return module + ': ' + basename.substr(8) + ' (browser)';
+  }
+  return module + ': ' + basename + ' (server)';
+}
+
+function documentMethod(method, info) {
+  return '### ' + method.name + '(' + _.map(method.args, documentArg).join('') + ')\n'+ documentComments(method.comments, info);
+}
+
+function documentArg(arg) {
+  return '\'' + arg + '\'';
+}
+
+function documentComments(comments, info) {
+  var lines = comments.split('\n');
+  return lines.map(function(line) {
+    return line.replace(/^\/\/ /, '');
+  }).join('\n');
 }
 
 function extractOptions(code) {
@@ -113,8 +183,11 @@ function processMethod(module, subcategory, file, matches, code, info) {
   var args = matches[2];
   args = args.split(/\s*,\s*/);
   comments = commentsPreceding(code, matches.index);
-
-  // console.log(module + ': ' + subcategory + ': ' + name + ': ' + args, comments);
+  return {
+    name: name,
+    args: args,
+    comments: comments
+  };
 }
 
 function commentsPreceding(code, index) {

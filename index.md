@@ -2,6 +2,7 @@
 title: "Home"
 children:
   - tutorials
+  - reference
 layout: "home"
 ---
 
