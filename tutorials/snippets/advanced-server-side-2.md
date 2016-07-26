@@ -48,9 +48,9 @@ We can store our new properties via the `self.beforeSave` method:
 ```javascript
 var superBeforeSave = self.beforeSave;
 
-self.beforeSave = function(data, snippet, callback) {
+self.beforeSave = function(req,data, snippet, callback) {
   snippet.publicationDate = self._apos.sanitizeDate(data.publicationDate, snippet.publicationDate);
-  return superBeforeSave(data, snippet, callback);
+  return superBeforeSave(req,data, snippet, callback);
 }
 ```
 
