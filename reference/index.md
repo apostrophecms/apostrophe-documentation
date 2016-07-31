@@ -1,0 +1,49 @@
+---
+title: "API reference: modules"
+children:
+  - apostrophe-areas
+  - apostrophe-assets
+  - apostrophe-attachments
+  - apostrophe-browser-utils
+  - apostrophe-caches
+  - apostrophe-custom-pages
+  - apostrophe-db
+  - apostrophe-docs
+  - apostrophe-express
+  - apostrophe-files
+  - apostrophe-files-widgets
+  - apostrophe-global
+  - apostrophe-groups
+  - apostrophe-html-widgets
+  - apostrophe-i18n
+  - apostrophe-images
+  - apostrophe-images-widgets
+  - apostrophe-launder
+  - apostrophe-login
+  - apostrophe-migrations
+  - apostrophe-modal
+  - apostrophe-module
+  - apostrophe-oembed
+  - apostrophe-pager
+  - apostrophe-pages
+  - apostrophe-permissions
+  - apostrophe-pieces
+  - apostrophe-pieces-pages
+  - apostrophe-pieces-widgets
+  - apostrophe-push
+  - apostrophe-rich-text-widgets
+  - apostrophe-schemas
+  - apostrophe-search
+  - apostrophe-service-bridge
+  - apostrophe-tags
+  - apostrophe-tasks
+  - apostrophe-templates
+  - apostrophe-ui
+  - apostrophe-urls
+  - apostrophe-users
+  - apostrophe-utils
+  - apostrophe-versions
+  - apostrophe-video-fields
+  - apostrophe-video-widgets
+  - apostrophe-widgets
+---
