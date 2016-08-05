@@ -1,7 +1,6 @@
 ---
 title: "apostrophe-areas (browser)"
 ---
-## Inherits from: [apostrophe-areas](../apostrophe-areas/browser-apostrophe-areas.html)
 
 ## Methods
 ### getTemplates(*callback*, *manager*)

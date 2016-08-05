@@ -1,5 +1,5 @@
 ---
 title: "apostrophe-pieces-cursor (server)"
 ---
-## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+## Inherits from: [apostrophe-cursor](../apostrophe-docs/server-apostrophe-cursor.html)
 

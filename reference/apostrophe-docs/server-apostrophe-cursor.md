@@ -1,7 +1,6 @@
 ---
 title: "apostrophe-cursor (server)"
 ---
-## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 
 ## Methods
 ### pageUrl(*value*, *definition*)

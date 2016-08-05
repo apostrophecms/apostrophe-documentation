@@ -276,6 +276,10 @@ module.exports = {
         matches = code.match(/(^|\n)apos\.define\(\'([\w\-]+)\'/);
         if (matches) {
           info = _.cloneDeep(info);
+          if (info.options) {
+            // Don't let this turn into a fallback to apostrophe-cursor
+            delete info.options.extend;
+          }
           if (file.match(/\/public\//)) {
             // This is a browser side js file that defines a new moog type
             info.type = 'browser-' + matches[2];
@@ -327,6 +331,10 @@ module.exports = {
             processFile(module, newSubcategory, path.resolve(base, newFile) + '.js', info);
           } else if (newType) {
             var _info = _.cloneDeep(info);
+            if (_info.options) {
+              // Don't let this turn into a fallback to apostrophe-cursor
+              delete _info.options.extend;
+            }
             _info.type = 'server-' + newType;
             processFile(module, null, path.resolve(base, newFile) + '.js', _info);
           }
@@ -397,6 +405,11 @@ module.exports = {
           extendNamespaced = type.namespace + '-' + extend;
           if (!type.namespace) {
             throw new Error('no namespace for ' + type.name);
+          }
+          if (extend === type.name) {
+            // This anomaly happens with apostrophe-cursor due to the
+            // way the my- chain works with anonymous subclassing
+            return '';
           }
           var extendedType = types[extendNamespaced];
           if ((extendedType.namespace === 'server') && (extendedType.module === extendedType.name)) {

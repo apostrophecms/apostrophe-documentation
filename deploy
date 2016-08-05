@@ -1,7 +1,7 @@
 #!/bin/sh
 
-echo "DISABLED until we're ready to deploy the 0.6 doc site. -Tom"
-#habit &&
-#rsync -a _site/ apostro2@45.56.109.144:/var/www/docs &&
-#echo "Done!"
+echo "Deploying to the unstable.apostrophenow.org site for now. -Tom"
+habit &&
+rsync -a _site/ apostro2@45.56.109.144:/var/www/docs-unstable &&
+echo "Done!"
 
