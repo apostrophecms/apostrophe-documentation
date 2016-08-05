@@ -348,14 +348,20 @@ module.exports = {
           }
         }
 
-        // Make sure it's not commented out
-        var assetRegex = /\n\s+self\.pushAsset\(\'script\',\s*\'([\w\-]+)\',\s*\{\s*when: \'(\w+)/g;
+        // // Make sure it's not commented out
+        // var assetRegex = /\n\s+self\.pushAsset\(\'script\',\s*\'([\w\-]+)\',\s*\{\s*when: \'(\w+)/g;
 
-        while ((matches = assetRegex.exec(code)) !== null) {
-          var _info = _.cloneDeep(info);
-          info.when = matches[2];
-          browserFiles.push(matches[1]);
-          processFile(module, matches[1], self.apos.rootDir + '/node_modules/apostrophe/lib/modules/' + module + '/public/js/' + matches[1] + '.js', info);
+        // while ((matches = assetRegex.exec(code)) !== null) {
+        //   var _info = _.cloneDeep(info);
+        //   info.when = matches[2];
+        //   browserFiles.push(matches[1]);
+        // }
+
+        if (!browserFiles.length) {
+          browserFiles = glob.sync(require('path').dirname(file) + '/public/js/*.js');
+          _.each(browserFiles, function(file) {
+            processFile(module, null, file, info);
+          });
         }
 
         // Make sure it's not commented out
