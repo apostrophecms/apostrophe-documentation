@@ -1,5 +1,12 @@
 ---
 title: "apostrophe-images-widgets (browser)"
 ---
-## Inherits from: [apostrophe-images-widgets](../apostrophe-images-widgets/browser-apostrophe-images-widgets.html)
+## Inherits from: [apostrophe-pieces-widgets](../apostrophe-pieces-widgets/browser-apostrophe-pieces-widgets.html)
+example of a widget manager with a play method.
+You don't need this file at all if you
+don't need a player.
+
+
+## Methods
+### play(*$widget*, *data*, *options*)
 

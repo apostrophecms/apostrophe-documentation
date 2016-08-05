@@ -9,6 +9,8 @@ children:
   - browser-apostrophe-pages-reorganize
 ---
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+Do we need this?
+
 
 ## Methods
 ### afterInit(*callback*, *criteria*, *projection*)

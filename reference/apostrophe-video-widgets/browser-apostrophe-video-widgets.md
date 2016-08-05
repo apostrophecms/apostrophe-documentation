@@ -1,5 +1,8 @@
 ---
 title: "apostrophe-video-widgets (browser)"
 ---
-## Inherits from: [apostrophe-video-widgets](../apostrophe-video-widgets/browser-apostrophe-video-widgets.html)
+## Inherits from: [apostrophe-widgets](../apostrophe-widgets/browser-apostrophe-widgets.html)
+
+## Methods
+### play(*$widget*, *data*, *options*)
 
