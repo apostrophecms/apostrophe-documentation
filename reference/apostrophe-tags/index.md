@@ -25,7 +25,7 @@ Overridable hook
 Overridable hook
 ### afterDeleteTag(*req*, *tag*, *callback*) *[implementation]*
 Overridable hook
-## helpers
+## Nunjucks template helpers
 ### menu()
 
 ## API Routes

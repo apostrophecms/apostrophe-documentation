@@ -113,7 +113,7 @@ for DOM templates
 
 ### prefixCssUrls(*css*)
 Prefix all URLs in CSS with the global site prefix
-## helpers
+## Nunjucks template helpers
 ### stylesheets(*when*)
 apos.assets.stylesheets renders markup to load CSS that
 is needed on any page that will use Apostrophe.

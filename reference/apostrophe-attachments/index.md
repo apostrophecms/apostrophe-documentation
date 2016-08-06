@@ -104,6 +104,84 @@ For use only in command line tasks, migrations and other batch operations
 in which permissions are a complete nonissue. NEVER use on the front end.
 ### addTypeMigration() *[api]*
 
+## Nunjucks template helpers
+### url(*attachment*, *options*)
+This method is available as a template helper: apos.attachments.url
+
+Given an attachment object,
+return the URL. If options.size is set, return the URL for
+that size (one-third, one-half, two-thirds, full). full is
+"full width" (1140px), not the original. For the original, don't pass size.
+If the "uploadfsPath" option is true, an
+uploadfs path is returned instead of a URL.
+### first(*within*, *options*)
+This method is available as a template helper: apos.attachments.first
+
+Find the first attachment referenced within any object with
+attachments as possible properties or sub-properties.
+
+For best performance be reasonably specific; don't pass an entire page or piece
+object if you can pass page.thumbnail to avoid an exhaustive search, especially
+if the page has many joins.
+
+Returns the first attachment matching the criteria.
+
+For ease of use, a null or undefined `within` argument is accepted.
+
+Examples:
+
+1. In the body please
+
+apos.attachments.first(page.body)
+
+2. Must be a PDF
+
+apos.attachments.first(page.body, { extension: 'pdf' })
+
+3. May be any office-oriented file type
+
+apos.attachments.first(page.body, { group: 'office' })
+
+apos.images.first is a convenience wrapper for fetching only images.
+
+OPTIONS:
+
+You may specify `extension`, `extensions` (an array of extensions)
+or `group` to filter the results.
+### all(*within*, *options*)
+This method is available as a template helper: apos.attachments.all
+
+Find all attachments referenced within an object, whether they are
+properties or sub-properties (via joins, etc).
+
+For best performance be reasonably specific; don't pass an entire page or piece
+object if you can pass piece.thumbnail to avoid an exhaustive search, especially
+if the piece has many joins.
+
+Returns an array of attachments, or an empty array if none are found.
+
+For ease of use, a null or undefined `within` argument is accepted.
+
+Examples:
+
+1. In the body please
+
+apos.attachments.all(page.body)
+
+2. Must be a PDF
+
+apos.attachments.all(page.body, { extension: 'pdf' })
+
+3. May be any office-oriented file type
+
+apos.attachments.all(page.body, { group: 'office' })
+
+apos.images.all is a convenience wrapper for fetching only images.
+
+OPTIONS:
+
+You may specify `extension`, `extensions` (an array of extensions)
+or `group` to filter the results.
 ## API Routes
 ### POST /modules/apostrophe-attachments/upload
 

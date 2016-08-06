@@ -196,6 +196,17 @@ module.exports = {
         // files = filterOutNodeModules(files);
         // files = filterOutVendor(files, vendor);
         processFile(module, null, self.apos.rootDir + '/node_modules/apostrophe/lib/modules/' + module + '/index.js');
+        var type = types['server-' + module];
+        _.each(type.deferredHelpers || [], function(name) {
+          console.log("EXAMINING " + name);
+          var method = _.find(type.methods, { name: name });
+          if (!method) {
+            console.log(type.name);
+            console.error("Helper " + name + " was picked but not found");
+          } else {
+            type.helpers.push(method);
+          }
+        });
       }
 
       function documentModule(module) {
@@ -268,6 +279,7 @@ module.exports = {
         var routes = [];
         var methods = [];
         var helpers = [];
+        var deferredHelpers = [];
 
         if (!info) {
           info = {
@@ -293,6 +305,10 @@ module.exports = {
         } else if (file.match(/index\.js/)) {
           info.type = 'server-' + module;
           info.options = extractOptions(code);
+        } else if (file.match(/public/)) {
+          // browser file that does not define a moog type. Don't
+          // look at it, we'll just get confused
+          return;
         }
 
         if (!subcategory) {
@@ -352,13 +368,20 @@ module.exports = {
           var end = matches[2].indexOf('\n' + helpersSpaces + '}');
           var helpersCode = matches[2].substr(0, end);
           var helperRegex = new RegExp('\n' + helpersSpaces + '  (\\w+): function\\((.*?)\\)', 'g');
-          console.log(helperRegex);
-          console.log(helpersCode);
-          console.log('START OF BLOCK');
           while ((matches = helperRegex.exec(helpersCode)) !== null) {
-            console.log('FOUND A HELPER');
             helpers.push(processHelper(module, file, matches, helpersCode, info));
           }
+        }
+
+        matches = code.match(/self.addHelpers\(_.pick\(self,(.*)?\)/);
+        if (matches) {
+          var names = matches[1].split(/,\s*/);
+          names = _.map(names, function(name) {
+            name = name.replace(/[') ]/g, '');
+            return name;
+          });
+          deferredHelpers = deferredHelpers.concat(names);
+          console.log('DEFERRED: ', deferredHelpers);
         }
 
         if (file.match(/cursor/i)) {
@@ -406,7 +429,8 @@ module.exports = {
           helpers: helpers,
           files: [ file ],
           options: info.options,
-          comments: info.comments
+          comments: info.comments,
+          deferredHelpers: deferredHelpers
         });
       }
 
@@ -459,7 +483,7 @@ module.exports = {
       function documentHelpers(type) {
         var helpers = type.helpers;
         if (helpers.length) {
-          return '## helpers\n' +
+          return '## Nunjucks template helpers\n' +
             _.map(helpers, function(helper) {
               return documentHelper(helper);
             }).join('\n') + '\n';

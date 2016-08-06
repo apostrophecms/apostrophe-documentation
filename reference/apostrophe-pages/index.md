@@ -9,8 +9,6 @@ children:
   - browser-apostrophe-pages-reorganize
 ---
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
-Do we need this?
-
 
 ## Methods
 ### afterInit(*callback*, *criteria*, *projection*)
@@ -162,7 +160,7 @@ has no path property, false is returned.
 Set the manager object for "apostrophe-page", the general case in which we're interested
 in all "regular pages" in the tree. Useful when you want to build navigation using
 schema joins
-## helpers
+## Nunjucks template helpers
 ### menu(*options*)
 
 ### publishMenu(*options*)

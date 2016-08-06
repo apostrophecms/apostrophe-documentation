@@ -45,7 +45,7 @@ we assume you don't care if they are published.
 
 ### addFromTask(*callback*)
 
-## helpers
+## Nunjucks template helpers
 ### accountMenu()
 
 ## API Routes
