@@ -113,3 +113,53 @@ for DOM templates
 
 ### prefixCssUrls(*css*)
 Prefix all URLs in CSS with the global site prefix
+## helpers
+### stylesheets(*when*)
+apos.assets.stylesheets renders markup to load CSS that
+is needed on any page that will use Apostrophe.
+
+`when` can be set to either `user` or `anon` and signifies
+whether a user is logged in or not; when users are
+logged in editing-related stylesheets are sent,
+otherwise not.
+
+The `when` parameter is made available to your page templates, so typically you
+just write this in your base layout template in the head element:
+
+`{{ apos.assets.stylesheets(data.when) }}`
+
+See `outerLayout.html` in the templates module.
+### scripts(*when*)
+apos.assets.scripts renders markup to load JS that
+is needed on any page that will use Apostrophe.
+
+`when` can be set to either `user` or `anon` and signifies
+whether a user is logged in or not; when users are
+logged in editing-related scripts are sent,
+otherwise not.
+
+The `when` parameter is made available to your page
+templates, so typically you just write this in
+outerLayout.html:
+
+`{{ apos.assets.scripts(data.when) }}`
+
+See `outerLayout.html` in the templates module.
+
+apos.assets.scripts also creates the apos object,
+with its prefix property, so that beforeCkeditor.js
+and other third party loaders can see the prefix
+even before our own javascript is loaded.
+### templates(*when*)
+apos.assets.templates renders templates that are needed
+on all pages. Examples: slideshowEditor.html,
+codeEditor.html, etc. These lie dormant in the page
+until they are needed as prototypes to be cloned by
+jQuery. `when` can be set to either `user` or `anon`
+and signifies whether a user is logged in or not; when
+users are logged in editing-related templates are sent,
+otherwise not. The `when` parameter is made available to
+your page templates, so typically you just write this
+in outerLayout.html at the end of the body:
+
+`{{ apos.assets.templates(when) }}`

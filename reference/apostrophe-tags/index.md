@@ -25,6 +25,9 @@ Overridable hook
 Overridable hook
 ### afterDeleteTag(*req*, *tag*, *callback*) *[implementation]*
 Overridable hook
+## helpers
+### menu()
+
 ## API Routes
 ### POST /modules/apostrophe-tags/manager
 

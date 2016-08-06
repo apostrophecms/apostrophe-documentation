@@ -37,6 +37,13 @@ is *removed* from the page object, otherwise no
 modifications are made.
 ### getSchemaOptions(*doc*, *name*) *[api]*
 
+## helpers
+### singleton(*doc*, *name*, *type*, *_options*)
+
+### area(*doc*, *name*, *_options*)
+
+### widget(*widget*, *options*)
+
 ## API Routes
 ### POST /modules/apostrophe-areas/save-area
 

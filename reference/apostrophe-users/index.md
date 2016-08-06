@@ -45,6 +45,9 @@ we assume you don't care if they are published.
 
 ### addFromTask(*callback*)
 
+## helpers
+### accountMenu()
+
 ## API Routes
 ### POST /modules/apostrophe-users/unique-username
 

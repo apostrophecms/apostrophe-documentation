@@ -108,6 +108,7 @@ module.exports = {
             files: [],
             routes: [],
             methods: [],
+            helpers: [],
             name: name,
             nameNamespaced: 'server-' + name,
             options: typeToOptions(type),
@@ -125,6 +126,7 @@ module.exports = {
             files: [],
             routes: [],
             methods: [],
+            helpers: [],
             name: name,
             nameNamespaced: 'browser-' + name,
             options: typeToOptions(type),
@@ -199,9 +201,6 @@ module.exports = {
       function documentModule(module) {
         var type = types['server-' + module];
         var relatedTypes = _.filter(types, function(type, name) {
-          if (module === 'apostrophe-areas') {
-            console.log(type.module + ': ' + type.name + ', ' + type.namespace);
-          }
           return (type.module === module) && ((type.name !== module) || (type.namespace !== 'server'));
         });
         var folder = '../reference/' + module;
@@ -219,6 +218,7 @@ module.exports = {
           documentExtend(type) +
           documentComments(type.comments) + "\n" +
           documentMethods(type) +
+          documentHelpers(type) +
           documentRoutes(type)
         );
 
@@ -267,6 +267,7 @@ module.exports = {
         var browserFiles = [];
         var routes = [];
         var methods = [];
+        var helpers = [];
 
         if (!info) {
           info = {
@@ -340,9 +341,24 @@ module.exports = {
           }
         }
         // Make sure it's not commented out
-        var methodRegex = /\n\s+self\.(\w+)\s*=\s*function\((.*?)\)/g;
+        var methodRegex = /\n +self\.(\w+)\s*=\s*function\((.*?)\)/g;
         while ((matches = methodRegex.exec(code)) !== null) {
           methods.push(processMethod(module, subcategory, file, matches, code, info));
+        }
+
+        matches = code.match(/\n( +)self.addHelpers\(\{([\s\S]*)$/);
+        if (matches) {
+          var helpersSpaces = matches[1];
+          var end = matches[2].indexOf('\n' + helpersSpaces + '}');
+          var helpersCode = matches[2].substr(0, end);
+          var helperRegex = new RegExp('\n' + helpersSpaces + '  (\\w+): function\\((.*?)\\)', 'g');
+          console.log(helperRegex);
+          console.log(helpersCode);
+          console.log('START OF BLOCK');
+          while ((matches = helperRegex.exec(helpersCode)) !== null) {
+            console.log('FOUND A HELPER');
+            helpers.push(processHelper(module, file, matches, helpersCode, info));
+          }
         }
 
         if (file.match(/cursor/i)) {
@@ -387,6 +403,7 @@ module.exports = {
         _.merge(types[info.type], {
           routes: routes,
           methods: methods,
+          helpers: helpers,
           files: [ file ],
           options: info.options,
           comments: info.comments
@@ -413,7 +430,6 @@ module.exports = {
           }
           var extendedType = types[extendNamespaced];
           if ((extendedType.namespace === 'server') && (extendedType.module === extendedType.name)) {
-            console.log('as module: ' + extend);
             // It's a module, it has to extend another module
             return '## Inherits from: [' + extend + '](../' + extend + '/index.html)\n';
           } else {
@@ -423,7 +439,6 @@ module.exports = {
             if (!types[extendNamespaced]) {
               console.error('NOT FOUND: ', extendNamespaced);
             }
-            console.log('as related type: ' + extend);
             return '## Inherits from: [' + extend + '](../' + extendType.module + '/' + extendNamespaced + '.html)\n';
           }
         }
@@ -436,6 +451,17 @@ module.exports = {
           return '## Methods\n' +
             _.map(methods, function(method) {
               return documentMethod(method);
+            }).join('\n') + '\n';
+        }
+        return '';
+      }
+
+      function documentHelpers(type) {
+        var helpers = type.helpers;
+        if (helpers.length) {
+          return '## helpers\n' +
+            _.map(helpers, function(helper) {
+              return documentHelper(helper);
             }).join('\n') + '\n';
         }
         return '';
@@ -467,6 +493,12 @@ module.exports = {
         }
         s += '\n';
         return s + documentComments(method.comments);
+      }
+
+      function documentHelper(helper) {
+        var s = '### ' + helper.name + '(' + _.map(helper.args, documentArg).join(', ') + ')';
+        s += '\n';
+        return s + documentComments(helper.comments);
       }
 
       function documentRoute(route) {
@@ -538,6 +570,29 @@ module.exports = {
           args: args,
           comments: comments,
           subcategory: subcategory
+        };
+      }
+
+      function processHelper(module, file, matches, code, info) {
+        var name = matches[1];
+        var args = matches[2];
+        var optional = args.match(/\/\*.*?\*\//);
+        if (optional) {
+          optional = optional[0];
+        }
+        args = args.replace(/\/\*.*?\*\//, '');
+        args = args.split(/\s*,\s*/);
+        if ((args.length === 1) && (args[0] === '')) {
+          args = [];
+        }
+        if (optional) {
+          args.push(optional.substr(2, optional.length - 4).trim());
+        }
+        comments = commentsPreceding(code, matches.index);
+        return {
+          name: name,
+          args: args,
+          comments: comments
         };
       }
 

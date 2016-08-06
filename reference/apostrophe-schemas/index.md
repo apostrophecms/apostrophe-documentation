@@ -86,6 +86,11 @@ When a page is served to a logged-in user, make sure the session contains a bles
 for every join configured in schemas for doc types
 ### bless(*req*, *schema*)
 
+## helpers
+### toGroups(*fields*)
+
+### field(*field*)
+
 ## API Routes
 ### POST /modules/apostrophe-schemas/arrayEditor
 

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+(cd _api-reference-generator/ && rm -rf ../reference/ && node app documentation:generate) && habit
+

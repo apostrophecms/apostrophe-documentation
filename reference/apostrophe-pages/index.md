@@ -162,6 +162,13 @@ has no path property, false is returned.
 Set the manager object for "apostrophe-page", the general case in which we're interested
 in all "regular pages" in the tree. Useful when you want to build navigation using
 schema joins
+## helpers
+### menu(*options*)
+
+### publishMenu(*options*)
+
+### isAncestorOf(*possibleAncestorPage*, *ofPage*)
+
 ## API Routes
 ### POST /modules/apostrophe-pages/editor
 Render the editor for page settings
