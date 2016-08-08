@@ -8,14 +8,6 @@ Methods here should be of short, of universal utility, and not
 clearly in the domain of any other module. If you don't wish
 it was standard in JavaScript, it probably doesn't belong here.
 
-Methods here should be of short, of universal utility, and not
-clearly in the domain of any other module. If you don't wish
-it was standard in JavaScript, it probably doesn't belong here.
-
-Methods here should be of short, of universal utility, and not
-clearly in the domain of any other module. If you don't wish
-it was standard in JavaScript, it probably doesn't belong here.
-
 
 ## Methods
 ### generateId() *[api]*

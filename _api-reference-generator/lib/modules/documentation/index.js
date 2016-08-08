@@ -452,7 +452,9 @@ module.exports = {
         if (!types[info.type].comments) {
           types[info.type].comments = '';
         }
-        types[info.type].comments += info.comments;
+        if (types[info.type].comments.indexOf(info.comments) === -1) {
+          types[info.type].comments += info.comments;
+        }
       }
 
       function documentExtend(type) {

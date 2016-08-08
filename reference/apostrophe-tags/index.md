@@ -8,10 +8,6 @@ children:
 ## Inherits from: [apostrophe-pieces](../apostrophe-pieces/index.html)
 
 
-
-
-
-
 ## Methods
 ### listTags(*req*, *options*, *callback*) *[api]*
 
