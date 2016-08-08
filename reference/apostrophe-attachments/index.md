@@ -1,5 +1,6 @@
 ---
 title: "apostrophe-attachments (module)"
+layout: module
 children:
   - browser-apostrophe-attachments
   - browser-apostrophe-attachments-crop-editor

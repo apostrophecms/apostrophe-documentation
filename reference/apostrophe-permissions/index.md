@@ -1,5 +1,6 @@
 ---
 title: "apostrophe-permissions (module)"
+layout: module
 children:
 
 ---

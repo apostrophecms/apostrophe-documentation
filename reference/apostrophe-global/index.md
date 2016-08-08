@@ -1,5 +1,6 @@
 ---
 title: "apostrophe-global (module)"
+layout: module
 children:
 
 ---

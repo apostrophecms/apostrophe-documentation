@@ -1,5 +1,6 @@
 ---
 title: "apostrophe-browser-utils (module)"
+layout: module
 children:
   - browser-apostrophe-browser-utils
 ---

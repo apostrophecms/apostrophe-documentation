@@ -1,5 +1,6 @@
 ---
 title: "apostrophe-custom-pages (module)"
+layout: module
 children:
 
 ---

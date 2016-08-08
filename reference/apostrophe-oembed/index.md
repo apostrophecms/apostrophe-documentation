@@ -1,5 +1,6 @@
 ---
 title: "apostrophe-oembed (module)"
+layout: module
 children:
   - browser-apostrophe-oembed
 ---

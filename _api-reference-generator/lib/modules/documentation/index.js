@@ -86,7 +86,7 @@ module.exports = {
       var file = '../reference/index.md';
       fs.writeFileSync(file,
         '---\n' +
-        'title: "API reference: modules"\n' +
+        'title: "API reference"\n' +
         'children:\n' +
         _.map(modules, indentModule).join("\n") +
         '\n---\n'
@@ -223,6 +223,7 @@ module.exports = {
         fs.writeFileSync(markdownFile,
           '---\n' +
           'title: "' + type.title + '"\n' +
+          'layout: module\n' +
           'children:\n' +
             _.map(relatedTypes, function(relatedType) {
               return '  - ' + relatedType.nameNamespaced;

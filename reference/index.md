@@ -1,5 +1,5 @@
 ---
-title: "API reference: modules"
+title: "API reference"
 children:
   - apostrophe-areas
   - apostrophe-assets

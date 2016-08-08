@@ -333,4 +333,13 @@ only those joins and those intermediate to them
 are performed (dot notation). See `apostrophe-schemas`
 for more information.
 ### pageUrl(*value*)
+Filter. All docs that are part of the page tree (they have a slug
+beginning with a `/`) receive a `._url` property, which takes the
+sitewide prefix into account if necessary. Always use this property.
+Never use the slug as a URL.
 
+This filter is turned on by default.
+
+Note that many type-specific cursors, such as those for `pieces`,
+also add a `._url` property appropriate to type if a suitable
+pieces page is available.

@@ -1,5 +1,6 @@
 ---
 title: "apostrophe-caches (module)"
+layout: module
 children:
 
 ---

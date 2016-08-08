@@ -1,5 +1,6 @@
 ---
 title: "apostrophe-images (module)"
+layout: module
 children:
   - server-apostrophe-images-cursor
   - browser-apostrophe-images-chooser

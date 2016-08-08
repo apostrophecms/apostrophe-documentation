@@ -1,5 +1,6 @@
 ---
 title: "apostrophe-db (module)"
+layout: module
 children:
 
 ---

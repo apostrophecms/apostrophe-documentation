@@ -1,5 +1,6 @@
 ---
 title: "apostrophe-groups (module)"
+layout: module
 children:
   - server-apostrophe-groups-cursor
   - browser-apostrophe-groups

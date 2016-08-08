@@ -1,5 +1,6 @@
 ---
 title: "apostrophe-modal (module)"
+layout: module
 children:
   - browser-apostrophe-modal
 ---

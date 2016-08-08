@@ -1,5 +1,6 @@
 ---
 title: "apostrophe-pieces-pages (module)"
+layout: module
 children:
 
 ---

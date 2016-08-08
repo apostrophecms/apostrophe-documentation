@@ -1,5 +1,6 @@
 ---
 title: "apostrophe-users (module)"
+layout: module
 children:
   - server-apostrophe-users-cursor
   - browser-apostrophe-users

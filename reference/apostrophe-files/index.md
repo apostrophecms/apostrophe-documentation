@@ -1,5 +1,6 @@
 ---
 title: "apostrophe-files (module)"
+layout: module
 children:
   - server-apostrophe-files-cursor
   - browser-apostrophe-files

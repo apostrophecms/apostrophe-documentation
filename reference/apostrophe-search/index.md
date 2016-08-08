@@ -1,5 +1,6 @@
 ---
 title: "apostrophe-search (module)"
+layout: module
 children:
 
 ---

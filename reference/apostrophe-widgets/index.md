@@ -1,5 +1,6 @@
 ---
 title: "apostrophe-widgets (module)"
+layout: module
 children:
   - browser-apostrophe-widgets
   - browser-apostrophe-widgets-editor

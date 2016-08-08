@@ -1,5 +1,6 @@
 ---
 title: "apostrophe-module (module)"
+layout: module
 children:
   - server-apostrophe-module-cursor
   - browser-apostrophe-module

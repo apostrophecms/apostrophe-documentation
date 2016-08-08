@@ -1,5 +1,6 @@
 ---
 title: "apostrophe-launder (module)"
+layout: module
 children:
 
 ---

@@ -1,5 +1,6 @@
 ---
 title: "apostrophe-urls (module)"
+layout: module
 children:
 
 ---
