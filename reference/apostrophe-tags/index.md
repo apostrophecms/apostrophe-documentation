@@ -8,12 +8,26 @@ children:
 ## Inherits from: [apostrophe-pieces](../apostrophe-pieces/index.html)
 
 
+
+
+
+
 ## Methods
-### pushAssets(*req*, *options*, *callback*) *[browser]*
+### listTags(*req*, *options*, *callback*) *[api]*
 
-### pushCreateSingleton(*req*, *options*, *callback*) *[browser]*
+### addTag(*req*, *tag*, *callback*) *[api]*
 
-### beforeAddTag(*req*, *tag*, *callback*, *callback*) *[implementation]*
+### renameTag(*req*, *tag*, *newTag*, *callback*) *[api]*
+
+### deleteTag(*req*, *tag*, *callback*) *[api]*
+
+### launder(*tag*) *[api]*
+
+### beforeListTags(*req*, *options*, *callback*) *[implementation]*
+Overridable hook
+### afterListTags(*req*, *options*, *callback*) *[implementation]*
+Overridable hook
+### beforeAddTag(*req*, *tag*, *callback*) *[implementation]*
 Overridable hook
 ### afterAddTag(*req*, *tag*, *callback*) *[implementation]*
 Overridable hook
@@ -25,6 +39,12 @@ Overridable hook
 Overridable hook
 ### afterDeleteTag(*req*, *tag*, *callback*) *[implementation]*
 Overridable hook
+### createRoutes() *[routes]*
+
+### pushAssets() *[browser]*
+
+### pushCreateSingleton() *[browser]*
+
 ## Nunjucks template helpers
 ### menu()
 

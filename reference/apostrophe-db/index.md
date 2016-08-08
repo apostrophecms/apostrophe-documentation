@@ -17,11 +17,13 @@ the connection to time out... with no error messages or clues
 that we need to reconnect it... because apparently that's
 a feature now. -Tom
 ### earlyResetTask(*callback*)
-reset task
-let's all the modules start up, then destroys them bwhaha
-the default is to remove everything.
-TODO: --safe clears only collections that apostrophe cares about
-- Tom & Sam
+Remove ALL collections from the database as part of the
+`apostrophe-db:reset` task. Then Apostrophe carries out the usual
+reinitialization of collection indexes and creation of parked pages, etc.
+
+PLEASE NOTE: this will drop collections UNRELATED to apostrophe.
+If that is a concern for you, drop Apostrophe's collections yourself
+and start up your app, which will recreate them.
 ### resetFromTask(*callback*)
 
 ### dropAllCollections(*callback*)

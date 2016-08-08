@@ -11,10 +11,13 @@ children:
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 
 ## Methods
-### afterInit(*callback*, *criteria*, *projection*)
-Wait until the last possible moment to add
-the wildcard route for serving pages, so that
-other routes are not blocked
+### pushAssets() *[browser]*
+
+### pushCreateSingleton() *[browser]*
+
+### find(*req*, *criteria*, *projection*) *[api]*
+Obtain a cursor for finding pages. Adds filters useful for
+including ancestors, descendants, etc.
 ### insert(*req*, *parentOrId*, *page*, *callback*) *[api]*
 Insert a page as a child of the specified page or page ID.
 ### newChild(*parentPage*) *[api]*
@@ -160,6 +163,10 @@ has no path property, false is returned.
 Set the manager object for "apostrophe-page", the general case in which we're interested
 in all "regular pages" in the tree. Useful when you want to build navigation using
 schema joins
+### afterInit(*callback*)
+Wait until the last possible moment to add
+the wildcard route for serving pages, so that
+other routes are not blocked
 ## Nunjucks template helpers
 ### menu(*options*)
 

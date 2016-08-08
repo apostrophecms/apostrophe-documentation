@@ -14,10 +14,15 @@ children:
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 
 ## Methods
-### pushAssets(*req*, *criteria*, *projection*) *[browser]*
+### createRoutes() *[routes]*
 
-### pushCreateSingleton(*req*, *criteria*, *projection*) *[browser]*
-
+### find(*req*, *criteria*, *projection*) *[api]*
+Returns a cursor for use in finding docs. See cursor.js for chainable
+filters, and also yielders that actually deliver the docs to you
+### findForEditing(*req*, *criteria*, *projection*) *[api]*
+Returns a cursor that finds docs the current user can edit. Unlike
+find(), this cursor defaults to including unpublished docs. Subclasses
+of apostrophe-pieces often extend this to remove more default filters
 ### requirePiece(*req*, *res*, *next*) *[api]*
 middleware for JSON API routes that expect the ID of
 an existing piece at req.body._id, with editing privileges
@@ -85,6 +90,10 @@ User must have some editing privileges for this type
 
 ### searchDetermineTypes(*types*) *[api]*
 Enable inclusion of this type in sitewide search results
+### pushAssets() *[browser]*
+
+### pushCreateSingleton() *[browser]*
+
 ## API Routes
 ### POST /modules/apostrophe-pieces/insert
 

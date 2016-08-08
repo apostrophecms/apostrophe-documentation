@@ -6,7 +6,11 @@ children:
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 
 ## Methods
+### addFieldType() *[schemaField]*
+
+### fieldTypePartial(*data*) *[schemaField]*
+
 ### pushAssets() *[browser]*
 
-### pushCreateSingleton(*data*) *[browser]*
+### pushCreateSingleton() *[browser]*
 

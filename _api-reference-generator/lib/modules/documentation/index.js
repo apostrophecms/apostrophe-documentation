@@ -1,5 +1,6 @@
 var async = require('async');
 var fs = require('fs');
+var _ = require('lodash');
 
 // The convention now is to prefix the name of all moog types related to
 // a module with a module name, however we need a lookup table for the handful
@@ -109,6 +110,7 @@ module.exports = {
             routes: [],
             methods: [],
             helpers: [],
+            deferredHelpers: [],
             name: name,
             nameNamespaced: 'server-' + name,
             options: typeToOptions(type),
@@ -127,6 +129,7 @@ module.exports = {
             routes: [],
             methods: [],
             helpers: [],
+            deferredHelpers: [],
             name: name,
             nameNamespaced: 'browser-' + name,
             options: typeToOptions(type),
@@ -198,7 +201,6 @@ module.exports = {
         processFile(module, null, self.apos.rootDir + '/node_modules/apostrophe/lib/modules/' + module + '/index.js');
         var type = types['server-' + module];
         _.each(type.deferredHelpers || [], function(name) {
-          console.log("EXAMINING " + name);
           var method = _.find(type.methods, { name: name });
           if (!method) {
             console.log(type.name);
@@ -326,6 +328,7 @@ module.exports = {
         }
 
         if (!types[info.type]) {
+          console.log('FIRST DEFINE of ' + info.type + ', it was not in the extract');
           // Shouldn't be needed anymore due to readAllTypes
           var basename = path.basename(file, '.js');
           types[info.type] = {
@@ -336,15 +339,18 @@ module.exports = {
           };
         }
 
-        var requireRegex = /(apos\.define\(\'([\w\-]+)\',\s*)?require\('(\.\/lib\/([\w\-]+))(\.js)?'\)\s*(\(self)?/g;
+        var requireRegex = /(apos\.define\(\'([\w\-]+)\',\s*)?require\('(\.\/(lib\/)?([\w\-]+))(\.js)?'\)\s*(\(self)?/g;
 
         while ((matches = requireRegex.exec(code)) !== null) {
           var newType = matches[2];
           var newFile = matches[3];
-          var newSubcategory = matches[4];
-          var hasSelf = matches[6];
+          var newSubcategory = matches[5];
+          var hasSelf = matches[7];
 
           if (hasSelf) {
+            if (matches[0].match(/cursor/i)) {
+              console.log('TODO deal with apostrophe-pieces and the magical way it defines cursors');
+            }
             processFile(module, newSubcategory, path.resolve(base, newFile) + '.js', info);
           } else if (newType) {
             var _info = _.cloneDeep(info);
@@ -389,6 +395,7 @@ module.exports = {
           var filterRegex = /\n\s+self\.addFilter\(\'(\w+)/g;
           while ((matches = filterRegex.exec(code)) !== null) {
             matches[2] = 'value';
+            console.log('filter name: ' + matches[1]);
             var method = processMethod(module, subcategory, file, matches, code, info);
             method.type = 'filter';
             methods.push(method);
@@ -423,15 +430,29 @@ module.exports = {
           });
         }
 
+        if (info.type === 'server-apostrophe-cursor') {
+          console.log('BEFORE: ', (_.map(types[info.type].methods, 'name')));
+        }
         _.merge(types[info.type], {
+          options: info.options,
+        });
+        // This is NOT what _.merge does ):
+        appendArrays(types[info.type], {
           routes: routes,
           methods: methods,
           helpers: helpers,
           files: [ file ],
-          options: info.options,
-          comments: info.comments,
           deferredHelpers: deferredHelpers
         });
+        if (info.type === 'server-apostrophe-cursor') {
+          console.log('defined in ' + file);
+          console.log(_.map(types[info.type].methods, 'name'));
+        }
+
+        if (!types[info.type].comments) {
+          types[info.type].comments = '';
+        }
+        types[info.type].comments += info.comments;
       }
 
       function documentExtend(type) {
@@ -721,6 +742,12 @@ module.exports = {
 
       function mkdirp(s) {
         require('mkdirp').sync(s, 0700);
+      }
+
+      function appendArrays(o, i) {
+        _.each(i, function(val, key) {
+          o[key] = (o[key] || []).concat(val);
+        });
       }
     };
   }

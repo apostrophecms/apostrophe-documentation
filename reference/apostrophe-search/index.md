@@ -6,6 +6,8 @@ children:
 ## Inherits from: [apostrophe-custom-pages](../apostrophe-custom-pages/index.html)
 
 ## Methods
+### pushAssets() *[browser]*
+
 ### modulesReady(*callback*)
 
 ### determineTypes(*callback*)

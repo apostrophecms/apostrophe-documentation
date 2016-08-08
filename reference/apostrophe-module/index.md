@@ -5,6 +5,19 @@ children:
   - browser-apostrophe-module
   - browser-apostrophe-module-editor
 ---
+This "module" is the base class for all other modules. This module
+is never actually configured and used directly. Instead all other modules
+extend it (or a subclass of it) and benefit from its standard features,
+including asset pushing, template rendering, etc.
+
+New methods added here should be lightweight wrappers that invoke
+an implementation provided in another module, such as `apostrophe-assets`,
+with sensible defaults for the current module. For instance,
+any module can call `self.render(req, 'show', { data... })` to
+render the `views/show.html` template of that module.
+
+TODO: wrappers for delivering email and adding command-line tasks.
+
 
 ## Methods
 ### route(*method*, *path*, *fn*)
@@ -28,24 +41,54 @@ the `path` argument. Note that some standardized optional
 middleware is available to pass in this way, i.e.
 `self.apos.middleware.files` for file uploads.
 ### addHelpers(*object *, *or name, value*)
-Add nunjucks helpers in the namespace for our module
+Add nunjucks template helpers in the namespace for our module. Typically called
+with an object in which each property is a helper name and each value
+is a helper function. Can also be called with `name, function` to add
+just one helper.
 ### addHelperShortcut(*name*)
+Add a nunjucks template helper to the global namespace. This should
+be used very sparingly, and pretty much never in npm modules. The
+only exceptions in apostrophe core are `apos.area` and `apos.singleton`.
 
+The helper must be added first with `addHelpers`.
 ### pushAsset(*type*, *name*, *options*)
+Push an asset to the browser. `type` may be `script`, `stylesheet`
+or `template`. The second argument is the name of the file, without
+the extension.
 
+For stylesheets, if `name` is `editor`, then `public/css/editor.css`
+is pushed. If `public/css/editor.less` exists it is compiled as needed
+to create the CSS version.
+
+For scripts, if `name` is `editor`, then `public/js/editor.js` is pushed.
+
+For both scripts and stylesheets, if the module is subclassed, and
+the file exists in both the parent module and the subclass, *both*
+files are pushed, in that order.
+
+If `type` is `template`, the corresponding template in this module is
+rendered and added to the DOM of each page before the closing `body` tag, to be
+cloned and made visible as needed. If the module is subclassed, only
+the newest (subclass) version is sent.
+
+If `options.when` is set to `always` or not specified, the asset is
+included in every page regardless of whether the user is logged in. If
+`options.when` is set to `user`, it is included only if the user is logged in.
 ### render(*req*, *name*, *data*)
 Render a template. Template overrides are respected; the
 project level lib/modules/modulename/views folder wins if
 it has such a template, followed by the npm module,
-followed by its parent classes.
+followed by its parent classes. If you subclass a module,
+your version wins if it exists.
 
 You MUST pass req as the first argument. This allows
 internationalization/localization to work. If you
 are writing a Nunjucks helper function, use
-self.partial instead.
+self.partial instead. This method is primarily used
+to implement routes that respond with HTML fragments.
 
-All properties of `data` appear in Nunjucks as
-the `data` object. Nunjucks helper functions
+All properties of `data` appear in Nunjucks templates as
+properties of the `data` object. Nunjucks helper functions
 can be accessed via the `apos` object.
 
 If not otherwise specified, `data.user` and
@@ -72,18 +115,18 @@ Returns a function that can be used to invoke
 self.render at a later time. The returned function
 must be called with req. You may pass data now
 and also when invoking the function; data passed
-now serves as defaults for the object passed later
+now serves as defaults for the object passed later.
 ### partialer(*name*, *data*)
 Returns a function that can be used to invoke
 self.partial at a later time. You may pass data now
 and also when invoking the function; data passed
-now serves as defaults for the object passed later
+now serves as defaults for the object passed later.
 ### renderPage(*req*, *template*, *data*)
-TIP: you probably want self.sendPage, which loads
-data.home for you.
+TIP: you probably want `self.sendPage`, which loads
+`data.home` for you and also sends the response to the browser.
 
 This method generates a complete HTML page for transmission to the
-browser. Returns HTML markup ready to send (but self.sendPage is
+browser. Returns HTML markup ready to send (but `self.sendPage` is
 more convenient).
 
 If `template` is a function it is passed a data object,
@@ -93,6 +136,7 @@ to this module via self.render.
 `data` is provided to the template, with additional
 default properties as described below.
 
+Depending on whether the request is an AJAX request,
 `outerLayout` is set to:
 
 `apostrophe-templates:outerLayout.html`
@@ -168,6 +212,6 @@ the `data` object in nunjucks:
   request-specific calls pushed by server-side code)
 `data.home` (basic information about the home page, usually with ._children)
 
-First, `beforeSendPage` is invoked on every module that
-has such a method. It receives `req` and an optional callback, and
+First, `beforeSendPage` is invoked on **every module that
+has such a method**. It receives `req` and an optional callback, and
 can modify `req.data`.

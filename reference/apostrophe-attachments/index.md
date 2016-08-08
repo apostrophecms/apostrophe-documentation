@@ -7,11 +7,28 @@ children:
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 
 ## Methods
-### initUploadfs(*callback*, *file*, *callback*)
+### addFieldType() *[schemaField]*
 
-### enableCollection(*callback*)
+### fieldTypePartial(*data*) *[schemaField]*
 
-### enableHelpers(*req*, *_id*, *crop*, *callback*)
+### indexer(*value*, *field*, *texts*) *[schemaField]*
+
+### accept(*req*, *file*, *callback*) *[api]*
+Accept a file as submitted by an HTTP file upload.
+req is checked for permissions. The callback receives an error if any
+followed by a file object.
+
+"file" should be an object with "name" and "path" properties.
+"name" must be the name the user claims for the file, while "path"
+must be the actual full path to the file on disk and need not have
+any file extension necessarily.
+
+(Note that when using Express to handle file uploads,
+req.files['yourfieldname'] will be such an object as long as you
+configure jquery fileupload to submit one per request.)
+### getFileGroup(*extension*) *[api]*
+
+### crop(*req*, *_id*, *crop*, *callback*) *[api]*
 
 ### sanitizeCrop(*crop*) *[api]*
 
@@ -103,6 +120,16 @@ If only 3 arguments are given the limit defaults to 1.
 For use only in command line tasks, migrations and other batch operations
 in which permissions are a complete nonissue. NEVER use on the front end.
 ### addTypeMigration() *[api]*
+
+### pushAssets() *[browser]*
+
+### pushCreateSingleton() *[browser]*
+
+### initUploadfs(*callback*)
+
+### enableCollection(*callback*)
+
+### enableHelpers()
 
 ## Nunjucks template helpers
 ### url(*attachment*, *options*)

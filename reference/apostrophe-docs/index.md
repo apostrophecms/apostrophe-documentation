@@ -14,9 +14,9 @@ children:
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 
 ## Methods
-### pushAssets(*callback*) *[browser]*
+### enableCollection(*callback*) *[api]*
 
-### pushCreateSingleton(*callback*) *[browser]*
+### ensureIndexes(*callback*) *[api]*
 
 ### ensureTextIndex(*callback*) *[api]*
 
@@ -274,6 +274,10 @@ We don't launder the input here, see the 'autocomplete' route.
 Add fields to the list of those unsuitable for
 rollback due to knock-on effects, permissions checks,
 etc.
+### pushAssets() *[browser]*
+
+### pushCreateSingleton() *[browser]*
+
 ## API Routes
 ### POST /modules/apostrophe-docs/chooser
 

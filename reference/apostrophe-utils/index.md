@@ -8,12 +8,20 @@ Methods here should be of short, of universal utility, and not
 clearly in the domain of any other module. If you don't wish
 it was standard in JavaScript, it probably doesn't belong here.
 
+Methods here should be of short, of universal utility, and not
+clearly in the domain of any other module. If you don't wish
+it was standard in JavaScript, it probably doesn't belong here.
+
+Methods here should be of short, of universal utility, and not
+clearly in the domain of any other module. If you don't wish
+it was standard in JavaScript, it probably doesn't belong here.
+
 
 ## Methods
-### modulesReady()
-Add these after we're sure the templates module
-is ready. Only necessary because this module is
-initialized first
+### generateId() *[api]*
+generate a unique identifier for a new page or other object.
+IDs are generated with the cuid module which prevents
+collisions and easy guessing of another's ID.
 ### globalReplace(*haystack*, *needle*, *replacement*) *[api]*
 Globally replace a string with another string.
 Regular `String.replace` does NOT offer global replace, except
@@ -129,3 +137,7 @@ and therefore is safe to reuse to re-render a widget that is being edited.
 See apos.utils.bless
 ### hashBlessing(*args*) *[api]*
 
+### modulesReady()
+Add these after we're sure the templates module
+is ready. Only necessary because this module is
+initialized first

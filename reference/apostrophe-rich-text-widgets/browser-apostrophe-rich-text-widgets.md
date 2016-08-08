@@ -4,6 +4,8 @@ title: "apostrophe-rich-text-widgets (browser)"
 ## Inherits from: [apostrophe-widgets](../apostrophe-widgets/browser-apostrophe-widgets.html)
 
 ## Methods
+### getData(*$widget*)
+
 ### edit(*data*, *options*, *save*)
 
 ### startEditing(*$widget*)
