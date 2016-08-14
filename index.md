@@ -3,6 +3,7 @@ title: "Home"
 children:
   - tutorials
   - reference
+  - howtos
 layout: "home"
 ---
 
