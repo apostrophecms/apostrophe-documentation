@@ -42,6 +42,12 @@ return self.insert(req, piece, callback);
 
 `self.update` and `self.insert` also call `self.beforeUpdate` and `self.beforeInsert`, as well as `self.beforeSave` (called by both), which provides an easy way to add extra behavior on every save operation.
 
+### Properties with a leading `_` are special
+
+One important rule: any property with a leading `_`, except for `_id`, will **not be saved to the database**.
+
+Apostrophe reserves properties starting with `_` for dynamically loaded information, such a the results of a join, or the `._url` property. These properties can change at any time and duplicate information stored elsewhere in the database. Storing them back to the database would just cause confusion and waste space.
+
 ### Working with projections
 
 You can limit the amount of data returned just like you would with MongoDB: using the second argument.
@@ -112,12 +118,6 @@ return self.apos.docs.find(req).search('blue').toArray(function(err, docs) {
 *When you call `docs.find` in this way, pieces won't have a `._url` property.* For that you need to use the `find` method of the appropriate module.
 
 The `docs` module also has `insert` and `update` methods. These work just like the `insert` and `update` methods of pieces, but they won't invoke the `beforeInsert`, etc. methods of pieces. So use the method of the appropriate module unless you're bypassing this intentionally.
-
-### Properties with a leading `_` are special
-
-One important rule: any property with a leading `_`, except for `_id`, will **not be saved to the database**.
-
-Apostrophe reserves properties starting with `_` for dynamically loaded information, such a the results of a join, or the `._url` property. These properties can change at any time and duplicate information stored elsewhere in the database. Storing them back to the database would just cause confusion and waste space.
 
 ## `skip`, `limit`, `page` and `perPage`: paginating results
 
