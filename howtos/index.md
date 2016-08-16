@@ -3,6 +3,7 @@ title: "HOWTOs"
 children:
   - deployment
   - multicore
+  - adding-fields-to-all-pieces
   - model-layer
   - accessing-the-database-directly
   - admin-bar
