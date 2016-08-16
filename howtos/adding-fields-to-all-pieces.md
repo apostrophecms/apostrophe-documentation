@@ -32,7 +32,9 @@ modules: {
 
 **This won't quite work.** The reason is that the `addFields` option set for each subclass overrides it.
 
-Instead, we'll write a `beforeConstruct` function in `lib/modules/apostrophe-pieces/index.js`. The great thing about `beforeConstruct` is that it is *called for the subclasses first*. That means that by the time it is called for us, *all the fields for the subclass are already in `addFields`*. We can simply prepend our own:
+Another problem is that we wind up with "Pieces" on the admin bar. If we configure a module in `app.js`, Apostrophe assumes we want to use that module, not just extend it to create new modules.
+
+So instead, we'll write a `beforeConstruct` function in `lib/modules/apostrophe-pieces/index.js`. The great thing about `beforeConstruct` is that it is *called for the subclasses first*. That means that by the time it is called for us, *all the fields for the subclass are already in `addFields`*. We can simply prepend our own:
 
 ```javascript
 // THIS WILL WORK!
