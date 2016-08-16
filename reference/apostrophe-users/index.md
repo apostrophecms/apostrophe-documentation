@@ -44,10 +44,11 @@ we assume you don't care if they are published.
 
 ### requirePiece(*req*, *res*, *next*)
 
+### initializeCredential()
+
 ### addFromTask(*callback*)
 
-## Nunjucks template helpers
-### accountMenu()
+### changePasswordFromTask(*callback*)
 
 ## API Routes
 ### POST /modules/apostrophe-users/unique-username

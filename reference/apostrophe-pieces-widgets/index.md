@@ -6,6 +6,16 @@ children:
   - browser-apostrophe-pieces-widgets
 ---
 ## Inherits from: [apostrophe-widgets](../apostrophe-widgets/index.html)
+`apostrophe-pieces-widgets` provides widgets that display display pieces of a
+particular type around the site.
+
+You will `extend` this module in new modules corresponding to your modules
+that extend `apostrophe-pieces`.
+
+To learn more and see complete examples, see:
+
+[Reusable content with pieces](http://unstable.apostrophenow.org/tutorials/getting-started/reusable-content-with-pieces.html)
+
 
 ## Methods
 ### load(*req*, *widgets*, *callback*)

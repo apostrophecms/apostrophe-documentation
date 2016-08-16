@@ -5,6 +5,12 @@ children:
   - server-apostrophe-tags-cursor
   - browser-apostrophe-tags
   - browser-apostrophe-tags-manager-modal
+  - browser-apostrophe-tags-manager
+  - browser-apostrophe-tags-editor-modal
+  - browser-apostrophe-tags-create-modal
+  - browser-apostrophe-tags-chooser
+  - browser-apostrophe-tags-chooser-modal
+  - browser-apostrophe-tags-relationship-editor
 ---
 ## Inherits from: [apostrophe-pieces](../apostrophe-pieces/index.html)
 
@@ -40,7 +46,7 @@ Overridable hook
 
 ### pushAssets() *[browser]*
 
-### pushCreateSingleton() *[browser]*
+### pushDefinitions() *[browser]*
 
 ## Nunjucks template helpers
 ### menu()

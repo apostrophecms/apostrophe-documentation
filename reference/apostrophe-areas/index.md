@@ -64,6 +64,10 @@ given field `name`, return that property. This is used
 to conveniently default to the `options` already configured
 for a particular area in the schema when working with
 `apostrophe-pieces` in a page template.
+### pageBeforeSend(*req*) *[browser]*
+
+### getCreateSingletonOptions(*req*) *[browser]*
+
 ## Nunjucks template helpers
 ### singleton(*doc*, *name*, *type*, *_options*)
 apos.singleton renders a single widget of a fixed type, standing alone

@@ -1,6 +1,7 @@
 ---
 title: "API reference"
 children:
+  - apostrophe-admin-bar
   - apostrophe-areas
   - apostrophe-assets
   - apostrophe-attachments

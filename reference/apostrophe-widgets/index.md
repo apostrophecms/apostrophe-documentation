@@ -34,7 +34,11 @@ good job here we get 1MB+ of markup! So if you override
 this, play nice! - Tom and Sam
 ### pushAssets()
 
-### pushCreateSingleton()
+### pushDefineSingleton()
+
+### pageBeforeSend(*req*)
+
+### getCreateSingletonOptions(*req*)
 
 ### list(*apos*, *argv*, *callback*)
 

@@ -8,5 +8,3 @@ title: "apostrophe-pages (browser)"
 
 ### trash(*_id*, *callback*)
 
-### setPage(*page*)
-

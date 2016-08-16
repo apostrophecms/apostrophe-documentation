@@ -325,13 +325,17 @@ Call the `find()` method of the doc type manager
 for the type you are interested in. This will also
 give you a cursor of the right subclass.
 ### joins(*value*)
-Filter. Performs joins by default if the 'type' filter is in use and
-the type manager for the type has a schema. If `joins(false)` is
+Filter. Performs joins by default, for all types retrieved,
+based on the schema for each type. If `joins(false)` is
 explicitly called no joins are performed. If
 `joins()` is invoked with an array of join names
 only those joins and those intermediate to them
 are performed (dot notation). See `apostrophe-schemas`
 for more information.
+
+TODO: identify joins with identical definitions in
+each schema and pass those "intersection" schemas to
+self.apos.schemas.join just once, for performance.
 ### pageUrl(*value*)
 Filter. All docs that are part of the page tree (they have a slug
 beginning with a `/`) receive a `._url` property, which takes the

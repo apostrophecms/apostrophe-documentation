@@ -42,34 +42,6 @@ Set all the public permissions at once. Pass an array of
 actions, like this: [ 'edit-file' ]
 
 View permissions are handled separately.
-### apply(*req*, *data*, *doc*, *propagator*, *callback*) *[api]*
-Given a request object for a user with suitable permissions, a data
-object with loginRequired, loginRequiredPropagate and docPermissions
-properties, and a doc object, this method will sanitize and apply
-those permissions settings to the doc and also propagate them to
-descendant docs if it is requested.
-
-Propagation is only performed if a "propagator" function is passed.
-This function will be called like the update method of a mongodb
-collection, except without the first argument. You supply a
-wrapper function that does the actual MongoDB update call with
-criteria that match your descendant docs.
-
-The entries in the data.docPermissions array may be strings such
-as "view-xxx" where xxx is a user or group ID, or they may be
-objects in which such a string is the "value" property, and the
-"removed" and "propagate" properties may also be present.
-
-This method does NOT actually save the doc object itself, although
-it does update its properties, and it does directly modify
-descendant docs if propagation is requested. It is your responsibility
-to save the doc object itself afterwards.
-
-"data" is usually req.body, however it may be convenient to call
-this method from tasks as well.
-
-This method is designed to work with the data property created
-by apos.permissions.debrief on the browser side.
 ### annotate(*req*, *action*, *objects*) *[api]*
 For each object in the array, if the user is able to
 carry out the specified action, a property is added
@@ -85,16 +57,14 @@ the user can also edit.
 Returns a user ID which is unique for this logged-in user, or if the user
 is not logged in, an ID based on their session which will continue to be
 available for as long as their session lasts
-### add(*req*, *doc*, *permission*) *[api]*
-Adds the given permission to the given doc for the
-user associated with the given request. Does not update
-the doc in the database; you need to do that.
+### add(*permission*) *[api]*
+Register a new permission, so that it can be selected for
+groups and so on. Call any time before `modulesReady`
+(it's fine to call in your module's `afterConstruct`).
 
-Currently this only makes sense with things that use the "doc"
-strategy (pretty much everything except files), and the
-verbs that will work are `view`, `edit` and `publish`.
-
-For things that use the "owner" strategy, just set ownerId.
+The argument should be an object with `value` and `label` properties.
+`value` is the permission name, such as `edit-attachment`.
+`label` is a short label such as `Edit Attachment`.
 ### _check(*req*, *action*, *event*, *_true*, *_false*, *object*, *then*) *[api]*
 
 ### userPermissionNames(*user*, *names*) *[api]*
@@ -113,3 +83,8 @@ Permission names that imply "edit" are also included,
 for instance "publish-xyz" is also good enough.
 
 Used internally to implement self.apos.permissions.criteria().
+### getChoices() *[api]*
+Return an array of permissions, as objects with `value` and `label`
+properties. Suitable for creating a UI to select permissions for
+a group, for instance. Do NOT call before `modulesReady` (hint:
+patch your schema field in `modulesReady`).

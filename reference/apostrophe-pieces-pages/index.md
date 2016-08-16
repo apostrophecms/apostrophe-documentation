@@ -5,6 +5,18 @@ children:
 
 ---
 ## Inherits from: [apostrophe-custom-pages](../apostrophe-custom-pages/index.html)
+`apostrophe-pieces-pages` implements "index pages" that display pieces of a
+particular type in a paginated, filterable way. It's great for implementing
+blogs, event listings, project listings, staff directories... almost any
+content type.
+
+You will `extend` this module in new modules corresponding to your modules
+that extend `apostrophe-pieces`.
+
+To learn more and see complete examples, see:
+
+[Reusable content with pieces](http://unstable.apostrophenow.org/tutorials/getting-started/reusable-content-with-pieces.html)
+
 
 ## Methods
 ### indexCursor(*req*)

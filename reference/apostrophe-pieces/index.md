@@ -13,6 +13,15 @@ children:
   - browser-apostrophe-pieces-relationship-editor
 ---
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+`apostrophe-pieces` provides a "base class" you can extend to create new content
+types for your project. Just use the `addFields` option to create a schema and
+you'll get a user interface for managing your content for free. Add in the
+`apostrophe-pieces-pages` module to display an index page and permalink pages
+for your pieces, and use `apostrophe-pieces-widgets` to allow them to be sprinkled
+into pages all over the site. To learn more, see:
+
+[Reusable content with pieces](http://unstable.apostrophenow.org/tutorials/getting-started/reusable-content-with-pieces.html)
+
 
 ## Methods
 ### createRoutes() *[routes]*
@@ -27,6 +36,11 @@ of apostrophe-pieces often extend this to remove more default filters
 ### requirePiece(*req*, *res*, *next*) *[api]*
 middleware for JSON API routes that expect the ID of
 an existing piece at req.body._id, with editing privileges
+### requirePieceEditorView(*req*, *res*, *next*) *[api]*
+middleware for JSON API routes that expect the ID of
+an existing piece at req.body._id, with privileges sufficient
+to create items of this type and also to view this particular
+piece (e.g. good enough to add a crop to an image)
 ### requireEditor(*req*, *res*, *next*) *[api]*
 User must have some editing privileges for this type
 ### list(*req*, *filters*, *callback*) *[api]*
@@ -91,9 +105,20 @@ User must have some editing privileges for this type
 
 ### searchDetermineTypes(*types*) *[api]*
 Enable inclusion of this type in sitewide search results
+### isAdminOnly() *[api]*
+
+### addPermissions() *[api]*
+
+### addToAdminBar() *[api]*
+
 ### pushAssets() *[browser]*
 
-### pushCreateSingleton() *[browser]*
+### pushDefineSingleton() *[browser]*
+
+### pageBeforeSend(*req*) *[browser]*
+Before sending any page, create the singleton for working with this type of piece, but only
+if there is an active user
+### getCreateSingletonOptions(*req*) *[browser]*
 
 ## API Routes
 ### POST /modules/apostrophe-pieces/insert

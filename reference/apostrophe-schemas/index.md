@@ -84,7 +84,7 @@ Joins are also supported in the schemas of array fields.
 Add a new field type
 ### getFieldType(*typeName*)
 
-### pageServe(*req*, *callback*)
+### pageServe(*req*)
 When a page is served to a logged-in user, make sure the session contains a blessing
 for every join configured in schemas for doc types
 ### bless(*req*, *schema*)

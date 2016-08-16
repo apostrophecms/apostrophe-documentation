@@ -14,19 +14,39 @@ children:
 ## Methods
 ### pushAssets() *[browser]*
 
-### pushCreateSingleton() *[browser]*
+### getCreateSingletonOptions(*req*) *[browser]*
 
 ### find(*req*, *criteria*, *projection*) *[api]*
 Obtain a cursor for finding pages. Adds filters useful for
 including ancestors, descendants, etc.
 ### insert(*req*, *parentOrId*, *page*, *callback*) *[api]*
 Insert a page as a child of the specified page or page ID.
+### docAfterDenormalizePermissions(*req*, *page*, *callback*) *[api]*
+This method pushes a page's permissions to its subpages selectively based on
+whether the applyToSubpages choice was selected for each one. It also copies
+the `loginRequired` property to subpages if the `applyLoginRequiredToSubpages`
+choice was selected.
+
+Both additions and deletions from the permissions list can be propagated
+in this way.
+
+This requires some tricky mongo work to do it efficiently, especially since we
+need to update both the join ids and the denormalized docPermissions array.
+
+The applyToSubpages choice is actually a one-time action, not a permanently
+remembered setting, so the setting itself is cleared afterwards by this
+method.
+
+This method is called for us by the apostrophe-docs module on update
+operations, so we first make sure it's a page. We also make sure it's
+not a new page (no kids to propagate anything to).
 ### newChild(*parentPage*) *[api]*
 This method creates a new object suitable to be inserted
 as a child of the specified parent via insert(). It DOES NOT
 insert it at this time. If the parent page is locked down
 such that no child page types are permitted, this method
-returns null.
+returns null. The permissions of the new child page match
+the permissions of the parent.
 ### allowedChildTypes(*page*) *[api]*
 
 ### move(*req*, *movedId*, *targetId*, *position*, *callback*) *[api]*
@@ -47,7 +67,7 @@ former parent), and `changed` (an array of objects with
 _id and slug properties, including all subpages that
 had to move too).
 ### update(*req*, *page*, *callback*) *[api]*
-Update a page. Currently just a wrapper for docs.update.
+Update a page.
 ### park(*pageOrPages*) *[api]*
 Ensure the existence of a page or array of pages and
 lock them in place in the page tree.
@@ -106,8 +126,10 @@ self.serveSecondChanceLogin = function(req, callback) {
 };
 ### serveDeliver(*req*, *err*) *[api]*
 
-### beforeSendPage(*req*, *callback*) *[api]*
-This method sets `req.data.home`. It is called automatically every
+### pageBeforeSend(*req*, *callback*) *[api]*
+This method invokes `pushCreateSingleton` to create the `apostrophe-pages`
+browser-side object with information about the current page, and also
+sets `req.data.home`. It is called automatically every
 time `self.sendPage` is called in any module, which includes normal CMS pages,
 404 pages, the login page, etc.
 
@@ -164,6 +186,24 @@ has no path property, false is returned.
 Set the manager object for "apostrophe-page", the general case in which we're interested
 in all "regular pages" in the tree. Useful when you want to build navigation using
 schema joins
+### beforeSave(*req*, *page*, *callback*) *[api]*
+Invoked just before a save operation (either insert or update)
+on a page is actually pushed to the database. Initially empty for your
+overriding convenience.
+### beforeInsert(*req*, *page*, *callback*) *[api]*
+Invoked just before an insert operation on a page
+is actually pushed to the database. Initially empty for your
+overriding convenience.
+### beforeUpdate(*req*, *page*, *callback*) *[api]*
+Invoked just before an update operation on a page (not an insert)
+is actually pushed to the database. Initially empty for your
+overriding convenience.
+### addApplyToSubpagesToSchema(*schema*) *[api]*
+While it's a good thing that all docs now can have nuanced permissions,
+only pages care about "apply to subpages" as a concept when editing
+permissions. This method adds those nuances to the permissions-related
+schema fields. Called by the update routes (for new pages, there are
+no subpages to apply things to yet). Returns a new schema
 ### afterInit(*callback*)
 Wait until the last possible moment to add
 the wildcard route for serving pages, so that

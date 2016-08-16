@@ -132,6 +132,8 @@ in which permissions are a complete nonissue. NEVER use on the front end.
 
 ### enableHelpers()
 
+### addPermissions()
+
 ## Nunjucks template helpers
 ### url(*attachment*, *options*)
 This method is available as a template helper: apos.attachments.url

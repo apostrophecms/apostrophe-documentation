@@ -7,9 +7,9 @@ children:
   - browser-apostrophe-docs-chooser
   - browser-apostrophe-docs-manager
   - browser-apostrophe-docs-relationship-editor
-  - browser-apostrophe-docs-manager-modal
   - browser-apostrophe-docs-editor-modal
   - browser-apostrophe-docs-create-modal
+  - browser-apostrophe-docs-manager-modal
   - browser-apostrophe-docs-chooser-modal
 ---
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
@@ -97,6 +97,13 @@ due to a unique index you have added. It is
 not possible to know which property was
 responsible. This method takes care of
 the slug property directly.
+### denormalizePermissions(*req*, *doc*, *callback*) *[api]*
+Apostrophe edits doc editing and viewing permissions via joins,
+but for query performance then copies them to a single array with entries
+like: `[ 'edit-xxx', 'view-xxx' ]`, where `xxx` might be a user id
+or a group id. This method performs that copying. It also invokes
+the docAfterDenormalizePermissions method of every module that has one,
+which allows the pages module to piggyback and add `applyToSubpages` behavior.
 ### trash(*req*, *idOrCriteria*, *callback*) *[api]*
 Trash a single document. The second
 argument may be either an _id, or a MongoDB

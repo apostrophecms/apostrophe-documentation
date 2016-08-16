@@ -14,3 +14,12 @@ children:
 ---
 ## Inherits from: [apostrophe-pieces](../apostrophe-pieces/index.html)
 
+## Methods
+### modulesReady()
+
+### setPermissionsChoices()
+
+### addToAdminBar()
+
+### addToAdminBarIfSuitable()
+
