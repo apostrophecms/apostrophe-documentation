@@ -31,9 +31,13 @@ filesystem that doesn't matter on the browser side.
 `options` may be omitted. If `options.tool` is present,
 it is appended to the type names being defined, after a hyphen.
 This is useful to define related types, like `apostrophe-pieces-manager-modal`.
-If an `options.substitute` object is present, the types names specified by
+If an `options.substitute` object is present, the type names specified by
 its keys are replaced with the corresponding values. Related types starting with
 `my-` are also substituted without the need to separately specify that.
+
+If `options.stop` is present, mirroring stops when that base class
+is reached (inclusive). The search begins from the deepest subclass.
+`options.stop` is considered AFTER `options.substitute` is applied.
 ### getBrowserCalls(*when*)
 Returns browser-side JavaScript to make the calls
 queued up for the particular situation (`always`

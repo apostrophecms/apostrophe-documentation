@@ -12,7 +12,7 @@ children:
   - browser-apostrophe-pieces-chooser-modal
   - browser-apostrophe-pieces-relationship-editor
 ---
-## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+## Inherits from: [apostrophe-doc-type-manager](../apostrophe-doc-type-manager/index.html)
 `apostrophe-pieces` provides a "base class" you can extend to create new content
 types for your project. Just use the `addFields` option to create a schema and
 you'll get a user interface for managing your content for free. Add in the
@@ -96,8 +96,6 @@ User must have some editing privileges for this type
 ### trashResponse(*req*, *res*, *err*, *data*) *[api]*
 
 ### rescueResponse(*req*, *res*, *err*, *data*) *[api]*
-
-### composeSchema() *[api]*
 
 ### composeFilters() *[api]*
 

@@ -4,6 +4,7 @@ layout: module
 children:
   - server-apostrophe-module-cursor
   - browser-apostrophe-module
+  - browser-apostrophe-module-manager-modal
   - browser-apostrophe-module-editor
 ---
 This "module" is the base class for all other modules. This module

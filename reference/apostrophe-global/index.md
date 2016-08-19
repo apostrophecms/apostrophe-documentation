@@ -4,7 +4,7 @@ layout: module
 children:
 
 ---
-## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+## Inherits from: [apostrophe-doc-type-manager](../apostrophe-doc-type-manager/index.html)
 Always provide req.data.global, a virtual page
 for sitewide content such as a footer displayed on all pages
 

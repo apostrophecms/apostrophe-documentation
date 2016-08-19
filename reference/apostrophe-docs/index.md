@@ -256,16 +256,21 @@ are accounted for before retrying... otherwise an infinite loop will
 likely result.
 ### setManager(*type*, *manager*) *[api]*
 Set the manager object corresponding
-to a given doc type. However it is usually easier
-to call getManager(type) and modify that object.
+to a given doc type. Typically `manager`
+is a module that subclasses `apostrophe-doc-type-manager`
+(or its subclasses `apostrophe-pieces` and `apostrophe-custom-pages`).
+### getManaged() *[api]*
+Returns an array of all of the doc types that have a registered manager.
 ### getManager(*type*) *[api]*
 Fetch the manager object corresponding to a given
-doc type. The manager object provides services such
-as find(). By default a manager object is created
-for you. That object can be modified to extend the
-functionality for a particular type, or you can call
-setManager if you have created one from scratch.
-See manager.js for the default manager's feature set.
+doc type. The manager object provides methods such
+as find() specific to that type.
+
+If no manager has been registered, this method will
+return null. **All** doc types used in your project must
+have a registered manager (hint: all subclasses of
+pieces, the `data.global` doc, and page types registered
+with `apostrophe-pages` always have one).
 ### autocomplete(*req*, *query*, *callback*) *[api]*
 This method provides the back end of /autocomplete routes.
 For the implementation of the autocomplete() filter see autocomplete.js.

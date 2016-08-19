@@ -2,6 +2,7 @@
 title: "API reference"
 children:
   - apostrophe-admin-bar
+  - apostrophe-any-page-manager
   - apostrophe-areas
   - apostrophe-assets
   - apostrophe-attachments
@@ -9,6 +10,7 @@ children:
   - apostrophe-caches
   - apostrophe-custom-pages
   - apostrophe-db
+  - apostrophe-doc-type-manager
   - apostrophe-docs
   - apostrophe-express
   - apostrophe-files

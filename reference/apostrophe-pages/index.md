@@ -79,13 +79,6 @@ do not set `parent`, the page is assumed to be a
 child of the home page, which is always parked.
 See also the `park` option; typically invoked via
 that option when configuring the module.
-### getManager(*type*) *[api]*
-Wraps docs.getManager, but also ensures that the schema includes the
-minimum properties for a page. Since Apostrophe is not strict about requiring
-all page types currently valid on the site to be enumerated, this is
-a critical requirement for methods that implement page settings UI.
-### setManager(*type*, *manager*) *[api]*
-Currently a wrapper for docs.setManager.
 ### serve(*req*, *res*) *[api]*
 self.pageAfterMove = function(req, moved, info, callback) {
   // eventually invoke callback
@@ -163,6 +156,8 @@ should make your own req.browserCalls
 Invoked via callForAll in the docs module
 ### updateDescendantsAfterMove(*req*, *page*, *originalPath*, *originalSlug*, *callback*) *[api]*
 
+### manageOrphans(*callback*) *[api]*
+
 ### implementParkAll(*callback*) *[api]*
 
 ### implementParkOne(*req*, *item*, *callback*) *[api]*
@@ -182,10 +177,6 @@ Returns true if the doc is a page in the tree
 Returns true if `possibleAncestorPage` is an ancestor of `ofPage`.
 A page is not its own ancestor. If either object is missing or
 has no path property, false is returned.
-### setManagerForUnspecifiedPageType() *[api]*
-Set the manager object for "apostrophe-page", the general case in which we're interested
-in all "regular pages" in the tree. Useful when you want to build navigation using
-schema joins
 ### beforeSave(*req*, *page*, *callback*) *[api]*
 Invoked just before a save operation (either insert or update)
 on a page is actually pushed to the database. Initially empty for your
@@ -204,6 +195,19 @@ only pages care about "apply to subpages" as a concept when editing
 permissions. This method adds those nuances to the permissions-related
 schema fields. Called by the update routes (for new pages, there are
 no subpages to apply things to yet). Returns a new schema
+### registerGenericPageTypes(*callback*) *[api]*
+Registers a manager for every page type that doesn't already have one via `apostrophe-custom-pages`,
+`apostrophe-pieces-pages`, etc. Invoked by `modulesReady`
+### registerGenericPageType(*typeInfo*, *callback*) *[api]*
+Registers a manager for a specific page type that doesn't already have one via `apostrophe-custom-pages`,
+`apostrophe-pieces-pages`, etc. Invoked by `modulesReady` via `registerGenericPageTypes` and
+`manageOrphans`
+### registerTrashPageType(*callback*) *[api]*
+
+### modulesReady(*callback*)
+When all modules are ready, invoke `registerGenericPageTypes` to register a manager
+for any page type that doesn't already have one via `apostrophe-custom-pages`,
+`apostrophe-pieces-pages`, etc.
 ### afterInit(*callback*)
 Wait until the last possible moment to add
 the wildcard route for serving pages, so that
