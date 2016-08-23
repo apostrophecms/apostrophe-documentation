@@ -2,7 +2,9 @@
 title: "apostrophe-pieces-pages (module)"
 layout: module
 children:
-
+  - browser-apostrophe-pieces-pages
+  - browser-apostrophe-pieces-pages-chooser
+  - browser-apostrophe-pieces-pages-relationship-editor
 ---
 ## Inherits from: [apostrophe-custom-pages](../apostrophe-custom-pages/index.html)
 `apostrophe-pieces-pages` implements "index pages" that display pieces of a
@@ -15,7 +17,7 @@ that extend `apostrophe-pieces`.
 
 To learn more and see complete examples, see:
 
-[Reusable content with pieces](http://unstable.apostrophenow.org/tutorials/getting-started/reusable-content-with-pieces.html)
+[Reusable content with pieces](../../tutorials/getting-started/reusable-content-with-pieces.html)
 
 
 ## Methods

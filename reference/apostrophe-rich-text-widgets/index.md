@@ -6,6 +6,8 @@ children:
   - browser-apostrophe-rich-text-widgets-editor
 ---
 ## Inherits from: [apostrophe-widgets](../apostrophe-widgets/index.html)
+Implements rich text editor widgets.
+
 
 ## Methods
 ### load(*req*, *widgets*, *callback*)

@@ -8,9 +8,6 @@ children:
   - browser-apostrophe-images-manager-modal
   - browser-apostrophe-images-editor-modal
   - browser-apostrophe-images
-  - browser-apostrophe-images-manager
-  - browser-apostrophe-images-create-modal
-  - browser-apostrophe-images-chooser-modal
 ---
 ## Inherits from: [apostrophe-pieces](../apostrophe-pieces/index.html)
 

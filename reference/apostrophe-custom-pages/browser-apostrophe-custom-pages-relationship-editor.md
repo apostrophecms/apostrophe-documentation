@@ -1,5 +1,5 @@
 ---
-title: "apostrophe-pieces-relationship-editor (browser)"
+title: "apostrophe-custom-pages-relationship-editor (browser)"
 ---
 ## Inherits from: [apostrophe-doc-type-manager-relationship-editor](../apostrophe-doc-type-manager/browser-apostrophe-doc-type-manager-relationship-editor.html)
 

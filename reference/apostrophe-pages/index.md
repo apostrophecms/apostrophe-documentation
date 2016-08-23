@@ -4,12 +4,173 @@ layout: module
 children:
   - server-apostrophe-pages-cursor
   - browser-apostrophe-pages
-  - browser-apostrophe-pages-chooser
   - browser-apostrophe-pages-editor
   - browser-apostrophe-pages-editor-update
   - browser-apostrophe-pages-reorganize
 ---
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+This module manages the page tree and contains the wildcard
+Express route that actually serves pages. That route is installed
+at the very end of the process, in an `afterInit` callback,
+which is late enough to allow all other modules to add routes first.
+
+Also implements parked pages, "plain old page types" (those that aren't
+powered by a module), the context menu (big gear menu) and the publish menu.
+
+## Options
+
+**`types`: specifies the page types that can be chosen for a page.** This list must
+include all page types that will be present in the tree (not piece types).
+
+The default setting is:
+
+```javascript
+ types: [
+   {
+     name: 'home',
+     label: 'Home'
+   },
+   {
+     name: 'default',
+     label: 'Default'
+   }
+ ]
+```
+
+The `home` page type is required.
+
+**`contextMenu`: specifies the default offerings on the context menu.** These
+can also be overridden for any request by setting `req.contextMenu` to an array
+in the same format.
+
+The default setting is:
+
+```javascript
+contextMenu: [
+  {
+    action: 'insert-page',
+    label: 'New Page'
+  },
+  {
+    action: 'update-page',
+    label: 'Page Settings'
+  },
+  {
+    action: 'versions-page',
+    label: 'Page Versions'
+  },
+  {
+    action: 'trash-page',
+    label: 'Move to Trash'
+  },
+  {
+    action: 'reorganize-page',
+    label: 'Reorganize',
+    // Until we port the provisions for non-admins to reorganize
+    // over from 0.5
+    permission: 'admin'
+  }
+]
+```
+
+The `action` becomes a `data-apos-ACTIONGOESHERE` attribute on the
+menu item. If `permission` is set, the item is only shown to users
+with that permission (this is NOT sufficient protection for the
+backend routes it may access, they must also be secured).
+
+**`publishMenu`: configures the publication menu,** which appears
+only if the current page is unpublished or `data.pieces` is present
+and is unpublished. Syntax is identical to `contextMenu`. The default
+setting is:
+
+```javascript
+publishMenu: [
+  {
+    action: 'publish-page',
+    label: 'Publish Page'
+  }
+]
+```
+
+Again, you can override it by setting `req.publishMenu`.
+
+If you are looking for the schema fields common to all pages in the tree,
+check out the [apostrophe-custom-pages](../apostrophe-custom-pages/index.html)
+module, which all page types extend, including "ordinary" pages.
+
+**`park`: configures certain pages to be automatically created and refreshed
+whenever the site starts up.** The parked pages you get are actually the
+concatenation of the `minimumPark` and `park` options.
+
+`minimumPark` has a default, which you will typically leave unchanged:
+
+```javascript
+[
+  {
+    slug: '/',
+    published: true,
+    _defaults: {
+      title: 'Home',
+      type: 'home'
+    },
+    _children: [
+      {
+        slug: '/trash',
+        type: 'trash',
+        trash: true,
+        published: false,
+        orphan: true,
+        _defaults: {
+          title: 'Trash'
+        },
+      }
+    ]
+  },
+]
+```
+
+* The `park` and `minimumPark` options are arrays. Each array is a
+page to be created or recreated on startup.
+
+* If a page has a `parent` property, it is created as a child
+of the page whose `slug` property equals `parent`. If a page has no
+`parent` property and it is not the home page itself, it is created as a
+child of the home page.
+
+* Any other properties that do not begin with a `_` are automatically
+refreshed on the page object in the database at startup time.
+
+* If a page has a `_children` array property, these are additional parked pages,
+created as children of the page.
+
+* The properties of the `_default` option are applied to the page object *only
+at creation time*, meaning that changes users make to them later will stick.
+
+* `orphan: true` prevents a page from appearing in standard navigation links based
+on parent-child relationships
+(as opposed to hand-built navigation widgets powered by joins and the like).
+
+* The "page settings" UI is evolving toward not allowing users to
+modify properties that are explicitly set via `park` (rather than being set once
+via `_defaults`). In any case such properties are reset by restarts.
+
+**`filters`: Apostrophe cursor filters applied when fetching the current page.**
+The default settings ensure that `req.data.page` has a `_children` property
+and an `_ancestors` property:
+
+```javascript
+{
+  // Get the kids of the ancestors too so we can do tabs and accordion nav
+  ancestors: { children: true },
+  // Get our own kids
+  children: true
+};
+```
+
+See the [apostrophe-pages-cursor](server-apostrophe-pages-cursor.html) type for additional
+cursor filters and options you might wish to configure, such as adding
+a `depth` option to `children`.
+
 
 ## Methods
 ### pushAssets() *[browser]*
@@ -169,10 +330,15 @@ Routes use this to convert _id to id for the
 convenience of jqtree
 ### docUnversionedFields(*req*, *doc*, *fields*) *[api]*
 Invoked by the apostrophe-versions module.
-Identify fields that should never be rolled back
+
+Your module can add additional doc properties that should never be rolled back by pushing
+them onto the `fields` array.
 ### isPage(*doc*) *[api]*
 Returns true if the doc is a page in the tree
 (it has a slug with a leading /).
+### matchDescendants(*page*) *[api]*
+Returns a regular expression to match the `path` property of the descendants of the given page,
+but not itself
 ### isAncestorOf(*possibleAncestorPage*, *ofPage*) *[api]*
 Returns true if `possibleAncestorPage` is an ancestor of `ofPage`.
 A page is not its own ancestor. If either object is missing or
@@ -198,7 +364,9 @@ no subpages to apply things to yet). Returns a new schema
 ### registerGenericPageTypes(*callback*) *[api]*
 Registers a manager for every page type that doesn't already have one via `apostrophe-custom-pages`,
 `apostrophe-pieces-pages`, etc. Invoked by `modulesReady`
-### registerGenericPageType(*typeInfo*, *callback*) *[api]*
+### getParkedTypes() *[api]*
+Get the page type names for all the parked pages, including parked children, recursively.
+### registerGenericPageType(*type*, *callback*) *[api]*
 Registers a manager for a specific page type that doesn't already have one via `apostrophe-custom-pages`,
 `apostrophe-pieces-pages`, etc. Invoked by `modulesReady` via `registerGenericPageTypes` and
 `manageOrphans`

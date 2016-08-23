@@ -2,7 +2,9 @@
 title: "apostrophe-global (module)"
 layout: module
 children:
-
+  - browser-apostrophe-global
+  - browser-apostrophe-global-chooser
+  - browser-apostrophe-global-relationship-editor
 ---
 ## Inherits from: [apostrophe-doc-type-manager](../apostrophe-doc-type-manager/index.html)
 Always provide req.data.global, a virtual page

@@ -4,6 +4,8 @@ layout: module
 children:
   - server-apostrophe-doc-type-manager-cursor
   - browser-apostrophe-doc-type-manager
+  - browser-apostrophe-doc-type-manager-chooser
+  - browser-apostrophe-doc-type-manager-relationship-editor
 ---
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 This module is the base class of `apostrophe-custom-pages`, `apostrophe-pieces`,
@@ -17,15 +19,15 @@ property of each individual doc. Thus it is usually singular.
 
 
 ## Methods
-### find(*req*, *criteria*, *projection*)
+### find(*req*, *criteria*, *projection*) *[api]*
 Returns a cursor that will only yield docs of the appropriate type
 as determined by the `name` option of the module. Subclasses often
 extend this method to return a cursor of a subclass that adds
 additional filters.
-### newInstance()
+### newInstance() *[api]*
 Returns a new instance of the doc type, with the appropriate default
 values for each schema field.
-### getAutocompleteProjection(*query*)
+### getAutocompleteProjection(*query*) *[api]*
 Returns a MongoDB projection object to be used when querying
 for this type if all that is needed is a title for display
 in an autocomplete menu. Default behavior is to
@@ -33,7 +35,7 @@ return only the `title` and `_id` properties.
 
 `query.field` will contain the schema field definition for
 the join the user is attempting to match titles from.
-### getAutocompleteTitle(*doc*, *query*)
+### getAutocompleteTitle(*doc*, *query*) *[api]*
 Returns a string to represent the given `doc` in an
 autocomplete menu. `doc` will contain only the fields returned
 by `getAutocompleteProjection`. `query.field` will contain
@@ -42,18 +44,48 @@ to match titles from. The default behavior is to return
 the `title` property. This is sometimes extended to include
 event start dates and similar information that helps the
 user distinguish between docs.
-### decorateChange(*doc*, *change*)
+### decorateChange(*doc*, *change*) *[api]*
 Used by `apostrophe-versions` to label changes that
 are made to joins by ID. Set `change.text` to the
 desired text.
-### isAdminOnly()
+### isAdminOnly() *[api]*
 Returns true if only admins are allowed to edit this type.
 Respected by the pieces module when deciding whether to
 enumerate more specific permissions as choices for this
 module.
-### allowedSchema(*req*)
+### allowedSchema(*req*) *[api]*
 Return a new schema containing only fields for which the
 current user has the permission specified by the `permission`
 property of the schema field, or there is no `permission` property for the field.
-### composeSchema()
+### composeSchema() *[api]*
+
+### autocomplete(*req*, *query*, *callback*) *[api]*
+This method provides the back end of /autocomplete routes.
+For the implementation of the autocomplete() filter see autocomplete.js.
+
+"query" must contain a "field" property which is the schema join field
+that describes the relationship we're adding items to.
+
+"query" must also contain a "term" property, which is a partial
+string to be autocompleted; otherwise an empty array is delivered
+to the callback.
+
+We don't launder the input here, see the 'autocomplete' route.
+### pushAssets() *[browser]*
+
+### pushDefineSingleton() *[browser]*
+
+### pageBeforeSend(*req*) *[browser]*
+Before sending any page, create the singleton for working with this type of piece, but only
+if there is an active user
+### getCreateSingletonOptions(*req*) *[browser]*
+
+## API Routes
+### POST /modules/apostrophe-doc-type-manager/chooser
+
+### POST /modules/apostrophe-doc-type-manager/chooser-choices
+
+### POST /modules/apostrophe-doc-type-manager/relationship-editor
+
+### POST /modules/apostrophe-doc-type-manager/autocomplete
 

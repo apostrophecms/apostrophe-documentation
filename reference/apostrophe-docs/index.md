@@ -4,13 +4,7 @@ layout: module
 children:
   - server-apostrophe-cursor
   - browser-apostrophe-docs
-  - browser-apostrophe-docs-chooser
-  - browser-apostrophe-docs-manager
-  - browser-apostrophe-docs-relationship-editor
-  - browser-apostrophe-docs-editor-modal
-  - browser-apostrophe-docs-create-modal
   - browser-apostrophe-docs-manager-modal
-  - browser-apostrophe-docs-chooser-modal
 ---
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 
@@ -114,6 +108,8 @@ edit the document.
 
 docBeforeTrash and docAfterTrash
 are invoked on all modules.
+
+On success the callback receives `(null, doc)`.
 ### trashBody(*req*, *doc*, *callback*) *[api]*
 
 ### rescue(*req*, *idOrCriteria*, *callback*) *[api]*
@@ -124,6 +120,13 @@ You must have permission to edit it.
 
 docBeforeRescue and docAfterRescue are
 invoked on all modules.
+
+On success the callback receives `(null, doc)`.
+### rescueBody(*req*, *doc*, *callback*) *[api]*
+Move the given document to the trash. You
+should call .rescue(), not this method. However
+you can override this method to alter the
+implementation.
 ### emptyTrash(*req*, *idOrCriteria*, *callback*) *[api]*
 Forever discard the specified document or
 documents. All documents matching the criteria
@@ -229,11 +232,6 @@ take a callback and are invoked in series.
 Do not call this yourself, it is called
 by .update. You may override this method
 to change the implementation.
-### rescueBody(*req*, *doc*, *callback*) *[api]*
-Move the given document to the trash. You
-should call .rescue(), not this method. However
-you can override this method to alter the
-implementation.
 ### insertBody(*req*, *doc*, *callback*) *[api]*
 Insert the given document. You
 should call .insert(), not this method. However
@@ -271,18 +269,6 @@ return null. **All** doc types used in your project must
 have a registered manager (hint: all subclasses of
 pieces, the `data.global` doc, and page types registered
 with `apostrophe-pages` always have one).
-### autocomplete(*req*, *query*, *callback*) *[api]*
-This method provides the back end of /autocomplete routes.
-For the implementation of the autocomplete() filter see autocomplete.js.
-
-"query" must contain a "field" property which is the schema join field
-that describes the relationship we're adding items to.
-
-"query" must also contain a "term" property, which is a partial
-string to be autocompleted; otherwise an empty array is delivered
-to the callback.
-
-We don't launder the input here, see the 'autocomplete' route.
 ### docUnversionedFields(*req*, *doc*, *fields*) *[api]*
 Add fields to the list of those unsuitable for
 rollback due to knock-on effects, permissions checks,
@@ -290,13 +276,4 @@ etc.
 ### pushAssets() *[browser]*
 
 ### pushCreateSingleton() *[browser]*
-
-## API Routes
-### POST /modules/apostrophe-docs/chooser
-
-### POST /modules/apostrophe-docs/chooser-choices
-
-### POST /modules/apostrophe-docs/relationship-editor
-
-### POST /modules/apostrophe-docs/autocomplete
 

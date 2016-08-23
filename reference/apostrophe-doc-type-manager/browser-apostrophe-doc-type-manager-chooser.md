@@ -1,5 +1,5 @@
 ---
-title: "apostrophe-docs-chooser (browser)"
+title: "apostrophe-doc-type-manager-chooser (browser)"
 ---
 ## Inherits from: [apostrophe-context](../apostrophe-utils/browser-apostrophe-context.html)
 
@@ -37,7 +37,9 @@ the constructor is async. Delivers (err, newChooser)
 ### onChange()
 
 ### decorateManager(*manager*, *options*)
-
+Adds and overrides methods of the apostrophe-pieces-manager-modal to
+accommodate its use as a full-featured selection tool for the chooser,
+including the ability to create new items on the fly and choose them
 ### afterManagerSave()
 
 ### afterManagerCancel()

@@ -1,4 +1,4 @@
 #!/bin/bash
 
-(cd _api-reference-generator/ && rm -rf ../reference/ && node app documentation:generate) && habit
+(cd _api-reference-generator/ && rm -rf ../reference/ && node app apostrophe:generation && node app documentation:generate) && habit
 

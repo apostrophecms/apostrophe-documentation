@@ -6,10 +6,7 @@ children:
   - browser-apostrophe-pieces
   - browser-apostrophe-pieces-manager-modal
   - browser-apostrophe-pieces-editor-modal
-  - browser-apostrophe-pieces-manager
-  - browser-apostrophe-pieces-create-modal
   - browser-apostrophe-pieces-chooser
-  - browser-apostrophe-pieces-chooser-modal
   - browser-apostrophe-pieces-relationship-editor
 ---
 ## Inherits from: [apostrophe-doc-type-manager](../apostrophe-doc-type-manager/index.html)
@@ -24,7 +21,7 @@ into pages all over the site. To learn more, see:
 
 
 ## Methods
-### createRoutes() *[routes]*
+### addTrashPrefixFields(*fields*) *[api]*
 
 ### find(*req*, *criteria*, *projection*) *[api]*
 Returns a cursor for use in finding docs. See cursor.js for chainable
@@ -75,10 +72,19 @@ User must have some editing privileges for this type
 
 ### afterTrash(*req*, *id*, *callback*) *[api]*
 
+### deduplicateTrash(*req*, *piece*, *callback*) *[api]*
+After moving pieces to the trash, prefix any fields that have
+unique indexes so that other pieces are allowed to reuse
+those usernames, email addresses, etc.
 ### beforeRescue(*req*, *id*, *callback*) *[api]*
 
 ### afterRescue(*req*, *id*, *callback*) *[api]*
 
+### deduplicateRescue(*req*, *piece*, *callback*) *[api]*
+When rescuing pieces from the trash, attempt to un-prefix any fields
+that have unique indexes. However, if we then find it's been taken
+in the meanwhile, leave the prefix in place and leave it up to
+the user to resolve the issue.
 ### beforeList(*req*, *filters*, *callback*) *[api]*
 
 ### afterList(*req*, *results*, *callback*) *[api]*
@@ -109,13 +115,12 @@ Enable inclusion of this type in sitewide search results
 
 ### addToAdminBar() *[api]*
 
+### createRoutes() *[routes]*
+
 ### pushAssets() *[browser]*
 
 ### pushDefineSingleton() *[browser]*
 
-### pageBeforeSend(*req*) *[browser]*
-Before sending any page, create the singleton for working with this type of piece, but only
-if there is an active user
 ### getCreateSingletonOptions(*req*) *[browser]*
 
 ## API Routes
@@ -129,21 +134,15 @@ if there is an active user
 
 ### POST /modules/apostrophe-pieces/publish
 
-### POST /modules/apostrophe-pieces/manage
+### POST /modules/apostrophe-pieces/manager-modal
 
-### POST /modules/apostrophe-pieces/chooser
+### POST /modules/apostrophe-pieces/chooser-modal
 
-### POST /modules/apostrophe-pieces/editor
+### POST /modules/apostrophe-pieces/editor-modal
 
-### POST /modules/apostrophe-pieces/create
+### POST /modules/apostrophe-pieces/create-modal
 
 ### POST /modules/apostrophe-pieces/trash
-TODO consider the following:
-not using requirePiece for trash route because docs.trash already does
-query to get the piece. it would be nice if you could pass a piece in
-place of an id or criteria object so you can manipulate the object
-earlier without performing additional queries
-Another option here would be to hook into the docsBeforeTrash and
-docsAfterTrash callAlls that take place in the trash method of docs
-### POST /modules/apostrophe-pieces/route
+
+### POST /modules/apostrophe-pieces/rescue
 

@@ -6,3 +6,5 @@ title: "apostrophe-versions (browser)"
 ## Methods
 ### addLinks()
 
+### edit(*id*, *afterRevert*)
+

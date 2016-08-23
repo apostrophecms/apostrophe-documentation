@@ -6,10 +6,11 @@ children:
   - browser-apostrophe-areas-editor
 ---
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
-An area is a series of zero or more widgets. This module implements
+An area is a series of zero or more widgets, in which users can add
+and remove widgets and drag them to reorder them. This module implements
 areas, including calling the loader methods of widgets that have them
 whenever a doc containing areas is fetched, via an extension to
-apostrophe-cursors. This module also provides browser-side support for
+`apostrophe-cursors`. This module also provides browser-side support for
 invoking the players of widgets in an area and for editing areas.
 
 

@@ -2,7 +2,9 @@
 title: "apostrophe-custom-pages (module)"
 layout: module
 children:
-
+  - browser-apostrophe-custom-pages
+  - browser-apostrophe-custom-pages-chooser
+  - browser-apostrophe-custom-pages-relationship-editor
 ---
 ## Inherits from: [apostrophe-doc-type-manager](../apostrophe-doc-type-manager/index.html)
 
