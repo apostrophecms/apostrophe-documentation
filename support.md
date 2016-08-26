@@ -28,7 +28,7 @@ Please reach out to our support team via [support@punkave.com](mailto:support@pu
 Here is a short list development firms especially committed to ongoing work with Apostrophe. We encourage you to find the partner that is right for your needs.
 
 <ul class="developer-directory">
-  <li><a href="http://concrete.ca"><img src="images/developers/concrete.png" /></a></li>
-  <li><a href="http://www.existanze.com"><img src="images/developers/existanze.png" /></a></li>
-  <li><a href="http://www.miotix.com"><img src="images/developers/miotix.png" /></a></li>
+  <li><a href="http://concrete.ca"><img alt="Concrete" src="images/developers/concrete.png" /></a></li>
+  <li><a href="http://www.existanze.com"><img alt="Existanze" src="images/developers/existanze.png" /></a></li>
+  <li><a href="http://www.miotix.com"><img alt="Miotix" src="images/developers/miotix.png" /></a></li>
 </ul>
