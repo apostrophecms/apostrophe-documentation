@@ -14,6 +14,11 @@ JSON data, but some widgets, like apostrophe-rich-text,
 also store data as markup
 ### setData(*$widget*, *data*)
 
+### canEdit(*$widget*)
+Returns true if we are allowed to edit this widget.
+Independent of `getData` because that is sometimes
+overridden but this is always the right place to get
+the `_edit` flag from. -Tom
 ### edit(*data*, *options*, *save*)
 Opens the editor modal of a widget, unless the widget is contextualOnly,
 in which case we simply save the widget and call the save method

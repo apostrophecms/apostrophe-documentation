@@ -261,4 +261,4 @@ It's almost always a good idea to limit the projection to the fields you care ab
 
 >*`_url`, `slug`... what's the difference?* For most sites, nothing. But for sites with a `prefix` option, the `_url` property might have a folder name prepended to it. And there are other ways to transform `_url` to suit your needs. So always remember to use it instead of `slug` when you output page URLs.
 
->*What else can I do with `filters`?* That's an advanced topic, but you can do anything that [page cursors](../../reference/apostrophe-pages/pageCursor.html) can do. Check those out if you're in a rush.
+>*What else can I do with `filters`?* That's an advanced topic, but you can do anything that [page cursors](../../reference/apostrophe-pages/server-apostrophe-pages-cursor.html) can do. Check those out if you're in a rush.

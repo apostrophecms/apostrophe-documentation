@@ -364,3 +364,25 @@ Next we'll want to override the `show.html` template as well. This is the templa
 ```
 
 > *We didn't pass an options object to `apos.area` or `apos.singleton` because we already specified the options in the schema,* as part of `addFields`. If you *do* pass an options object to `apos.area` or `apos.singleton`, the original options object passed to the schema is ignored, so be sure to repeat anything that is relevant.
+
+### Contextual pieces: editing pieces "on the page"
+
+Editing each person's "bio" inside the modal dialog box is okay, but it would be a lot nicer to edit it on the actual page. Indeed, we already can... but only if we deliberately head to the page.
+
+We can make this more intuitive by setting the `contextual` flag for our pieces module:
+
+```javascript
+// in lib/modules/people/index.js
+module.exports = {
+  // Other options, then...
+  contextual: true
+};
+```
+
+When we do this, *the user is automatically redirected to the `show.html` page for each person as soon as they create and save it.*
+
+Note that this only makes sense if you are using `apostrophe-pieces-pages`.
+
+Now that we've made this choice, we might want to switch to calling `apos.singleton` in the page for the profile photo as well.
+
+We can also set `contextual: true` on each of the `body` and `thumbnail` schema fields so that they don't show up in the modal dialog box but are instead only editable on the page. Whether to do that is up to you, but it does help reinforce the idea that you edit this content on the page.

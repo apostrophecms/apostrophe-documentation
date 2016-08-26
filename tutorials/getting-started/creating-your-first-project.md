@@ -11,17 +11,6 @@ Now that you've got all the dependencies for Apostrophe installed, we can get yo
 The first thing you will want to do is grab the `apostrophe-cli` tool, which makes bootstrapping a new project a breeze!
 
 ```bash
-# TODO PRE-PUBLISHED INSTRUCTIONS, REMOVE BEFORE RELEASE
-npm uninstall -g apostrophe-cli
-mkdir -p ~/src
-git clone -b unstable https://github.com/punkave/apostrophe-cli ~/src/apostrophe-cli
-cd ~/src/apostrophe-cli
-npm install
-npm link
-# TODO IGNORE NEXT CODE BLOCK
-```
-
-```bash
 # Install the apostrophe-cli module
 npm install apostrophe-cli -g
 ```
