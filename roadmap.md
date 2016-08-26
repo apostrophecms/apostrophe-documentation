@@ -12,7 +12,9 @@ We have no immediate plans for changes that would require significant backwards 
 
 ## Migrating from Apostrophe 0.5
 
-We are committed to providing content migration tools for Apostrophe 0.5 projects. See our [0.5 to 2.0 migration guide](oh-five-migration.html) for more information. We have always provided such tools, including from earlier PHP-based versions of Apostrophe.
+We are committed to providing content migration tools for Apostrophe 0.5 projects. See our [0.5 to 2.0 migration guide](migration.html) for more information. We have always provided such tools, including from earlier PHP-based versions of Apostrophe.
+
+An automated tool to migrate content from Apostrophe 0.5 is planned for the immediate future. Tools are already available to migrate to 0.5 from earlier releases.
 
 ## Apostrophe's semantic versioning policy
 
