@@ -4,6 +4,7 @@ children:
   - tutorials
   - reference
   - howtos
+  - glossary
 layout: "home"
 ---
 
