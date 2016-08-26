@@ -5,6 +5,7 @@ children:
   - reference
   - howtos
   - glossary
+  - support
 layout: "home"
 ---
 
