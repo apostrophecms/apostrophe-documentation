@@ -17,6 +17,8 @@ We can also serve as your full-service Apostrophe development team, both maintai
 
 We are committed to the long-term success of Apostrophe-based projects. We actively support numerous Apostrophe projects that originated in older versions of Apostrophe and will continue to do so. We maintain a content migration path from the very earliest versions of Apostrophe and will continue to do so for the very latest.
 
+Enterprise support is available for previous versions of Apostrophe, including those we do not otherwise update on a regular basis at this point. Also see our [roadmap](roadmap.html) for details on support for specific releases.
+
 ## Get in touch
 
 Please reach out to our support team via [support@punkave.com](mailto:support@punkave.com) to start a support relationship with us.
@@ -25,7 +27,7 @@ Please reach out to our support team via [support@punkave.com](mailto:support@pu
 
 **Because Apostrophe is open source, you are not locked in to working with us.** Since Apostrophe is built on the popular node.js platform, you have thousands of potential partners for development and support.
 
-Here is a short list development firms especially committed to ongoing work with Apostrophe. We encourage you to find the partner that is right for your needs.
+Here is a short list of development firms especially committed to ongoing work with Apostrophe. We encourage you to find the partner that is right for your needs.
 
 <ul class="developer-directory">
   <li><a href="http://concrete.ca"><img alt="Concrete" src="images/developers/concrete.png" /></a></li>
