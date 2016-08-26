@@ -1,5 +1,6 @@
 ---
 title: "Glossary"
+menu: "Documentation"
 children: []
 ---
 

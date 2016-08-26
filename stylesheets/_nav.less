@@ -26,7 +26,7 @@ nav.outer
   background-repeat: no-repeat;
 }
 
-.page-link
+.page-link, .page-dropdown
 {
   .inline-block(middle);
   padding: 0.25rem 0;
@@ -38,6 +38,30 @@ nav.outer
     color: @red;
     text-decoration: none;
     letter-spacing: 0.02em;
+  }
+}
+
+.page-dropdown
+{
+  position: relative;
+  z-index: 100;
+  .page-dropdown-toggled {
+    display: none;
+  }
+  .dropdown-label {
+    padding: 0 0.25em 0 0.25em;
+  }
+  &:hover {
+    .page-dropdown-toggled {
+      padding: 1em 1em 0.25em 1em;
+      background-color: white;
+      z-index: 100;
+      position: absolute;
+      display: block;
+      .page-link {
+        margin-bottom: 0.5em;
+      }
+    }
   }
 }
 

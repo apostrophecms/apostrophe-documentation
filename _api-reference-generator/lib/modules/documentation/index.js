@@ -87,6 +87,7 @@ module.exports = {
       fs.writeFileSync(file,
         '---\n' +
         'title: "API reference"\n' +
+        'menu: "Documentation"\n' +
         'children:\n' +
         _.map(modules, indentModule).join("\n") +
         '\n---\n'

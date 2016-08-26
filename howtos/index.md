@@ -1,5 +1,6 @@
 ---
 title: "HOWTOs"
+menu: "Documentation"
 children:
   - deployment
   - multicore

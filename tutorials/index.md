@@ -3,6 +3,7 @@ title: "Tutorials"
 children:
   - getting-started
 docType: "tutorial"
+menu: "Documentation"
 ---
 
 The tutorials are written for developers who are new to Apostrophe. They will walk you through the process of getting your environment set up, creating a basic website, and even diving deeper into some of the more advanced features.

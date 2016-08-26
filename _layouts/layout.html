@@ -53,11 +53,34 @@
               </li>
             {% endfor %}
           {% else %}
+            {# Hardcode the documentation dropdown menu for now. -Tom #}
+            <li data-dropdown class="page-dropdown">
+              <ul>
+                <li data-dropdown-toggle class="dropdown-label">
+                  <a href="#">Documentation</a>
+                  <ul class="page-dropdown-toggled">
+                    <li class="page-link">
+                      <a href="{{ root }}/tutorials/index.html">Tutorials</a>
+                    </li>
+                    <li class="page-link">
+                      <a href="{{ root }}/reference/index.html">Reference</a>
+                    </li>
+                    <li class="page-link">
+                      <a href="{{ root }}/howtos/index.html">HOWTOs</a>
+                    </li>
+                    <li class="page-link">
+                      <a href="{{ root }}/glossary.html">Glossary</a>
+                    </li>
+                  </ul>
+              </ul>
+            </li>
             {% for tab in ancestors[0].children %}
-              <li class="page-link">
-                {# If this tab is our ancestor, it's selected #}
-                <a href="{{ root }}{{ tab.url }}" class="{% if ancestors[1] and (tab.url == ancestors[1].url) %}selected{% endif %}">{{ tab.title | e }}</a>
-              </li>
+              {% if not tab.menu %}
+                <li class="page-link">
+                  {# If this tab is our ancestor, it's selected #}
+                  <a href="{{ root }}{{ tab.url }}" class="{% if ancestors[1] and (tab.url == ancestors[1].url) %}selected{% endif %}">{{ tab.title | e }}</a>
+                </li>
+              {% endif %}
             {% endfor %}
             <li class="page-link">
               <a href="https://groups.google.com/forum/#!forum/apostrophenow" target="_blank">Forum</a>

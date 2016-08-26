@@ -1,5 +1,6 @@
 ---
 title: "API reference"
+menu: "Documentation"
 children:
   - apostrophe-admin-bar
   - apostrophe-any-page-manager
