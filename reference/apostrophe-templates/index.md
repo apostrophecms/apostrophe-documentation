@@ -5,6 +5,16 @@ children:
 
 ---
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+Implements template rendering via Nunjucks. **You should use the
+`self.render` and `self.partial` methods of *your own* module**,
+which exist courtesy of [apostrophe-module](../apostrophe-module/index.html)
+and invoke methods of this module more conveniently for you.
+
+You may have occasion to call `self.apos.templates.safe` when
+implementing a helper that returns a value that should not be
+escaped by Nunjucks. You also might call `self.apos.templates.filter` to
+add a new filter to Nunjucks.
+
 
 ## Methods
 ### addHelpersForModule(*module*, *object *, *or module, name, value*)

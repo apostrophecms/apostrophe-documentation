@@ -1,29 +1,31 @@
 ---
 title: "apostrophe-ui (browser)"
 ---
+Provides apos.ui, a singleton that provides user interface features
+used throughout Apostrophe on the browser side.
+
+## Properties of interest
+
+### apos.ui.shiftActive
+
+True whenever the shift key is down.
+
 
 ## Methods
 ### enableShift()
-
-### enableSelectize()
-
-### enablePreview()
-
-### enableTabbedModals()
-
+Sets apos.ui.shiftActive whenever the shift key is down.
 ### enableActionable()
 Utility that lets you add the data attribute 'data-apos-actionable' to any element and have
-it's 'apos-active' class be toggled on click.
-optionally you can give the attr a value which can be used to target another element's active
-class be toggled.
-### enhanceAddContent()
+its `apos-active` class be toggled on click.
 
+Optionally you can give the attr a value which can be used to target another element's active
+class to be toggled.
 ### enhanceAdminMenu()
-
+Implement the admin bar's toggle behavior and graceful close of dropdowns at
+appropriate times.
 ### enhanceDropdowns()
-
-### enableSkipdown()
-
+Implement automatic width adjustment for `[data-apos-dropdown]` menus that have a
+`[data-apos-dropdown-button-label]`.
 ### enableClickUrl()
 If the URL ends in: #click-whatever
 
@@ -33,9 +35,16 @@ and trigger a click event on it.
 This is useful for resuming an activity after requiring the
 user to log in.
 ### enablePrefix(*prefix*)
-
+If Apostrophe has a global URL prefix, patch
+jQuery's AJAX capabilities to prepend that prefix
+to any non-absolute URL. This assists in avoiding the
+need for application code to be specifically prefix-aware
+and allows the prefix to be changed whenever needed.
+See also [apostrophe-express](../apostrophe-express/index.html)
 ### enableStyledFileButtons()
-
+Click the original file upload button if the styled
+proxy for it is clicked. Allows indirect styling of
+file buttons
 ### globalBusy(*state*)
 If state is true, the interface changes to
 indicate Apostrophe is busy loading a modal
@@ -57,7 +66,7 @@ Do not call this method yourself. It is called
 by self.globalBusy to hide the global spinner.
 Freel free to override this method to change the UI.
 ### busy(*$el*, *state*)
-Simple progress display. Locates a progress display
+Simple progress display. Enables a progress display
 inside the given element. If state is true, the
 element with a [data-progress] attribute is shown,
 otherwise the element with a [data-finished] attribute
@@ -67,11 +76,18 @@ until the nesting level is 0.
 ### redirect(*slug*)
 Redirect correctly to the given location on the
 Apostrophe site, even if the prefix option is in use
-(you should provide a non-prefixed path)
+(you should provide a non-prefixed path). Note that
+when prefixes are in use it is especially important
+to use this method rather than simply setting
+`window.location.href` yourself.
 ### enhanceDate(*$el*, *options*)
 Enhance a plaintext date field with a pikaday date widget.
 ### formatTime(*time*, *options*)
-Converts apostrophe 24hr times to local time
+Converts apostrophe-schemas 24 hour time field strings
+to local time. The format string depends on the
+`userTimeFormat` option passed to this module, which
+defaults to US 12 hour time. It must be understandable
+by `launder.time`, however that method is very tolerant.
 ### link(*sel*, *verb*, *object*, *callback*)
 Add a callback when a link is clicked to trigger
 a certain action.

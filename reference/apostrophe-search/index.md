@@ -7,6 +7,13 @@ children:
   - browser-apostrophe-search-relationship-editor
 ---
 ## Inherits from: [apostrophe-custom-pages](../apostrophe-custom-pages/index.html)
+Implement sitewide search for Apostrophe. Provides the
+`apostrophe-search` page type for the `/search` page, which
+you should include in your "parked pages" if you wish
+to have one (see [apostrophe-pages](../apostrophe-pages/index.html)).
+
+Search is powered by the full-text search features of MongoDB.
+
 
 ## Methods
 ### pushAssets() *[browser]*

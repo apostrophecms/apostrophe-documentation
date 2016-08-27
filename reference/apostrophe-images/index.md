@@ -10,6 +10,16 @@ children:
   - browser-apostrophe-images
 ---
 ## Inherits from: [apostrophe-pieces](../apostrophe-pieces/index.html)
+A subclass of `apostrophe-pieces`, `apostrophe-images` establishes a library
+of uploaded images in formats suitable for use on the web.
+
+Together with [apostrophe-images-widgets](../apostrophe-images-widgets/index.html),
+this module provides a simple way to add downloadable PDFs and the like to
+a website, and to manage a library of them for reuse.
+
+Each `apostrophe-image` doc has an `attachment` schema field, implemented
+by the [apostrophe-attachments](../apostrophe-attachments/index.html) module.
+
 
 ## Methods
 ### first(*within*, *options*) *[api]*

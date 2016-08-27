@@ -22,26 +22,54 @@ To learn more and see complete examples, see:
 
 ## Methods
 ### indexCursor(*req*)
-Extend this method in your piece type to add
-chainable filters and additional criteria to the cursor
+Extend this method for your piece type to call additional
+chainable filters by default. You should not add entirely new
+filters here. For that, define the appropriate subclass of
+`apostrophe-pieces-cursor` in your subclass of
+`apostrophe-pieces`.
 ### indexPage(*req*, *callback*)
-
+At the URL of the page, display an index view (list view) of
+the pieces, with support for pagination.
 ### beforeIndex(*req*, *callback*)
-
+Called before `indexPage`. By default, does nothing.
+A convenient way to extend the functionality.
 ### filterByIndexPageTags(*cursor*, *page*)
-
+Invokes filters on the given cursor to ensure it only fetches
+results with the tags this page has been locked down to via
+page settings. If it has not been locked down, no filtering occurs.
+Override to change the behavior.
 ### showPage(*req*, *callback*)
+Invoked to display a piece by itself, a "show page." Renders
+the `show.html` template after setting `data.piece`.
 
+If the pieces module is set `contextual: true`, the context menu
+(the gear at lower left) is updated appropriately if the user has
+editing permissions.
 ### beforeShow(*req*, *callback*)
-
+Invoked just before the piece is displayed on its "show page." By default,
+does nothing. A useful override point.
 ### dispatchAll()
-
+Set the dispatch routes. By default, the bare URL of the page displays
+the index view via `indexPage`; if the URL has an additional component,
+e.g. `/blog/good-article`, it is assumed to be the slug of the
+article and `showPage` is invoked. You can override this method,
+for instance to also accept `/:year/:month/:day/:slug` as a way of
+invoking `self.showPage`. See [apostrophe-custom-pages](../apostrophe-custom-pages/index.html)
+for more about what you can do with dispatch routes.
 ### chooseParentPage(*pages*, *piece*)
-Given an array containing all of the index pages that
+Given an array containing all of the index pages of this type that
 exist on the site and an individual piece, return the
 index page that is the best fit for use in the URL of
 the piece. The algorithm is based on shared tags, with
 an emphasis on matching tags, and also favors an index
-page with no preferred tags over bad matches.
-### buildUrl(*page*, *piece*)
+page with no preferred tags over bad matches. Override to
+replace the algorithm.
 
+This method is called for you. In the presence of index pages, the
+cursors for the corresponding pieces are automatically enhanced to
+invoke it when building URLs.
+### buildUrl(*page*, *piece*)
+Given an index page and a piece, build a complete URL to
+the piece. If you override `dispatch` to change how
+"show page" URLs are matched, you will also want to override
+this method to build them differently.

@@ -5,6 +5,10 @@ children:
 
 ---
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+Provides the `build` method, a flexible and powerful way to build
+URLs with query parameters and more. This method is made available
+as the `build` filter in Nunjucks. This is also the logical place
+to add new utility methods relating to URLs.
 
 
 ## Methods

@@ -6,6 +6,12 @@ children:
   - browser-apostrophe-attachments-crop-editor
 ---
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+This module implements the
+[attachment](../../tutorials/getting-started/schema-guide.html#attachment) schema field type,
+which makes it straightforward to allow users to attach uploaded files to docs. See
+the [schema guide](../../tutorials/getting-started/schema-guide.html#attachment) for
+more information.
+
 
 ## Methods
 ### addFieldType() *[schemaField]*

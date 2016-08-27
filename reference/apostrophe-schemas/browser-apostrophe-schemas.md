@@ -1,12 +1,31 @@
 ---
 title: "apostrophe-schemas (browser)"
 ---
+The browser-side singleton corresponding to the [apostrophe-schemas](index.html) module.
+
 
 ## Methods
 ### populate(*$el*, *schema*, *object*, *callback*)
 Populate form elements corresponding to a set of fields as
 specified in a schema (the schema argument). The inverse of
-self.convert
+self.convert.
+
+Must be called only once for a given set of elements. However,
+you can call `convert` many times. Typical practice is to
+create a modal, populate it with existing data, and then
+attempt to convert it on save. If a conversion fails it is
+OK to try again after the user corrects errors such as
+absent required fields.
+### afterPopulate(*$el*, *schema*, *object*, *callback*)
+Invoked at the end of `populate`. Does nothing by default.
+Provides a convenient way to extend the behavior of all
+schemas. When implementing custom field types you should
+not need to override this method, however it is sometimes useful for
+concerns that cut across multiple methods.
+### enableSlugSuggestions(*$el*, *schema*, *object*)
+If the schema contains both `title` and `slug` fields, begin
+monitoring `title` and updating `slug` as the user types,
+provided it reflects the previous content of `title`.
 ### convert(*$el*, *schema*, *data*, *options*, *callback*)
 Gather data from form elements and push it into properties of the data
 object, as specified by the schema provided. The inverse of

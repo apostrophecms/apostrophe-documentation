@@ -39,7 +39,9 @@ Load widgets that were NOT set to choose pieces "by id." Feeds them all
 through self.loadOne and self.afterLoadOne. You don't have to call this,
 self.load calls it for you.
 ### loadOne(*req*, *widget*, *callback*)
-
+Load related content for a single widget. This method is invoked only
+if the `loadManyById` option has been set to `false` for your subclass.
+Doing so has performance costs when widgets are numerous.
 ### attachPiecesToWidget(*widget*, *pieces*)
 Given an array of pieces, this method attaches them to the widget
 as the _pieces property correctly with pushPiecesToWidget, and
@@ -53,6 +55,9 @@ if you are overriding loadOne and disabling loadManyById
 A utility method to append a piece to the ._pieces array for the given widget correctly,
 whether the join has relationship properties or not.
 ### afterLoadOne(*req*, *widget*, *callback*)
-
+This ALWAYS gets called, so you can do special handling here no matter what.
+Whether your widgets were loaded en masse "by id" or one at a time, this method
+always gets called for each.
 ### widgetCursor(*req*, *criteria*)
-Hook to modify cursor before the load method is invoked
+Hook to modify cursor before the load method is invoked. Applies the filters
+specified for the join.

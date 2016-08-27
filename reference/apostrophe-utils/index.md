@@ -8,6 +8,7 @@ children:
 Methods here should be of short, of universal utility, and not
 clearly in the domain of any other module. If you don't wish
 it was standard in JavaScript, it probably doesn't belong here.
+Many methods are simple wrappers for [lodash](https://npmjs.org/package/lodash) methods.
 
 
 ## Methods
@@ -22,25 +23,31 @@ when using regular expressions, which are great but
 problematic when UTF8 characters may be present.
 ### truncatePlaintext(*str*, *length*, *pruneStr*) *[api]*
 
+Truncate a plaintext string at the specified number of
+characters without breaking words if possible, see
+underscore.string's prune function, of which this is
+a copy (but replacing RegExp with XRegExp for
+better UTF-8 support)
+
 ### escapeHtml(*s*, *options*) *[api]*
 Escape a plaintext string correctly for use in HTML.
-If { pretty: true } is in the options object,
+If `{ pretty: true }` is in the options object,
 newlines become br tags, and URLs become links to
 those URLs. Otherwise we just do basic escaping.
 
-If { single: true } is in the options object,
+If `{ single: true }` is in the options object,
 single-quotes are escaped, otherwise double-quotes
 are escaped.
 
 For bc, if the second argument is truthy and not an
-object, { pretty: true } is assumed.
+object, `{ pretty: true }` is assumed.
 ### htmlToPlaintext(*html*) *[api]*
-Convert HTML to true plaintext, with all entities decoded
+Convert HTML to true plaintext, with all entities decoded.
 ### capitalizeFirst(*s*) *[api]*
-
+Capitalize the first letter of a string.
 ### cssName(*camel*) *[api]*
 Convert other name formats such as underscore and camelCase to a hyphenated css-style
-name. KEEP IN SYNC WITH BROWSER SIDE VERSION
+name.
 ### camelName(*s*) *[api]*
 Convert a name to camel case.
 
@@ -52,7 +59,7 @@ Anything that isn't a digit or an ASCII letter prompts the next character
 to be uppercase. Existing uppercase letters also trigger uppercase, unless
 they are the first character; this preserves existing camelCase names.
 ### addSlashIfNeeded(*path*) *[api]*
-Add a slash to a path, but only if it does not already end in a slash
+Add a slash to a path, but only if it does not already end in a slash.
 ### md5(*s*) *[api]*
 Perform an md5 checksum on a string. Returns hex string.
 ### md5File(*filename*, *callback*) *[api]*
@@ -86,7 +93,7 @@ a highly useful method, for instance to locate autocomplete
 candidates via highSearchWords.
 
 If the prefix flag is true the search matches only at the start.
-### clonePermanent(*o*) *[api]*
+### clonePermanent(*o*, *keepScalars*) *[api]*
 Clone the given object recursively, discarding all
 properties whose names begin with `_` except
 for `_id`. Returns the clone.
@@ -99,6 +106,13 @@ If the object is an array, the clone is also an array.
 
 Date objects are cloned as such. All other non-JSON
 objects are cloned as plain JSON objects.
+
+If `keepScalars` is true, properties beginning with `_`
+are kept as long as they are not objects. This is useful
+when using `clonePermanent` to limit JSON inserted into
+browser attributes, rather than filtering for the database.
+Preserving simple string properties like `._url` is usually
+a good thing in the former case.
 ### orderById(*ids*, *items*, *idProperty*) *[api]*
 `ids` should be an array of mongodb IDs. The elements of the `items` array, which
 should be the result of a mongodb query, are returned in the order specified by `ids`.
@@ -112,24 +126,31 @@ either array.
 Optionally you may specify a property name other than _id as the third argument.
 You may use dot notation in this argument.
 ### isAjaxRequest(*req*) *[api]*
-
+Return true if `req` is an AJAX request (`req.xhr` is set, or
+`req.query.xhr` is set to emulate it, or `req.query.apos_refresh` has
+been set by Apostrophe's content refresh mechanism).
 ### bless(*req*, *options *, *, arg2, arg3...*) *[api]*
+Store a "blessing" in the session for the given set of arguments
+(everything after `req`).
+
 Example:
 
 DURING PAGE RENDERING OR OTHER TRUSTED RENDERING OPERATION
 
-apos.utils.bless(req, options, 'widget', widget.type)
+`apos.utils.bless(req, options, 'widget', widget.type)`
 
 ON A LATER AJAX REQUEST TO THE render-widget ROUTE
 
-if (apos.utils.isBlessed(req, options, 'widget', widget.type)) { /* It's safe! */ }
+`if (apos.utils.isBlessed(req, options, 'widget', widget.type)) { /* It's safe! */ }`
 
 This way we know this set of options was legitimately part of a recent page rendering
 and therefore is safe to reuse to re-render a widget that is being edited.
 ### isBlessed(*req*, *options *, *, arg2, arg3...*) *[api]*
-See apos.utils.bless
+See apos.utils.bless. Checks whether the given set of arguments
+(everything after `req`) has been blessed in the current session.
 ### hashBlessing(*args*) *[api]*
-
+See `self.bless` and `self.isBlessed`. Creates a unique hash for a given
+set of arguments. Arguments must be JSON-friendly.
 ### modulesReady()
 Add these after we're sure the templates module
 is ready. Only necessary because this module is

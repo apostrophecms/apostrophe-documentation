@@ -19,6 +19,9 @@ any module can call `self.render(req, 'show', { data... })` to
 render the `views/show.html` template of that module.
 
 TODO: wrappers for delivering email and adding command-line tasks.
+In the meantime it is recommended that you always use
+your module's name and a colon as the prefix for a task name when
+calling `self.apos.tasks.add`.
 
 
 ## Methods

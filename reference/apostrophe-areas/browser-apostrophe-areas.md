@@ -31,6 +31,10 @@ a jQuery element which should be markup representing a
 widget. The `data-apos-widget` attribute is used to identify
 the widget type, and the `getData` method of the manager for
 that widget type is invoked to get the data.
+### enhanceAddContent()
+When a `[data-apos-add-content]` button is clicked, toggle the `apos-active` class
+on the closest ancestor with `[data-apos-dropdown]`, and also the closest
+ancestor with `.apos-area-controls`.
 ### getTemplates(*callback*)
 
 ### fromTemplate(*sel*)

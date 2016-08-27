@@ -10,4 +10,11 @@ children:
   - browser-apostrophe-files-manager-modal
 ---
 ## Inherits from: [apostrophe-pieces](../apostrophe-pieces/index.html)
+A subclass of `apostrophe-pieces`, `apostrophe-files` establishes a library
+of uploaded files, which may be of any type acceptable to the
+[apostrophe-attachments](../apostrophe-attachments/index.html) module.
+Together with [apostrophe-files-widgets](../apostrophe-files-widgets/index.html),
+this module provides a simple way to add downloadable PDFs and the like to
+a website, and to manage a library of them for reuse.
+
 

@@ -5,6 +5,8 @@ children:
 
 ---
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+This module manages the permissions of docs in Apostrophe.
+
 
 ## Methods
 ### can(*req*, *action*, *object*) *[api]*
@@ -17,10 +19,8 @@ action, the object, and a `result` object with a `response` property
 which is what will be returned by `can` if no changes are made.
 To alter the result, just change `result.response`.
 
-Actions begin with a verb, followed by a hyphen and an
-object type. For example:
-
-`edit-doc`, `view-doc`, `publish-doc`, `edit-file`
+Actions begin with a verb, followed by a hyphen and a
+doc type name.
 
 If there is no third argument, the question is whether this user can
 perform the action in question to create a new object.

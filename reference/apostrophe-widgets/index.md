@@ -6,11 +6,90 @@ children:
   - browser-apostrophe-widgets-editor
 ---
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+The base class for all modules that implement a widget, such as
+[apostrophe-rich-text-widgets](../apostrophe-rich-text-widgets/index.html),
+[apostrophe-pieces-widgets](../apostrophe-pieces-widgets/index.html) and
+[apostrophe-video-widgets](../apostrophe-video-widgets/index.html).
+
+All widgets have a [schema](../../tutorials/getting-started/schema-guide.html).
+Many project-specific modules that extend this module consist entirely of an
+`addFields` option and a `views/widget.html` file.
+
+## Options
+
+### `label`
+
+The label of the widget, as seen in menus for adding widgets.
+
+### `name`
+
+The unique name of this type of widget, as seen in the `type` property in the database.
+It will be singular if it displays one thing, like `apostrophe-video`,
+and plural if it displays more than one thing, like `apostrophe-pieces`.
+**By default, Apostrophe automatically removes `-widgets` from the name
+of your module to set this option for you.** This is a good convention
+but you may set this option instead if you wish.
+
+### `addFields`, `removeFields`, `arrangeFields`, etc.
+
+The standard options for building [schemas](../../tutorials/getting-started/schema-guide.html)
+are accepted. The widget will present a modal dialog box allowing the user to edit
+these fields. They are then available inside `widget.html` as properties of
+`data.widget`.
+
+## Important templates
+
+You will need to supply a `views/widget.html` template for your module that
+extends this module.
+
+In `views/widget.html`, you can access any schema field as a property
+of `data.widget`. You can also access options passed to the widget as
+`data.options`.
+
+## Widget players: the `play` method
+
+If your widget requires JavaScript on the browser side, you will want
+to define the browser-side singleton that manages this type of widget by
+supplying a `public/js/always.js` file. In
+that file you will override the `play` method, which receives a jQuery element containing
+the appropriate div, the `data` for the widget, and the `options` that
+were passed to the widget.
+
+For example, here is the `public/js/always.js` file for the
+[apostrophe-video-widgets](../apostrophe-video-widgets/index.html) module:
+
+```javascript
+apos.define('apostrophe-video-widgets', {
+  extend: 'apostrophe-widgets',
+  construct: function(self, options) {
+    self.play = function($widget, data, options) {
+      return apos.oembed.queryAndPlay($widget.find('[data-apos-video-player]'), data.video);
+    };
+  }
+});
+```
+
+**ALWAYS USE `$widget.find`, NEVER $('selector....')` to create widget players.**
+Otherwise your site will suffer from "please click refresh after you save"
+syndrome. Otherwise known as "crappy site syndrome."
+
+## Command line tasks
+
+```
+node app your-widget-module-name-here:list
+```
+Lists all of the places where this widget is used on the site. This is very useful if
+you are debugging a change and need to test all of the different ways a widget has
+been used, or are wondering if you can safely remove one.
+
 
 ## Methods
 ### output(*widget*, *options*)
-Outputs the widget. Invoked by
-apos.widget in Nunjucks.
+Returns markup for the widget. Invoked by `widget.html` in the
+`apostrophe-areas` module as it iterates over widgets in
+an area. The default behavior is to render the template for the widget,
+which is by default called `widget.html`, passing it `data.widget`
+and `data.options`. The module is accessible as `data.manager`.
 ### load(*req*, *widgets*, *callback*)
 Perform joins and any other necessary async
 actions for our type of widget. Note that
@@ -20,28 +99,59 @@ as you can usually optimize this.
 Override this to perform custom joins not
 specified by your schema, talk to APIs, etc.
 ### sanitize(*req*, *input*, *callback*)
+Sanitize the widget. Invoked when the user has edited a widget on the
+browser side. By default, the `input` object is sanitized via the
+`convert` method of `apostrophe-schemas`, creating a new `output` object
+so that no information in `input` is blindly trusted.
 
+The callback is invoked with `(null, output)`.
 ### filterForDataAttribute(*widget*)
 Remove all properties of a widget that are the results of joins
-or otherwise dynamic (_) for use in stuffing the
-"data" attribute of the widget. If we don't do a
-good job here we get 1MB+ of markup! So if you override
-this, play nice! - Tom and Sam
+(arrays or objects named with a leading `_`) for use in stuffing the
+"data" attribute of the widget.
+
+If we don't do a good job here we get 1MB+ of markup! So if you override
+this, play nice. And seriously consider using an AJAX route to fetch
+the data you need if you only need it under certain circumstances, such as
+in response to a user click.
 ### filterOptionsForDataAttribute(*options*)
-Filter options passed from template to widget before stuffing
-them into JSON for use by the widget editor. If we don't do a
-good job here we get 1MB+ of markup! So if you override
-this, play nice! - Tom and Sam
+Filter options passed from the template to the widget before stuffing
+them into JSON for use by the widget editor. Again, we discard all
+properties that are the results of joins or otherwise dynamic
+(arrays or objects named with a leading `_`).
+
+If we don't do a good job here we get 1MB+ of markup. So if you override
+this, play nice. And think about fetching the data you need only when
+you truly need it, such as via an AJAX request in response to a click.
 ### pushAssets()
+Push `always.js` to the browser at all times.
+Push `user.js` to the browser when a user is logged in.
+Push `editor.js` to the browser when a user is logged in.
 
+Note that if your module also has files by these names
+they are automatically pushed too, and they will always
+come after these, allowing you to `extend` properly
+when calling `apos.define`.
 ### pushDefineSingleton()
-
+Define the browser-side singleton for this module, which exists
+always in order to permit `play` methods.
 ### pageBeforeSend(*req*)
-
+Before any page is sent to the browser, create the singleton.
 ### getCreateSingletonOptions(*req*)
+Set the options to be passed to the browser-side singleton corresponding
+to this module. By default they do not depend on `req`, but the availability
+of that parameter allows subclasses to make distinctions based on permissions,
+etc.
 
+If a `browser` option was configured for the module its properties take precedence
+over the default values passed on here for `name`, `label`, `action`
+(the base URL of the module), `schema` and `contextualOnly`.
 ### list(*apos*, *argv*, *callback*)
+Implement the command line task that lists all widgets of
+this type found in the database:
 
+`node app your-module-name-here-widgets:list`
 ## API Routes
 ### POST /modules/apostrophe-widgets/modal
-
+A POST route to render `widgetEditor.html`. `data.label` and
+`data.schema` are available to the template.

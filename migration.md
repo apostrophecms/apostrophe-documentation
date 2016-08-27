@@ -30,6 +30,41 @@ This is one of the bigger changes: get used to typing `data.page` rather than ju
 
 It bears repeating: it's `data.page` now. Everything you (or we) attach to `req.data` shows up as a property of the `data` object in templates.
 
+### HTML escaping is automatic!
+
+No more need to use the `| e` (escape) filter in your Nunjucks templates.
+
+*"Hey, what's the `| e` filter?" Congratulations, you have a lot of insecure sites. Go read the Nunjucks docs and fix your 0.5 projects.*
+
+On the flip side, if you write a Nunjucks helper that returns markup that is *already safe*, you'll want to use `return self.apos.templates.safe(s)` to mark it as safe so it does not get escaped twice. *Note that if your helper just invokes `self.partial()` this has already been done for you.*
+
+### CSRF protection is automatic (but you must use AJAX or set exceptions)
+
+2.x automatically provides CSRF protection for all POST requests (and DELETE, UPDATE, etc; all the change verbs).
+
+The CSRF protection inspired by and compatible with that implemented by Angular.
+
+However this protection is only automatic for AJAX calls made via jQuery (`$.post`, `$.ajax`, [`$.jsonCall`](https://github.com/punkave/jquery-json-call)).
+
+**Generally speaking, using AJAX is a better idea these days than a conventional `<form action="..."></form>` submission.** However, if you wish to use one, you'll just need to configure the `apostrophe-express` module to let your submission through:
+
+```javascript
+// in app.js
+modules: {
+  'apostrophe-express': {
+    csrf: {
+      exceptions: [
+        '/my-form-submission-post-url'
+      ]
+    }
+  }
+}
+```
+
+### "Why the heck don't my form submissions work?"
+
+It bears repeating: CSRF protection is automatic in 2.0, but you need to add an exception if you are not using jQuery to submit your forms. See the previous item.
+
 ### `browserify` is not standard (but feel free to use it)
 
 Our 0.5 sandbox shipped with browserify as part of the front-end code, but we found this greatly increased the time and RAM requirements of `npm install` and was not being used effectively in our own modules.
@@ -240,6 +275,16 @@ Also check out the new `park` option for the [apostrophe-pages](reference/apostr
 ```
 
 Pages listed here are automatically created at startup time if needed.
+
+### You don't need the `apostrophe-blocks` module
+
+In 2.x, the `widget.html` template for any widget may contain `apos.area` calls. So you can create your own "block-level" widgets, such as a "two-column" widget. This makes blocks obsolete as a separate feature, and it's a lot more readable when you peek at a page in the database.
+
+Just use the `data.widget` as the "page" for purposes of calling `apos.area`.
+
+### Lockups are gone (but you don't need them)
+
+In 2.x, lockups are also gone. Again, just create widgets that contain their own `apos.area` calls in their templates; you can drag things in and out of those as needed. Eliminating lockups dramatically simplified the codebase by removing a very hairy special case.
 
 ### There are a lot more modules (but fewer npm modules)
 
