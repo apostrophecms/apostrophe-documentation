@@ -155,3 +155,92 @@ set of arguments. Arguments must be JSON-friendly.
 Add these after we're sure the templates module
 is ready. Only necessary because this module is
 initialized first
+## Nunjucks template helpers
+### slugify(*string*)
+
+### log(*m*)
+Log a message to the console from a Nunjucks template. Great for debugging.
+### generateId()
+Generate a globally unique ID
+### isCurrentYear(*date*)
+Test whether the specified date object refers to a date in the current year.
+The events module utilizes this
+### isUndefined(*o*)
+check if something is properly undefined
+### isFunction(*o*)
+check if something is a function (as opposd to property)
+### eqStrict(*a*, *b*)
+make up for lack of triple equals
+### contains(*list*, *value*)
+Returns true if the list contains the specified value.
+If value is an array, returns true if the list contains
+*any of* the specified values
+### containsProperty(*list*, *property*)
+Returns true if the list contains at least one
+object with the named property.
+The first parameter may also be a single object, in
+which case this function returns true if that object
+has the named property.
+### reverse(*array*)
+Reverses the order of the array. This MODIFIES the array
+in addition to returning it
+### beginsWith(*list*, *value*)
+If the `list` argument is a string, returns true if it begins
+with `value`. If the `list` argument is an array, returns
+true if at least one of its elements begins with `value`.
+### merge()
+Pass as many objects as you want; they will get merged via
+`_.merge` into a new object, without modifying any of them, and
+the resulting object will be returned. If several objects have
+a property, the last object wins.
+
+This is useful to add one more option to an options object
+which was passed to you.
+
+If any argument is null, it is skipped gracefully. This allows
+you to pass in an options object without checking if it is null.
+### find(*arr*, *property*, *value*)
+Find the first array element, if any, that has the specified value for
+the specified property.
+### filter(*arr*, *property*, *value*)
+Find all the array elements, if any, that have the specified value for
+the specified property.
+### reject(*arr*, *property*, *value*)
+Reject array elements that have the specified value for
+the specified property.
+### filterNonempty(*arr*, *property*)
+Find all the array elements, if any, for which the specified property
+is truthy.
+### isEmpty(*item*)
+Returns true if the specified array or object is considered empty.
+Objects are empty if they have no own enumerable properties.
+Arrays are considered empty if they have a length of 0.
+### pluck(*arr*, *property*)
+Given an array of objects with the given property, return an array with
+the value of that property for each object.
+### omit(*object*, *property *, *, property...*)
+Given an object, return an object without
+the named properties or array of named
+properties (see _.omit()).
+### concat(*arrOrObj1*, *arrOrObj2 *, *, ...*)
+Concatenate all of the given arrays and/or values
+into a single array. If an argument is an array, all
+of its elements are individually added to the
+resulting array. If an argument is a value, it is
+added directly to the array.
+### groupBy(*items*, *key*)
+Groups by the property named by 'key' on each of the values.
+If the property referred to by the string 'key' is found to be
+an array property of the first object, apos.utils.groupByArray is called.
+
+Usage: {{ apos.utils.groupBy(people, 'age') }} or {{ apos.utils.groupBy(items, 'tags') }}
+### object(*key, value, ...*)
+Given a series of alternating keys and values, this
+function returns an object with those values for
+those keys. For instance, apos.utils.object('name', 'bob')
+returns { name: 'bob' }. This is useful because
+Nunjucks does not allow you to create an object with
+a property whose name is unknown at the time the
+template is written.
+### merge()
+

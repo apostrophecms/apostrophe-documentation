@@ -204,7 +204,7 @@ module.exports = {
         _.each(type.deferredHelpers || [], function(name) {
           var method = _.find(type.methods, { name: name });
           if (!method) {
-            console.log(type.name);
+            console.error(type.name);
             console.error("Helper " + name + " was picked but not found");
           } else {
             type.helpers.push(method);
@@ -304,7 +304,7 @@ module.exports = {
             info.options = extractOptions(code);
           } else {
             console.error('*** Confused by apos.define not in browser file');
-            console.log(file);
+            console.error(file);
           }
         } else if (file.match(/index\.js/)) {
           info.type = 'server-' + module;
@@ -330,7 +330,7 @@ module.exports = {
         }
 
         if (!types[info.type]) {
-          console.log('FIRST DEFINE of ' + info.type + ', it was not in the extract');
+          console.error('FIRST DEFINE of ' + info.type + ', it was not in the extract');
           // Shouldn't be needed anymore due to readAllTypes
           var basename = path.basename(file, '.js');
           types[info.type] = {
@@ -351,7 +351,7 @@ module.exports = {
 
           if (hasSelf) {
             if (matches[0].match(/cursor/i)) {
-              console.log('TODO deal with apostrophe-pieces and the magical way it defines cursors');
+              console.error('TODO deal with apostrophe-pieces and the magical way it defines cursors');
             }
             processFile(module, newSubcategory, path.resolve(base, newFile) + '.js', info);
           } else if (newType) {
@@ -381,6 +381,21 @@ module.exports = {
           }
         }
 
+        matches = code.match(/\n( +)self.addHelpers\(require\('(.+?)\'/);
+        if (matches) {
+          // Cope with helpers following the pattern in the utils module:
+          // self.addHelpers(require('./lib/helpers.js')(self, options));
+          // (returns an object from a function, so look for that)
+          helpersCode = fs.readFileSync(path.resolve(base, matches[2]), 'utf8');
+          matches = helpersCode.match(/\n(\s+)return \{([\s\S]*)\}/);
+          helpersSpaces = matches[1];
+          var helpersCode = matches[2];
+          var helperRegex = new RegExp('\n' + helpersSpaces + '  (\\w+): function\\((.*?)\\)', 'g');
+          while ((matches = helperRegex.exec(helpersCode)) !== null) {
+            helpers.push(processHelper(module, file, matches, helpersCode, info));
+          }
+        }
+
         matches = code.match(/self.addHelpers\(_.pick\(self,(.*)?\)/);
         if (matches) {
           var names = matches[1].split(/,\s*/);
@@ -389,7 +404,6 @@ module.exports = {
             return name;
           });
           deferredHelpers = deferredHelpers.concat(names);
-          console.log('DEFERRED: ', deferredHelpers);
         }
 
         if (file.match(/cursor/i)) {
@@ -397,7 +411,6 @@ module.exports = {
           var filterRegex = /\n\s+self\.addFilter\(\'(\w+)/g;
           while ((matches = filterRegex.exec(code)) !== null) {
             matches[2] = 'value';
-            console.log('filter name: ' + matches[1]);
             var method = processMethod(module, subcategory, file, matches, code, info);
             method.type = 'filter';
             methods.push(method);
@@ -432,9 +445,6 @@ module.exports = {
           });
         }
 
-        if (info.type === 'server-apostrophe-cursor') {
-          console.log('BEFORE: ', (_.map(types[info.type].methods, 'name')));
-        }
         _.merge(types[info.type], {
           options: info.options,
         });
@@ -446,10 +456,6 @@ module.exports = {
           files: [ file ],
           deferredHelpers: deferredHelpers
         });
-        if (info.type === 'server-apostrophe-cursor') {
-          console.log('defined in ' + file);
-          console.log(_.map(types[info.type].methods, 'name'));
-        }
 
         if (!types[info.type].comments) {
           types[info.type].comments = '';

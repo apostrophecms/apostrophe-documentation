@@ -49,4 +49,7 @@ $(function() {
     $sidebar.append($ul);
     $ul.before('<p class="on-this-page">On this page</p>');
   }
+  $('.sidebar-item a').each(function() {
+    $(this).text($(this).text().replace(/ \(.*?\)\s*$/, ''));
+  });
 });
