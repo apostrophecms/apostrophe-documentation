@@ -316,10 +316,7 @@ other than `_id` to order the results on as a
 second argument.
 ### type(*value*)
 Filter. This cursor will only retrieve documents of the
-specified type. Filters out everything else, and
-runs the joins in the schema returned by the type's
-manager object unless otherwise specified
-(see the "joins" filter).
+specified type. Filters out everything else.
 
 Generally you don't want to call this filter directly.
 Call the `find()` method of the doc type manager
@@ -351,35 +348,7 @@ If it is not possible (there is no corresponding pieces-page)
 it may be left unset.
 
 Defaults to `true`. If set to false, `addUrls` methods are
-not invoked. If set to an object, it works just like
-the `projection` option in MongoDB: the keys are doc type
-names (singular) and the values are truthy (do fetch)
-or falsy (don't fetch). If you take the "don't fetch" approach,
-everything else does get fetched.
-
-Examples:
-
-IF NEVER CALLED: DOES fetch `._url` wherever possible
-
-DO NOT fetch URLs:
-
-```javascript
- .addUrls(false)
-```
-Fetch URLs for EVENTS ONLY:
-
-```javascript
- .addUrls({
-   'apostrophe-event': 1
- })
-```
-DO NOT fetch URLs for events, but get others:
-
-```javascript
- .addUrls({
-   'apostrophe-event': 0
- })
-```
+not invoked.
 ### pageUrl(*value*)
 Filter. All docs that are part of the page tree (they have a slug
 beginning with a `/`) receive a `._url` property, which takes the

@@ -49,7 +49,7 @@ self.beforeShow = function(req, callback) {
 
 In general, if you need to use `$set`, `$pull`, `$push`, `$addToSet`, `$unset` or `$inc`, using MongoDB directly makes sense, because *Apostrophe's model layer only writes complete docs*. For read operations it usually does not make sense to skip the model layer.
 
-Often a good strategy is to use Apostrophe for read operations, which allows you to check `._edit` to see if the current user is allowed to write to something, before writing to it directly with MongoDB. Just keep in mind you're bypassing any useful `beforeInsert`, `beforeUpdate` and `beforeSave` handlers that might exist.
+Often a good strategy is to use Apostrophe for read operations, which allows you to check `._edit` to see if the current user is allowed to write to something, before writing to it directly with MongoDB. Just keep in mind you're bypassing any useful `beforeInsert`, `beforeUpdate` and `beforeSave` handlers that might exist. Sometimes, that's exactly what you want.
 
 ## Making your own database connections
 
@@ -57,8 +57,4 @@ Maybe you don't want to work with the mongodb native module. Maybe you'd like to
 
 Just open your own database connections. There's an npm module for everything!
 
-Opening two connections to MongoDB might seem wasteful, but keep in mind that since node apps typically run very few processes, typically one per CPU core at most, you're not actually wasting scarce resources. Two connections total really isn't a big deal. Ask anyone who knows how PHP works.
-
-
-
-
+Opening two connections to MongoDB might seem wasteful, but keep in mind that since node apps typically run very few processes, typically one per CPU core at most, you're not actually wasting scarce resources. Two connections total really isn't a big deal.

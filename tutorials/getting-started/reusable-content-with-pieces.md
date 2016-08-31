@@ -87,7 +87,7 @@ Just like that, you'll see a new "People" menu in the admin bar when you log int
 
 There are certain additional fields that you get by default with every piece, such as `title` (the full name of the piece), `slug` (used when the piece appears as part of a URL), and `published` (which determines whether the public can see the piece, as you'll see below). But in this case, we re-declared `title` in order to change its label to `Full Name` so that the "New Person" form is not confusing.
 
-You can even add a profile photo, via the `thumbnail` field. This field has the `singleton` type, which allows us to include a widget in the schema for this type of piece, exactly as if we were calling `apos.singleton` in a template. We just need to specify the `widgetType` and pass any desired options to the widget via the `options` property. You can also add fields of the `area` type.
+You can even add a profile photo, via the `thumbnail` field. This field has the `singleton` type, which allows us to include a widget in the [schema](schema-guide.html) for this type of piece, exactly as if we were calling `apos.singleton` in a template. We just need to specify the `widgetType` and pass any desired options to the widget via the `options` property. You can also add fields of the `area` type.
 
 And, there's a "biography" section. This is a full-blown content area in which the editor can add rich text and images. *There's nothing to stop us from allowing more controls and widgets here. Limiting the choices just helps keep things from getting out of hand.*
 
@@ -133,25 +133,9 @@ You'll notice there is still a separate prompt to enter the full name. Let's get
 
 ### Arranging fields
 
-As we create increasingly complex schemas for pieces and widgets, we will want to arrange the fields in the modal in a way that supports a logical workflow for editors. We can specify an order for the fields in the editor modal by passing an array of field names to `arrangeFields`:
+As we create increasingly complex [schemas](schema-guide.html) for pieces and widgets, we will want to arrange the fields in the modal in a way that supports a logical workflow for editors.
 
-```javascript
-  addFields: [ ... ],
-  arrangeFields: [
-    'firstName',
-    'lastName',
-    'slug',
-    'published',
-    'tags',
-    'phone',
-    'thumbnail',
-    'body'
-  ],
-```
-
-If you restart your server and look at the editor modal again, you'll see the the fields in the order we specified here. Any non-`contextual` fields excluded from this configuration will be put at the bottom of the schema.
-
-If the schema is especially long, we can use `arrangeFields` to break the schema across multiple tabs in the editor modal. This can be achieved by passing an array of objects, each containing a name, label, and array of fields, to `arrangeFields`:
+We can use `arrangeFields` to break the schema into multiple tabs in the editor modal. This can be achieved by passing an array of objects, each containing a name, label, and array of fields, to `arrangeFields`:
 
 ```javascript
   addFields: [ ... ],
@@ -348,6 +332,8 @@ Add a little CSS and you've got a nice directory.
 > **Always specify the size.** Loading a large version of the image for an index view like this just slows down your site. See [adding editable content to pages](adding-editable-content-to-pages.html) for more information about image sizes.
 >
 
+### Creating custom templates for individual people
+
 Next we'll want to override the `show.html` template as well. This is the template that displays just one profile in detail:
 
 ```markup
@@ -363,7 +349,7 @@ Next we'll want to override the `show.html` template as well. This is the templa
 {% endblock %}
 ```
 
-> *We didn't pass an options object to `apos.area` or `apos.singleton` because we already specified the options in the schema,* as part of `addFields`. If you *do* pass an options object to `apos.area` or `apos.singleton`, the original options object passed to the schema is ignored, so be sure to repeat anything that is relevant.
+> *We didn't pass an options object to `apos.area` or `apos.singleton` because we already specified the options in the [schema](schema-guide.html),* as part of `addFields`. If you *do* pass an options object to `apos.area` or `apos.singleton`, the original options object passed to the [schema](schema-guide.html) is ignored, so be sure to repeat anything that is relevant.
 
 ### Contextual pieces: editing pieces "on the page"
 
@@ -385,4 +371,4 @@ Note that this only makes sense if you are using `apostrophe-pieces-pages`.
 
 Now that we've made this choice, we might want to switch to calling `apos.singleton` in the page for the profile photo as well.
 
-We can also set `contextual: true` on each of the `body` and `thumbnail` schema fields so that they don't show up in the modal dialog box but are instead only editable on the page. Whether to do that is up to you, but it does help reinforce the idea that you edit this content on the page.
+We can also set `contextual: true` on each of the `body` and `thumbnail` [schema](schema-guide.html) fields so that they don't show up in the modal dialog box but are instead only editable on the page. Whether to do that is up to you, but it does help reinforce the idea that you edit this content on the page.

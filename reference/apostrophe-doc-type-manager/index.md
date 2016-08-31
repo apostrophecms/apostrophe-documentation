@@ -31,7 +31,6 @@ explicitly to `false`.
 they are automatically given permission to edit it as an individual.)
 
 ### Schema options
-
 The standard schema options, including `addFields`, `removeFields` and `arrangeFields`.
 See the [schema guide](../../tutorials/getting-started/schema-guide.html).
 
