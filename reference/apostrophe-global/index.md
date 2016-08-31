@@ -2,6 +2,7 @@
 title: "apostrophe-global (module)"
 layout: module
 children:
+  - server-apostrophe-global-cursor
   - browser-apostrophe-global
   - browser-apostrophe-global-chooser
   - browser-apostrophe-global-relationship-editor

@@ -2,6 +2,7 @@
 title: "apostrophe-custom-pages (module)"
 layout: module
 children:
+  - server-apostrophe-custom-pages-cursor
   - browser-apostrophe-custom-pages
   - browser-apostrophe-custom-pages-chooser
   - browser-apostrophe-custom-pages-relationship-editor
@@ -41,5 +42,11 @@ Otherwise the chain of middleware continues and, at the end, the handler is invo
 ### find(*req*, *criteria*, *projection*)
 Return a cursor for finding pages of this type only. The cursor is an
 `apostrophe-pages-cursor`, so it has access to filters like
-`ancestors` and `children`. Subclasses will often override this
-to create a cursor of a more specific type that adds more filters
+`ancestors` and `children`.
+
+Because pages are normally displayed by Apostrophe's page loading mechanism,
+which uses an `apostrophe-pages-cursor`, it doesn't really make sense to return
+a custom cursor subclass here. It would not be used when actually viewing the
+page anyway. If you must have extra filters for specific page types, implicitly
+subclass apostrophe-pages-cursor and add filters that are mindful of the
+type of each page.

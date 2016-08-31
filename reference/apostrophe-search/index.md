@@ -2,6 +2,7 @@
 title: "apostrophe-search (module)"
 layout: module
 children:
+  - server-apostrophe-search-cursor
   - browser-apostrophe-search
   - browser-apostrophe-search-chooser
   - browser-apostrophe-search-relationship-editor

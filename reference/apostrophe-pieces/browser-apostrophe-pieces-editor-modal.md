@@ -31,7 +31,18 @@ each time you click "Add" or click to edit an existing piece. Relies on
 ### afterConvert(*piece*, *callback*)
 
 ### displayResponse(*result*, *callback*)
+Update the display in response to this item being saved.
 
+If the piece is brand new and the server provided
+a `_url` property and set `contextual: true` for this
+type of piece, or the piece has been updated and
+apos.pages.piece._id (the in-context piece) matches the
+id of the piece just edited, go to `_url`.
+
+In any case, the main content area is refreshed and the manage
+view, if open, refreshes its list (`apos.change` is invoked).
+This will all make sense if the URL hasn't changed, and do no
+harm if it has.
 ### onChange(*e*)
 
 ### trash(*$el*, *next*)

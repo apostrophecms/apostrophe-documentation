@@ -4,7 +4,6 @@ layout: module
 children:
   - server-apostrophe-cursor
   - browser-apostrophe-docs
-  - browser-apostrophe-docs-manager-modal
 ---
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 This module is responsible for managing all of the documents (apostrophe "docs")

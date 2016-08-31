@@ -23,9 +23,6 @@ into pages all over the site. To learn more, see:
 ## Methods
 ### addTrashPrefixFields(*fields*) *[api]*
 
-### find(*req*, *criteria*, *projection*) *[api]*
-Returns a cursor for use in finding docs. See cursor.js for chainable
-filters, and also yielders that actually deliver the docs to you
 ### findForEditing(*req*, *criteria*, *projection*) *[api]*
 Returns a cursor that finds docs the current user can edit. Unlike
 find(), this cursor defaults to including unpublished docs. Subclasses

@@ -2,6 +2,7 @@
 title: "apostrophe-pieces-pages (module)"
 layout: module
 children:
+  - server-apostrophe-pieces-pages-cursor
   - browser-apostrophe-pieces-pages
   - browser-apostrophe-pieces-pages-chooser
   - browser-apostrophe-pieces-pages-relationship-editor
@@ -73,3 +74,9 @@ Given an index page and a piece, build a complete URL to
 the piece. If you override `dispatch` to change how
 "show page" URLs are matched, you will also want to override
 this method to build them differently.
+### pushContextPiece(*req*)
+Make the browser-side `apos` object aware of the current
+in-context piece, as `apos.contextPiece`. Just enough to
+help the contextual editing tools in various modules
+### pageBeforeSend(*req*)
+

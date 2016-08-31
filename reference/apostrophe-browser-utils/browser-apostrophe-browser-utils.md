@@ -56,3 +56,20 @@ Turn the provided string into a string suitable for use as a slug.
 ONE punctuation character normally forbidden in slugs may
 optionally be permitted by specifying it via options.allow.
 The separator may be changed via options.separator.
+### clonePermanent(*o*, *keepScalars*)
+Clone the given object recursively, discarding all
+properties whose names begin with `_` except
+for `_id`. Returns the clone.
+
+This removes the output of joins and
+other dynamic loaders, so that dynamically available
+related content is not considered when comparing the
+equality of two objects with _.isEq later.
+
+If the object is an array, the clone is also an array.
+
+Date objects are cloned as such. All other non-JSON
+objects are cloned as plain JSON objects.
+
+If `keepScalars` is true, properties beginning with `_`
+are kept as long as they are not objects.

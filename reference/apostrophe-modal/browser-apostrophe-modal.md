@@ -228,6 +228,8 @@ Displaying the error to the user is your responsibility.
 ### afterHide()
 Override this method to clean up timers, etc. after the modal or view has
 been dismissed.
+### afterHideInternal()
+Reserved for internal implementation use.
 ### afterHideWrapper()
 Invoked after the modal or view has been dismissed.
 Calls `self.afterHideInternal`, which invokes the callbacks of

@@ -6,6 +6,7 @@ children:
   - browser-apostrophe-doc-type-manager
   - browser-apostrophe-doc-type-manager-chooser
   - browser-apostrophe-doc-type-manager-relationship-editor
+  - browser-apostrophe-doc-type-manager-manager-modal
 ---
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 This module is the base class of `apostrophe-custom-pages`, `apostrophe-pieces`,
@@ -24,11 +25,17 @@ See the [schema guide](../../tutorials/getting-started/schema-guide.html).
 
 
 ## Methods
+### defineCursor() *[api]*
+Define the related type "cursor", so that all of our subclasses
+automatically have a cursor type too, and it is autoloaded from
+./lib/cursor.js if that exists, otherwise given an empty
+definition.
 ### find(*req*, *criteria*, *projection*) *[api]*
 Returns a cursor that will only yield docs of the appropriate type
-as determined by the `name` option of the module. Subclasses often
-extend this method to return a cursor of a subclass that adds
-additional filters.
+as determined by the `name` option of the module. Returns a cursor of
+the appropriate type for the current module, even if it is a subclass.
+Returns a cursor for use in finding docs. See cursor.js for chainable
+filters, and also yielders that actually deliver the docs to you.
 ### newInstance() *[api]*
 Returns a new instance of the doc type, with the appropriate default
 values for each schema field.

@@ -2,7 +2,6 @@
 title: "apostrophe-module (module)"
 layout: module
 children:
-  - server-apostrophe-module-cursor
   - browser-apostrophe-module
   - browser-apostrophe-module-manager-modal
   - browser-apostrophe-module-editor
@@ -256,3 +255,47 @@ for that singleton is up to you (hint: look at various `user.js` files).
 be passed to the singleton it creates on the browser side. These must be
 in the form of a JSON-friendly object. By default, the `action` property
 is passed as the sole option, which is sometimes sufficient.
+### defineRelatedType(*tool*, *options*)
+Define a new moog type related to this module, autoloading its
+definition from the appropriate file. This is very helpful when you
+want to define another type of object, other than the module itself.
+Apostrophe uses this method to define database cursor types related to modules.
+The name of the related type will be the name of the module, followed by a
+hyphen, followed by the value of `tool`. The definition of the type will be
+automatically loaded from the `lib/tool.js` file of the module
+(substitute the actual tool parameter for `tool`, i.e. `cursor.js`).
+This is done recursively for all modules that this module
+extends, whether or not they actually have a `lib/tool.js` file.
+If the file is missing, an empty definition is synthesized that
+extends the next "parent class" in the chain.
+If any of the types are already defined, execution stops at that
+point. For instance, if `apostrophe-images` has already called this
+as a subclass of `apostrophe-pieces`, then `apostrophe-files` will
+just define its own cursor, extending `apostrophe-pieces-cursor`, and stop.
+This prevents duplicate definitions when many types extend `apostrophe-pieces`.
+If `options.stop` is set to the name of an ancestor module,
+the chain stops **after** defining the related type for that module.
+For instance, the module `apostrophe-files` extends
+`apostrophe-pieces`, which extends `apostrophe-doc-type-manager`.
+So when that module calls:
+```
+self.defineRelatedType('cursor', {
+  stop: 'apostrophe-doc-type-manager'
+});
+```
+We get:
+apostrophe-files-cursor extends...
+apostrophe-pieces-cursor which extends...
+apostrophe-doc-type-manager-cursor which extends...
+apostrophe-cursor (because `cursor.js` for doc-type-manager says so)
+### createRelatedType(*tool*, *options*, *callback*)
+Create an object of a related type defined by this module.
+See `defineRelatedType`. A convenient wrapper for calling `apos.create`.
+
+For instance, if this module is `apostrophe-images`, then
+`self.createRelatedType('cursor', { options... })` will
+create an instance of `apostrophe-images-cursor`.
+
+As usual with moog, the callback is required only if
+at least one `construct`, `beforeConstruct` or `afterConstruct`
+function takes a callback.

@@ -68,6 +68,8 @@ module.exports = {
       var tokenizer = require('js-tokenizer');
       var path = require('path');
 
+      var serverTypes, browserTypes;
+
       var modules = getAllModules();
 
       var types = {};
@@ -96,8 +98,8 @@ module.exports = {
       return callback(null);
 
       function readAllTypes() {
-        var serverTypes = JSON.parse(fs.readFileSync(self.apos.rootDir + '/data/server-types.json'));
-        var browserTypes = JSON.parse(fs.readFileSync(self.apos.rootDir + '/data/browser-types.json'));
+        serverTypes = JSON.parse(fs.readFileSync(self.apos.rootDir + '/data/server-types.json'));
+        browserTypes = JSON.parse(fs.readFileSync(self.apos.rootDir + '/data/browser-types.json'));
         _.each(serverTypes, function(type, name) {
           if (!name.match(/^apostrophe\-/)) {
             // A server-side type specific to the reference generator itself, ignore it
@@ -195,11 +197,31 @@ module.exports = {
       }
 
       function processModule(module) {
-        var vendor = [];
-        // var files = getModuleFiles(module);
-        // files = filterOutNodeModules(files);
-        // files = filterOutVendor(files, vendor);
+
+        var relatedTypes = [];
+        _.each(self.apos.modules, function(otherModule, name) {
+          var related = otherModule.__meta.related || [];
+          _.each(related, function(relatedType) {
+            if (relatedType.module === module) {
+              relatedTypes.push(relatedType);
+            }
+          });
+        });
+        _.each(relatedTypes, function(relatedType) {
+          var info = {
+            module: module,
+            extend: relatedType.extend,
+            type: 'server-' + relatedType.name
+          };
+          if (relatedType.filename) {
+            console.log('hooray defining ' + relatedType.name + ' from ' + relatedType.filename);
+            processFile(module, null, relatedType.filename, info);
+          }
+        });
+
         processFile(module, null, self.apos.rootDir + '/node_modules/apostrophe/lib/modules/' + module + '/index.js');
+        // , null, relatedTypes);
+
         var type = types['server-' + module];
         _.each(type.deferredHelpers || [], function(name) {
           var method = _.find(type.methods, { name: name });
@@ -210,6 +232,7 @@ module.exports = {
             type.helpers.push(method);
           }
         });
+
       }
 
       function documentModule(module) {
@@ -273,7 +296,7 @@ module.exports = {
         });
       }
 
-      function processFile(module, subcategory, file, info) {
+      function processFile(module, subcategory, file, info, relatedTypes) {
 
         var code = fs.readFileSync(file, 'utf8');
         var matches;
@@ -357,13 +380,14 @@ module.exports = {
           } else if (newType) {
             var _info = _.cloneDeep(info);
             if (_info.options) {
-              // Don't let this turn into a fallback to apostrophe-cursor
+              // New type, does not necessarily extend same chain
               delete _info.options.extend;
             }
             _info.type = 'server-' + newType;
             processFile(module, null, path.resolve(base, newFile) + '.js', _info);
           }
         }
+
         // Make sure it's not commented out
         var methodRegex = /\n +self\.(\w+)\s*=\s*function\((.*?)\)/g;
         while ((matches = methodRegex.exec(code)) !== null) {

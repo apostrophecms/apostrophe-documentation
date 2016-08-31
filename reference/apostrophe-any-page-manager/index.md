@@ -2,6 +2,7 @@
 title: "apostrophe-any-page-manager (module)"
 layout: module
 children:
+  - server-apostrophe-any-page-manager-cursor
   - browser-apostrophe-any-page-manager-chooser
   - browser-apostrophe-any-page-manager
   - browser-apostrophe-any-page-manager-relationship-editor
