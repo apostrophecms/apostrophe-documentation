@@ -337,6 +337,49 @@ for more information.
 TODO: identify joins with identical definitions in
 each schema and pass those "intersection" schemas to
 self.apos.schemas.join just once, for performance.
+### addUrls(*value*)
+Invokes the `addUrls` method of all doc type managers
+with relevant docs among the results, if they have one.
+
+The method receives `(req, docs, callback)`. All of the docs will be of
+the appropriate type for that manager.
+
+The `addUrls` method should add the `._url` property to each doc,
+if possible.
+
+If it is not possible (there is no corresponding pieces-page)
+it may be left unset.
+
+Defaults to `true`. If set to false, `addUrls` methods are
+not invoked. If set to an object, it works just like
+the `projection` option in MongoDB: the keys are doc type
+names (singular) and the values are truthy (do fetch)
+or falsy (don't fetch). If you take the "don't fetch" approach,
+everything else does get fetched.
+
+Examples:
+
+IF NEVER CALLED: DOES fetch `._url` wherever possible
+
+DO NOT fetch URLs:
+
+```javascript
+ .addUrls(false)
+```
+Fetch URLs for EVENTS ONLY:
+
+```javascript
+ .addUrls({
+   'apostrophe-event': 1
+ })
+```
+DO NOT fetch URLs for events, but get others:
+
+```javascript
+ .addUrls({
+   'apostrophe-event': 0
+ })
+```
 ### pageUrl(*value*)
 Filter. All docs that are part of the page tree (they have a slug
 beginning with a `/`) receive a `._url` property, which takes the

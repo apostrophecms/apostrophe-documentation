@@ -79,4 +79,23 @@ Make the browser-side `apos` object aware of the current
 in-context piece, as `apos.contextPiece`. Just enough to
 help the contextual editing tools in various modules
 ### pageBeforeSend(*req*)
+Calls `pushContextPiece` to make `apos.contextPiece` available
+in the browser
+### addUrlsToPieces(*req*, *results*, *callback*)
+Adds the `._url` property to all of the provided pieces,
+which are assumed to be of the appropriate type for this module.
+Aliased as the `addUrls` method of [apostrophe-pieces](../apostrophe-pieces/index.html), which
+is invoked by the `addUrls` filter of [apostrophe-cursor](../apostrophe-docs/server-apostrophe-cursor.html).
+### findForAddUrlsToPieces(*req*)
+Returns a cursor suitable for finding pieces-pages for the
+purposes of assigning URLs to pieces based on the best match.
 
+Should be as fast as possible while still returning enough
+information to do that. For instance, tags are essential for the standard
+`chooseParentPage` algorithm, but joins and areas are not.
+
+The default implementation returns a cursor with areas
+and joins shut off.
+### enableAddUrlsToPieces()
+Configure our `addUrlsToPieces` method as the `addUrls` method
+of the related pieces module.

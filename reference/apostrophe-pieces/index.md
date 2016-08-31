@@ -112,6 +112,16 @@ Enable inclusion of this type in sitewide search results
 
 ### addToAdminBar() *[api]*
 
+### addUrls(*req*, *pieces*, *callback*) *[api]*
+Add `._url` properties to the given pieces, if possible.
+The default implementation does nothing, however
+[apostrophe-pieces-pages](../apostrophe-pieces-pages/index.html) will
+call `setAddUrls` to point to [its own `addUrlsToPieces` method](../apostrophe-pieces-pages/index.html#addUrlsToPieces).
+### setAddUrls(*fn*) *[api]*
+Called by [apostrophe-pieces-pages](../apostrophe-pieces-pages/index.html) to
+replace the default `addUrls` method with one that assigns `._url`
+properties to pieces based on the most suitable pages of that type.
+See [the `addUrlsToPieces` method of `apostrophe-pieces-pages`](../apostrophe-pieces-pages/index.html#addUrlsToPieces).
 ### createRoutes() *[routes]*
 
 ### pushAssets() *[browser]*

@@ -20,6 +20,18 @@ property of each individual doc. Thus it is usually singular.
 
 ## Options
 
+### `permissionsFields`
+
+By default, nuanced permissions can be set for any piece, including
+view and edit permissions by user and group. If you prefer to eliminate
+this interface for your type of piece, set `permissionsFields`
+explicitly to `false`.
+
+(When a user who is not an admin for your piece type creates a new piece,
+they are automatically given permission to edit it as an individual.)
+
+### Schema options
+
 The standard schema options, including `addFields`, `removeFields` and `arrangeFields`.
 See the [schema guide](../../tutorials/getting-started/schema-guide.html).
 
