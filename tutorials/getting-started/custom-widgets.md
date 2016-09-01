@@ -323,11 +323,23 @@ Now, in our default page template, let's create an area that allows a series of 
 {{
   apos.area(data.page, 'drawers', {
     widgets: {
-      drawers: {}
+      drawer: {}
     }
   })
 }}
 ```
+
+And in `app.js`, don't forget to configure the widget:
+
+```javascript
+// in app.js
+modules: {
+  // other widgets, then...
+  'drawer-widgets': {}
+}
+```
+
+> Even if our widget doesn't require any options, we must configure it in `app.js` to `instantiate` it. This is how Apostrophe knows that we actually want to use this module directly. In many projects, some modules only exist to be extended by other modules.
 
 So far, so good. We can create a whole column of drawer widgets and their titles and their content areas appear. But right now the "drawer" part is visible at all times.
 
@@ -362,13 +374,19 @@ Now we need to supply `always.less` in the right place: the `public/css` subdire
 ```css
 // in lib/modules/drawer-widgets/public/css/always.less
 
-.drawer-body {
+.drawer-title {
+  padding: 2em 0;
+  text-align: center;
+}
+
+.drawer {
+  padding: 2em 0;
   display: none;
 }
 ```
 
 
-With these changes, our drawers are hidden. But we still need a way to toggle them open.
+With these changes, our drawers are hidden. But we still need a way to toggle them open when the titles are clicked.
 
 For that, we'll need an `always.js` file, in our `public/js` folder:
 
@@ -378,11 +396,12 @@ For that, we'll need an `always.js` file, in our `public/js` folder:
 // Example of a widget manager with a play method
 
 apos.define('drawer-widgets', {
+  extend: 'apostrophe-widgets',
   construct: function(self, options) {
     self.play = function($widget, data, options) {
       $widget.find('[data-drawer-title]').click(function() {
         $widget.find('[data-drawer]').toggle();
-        // Stop default behavior
+        // Stop bubbling and default behavior for jQuery event
         return false;
       });
     };
@@ -392,11 +411,13 @@ apos.define('drawer-widgets', {
 
 What's happening in this code?
 
-* We called `apos.define` to create an [implicit subclass](../../glossary.html#implicit-subclassing) of the widget manager for our type of widget. A "widget manager" is a single object that is responsible for handling everything related to widgets of that type. Think of it as the browser's equivalent of our module. Apostrophe automatically defines one, so we're just creating an "implicit subclass" that extends it with an interesting `play` method.
+* We called `apos.define` to define a [moog type](../../glossary.html#moog-type) for our "widget manager." A widget manager is an object that is responsible for directing everything related to widgets of that type in the browser. Think of it as the browser's half of our module.
 
-* The first argument to `apos.define` is the name of our type, which is the same as the name of our module. The second argument is an object that defines the type. Just like our `index.js` file on the server, it contains a `construct` function. That's because Apostrophe uses [moog](../../glossary.html#moog-type) to manage object-oriented programming in both places. The only difference is that on the server, Apostrophe figures out what type is being defined automatically.
+* The first argument to `apos.define` is the name of our new type, which is the same as the name of our module. The second argument is an object that defines the type. Just like our `index.js` file on the server, it contains a `construct` function. That's because Apostrophe uses [moog](../../glossary.html#moog-type) to manage object-oriented programming in both places. The only difference is that on the server, Apostrophe figures out what type is being defined automatically based on the module's name. Here in browser-land, it's up to us to call `apos.define`.
 
-* Inside `construct`, we add a `play` method to the widget manager. Our `play` method accepts `$widget` (a jQuery object referring to the widget's `div` element), `data` (an object containing the properties of our widget, like `title`), and `options` (an object containing options that were passed to the widget when `apos.area` or `apos.singleton` was called).
+* The `extend` property indicates that we want to extend ("subclass" or "inherit from") the `apostrophe-widgets` type, which provides most of the plumbing for managing our widget. All we need to do is supply a `play` method.
+
+* Inside `construct`, we attach a `play` method to the widget manager. Our `play` method accepts `$widget` (a jQuery object referring to the widget's `div` element), `data` (an object containing the properties of our widget, like `title`), and `options` (an object containing options that were passed to the widget when `apos.area` or `apos.singleton` was called).
 
 * Apostrophe automatically calls the `play` method for us at appropriate times.
 
