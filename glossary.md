@@ -196,27 +196,23 @@ While this feature is very useful, on rare occasions you might want to avoid it 
 
 Apostrophe cursors, like MongoDB cursors, help us get docs from the database using convenient, chainable methods. The syntax is very similar to MongoDB, with a few changes for consistency and extensibility.
 
-Here is a simple example of apostrophe cursors at work:
+New chainable methods ("filters") for cursors can be conveniently added using the `addFilter` method of cursors. This should be done in a constructor for a subclass. As a convenience, definitions for cursor subclasses are **automatically autoloaded** from the `lib/cursor.js` file of any module that extends [apostrophe-pieces](reference/apostrophe-pieces/index.html), [apostrophe-pieces-pages](reference/apostrophe-pieces-pages/index.html) or [apostrophe-doc-type-manager](reference/apostrophe-doc-type-manager/index.html).
 
-```javascript
-// We're inside a method in a module, and we want to get
-// all the published products that are blue. Our project
-// already contains a `products` module that extends `apostrophe-pieces`
+Cursors can also be called automatically. Many cursor filters provide a `sanitize` function and have a `safeFor: 'public'` setting. This allows them to be called automatically by the index view of [apostrophe-pieces-pages](reference/apostrophe-pieces-pages/index.html) when the appropriate query string parameters appear. Often this is the main motivation for adding a filter.
 
-return self.apos.docs.getManager('product')
-  .find(req)
-  .published(true)
-  .and({ color: 'blue' })
-  .toArray(function(err, products) {
-    if (err) {
-      return callback(err);
-    }
-    req.data.products = products;
-  });
-```
+A cursor is always an instance of [apostrophe-cursor](reference/apostrophe-docs/server-apostrophe-cursor.html) or one of its subclasses. The right way to obtain one is via the `find` method of a doc type manager, such as a module that extends pieces.
 
-All subclasses of [apostrophe-pieces](reference/apostrophe-pieces/index.html), [apostrophe-custom-pages](reference/apostrophe-custom-pages/index.html) and [apostrophe-pieces-pages](reference/apostrophe-pieces-pages/index.html) offer a `find` method, which returns a cursor. That cursor is always an instance of a subclass of [apostrophe-cursor](reference/apostrophe-docs/server-apostrophe-cursor.html).
+See [working with cursors](tutorials/intermediate/cursors.md) for more information.
 
-New chainable methods ("filters") for cursors can be conveniently added using the `addFilter` method of cursors. This should be done in a constructor for a subclass. It should not be done directly in `find` methods as that prevents the cursor from being cloned successfully, which causes problems with pagination.
+### `req.data` and the `data` object in Nunjucks
 
-Cursors can also be called automatically. Many cursor filters provide a `sanitize` function and have a `safeFor: 'public'` setting. This allows them to be called automatically by the index view of [apostrophe-pieces-pages](reference/apostrophe-pieces-pages/index.html) when the appropriate query string parameters appear.
+Anything attached to the `req.data` object becomes visible as the `data` object in Nunjucks templates when rendering pages, etc. Interesting properties that are usually or always present include:
+
+* `outerLayout`: will be either `apostrophe-templates:outerLayout.html` (for normal page rendering) or `apostrophe-templates:refreshLayout.html` (when refreshing the main content area via AJAX)
+* `permissions`: will be the contents of `req.user._permissions`, with boolean properties for permissions such as `admin` and `edit`, or `{}` if there is no user
+* `refreshing`: true if an AJAX refresh of the main content area is taking place
+* `query`: the contents of `req.query`
+* `url`: the current URL
+* `page`: the current page object (if appropriate; certain routes, like `/login`, render HTML pages but are not tied to any page in Apostrophe)
+* `home`: the home page, typically with a populated `._children` property
+* `global`: a doc which may be used for elements common to all pages, like global footers

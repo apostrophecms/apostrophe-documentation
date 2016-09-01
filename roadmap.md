@@ -44,3 +44,6 @@ Semantic versioning means that we might release 3.0, or even 4.0, sooner than yo
 
 Apostrophe 0.5 was the previous release of Apostrophe for the node.js platform. We intend to provide critical security fixes for Apostrophe 0.5 for a minimum of two years from this date (until September 1st, 2018). *In practice it is likely that we will do so for considerably longer due to our commitment to our own clients.*
 
+## Documentation roadmap
+
+There are many tutorials and HOWTOs still to come. [Contributions to the documentation project are welcome.](https://github.com/punkave/apostrophe-documentation)
