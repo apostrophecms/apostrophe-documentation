@@ -126,14 +126,15 @@ Here is an example with the popular options:
 
 ##### `size`
 
-`size` controls the size of the image that gets displayed. To conserve bandwidth Apostrophe never sends the original image. Apostrophe resizes your image to the following sizes by default, always preserving the aspect ratio:
+`size` controls the size of the image that gets displayed. To conserve bandwidth Apostrophe never sends the original image by default. Apostrophe resizes your image to the following sizes by default, always preserving the aspect ratio:
 
-`max`: no larger than 1600x1600.
-`full`: no larger than 1140x1140.
-`two-thirds': no larger than 760x760.
-`one-half`: no larger than 570x700.
-`one-third`: no larger than 380x700.
-`one-sixth`: no larger than 190x350.
+* `max`: no larger than 1600x1600.
+* `full`: no larger than 1140x1140.
+* `two-thirds`: no larger than 760x760.
+* `one-half`: no larger than 570x700.
+* `one-third`: no larger than 380x700.
+* `one-sixth`: no larger than 190x350.
+* `original`: the original file (WARNING: educate your users about the downsides of sending huge files to browsers over 3G).
 
 If you don't specify a size, the `full` size is displayed.
 
@@ -164,7 +165,7 @@ Users editing these widgets have the option of uploading files or reusing them. 
 
 In addition to GIF, JPEG and PNG files.
 
-This can be adjusted by configuring the `apostrophe-attachments` module.
+This can be adjusted by configuring the [apostrophe-attachments](../../reference/apostrophe-attachments/index.html) module.
 
 #### `apostrophe-html`
 
