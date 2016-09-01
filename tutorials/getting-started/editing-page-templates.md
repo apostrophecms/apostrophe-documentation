@@ -37,7 +37,7 @@ The first step is to add configuration for the `apostrophe-pages` module in `app
 
 ### Creating and Extending Page Templates
 
-We've configured the two page types we want for our site. But if you try to add a new page now via the "Page Settings" menu and give it the  "default" page type, you'll get an error.
+We've configured the two page types we want for our site. But if you try to add a new page now via the "Page Menu" (lower left corner) and give it the  "default" page type, you'll get an error.
 
 Apostrophe is looking for the template file `lib/modules/apostrophe-pages/views/pages/default.html`. So open up your editor and create that file.
 
