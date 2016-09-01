@@ -8,7 +8,7 @@ Central to Apostrophe is the philosophy that editors can edit their content in c
 
 ### Singletons
 
-Singletons are a slot on a page that allow an editor to add a single "widget" of a specific type. Let's add a singleton to our `home.html` template!
+Singletons are a slot on a page that allow an editor to add a single "widget" of a specific type. Let's add a rich text singleton to our `home.html` template!
 
 ```markup
 {% block main %}
@@ -46,6 +46,8 @@ If we restart our server and refresh our site's home page while logged in, we'll
 
 Oftentimes, we'll want to enable an editor to add several widgets of different types to build out a column of content in a page. For this, we can use the `apos.area` helper.
 
+When we use the area helper a "+" sign appears on the page, allowing the user to add a new widget in a series (usually a vertical column), often alternating between images and rich text, for instance.
+
 ```markup
 {{ apos.area(data.page, 'body', {
   widgets: {
@@ -60,6 +62,8 @@ Oftentimes, we'll want to enable an editor to add several widgets of different t
 ```
 
 The first two arguments for this helper work the same way as for `apos.singleton`. The third option is an options object. We can see that that options object supports a `widgets` option, which takes a key-value map of available widget names and their respective options.
+
+> Not sure how to add a second widget? After you're finished editing rich text, click anywhere outside of the rich text widget. Then hover over it and you'll see the "+" signs in each position where you're allowed to add a new widget.
 
 ### Widget Types
 
