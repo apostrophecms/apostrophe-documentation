@@ -10,6 +10,20 @@ Now that you've got all the dependencies for Apostrophe installed, we can get yo
 
 The first thing you will want to do is grab the `apostrophe-cli` tool, which makes bootstrapping a new project a breeze!
 
+# TODO PRE-PUBLISHED INSTRUCTIONS, REMOVE BEFORE RELEASE
+
+### UNTIL WE PUBLISH 2.0.0, USE THESE TEMPORARY STEPS
+```bash
+npm uninstall -g apostrophe-cli
+mkdir -p ~/src
+git clone -b unstable https://github.com/punkave/apostrophe-cli ~/src/apostrophe-cli
+cd ~/src/apostrophe-cli
+npm install
+npm link
+```
+
+### AFTER WE PUBLISH 2.0.0, JUST USE THESE STEPS
+
 ```bash
 # Install the apostrophe-cli module
 npm install apostrophe-cli -g
