@@ -4,11 +4,15 @@ title: "Roadmap"
 
 ## Apostrophe roadmap and long term support policy
 
-Apostrophe 2.x is a long-term support release. We intend to provide full support for Apostrophe 2.x for **a minimum of three years from release** (until August 26th, 2019).
+Apostrophe 2.x is a long-term support release. We intend to provide full support for Apostrophe 2.x for **a minimum of three years from release** (until September 1st, 2019, or longer).
 
-Historically, P'unk Avenue has supported sites developed on older versions of Apostrophe for considerably longer. Our three-year minimum commitment to this specific release reflects our intention to actively improve and address defects in this version for the long term.
+Historically, P'unk Avenue has supported sites developed on older versions of Apostrophe for considerably longer. We are actively supporting over 70 sites built on version 0.5.x, for instance, and have no plans to stop doing so.
+
+Our three-year minimum commitment to this specific release reflects our intention to actively improve and address defects in this version for the long term.
 
 We have no immediate plans for changes that would require significant backwards compatibility breaks with 2.x. Our development process for 2.x has created an architecture we plan to stand behind for some time. Our focus will move to the addition of new features and the release of supporting modules.
+
+However, see our semantic versioning guide below. It's possible that a truly minor but necessary bc break of some kind will force us to bump the major version number sooner than expected. This **does not** mean that we will be engaging in another full rewrite any time soon.
 
 ## Migrating from Apostrophe 0.5
 
@@ -38,5 +42,5 @@ Semantic versioning means that we might release 3.0, or even 4.0, sooner than yo
 
 ## Support for Apostrophe 0.5
 
-Apostrophe 0.5 was the previous release of Apostrophe for the node.js platform. We intend to provide critical security fixes for Apostrophe 0.5 for a minimum of two years from this date (until August 26th, 2018). *In practice it is likely that we will do so for considerably longer due to our commitment to our own clients.*
+Apostrophe 0.5 was the previous release of Apostrophe for the node.js platform. We intend to provide critical security fixes for Apostrophe 0.5 for a minimum of two years from this date (until September 1st, 2018). *In practice it is likely that we will do so for considerably longer due to our commitment to our own clients.*
 
