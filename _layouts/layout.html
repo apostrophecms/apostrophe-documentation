@@ -112,7 +112,13 @@
       </ul>
     </div>
   </nav>
-
+  {%- block googleSearchResults -%}
+    <div data-search style="display: none;">
+      <div class="search-results inner">
+        <gcse:searchresults></gcse:searchresults>
+      </div>
+    </div>
+  {%- endblock -%}
   <div class="header {% block headerClass %}{% endblock %}">
     <div class="inner {% block headerInnerClass %}{% endblock %}">
       {% block header %}
@@ -124,9 +130,8 @@
     </div>
   </div>
   {% block extraHeader%}
-  {% endblock%}
-  
-  <div class="wrap outer">
+  {% endblock %}
+    <div class="wrap outer">
     <div class="inner">
       <div class="sidebar">
         <div class="sidebar-section sidebar-title try-apostrophe">
@@ -152,11 +157,6 @@
         </p>
       </div>{#
       #}<div class="main">
-        <div data-search style="display: none;">
-          <div class="search-results">
-            <gcse:searchresults></gcse:searchresults>
-          </div>
-        </div>
         {% block previous %}
           {% if previous %}
             <p class="previous-article"><a href="{{ root }}{{ previous.url }}">&larr; Previous: {{ previous.title | e }}</a></p>
