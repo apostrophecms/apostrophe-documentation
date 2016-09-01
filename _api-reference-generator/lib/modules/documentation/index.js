@@ -90,6 +90,7 @@ module.exports = {
         '---\n' +
         'title: "API reference"\n' +
         'menu: "Documentation"\n' +
+        'layout: "api-index"\n' +
         'children:\n' +
         _.map(modules, indentModule).join("\n") +
         '\n---\n'

@@ -261,4 +261,164 @@ It's almost always a good idea to limit the projection to the fields you care ab
 
 >*`_url`, `slug`... what's the difference?* For most sites, nothing. But for sites with a `prefix` option, the `_url` property might have a folder name prepended to it. And there are other ways to transform `_url` to suit your needs. So always remember to use it instead of `slug` when you output page URLs.
 
->*What else can I do with `filters`?* That's an advanced topic, but you can do anything that [page cursors](../../reference/apostrophe-pages/server-apostrophe-pages-cursor.html) can do. Check those out if you're in a rush.
+>*What else can I do with `filters`?* That's an intermediate topic, but you can do anything that [ cursors](../intermediate/cursors.html) can do. Check those out if you're in a rush.
+
+### Adding a JavaScript widget player on the browser side
+
+So far we've built our widgets entirely with server-side code. But sometimes we'll want to enhance them with JavaScript on the browser side.
+
+Sure, we could just select elements in our widget markup with jQuery, but that's no good for a widget that was just added to an existing page. There's a better way. We'll create a widget player.
+
+Let's say we want to offer some content in a collapsible "drawer." Clicking on the title of the drawer reveals an Apostrophe area with more information.
+
+Our module's `index.js` file looks like this:
+
+```javascript
+// in lib/modules/drawer-widgets/index.js
+
+module.exports = {
+  extend: 'apostrophe-widgets',
+  label: 'Drawer',
+  addFields: [
+    {
+      type: 'string',
+      name: 'title',
+      label: 'Title'
+    },
+    {
+      type: 'area',
+      name: 'content',
+      label: 'Content',
+      options: {
+        widgets: {
+          'apostrophe-rich-text': {
+            toolbar: [ 'Bold', 'Italic' ]
+          },
+          'apostrophe-images': {}
+        }
+      }
+    }
+  ]
+};
+```
+
+And our `widget.html` file looks like this:
+
+```javascript
+{# in lib/modules/drawer-widgets/views/widget.html #}
+<h4><a data-drawer-title href="#">{{ data.widget.title }}</a></h4>
+<div data-drawer class="drawer-body">
+  {{ apos.area(data.widget, 'content', { edit: false }) }}
+</div>
+```
+
+Here we use `data.widget` where you would normally expect `data.page`. This allows us to access areas nested inside the widget.
+
+> Notice that nesting areas and singletons inside the templates of other widgets is allowed. You can use this feature to create widgets that give users flexible control over page layout, for instance a "two column" widget with two `apos.area` calls.
+
+Now, in our default page template, let's create an area that allows a series of drawers to be created:
+
+```markup
+{# in lib/modules/apostrophe-pages/views/default.html #}
+{{
+  apos.area(data.page, 'drawers', {
+    widgets: {
+      drawers: {}
+    }
+  })
+}}
+```
+
+So far, so good. We can create a whole column of drawer widgets and their titles and their content areas appear. But right now the "drawer" part is visible at all times.
+
+First, we'll need to hide the content of the drawer by default. Let's push an `always.less` stylesheet specifically for this module.
+
+In `index.js`, we'll extend the `pushAssets` method, which is already pushing JavaScript for us, to push a stylesheet as well:
+
+```javascript
+// in lib/modules/drawer-widgets/index.js
+
+module.exports = {
+  extend: 'apostrophe-widgets',
+  addFields: [
+    // ... see above ...
+  ],
+  construct: function(self, options) {
+    var superPushAssets = self.pushAssets;
+    self.pushAssets = function() {
+      superPushAssets();
+      self.pushAsset('stylesheet', 'always', { when: 'always' });
+    };
+  }
+};
+```
+
+In Apostrophe modules, the `construct` function is called to add methods to the module. Here we are following the "super pattern," making a note of the original method we inherited from [apostrophe-widgets](../../reference/apostrophe-widgets/index.html), creating our own replacement method, invoking the original from within it, and then pushing our own asset to the browser.
+
+The [pushAsset method](../../reference/apostrophe-module/index.html#push-asset) can push both stylesheets and scripts. The name `always` is a convention meaning "everyone sees this stylesheet, whether logged in or not." And we make sure of that by setting the `when` option to `always`.
+
+Now we need to supply `always.less` in the right place: the `public/css` subdirectory of our module's directory.
+
+```css
+// in lib/modules/drawer-widgets/public/css/always.less
+
+.drawer-body {
+  display: none;
+}
+```
+
+
+With these changes, our drawers are hidden. But we still need a way to toggle them open.
+
+For that, we'll need an `always.js` file, in our `public/js` folder:
+
+```javascript
+// in lib/modules/drawer-widgets/public/js/always.js
+
+// Example of a widget manager with a play method
+
+apos.define('drawer-widgets', {
+  construct: function(self, options) {
+    self.play = function($widget, data, options) {
+      $widget.find('[data-drawer-title]').click(function() {
+        $widget.find('[data-drawer]').toggle();
+        // Stop default behavior
+        return false;
+      });
+    };
+  }
+});
+```
+
+What's happening in this code?
+
+* We called `apos.define` to create an [implicit subclass](../../glossary.html#implicit-subclassing) of the widget manager for our type of widget. A "widget manager" is a single object that is responsible for handling everything related to widgets of that type. Think of it as the browser's equivalent of our module. Apostrophe automatically defines one, so we're just creating an "implicit subclass" that extends it with an interesting `play` method.
+
+* The first argument to `apos.define` is the name of our type, which is the same as the name of our module. The second argument is an object that defines the type. Just like our `index.js` file on the server, it contains a `construct` function. That's because Apostrophe uses [moog](../../glossary.html#moog-type) to manage object-oriented programming in both places. The only difference is that on the server, Apostrophe figures out what type is being defined automatically.
+
+* Inside `construct`, we add a `play` method to the widget manager. Our `play` method accepts `$widget` (a jQuery object referring to the widget's `div` element), `data` (an object containing the properties of our widget, like `title`), and `options` (an object containing options that were passed to the widget when `apos.area` or `apos.singleton` was called).
+
+* Apostrophe automatically calls the `play` method for us at appropriate times.
+
+* Our play function takes advantage of jQuery's [find method](https://api.jquery.com/find/) to locate the title and the drawer *inside the scope of this one widget.*
+
+> "Can't I just write some jQuery in a `$(function() { ... })` block and skip all this?" If you do, you forfeit the ability for your player to work for widgets that were just added to the page by the user, without refreshing the page. Requiring users to refresh the page is very 2005. We might even tease you about it.
+>
+> Writing widget players that scope all of their jQuery selectors with `$widget.find()` helps you avoid the temptation to write code that will install the same handler twice, fail entirely for newly-added widgets, or become a problem later when you want to publish your module in npm.
+
+### What's available in the browser?
+
+Now is a good time to mention highlights of what you can access in the browser by default when working with Apostrophe:
+
+* jQuery
+* lodash (version 3.x)
+* async (version 1.x)
+* moment
+* jquery.fileupload
+* jquery.cookie
+
+And as previously mentioned, you can use LESS in your stylesheets.
+
+> *"What if I want to use browserify, gulp, grunt, etc.?"* Sure, go nuts. Just arrange your gulpfiles to build a file that is pushed as an asset by one of your modules.
+>
+> We chose not to incorporate those frontend build tools into Apostrophe's core because the core set of features needed for good CMS-driven sites doesn't usually rise to that level of complexity. But if you need to build complex in-page JavaScript experiences, go for it.
