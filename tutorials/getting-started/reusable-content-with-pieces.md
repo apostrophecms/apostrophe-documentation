@@ -191,6 +191,30 @@ Right off the bat, we can click the `+` anywhere in this area to add a people wi
 
 **Notice that people have to be published in order to be added to the widget.**
 
+### An important performance warning
+
+Pieces widgets are great, but they are powered by joins, and joins can cause trouble because they load so many things... and the things they load may load other things, like widgets... until your site is slow, or Apostrophe refuses to load more widgets to prevent an infinite loop.
+
+To solve that, you should always add a `projection` filter when configuring a subclass of `apostrophe-pieces-widgets`:
+
+```javascript
+  'people-widgets': {
+    extend: 'apostrophe-pieces-widgets',
+    filters: {
+      projection: {
+        title: 1,
+        slug: 1,
+        tags: 1
+      }
+    }
+  }
+// etc.
+```
+
+This way, only the properties we really need are fetched for the widget. This can greatly speed up your site and prevent mysterious refusals to load any more data if things start joining back to themselves.
+
+> *"Which properties do I need in my projection?"* Just those that matter to you. However, `slug`, `title` and `tags` are a good minimum set. `slug` helps build URLs, `tags` usually helps determine which page is the best match for the piece, and `title` is self-explanatory.
+
 ### Custom templates for widgets
 
 Our widget isn't very satisfying yet. It just displays full names. Let's improve it by creating our own `lib/modules/people-widgets/views/widget.html` file:
