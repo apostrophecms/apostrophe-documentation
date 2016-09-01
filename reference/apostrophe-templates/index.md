@@ -108,65 +108,6 @@ will not need to call this directly.
 ### addStandardFilters(*env*)
 
 ### renderPageForModule(*req*, *template*, *data*, *module*)
-Typically you will call the `renderPage` method of
-your own module, provided by the `apostrophe-module`
-base class, which is a wrapper for this method. Also
-consider calling `sendPage` which is even more convenient
-and adds tabs to the data object, etc.
-
-Generate a complete HTML page for transmission to the
-browser.
-
-If `req.error` is truthy, it is logged similarly to a
-template error and the `error.html` template is displayed.
-
-If `template` is a function it is passed a data object,
-otherwise it is rendered as a nunjucks template relative
-to this module via self.render.
-
-`data` is provided to the template, with additional
-default properties as described below.
-
-`module` is the module from which the template should
-be rendered, if an explicit module name is not part
-of the template name.
-
-Additional properties merged with the `data object:
-
-"outerLayout" is set to...
-
-"apostrophe-templates:outerLayout.html"
-
-Or:
-
-"apostrophe-templates:refreshLayout.html"
-
-This allows the template to handle either a content area
-refresh or a full page render just by doing this:
-
-{% extend outerLayout %}
-
-Note the lack of quotes.
-
-Under the following conditions, "refreshLayout.html"
-is used in place of "outerLayout.html":
-
-req.xhr is true (always set on AJAX requests by jQuery)
-req.query.xhr is set to simulate an AJAX request
-req.decorate is false
-req.query.apos_refresh is true
-
-These default properties are also provided on the `data` object
-visible in Nunjucks:
-
-user (req.user)
-query (req.query)
-permissions (req.user._permissions)
-calls (javascript markup to insert all global and
-  request-specific calls pushed by server-side code)
-data (javascript markup to insert all global and
-  request-specific data pushed by server-side code)
-### renderPageForModule(*req*, *template*, *data*, *module*)
 Typically you will call the `sendPage` method of
 your own module, provided by the `apostrophe-module`
 base class, which is a wrapper for this method.
