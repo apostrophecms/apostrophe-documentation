@@ -5,6 +5,7 @@ children:
 
 ---
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+### `apos.assets`
 This module provides minification and delivery of browser-side assets
 such as stylesheets and javascript.
 

@@ -9,6 +9,7 @@ children:
   - browser-apostrophe-pages-reorganize
 ---
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+### `apos.pages`
 This module manages the page tree and contains the wildcard
 Express route that actually serves pages. That route is installed
 at the very end of the process, in an `afterInit` callback,

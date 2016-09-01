@@ -5,6 +5,7 @@ children:
 
 ---
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+### `apos.migrations`
 Provide services for database migration. The `apostrophe-migrations:migrate` task
 carries out all migrations that have been registered with this module. Migrations
 are used to make changes to the database at the time of a new code deployment,

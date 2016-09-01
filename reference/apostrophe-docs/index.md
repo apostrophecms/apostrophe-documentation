@@ -6,6 +6,7 @@ children:
   - browser-apostrophe-docs
 ---
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+### `apos.docs`
 This module is responsible for managing all of the documents (apostrophe "docs")
 in the `aposDocs` mongodb collection.
 

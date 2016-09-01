@@ -10,6 +10,7 @@ children:
   - browser-apostrophe-users-manager-modal
 ---
 ## Inherits from: [apostrophe-pieces](../apostrophe-pieces/index.html)
+### `apos.users`
 The `apostrophe-users` module provides user accounts. It is **not** intended to
 be extended with new subclass modules. The `apostrophe-login` module only
 looks for instances of `apostrophe-user`. Of course you may implicitly subclass

@@ -5,6 +5,7 @@ children:
   - browser-apostrophe-admin-bar
 ---
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+### `apos.adminBar`
 The admin bar module implements Apostrophe's admin bar at the top of the screen. Any module
 can register a button (or more than one) for this bar by calling the `add` method of this
 module. Buttons can also be grouped into dropdown menus and restricted to those with

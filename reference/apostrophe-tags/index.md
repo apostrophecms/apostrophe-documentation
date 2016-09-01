@@ -10,6 +10,7 @@ children:
   - browser-apostrophe-tags-editor-modal
 ---
 ## Inherits from: [apostrophe-pieces](../apostrophe-pieces/index.html)
+### `apos.tags`
 The `apostrophe-tags` module provides administration tools for managing
 tags on the site. This module subclasses pieces in order to provide a way
 to store tags that were created directly in the tag administration interface

@@ -5,6 +5,7 @@ children:
 
 ---
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+### `apos.push`
 This module provides ways to "push" JavaScript calls so that they happen in the
 web browser in a well-managed way.
 

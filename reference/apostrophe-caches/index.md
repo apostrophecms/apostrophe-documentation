@@ -5,6 +5,7 @@ children:
 
 ---
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+### `apos.caches`
 A general purpose cache implementation for improved performance in all areas
 where results can be retained and reused temporarily. Any number of distinct cache
 objects can be created, identified by distinct names. The standard implementation

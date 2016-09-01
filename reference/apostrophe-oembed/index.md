@@ -5,6 +5,7 @@ children:
   - browser-apostrophe-oembed
 ---
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+### `apos.oembed`
 The oembed module provides an oembed query service for embedding
 third-party website content, such as YouTube videos. The service includes
 enhancements and substitutes for several services that do not support

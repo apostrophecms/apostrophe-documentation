@@ -5,6 +5,7 @@ children:
   - browser-apostrophe-video-fields
 ---
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+### `apos.videoFields`
 Implements the ["video" apostrophe schema field type](../../tutorials/getting-started/schema-guide.html).
 
 The value of the field is an object with `url`, `title` and `thumbnail` properties, the latter

@@ -10,6 +10,7 @@ children:
   - browser-apostrophe-images
 ---
 ## Inherits from: [apostrophe-pieces](../apostrophe-pieces/index.html)
+### `apos.images`
 A subclass of `apostrophe-pieces`, `apostrophe-images` establishes a library
 of uploaded images in formats suitable for use on the web.
 

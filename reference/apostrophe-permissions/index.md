@@ -5,6 +5,7 @@ children:
 
 ---
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+### `apos.permissions`
 This module manages the permissions of docs in Apostrophe.
 
 

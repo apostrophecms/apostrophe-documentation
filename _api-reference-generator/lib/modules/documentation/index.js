@@ -254,6 +254,7 @@ module.exports = {
             }).join('\n') + '\n' +
           '---\n' +
           documentExtend(type) +
+          documentAlias(type) +
           documentComments(type.comments) + "\n" +
           documentMethods(type) +
           documentHelpers(type) +
@@ -522,6 +523,14 @@ module.exports = {
           }
         }
         return '';
+      }
+
+      function documentAlias(type) {
+        if (type.options.alias) {
+          return '### `apos.' + type.options.alias.def + '`\n';
+        } else {
+          return '';
+        }
       }
 
       function documentMethods(type) {

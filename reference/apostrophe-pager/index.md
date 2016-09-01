@@ -5,6 +5,7 @@ children:
 
 ---
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+### `apos.pager`
 Provides markup, a Nunjucks helper and styles for a simple pager,
 used for pagination both on the front end and the back end.
 

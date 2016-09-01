@@ -5,6 +5,7 @@ children:
 
 ---
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+### `apos.tasks`
 This module allows other modules to create command line tasks.
 
 A command line task is invoked like this:

@@ -6,6 +6,7 @@ children:
   - browser-apostrophe-array-editor-modal
 ---
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+### `apos.schemas`
 This module provides schemas, a flexible and fast way to create new data types
 by specifying the fields that should make them up. Schemas power
 [apostrophe-pieces](../apostrophe-pieces/index.html),

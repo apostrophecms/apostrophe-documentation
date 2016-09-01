@@ -10,6 +10,7 @@ children:
   - browser-apostrophe-groups-manager-modal
 ---
 ## Inherits from: [apostrophe-pieces](../apostrophe-pieces/index.html)
+### `apos.groups`
 Provide a way to group [apostrophe-users](../apostrophe-users/index.html) together
 and assign permissions to them. This module is always active "under the hood," even if
 you take advantage of the `groups` option of `apostrophe-users` to skip a separate

@@ -6,6 +6,7 @@ children:
   - browser-apostrophe-versions-editor
 ---
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+### `apos.versions`
 Provides versioning for all docs in Apostrophe. Every time a doc
 is updated, a new version of it is created in the `aposVersions` collection.
 A UI is provided for viewing past versions and rolling back to them.
