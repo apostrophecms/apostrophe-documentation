@@ -73,11 +73,11 @@ More on modules in a second...
 
 #### lib/modules: modules in Apostrophe
 
-Apostrophe is a modular content management system: each meaningful component is broken into its own module, which can then be interacted with or subclassed by other modules in the system. Under the hood, modules are powered by [moog](https://github.com/punkave/moog) and [moog-require](https://github.com/punkave/moog-require), but you don't have to understand that just to build a great website.
+Apostrophe is a modular content management system: each meaningful component is broken into its own module, which can then be interacted with or subclassed (extended) by other modules in the system. Under the hood, modules are powered by [moog](https://github.com/punkave/moog) and [moog-require](https://github.com/punkave/moog-require), but you don't have to understand that just to build a great website.
 
 The `lib/modules` folder is where modules created for your own project live. And it is also where you can "subclass" (i.e. configure or improve upon) Apostrophe's own modules, whether part of the apostrophe npm module's core or packaged in separate npm modules.
 
-You'll notice two modules that are extended in your test project's `lib/modules` folder, `apostrophe-assets` and `apostrophe-pages`. `apostrophe-assets` gets some custom LESS CSS files, while `apostrophe-pages` contains page templates. We'll look at those in a minute.
+You'll notice two modules that are extended in your test project's `lib/modules` folder, `apostrophe-assets` and `apostrophe-pages`. `apostrophe-assets` gets some custom [LESS CSS](http://lesscss.org/features/) files, while `apostrophe-pages` contains page templates. We'll look at those in a minute.
 
 **Apostrophe modules and npm modules are not the same thing.** One npm module might package several Apostrophe modules that are maintained together as a "bundle." You'll see this later when you install the `apostrophe-blog` npm module.
 
@@ -97,7 +97,7 @@ This module is responsible for pushing front-end assets to the website. In `app.
     }
 ```
 
-This asks Apostrophe to include the LESS CSS file:
+This asks Apostrophe to include the [LESS CSS](http://lesscss.org/features/) file:
 
 `lib/modules/apostrophe-assets/public/css/site.less`
 
