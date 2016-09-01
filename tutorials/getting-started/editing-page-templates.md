@@ -17,25 +17,31 @@ The first step is to add configuration for the `apostrophe-pages` module in `app
 
 ```javascript
     // This configures our default page template
-    'apostrophe-pages' = {
+    'apostrophe-pages': {
       types: [
         {
           name: 'default',
-          label: 'Default',
-          type: 'default'
-        }
+          label: 'Default'
+        },
+        {
+          name: 'home',
+          label: 'Home'
+        },
       ]
     }
 ```
-*Tip: you will need to restart the node app when you make code changes, even in templates.*
 
-In the terminal window, press control-C, then type node app.js
+> You will need to restart the node app when you make code changes, even in templates. In the terminal window, press control-C, then type: `node app.js`
+>
+> This is because every node application is a webserver in its own right. Unlike PHP applications, node apps "stay alive" indefinitely, handling many page requests asynchronously for better performance. Later, [in production](../intermediate/deployment.html), we'll use a more robust webserver as a "frontend proxy" to help handle the load.
 
-This creates a new `default` page type. But! Trying to add this page using the page settings menu and you'll get an error. Apostrophe is looking for the template `default.html` in `lib/modules/apostrophe-pages/views/pages`, so let's add the template `default.html`.
+### Creating and Extending Page Templates
+
+We've configured the two page types we want for our site. But if you try to add a new page now via the "Page Settings" menu and give it the  "default" page type, you'll get an error.
+
+Apostrophe is looking for the template file `lib/modules/apostrophe-pages/views/pages/default.html`. So open up your editor and create that file.
 
 Now let's take a look at how to add content to the page.
-
-### Extending Templates
 
 With an empty `default.html`, we don't get much; not even a page title. But we can get quite a bit for free just by extending a layout template.
 
@@ -45,7 +51,7 @@ With an empty `default.html`, we don't get much; not even a page title. But we c
 {% extends data.outerLayout %}
 ```
 
-Extending the `outerLayout` provides the basic Apostrophe scaffolding for a page. The `outerLayout` contains several blocks which will be the basic structure of your HTML page:
+Extending the `outerLayout` provides the basic Apostrophe scaffolding for a page. A quick peek at Apostrophe's `outerLayout` template reveals several blocks which will be the basic structure of your HTML page:
 
 ```markup
 <div class="apos-refreshable" data-apos-refreshable>
@@ -59,11 +65,11 @@ Blocks are another great Nunjucks feature; they are defined in `outerLayout.html
 
 So using these blocks on your pages means everything output by your page template will be inserted into the outer layout in the appropriate spot.
 
-**Tip:** you *can* override `outerLayout.html` in your own `lib/modules/apostrophe-templates/views` folder, but try not to. You already have complete control of the body, and overriding the outer layout makes you responsible for tracking changes in Apostrophe's version.
-
 **"So why `data.outerLayout`? Why not just a filename?"** Apostrophe can actually refresh just the body of the page in certain situations. This variable points to the appropriate template, either the real outer layout or a simple "ajax layout" for refreshing the body. But you don't have to worry about it: just use `data.outerLayout`.
 
-### Adding a section to the home page
+> if you peek at `outerLayout.html` in the Apostrophe npm module, you'll discover it just extends `outerLayoutBase.html`. We did this so that you can override `outerLayout.html` by supplying your own in `lib/modules/apostrophe-templates/views`, extend `outerLayoutBase.html`, and selectively override its blocks. This gives you a unique "master layout" for all of your templates in the project.
+
+### Using blocks to override parts of the layout
 
 Now that we've extended `outerLayout` in `default.html`, we can override the `beforeMain` block. Let's add a hero section to the top of the page:
 
