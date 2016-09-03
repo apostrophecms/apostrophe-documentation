@@ -3,6 +3,7 @@ title: "Intermediate tutorials"
 children:
   - model-layer
   - cursors
+  - forms
   - accessing-the-database-directly
   - deployment
 ---

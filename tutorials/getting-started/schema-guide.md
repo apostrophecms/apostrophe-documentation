@@ -34,12 +34,19 @@ Modules like [apostrophe-pieces](../../reference/apostrophe-pieces/index.html) p
   {
     name: 'permissions',
     label: 'Permissions',
-    fields: [ 'loginRequired', '_viewUsers', '_viewGroups', '_editUsers', '_editGroups' ]
+    fields: [ 'loginRequired', '_viewUsers', '_viewGroups', '_editUsers', '_editGroups' ],
+    last: true
   }
 ]
 ```
 
 If the same group is defined more than once with `arrangeFields`, the last definition wins.
+
+If a group is defined twice, the last definition wins, and the group moves to the end.
+
+However, if a group was defined with the `last: true` flag, it remains below any other groups unless it appears again without the flag.
+
+This makes it easy to arrange and then re-arrange the groups in subclasses without rearranging everything.
 
 ### Using `beforeConstruct` to adjust schemas
 

@@ -216,3 +216,24 @@ Anything attached to the `req.data` object becomes visible as the `data` object 
 * `page`: the current page object (if appropriate; certain routes, like `/login`, render HTML pages but are not tied to any page in Apostrophe)
 * `home`: the home page, typically with a populated `._children` property
 * `global`: a doc which may be used for elements common to all pages, like global footers
+
+### `super` pattern
+
+In any object-oriented language, it's common to inherit methods from the type you're extending. Sometimes you want to override those methods... but you don't want to completely discard or duplicate them. Instead, you want to call them and then change the result, or call them first before carrying out some action of your own.
+
+In Apostrophe, we follow the "`super` pattern" to do this. For instance, let's say we're extending a module that extends `apostrophe-pieces`. Both modules might have a `beforeShow` method, and we don't want to lose it. So let's capture the old one, call it from the new one, and then do our own work:
+
+var superBeforeShow = self.beforeShow;
+
+```javascript
+self.beforeShow = function(req, callback) {
+  return superBeforeShow(req, function(err) {
+    if (err) {
+      return callback(err);
+    }
+    // DO OUR OWN WORK HERE, then eventually...
+    return callback(null);
+  });
+};
+```
+
