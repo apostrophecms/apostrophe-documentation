@@ -20,9 +20,6 @@ its `apos-active` class be toggled on click.
 
 Optionally you can give the attr a value which can be used to target another element's active
 class to be toggled.
-### enhanceAdminMenu()
-Implement the admin bar's toggle behavior and graceful close of dropdowns at
-appropriate times.
 ### enhanceDropdowns()
 Implement automatic width adjustment for `[data-apos-dropdown]` menus that have a
 `[data-apos-dropdown-button-label]`.

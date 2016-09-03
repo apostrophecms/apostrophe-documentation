@@ -47,11 +47,22 @@ cursor methods:
 apos.docs.find(req, { type: 'foobar' }).toArray(
   function(err, docs) { ... }
 );
-### insert(*req*, *doc*, *callback*) *[api]*
+### insert(*req*, *doc*, *options*, *callback*) *[api]*
+**Most often you will insert or update docs via the
+insert and update methods of the appropriate doc manager.**
+This method is for implementation use in those objects,
+and for times when you wish to explicitly bypass most type-specific
+callbacks such as the `beforeInsert` method of the
+doc manager.
+
 Insert the given document. If the slug is not
 unique it is made unique. docBeforeInsert,
 docBeforeSave, docAfterInsert
-and docAfterSave are called on all modules.
+and docAfterSave are called on all modules that have them.
+These have a performance impact so they should only be used
+for critical matters and cross-cutting concerns such as versioning
+and security.
+
 On success the callback is invoked with
 (null, doc).
 
@@ -59,9 +70,8 @@ If the slug property is not set, the title
 property is converted to a slug. If neither
 property is set, an error occurs.
 
-The `edit-doc` permission is checked for the
-general case. `beforeInsertDoc` methods can
-be used to enforce other restrictions.
+The `edit-type-name` permission is checked based on
+doc.type.
 
 If a unique key error occurs,
 apos.*.docFixUniqueError is called with the
@@ -71,7 +81,24 @@ due to a unique index you have added. It is
 not possible to know which property was
 responsible. This method takes care of
 the slug property directly.
-### update(*req*, *doc*, *callback*) *[api]*
+
+The `options` object may be omitted completely.
+
+If `options.permissions` is set explicitly to
+`false`, permissions checks are bypassed.
+### update(*req*, *doc*, *options*, *callback*) *[api]*
+**Most often you will insert or update docs via the
+insert and update methods of the appropriate doc manager.**
+This method is for implementation use in those objects,
+and for times when you wish to explicitly bypass most type-specific
+callbacks such as the `beforeUpdate` method of the
+doc manager.
+
+Update the given document. If the slug is not
+unique it is made unique. docBeforeInsert,
+docBeforeSave, docAfterInsert
+and docAfterSave are called on all modules that have them.
+
 Update a single document.
 
 The second argument must be the document itself.
@@ -82,7 +109,9 @@ update an object, find it first and then update it.
 
 docBeforeSave, docBeforeUpdate,
 docAfterSave and docAfterUpdate are invoked on
-all modules.
+all modules that have them. These have a performance
+impact, so they should be used only to implement
+cross-cutting concerns like versioning and address security matters.
 
 On success the callback is invoked with
 (null, doc).
@@ -101,13 +130,21 @@ due to a unique index you have added. It is
 not possible to know which property was
 responsible. This method takes care of
 the slug property directly.
-### denormalizePermissions(*req*, *doc*, *callback*) *[api]*
+
+The `options` object may be omitted completely.
+
+If `options.permissions` is set explicitly to
+`false`, permissions checks are bypassed.
+### denormalizePermissions(*req*, *doc*, *options*, *callback*) *[api]*
 Apostrophe edits doc editing and viewing permissions via joins,
 but for query performance then copies them to a single array with entries
 like: `[ 'edit-xxx', 'view-xxx' ]`, where `xxx` might be a user id
 or a group id. This method performs that copying. It also invokes
 the docAfterDenormalizePermissions method of every module that has one,
 which allows the pages module to piggyback and add `applyToSubpages` behavior.
+
+The `options` object is for future extension and is passed on
+to this method by `insert` and `update`.
 ### trash(*req*, *idOrCriteria*, *callback*) *[api]*
 Trash a single document. The second
 argument may be either an _id, or a MongoDB
@@ -191,17 +228,20 @@ any arguments other than a callback. If
 an error does occur, docFixUniqueError is
 invoked on all modules with `doc` and an
 optional callback.
-### docBeforeInsert(*req*, *doc*) *[api]*
+### docBeforeInsert(*req*, *doc*, *options*) *[api]*
 Invoked before any doc is inserted. Checks
 that the user has general permission to
-create docs, generates an _id if needed,
+create docs of that type, generates an _id if needed,
 and sets createdAt to the current Date.
 Note that methods of this name are invoked
 on ALL modules that have them, starting with
 this one. Although this method takes no
 callback, other implementations MAY
 take a callback and are invoked in series.
-### docBeforeSave(*req*, *doc*) *[api]*
+
+If `options.permissions` is explicitly `false`,
+permissions checks are not performed.
+### docBeforeSave(*req*, *doc*, *options*) *[api]*
 Invoked before any doc is saved (either
 updated or inserted). Generates a slug
 from the title if needed, throwing an
@@ -226,7 +266,7 @@ on ALL modules that have them, starting with
 this one. Although this method takes no
 callback, other implementations MAY
 take a callback and are invoked in series.
-### docBeforeUpdate(*req*, *doc*) *[api]*
+### docBeforeUpdate(*req*, *doc*, *options*) *[api]*
 Invoked when a doc is about to be updated
 (not inserted for the first time). Checks
 permissions on that document and refuses
@@ -238,14 +278,26 @@ on ALL modules that have them, starting with
 this one. Although this method takes no
 callback, other implementations MAY
 take a callback and are invoked in series.
-### updateBody(*req*, *doc*, *callback*) *[api]*
+
+If `options.permissions` is explicitly `false`,
+permissions checks are not performed.
+### updateBody(*req*, *doc*, *options*, *callback*) *[api]*
 Do not call this yourself, it is called
-by .update. You may override this method
-to change the implementation.
-### insertBody(*req*, *doc*, *callback*) *[api]*
-Insert the given document. You
-should call .insert(), not this method. However
-you can override this method to alter the
+by .update(). You will usually want to call the
+update method of the appropriate doc type manager instead:
+
+self.apos.docs.getManager(doc.type).update(...)
+
+You may override this method to change the implementation.
+### insertBody(*req*, *doc*, *options*, *callback*) *[api]*
+Insert the given document. Called by `.insert()`. You will usually want to
+call the update method of the appropriate doc type manager instead:
+
+```javascript
+self.apos.docs.getManager(doc.type).update(...)
+```
+
+However you can override this method to alter the
 implementation.
 ### idOrCriteria(*idOrCriteria*) *[api]*
 Given either an id (as a string) or a criteria

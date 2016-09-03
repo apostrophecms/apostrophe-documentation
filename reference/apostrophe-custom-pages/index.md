@@ -16,6 +16,25 @@ URLs that extend beyond the slug of the page using the `dispatch` method.
 The [apostrophe-pieces-pages](../apostrophe-pieces-pages/index.html) module
 is a good example of a subclass of this module.
 
+## Options
+
+### `name`
+
+The name, typically singular, of the page type. If it is not set,
+and the name of the module ends in `-pages`, `name` is set to the name
+of the module with `-pages` changed to `-page`. If the name of the module
+does not end in `-pages`, the name of the page type is identical to the
+name of the module.
+
+### `scene`
+
+Normally, anonymous site visitors receive only the stylesheets and scripts
+included in the `anon` asset scene (those that are pushed with
+`{ when: 'always' }`). If your page will use assets, such as
+Apostrophe's schemas and modals, that are normally reserved for logged-in users
+then you will want to set `scene` to `user` in order to load them every time
+when this type of page is visited.
+
 
 ## Methods
 ### dispatch(*pattern *, *, middleware..., handler*) *[dispatch]*
@@ -36,17 +55,24 @@ with `(req, stop, callback)`. If your middleware wishes to prevent the
 handler from being invoked, call `stop(null)` rather than `callback(null)`.
 Otherwise the chain of middleware continues and, at the end, the handler is invoked.
 ### pageServe(*req*, *callback*) *[dispatch]*
+Called for us by `apostrophe-pages` when any page is accessed.
+Checks first to make sure that the page that best matches the longest
+prefix of the URL (`req.data.bestPage`) is of the appropriate type
+for this module. If so, the remainder of the URL is compared to the
+dispatch routes that have been added via the `dispatch` method, and
+the appropriate route, if any, is invoked, with `req.data.page` being set.
 
+If there are no matches, a 404 not found response occurs.
+
+If there are no dispatch routes for this module, an exact match of
+the URL sets `req.data.page`, otherwise a 404 not found response occurs.
 ### match(*req*, *rule*, *url*) *[dispatch]*
-
-### find(*req*, *criteria*, *projection*)
-Return a cursor for finding pages of this type only. The cursor is an
-`apostrophe-pages-cursor`, so it has access to filters like
-`ancestors` and `children`.
-
-Because pages are normally displayed by Apostrophe's page loading mechanism,
-which uses an `apostrophe-pages-cursor`, it doesn't really make sense to return
-a custom cursor subclass here. It would not be used when actually viewing the
-page anyway. If you must have extra filters for specific page types, implicitly
-subclass apostrophe-pages-cursor and add filters that are mindful of the
-type of each page.
+Match a URL according to the provided rule as registered
+via the dispatch method. If there is a match, `req.params` is
+set exactly as it would be by Express and `true` is returned.
+Invoked by the `pageServe` method.
+### acceptResponsibility(*req*) *[dispatch]*
+Called by `pageServe`. Accepts responsibility for
+the current URL by assigning `req.data.bestPage` to
+`req.page` and implementing the `scene` option, if set
+for this module.

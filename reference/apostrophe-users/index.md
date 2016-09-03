@@ -59,11 +59,11 @@ After a user is updated, check to see if the `groups` option is configured for
 simplified user management. If it is, convert the single-select choice made
 via `piece.group` to an array stored in `groupIds`, so that all other code
 can find groups in a consistent way.
-### docBeforeInsert(*req*, *doc*, *callback*)
+### docBeforeInsert(*req*, *doc*, *options*, *callback*)
 For security, on **ANY** insert of a doc, we check to see if it is
 an `apostrophe-user` and, if so, hash the password, remove it from the doc
 and store the hash in the safe instead.
-### docBeforeUpdate(*req*, *doc*, *callback*)
+### docBeforeUpdate(*req*, *doc*, *options*, *callback*)
 For security, on **ANY** update of a doc, we check to see if it is
 an `apostrophe-user` and, if so, hash the password, remove it from the doc
 and store the hash in the safe instead.

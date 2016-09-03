@@ -15,6 +15,8 @@ All widgets have a [schema](../../tutorials/getting-started/schema-guide.html).
 Many project-specific modules that extend this module consist entirely of an
 `addFields` option and a `views/widget.html` file.
 
+For more information see the [custom widgets tutorial](../../tutorials/getting-started/custom-widgets.html).
+
 ## Options
 
 ### `label`
@@ -29,6 +31,17 @@ and plural if it displays more than one thing, like `apostrophe-pieces`.
 **By default, Apostrophe automatically removes `-widgets` from the name
 of your module to set this option for you.** This is a good convention
 but you may set this option instead if you wish.
+
+### `scene`
+
+If your widget wishes to use Apostrophe features like schemas
+when interacting with *logged-out* users — for instance, to implement
+forms conveniently — you can set the `scene` option to `user`. Any
+page that contains the widget will then load the full javascript and stylesheet
+assets normally reserved for logged-in users. Note that if a page
+relies on AJAX calls to load more content later, the assets will not be
+upgraded. So you may wish to set the `scene` option of the appropriate
+subclass of `apostrophe-custom-pages` or `apostrophe-pieces-pages`, as well.
 
 ### `addFields`, `removeFields`, `arrangeFields`, etc.
 
@@ -46,7 +59,7 @@ In `views/widget.html`, you can access any schema field as a property
 of `data.widget`. You can also access options passed to the widget as
 `data.options`.
 
-## Widget players: the `play` method
+## More
 
 If your widget requires JavaScript on the browser side, you will want
 to define the browser-side singleton that manages this type of widget by
@@ -98,6 +111,10 @@ as you can usually optimize this.
 
 Override this to perform custom joins not
 specified by your schema, talk to APIs, etc.
+
+Also implements the `scene` convenience option
+for upgrading assets delivered to the browser
+to the full set of `user` assets.
 ### sanitize(*req*, *input*, *callback*)
 Sanitize the widget. Invoked when the user has edited a widget on the
 browser side. By default, the `input` object is sanitized via the

@@ -24,7 +24,7 @@ preserve most transitions between different individuals editing content.
 
 ### ensureIndexes(*callback*) *[api]*
 
-### docAfterSave(*req*, *doc*, *callback*) *[api]*
+### docAfterSave(*req*, *doc*, *options*, *callback*) *[api]*
 
 ### pruneOldVersions(*doc*, *callback*) *[api]*
 Prune old versions so that the database is not choked

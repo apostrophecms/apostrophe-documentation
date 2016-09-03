@@ -74,5 +74,5 @@ Overridable hook
 
 ### POST /modules/apostrophe-tags/deleteTag
 
-### ALL /modules/apostrophe-tags/autocomplete
+### POST /modules/apostrophe-tags/autocomplete
 

@@ -1,6 +1,19 @@
 ---
 title: "apostrophe-widgets (browser)"
 ---
+## Inherits from: [apostrophe-context](../apostrophe-utils/browser-apostrophe-context.html)
+`apostrophe-widgets` is a parent class for the browser-side managers of
+widget types. Each manager object is responsible for *all* widgets of that type.
+
+Extends `apostrophe-context` in order to gain access to conveniences like
+the `self.api` and `self.html` methods. There is no `self.$el`, because
+this object manages many widgets.
+
+The `play` method, if it exists, is invoked when appropriate with `($widget, data, options)`,
+and should enhance that specific widget. The `play` method should **never** use
+`$(...)` selectors, instead always using `$widget.find(...)` to scope them to that
+specific widget.
+
 
 ## Methods
 ### getData(*$widget*)

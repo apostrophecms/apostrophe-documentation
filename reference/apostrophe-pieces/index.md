@@ -39,36 +39,50 @@ piece (e.g. good enough to add a crop to an image)
 User must have some editing privileges for this type
 ### list(*req*, *filters*, *callback*) *[api]*
 
-### insert(*req*, *piece*, *callback*) *[api]*
+### insert(*req*, *piece*, *options*, *callback*) *[api]*
+Insert a piece. Also invokes the `beforeInsert`, `beforeSave`, `afterInsert` and
+`afterSave` methods of this module.
 
-### update(*req*, *piece*, *callback*) *[api]*
+You may omit the `options` argument completely.
 
+If `options.permissions` is explicitly set to `false`, permissions are
+not checked. Otherwise the user must have the appropriate permissions to
+insert the piece.
+### update(*req*, *piece*, *options*, *callback*) *[api]*
+Update a piece. Also invokes the `beforeUpdate`, `beforeSave`, `afterUpdate` and
+`afterSave` methods of this module.
+
+You may omit the `options` argument completely.
+
+If `options.permissions` is explicitly set to `false`, permissions are
+not checked. Otherwise the user must have the appropriate permissions to
+insert the piece.
 ### trash(*req*, *id*, *callback*) *[api]*
-
+Move a piece to the trash by id.
 ### rescue(*req*, *id*, *callback*) *[api]*
-
+Rescue a piece from the trash by id.
 ### convert(*req*, *piece*, *callback*) *[api]*
-
-### findIfContextual(*req*, *piece*, *callback*) *[api]*
-
+Convert the data supplied in `req.body` via the schema and
+update the piece object accordingly.
 ### afterConvert(*req*, *piece*, *callback*) *[api]*
-
-### beforeCreate(*req*, *piece*, *callback*) *[api]*
-
-### beforeSave(*req*, *piece*, *callback*) *[api]*
-
-### afterCreate(*req*, *piece*, *callback*) *[api]*
-
-### afterSave(*req*, *piece*, *callback*) *[api]*
-
-### beforeUpdate(*req*, *piece*, *callback*) *[api]*
-
-### afterUpdate(*req*, *piece*, *callback*) *[api]*
-
+Invoked after apos.schemas.convert by the `insert` and
+`update` routes
+### beforeInsert(*req*, *piece*, *options*, *callback*) *[api]*
+Invoked by `self.insert`. Does nothing by default; convenient extension point
+### beforeSave(*req*, *piece*, *options*, *callback*) *[api]*
+Invoked by `self.insert` and `self.update`. Does nothing by default; convenient extension point
+### afterInsert(*req*, *piece*, *options*, *callback*) *[api]*
+Invoked by `self.insert`. Does nothing by default; convenient extension point
+### afterSave(*req*, *piece*, *options*, *callback*) *[api]*
+Invoked by `self.insert` and `self.update`. Does nothing by default; convenient extension point
+### beforeUpdate(*req*, *piece*, *options*, *callback*) *[api]*
+Invoked by `self.update`. Does nothing by default; convenient extension point
+### afterUpdate(*req*, *piece*, *options*, *callback*) *[api]*
+Invoked by `self.update`. Does nothing by default; convenient extension point
 ### beforeTrash(*req*, *id*, *callback*) *[api]*
-
+Invoked by `self.trash`. Does nothing by default; convenient extension point
 ### afterTrash(*req*, *id*, *callback*) *[api]*
-
+Invoked by `self.trash`. Does nothing by default; convenient extension point
 ### deduplicateTrash(*req*, *piece*, *callback*) *[api]*
 After moving pieces to the trash, prefix any fields that have
 unique indexes so that other pieces are allowed to reuse

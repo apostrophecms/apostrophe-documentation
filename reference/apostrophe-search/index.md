@@ -32,7 +32,7 @@ Search is powered by the full-text search features of MongoDB.
 Called before each page of search results is rendered; override hook
 ### dispatchAll()
 
-### docBeforeSave(*req*, *doc*)
+### docBeforeSave(*req*, *doc*, *options*)
 Implementation of search indexing as documents are saved. Invoked
 via callAll by the docs module
 ### getSearchTexts(*doc*)

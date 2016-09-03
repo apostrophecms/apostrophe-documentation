@@ -181,9 +181,13 @@ a `depth` option to `children`.
 ### find(*req*, *criteria*, *projection*) *[api]*
 Obtain a cursor for finding pages. Adds filters useful for
 including ancestors, descendants, etc.
-### insert(*req*, *parentOrId*, *page*, *callback*) *[api]*
+### insert(*req*, *parentOrId*, *page*, *options*, *callback*) *[api]*
 Insert a page as a child of the specified page or page ID.
-### docAfterDenormalizePermissions(*req*, *page*, *callback*) *[api]*
+
+The `options` argument may be omitted completely. If
+`options.permissions` is set to false, permissions checks
+are bypassed.
+### docAfterDenormalizePermissions(*req*, *page*, *options*, *callback*) *[api]*
 This method pushes a page's permissions to its subpages selectively based on
 whether the applyToSubpages choice was selected for each one. It also copies
 the `loginRequired` property to subpages if the `applyLoginRequiredToSubpages`
@@ -228,8 +232,10 @@ Delivers `err`, `parentSlug` (the slug of the page's
 former parent), and `changed` (an array of objects with
 _id and slug properties, including all subpages that
 had to move too).
-### update(*req*, *page*, *callback*) *[api]*
-Update a page.
+### update(*req*, *page*, *options*, *callback*) *[api]*
+Update a page. The `options` argument may be omitted entirely.
+if it is present and `options.permissions` is set to `false`,
+permissions are not checked.
 ### park(*pageOrPages*) *[api]*
 Ensure the existence of a page or array of pages and
 lock them in place in the page tree.
@@ -344,15 +350,15 @@ but not itself
 Returns true if `possibleAncestorPage` is an ancestor of `ofPage`.
 A page is not its own ancestor. If either object is missing or
 has no path property, false is returned.
-### beforeSave(*req*, *page*, *callback*) *[api]*
+### beforeSave(*req*, *page*, *options*, *callback*) *[api]*
 Invoked just before a save operation (either insert or update)
 on a page is actually pushed to the database. Initially empty for your
 overriding convenience.
-### beforeInsert(*req*, *page*, *callback*) *[api]*
+### beforeInsert(*req*, *page*, *options*, *callback*) *[api]*
 Invoked just before an insert operation on a page
 is actually pushed to the database. Initially empty for your
 overriding convenience.
-### beforeUpdate(*req*, *page*, *callback*) *[api]*
+### beforeUpdate(*req*, *page*, *options*, *callback*) *[api]*
 Invoked just before an update operation on a page (not an insert)
 is actually pushed to the database. Initially empty for your
 overriding convenience.
