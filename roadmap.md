@@ -20,6 +20,8 @@ We are committed to providing content migration tools for Apostrophe 0.5 project
 
 An automated tool to migrate content from Apostrophe 0.5 is planned for the immediate future. Tools are already available to migrate to 0.5 from earlier releases.
 
+[0.5 documentation is still available.](http://ohdotfive.apostrophenow.org)
+
 ## Apostrophe's semantic versioning policy
 
 [Semantic versioning](http://semver.org/) is a philosophy that says that each backwards-incompatible change should trigger a new major version number. It's a good policy because it makes it safe to use npm dependencies to install Apostrophe.
