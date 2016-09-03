@@ -31,14 +31,14 @@ Now you can use it to create a new project.
 
 ```bash
 # Create a project
-apostrophe create testProject
+apostrophe create test-project
 ```
 
 With the project created, you just need to jump in, install the dependencies, and start the server.
 
 ```bash
 # cd into the new project
-cd testProject
+cd test-project
 # Install our dependencies (most notably, Apostrophe)
 npm install
 # Go go go!
