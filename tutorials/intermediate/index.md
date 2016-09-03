@@ -1,6 +1,7 @@
 ---
 title: "Intermediate tutorials"
 children:
+  - permissions
   - model-layer
   - cursors
   - forms
