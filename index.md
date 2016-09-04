@@ -52,6 +52,6 @@ Apostrophe is in use for many kinds of websites, from small nonprofits and compa
 <p>&nbsp;</p>
 
 #### Apostrophe is Human
-Originally built in 2007 as a Symfony application, Apostrophe has certainly come a long way but has always stuck to its principles about putting the user first. If you’re looking for documentation on that earlier version of Apostrophe, [you can find them here](http://trac.apostrophenow.org).  
+Through changes in technology, Apostrophe has grown enormously in capability but has always stuck to its principles by putting the user first.
 
 The Apostrophe project is led by [P'unk Avenue](http://punkave.com), a design and build firm with a special focus on positive social impact, urbanism, health & wellness, arts & culture, and education. Giving back to the open source community is part of that focus.

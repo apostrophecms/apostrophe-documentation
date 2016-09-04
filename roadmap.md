@@ -20,7 +20,7 @@ We are committed to providing content migration tools for Apostrophe 0.5 project
 
 An automated tool to migrate content from Apostrophe 0.5 is planned for the immediate future. Tools are already available to migrate to 0.5 from earlier releases.
 
-[0.5 documentation is still available.](http://ohdotfive.apostrophenow.org)
+[0.5 documentation is still available.](http://ohdotfive.apostrophenow.org) We even have [documentation for the old PHP version](http://trac.apostrophenow.org).
 
 ## Apostrophe's semantic versioning policy
 
