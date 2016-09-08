@@ -6,6 +6,7 @@ children:
   - adding-fields-to-all-pieces
   - model-layer
   - admin-bar
+  - ckeditor
   - extending-the-pieces-editor-modal
   - windows
 ---

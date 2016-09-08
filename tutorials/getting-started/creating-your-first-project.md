@@ -22,6 +22,8 @@ Now you can use it to create a new project.
 apostrophe create test-project
 ```
 
+**Important: rather than `test-project`, use your own project's "short name" containing only letters, digits, hyphens and/or underscores. It will be used by default as a MongoDB database name and a basis for cookie names, etc.** We suggest the name of your github project, which will typically follow those same constraints. (Hyphens seem more popular than underscores for such purposes.)
+
 With the project created, you just need to jump in, install the dependencies, and start the server.
 
 ```bash
