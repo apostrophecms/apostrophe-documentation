@@ -59,16 +59,14 @@ modules: {
 
   'apostrophe-pages': {
     filters: {
-      {
-        // Grab our ancestor pages, with two levels of subpages
-        ancestors: {
-          children: {
-            depth: 2
-          }
-        },
-        // We usually want children of the current page, too
-        children: true
-      }
+      // Grab our ancestor pages, with two levels of subpages
+      ancestors: {
+        children: {
+          depth: 2
+        }
+      },
+      // We usually want children of the current page, too
+      children: true
     }
     // other apostrophe-pages options like `types` ...
   },
