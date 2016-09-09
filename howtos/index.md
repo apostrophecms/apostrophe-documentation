@@ -2,6 +2,8 @@
 title: "HOWTOs"
 menu: "Documentation"
 children:
+  - notFoundPage
+  - search
   - multicore
   - adding-fields-to-all-pieces
   - model-layer

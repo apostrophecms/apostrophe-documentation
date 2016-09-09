@@ -1,6 +1,6 @@
 #!/bin/sh
 
 habit &&
-rsync -a _site/ apostro2@45.56.109.144:/var/www/docs &&
+rsync --delete -a _site/ apostro2@45.56.109.144:/var/www/docs &&
 echo "Done!"
 
