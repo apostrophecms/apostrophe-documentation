@@ -276,7 +276,7 @@ What's going on in this template?
 Here are some simple styles to get the form working:
 
 ```css
-// in lib/modules/contact-form-widgets/css/always.less
+// in lib/modules/contact-form-widgets/public/css/always.less
 
 .contact-form
 {
@@ -304,7 +304,7 @@ Here are some simple styles to get the form working:
 And here is the JavaScript that powers the form on the browser side. We don't want to use a plain old form submission; we want to use Apostrophe's schemas to sanitize the form first and pass on the data:
 
 ```javascript
-// in lib/modules/contact-form-widgets/js/always.js
+// in lib/modules/contact-form-widgets/public/js/always.js
 
 apos.define('contact-form-widgets', {
 
@@ -340,9 +340,10 @@ apos.define('contact-form-widgets', {
         ], function(err) {
           if (err) {
             alert('Something was not right. Please review your submission.');
+          } else {
+            // Replace the form with its formerly hidden thank you message
+            $form.replaceWith($form.find('[data-thank-you]'));
           }
-          // Replace the form with its formerly hidden thank you message
-          $form.replaceWith($form.find('[data-thank-you]'));
         });
         function convert(callback) {
           return apos.schemas.convert($form, schema, piece, callback);
