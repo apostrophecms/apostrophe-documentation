@@ -11,6 +11,7 @@ Here is a list of optional official Apostrophe modules you can `npm install` to 
 * [apostrophe-twitter-widgets](https://npmjs.org/packages/apostrophe-twitter-widgets)
 * [apostrophe-blog](https://npmjs.org/packages/apostrophe-blog)
 * [apostrophe-events](https://npmjs.org/packages/apostrophe-events)
+* [apostrophe-second-chance-login](https://npmjs.org/packages/apostrophe-second-chance-login)
 
 ## Publishing your own npm modules for Apostrophe
 
