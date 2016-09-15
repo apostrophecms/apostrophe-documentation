@@ -168,12 +168,14 @@ Install all standard middleware:
 * Create the `req.data` object on all requests
 * Implement Express sessions
 * Add the cookie parser
-* Angular-compatible CSRF protection
+* Angular-style CSRF protection
 * Extended body parser (`req.body` supports nested objects)
 * JSON body parser (useful with `$.jsonCall`)
 * Flash messages (see [connect-flash](https://github.com/jaredhanson/connect-flash))
 * Internationalization (see [apostrophe-i18n](../apostrophe-i18n/index.html))
 * `req.absoluteUrl` always available (also see [baseUrl](#baseUrl))
+
+### enableCsrf()
 
 ### compileCsrfExceptions()
 Compile CSRF exceptions, which may be regular expression objects or
@@ -181,7 +183,7 @@ Compile CSRF exceptions, which may be regular expression objects or
 ### csrf(*req*, *res*, *next*)
 Angular-compatible CSRF protection. On safe requests (GET, HEAD, OPTIONS, TRACE),
 set the XSRF-TOKEN cookie if missing. On unsafe requests (everything else),
-make sure our jQuery `ajaxPrefilter` set the X-CSRF-TOKEN header to match the
+make sure our jQuery `ajaxPrefilter` set the X-XSRF-TOKEN header to match the
 cookie.
 
 This works because if we're running via a script tag or iframe, we won't

@@ -258,33 +258,7 @@ index.js for the wildcard argument and the app.get call
 ### serveLoaders(*req*, *callback*) *[api]*
 
 ### serveNotFound(*req*, *callback*) *[api]*
-self.serveSecondChanceLogin = function(req, callback) {
-  if (options.secondChanceLogin === false) {
-    return setImmediate(callback);
-  }
-  if (req.user) {
-    return setImmediate(callback);
-  }
-  if (req.data.page) {
-    return callback(null);
-  }
-  // Try again without permissions. If we get a better page,
-  // note the URL in the session and redirect to login.
-  var slug = req.params[0];
-  var req = self.apos.
-  var cursor = self.find(req, { slug: slug })
-    .permission(false);
-  self.matchPageAndPrefixes(cursor, slug);
-  return cursor.toObject(function(err, page) {
-    if (page || (bestPage && req.bestPage && req.bestPage.slug < bestPage.slug)) {
-      res.cookie('aposAfterLogin', req.url);
-      return res.redirect('/login');
-    }
-  })
-    return callback(null);
-  });
-  }
-};
+
 ### serveDeliver(*req*, *err*) *[api]*
 
 ### pageBeforeSend(*req*, *callback*) *[api]*
