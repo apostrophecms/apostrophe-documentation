@@ -66,6 +66,21 @@ given field `name`, return that property. This is used
 to conveniently default to the `options` already configured
 for a particular area in the schema when working with
 `apostrophe-pieces` in a page template.
+### richText(*within*, *options*) *[api]*
+Returns the rich text markup of all `apostrophe-rich-text` widgets
+within the provided doc or area, concatenated as a single string. In future this method
+may improve to return the content of other widgets that consider themselves primarily
+providers of rich text, such as subclasses of `apostrophe-rich-text`,
+which will **not** be regarded as a bc break. However it will never return images, videos, etc.
+
+By default the rich text contents of the widgets are joined with
+a newline between. You may pass your own `options.delimiter` string if
+you wish a different delimiter or the empty string. You may also pass
+an HTML element name like `div` via `options.wrapper` to wrap each
+one in a `<div>...</div>` block. Of course, there may already be a div
+in the rich txt (but then again there may not).
+
+Also available as a helper via `apos.areas.richText(area, options)` in templates.
 ### pageBeforeSend(*req*) *[browser]*
 
 ### getCreateSingletonOptions(*req*) *[browser]*
@@ -111,6 +126,21 @@ apos.areas.widget renders one widget. Invoked by both `apos.area` and
 `apos.singleton`. Not
 often called directly, but see `area.html` if you are interested in
 doing so.
+### richText(*within*, *options*)
+Returns the rich text markup of all `apostrophe-rich-text` widgets
+within the provided doc or area, concatenated as a single string. In future this method
+may improve to return the content of other widgets that consider themselves primarily
+providers of rich text, such as subclasses of `apostrophe-rich-text`,
+which will **not** be regarded as a bc break. However it will never return images, videos, etc.
+
+By default the rich text contents of the widgets are joined with
+a newline between. You may pass your own `options.delimiter` string if
+you wish a different delimiter or the empty string. You may also pass
+an HTML element name like `div` via `options.wrapper` to wrap each
+one in a `<div>...</div>` block. Of course, there may already be a div
+in the rich txt (but then again there may not).
+
+Also available as a helper via `apos.areas.richText(area, options)` in templates.
 ## API Routes
 ### POST /modules/apostrophe-areas/save-area
 

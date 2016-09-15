@@ -11,6 +11,7 @@ children:
   - ckeditor
   - extending-the-pieces-editor-modal
   - windows
+  - migration
 ---
 
 These HOWTOs cover a variety of topics that don't quite fit neatly into a tutorial series.

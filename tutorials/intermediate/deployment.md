@@ -12,7 +12,7 @@ In our experience a virtual machine with 2GB of RAM and at least 20GB of free st
 
 Disk space requirements will increase if users routinely upload large files to the media library.
 
-Sites running in a [multicore](../../howtos/multicore.html) configuration will require additional RAM and, of course, CPU cores.
+Sites running in a [multicore](../howtos/multicore.html) configuration will require additional RAM and, of course, CPU cores.
 
 ### Packages you'll need
 
@@ -57,4 +57,4 @@ Once deployment is complete, you're ready to start welcoming traffic to your web
 
 ## Multicore and multiserver configurations
 
-Because node is asynchronous, these single-server, single-core instructions are quite adequate for most clients, including many sites with high traffic at the city scale. However, if performance does become an issue, you may want to check out [running Apostrophe on multiple cores and/or servers](../../howtos/multicore.html) as well. Just be sure to master the above material first.
+Because node is asynchronous, these single-server, single-core instructions are quite adequate for most clients, including many sites with high traffic at the city scale. However, if performance does become an issue, you may want to check out [running Apostrophe on multiple cores and/or servers](../howtos/multicore.html) as well. Just be sure to master the above material first.

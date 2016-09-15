@@ -1,0 +1,16 @@
+{% extends "default.html" %}
+{% block previous %}
+  {% if previous %}
+    <p class="previous-article"><a href="{{ root }}{{ previous.url }}">&larr; Previous: {{ previous.title | e }}</a></p>
+  {% endif %}
+{% endblock %}
+
+{% block main %}
+
+{% endblock %}
+
+{% block next %}
+  {% if next %}
+    <p class="next-article"><a href="{{ root }}{{ next.url }}">Next: {{ next.title | e }} &rarr;</a></p>
+  {% endif %}
+{% endblock %}

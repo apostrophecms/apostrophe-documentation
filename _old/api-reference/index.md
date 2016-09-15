@@ -4,7 +4,6 @@ children:
   - apostrophe
   - nunjucks-filters
   - nunjucks-helpers
-docType: "api"
 ---
 
 ## Introduction

@@ -8,7 +8,7 @@ We're going to start from the very beginning by installing the software necessar
 
 ### Install the Software
 
-**These instructions are for MacOS X,** which most developers use to test code that will eventually deploy to Linux. Also see this lovely [HOWTO for Windows](../../howtos/windows.html) contributed by Michael Brown.
+**These instructions are for MacOS X,** which most developers use to test code that will eventually deploy to Linux. Also see this lovely [HOWTO for Windows](../howtos/windows.html) contributed by Michael Brown.
 
 This will get you set up on a Mac running OSX 10.9 or better.
 

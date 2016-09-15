@@ -202,8 +202,9 @@ To solve that, you should always add a `projection` filter when configuring a su
     extend: 'apostrophe-pieces-widgets',
     filters: {
       projection: {
-        title: 1,
         slug: 1,
+        title: 1,
+        type: 1,
         tags: 1
       }
     }
@@ -213,7 +214,7 @@ To solve that, you should always add a `projection` filter when configuring a su
 
 This way, only the properties we really need are fetched for the widget. This can greatly speed up your site and prevent mysterious refusals to load any more data if things start joining back to themselves.
 
-> *"Which properties do I need in my projection?"* Just those that matter to you. However, `slug`, `title` and `tags` are a good minimum set. `slug` helps build URLs, `tags` usually helps determine which page is the best match for the piece, and `title` is self-explanatory.
+> *"Which properties do I need in my projection?"* Just those that matter to you. However, `slug`, `title`, `type` and `tags` are a good minimum set. `slug` helps build URLs, `tags` usually helps determine which page is the best match for the piece, `type` makes it easier to decide how to work with each one, and `title` is self-explanatory.
 
 ### Custom templates for widgets
 

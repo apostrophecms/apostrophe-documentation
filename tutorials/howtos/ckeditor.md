@@ -8,7 +8,7 @@ You've [seen how to add a rich text widget to a page and configure styles and to
 
 ## Global CKeditor configuration
 
-The [apostrophe-areas](../reference/apostrophe-areas/index.html) module is responsible for initially loading CKEditor. On the browser side, the [enableCkeditor method](../reference/apostrophe-areas/browser-apostrophe-areas.html#enable-ckeditor) is responsible for setting global CKEditor properties like `disableAutoinline` and calling `CKEditor.plugins.addExternal` to add our `split` plugin, which allows a toolbar control for splitting a rich text widget into two rich text widgets.
+The [apostrophe-areas](../../reference/apostrophe-areas/index.html) module is responsible for initially loading CKEditor. On the browser side, the [enableCkeditor method](../../reference/apostrophe-areas/browser-apostrophe-areas.html#enable-ckeditor) is responsible for setting global CKEditor properties like `disableAutoinline` and calling `CKEditor.plugins.addExternal` to add our `split` plugin, which allows a toolbar control for splitting a rich text widget into two rich text widgets.
 
 So extending that method at the project level is a sensible place to do more global configuration like this:
 
@@ -33,7 +33,7 @@ apos.define('apostrophe-areas', {
 * By placing the file in `lib/modules/apostrophe-areas/public/js/user.js`, we assure that it is pushed to the browser automatically. That module already pushes `user` as a script, and will push our project-level version too, providing a convenient place to extend a [moog type](../glossary.html#moog-type).
 * Calling `apos.define('apostrophe-areas', { ... })` adds a new definition for the browser-side object that manages editable areas — basically, the browser's version of the areas module. When we do this, moog gives us an [implicit subclass](../glossary.html#implicit-subclassing) of the original type, replacing it with our enhanced version.
 * We then use the [super pattern](../glossary.html#code-super-code-pattern) to extend the existing `enableCkeditor` method, calling the old version and then adding new functionality.
-* Inside that method, we call `CKEDITOR.plugins.addExternal` to add a [CKEditor plugin](http://ckeditor.com/addons/plugins/all). Any toolbar buttons it makes available can now be used when configuring the `toolbar` option for the [apostrophe-rich-text widget](../reference/apostrophe-rich-text-widgets/index.html).
+* Inside that method, we call `CKEDITOR.plugins.addExternal` to add a [CKEditor plugin](http://ckeditor.com/addons/plugins/all). Any toolbar buttons it makes available can now be used when configuring the `toolbar` option for the [apostrophe-rich-text widget](../../reference/apostrophe-rich-text-widgets/index.html).
 
 
 ## Instance-specific CKEditor configuration
