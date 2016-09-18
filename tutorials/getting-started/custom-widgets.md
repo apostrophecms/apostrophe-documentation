@@ -71,7 +71,7 @@ Next we'll need a folder to hold our widget's `widget.html` template, which rend
 mkdir -p lib/modules/link-widgets/views
 ```
 
-Now let's create a Nunjucks template in `lib/modules/link-widgets/widget.html`:
+Now let's create a Nunjucks template in `lib/modules/link-widgets/views/widget.html`:
 
 ```markup
 <h4><a href="{{ data.widget.url }}">{{ data.widget.label }}</a></h4>
