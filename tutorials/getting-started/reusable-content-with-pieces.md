@@ -103,7 +103,7 @@ module.exports = {
   // Same configuration as before, then...
 
   construct: function(self, options) {
-    self.beforeSave = function(req, piece, callback) {
+    self.beforeSave = function(req, piece, options, callback) {
       piece.title = piece.firstName + ' ' + piece.lastName;
       return callback();
     };
