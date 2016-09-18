@@ -2,7 +2,7 @@
 title: Working with cursors
 ---
 
-Apostrophe users cursors to fetch docs from the database. An [apostrophe-cursor](../../api/reference/apostrophe-docs/server-apostrophe-cursor.html) object helps us conveniently fetch docs from
+Apostrophe uses cursors to fetch docs from the database. An [apostrophe-cursor](../../api/reference/apostrophe-docs/server-apostrophe-cursor.html) object helps us conveniently fetch docs from
 the `aposDocs` mongodb collection using chainable "filter" methods. Much
 like a MongoDB or Doctrine cursor, but with many filters specific
 to Apostrophe that add a great deal of convenience. And it's possible
