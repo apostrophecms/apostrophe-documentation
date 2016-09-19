@@ -37,7 +37,7 @@ Now let's add a CSS class indicating the current tab (the one that is the curren
   {% for tab in data.home._children %}
     <li class="
       {% if data.page and
-        (apos.pages.isAncestorOf(tab, data.page) or tab._id == data.page.__id)
+        (apos.pages.isAncestorOf(tab, data.page) or tab._id == data.page._id)
       %}
         current
       {% endif %}
