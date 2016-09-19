@@ -1,4 +1,16 @@
 #!/bin/bash
 
-(cd _api-reference-generator/ && rm -rf ../reference/ && node app apostrophe:generation && node app documentation:generate) && habit
+(
+  cd _api-reference-generator/ &&
+  rm -rf ../reference/ &&
+  node app apostrophe:generation &&
+  node app documentation:generate
+) &&
+habit &&
+(
+  cd _site &&
+  sitemap-static --prefix=http://apostrophenow.org/ > sitemap.xml &&
+  perl -pi -e 's/index.html//g' sitemap.xml
+) &&
+echo "Done!"
 
