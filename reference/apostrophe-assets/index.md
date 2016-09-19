@@ -94,9 +94,38 @@ build master LESS files, and minify (if desired). This
 allows other modules to wait until they can talk to
 each other (modulesReady) before pushing assets.
 ### ensureFolder()
-
+Ensure that the standard asset folders exist at project level,
+notably `public` (the web-accessible folder) and `public/modules`
+(where symbolic links to the `public` subdirectories of Apostrophe modules are automatically
+created by `symlinkModules`).
 ### symlinkModules(*callback*)
+Ensure that `public/modules/modulename` points to exactly the
+same content as `lib/modules/modulename/public`. On platforms that
+support symbolic links for non-administrators, use them. On platforms
+that don't, make a recursive copy. (This poses no significant
+performance problem for Apostrophe's assets, which are modest
+in size. If you were hoping to push huge files as permanent
+static assets this way, well... complain to Microsoft.)
+### linkAssetFolder(*from*, *to*)
+Create or refresh a symbolic link from
+the path "from" to the existing, actual folder
+"to". If symbolic linking is unavailable on this
+platform (Windows), recursively copy instead.
 
+Note that "to" is the EXISTING, REAL thing, so
+the recursive copy actually duplicates "to"
+in "from". Counterintuitive, but that's because
+we're thinking in terms of a symbolic link.
+### linkAssetFolderOnUnix(*from*, *to*)
+Create or refresh a symbolic link from
+the path "from" to the existing, actual folder
+"to" on Unix-derived platforms (not Windows).
+### linkAssetFolderOnWindows(*from*, *to*)
+On Windows, simulate a symbolic link from "from" to "to"
+by recursively copying the contents of "to" to "from".
+
+(Confused? Well, yes, it's odd when you word it this way,
+but it makes sense when you have symbolic links.)
 ### buildLessMasters(*callback*)
 
 ### minify(*callback*)
