@@ -337,7 +337,7 @@ An `array` field has its own schema, and allows the user to create one or more o
 
 This is useful for collections that clearly belong to a parent object, such as multiple homes for a person, and do not have any other relationships to other objects. If the objects in the array are also related to other types of objects, you should be using joins instead.
 
-If the `labelField` property is set, the editing interface will use the value of that field as a distinguishing label for each entry in the array. If there is no such property, the items are numbered. Setting `labelField` is recommended.
+If the `titleField` property is set, the editing interface will use the value of that field as a distinguishing label for each entry in the array. If there is no such property, the items are numbered. Setting `titleField` is recommended.
 
 Example:
 
@@ -346,7 +346,7 @@ Example:
   name: 'homes',
   label: 'Homes',
   type: 'array',
-  labelField: 'address',
+  titleField: 'address',
   schema: [
     {
       type: 'string',
