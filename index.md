@@ -1,7 +1,7 @@
 ---
 title: "Home"
 children:
-  - documentation
+  - docs
   - support
   - community
 layout: "home"

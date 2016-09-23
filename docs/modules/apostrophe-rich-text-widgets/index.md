@@ -11,6 +11,8 @@ editor does not use a modal; instead you edit in context on the page.
 
 
 ## Methods
+### getRichText(*widget*)
+Return just the rich text of the widget, which may be undefined or null if it has not yet been edited
 ### load(*req*, *widgets*, *callback*)
 TODO We may want to use the default widget load, if we start having nested
 areas in rich text widgets to support lockups

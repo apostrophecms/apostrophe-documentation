@@ -80,7 +80,7 @@ a filename.
 
 ### jsonForHtml(*data*)
 Stringify the data as JSON, then escape any sequences
-that would cause a <script> tag to end prematurely if
+that would cause a `script` tag to end prematurely if
 the JSON were embedded in it.
 ### renderBody(*req*, *type*, *s*, *data*, *module*)
 Implements `render` and `renderString`. See their
@@ -130,34 +130,34 @@ Additional properties merged with the `data object:
 
 "outerLayout" is set to...
 
-"apostrophe-templates:outerLayout.html"
+`apostrophe-templates:outerLayout.html`
 
 Or:
 
-"apostrophe-templates:refreshLayout.html"
+`apostrophe-templates:refreshLayout.html`
 
 This allows the template to handle either a content area
 refresh or a full page render just by doing this:
 
-{% extend outerLayout %}
+`{% extend outerLayout %}`
 
 Note the lack of quotes.
 
-Under the following conditions, "refreshLayout.html"
+Under **any** of the following conditions, "refreshLayout.html"
 is used in place of "outerLayout.html":
 
-req.xhr is true (always set on AJAX requests by jQuery)
-req.query.xhr is set to simulate an AJAX request
-req.decorate is false
-req.query.apos_refresh is true
+* `req.xhr` is true (always set on AJAX requests by jQuery)
+* `req.query.xhr` is set to simulate an AJAX request
+* `req.decorate` is false
+* `req.query.apos_refresh` is true
 
 These default properties are also provided on the `data` object
 visible in Nunjucks:
 
-user (req.user)
-query (req.query)
-permissions (req.user._permissions)
-calls (javascript markup to insert all global and
-  request-specific calls pushed by server-side code)
-data (javascript markup to insert all global and
-  request-specific data pushed by server-side code)
+* `url` (`req.url`)
+* `user` (`req.user`)
+* `query` (`req.query`)
+* `permissions` (`req.user._permissions`)
+* `refreshing` (true if we are refreshing the content area of the page without reloading)
+* `js.globalCalls` (javascript markup to insert all global pushed javascript calls)
+* `js.reqCalls` (javascript markup to insert all req-specific pushed javascript calls)

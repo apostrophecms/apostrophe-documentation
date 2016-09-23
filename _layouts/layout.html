@@ -16,14 +16,14 @@
 {% endmacro %}
 
 {% macro docTypeClass() -%}
-  {%- for _page in ancestors -%}
-    {%- if _page.docType -%}{{ _page.docType }}{%- endif -%}
+  {%- for page in ancestors -%}
+    {%- if page.docType -%}{{ page.docType }}{%- endif -%}
   {%- endfor -%}
 {%- endmacro -%}
 
 {% macro typeCheck() -%}
-  {%- for _page in ancestors -%}
-    {%- if _page.type -%}{{ _page.type }}{%- endif -%}
+  {%- for page in ancestors -%}
+    {%- if page.type -%}{{ page.type }}{%- endif -%}
   {%- endfor -%}
 {%- endmacro -%}
 
@@ -80,6 +80,9 @@
   <div class="header {% block headerClass %}{% endblock %}">
     <div class="inner {% block headerInnerClass %}{% endblock %}">
       {% block header %}
+        <div class="breadcrumb">
+          {% for page in ancestors %}<a href="{{ page.url }}">{{ page.title }}</a>{{ ' &gt; ' if page.url != url }}{% endfor %}
+        </div>
         <div class="doc-type">
           <div class="type-image {{ typeCheck() }} {{ docTypeClass() }}"></div>
         </div>

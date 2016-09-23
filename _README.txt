@@ -56,3 +56,27 @@ To deploy your work to docs.apostrophenow.org, just do:
 Make sure you commit and push your work of course.
 
 BOOM!
+
+## Regenerating the api docs
+
+The `docs/modules` folder is generated from the Apostrophe source code.
+
+First install the dependencies of the doc generator app:
+
+```
+cd _api-reference-generator
+npm install
+mkdir -p data
+brew install phantomjs
+```
+
+Now you can regenerate the `docs/modules` folder:
+
+```
+./generate
+```
+
+`./generate` ends by running `habit` for you. It takes a few seconds because it's doing some fancy things to get information about all of the moog types.
+
+If you need to document a newer version of Apostrophe you will want to `npm update` in the reference generator app folder.
+

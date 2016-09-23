@@ -1,6 +1,5 @@
 ---
-title: "API reference"
-menu: "Documentation"
+title: "Module reference"
 layout: "reference"
 children:
   - apostrophe-admin-bar
