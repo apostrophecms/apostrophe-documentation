@@ -1,6 +1,6 @@
 ---
 title: Building a contact form
-layout: reference
+layout: tutorial
 ---
 
 So you want a contact form on your site. A pretty common requirement. Maybe it's not a contact form; maybe you want to accept submissions of stories, or product ideas. The same principles apply.

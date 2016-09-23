@@ -1,6 +1,6 @@
 ---
 title: "How do I create a '404 not found' page?"
-layout: reference
+layout: tutorial
 ---
 
 To get 404 not found pages to display (instead of an

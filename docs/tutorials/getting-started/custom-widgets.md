@@ -1,6 +1,6 @@
 ---
 title: "Custom widgets"
-layout: reference
+layout: tutorial
 ---
 
 ## Building custom widgets

@@ -1,6 +1,6 @@
 ---
 title: "Adding Editable Content To Pages"
-layout: reference
+layout: tutorial
 ---
 
 ## Adding Editable Content to Pages

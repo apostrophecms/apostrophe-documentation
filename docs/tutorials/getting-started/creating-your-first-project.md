@@ -1,6 +1,6 @@
 ---
 title: "Creating Your First Project"
-layout: reference
+layout: tutorial
 ---
 
 ## Creating Your First Project

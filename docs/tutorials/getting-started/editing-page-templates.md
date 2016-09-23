@@ -1,6 +1,6 @@
 ---
 title: "Editing Page Templates"
-layout: reference
+layout: tutorial
 ---
 ## Editing Page Templates
 

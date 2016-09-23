@@ -1,6 +1,6 @@
 ---
 title: "Configuring CKEditor in Apostrophe"
-layout: reference
+layout: tutorial
 ---
 
 Apostrophe uses [CKEditor](http://docs.ckeditor.com/) for rich text editing. It's a great rich text editor that seriously addresses the many cross-browser compatibility issues that come up due to the fact that each browser has its own unique implementation of the underlying rich text edit functionality.

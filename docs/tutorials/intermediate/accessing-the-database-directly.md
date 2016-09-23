@@ -1,6 +1,6 @@
 ---
 title: Accessing the database directly
-layout: reference
+layout: tutorial
 ---
 
 ## Working with your own collections

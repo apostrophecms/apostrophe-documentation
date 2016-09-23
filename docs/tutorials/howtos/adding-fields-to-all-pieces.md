@@ -1,6 +1,6 @@
 ---
 title: "Adding fields to all pieces"
-layout: reference
+layout: tutorial
 ---
 
 Apostrophe's schemas are a powerful way to add fields to any type of piece or page. But sometimes you'll have a field you want to add to every type of piece. Here's how to do that.

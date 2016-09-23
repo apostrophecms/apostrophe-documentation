@@ -1,6 +1,6 @@
 ---
 title: "Building Navigation"
-layout: reference
+layout: tutorial
 ---
 
 ## Building Navigation
