@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+{# I moved the doctype up so it would never be after whitespace and thus invalid. -Tom #}
+
 {% macro buildMenuTree(currentIndex) %}
   <ul class="sidebar-items">
     {% for child in ancestors[currentIndex].children %}
@@ -27,11 +30,11 @@
   {%- endfor -%}
 {%- endmacro -%}
 
-<!DOCTYPE html>
 <html lang="en-US">
 <head>
   <meta charset="utf-8">
   <title>Apostrophe: {{ title }}</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" type="text/css" href="{{ root }}stylesheets/main.css">
   <script src="{{ root }}javascript/prism.js"></script>
   <script src="{{ root }}javascript/jquery.min.js"></script>
@@ -81,7 +84,7 @@
     <div class="inner {% block headerInnerClass %}{% endblock %}">
       {% block header %}
         <div class="breadcrumb">
-          {% for page in ancestors %}<a href="{{ page.url }}">{{ page.title }}</a>{{ ' &gt; ' if page.url != url }}{% endfor %}
+          {% for page in ancestors %}<a href="{{ root }}{{ page.url }}">{{ page.title }}</a>{{ ' &gt; ' if page.url != url }}{% endfor %}
         </div>
         <div class="doc-type">
           <div class="type-image {{ typeCheck() }} {{ docTypeClass() }}"></div>
