@@ -37,7 +37,7 @@
   <script src="{{ root }}javascript/jquery.min.js"></script>
   <script src="{{ root }}javascript/main.js"></script>
 </head>
-<body class="{% block bodyClass %}{{typeCheck()}}{% endblock %}">
+<body class="{% block bodyClass %}{{typeCheck()}} {{ layout }}{% endblock %}">
   <nav class="outer">
     <div class="mark left">
       <a class="logo" href="{{ root }}" alt="Apostrophe 2"></a>

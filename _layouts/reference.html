@@ -1,23 +1,5 @@
 {% extends "layout.html" %}
 
 {% block main %}
-<div class="content">
-  {% block topOfContent %}{% endblock %}
-  <h2><a href="../glossary.html">Glossary</a></h2>
-  <p>Check out the glossary for a complete guide to the Apostrophe lingo.</p>
-  <h2>Modules</h3>
-  <p>Apostrophe is made up of modules. See the list at left for detailed documentation on every module in Apostrophe.</p>
-  {#
-    {% if children.length %}
-      <ul class="subpage-items">
-        {% for child in children %}
-          <li class="subpage-item">
-            <a href="{{ root }}{{ child.url }}">{{ child.title | e }}</a>
-          </li>
-        {% endfor %}
-      </ul>
-    {% endif %}
-  #}
-  {{ content }}
-</div>
+
 {% endblock %}

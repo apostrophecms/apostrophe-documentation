@@ -9,10 +9,11 @@
 
 .sidebar
 {
-  .inline-block(top);
-  width: 280px;
-  margin-right: 20px;
-
+  width: 25%;
+  margin-right: 5%;
+  float: left;
+  background-color: white;
+  border-right: 8px solid rgba(0, 0, 0, 0.1);
   .sidebar-title
   {
     margin-bottom: 1em;
@@ -90,6 +91,14 @@
       }
     }
   }
+}
+
+// --------------------------------------------------
+// Specific to `reference` template
+// --------------------------------------------------
+.reference
+{
+
 }
 
 // --------------------------------------------------
@@ -206,4 +215,16 @@
     border: 10px solid @green;
   }
 
+}
+
+// --------------------------------------------------
+// FULL WIDTH LAYOUT (REFERENCE)
+// --------------------------------------------------
+.full-width
+{
+  .content
+  {
+    width: 70%;
+    float: left;
+  }
 }
