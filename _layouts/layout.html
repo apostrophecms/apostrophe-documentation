@@ -43,34 +43,30 @@
       <a class="logo" href="{{ root }}" alt="Apostrophe 2"></a>
     </div>
     <div class="links right">
-        <ul class="page-links">
-          {# ancestors[0] == home, so its kids are the tabs #}
-          {% for tab in ancestors[0].children %}
-            <li class="page-link">
-              {# If this tab is our ancestor, it's selected #}
-              <a href="{{ root }}{{ tab.url }}" class="{% if ancestors[1] and (tab.url == ancestors[1].url) %}selected{% endif %}">{{ tab.title | e }}</a>
-            </li>
-          {% endfor %}
+      <ul class="page-links">
+        {% for tab in ancestors[0].children %}
           <li class="page-link">
-            <a href="https://github.com/punkave/apostrophe" target="_blank">Github</a>
+            <a href="{{ root }}{{ tab.url }}" class="{% if ancestors[1] and (tab.url == ancestors[1].url) %}selected{% endif %}">{{ tab.title | e }}</a>
           </li>
-          <li class="page-link search-box">
-            <script>
-              (function() {
-                var cx = '005543154079868254739:jxhstkgpui4';
-                var gcse = document.createElement('script');
-                gcse.type = 'text/javascript';
-                gcse.async = true;
-                gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-                    '//www.google.com/cse/cse.js?cx=' + cx;
-                var s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(gcse, s);
-              })();
-            </script>
-            <gcse:searchbox></gcse:searchbox>
-          </li>
-        </ul>
-
+        {% endfor %}
+        <li class="page-link">
+          <a href="https://github.com/punkave/apostrophe" target="_blank">Github</a>
+        </li>
+        <li class="page-link search-box">
+          <script>
+            (function() {
+              var cx = '005543154079868254739:jxhstkgpui4';
+              var gcse = document.createElement('script');
+              gcse.type = 'text/javascript';
+              gcse.async = true;
+              gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                  '//www.google.com/cse/cse.js?cx=' + cx;
+              var s = document.getElementsByTagName('script')[0];
+              s.parentNode.insertBefore(gcse, s);
+            })();
+          </script>
+          <gcse:searchbox></gcse:searchbox>
+        </li>
       </ul>
     </div>
   </nav>
@@ -93,32 +89,9 @@
   </div>
   {% block extraHeader%}
   {% endblock %}
-    <div class="wrap outer">
+  <div class="wrap outer">
     <div class="inner">
-      <div class="sidebar">
-        <div class="sidebar-section sidebar-title try-apostrophe">
-          <a href="http://demo.apostrophenow.com" target="_blank">Try Apostrophe</a>
-        </div>
-        {% block sidebar %}
-          <ul class="sidebar-section">
-            {%  if ancestors.length == 1 %}
-              {% for child in children %}
-                <li class="sidebar-item"><a href="{{ root }}{{ child.url }}">{{ child.title | e }}</a></li>
-              {% endfor %}
-            {% endif %}
-            <li class="sidebar-title"><a href="{{ root }}{{ ancestors[1].url }}">{{ ancestors[1].title | e }}</a></li>
-            {{ buildMenuTree(1) }}
-          </ul>
-        {% endblock %}
-        <p class="sidebar-help">
-          {% if typeCheck() == 'help' %}
-            Are you a developer? You may want to check out our <a href="{{ root }}">documentation site</a>.
-          {% else %}
-            Are you an editor? You may want to check out our <a href="{{ root }}help">help site</a>.
-          {% endif %}
-        </p>
-      </div>{#
-      #}<div class="main">
+      <div class="main">
         {% block previous %}
         {% endblock %}
 
@@ -145,15 +118,14 @@
       </div>
     </div>
   </footer>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-496991-42', 'auto');
-  ga('send', 'pageview');
-
-</script>
+    ga('create', 'UA-496991-42', 'auto');
+    ga('send', 'pageview');
+  </script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 ---
 title: "Community"
-layout: "category"
+layout: "default"
 ---
 
 ## Forum
