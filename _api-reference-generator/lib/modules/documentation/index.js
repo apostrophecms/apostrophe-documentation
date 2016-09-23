@@ -85,7 +85,7 @@ module.exports = {
       });
 
       mkdirp('../docs/modules');
-      var file = '../modules/index.md';
+      var file = '../docs/modules/index.md';
       fs.writeFileSync(file,
         '---\n' +
         'title: "Module reference"\n' +
