@@ -1,6 +1,6 @@
 ---
 title: "apostrophe-login (module)"
-layout: module
+layout: reference
 children:
 
 ---

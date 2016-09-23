@@ -1,6 +1,6 @@
 ---
 title: "apostrophe-doc-type-manager (module)"
-layout: module
+layout: reference
 children:
   - server-apostrophe-doc-type-manager-cursor
   - browser-apostrophe-doc-type-manager

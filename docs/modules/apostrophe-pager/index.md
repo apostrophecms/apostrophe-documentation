@@ -1,6 +1,6 @@
 ---
 title: "apostrophe-pager (module)"
-layout: module
+layout: reference
 children:
 
 ---

@@ -1,6 +1,6 @@
 ---
 title: "apostrophe-video-fields (module)"
-layout: module
+layout: reference
 children:
   - browser-apostrophe-video-fields
 ---

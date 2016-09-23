@@ -1,6 +1,6 @@
 ---
 title: "apostrophe-module (module)"
-layout: module
+layout: reference
 children:
   - browser-apostrophe-module
   - browser-apostrophe-module-manager-modal

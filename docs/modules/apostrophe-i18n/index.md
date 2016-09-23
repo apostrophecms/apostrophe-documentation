@@ -1,6 +1,6 @@
 ---
 title: "apostrophe-i18n (module)"
-layout: module
+layout: reference
 children:
 
 ---

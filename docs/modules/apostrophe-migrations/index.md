@@ -1,6 +1,6 @@
 ---
 title: "apostrophe-migrations (module)"
-layout: module
+layout: reference
 children:
 
 ---

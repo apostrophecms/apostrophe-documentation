@@ -1,6 +1,6 @@
 ---
 title: "apostrophe-global (module)"
-layout: module
+layout: reference
 children:
   - server-apostrophe-global-cursor
   - browser-apostrophe-global

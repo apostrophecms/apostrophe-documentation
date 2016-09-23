@@ -1,6 +1,6 @@
 ---
 title: "apostrophe-schemas (module)"
-layout: module
+layout: reference
 children:
   - browser-apostrophe-schemas
   - browser-apostrophe-array-editor-modal

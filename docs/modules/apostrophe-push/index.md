@@ -1,6 +1,6 @@
 ---
 title: "apostrophe-push (module)"
-layout: module
+layout: reference
 children:
 
 ---

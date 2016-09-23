@@ -1,6 +1,6 @@
 ---
 title: "apostrophe-search (module)"
-layout: module
+layout: reference
 children:
   - server-apostrophe-search-cursor
   - browser-apostrophe-search

@@ -1,6 +1,6 @@
 ---
 title: "apostrophe-assets (module)"
-layout: module
+layout: reference
 children:
 
 ---

@@ -1,6 +1,6 @@
 ---
 title: "apostrophe-areas (module)"
-layout: module
+layout: reference
 children:
   - browser-apostrophe-areas
   - browser-apostrophe-areas-editor

@@ -1,6 +1,6 @@
 ---
 title: "apostrophe-admin-bar (module)"
-layout: module
+layout: reference
 children:
   - browser-apostrophe-admin-bar
 ---

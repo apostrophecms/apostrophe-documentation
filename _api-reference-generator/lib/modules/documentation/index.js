@@ -247,7 +247,7 @@ module.exports = {
         fs.writeFileSync(markdownFile,
           '---\n' +
           'title: "' + type.title + '"\n' +
-          'layout: module\n' +
+          'layout: reference\n' +
           'children:\n' +
             _.map(relatedTypes, function(relatedType) {
               return '  - ' + relatedType.nameNamespaced;

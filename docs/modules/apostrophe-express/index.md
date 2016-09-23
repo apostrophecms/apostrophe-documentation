@@ -1,6 +1,6 @@
 ---
 title: "apostrophe-express (module)"
-layout: module
+layout: reference
 children:
 
 ---

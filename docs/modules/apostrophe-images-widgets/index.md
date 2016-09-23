@@ -1,6 +1,6 @@
 ---
 title: "apostrophe-images-widgets (module)"
-layout: module
+layout: reference
 children:
   - browser-apostrophe-images-widgets
   - browser-apostrophe-images-widgets-editor

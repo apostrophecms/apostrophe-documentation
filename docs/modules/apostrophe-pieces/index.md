@@ -1,6 +1,6 @@
 ---
 title: "apostrophe-pieces (module)"
-layout: module
+layout: reference
 children:
   - server-apostrophe-pieces-cursor
   - browser-apostrophe-pieces

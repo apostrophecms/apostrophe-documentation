@@ -1,6 +1,6 @@
 ---
 title: "apostrophe-oembed (module)"
-layout: module
+layout: reference
 children:
   - browser-apostrophe-oembed
 ---

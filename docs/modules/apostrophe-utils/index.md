@@ -1,6 +1,6 @@
 ---
 title: "apostrophe-utils (module)"
-layout: module
+layout: reference
 children:
   - browser-apostrophe-context
 ---
