@@ -1,5 +1,6 @@
 ---
 title: Running Apostrophe on Windows
+layout: reference
 ---
 
 *Thanks to Andrew Brown for the original version of this HOWTO, which has been updated.*

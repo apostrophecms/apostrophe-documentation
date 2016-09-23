@@ -1,5 +1,6 @@
 ---
 title: Building combined menus and custom buttons with the admin bar
+layout: reference
 ---
 
 ## Grouping admin bar items into dropdown menus

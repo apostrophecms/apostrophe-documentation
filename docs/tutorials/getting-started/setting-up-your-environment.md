@@ -1,5 +1,6 @@
 ---
 title: "Setting Up Your Environment"
+layout: reference
 ---
 
 ## Setting up your environment

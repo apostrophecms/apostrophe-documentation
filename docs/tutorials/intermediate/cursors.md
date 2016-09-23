@@ -1,5 +1,6 @@
 ---
 title: Working with cursors
+layout: reference
 ---
 
 Apostrophe users cursors to fetch docs from the database. An [apostrophe-cursor](../../api/reference/apostrophe-docs/server-apostrophe-cursor.html) object helps us conveniently fetch docs from

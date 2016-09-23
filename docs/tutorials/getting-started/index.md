@@ -1,5 +1,6 @@
 ---
 title: "Getting Started"
+layout: reference
 children:
   - setting-up-your-environment
   - creating-your-first-project

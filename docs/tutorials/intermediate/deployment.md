@@ -1,5 +1,6 @@
 ---
 title: Hosting Apostrophe in production
+layout: reference
 ---
 
 ## Configuring your Linux server for Apostrophe

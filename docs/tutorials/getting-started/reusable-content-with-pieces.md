@@ -1,5 +1,6 @@
 ---
 title: "Reusable content with pieces"
+layout: reference
 ---
 
 We've already learned how to add editable content to pages, and how to create some new types of editable content. But sometimes we want to reuse the same content all over the site. For a job like that, widgets in pages aren't the right answer, because a page lives in one place on the site.

@@ -1,5 +1,6 @@
 ---
 title: "Editing Page Templates"
+layout: reference
 ---
 ## Editing Page Templates
 

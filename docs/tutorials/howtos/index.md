@@ -1,6 +1,7 @@
 ---
 title: "HOWTOs"
 menu: "Documentation"
+layout: reference
 children:
   - notFoundPage
   - search

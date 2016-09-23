@@ -1,5 +1,6 @@
 ---
 title: "Building Navigation"
+layout: reference
 ---
 
 ## Building Navigation

@@ -1,5 +1,7 @@
 ---
 title: Extending the pieces editor modal
+layout: reference
+layout: reference
 ---
 
 Let's look at adding a custom button for use when editing a particular subclass of `apostrophe-pieces`.

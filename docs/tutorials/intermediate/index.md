@@ -1,5 +1,6 @@
 ---
 title: "Intermediate tutorials"
+layout: reference
 children:
   - permissions
   - model-layer
