@@ -17,7 +17,7 @@ The [glossary](glossary.html) is recommended reading for everyone.
 
 ## Module Reference
 
-[Our module provides complete coverage of Apostrophe's modules and their related object types.](modules/index.html)
+[Our module reference provides complete coverage of Apostrophe's modules and their related object types.](modules/index.html)
 
 ## More modules
 
