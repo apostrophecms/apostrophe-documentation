@@ -4,13 +4,13 @@ menu: "Documentation"
 children: []
 ---
 
-First, check out the [tutorials](tutorials/index.html) if you haven't already. They explain all of these concepts in greater depth.
+First, check out the [tutorials](/docs/tutorials/index.html) if you haven't already. They explain all of these concepts in greater depth.
 
 ### Module
 
-Apostrophe sites are powered by Apostrophe modules. Each module is responsible for providing one feature, such as a type of widget, a type of customized page, or a service like pushing assets to the browser. Apostrophe has many [standard modules](reference/index.html) which provide its core features.
+Apostrophe sites are powered by Apostrophe modules. Each module is responsible for providing one feature, such as a type of widget, a type of customized page, or a service like pushing assets to the browser. Apostrophe has many [standard modules](/docs/modules/index.html) which provide its core features.
 
-A module can extend ("subclass") another module, and most of the modules you create at "project level" will. All modules implicitly extend [apostrophe-module](reference/apostrophe-module/index.html), which provides a rich set of core conveniences, like rendering templates or pushing assets relative to your module's folder.
+A module can extend ("subclass") another module, and most of the modules you create at "project level" will. All modules implicitly extend [apostrophe-module](/docs/modules/apostrophe-module/index.html), which provides a rich set of core conveniences, like rendering templates or pushing assets relative to your module's folder.
 
 Modules created at "project level" live in subdirectories of `/lib/modules`. Code and configuration for a module lives in `/lib/modules/MODULE-NAME/index.js` and can be overridden in `app.js` via the `modules` property of the main Apostrophe configuration object. It is also common to override a few settings on a per-server basis via `data/local.js`, which is merged with that object if it exists.
 
@@ -22,19 +22,19 @@ Each module may have its own `views` folder and easily render templates from it 
 
 A document in Apostrophe's database. Each doc is a MongoDB document in the `aposDocs` collection.
 
-Docs may contain [areas](#area), and may also contain other properties, often as described by a schema configured by a doc type manager, such as a module that extends [apostrophe-pieces](reference/apostrophe-pieces/index.html), [apostrophe-custom-pages](reference/apostrophe-custom-pages/index.html) or [apostrophe-pieces-pages](reference/apostrophe-pieces-pages/index.html).
+Docs may contain [areas](#area), and may also contain other properties, often as described by a schema configured by a doc type manager, such as a module that extends [apostrophe-pieces](/docs/modules/apostrophe-pieces/index.html), [apostrophe-custom-pages](/docs/modules/apostrophe-custom-pages/index.html) or [apostrophe-pieces-pages](/docs/modules/apostrophe-pieces-pages/index.html).
 
-At a minimum, a doc has unique `_id` and `slug` properties. The `type` property determines what other behaviors it might have. The [apostrophe-docs](reference/apostrophe-docs/index.html) module provides methods for working with docs, including the `apos.docs.getManager(doc.type)` method, which returns a reference to the module suited to working with that type of document.
+At a minimum, a doc has unique `_id` and `slug` properties. The `type` property determines what other behaviors it might have. The [apostrophe-docs](/docs/modules/apostrophe-docs/index.html) module provides methods for working with docs, including the `apos.docs.getManager(doc.type)` method, which returns a reference to the module suited to working with that type of document.
 
 ### Piece
 
-A doc which does not have a permanent home of its own in the page tree. Pieces are managed by modules that extend [apostrophe-pieces](reference/apostrophe-pieces/index.html). The `apostrophe-pieces` module is an "abstract base class;" you never use it directly, you always extend it, creating a module that defines a new type of piece.
+A doc which does not have a permanent home of its own in the page tree. Pieces are managed by modules that extend [apostrophe-pieces](/docs/modules/apostrophe-pieces/index.html). The `apostrophe-pieces` module is an "abstract base class;" you never use it directly, you always extend it, creating a module that defines a new type of piece.
 
-See also [apostrophe-pieces-pages](reference/apostrophe-pieces-pages/index.html), which provides a way to create an "index page" that acts as a public view of pieces. These index pages can be locked down to display only certain pieces based on tags, et cetera.
+See also [apostrophe-pieces-pages](/docs/modules/apostrophe-pieces-pages/index.html), which provides a way to create an "index page" that acts as a public view of pieces. These index pages can be locked down to display only certain pieces based on tags, et cetera.
 
 Think of it this way: the index page is the "calendar," the individual piece is the "event." It may be appropriate to display that event on one or more calendars around the site.
 
-Also see [apostrophe-pieces-widgets](reference/apostrophe-pieces-widgets/index.html), which makes it easy to introduce widgets on any page that display one or more pieces. Think of a "callout" that displays upcoming events on the home page.
+Also see [apostrophe-pieces-widgets](/docs/modules/apostrophe-pieces-widgets/index.html), which makes it easy to introduce widgets on any page that display one or more pieces. Think of a "callout" that displays upcoming events on the home page.
 
 The schema of each piece can be easily customized with extra fields, and even with "joins" to other types of docs.
 
@@ -44,17 +44,17 @@ A doc which is part of the page tree. It may potentially have child pages. The `
 
 `path` differs from `slug` in that it always reflects the true parent-child relationships between pages in the tree, while `slug` can be edited and shortened if desired so that URLs don't have to contain a lot of slashes to reach a deep page.
 
-All page types that are allowed on the site must be listed as part of the `types` option of the [apostrophe-pages](reference/apostrophe-pages/index.html) module.
+All page types that are allowed on the site must be listed as part of the `types` option of the [apostrophe-pages](/docs/modules/apostrophe-pages/index.html) module.
 
-Often page types are given extra behavior via the [apostrophe-custom-pages](reference/apostrophe-custom-pages/index.html) module, which allows the developer to handle the rest of the URL if a page matches just the beginning of a URL. This module is extended by [apostrophe-pieces-pages](reference/apostrophe-pieces-pages/index.html), used to power blogs and other index views of [apostrophe-pieces](reference/apostrophe-pieces/index.html).
+Often page types are given extra behavior via the [apostrophe-custom-pages](/docs/modules/apostrophe-custom-pages/index.html) module, which allows the developer to handle the rest of the URL if a page matches just the beginning of a URL. This module is extended by [apostrophe-pieces-pages](/docs/modules/apostrophe-pieces-pages/index.html), used to power blogs and other index views of [apostrophe-pieces](/docs/modules/apostrophe-pieces/index.html).
 
 ### global doc
 
-There is a doc with the slug `global` which is always loaded and available to your page templates as `data.global`. This is useful for shared, site-wide headers and footers that are editable, etc. It is managed by the [apostrophe-global](reference/apostrophe-global/index.html) module. There is no rule against creating other specialized docs if pieces, pages and `global` don't cover your use cases.
+There is a doc with the slug `global` which is always loaded and available to your page templates as `data.global`. This is useful for shared, site-wide headers and footers that are editable, etc. It is managed by the [apostrophe-global](/docs/modules/apostrophe-global/index.html) module. There is no rule against creating other specialized docs if pieces, pages and `global` don't cover your use cases.
 
 ### Widget
 
-A widget is a single item of content that can be edited, such as a block of rich text, a slideshow, or an RSS feed widget. You can create entirely new types of widgets by extending the [apostrophe-widgets](reference/apostrophe-widgets/index.html) module. You can also easily create widgets that display a particular type of piece by extending [apostrophe-pieces-widgets](reference/apostrophe-pieces-widgets/index.html).
+A widget is a single item of content that can be edited, such as a block of rich text, a slideshow, or an RSS feed widget. You can create entirely new types of widgets by extending the [apostrophe-widgets](/docs/modules/apostrophe-widgets/index.html) module. You can also easily create widgets that display a particular type of piece by extending [apostrophe-pieces-widgets](/docs/modules/apostrophe-pieces-widgets/index.html).
 
 ### Area
 
@@ -62,7 +62,7 @@ An area is simply a column in which you can add as many widgets as you like. Eac
 
 Areas are inserted into your templates using the `apos.area` nunjucks helper function.
 
-Areas are implemented by the [apostrophe-areas](reference/apostrophe-areas/index.html) module.
+Areas are implemented by the [apostrophe-areas](/docs/modules/apostrophe-areas/index.html) module.
 
 ### Singleton
 
@@ -86,7 +86,7 @@ A schema allows you to specify the fields that are part of a particular type of 
 
 Apostrophe's schemas are used both to automatically create an editing interface and to sanitize and save data on the server side. Commonly used field types include strings, integers, floats, select elements and "joins," which allow relationships with other doc types to be defined.
 
-Schemas are built by using the `addFields`, `removeFields`, `arrangeFields` and `alterFields` options when configuring any module that extends [apostrophe-pieces](reference/apostrophe-pieces/index.html), [apostrophe-custom-pages](reference/apostrophe-custom-pages/index.html) or [apostrophe-widgets](reference/apostrophe-widgets/index.html).
+Schemas are built by using the `addFields`, `removeFields`, `arrangeFields` and `alterFields` options when configuring any module that extends [apostrophe-pieces](/docs/modules/apostrophe-pieces/index.html), [apostrophe-custom-pages](/docs/modules/apostrophe-custom-pages/index.html) or [apostrophe-widgets](/docs/modules/apostrophe-widgets/index.html).
 
 Here is a simple example in which we add a required "author" string field to the schema for "stories," a module that extends [apostrophe-pieces](#pieces):
 
@@ -106,13 +106,13 @@ module.exports = {
 }
 ```
 
-See the [apostrophe-schemas](reference/apostrophe-schemas/index.html) module documentation for more information.
+See the [apostrophe-schemas](/docs/modules/apostrophe-schemas/index.html) module documentation for more information.
 
 ### Join
 
-In [Apostrophe schemas](reference/apostrophe-schemas/index.html), a "join" describes a relationship with another type of doc. Here is an example of a "by array" join, also known as a "one to many" relationship.
+In [Apostrophe schemas](/docs/modules/apostrophe-schemas/index.html), a "join" describes a relationship with another type of doc. Here is an example of a "by array" join, also known as a "one to many" relationship.
 
-Let's say we're implementing a module for a creative agency called "services," a subclass of [apostrophe-pieces](reference/apostrophe-pieces/index.html) in which each piece represents a service that the agency offers.
+Let's say we're implementing a module for a creative agency called "services," a subclass of [apostrophe-pieces](/docs/modules/apostrophe-pieces/index.html) in which each piece represents a service that the agency offers.
 
 But not every service is offered in every office. So we define a join from services to offices via the `addFields` option:
 
@@ -132,7 +132,7 @@ The editing interface for this join allows the user to pick offices to associate
 
 When writing templates, the developer is then able to access a `._offices` array as a property of each service.
 
-See the [apostrophe-schemas](reference/apostrophe-schemas/index.html) module documentation for more information about joins.
+See the [apostrophe-schemas](/docs/modules/apostrophe-schemas/index.html) module documentation for more information about joins.
 
 ### Moog type
 
@@ -156,11 +156,11 @@ On the browser side, `apos.define` is the norm, and is used to define types for 
 
 ### Subclass
 
-In Apostrophe, the term "subclass" refers to a module or other [moog type](#moog-type) that uses the `extend` property to extend another module, creating a new module that inherits the features of the first module. Almost every module extends another module. Those that don't set the `extend` property default to extending [apostrophe-module](reference/apostrophe-module/index.html), the "base class" of all modules.
+In Apostrophe, the term "subclass" refers to a module or other [moog type](#moog-type) that uses the `extend` property to extend another module, creating a new module that inherits the features of the first module. Almost every module extends another module. Those that don't set the `extend` property default to extending [apostrophe-module](/docs/modules/apostrophe-module/index.html), the "base class" of all modules.
 
 ### Base class
 
-A [moog type](#moog-type) that is extended by another, whether explicitly (using the `extend` property) or by default (on the server side, [apostrophe-module](reference/apostrophe-module/index.html) is the default base class of all modules that don't specify one).
+A [moog type](#moog-type) that is extended by another, whether explicitly (using the `extend` property) or by default (on the server side, [apostrophe-module](/docs/modules/apostrophe-module/index.html) is the default base class of all modules that don't specify one).
 
 ### Implicit subclassing
 
@@ -196,11 +196,11 @@ While this feature is very useful, on rare occasions you might want to avoid it 
 
 Apostrophe cursors, like MongoDB cursors, help us get docs from the database using convenient, chainable methods. The syntax is very similar to MongoDB, with a few changes for consistency and extensibility.
 
-New chainable methods ("filters") for cursors can be conveniently added using the `addFilter` method of cursors. This should be done in a constructor for a subclass. As a convenience, definitions for cursor subclasses are **automatically autoloaded** from the `lib/cursor.js` file of any module that extends [apostrophe-pieces](reference/apostrophe-pieces/index.html), [apostrophe-pieces-pages](reference/apostrophe-pieces-pages/index.html) or [apostrophe-doc-type-manager](reference/apostrophe-doc-type-manager/index.html).
+New chainable methods ("filters") for cursors can be conveniently added using the `addFilter` method of cursors. This should be done in a constructor for a subclass. As a convenience, definitions for cursor subclasses are **automatically autoloaded** from the `lib/cursor.js` file of any module that extends [apostrophe-pieces](/docs/modules/apostrophe-pieces/index.html), [apostrophe-pieces-pages](/docs/modules/apostrophe-pieces-pages/index.html) or [apostrophe-doc-type-manager](/docs/modules/apostrophe-doc-type-manager/index.html).
 
-Cursors can also be called automatically. Many cursor filters provide a `sanitize` function and have a `safeFor: 'public'` setting. This allows them to be called automatically by the index view of [apostrophe-pieces-pages](reference/apostrophe-pieces-pages/index.html) when the appropriate query string parameters appear. Often this is the main motivation for adding a filter.
+Cursors can also be called automatically. Many cursor filters provide a `sanitize` function and have a `safeFor: 'public'` setting. This allows them to be called automatically by the index view of [apostrophe-pieces-pages](/docs/modules/apostrophe-pieces-pages/index.html) when the appropriate query string parameters appear. Often this is the main motivation for adding a filter.
 
-A cursor is always an instance of [apostrophe-cursor](reference/apostrophe-docs/server-apostrophe-cursor.html) or one of its subclasses. The right way to obtain one is via the `find` method of a doc type manager, such as a module that extends pieces.
+A cursor is always an instance of [apostrophe-cursor](/docs/modules/apostrophe-docs/server-apostrophe-cursor.html) or one of its subclasses. The right way to obtain one is via the `find` method of a doc type manager, such as a module that extends pieces.
 
 See [working with cursors](tutorials/intermediate/cursors.md) for more information.
 
@@ -236,4 +236,3 @@ self.beforeShow = function(req, callback) {
   });
 };
 ```
-
