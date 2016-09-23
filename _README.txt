@@ -56,3 +56,22 @@ To deploy your work to docs.apostrophenow.org, just do:
 Make sure you commit and push your work of course.
 
 BOOM!
+
+## Regenerating the api docs
+
+First install the dependencies of the doc generator app:
+
+```
+cd _api-reference-generator
+npm install
+```
+
+Now you can regenerate the `docs/modules` folder:
+
+```
+./generate
+```
+
+`./generate` ends by running `habit` for you. It takes a few seconds because it's doing some fancy things to get information about all of the moog types.
+
+
