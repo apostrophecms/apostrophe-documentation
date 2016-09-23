@@ -23,7 +23,6 @@ Regular `String.replace` does NOT offer global replace, except
 when using regular expressions, which are great but
 problematic when UTF8 characters may be present.
 ### truncatePlaintext(*str*, *length*, *pruneStr*) *[api]*
-
 Truncate a plaintext string at the specified number of
 characters without breaking words if possible, see
 underscore.string's prune function, of which this is

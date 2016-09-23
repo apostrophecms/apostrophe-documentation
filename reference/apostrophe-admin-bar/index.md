@@ -15,7 +15,6 @@ takes advantage of this module.
 On the browser side there are also conveniences to implement jQuery handlers for these
 menu items.
 
-
 ## Methods
 ### add(*name*, *label*, *permission*, *options*)
 Add an item to the admin bar.

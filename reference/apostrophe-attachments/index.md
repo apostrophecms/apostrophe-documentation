@@ -13,6 +13,34 @@ which makes it straightforward to allow users to attach uploaded files to docs. 
 the [schema guide](../../tutorials/getting-started/schema-guide.html#attachment) for
 more information.
 
+## Options
+
+### `addImageSizes`
+
+Add an array of image sizes, in addition to Apostrophe's standard sizes. For example:
+
+```javascript
+[
+  {
+     name: 'tiny',
+     width: 100,
+     height: 100
+  }
+]
+```
+
+The resulting image *will not exceeed* either dimension given, and will preserve its
+aspect ratio.
+
+These extra sizes are then available as the `size` option to `apostrophe-images` widgets
+and when calling `apos.attachments.url`.
+
+### `imageSizes`
+
+Like `addImageSizes`, but Apostrophe's standard sizes are completely replaced. Bear in mind
+that certain sizes are used by Apostrophe's editing interface unless overridden. We recommend
+using `addImageSizes`.
+
 
 ## Methods
 ### addFieldType() *[schemaField]*
