@@ -24,7 +24,7 @@ module.exports = {
       });
     }
 
-    self.apos.tasks.add('documentation', 'generate', 'Usage: node app documentation:generate\n\nRegenerates the API reference documentation.', function(apos, argv, callback) {
+    self.apos.tasks.add('documentation', 'generate', 'Usage: node app documentation:generate\n\nRegenerates the module reference documentation.', function(apos, argv, callback) {
       return async.series([
         self.extract,
         self.generate
@@ -84,12 +84,11 @@ module.exports = {
         documentModule(module);
       });
 
-      mkdirp('../reference');
-      var file = '../reference/index.md';
+      mkdirp('../docs/modules');
+      var file = '../modules/index.md';
       fs.writeFileSync(file,
         '---\n' +
-        'title: "API reference"\n' +
-        'menu: "Documentation"\n' +
+        'title: "Module reference"\n' +
         'layout: "reference"\n' +
         'children:\n' +
         _.map(modules, indentModule).join("\n") +
@@ -241,7 +240,7 @@ module.exports = {
         var relatedTypes = _.filter(types, function(type, name) {
           return (type.module === module) && ((type.name !== module) || (type.namespace !== 'server'));
         });
-        var folder = '../reference/' + module;
+        var folder = '../docs/modules/' + module;
         mkdirp(folder);
         var markdownFile = folder + '/index.md';
 
