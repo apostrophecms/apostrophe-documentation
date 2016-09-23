@@ -37,7 +37,7 @@ Now your page gets rendered with foo.html instead of default.html. I've done thi
 
 MAKING LINKS THAT DON'T BREAK
 
-*ALWAYS* write relative links, or use {{ root }} instead of / to refer to the root. NEVER just write /images/foo.png. Write {{ root }}images/foo.png instead.
+For this project if we are hardcoding links in markdown text we go ahead and assume `/` is the home page of the doc site. This won't work with `./view` but it will work if you set up a local server and it will work in production.
 
 TESTING
 
