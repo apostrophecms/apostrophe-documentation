@@ -2,7 +2,7 @@
 title: "More modules"
 ---
 
-*This page is about optional modules for Apostrophe. For the standard modules, see the [reference](docs/modules/index.html).*
+*This page is about optional modules for Apostrophe. For the standard modules, see the [reference](modules/index.html).*
 
 The modules you see documented on this site are the standard Apostrophe modules that ship as part of the `apostrophe` npm module — everything you absolutely need to make a website. But there are more. And you can create more.
 
