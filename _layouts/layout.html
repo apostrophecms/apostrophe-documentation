@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+{# I moved the doctype up so it would never be after whitespace and thus invalid. -Tom #}
+
 {% macro buildMenuTree(currentIndex) %}
   <ul class="sidebar-items">
     {% for child in ancestors[currentIndex].children %}
@@ -16,105 +19,57 @@
 {% endmacro %}
 
 {% macro docTypeClass() -%}
-  {%- for _page in ancestors -%}
-    {%- if _page.docType -%}{{ _page.docType }}{%- endif -%}
+  {%- for page in ancestors -%}
+    {%- if page.docType -%}{{ page.docType }}{%- endif -%}
   {%- endfor -%}
 {%- endmacro -%}
 
 {% macro typeCheck() -%}
-  {%- for _page in ancestors -%}
-    {%- if _page.type -%}{{ _page.type }}{%- endif -%}
+  {%- for page in ancestors -%}
+    {%- if page.type -%}{{ page.type }}{%- endif -%}
   {%- endfor -%}
 {%- endmacro -%}
 
-<!DOCTYPE html>
 <html lang="en-US">
 <head>
   <meta charset="utf-8">
   <title>Apostrophe: {{ title }}</title>
-  <link rel="stylesheet" type="text/css" href="{{ root }}stylesheets/main.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" type="text/css" href="{{ root }}stylesheets/main.css?v2">
   <script src="{{ root }}javascript/prism.js"></script>
   <script src="{{ root }}javascript/jquery.min.js"></script>
-  <script src="{{ root }}javascript/main.js"></script>
+  <script src="{{ root }}javascript/main.js?v2"></script>
 </head>
-<body class="{% block bodyClass %}{{typeCheck()}}{% endblock %}">
+<body class="{% block bodyClass %}{{typeCheck()}} {{ layout }}{% endblock %}">
   <nav class="outer">
     <div class="mark left">
       <a class="logo" href="{{ root }}" alt="Apostrophe 2"></a>
     </div>
     <div class="links right">
-        <ul class="page-links">
-          {# ancestors[0] == home, so its kids are the tabs #}
-          {% if typeCheck() == 'help'%}
-            {% for tab in ancestors[1].children %}
-              <li class="page-link">
-                {# If this tab is our ancestor, it's selected #}
-                <a href="{{ root }}{{ tab.url }}" class="{% if ancestors[1] and (tab.url == ancestors[1].url) %}selected{% endif %}">{{ tab.title | e }}</a>
-              </li>
-            {% endfor %}
-          {% else %}
-            {# Hardcode the documentation dropdown menu for now. -Tom #}
-            <li data-dropdown class="page-dropdown">
-              <ul>
-                <li data-dropdown-toggle class="dropdown-label">
-                  <a href="#">Documentation</a>
-                  <ul class="page-dropdown-toggled">
-                    <li class="page-link">
-                      <a href="{{ root }}tutorials/index.html">Tutorials</a>
-                    </li>
-                    <li class="page-link">
-                      <a href="{{ root }}reference/index.html">Reference</a>
-                    </li>
-                    <li class="page-link">
-                      <a href="{{ root }}howtos/index.html">HOWTOs</a>
-                    </li>
-                    <li class="page-link">
-                      <a href="{{ root }}glossary.html">Glossary</a>
-                    </li>
-                    <li class="page-link">
-                      <a href="{{ root }}migration.html">Migration</a>
-                    </li>
-                    <li class="page-link">
-                      <a href="{{ root }}more-modules.html">More Modules</a>
-                    </li>
-                    <li class="page-link old-stuff">
-                      <a href="http://ohdotfive.apostrophenow.org">0.5 Docs</a>
-                    </li>
-                  </ul>
-              </ul>
-            </li>
-            {% for tab in ancestors[0].children %}
-              {% if not tab.menu %}
-                <li class="page-link">
-                  {# If this tab is our ancestor, it's selected #}
-                  <a href="{{ root }}{{ tab.url }}" class="{% if ancestors[1] and (tab.url == ancestors[1].url) %}selected{% endif %}">{{ tab.title | e }}</a>
-                </li>
-              {% endif %}
-            {% endfor %}
-            <li class="page-link">
-              <a href="https://groups.google.com/forum/#!forum/apostrophenow" target="_blank">Forum</a>
-            </li>
-            <li class="page-link">
-              <a href="https://github.com/punkave/apostrophe" target="_blank">Github</a>
-            </li>
-          {% endif %}
-          <li class="page-link search-box">
-            <script>
-              (function() {
-                var cx = '005543154079868254739:jxhstkgpui4';
-                var gcse = document.createElement('script');
-                gcse.type = 'text/javascript';
-                gcse.async = true;
-                gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-                    '//www.google.com/cse/cse.js?cx=' + cx;
-                var s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(gcse, s);
-              })();
-            </script>
-            <gcse:searchbox></gcse:searchbox>
+      <ul class="page-links">
+        {% for tab in ancestors[0].children %}
+          <li class="page-link">
+            <a href="{{ root }}{{ tab.url }}" class="{% if ancestors[1] and (tab.url == ancestors[1].url) %}selected{% endif %}">{{ tab.title | e }}</a>
           </li>
-        </ul>
-
+        {% endfor %}
+        <li class="page-link">
+          <a href="https://github.com/punkave/apostrophe" target="_blank">Github</a>
+        </li>
+        <li class="page-link search-box">
+          <script>
+            (function() {
+              var cx = '005543154079868254739:jxhstkgpui4';
+              var gcse = document.createElement('script');
+              gcse.type = 'text/javascript';
+              gcse.async = true;
+              gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                  '//www.google.com/cse/cse.js?cx=' + cx;
+              var s = document.getElementsByTagName('script')[0];
+              s.parentNode.insertBefore(gcse, s);
+            })();
+          </script>
+          <gcse:searchbox></gcse:searchbox>
+        </li>
       </ul>
     </div>
   </nav>
@@ -128,6 +83,9 @@
   <div class="header {% block headerClass %}{% endblock %}">
     <div class="inner {% block headerInnerClass %}{% endblock %}">
       {% block header %}
+        <div class="breadcrumb">
+          {% for page in ancestors %}<a href="{{ root }}{{ page.url }}">{{ page.title }}</a>{{ ' &gt; ' if page.url != url }}{% endfor %}
+        </div>
         <div class="doc-type">
           <div class="type-image {{ typeCheck() }} {{ docTypeClass() }}"></div>
         </div>
@@ -137,46 +95,16 @@
   </div>
   {% block extraHeader%}
   {% endblock %}
-    <div class="wrap outer">
+  <div class="wrap outer">
     <div class="inner">
-      <div class="sidebar">
-        <div class="sidebar-section sidebar-title try-apostrophe">
-          <a href="http://demo.apostrophenow.com" target="_blank">Try Apostrophe</a>
-        </div>
-        {% block sidebar %}
-          <ul class="sidebar-section">
-            {%  if ancestors.length == 1 %}
-              {% for child in children %}
-                <li class="sidebar-item"><a href="{{ root }}{{ child.url }}">{{ child.title | e }}</a></li>
-              {% endfor %}
-            {% endif %}
-            <li class="sidebar-title"><a href="{{ root }}{{ ancestors[1].url }}">{{ ancestors[1].title | e }}</a></li>
-            {{ buildMenuTree(1) }}
-          </ul>
-        {% endblock %}
-        <p class="sidebar-help">
-          {% if typeCheck() == 'help' %}
-            Are you a developer? You may want to check out our <a href="{{ root }}">documentation site</a>.
-          {% else %}
-            Are you an editor? You may want to check out our <a href="{{ root }}help">help site</a>.
-          {% endif %}
-        </p>
-      </div>{#
-      #}<div class="main">
+      <div class="main">
         {% block previous %}
-          {% if previous %}
-            <p class="previous-article"><a href="{{ root }}{{ previous.url }}">&larr; Previous: {{ previous.title | e }}</a></p>
-          {% endif %}
         {% endblock %}
 
         {% block main %}
-
         {% endblock %}
 
         {% block next %}
-          {% if next %}
-            <p class="next-article"><a href="{{ root }}{{ next.url }}">Next: {{ next.title | e }} &rarr;</a></p>
-          {% endif %}
         {% endblock %}
       </div>
     </div>
@@ -196,15 +124,14 @@
       </div>
     </div>
   </footer>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-496991-42', 'auto');
-  ga('send', 'pageview');
-
-</script>
+    ga('create', 'UA-496991-42', 'auto');
+    ga('send', 'pageview');
+  </script>
 </body>
 </html>

@@ -6,13 +6,24 @@
 // --------------------------------------------------
 // SIDEBAR
 // --------------------------------------------------
+.mark--sidebar
+{
+  margin-bottom: 2rem;
+}
 
 .sidebar
 {
-  .inline-block(top);
-  width: 280px;
-  margin-right: 20px;
-
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  height: 100%;
+  overflow: scroll;
+  width: 25%;
+  margin-right: 5%;
+  padding: 30px;
+  float: left;
+  background-color: white;
+  border-right: 8px solid rgba(0, 0, 0, 0.1);
   .sidebar-title
   {
     margin-bottom: 1em;
@@ -35,11 +46,12 @@
       font-size: 16px;
       color: @dark;
     }
+    a:hover { color: @purple; }
 
     &.current-page
     {
-      color: @red;
-      // text-decoration: underline;
+      color: @purple;
+      text-decoration: underline;
     }
   }
 
@@ -89,6 +101,31 @@
         margin-top: 0.75em;
       }
     }
+  }
+}
+
+// --------------------------------------------------------------------
+// Specific to `reference` template and tutorial which inherits from it
+// --------------------------------------------------------------------
+.reference, .tutorial
+{
+  .inner
+  {
+    max-width: none;
+  }
+  .header
+  {
+    .doc-type .type-image { right: 2rem; }
+    .breadcrumb,
+    h1
+    {
+      margin-left: 30%;
+    }
+  }
+
+  footer
+  {
+    padding: 3rem 5% 3rem 30%;
   }
 }
 
@@ -206,4 +243,21 @@
     border: 10px solid @green;
   }
 
+  .next-article {
+    margin-top: 2em;
+  }
+}
+
+// --------------------------------------------------
+// FULL WIDTH LAYOUT (REFERENCE)
+// --------------------------------------------------
+.full-width
+{
+  .main
+  {
+    width: 70%;
+    max-width: 880px;
+    margin-left: 30%;
+    float: left;
+  }
 }

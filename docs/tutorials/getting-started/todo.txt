@@ -1,0 +1,64 @@
+# New navigation
+
+Remember: there's a breadcrumb now.
+
+## API REFERENCE: MAIN
+
+<-- Documentation
+
+Glossary
+
+Modules:
+
+apostrophe-admin-bar
+apostrophe-docs
+etc....
+long list
+
+## API REFERENCE: ONE PARTICULAR MODULE OR RELATED TYPE
+
+<-- Reference
+
+apostrophe-pieces
+  server:
+    apostrophe-pieces-cursor [s]
+  browser:
+    apostrophe-pieces [b]
+
+On This Page
+
+## MAIN TUTORIALS PAGE
+
+Getting Started
+  One
+  Two
+  Three
+  Four
+  Five
+Intermediate
+  One
+  Two
+  Three
+HOWTOs
+  One
+  Two...
+
+There are no reachable pages for the tutorial arcs themselves.
+
+INDIVIDUAL TUTORIALS
+
+Getting Started
+  One
+  Two
+  ADDING AREAS TO A PAGE
+    On This Page <-- indented for this case
+  Three
+  Four
++ Intermediate <-- toggle
++ HOWTOs
+
+EVERYWHERE ELSE
+
+Some pages have no left nav (category pages).
+
+Others: TBD.

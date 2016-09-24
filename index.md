@@ -1,12 +1,9 @@
 ---
 title: "Home"
 children:
-  - tutorials
-  - reference
-  - howtos
-  - glossary
-  - roadmap
+  - docs
   - support
+  - community
 layout: "home"
 ---
 

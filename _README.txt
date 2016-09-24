@@ -37,7 +37,7 @@ Now your page gets rendered with foo.html instead of default.html. I've done thi
 
 MAKING LINKS THAT DON'T BREAK
 
-*ALWAYS* write relative links, or use {{ root }} instead of / to refer to the root. NEVER just write /images/foo.png. Write {{ root }}images/foo.png instead.
+For this project if we are hardcoding links in markdown text we go ahead and assume `/` is the home page of the doc site. This won't work with `./view` but it will work if you set up a local server and it will work in production.
 
 TESTING
 
@@ -56,3 +56,27 @@ To deploy your work to docs.apostrophenow.org, just do:
 Make sure you commit and push your work of course.
 
 BOOM!
+
+## Regenerating the api docs
+
+The `docs/modules` folder is generated from the Apostrophe source code.
+
+First install the dependencies of the doc generator app:
+
+```
+cd _api-reference-generator
+npm install
+mkdir -p data
+brew install phantomjs
+```
+
+Now you can regenerate the `docs/modules` folder:
+
+```
+./generate
+```
+
+`./generate` ends by running `habit` for you. It takes a few seconds because it's doing some fancy things to get information about all of the moog types.
+
+If you need to document a newer version of Apostrophe you will want to `npm update` in the reference generator app folder.
+
