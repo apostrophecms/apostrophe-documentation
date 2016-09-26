@@ -5,6 +5,7 @@ children:
   - setting-up-your-environment
   - creating-your-first-project
   - editing-page-templates
+  - pushing-assets
   - adding-editable-content-to-pages
   - building-navigation
   - custom-widgets
