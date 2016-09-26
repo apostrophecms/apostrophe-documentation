@@ -39,7 +39,7 @@ apos.define('apostrophe-areas', {
 
 ## Instance-specific CKEditor configuration
 
-It is also possible to do custom configuration at the time a rich text editor is fired up. That allows us to look at the options that were passed to that widget via `apos.area` or `apos.singleton` and decide what to do:
+It is also possible to do custom configuration at the time a rich text editor is fired up. That allows us to look at the options that were passed to that widget via `apos.area` or `apos.singleton` and decide what to do. It is also the best place do things like changing the list of buttons that CKEditor is currently disabling.
 
 ```javascript
 // in lib/modules/apostrophe-rich-text-widgets/public/js/editor.js in your project folder
@@ -49,6 +49,9 @@ apos.define('apostrophe-rich-text-widgets-editor', {
     self.beforeCkeditorInline = function() {
       // Mess around with the `config` object about to be passed to CKEditor
       self.config.removePlugins = 'man-i-hate-this-particular-plugin';
+      // Disable Underline (as happens by default), but leave
+      // Superscript and Subscript enabled as potential toolbar items
+      self.config.removeButtons = 'Underline';
     };
   }
 });
@@ -63,3 +66,47 @@ apos.define('apostrophe-rich-text-widgets-editor', {
 > If we want to, we can look at `self.options.templateOptions`, which contains the configuration passed to this widget by `apos.areas` or `apos.singleton`.
 
 > Apostrophe's initial definition of the `beforeCkeditorInline` method is empty (following the [template pattern](https://en.wikipedia.org/wiki/Template_method_pattern)), but if you are using various add-on modules it's possible that some of them define it. If you want to be sure that code is called too, use the [super pattern](../glossary.html#code-super-code-pattern) rather than just replacing the method outright.
+
+## Changing the allowed HTML tags in rich text
+
+Some CKEditor configurations introduce new HTML tags that might be present in the markup. It looks great in the editor, but when you refresh the page they are gone. What happened?
+
+Apostrophe automatically filters all rich text through the [sanitize-html](https://npmjs.org/package/sanitize-html) module. This prevents XSS attacks and also prevents the page design from being wrecked by bad or just plain ugly markup pasted from desktop applications.
+
+However, sometimes the default configuration isn't working for you, for instance because you want to add `sub` and `sup` to the list of allowed tags.
+
+It's easy to change: just set the `sanitizeHtml` option in `lib/modules/apostrophe-rich-text-widgets/index.js` in your project. Just keep in mind that **if you configure one of the sanitizeHtml options at all, you must configure that option completely.** A common mistake is forgetting to allow `a` elements or the `http` protocol, resulting in very pretty text with no links allowed!
+
+Here is an example of a complete copy of the default `sanitize-html` configuration that also adds `sup` and `sub`:
+
+```javascript
+// lib/modules/apostrophe-rich-text-widgets/index.js
+
+module.exports = {
+  // The standard list copied from the module, plus sup and sub
+  sanitizeHtml: {
+    allowedTags: [ 'h3', 'h4', 'h5', 'h6', 'blockquote', 'p', 'a', 'ul', 'ol',
+      'nl', 'li', 'b', 'i', 'strong', 'em', 'strike', 'code', 'hr', 'br', 'div',
+      'table', 'thead', 'caption', 'tbody', 'tr', 'th', 'td', 'pre',
+      'sup', 'sub'
+    ],
+    allowedAttributes: {
+      a: [ 'href', 'name', 'target' ],
+      // We don't currently allow img itself by default, but this
+      // would make sense if we did
+      img: [ 'src' ]
+    },
+    // Lots of these won't come up by default because we don't allow them
+    selfClosing: [ 'img', 'br', 'hr', 'area', 'base', 'basefont',
+      'input', 'link', 'meta' ],
+    // URL schemes we permit
+    allowedSchemes: [ 'http', 'https', 'ftp', 'mailto' ],
+    allowedSchemesByTag: {}
+  }
+};
+```
+
+
+
+
+
