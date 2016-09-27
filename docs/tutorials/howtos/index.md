@@ -5,10 +5,11 @@ layout: reference
 children:
   - notFoundPage
   - search
-  - multicore
-  - adding-fields-to-all-pieces
-  - model-layer
   - admin-bar
+  - model-layer
+  - children-and-joins
+  - adding-fields-to-all-pieces
+  - multicore
   - ckeditor
   - extending-the-pieces-editor-modal
   - windows
