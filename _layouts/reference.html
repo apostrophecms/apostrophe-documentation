@@ -17,19 +17,12 @@
           {{ buildMenuTree(1) }}
         </ul>
       {% endblock %}
-      <p class="sidebar-help">
-        {% if typeCheck() == 'help' %}
-          Are you a developer? You may want to check out our <a href="{{ root }}">documentation site</a>.
-        {% else %}
-          Are you an editor? You may want to check out our <a href="{{ root }}help">help site</a>.
-        {% endif %}
-      </p>
     </div>
     <div class="wrap main">
       {% block topOfContent %}{% endblock %}
       {{ content }}
       {% block bottomOfContent %}{% endblock %}
-    </div>  
+    </div>
   </div>
 {% endblock %}
 
