@@ -2,6 +2,8 @@
 title: "apostrophe-tasks (module)"
 layout: reference
 module: true
+namespaces:
+
 children:
 
 ---

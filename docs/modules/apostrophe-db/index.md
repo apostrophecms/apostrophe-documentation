@@ -2,6 +2,8 @@
 title: "apostrophe-db (module)"
 layout: reference
 module: true
+namespaces:
+
 children:
 
 ---

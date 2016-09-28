@@ -2,6 +2,9 @@
 title: "apostrophe-search (module)"
 layout: reference
 module: true
+namespaces:
+  server: true
+  browser: true
 children:
   - server-apostrophe-search-cursor
   - browser-apostrophe-search

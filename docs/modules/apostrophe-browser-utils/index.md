@@ -2,6 +2,8 @@
 title: "apostrophe-browser-utils (module)"
 layout: reference
 module: true
+namespaces:
+  browser: true
 children:
   - browser-apostrophe-browser-utils
 ---

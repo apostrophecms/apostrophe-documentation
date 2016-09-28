@@ -2,6 +2,8 @@
 title: "apostrophe-permissions (module)"
 layout: reference
 module: true
+namespaces:
+
 children:
 
 ---

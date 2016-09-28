@@ -2,6 +2,8 @@
 title: "apostrophe-areas (module)"
 layout: reference
 module: true
+namespaces:
+  browser: true
 children:
   - browser-apostrophe-areas
   - browser-apostrophe-areas-editor

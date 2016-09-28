@@ -2,6 +2,8 @@
 title: "apostrophe-service-bridge (module)"
 layout: reference
 module: true
+namespaces:
+
 children:
 
 ---

@@ -2,6 +2,8 @@
 title: "apostrophe-ui (module)"
 layout: reference
 module: true
+namespaces:
+  browser: true
 children:
   - browser-apostrophe-ui
 ---

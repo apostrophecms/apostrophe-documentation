@@ -2,6 +2,9 @@
 title: "apostrophe-pieces (module)"
 layout: reference
 module: true
+namespaces:
+  server: true
+  browser: true
 children:
   - server-apostrophe-pieces-cursor
   - browser-apostrophe-pieces
