@@ -14,7 +14,7 @@ If you don't see your question, try [asking a new question on Stack Overflow](ht
 
 ## Forum
 
-Want to discuss the future of Apostrophe and your plans for it or just chat with fellow Apostrophe developers? Check out the [Apostrophe google group](https://groups.google.com/forum/#!forum/apostrophenow).
+Want to discuss the future of Apostrophe and your plans for it or just chat with fellow Apostrophe developers? Check out the [Apostrophe forum](http://forum.apostrophecms.org).
 
 ## Github
 
