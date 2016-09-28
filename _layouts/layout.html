@@ -10,10 +10,10 @@
         {% else %}
           <a href="{{ root }}{{ child.url }}">{{ child.title | e }}</a>
         {% endif %}
+        {% if currentIndex < (ancestors.length - 1) and child.url == ancestors[currentIndex + 1].url %}
+          {{ buildMenuTree(currentIndex + 1) }}
+        {% endif %}
       </li>
-      {% if currentIndex < (ancestors.length - 1) and child.url == ancestors[currentIndex + 1].url %}
-        {{ buildMenuTree(currentIndex + 1) }}
-      {% endif %}
     {% endfor %}
   </ul>
 {% endmacro %}
@@ -111,15 +111,11 @@
   </div>
   <footer>
     <div class="inner">
-      <div class="right">
+      <div class="left">
         <a href="http://punkave.com" class="punk-logo"></a>
-      </div>
-      <div>
         Apostrophe is led by <a href="http://punkave.com">P'unk Avenue</a> in Philadelphia, PA.
       </div>
-    </div>
-    <div class="inner">
-      <div class="linode-credit">
+      <div class="right">
         Generously hosted by <a href="http://linode.com">linode.</a>
       </div>
     </div>
