@@ -46,7 +46,13 @@ $(function() {
       $li.append($link);
       $ul.append($li);
     });
-    $('.current-page').append($ul);
+    
+    if ($('.current-page').parent().hasClass('.sidebar-namespace-items')) {
+      
+    } else {
+      $('.current-page').append($ul);
+    }
+
     $ul.prepend('<li class="on-this-page">On this page</li>');
   }
   $('.sidebar-item a').each(function() {

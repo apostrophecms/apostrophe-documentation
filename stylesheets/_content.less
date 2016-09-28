@@ -11,12 +11,20 @@
   margin-bottom: 2rem;
 }
 
+.sidebar-namespace-items
+{
+  // padding-left: 1rem;
+  margin-top: 1rem;
+  border-left: 1px solid #C9C9C9;
+}
+
 .sidebar
 {
   position: fixed;
   z-index: 10;
   top: 0;
   height: 100%;
+  font-size: 16px;
   overflow: scroll;
   width: 25%;
   margin-right: 5%;
@@ -33,14 +41,17 @@
 
   }
 
+  
   .sidebar-items
   {
-    margin-left: 1em;
+    // margin-left: 1em;
     margin-top: 1em;
   }
 
+  .sidebar-item .sidebar-item { padding-left: 1rem; }
   .sidebar-item
   {
+
     margin-bottom: 1.2em;
     line-height: 1.3em;
     a, &.current-page
@@ -59,19 +70,13 @@
     }
   }
 
-  .sidebar-namespace-items
-  {
-    margin-left: 1rem;
-    margin-top: 1rem;
-    border-left: 1px solid #C9C9C9;
-  }
   .current-page .sidebar-items
   {
     margin: 1rem 0;
     
     li
     {
-      padding-left: 1rem;
+      // padding-left: 1rem;
     }
   }
 
@@ -123,6 +128,8 @@
     }
   }
 }
+
+.sidebar-namespace{ font-weight: 700; color: black; }
 
 // --------------------------------------------------------------------
 // Specific to `reference` template and tutorial which inherits from it
