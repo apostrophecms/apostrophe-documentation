@@ -1,5 +1,6 @@
 ---
 title: "Enterprise support"
+headerClass: "landing landing--support"
 ---
 
 ## About Apostrophe enterprise support

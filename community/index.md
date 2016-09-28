@@ -1,6 +1,7 @@
 ---
 title: "Community"
 layout: "default"
+headerClass: "landing landing--community"
 ---
 
 ## Answers to your "how do I..." questions

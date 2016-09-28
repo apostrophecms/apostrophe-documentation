@@ -115,7 +115,7 @@
       </div>
     </div>
   {%- endblock -%}
-  <div class="header {% block headerClass %}{% endblock %}">
+  <div class="header {{ headerClass }} {% block headerClass %}{% endblock %}">
     <div class="inner {% block headerInnerClass %}{% endblock %}">
       {% block header %}
         <div class="breadcrumb">

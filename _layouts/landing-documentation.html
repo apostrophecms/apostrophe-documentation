@@ -1,0 +1,30 @@
+{% extends "default.html" %}
+
+{% block bodyClass %}landing landing--documentation{% endblock %}
+{% block headerClass %}landing landing--documentation{% endblock %}
+
+{% block extraHeader%}
+  <div class="extra-header">
+    <div class="inner">
+      <div class="welcome">
+        <h3>Welcome to the Apostrophe documentation!</h3>
+        <p>We sure hope you enjoy it.</p>
+      </div>
+    </div>
+  </div>
+  <div class="inner">
+    <div class="cards">
+      <div class="card tutorials">
+        <h4>Tutorials</h4>
+        <p>Our tutorials cover everything you need to know to get started as an Apostrophe developer. Everyone should start here. Our tutorials are progressive, so you can learn as you go.</p>
+        <p><a class="card-link" href="tutorials/index.html">Explore the Tutorials</a></p>
+      </div>
+
+      <div class="card reference">
+        <h4>Module Reference</h4>
+        <p>Our module reference provides complete coverage of Apostrophe's modules and their related object types. Each module provides a particular feature, often including both front and back end code.</p>
+        <p><a class="card-link" href="modules/index.html">Explore the API Reference</a></p>
+      </div>
+    </div>
+  </div>
+{% endblock %}

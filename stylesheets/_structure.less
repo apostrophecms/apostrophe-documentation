@@ -38,6 +38,15 @@
   }
 }
 
+.landing:not(.landing--home), .default
+{
+  .main
+  {
+    width: 76%;
+    margin: 0 12%;
+  }
+}
+
 .cards
 {
   width: 100%;
@@ -55,16 +64,17 @@
     padding: 3em 3em 2em 3em;
     border: 1px solid fade(@dark, 15%);
 
-    a
+    a.card-link
     {
       color: @green; font-weight: bold;
 
       &:hover { text-decoration: underline; }
     }
 
-    h4 { text-align: center; }
-    &.tutorials h4, &.reference h4 { padding-top: 96px; background-repeat: no-repeat; background-position: 50% top; }
+    h4 { text-align: center; padding-top: 96px; background-repeat: no-repeat; background-position: 50% top; }
     &.tutorials h4 { background-image: url('../images/illustration-tutorials.svg') }
     &.reference h4 { background-image: url('../images/illustration-reference.svg') }
+    &.enterprise h4 { background-image: url('../images/illustration-enterprise.svg') }
+    &.roadmap h4 { background-image: url('../images/illustration-roadmap.svg') }
   }
 }

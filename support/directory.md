@@ -1,5 +1,6 @@
 ---
 title: "Developer directory"
+headerClass: "landing landing--support"
 ---
 
 **Because Apostrophe is open source, you are not locked in to working with us.** Since Apostrophe is built on the popular node.js platform, you have thousands of potential partners for development and support.
