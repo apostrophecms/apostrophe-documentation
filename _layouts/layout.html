@@ -10,10 +10,10 @@
         {% else %}
           <a href="{{ root }}{{ child.url }}">{{ child.title | e }}</a>
         {% endif %}
+        {% if currentIndex < (ancestors.length - 1) and child.url == ancestors[currentIndex + 1].url %}
+          {{ buildMenuTree(currentIndex + 1) }}
+        {% endif %}
       </li>
-      {% if currentIndex < (ancestors.length - 1) and child.url == ancestors[currentIndex + 1].url %}
-        {{ buildMenuTree(currentIndex + 1) }}
-      {% endif %}
     {% endfor %}
   </ul>
 {% endmacro %}

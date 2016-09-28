@@ -46,10 +46,14 @@ $(function() {
       $li.append($link);
       $ul.append($li);
     });
-    $sidebar.append($ul);
-    $ul.before('<p class="on-this-page">On this page</p>');
+    $('.current-page').append($ul);
+    $ul.prepend('<li class="on-this-page">On this page</li>');
   }
   $('.sidebar-item a').each(function() {
     $(this).text($(this).text().replace(/ \(.*?\)\s*$/, ''));
   });
+
+  if ($('.current-page')) {
+    $('.sidebar').animate({scrollTop: $('.current-page').position().top - 25});
+  }
 });

@@ -35,12 +35,12 @@
 
   .sidebar-items
   {
-    margin-left: 1em;
+    // margin-left: 1em;
   }
 
   .sidebar-item
   {
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
     a, &.current-page
     {
       font-size: 16px;
@@ -51,7 +51,19 @@
     &.current-page
     {
       color: @purple;
-      text-decoration: underline;
+      // text-decoration: underline;
+      font-weight: 700;
+      ul { font-weight: 400; }
+    }
+  }
+
+  .current-page .sidebar-items
+  {
+    margin: 1rem 0;
+    border-left: 1px solid #C9C9C9;
+    li
+    {
+      padding-left: 1rem;
     }
   }
 
@@ -86,8 +98,8 @@
 
   .internal-links
   {
-    margin-left: 1em;
-
+    padding: 1em;
+    background-color: #F7F7F7;
     li
     {
       margin-bottom: 1em;
