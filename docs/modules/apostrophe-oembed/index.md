@@ -1,6 +1,7 @@
 ---
 title: "apostrophe-oembed (module)"
 layout: reference
+module: true
 children:
   - browser-apostrophe-oembed
 ---

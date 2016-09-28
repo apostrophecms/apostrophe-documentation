@@ -1,6 +1,7 @@
 ---
 title: "apostrophe-files-widgets (module)"
 layout: reference
+module: true
 children:
   - browser-apostrophe-files-widgets
   - browser-apostrophe-files-widgets-editor

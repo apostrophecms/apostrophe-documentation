@@ -3,18 +3,51 @@
 
 {% macro buildMenuTree(currentIndex) %}
   <ul class="sidebar-items">
-    {% for child in ancestors[currentIndex].children %}
-      <li class="sidebar-item{% if url == child.url %} current-page{% endif %}">
-        {% if url == child.url %}
-          {{ child.title | e }}
-        {% else %}
-          <a href="{{ root }}{{ child.url }}">{{ child.title | e }}</a>
-        {% endif %}
-        {% if currentIndex < (ancestors.length - 1) and child.url == ancestors[currentIndex + 1].url %}
-          {{ buildMenuTree(currentIndex + 1) }}
-        {% endif %}
-      </li>
-    {% endfor %}
+    {% if ancestors[currentIndex].module %}
+      {% set namespaces = [
+        {
+          value: 'server',
+          label: 'Server'
+        },
+        {
+          value: 'browser',
+          label: 'Browser'
+        }
+       ] %}
+      {% for namespace in namespaces %}
+        <li class="sidebar-namespace {{ namespace.value }}">{{ namespace.label }}</li>
+          <ul class="sidebar-namespace-items">
+            {% for child in ancestors[currentIndex].children %}
+              {% if child.namespace == namespace.value %}
+                <li class="sidebar-item{% if url == child.url %} current-page{% endif %}">
+                  {% if url == child.url %}
+                    {{ child.title | e }}
+                  {% else %}
+                    <a href="{{ root }}{{ child.url }}">{{ child.title | e }}</a>
+                  {% endif %}
+                  {% if currentIndex < (ancestors.length - 1) and child.url == ancestors[currentIndex + 1].url %}
+                    {{ buildMenuTree(currentIndex + 1) }}
+                  {% endif %}
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </li>
+      {% endfor %}
+    {% else %}
+      {% for child in ancestors[currentIndex].children %}
+        <li class="sidebar-item{% if url == child.url %} current-page{% endif %}">
+          {% if url == child.url %}
+            {{ child.title | e }}
+          {% else %}
+            <a href="{{ root }}{{ child.url }}">{{ child.title | e }}</a>
+          {% endif %}
+          {% if currentIndex < (ancestors.length - 1) and child.url == ancestors[currentIndex + 1].url %}
+            {{ buildMenuTree(currentIndex + 1) }}
+          {% endif %}
+        </li>
+      {% endfor %}
+    {% endif %}
   </ul>
 {% endmacro %}
 

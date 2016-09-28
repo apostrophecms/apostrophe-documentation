@@ -1,6 +1,7 @@
 ---
 title: "apostrophe-pages-reorganize (browser)"
 layout: reference
+namespace: browser
 ---
 ## Inherits from: [apostrophe-modal](../apostrophe-modal/browser-apostrophe-modal.html)
 

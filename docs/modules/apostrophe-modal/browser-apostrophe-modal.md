@@ -1,6 +1,7 @@
 ---
 title: "apostrophe-modal (browser)"
 layout: reference
+namespace: browser
 ---
 ## Inherits from: [apostrophe-context](../apostrophe-utils/browser-apostrophe-context.html)
 `apostrophe-modal` is a base class for modal dialog boxes. Define a new

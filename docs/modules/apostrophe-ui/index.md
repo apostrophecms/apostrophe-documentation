@@ -1,6 +1,7 @@
 ---
 title: "apostrophe-ui (module)"
 layout: reference
+module: true
 children:
   - browser-apostrophe-ui
 ---

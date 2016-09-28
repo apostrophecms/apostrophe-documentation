@@ -1,6 +1,7 @@
 ---
 title: "apostrophe-cursor (server)"
 layout: reference
+namespace: server
 ---
 An `apostrophe-cursor` allows you to conveniently fetch docs from
 the `aposDocs` mongodb collection using chainable filters, much

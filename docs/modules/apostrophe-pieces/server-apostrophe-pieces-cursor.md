@@ -1,6 +1,7 @@
 ---
 title: "apostrophe-pieces-cursor (server)"
 layout: reference
+namespace: server
 ---
 Cursor for fetching pieces.
 

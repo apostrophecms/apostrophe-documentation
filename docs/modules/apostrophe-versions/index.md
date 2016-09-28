@@ -1,6 +1,7 @@
 ---
 title: "apostrophe-versions (module)"
 layout: reference
+module: true
 children:
   - browser-apostrophe-versions
   - browser-apostrophe-versions-editor

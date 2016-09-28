@@ -1,6 +1,7 @@
 ---
 title: "apostrophe-tasks (module)"
 layout: reference
+module: true
 children:
 
 ---

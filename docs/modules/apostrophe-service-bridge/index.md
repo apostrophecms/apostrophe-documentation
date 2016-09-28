@@ -1,6 +1,7 @@
 ---
 title: "apostrophe-service-bridge (module)"
 layout: reference
+module: true
 children:
 
 ---

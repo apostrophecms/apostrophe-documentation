@@ -1,6 +1,7 @@
 ---
 title: "apostrophe-pages-editor (browser)"
 layout: reference
+namespace: browser
 ---
 
 ## Methods

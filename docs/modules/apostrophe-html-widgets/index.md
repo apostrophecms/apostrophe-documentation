@@ -1,6 +1,7 @@
 ---
 title: "apostrophe-html-widgets (module)"
 layout: reference
+module: true
 children:
   - browser-apostrophe-html-widgets
   - browser-apostrophe-html-widgets-editor

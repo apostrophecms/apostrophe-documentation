@@ -1,6 +1,7 @@
 ---
 title: "apostrophe-pieces (browser)"
 layout: reference
+namespace: browser
 ---
 ## Inherits from: [apostrophe-doc-type-manager](../apostrophe-doc-type-manager/browser-apostrophe-doc-type-manager.html)
 The browser-side doc type manager for a type of piece. Provides jQuery event handlers

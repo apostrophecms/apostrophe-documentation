@@ -1,6 +1,7 @@
 ---
 title: "apostrophe-db (module)"
 layout: reference
+module: true
 children:
 
 ---

@@ -248,6 +248,7 @@ module.exports = {
           '---\n' +
           'title: "' + type.title + '"\n' +
           'layout: reference\n' +
+          'module: true\n' +
           'children:\n' +
             _.map(relatedTypes, function(relatedType) {
               return '  - ' + relatedType.nameNamespaced;
@@ -262,11 +263,17 @@ module.exports = {
         );
 
         _.each(relatedTypes, function(type) {
+          var namespace;
+          var matches = type.nameNamespaced.match(/^(\w+)\-/);
+          if (matches) {
+            namespace = matches[1];
+          }
           var markdownFile = folder + '/' + type.nameNamespaced + '.md';
           fs.writeFileSync(markdownFile,
             '---\n' +
             'title: "' + type.title + '"\n' +
             'layout: reference\n' +
+            'namespace: ' + namespace + '\n' +
             '---\n' +
             documentExtend(type) +
             documentComments(type.comments) + "\n" +

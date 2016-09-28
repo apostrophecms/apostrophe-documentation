@@ -1,6 +1,7 @@
 ---
 title: "apostrophe-pages (browser)"
 layout: reference
+namespace: browser
 ---
 ## Inherits from: [apostrophe-doc-type-manager](../apostrophe-doc-type-manager/browser-apostrophe-doc-type-manager.html)
 This singleton provides jquery event handlers to trigger various operations

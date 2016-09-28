@@ -1,6 +1,7 @@
 ---
 title: "apostrophe-users-editor-modal (browser)"
 layout: reference
+namespace: browser
 ---
 ## Inherits from: [apostrophe-pieces-editor-modal](../apostrophe-pieces/browser-apostrophe-pieces-editor-modal.html)
 Edit or create a user. Extends the piece editor to suggest full names based on the

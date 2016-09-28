@@ -1,6 +1,7 @@
 ---
 title: "apostrophe-custom-pages (module)"
 layout: reference
+module: true
 children:
   - server-apostrophe-custom-pages-cursor
   - browser-apostrophe-custom-pages

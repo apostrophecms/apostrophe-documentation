@@ -1,6 +1,7 @@
 ---
 title: "apostrophe-docs (browser)"
 layout: reference
+namespace: browser
 ---
 
 ## Methods

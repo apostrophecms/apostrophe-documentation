@@ -1,6 +1,7 @@
 ---
 title: "apostrophe-any-page-manager (module)"
 layout: reference
+module: true
 children:
   - server-apostrophe-any-page-manager-cursor
   - browser-apostrophe-any-page-manager-chooser

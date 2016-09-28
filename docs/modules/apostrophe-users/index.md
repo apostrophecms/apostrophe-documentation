@@ -1,6 +1,7 @@
 ---
 title: "apostrophe-users (module)"
 layout: reference
+module: true
 children:
   - server-apostrophe-users-cursor
   - browser-apostrophe-users-editor-modal

@@ -1,6 +1,7 @@
 ---
 title: "apostrophe-groups (module)"
 layout: reference
+module: true
 children:
   - server-apostrophe-groups-cursor
   - browser-apostrophe-groups

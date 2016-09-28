@@ -1,6 +1,7 @@
 ---
 title: "apostrophe-global (module)"
 layout: reference
+module: true
 children:
   - server-apostrophe-global-cursor
   - browser-apostrophe-global

@@ -1,6 +1,7 @@
 ---
 title: "apostrophe-video-fields (browser)"
 layout: reference
+namespace: browser
 ---
 
 ## Methods

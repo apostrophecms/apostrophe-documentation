@@ -1,6 +1,7 @@
 ---
 title: "apostrophe-tags (module)"
 layout: reference
+module: true
 children:
   - server-apostrophe-tags-cursor
   - browser-apostrophe-tags

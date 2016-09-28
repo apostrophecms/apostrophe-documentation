@@ -1,6 +1,7 @@
 ---
 title: "apostrophe-caches (module)"
 layout: reference
+module: true
 children:
 
 ---

@@ -1,6 +1,7 @@
 ---
 title: "apostrophe-templates (module)"
 layout: reference
+module: true
 children:
 
 ---

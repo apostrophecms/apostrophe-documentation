@@ -1,6 +1,7 @@
 ---
 title: "apostrophe-rich-text-widgets (module)"
 layout: reference
+module: true
 children:
   - browser-apostrophe-rich-text-widgets
   - browser-apostrophe-rich-text-widgets-editor
