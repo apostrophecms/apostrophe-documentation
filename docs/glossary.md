@@ -200,7 +200,7 @@ New chainable methods ("filters") for cursors can be conveniently added using th
 
 Cursors can also be called automatically. Many cursor filters provide a `sanitize` function and have a `safeFor: 'public'` setting. This allows them to be called automatically by the index view of [apostrophe-pieces-pages](/docs/modules/apostrophe-pieces-pages/index.html) when the appropriate query string parameters appear. Often this is the main motivation for adding a filter.
 
-A cursor is always an instance of [apostrophe-cursor](/docs/modules/apostrophe-docs/server-apostrophe-cursor.html) or one of its subclasses. The right way to obtain one is via the `find` method of a doc type manager, such as a module that extends pieces.
+A cursor is always an instance of [apostrophe-cursor](modules/apostrophe-docs/server-apostrophe-cursor.html) or one of its subclasses. The right way to obtain one is via the `find` method of a doc type manager, such as a module that extends pieces.
 
 See [working with cursors](tutorials/intermediate/cursors.md) for more information.
 

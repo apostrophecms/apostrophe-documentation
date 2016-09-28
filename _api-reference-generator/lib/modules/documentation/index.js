@@ -92,7 +92,7 @@ module.exports = {
         'layout: "reference"\n' +
         'children:\n' +
         _.map(modules, indentModule).join("\n") +
-        '\n---\n'
+        '\n---\n' + fs.readFileSync(__dirname + '/../../../../_tip-ins/modules.md')
       );
 
       return callback(null);
