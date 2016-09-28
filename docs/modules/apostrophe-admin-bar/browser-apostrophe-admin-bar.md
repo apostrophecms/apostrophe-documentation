@@ -1,5 +1,6 @@
 ---
 title: "apostrophe-admin-bar (browser)"
+layout: reference
 ---
 
 ## Methods

@@ -1,5 +1,6 @@
 ---
 title: "apostrophe-areas (browser)"
+layout: reference
 ---
 
 ## Methods

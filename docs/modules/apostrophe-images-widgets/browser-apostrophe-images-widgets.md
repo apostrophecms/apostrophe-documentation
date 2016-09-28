@@ -1,5 +1,6 @@
 ---
 title: "apostrophe-images-widgets (browser)"
+layout: reference
 ---
 ## Inherits from: [apostrophe-pieces-widgets](../apostrophe-pieces-widgets/browser-apostrophe-pieces-widgets.html)
 example of a widget manager with a play method.

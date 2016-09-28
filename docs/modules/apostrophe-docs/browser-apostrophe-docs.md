@@ -1,5 +1,6 @@
 ---
 title: "apostrophe-docs (browser)"
+layout: reference
 ---
 
 ## Methods

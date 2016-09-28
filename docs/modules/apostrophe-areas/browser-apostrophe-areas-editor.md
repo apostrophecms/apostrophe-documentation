@@ -1,5 +1,6 @@
 ---
 title: "apostrophe-areas-editor (browser)"
+layout: reference
 ---
 ## Inherits from: [apostrophe-context](../apostrophe-utils/browser-apostrophe-context.html)
 editor for an area. See enableAreas() method

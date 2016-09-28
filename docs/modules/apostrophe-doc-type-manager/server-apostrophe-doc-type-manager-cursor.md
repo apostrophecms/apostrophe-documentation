@@ -1,5 +1,6 @@
 ---
 title: "apostrophe-doc-type-manager-cursor (server)"
+layout: reference
 ---
 Cursor for fetching docs of this specific type. The `afterConstruct`
 method locks the results down to this type by calling the

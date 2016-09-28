@@ -1,5 +1,6 @@
 ---
 title: "apostrophe-images-chooser (browser)"
+layout: reference
 ---
 ## Inherits from: [apostrophe-pieces-chooser](../apostrophe-pieces/browser-apostrophe-pieces-chooser.html)
 When choosing images, autocomplete by title is not a sensible primary

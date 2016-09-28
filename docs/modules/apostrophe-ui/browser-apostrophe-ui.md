@@ -1,5 +1,6 @@
 ---
 title: "apostrophe-ui (browser)"
+layout: reference
 ---
 Provides apos.ui, a singleton that provides user interface features
 used throughout Apostrophe on the browser side.

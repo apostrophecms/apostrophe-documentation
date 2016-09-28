@@ -1,5 +1,6 @@
 ---
 title: "apostrophe-pieces-manager-modal (browser)"
+layout: reference
 ---
 ## Inherits from: [apostrophe-modal](../apostrophe-modal/browser-apostrophe-modal.html)
 A "manage" modal for pieces, displaying them list and/or grid views and providing

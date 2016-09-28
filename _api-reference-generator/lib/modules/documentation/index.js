@@ -266,6 +266,7 @@ module.exports = {
           fs.writeFileSync(markdownFile,
             '---\n' +
             'title: "' + type.title + '"\n' +
+            'layout: reference\n' +
             '---\n' +
             documentExtend(type) +
             documentComments(type.comments) + "\n" +

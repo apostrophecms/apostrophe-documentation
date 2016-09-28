@@ -1,5 +1,6 @@
 ---
 title: "apostrophe-versions (browser)"
+layout: reference
 ---
 ## Inherits from: [apostrophe-context](../apostrophe-utils/browser-apostrophe-context.html)
 A singleton that provides a jQuery click handler to open the

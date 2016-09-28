@@ -1,5 +1,6 @@
 ---
 title: "apostrophe-versions-editor (browser)"
+layout: reference
 ---
 ## Inherits from: [apostrophe-modal](../apostrophe-modal/browser-apostrophe-modal.html)
 A modal that displays a list of past versions and allows the user

@@ -54,6 +54,6 @@ $(function() {
   });
 
   if ($('.current-page')) {
-    $('.sidebar').animate({scrollTop: $('.current-page').position().top - 25});
+    $('.sidebar').animate({scrollTop: $('.current-page').position().top - 25}, 200, 'linear');
   }
 });

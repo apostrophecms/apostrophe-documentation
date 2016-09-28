@@ -1,5 +1,6 @@
 ---
 title: "apostrophe-widgets (browser)"
+layout: reference
 ---
 ## Inherits from: [apostrophe-context](../apostrophe-utils/browser-apostrophe-context.html)
 `apostrophe-widgets` is a parent class for the browser-side managers of
