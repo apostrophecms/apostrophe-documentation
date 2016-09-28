@@ -37,3 +37,34 @@
     margin: 1rem 0;
   }
 }
+
+.cards
+{
+  width: 100%;
+  margin: 0 -9px;
+  font-size: 0px;
+
+  .card
+  {
+    vertical-align: top;
+    display: inline-block;
+    width: calc(~"50% - 18px");
+    margin: 18px 9px;
+    font-size: 1rem;
+    background: @white;
+    padding: 3em 3em 2em 3em;
+    border: 1px solid fade(@dark, 15%);
+
+    a
+    {
+      color: @green; font-weight: bold;
+
+      &:hover { text-decoration: underline; }
+    }
+
+    h4 { text-align: center; }
+    &.tutorials h4, &.reference h4 { padding-top: 96px; background-repeat: no-repeat; background-position: 50% top; }
+    &.tutorials h4 { background-image: url('../images/illustration-tutorials.svg') }
+    &.reference h4 { background-image: url('../images/illustration-reference.svg') }
+  }
+}
