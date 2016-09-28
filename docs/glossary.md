@@ -2,6 +2,7 @@
 title: "Glossary"
 menu: "Documentation"
 children: []
+layout: "reference"
 ---
 
 First, check out the [tutorials](/docs/tutorials/index.html) if you haven't already. They explain all of these concepts in greater depth.
