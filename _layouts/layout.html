@@ -22,7 +22,7 @@
                 {% if child.namespace == namespace.value %}
                   <li class="sidebar-item{% if url == child.url %} current-page{% endif %}">
                     {% if url == child.url %}
-                      {{ child.title | e }}
+                      <span class="label">{{ child.title | e }}</span>
                     {% else %}
                       <a href="{{ root }}{{ child.url }}">{{ child.title | e }}</a>
                     {% endif %}

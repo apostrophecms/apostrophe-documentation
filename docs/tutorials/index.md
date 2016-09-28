@@ -5,6 +5,7 @@ children:
   - intermediate
   - howtos
 menu: "Documentation"
+layout: "reference"
 ---
 
 ## Getting Started

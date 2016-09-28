@@ -1,5 +1,6 @@
 ---
 title: "More modules"
+layout: "reference"
 ---
 
 *This page is about optional modules for Apostrophe. For the standard modules, see the [reference](modules/index.html).*
