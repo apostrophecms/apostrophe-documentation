@@ -1,6 +1,6 @@
 ---
 title: "Roadmap"
-headerClass: "landing landing--support"
+headerClass: "header--support"
 ---
 
 ## Apostrophe roadmap and long term support policy

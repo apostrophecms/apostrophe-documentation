@@ -1,14 +1,19 @@
 {% extends "default.html" %}
 
-{% block bodyClass %}landing landing--documentation{% endblock %}
-{% block headerClass %}landing landing--documentation{% endblock %}
+{% block bodyClass %}landing header--documentation{% endblock %}
+{% block headerClass %}landing header--documentation{% endblock %}
+
+{% block header %}
+  {{ super() }}
+  <div class="landing-illustration landing-illustration--documentation"></div>
+{% endblock %}
 
 {% block extraHeader%}
   <div class="extra-header">
     <div class="inner">
       <div class="welcome">
         <h3>Welcome to the Apostrophe documentation!</h3>
-        <p>Read our tutorials, explore the full API documentation, or check out the glossary. We sure hope you enjoy it.</p>
+        <p>Read our tutorials, explore the full API documentation, or check out the glossary.</p>
       </div>
     </div>
   </div>

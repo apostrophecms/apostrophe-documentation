@@ -1,7 +1,12 @@
 {% extends "default.html" %}
 
-{% block bodyClass %}landing landing--support{% endblock %}
-{% block headerClass %}landing landing--support{% endblock %}
+{% block bodyClass %}landing header--support{% endblock %}
+{% block headerClass %}landing header--support{% endblock %}
+
+{% block header %}
+  {{ super() }}
+  <div class="landing-illustration landing-illustration--support"></div>
+{% endblock %}
 
 {% block extraHeader%}
   <div class="extra-header">
