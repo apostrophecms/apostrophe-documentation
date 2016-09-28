@@ -19,6 +19,15 @@
   .breadcrumb
   {
     padding-bottom: 75px;
+    font-size: 1rem;
+
+    max-width: @inner;
+    position: absolute;
+    top: 36px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
 
     a
     {
@@ -29,6 +38,7 @@
       &:first-child { margin-left: 0; }
     }
   }
+  .home .breadcrumb { display: none; }
 
   .doc-type
   {
@@ -83,14 +93,26 @@
 
     background-color: fade(#000000, 10%);
   }
+
+  &.header--documentation
+  {
+    background-color: @purple;
+  }
+  &.header--support
+  {
+    background-color: @magenta;
+  }
+  &.header--community
+  {
+    background-color: @gold;
+  }
 }
 
 .header.landing
 {
-  background-color: @red;
-  padding: 4rem inherit;
+  padding: 200px 0;
 
-  &.landing--home
+  &.header--home
   {
     &::before { display: none; }
 
@@ -109,19 +131,6 @@
     }
   }
 
-  &.landing--documentation
-  {
-    background-color: @purple;
-  }
-  &.landing--support
-  {
-    background-color: @magenta;
-  }
-  &.landing--community
-  {
-    background-color: @gold;
-  }
-
   .landing-illustration
   {
     bakground-position: center;
@@ -133,6 +142,42 @@
       height: 268px;
       background-size: 1144px 268px;
       background-image: url('../images/home-illustration.png');
+    }
+    &.landing-illustration--documentation
+    {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      margin-top: -142px;
+
+      width: 467px;
+      height: 284px;
+      background-size: 467px 284px;
+      background-image: url('../images/illustration-documentation.svg');
+    }
+    &.landing-illustration--support
+    {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      margin-top: -142px;
+
+      width: 466px;
+      height: 284px;
+      background-size: 466px 284px;
+      background-image: url('../images/illustration-support.svg');
+    }
+    &.landing-illustration--community
+    {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      margin-top: -142px;
+
+      width: 466px;
+      height: 284px;
+      background-size: 466px 284px;
+      background-image: url('../images/illustration-community.svg');
     }
   }
 

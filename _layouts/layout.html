@@ -124,11 +124,11 @@
     </div>
   {%- endblock -%}
   <div class="header {{ headerClass }} {% block headerClass %}{% endblock %}">
+    <div class="breadcrumb">
+      {% for page in ancestors %}<a href="{{ root }}{{ page.url }}">{{ page.title }}</a>{{ ' &gt; ' if page.url != url }}{% endfor %}
+    </div>
     <div class="inner {% block headerInnerClass %}{% endblock %}">
       {% block header %}
-        <div class="breadcrumb">
-          {% for page in ancestors %}<a href="{{ root }}{{ page.url }}">{{ page.title }}</a>{{ ' &gt; ' if page.url != url }}{% endfor %}
-        </div>
         <div class="doc-type">
           <div class="type-image {{ typeCheck() }} {{ docTypeClass() }}"></div>
         </div>
