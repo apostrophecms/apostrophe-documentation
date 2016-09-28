@@ -75,7 +75,6 @@
     height: 8px;
 
     background-color: fade(#000000, 10%);
-
   }
 }
 
@@ -84,49 +83,36 @@
   background-color: @red;
   padding: 4rem inherit;
 
+  &.landing--home
+  {
+    &::before { display: none; }
 
-  &.landing--developer
-  {
-    //This will eventually be blue
-    background-color: @red;
-  }
-  &.landing--editor
-  {
-    //This will eventually be blue
-    background-color: @green;
-  }
+    background-color: @white;
+    text-align: center;
 
-  .landing-text-outer
-  {
-    display: table;
-    height: 380px;
-  }
+    h2 { font-size: 3rem; color: @green; margin-bottom: 10px; }
+    h3 { font-size: 1.3rem; color: fade(@dark, 75%); }
 
-  .landing-text-inner
-  {
-    display: table-cell;
-    vertical-align: middle;
+    .landing-buttons
+    {
+      margin: 60px 0;
+
+      .landing-button { color: @green; border: 1px solid @green; margin: 0 5px; }
+      .landing-button:hover { background-color: @green; color: @white; }
+    }
   }
 
   .landing-illustration
   {
-    float: left;
-    margin-right: 4rem;
-
-    width: 377px;
-    height: 380px;
-    background-size: 377px 380px;
     bakground-position: center;
     background-repeat: no-repeat;
-    &.landing-illustration--developer
+
+    &.landing-illustration--home
     {
+      width: 1144px;
+      height: 268px;
+      background-size: 1144px 268px;
       background-image: url('../images/home-illustration.png');
-    }
-    &.landing-illustration--editor
-    {
-      float: right;
-      background-image: url('../images/editor-illustration.png');
-      background-size: 377px 308px;
     }
   }
 
@@ -140,16 +126,17 @@
   .landing-button
   {
     .inline-block(top);
-    padding: 0.75rem 1rem;
+    padding: 1.5rem 2rem;
 
     border: 1px solid @white;
-    border-radius: 2px;
+    border-radius: 3px;
 
     .Karla();
-    font-size: 1.25rem;
+    font-size: 1rem;
+    font-weight: bold;
     color: @white;
 
-    .transition(background-color 0.06s, color 0.06s;);
+    .transition(all 0.06s);
 
     &:hover
     {
@@ -167,9 +154,9 @@
 // ---------------------------------------------------------------
 .extra-header
 {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  background-color: fade(#000000, 10%);
+  padding-top: 5rem;
+  width: 50%;
+  margin: 0 auto;
 
   //Handle this code snippet instance differently
   pre

@@ -3,32 +3,33 @@
 {% block topOfContent %}
 {% endblock %}
 
-{% block bodyClass %}landing landing--developer{% endblock %}
-{% block headerClass %}landing landing--developer clearfix{% endblock %}
+{% block bodyClass %}landing landing--home{% endblock %}
+{% block headerClass %}landing landing--home clearfix{% endblock %}
 {% block headerInnerClass %}clearfix{% endblock %}
 
 {% block header %}
-  <div class="landing-illustration landing-illustration--developer"></div>
-  <div class="landing-text-outer">
-    <div class="landing-text-inner">
-      <h3>Apostrophe is a content management system that helps you stay on mission.</h3>
+  <div class="landing-text">
+    <h2>Apostrophe 2.x is in the building.</h2>
+    <h3>Apostrophe is a content management system that helps you stay on mission.</h3>
+    <div class="landing-buttons">
+      <a href="https://groups.google.com/forum/#!topic/apostrophenow/vCb9-cZVL5I" class="landing-button">Read the Announcement</a>
       <a href="http://demo.apostrophenow.com" class="landing-button">Try the Live Demo</a>
     </div>
   </div>
-
+  <div class="landing-illustration landing-illustration--home"></div>
 {% endblock %}
 
 {% block extraHeader%}
-<div class="extra-header">
-  <div class="inner">
-    <h3 style="margin-bottom: 1rem;">You can start building with Apostrophe right now.</h3>
-    <pre>
-      <code>
-        <span class="red">$</span> npm install apostrophe-cli -g
-        <span class="red">$</span> apostrophe create &lt;project-name&gt;
-      </code>
-    </pre>
-    <p style="margin-top: 1rem;">Don't know what <strong>npm</strong> means? Don't have <strong>Mongo</strong> and <strong>Imagemagick</strong>? Check out our <a href="tutorials/getting-started/index.html">Getting Started</a> tutorial.</p>
+  <div class="extra-header">
+    <div class="inner">
+      <h3 style="margin-bottom: 1rem;">You can start building with Apostrophe right now.</h3>
+      <pre>
+        <code>
+          <span class="red">$</span> npm install apostrophe-cli -g
+          <span class="red">$</span> apostrophe create &lt;project-name&gt;
+        </code>
+      </pre>
+      <p style="margin-top: 1rem;">Don't know what <strong>npm</strong> means? Don't have <strong>Mongo</strong> and <strong>Imagemagick</strong>? Check out our <a href="tutorials/getting-started/index.html">Getting Started</a> tutorial.</p>
+    </div>
   </div>
-</div>
 {% endblock %}
