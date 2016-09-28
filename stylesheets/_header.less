@@ -111,6 +111,10 @@
 .header.landing
 {
   padding: 200px 0;
+  
+  @media screen and (max-width: 490px) {
+    padding-top: 90px;
+  }
 
   &.header--home
   {
@@ -128,6 +132,14 @@
 
       .landing-button { color: @green; border: 1px solid @green; margin: 0 5px; }
       .landing-button:hover { background-color: @green; color: @white; }
+      @media screen and (max-width: 485px)
+      {
+        .landing-button
+        {
+          display: block;
+          margin: 1rem 2rem;
+        }
+      }
     }
   }
 
@@ -142,6 +154,12 @@
       height: 268px;
       background-size: 1144px 268px;
       background-image: url('../images/home-illustration.png');
+      background-position: center;
+      max-width: 100%;
+      background-size: contain;
+      @media screen and (max-width: 760px) {
+        background-size: cover;
+      }
     }
     &.landing-illustration--documentation
     {
@@ -223,6 +241,11 @@
   width: 50%;
   margin: 0 auto;
   color: @dark;
+
+  @media screen and (max-width:1140px)
+  {
+    width: 80%;
+  }
 
   h3 { margin-bottom: .25em; }
 
