@@ -2,6 +2,8 @@
 title: "apostrophe-caches (module)"
 layout: reference
 module: true
+namespaces:
+
 children:
 
 ---

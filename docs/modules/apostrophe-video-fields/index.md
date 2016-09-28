@@ -2,6 +2,8 @@
 title: "apostrophe-video-fields (module)"
 layout: reference
 module: true
+namespaces:
+  browser: true
 children:
   - browser-apostrophe-video-fields
 ---

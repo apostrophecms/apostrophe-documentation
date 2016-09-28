@@ -2,6 +2,9 @@
 title: "apostrophe-pages (module)"
 layout: reference
 module: true
+namespaces:
+  server: true
+  browser: true
 children:
   - server-apostrophe-pages-cursor
   - browser-apostrophe-pages

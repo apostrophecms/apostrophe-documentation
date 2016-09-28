@@ -49,7 +49,7 @@ $(function() {
     $('.current-page').append($ul);
     $ul.prepend('<li class="on-this-page">On this page</li>');
   }
-  $('.sidebar-item a').each(function() {
+  $('.sidebar-item a, .sidebar-item > span.label').each(function() {
     $(this).text($(this).text().replace(/ \(.*?\)\s*$/, ''));
   });
 

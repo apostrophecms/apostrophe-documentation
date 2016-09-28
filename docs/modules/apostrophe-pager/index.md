@@ -2,6 +2,8 @@
 title: "apostrophe-pager (module)"
 layout: reference
 module: true
+namespaces:
+
 children:
 
 ---

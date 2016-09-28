@@ -15,24 +15,26 @@
         }
        ] %}
       {% for namespace in namespaces %}
-        <li class="sidebar-namespace {{ namespace.value }}">{{ namespace.label }}</li>
-          <ul class="sidebar-namespace-items">
-            {% for child in ancestors[currentIndex].children %}
-              {% if child.namespace == namespace.value %}
-                <li class="sidebar-item{% if url == child.url %} current-page{% endif %}">
-                  {% if url == child.url %}
-                    {{ child.title | e }}
-                  {% else %}
-                    <a href="{{ root }}{{ child.url }}">{{ child.title | e }}</a>
-                  {% endif %}
-                  {% if currentIndex < (ancestors.length - 1) and child.url == ancestors[currentIndex + 1].url %}
-                    {{ buildMenuTree(currentIndex + 1) }}
-                  {% endif %}
-                </li>
-              {% endif %}
-            {% endfor %}
-          </ul>
-        </li>
+        {% if ancestors[currentIndex].namespaces[namespace.value] %}
+          <li class="sidebar-namespace {{ namespace.value }}">{{ namespace.label }}</li>
+            <ul class="sidebar-namespace-items">
+              {% for child in ancestors[currentIndex].children %}
+                {% if child.namespace == namespace.value %}
+                  <li class="sidebar-item{% if url == child.url %} current-page{% endif %}">
+                    {% if url == child.url %}
+                      <span class="label">{{ child.title | e }}</span>
+                    {% else %}
+                      <a href="{{ root }}{{ child.url }}">{{ child.title | e }}</a>
+                    {% endif %}
+                    {% if currentIndex < (ancestors.length - 1) and child.url == ancestors[currentIndex + 1].url %}
+                      {{ buildMenuTree(currentIndex + 1) }}
+                    {% endif %}
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </li>
+        {% endif %}
       {% endfor %}
     {% else %}
       {% for child in ancestors[currentIndex].children %}

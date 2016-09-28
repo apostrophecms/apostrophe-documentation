@@ -2,6 +2,8 @@
 title: "apostrophe-launder (module)"
 layout: reference
 module: true
+namespaces:
+
 children:
 
 ---

@@ -2,6 +2,8 @@
 title: "apostrophe-video-widgets (module)"
 layout: reference
 module: true
+namespaces:
+  browser: true
 children:
   - browser-apostrophe-video-widgets
   - browser-apostrophe-video-widgets-editor

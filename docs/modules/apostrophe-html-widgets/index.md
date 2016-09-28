@@ -2,6 +2,8 @@
 title: "apostrophe-html-widgets (module)"
 layout: reference
 module: true
+namespaces:
+  browser: true
 children:
   - browser-apostrophe-html-widgets
   - browser-apostrophe-html-widgets-editor

@@ -2,6 +2,8 @@
 title: "apostrophe-login (module)"
 layout: reference
 module: true
+namespaces:
+
 children:
 
 ---

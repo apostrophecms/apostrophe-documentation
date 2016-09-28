@@ -2,6 +2,8 @@
 title: "apostrophe-i18n (module)"
 layout: reference
 module: true
+namespaces:
+
 children:
 
 ---

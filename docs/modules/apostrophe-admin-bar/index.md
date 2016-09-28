@@ -2,6 +2,8 @@
 title: "apostrophe-admin-bar (module)"
 layout: reference
 module: true
+namespaces:
+  browser: true
 children:
   - browser-apostrophe-admin-bar
 ---

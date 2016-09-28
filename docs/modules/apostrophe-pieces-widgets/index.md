@@ -2,6 +2,8 @@
 title: "apostrophe-pieces-widgets (module)"
 layout: reference
 module: true
+namespaces:
+  browser: true
 children:
   - browser-apostrophe-pieces-widgets-editor
   - browser-apostrophe-pieces-widgets

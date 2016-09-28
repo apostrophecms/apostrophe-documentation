@@ -2,6 +2,8 @@
 title: "apostrophe-modal (module)"
 layout: reference
 module: true
+namespaces:
+  browser: true
 children:
   - browser-apostrophe-modal
 ---
