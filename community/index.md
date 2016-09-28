@@ -3,9 +3,17 @@ title: "Community"
 layout: "default"
 ---
 
+## Answers to your "how do I..." questions
+
+First, read the [tutorials](../docs/tutorials/index.html) and check out the [HOWTOs](../docs/tutorials/howtos/index.html). New HOWTOs are added often.
+
+If you're still stuck, [check out existing questions and answers on Stack Overflow](http://stackoverflow.com/questions/tagged/apostrophe-cms).
+
+If you don't see your question, try [asking a new question on Stack Overflow](http://stackoverflow.com/questions/ask?tags=apostrophe-cms).
+
 ## Forum
 
-Check out the [Apostrophe google group](https://groups.google.com/forum/#!forum/apostrophenow).
+Want to discuss the future of Apostrophe and your plans for it or just chat with fellow Apostrophe developers? Check out the [Apostrophe google group](https://groups.google.com/forum/#!forum/apostrophenow).
 
 ## Github
 
