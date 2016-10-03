@@ -6,7 +6,6 @@ children:
   - notFoundPage
   - search
   - admin-bar
-  - model-layer
   - children-and-joins
   - adding-fields-to-all-pieces
   - multicore
