@@ -85,19 +85,23 @@ Open up `lib/modules/apostrophe-pages/views/pages/home.html` in your text editor
 {% endblock %}
 ```
 
+### Restarting your site
+
 **Now restart the site** so you can see the impact of the changes:
 
-1. Press "control-C" in your terminal window.
+1. Press "control-C" in the terminal window where `node app.js` is running. (You need to leave it running as long as your site is up. In production, there are other ways, which we'll cover later.)
 
-2. Type `node app.js` and press enter to restart.
+2. Run `node app.js` again (tip: just press the up arrow, then enter).
 
 3. Refresh the browser.
+
+### Working with areas
 
 Hey, what's this new button about?
 
 <img src="/images/tutorial-plus-button.png" class="shadow">
 
-### Adding rich text
+#### Adding rich text
 
 Click the "+" sign and pick "rich text." You're presented with a friendly editor:
 
@@ -105,7 +109,7 @@ Click the "+" sign and pick "rich text." You're presented with a friendly editor
 
 Edit as you see fit and try refreshing your page. Notice that your changes have already been saved. *There is no save button because saving is automatic.*
 
-### Adding a slideshow
+#### Adding a slideshow
 
 Now let's add a slideshow. Click *outside* the rich text editor and you'll see two new "+" signs: one above the text and one below it. Click either one and pick "Image(s)".
 
@@ -129,6 +133,6 @@ Now click "Save Choices" and boom: slideshow!
 
 <img src="/images/tutorial-slideshow.gif" class="shadow">
 
-### "Whoa, this is cool! But... what did I just do?"
+## "Whoa, this is cool! But... what did I just do?"
 
 Great question! Now that we've had our "whoa" moment, let's break it all down.
