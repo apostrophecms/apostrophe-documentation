@@ -44,7 +44,7 @@ You now have a test project up and running! You should be able to visit `localho
 
 ### Logging in
 
-We can login through the browser at `http://localhost:3000/login`.
+We can login through the browser at `http://localhost:3000/login`. **Use the password you chose a moment ago** when you ran the `apostrophe-users:add` task (see above).
 
 Once logged in, we are redirected to the home page once again, but with two additional elements present: an admin bar floating over the top left of the page and a page menu floating over the bottom left.
 
