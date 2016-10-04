@@ -38,7 +38,7 @@ node app.js apostrophe-users:add admin admin
 node app.js
 ```
 
-You now have a test project up and running! You should be able to visit `localhost:3000` and view your site. You'll see a very simple home page... too simple! We'll fix that in a moment by adding more page types and some editable areas.
+You now have a test project up and running! You should be able to visit `http://localhost:3000` and view your site. You'll see a very simple home page... too simple! We'll fix that in a moment by adding more page types and some editable areas.
 
 <img src="/images/tutorials/developer/boilerplate_loggedout.png" class="shadow">
 
