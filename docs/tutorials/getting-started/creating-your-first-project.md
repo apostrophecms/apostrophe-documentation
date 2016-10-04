@@ -32,6 +32,8 @@ With the project created, you just need to jump in, install the dependencies, an
 cd test-project
 # Install our dependencies (most notably, Apostrophe)
 npm install
+# Add an admin user to the admin group; prompts for password
+node app.js apostrophe-users:add admin admin
 # Go go go!
 node app.js
 ```
@@ -40,67 +42,93 @@ You now have a test project up and running! You should be able to visit `localho
 
 <img src="/images/tutorials/developer/boilerplate_loggedout.png" class="shadow">
 
-In order to take advantage of Apostrophe's editing capabilities, you'll want to create an admin user, which can be done  through the command line. This task will prompt you to create a password.
+### Logging in
 
-```bash
-node app.js apostrophe-users:add admin admin
-```
+We can login through the browser at `http://localhost:3000/login`.
 
-This creates a user named `admin` in the `admin` group. Now that we've created a user, we can login through your browser at `localhost:3000/login`.
-
-Once logged in, be redirected to the home page once again, but with two additional elements present: an admin bar floating over the top left of the page and a page menu floating over the bottom left.
+Once logged in, we are redirected to the home page once again, but with two additional elements present: an admin bar floating over the top left of the page and a page menu floating over the bottom left.
 
 <img src="/images/tutorials/developer/boilerplate_loggedin.png" class="shadow">
 
-### Project Orientation
+### Let's make it interesting
 
-#### app.js
+Now let's make it more interesting! Time to add an editable content area to the page.
 
-Apostrophe's main configuration file. This is the file that fires up Apostrophe with a given configuration, and is where you can specify what modules you want to be present in your project. Additionally, you can configure individual modules in this file.
+Open up `lib/modules/apostrophe-pages/views/pages/home.html` in your text editor and just add an `apos.area` call:
 
-Some modules are always a part of Apostrophe whether you configure them or not. You may create more to meet the needs of your project.
+```markup
+{% extends data.outerLayout %}
 
-More on modules in a second...
-
-#### lib/modules: modules in Apostrophe
-
-Apostrophe is a modular content management system: each meaningful component is broken into its own module, which can then be interacted with or subclassed (extended) by other modules in the system. Under the hood, modules are powered by [moog](https://github.com/punkave/moog) and [moog-require](https://github.com/punkave/moog-require), but you don't have to understand that just to build a great website.
-
-The `lib/modules` folder is where modules created for your own project live. And it is also where you can "subclass" (i.e. configure or improve upon) Apostrophe's own modules, whether part of the apostrophe npm module's core or packaged in separate npm modules.
-
-You'll notice two modules that are extended in your test project's `lib/modules` folder, `apostrophe-assets` and `apostrophe-pages`. `apostrophe-assets` gets some custom [LESS CSS](http://lesscss.org/features/) files, while `apostrophe-pages` contains page templates. We'll look at those in a minute.
-
-**Apostrophe modules and npm modules are not the same thing.** One npm module might package several Apostrophe modules that are maintained together as a "bundle." You'll see this later when you install the `apostrophe-blog` npm module.
-
-##### lib/modules/apostrophe-assets
-
-This module is responsible for pushing front-end assets to the website. In `app.js` we configure the module:
-
-```javascript
-    // This configures the apostrophe-assets module to push a 'site.less'
-    // stylesheet by default
-    'apostrophe-assets': {
-      stylesheets: [
-        {
-          name: 'site'
+{% block title %}Home{% endblock %}
+{% block main %}
+  <div class="main-content">
+    <h3>Hello world!
+      <a class="login-link" href="/login">Login</a>
+    </h3>
+    <p>This is a very barebones Apostrophe project. Now, get to work and make a real website!</p>
+    {{ apos.area(data.page, 'body', {
+      widgets: {
+        'apostrophe-images': {
+          size: 'full'
+        },
+        'apostrophe-rich-text': {
+          toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+          styles: [
+            { name: 'Heading', element: 'h3' },
+            { name: 'Subheading', element: 'h4' },
+            { name: 'Paragraph', element: 'p' }
+          ]
         }
-      ]
-    }
+      }
+    }) }}
+  </div>
+{% endblock %}
 ```
 
-This asks Apostrophe to include the [LESS CSS](http://lesscss.org/features/) file:
+**Now restart the site** so you can see the impact of the changes:
 
-`lib/modules/apostrophe-assets/public/css/site.less`
+1. Press "control-C" in your terminal window.
 
-In your project's frontend build.
+2. Type `node app.js` and press enter to restart.
 
-If you want more LESS files, you could add them to the `stylesheets` array above. But most developers prefer to use `@import` in their `site.less`:
+3. Refresh the browser.
 
-```css
-// Import a reset stylesheet
-@import 'reset.less';
-```
+Hey, what's this new button about?
 
-### Moving On
+<img src="/images/tutorial-plus-button.png" class="shadow">
 
-We'll cover more configuration in a moment. First let's look at how to edit page templates and add editable content.
+### Adding rich text
+
+Click the "+" sign and pick "rich text." You're presented with a friendly editor:
+
+<img src="/images/tutorial-rich-text-editor.png" class="shadow">
+
+Edit as you see fit and try refreshing your page. Notice that your changes have already been saved. *There is no save button because saving is automatic.*
+
+### Adding a slideshow
+
+Now let's add a slideshow. Click *outside* the rich text editor and you'll see two new "+" signs: one above the text and one below it. Click either one and pick "Image(s)".
+
+You'll see the image library, which is initially empty:
+
+<img src="/images/tutorial-images-library.png" class="shadow">
+
+Click the "New Image" button at upper right and you'll see:
+
+<img src="/images/tutorial-new-image.png" class="shadow">
+
+Click "Upload File" to pick a GIF, JPEG or PNG file to upload from your computer. Also fill out the title field. Then click "Save Image."
+
+Click "New Image" again and upload a second file. Then check the box next to each of them:
+
+<img src="/images/tutorial-select-images.png" class="shadow">
+
+(As you check them off you'll see them appear at left in the "chosen items" area.)
+
+Now click "Save Choices" and boom: slideshow!
+
+<img src="/images/tutorial-slideshow.gif" class="shadow">
+
+### "Whoa, this is cool! But... what did I just do?"
+
+Great question! Now that we've had our "whoa" moment, let's break it all down.
