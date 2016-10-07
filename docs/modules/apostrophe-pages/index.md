@@ -10,6 +10,7 @@ children:
   - browser-apostrophe-pages
   - browser-apostrophe-pages-editor
   - browser-apostrophe-pages-editor-update
+  - browser-apostrophe-pages-editor-copy
   - browser-apostrophe-pages-reorganize
 ---
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
@@ -383,6 +384,11 @@ Fetch data needed to edit and ultimately insert a page
 Fetch data needed to edit and ultimately update a page
 ### POST /modules/apostrophe-pages/update
 
+### POST /modules/apostrophe-pages/fetch-to-copy
+Fetch data needed to copy a page. Currently identical to fetch-to-update
+### POST /modules/apostrophe-pages/copy
+Fetch data needed to insert a copied page. Currently identical to insert
+except that the parent page id is determined differently
 ### POST /modules/apostrophe-pages/move
 
 ### POST /modules/apostrophe-pages/move-to-trash
