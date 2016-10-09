@@ -149,13 +149,13 @@ In a template.
 
 In 0.5, making a new type of widget was a pain. So we created `apostrophe-schema-widgets`, which allowed you to whip up a bunch of custom widgets... but you could only take it so far.
 
-In 2.x, [every widget is powered by a module that extends `apostrophe-widgets`](reference/apostrophe-widgets/index.html). You can do that too. And all widgets support schemas "out of the box."
+In 2.x, [every widget is powered by a module that extends `apostrophe-widgets`](modules/apostrophe-widgets/index.html). You can do that too. And all widgets support schemas "out of the box."
 
 See the [custom widget tutorial](tutorials/getting-started/custom-widgets.html) for an example.
 
 ### The `slideshow` widget is now the `apostrophe-images` widget
 
-Just for clarity's sake, and for parallelism with the [apostrophe-images](reference/apostrophe-images/index.html) subclass of [apostrophe-pieces](reference/apostrophe-pieces/index.html), which it partners with.
+Just for clarity's sake, and for parallelism with the [apostrophe-images](modules/apostrophe-images/index.html) subclass of [apostrophe-pieces](modules/apostrophe-pieces/index.html), which it partners with.
 
 ### The `file` widget is now the `apostrophe-files` widget... you get the idea
 
@@ -228,7 +228,7 @@ In 0.5, the `apostrophe-blog-2` module provided an option for creating "blogs" a
 
 In 2.x, the first problem is easily solved by setting the `contextual` option to `true` when extending `apostrophe-pieces` to create your own module. When you set `contextual: true`, you are redirected to the "show page" for a particular piece as soon as you finish setting its title, et cetera. You can then use `apos.area` calls in the `show.html` template to present an interface for editing the actual body of the blog post "in context."
 
-The second problem has no "baked-in" solution yet in 2.x. We will certainly be examining the issue as we encounter projects that call for it. However, note that you can use [apostrophe-custom-pages](reference/apostrophe-custom-pages/index.html) to build your own solutions, especially with the new `dispatch` method.
+The second problem has no "baked-in" solution yet in 2.x. We will certainly be examining the issue as we encounter projects that call for it. However, note that you can use [apostrophe-custom-pages](modules/apostrophe-custom-pages/index.html) to build your own solutions, especially with the new `dispatch` method.
 
 ### The `minify` option has moved
 
@@ -264,7 +264,7 @@ Again... it's always part of configuring a module.
 
 Currently every valid page type *must* appear for the `types` option.
 
-Also check out the new `park` option for the [apostrophe-pages](reference/apostrophe-pages/index.html) module:
+Also check out the new `park` option for the [apostrophe-pages](modules/apostrophe-pages/index.html) module:
 
 ```javascript
   park: [

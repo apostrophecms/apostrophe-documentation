@@ -11,11 +11,11 @@ Just to recap, a schema is simply an array of objects that define the fields tha
 
 Schemas don't just power the database on the back end. They also generate friendly user interfaces for creating and editing content in Apostrophe. This is why many projects that are time-consuming when coded from scratch only take half an hour with Apostrophe.
 
-The [apostrophe-schemas](../../reference/apostrophe-schemas/index.html) module provides powerful tools for working with schemas, but 99% of the time we use them automatically by extending [apostrophe-pieces](../../reference/apostrophe-pieces/index.html), [apostrophe-widgets](../../reference/apostrophe-widgets/index.html) or [apostrophe-custom-pages](../../reference/apostrophe-custom-pages/index.html). They can also be used directly in custom projects.
+The [apostrophe-schemas](../../modules/apostrophe-schemas/index.html) module provides powerful tools for working with schemas, but 99% of the time we use them automatically by extending [apostrophe-pieces](../../modules/apostrophe-pieces/index.html), [apostrophe-widgets](../../modules/apostrophe-widgets/index.html) or [apostrophe-custom-pages](../../modules/apostrophe-custom-pages/index.html). They can also be used directly in custom projects.
 
 ### Building schemas with `addFields` and friends
 
-Modules like [apostrophe-pieces](../../reference/apostrophe-pieces/index.html) pass on their `addFields`, `removeFields`, `alterFields` and `arrangeFields` options to the `compose` method of [apostrophe-schemas#compose](../../reference/apostrophe-schemas/index.html). And the beautiful thing about `compose` is how easy it becomes to create the schema you want, adding fields here, removing fields there and arranging them into tabs to suit your needs.
+Modules like [apostrophe-pieces](../../modules/apostrophe-pieces/index.html) pass on their `addFields`, `removeFields`, `alterFields` and `arrangeFields` options to the `compose` method of [apostrophe-schemas#compose](../../modules/apostrophe-schemas/index.html). And the beautiful thing about `compose` is how easy it becomes to create the schema you want, adding fields here, removing fields there and arranging them into tabs to suit your needs.
 
 `addFields` is simply an array of field definitions as seen below; if a field appears more than once, the later definition wins.
 
@@ -51,7 +51,7 @@ This makes it easy to arrange and then re-arrange the groups in subclasses witho
 
 ### Using `beforeConstruct` to adjust schemas
 
-When you create a new module that extends [apostrophe-pieces](../../reference/apostrophe-pieces/index.html) at the project level, you will often use these options directly.
+When you create a new module that extends [apostrophe-pieces](../../modules/apostrophe-pieces/index.html) at the project level, you will often use these options directly.
 
 But when you're working on a module that other people will extend, you need a little more nuance. You want to configure the schema your way, then honor *their* settings so that everything is gracefully added to your work.
 
@@ -371,9 +371,9 @@ Uploaded files are stored via [uploadfs](https://npmjs.org/package/uploadfs).
 
 Once an attachment field has a value, you can obtain a URL to the file by calling `apos.attachments.url(attachment)`. If the file is an image, you can obtain images of any configured size by calling `apos.attachments.url(attachment, { size: 'one-half' })`, etc.
 
-`attachment` fields can be limited to a particular file type group by setting the `group` option to either `images` or `office`. Other groups can be configured via the `fileGroups` option of the [apostrophe-attachments](../../reference/apostrophe-attachments/index.js) module.
+`attachment` fields can be limited to a particular file type group by setting the `group` option to either `images` or `office`. Other groups can be configured via the `fileGroups` option of the [apostrophe-attachments](../../modules/apostrophe-attachments/index.js) module.
 
-Attachments are most often used indirectly via [apostrophe-images-widgets](../../reference/apostrophe-images-widgets/index.html) or [apostrophe-files-widgets](../../reference/apostrophe-files-widgets/index.html), which are backed by the [apostrophe-images](../../reference/apostrophe-images) and [apostrophe-files](../../reference/apostrophe-files) subclasses of pieces. Each of those piece types contains an attachment field and some metadata fields, making them a convenient way to reuse files.
+Attachments are most often used indirectly via [apostrophe-images-widgets](../../modules/apostrophe-images-widgets/index.html) or [apostrophe-files-widgets](../../modules/apostrophe-files-widgets/index.html), which are backed by the [apostrophe-images](../../modules/apostrophe-images) and [apostrophe-files](../../modules/apostrophe-files) subclasses of pieces. Each of those piece types contains an attachment field and some metadata fields, making them a convenient way to reuse files.
 
 However, you may also use attachments directly in your own schemas. Doing so means that the file will not be available via a general-purpose "media library." It will only be readily accessible as a property of your object.
 
@@ -394,13 +394,13 @@ Example:
 
 #### `video`
 
-A `video` field allows the user to embed video hosted by any [oembed](http://oembed.com/)—compatible video hosting site, or any site for which you have provided an [oembetter](https://github.com/punkave/oembetter) filter via the [apostrophe-oembed](../../reference/apostrophe-oembed/index.html) module.
+A `video` field allows the user to embed video hosted by any [oembed](http://oembed.com/)—compatible video hosting site, or any site for which you have provided an [oembetter](https://github.com/punkave/oembetter) filter via the [apostrophe-oembed](../../modules/apostrophe-oembed/index.html) module.
 
 The user pastes a URL and sees an immediate preview.
 
 The value of the property on the object will have `url`, `title` and `thumbnail` properties. `title` and `thumbnail` are snapshots from the oembed response at the time the field was saved. `thumbnail` is the URL of a thumbnail image as provided by the oembed response.
 
-[apostrophe-oembed](../../reference/apostrophe-oembed/index.html) provides browser-side methods to display the video. See the [apostrophe-video-widgets](../../reference/apostrophe-video-widgets/index.html) source code for an example of using these methods to play a video in a `div` element.
+[apostrophe-oembed](../../modules/apostrophe-oembed/index.html) provides browser-side methods to display the video. See the [apostrophe-video-widgets](../../modules/apostrophe-video-widgets/index.html) source code for an example of using these methods to play a video in a `div` element.
 
 Example:
 
@@ -426,7 +426,7 @@ The `idField` option must be set to the name of a property in which to store the
 
 By default, if the related type has joins of its own, they are **not** carried out. To carry out "nested" joins, set the `withJoins` option to an array containing those join field names. You may also use "dot notation" in these names to indicate that you want to follow a series of joins between related types.
 
-**For performance, it is strongly recommended that you set a projection filter** via the `filters` option, limiting the amount of information fetched about each related doc. You may also call other [cursor filters](../../reference/apostrophe-docs/server-apostrophe-cursor.html) by setting subproperties of the `filters` property. This is a useful way to limit the acceptable choices for the join.
+**For performance, it is strongly recommended that you set a projection filter** via the `filters` option, limiting the amount of information fetched about each related doc. You may also call other [cursor filters](../../modules/apostrophe-docs/server-apostrophe-cursor.html) by setting subproperties of the `filters` property. This is a useful way to limit the acceptable choices for the join.
 
 Example:
 
@@ -468,7 +468,7 @@ The `idsField` (NOTE: PLURAL) option must be set to the name of a property in wh
 
 By default, if the related type has joins of its own, they are **not** carried out. To carry out "nested" joins, set the `withJoins` option to an array containing those join field names. You may also use "dot notation" in these names to indicate that you want to follow a series of joins between related types.
 
-**For performance, it is strongly recommended that you set a projection filter** via the `filters` option, limiting the amount of information fetched about each related doc. You may also call other [cursor filters](../../reference/apostrophe-docs/server-apostrophe-cursor.html) by setting subproperties of the `filters` property. This is a useful way to limit the acceptable choices for the join.
+**For performance, it is strongly recommended that you set a projection filter** via the `filters` option, limiting the amount of information fetched about each related doc. You may also call other [cursor filters](../../modules/apostrophe-docs/server-apostrophe-cursor.html) by setting subproperties of the `filters` property. This is a useful way to limit the acceptable choices for the join.
 
 Example:
 
