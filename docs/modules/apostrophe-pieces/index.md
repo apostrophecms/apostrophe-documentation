@@ -21,7 +21,7 @@ you'll get a user interface for managing your content for free. Add in the
 for your pieces, and use `apostrophe-pieces-widgets` to allow them to be sprinkled
 into pages all over the site. To learn more, see:
 
-[Reusable content with pieces](http://unstable.apostrophenow.org/tutorials/getting-started/reusable-content-with-pieces.html)
+[Reusable content with pieces](../../tutorials/getting-started/reusable-content-with-pieces.html)
 
 
 ## Methods
@@ -170,4 +170,3 @@ See [the `addUrlsToPieces` method of `apostrophe-pieces-pages`](../apostrophe-pi
 ### POST /modules/apostrophe-pieces/trash
 
 ### POST /modules/apostrophe-pieces/rescue
-
