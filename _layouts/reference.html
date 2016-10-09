@@ -21,7 +21,11 @@
     <div class="wrap main">
       {% block topOfContent %}{% endblock %}
       {{ content }}
-      {% block bottomOfContent %}{% endblock %}
+      {% block bottomOfContent %}
+        {% if next %}
+          <p class="next-article"><a href="{{ root }}{{ next.url }}">Next: {{ next.title | e }} &rarr;</a></p>
+        {% endif %}
+      {% endblock %}
     </div>
   </div>
 {% endblock %}
