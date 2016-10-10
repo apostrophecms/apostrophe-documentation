@@ -7,6 +7,7 @@ children:
   - search
   - admin-bar
   - children-and-joins
+  - facebook
   - adding-fields-to-all-pieces
   - multicore
   - ckeditor
