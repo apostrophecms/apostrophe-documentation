@@ -3,7 +3,7 @@ title: Working with cursors
 layout: tutorial
 ---
 
-Apostrophe users cursors to fetch docs from the database. An [apostrophe-cursor](../../api/modules/apostrophe-docs/server-apostrophe-cursor.html) object helps us conveniently fetch docs from
+Apostrophe users cursors to fetch docs from the database. An [apostrophe-cursor](../../modules/apostrophe-docs/server-apostrophe-cursor.html) object helps us conveniently fetch docs from
 the `aposDocs` mongodb collection using chainable "filter" methods. Much
 like a MongoDB or Doctrine cursor, but with many filters specific
 to Apostrophe that add a great deal of convenience. And it's possible
@@ -58,7 +58,7 @@ What's going on here?
 
 ## Full text search
 
-So far this looks familiar to MongoDB developers. But Apostrophe adds some [filter methods of its own](../../api/modules/apostrophe-docs/server-apostrophe-cursor.html#methods) that go beyond what you get out of the box with MongoDB.
+So far this looks familiar to MongoDB developers. But Apostrophe adds some [filter methods of its own](../../modules/apostrophe-docs/server-apostrophe-cursor.html#methods) that go beyond what you get out of the box with MongoDB.
 
 Let's search for profiles related to shoes, based on the text of each document:
 
