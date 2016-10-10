@@ -1,7 +1,9 @@
 Apostrophe Documentation
 ========================
 
-This is [the documentation](http://apostrophecms.org/docs/index.html) for [Apostrophe](http://apostrophecms.org/).
+This project contains [the documentation site](http://apostrophecms.org/docs/index.html) for [Apostrophe](http://apostrophecms.org/).
+
+You don't need to read this page just to read the documentation! [Read the actual documentation here.](../index.html) This page is about *contributing* to the documentation.
 
 Building the docs
 -----------------
