@@ -72,7 +72,7 @@ Next we'll need a folder to hold our widget's `widget.html` template, which rend
 mkdir -p lib/modules/link-widgets/views
 ```
 
-Now let's create a Nunjucks template in `lib/modules/link-widgets/widget.html`:
+Now let's create a Nunjucks template in `lib/modules/link-widgets/views/widget.html`:
 
 ```markup
 <h4><a href="{{ data.widget.url }}">{{ data.widget.label }}</a></h4>
@@ -139,7 +139,7 @@ module.exports = {
 
 > *"Why does the `name` start with a `_`?" Joins get fetched every time this widget is loaded. The relationship is dynamic*. Properties that are dynamic and should not be stored back to MongoDB as part of this widget must start with a `_` (underscore). Apostrophe automatically ignores them when saving the widget in the database.
 
-Now we're ready for the Nunjucks template, `lib/modules/page-link-widgets/widget.html`:
+Now we're ready for the Nunjucks template, `lib/modules/page-link-widgets/views/widget.html`:
 
 ```markup
 <h4><a href="{{ data.widget._page._url }}">{{ data.widget._page.title }}</a></h4>
