@@ -54,7 +54,7 @@ You can work on the nunjucks layouts in `_layouts`, write actual HOWTOs in the h
 
 ### How to Switch Layouts
 
-You'll notice that every page has a title specified in markdown format at the top. You can add a `layout` property there too:
+You'll notice that every page has a title specified as a YAML property at the top. You can add a `layout` property there too:
 
 ```html
 ---
@@ -62,6 +62,8 @@ title: "Amazing HOWTO"
 layout: home
 ---
 ```
+
+Note the three dashes, which are required.
 
 Now your page gets rendered with foo.html instead of default.html. I've done this in index.md for instance. Yes, layouts can extend each other and override blocks in the usual Nunjucksian way.
 
