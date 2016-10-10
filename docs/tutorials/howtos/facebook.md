@@ -13,7 +13,7 @@ For reasons unknown to the rest of the Internet, Facebook has never implemented 
 In Apostrophe 2.3 or better you can get absolute URLs just by setting the `baseUrl` option:
 
 ```
-var site = require('apostrophe-site')({
+var apos = require('apostrophe')({
   // Other options, then...
   // Note: NO TRAILING SLASH
   baseUrl: 'http://mysite.com'
@@ -32,7 +32,7 @@ This is great, but you don't want your development URLs to point at your product
 So use a `data/local.js` file on your production server. Everything here is *merged* with the object you pass to `apostrophe-site` in `app.js`. And `data/local.js` is never deployed. You set it up directly on the server. So you can set `absoluteUrls` differently in production. For instance, here's a typical production `data/local.js` file:
 
 ```
-{
+module.exports = {
   // Absolute URLs in production
   baseUrl: 'http://mysite.com',
   // minify css and js files in production
@@ -44,7 +44,9 @@ So use a `data/local.js` file on your production server. Everything here is *mer
 }
 ```
 
-You typically don't want to turn on `baseUrl` in your development environment.
+You typically don't want to turn on `baseUrl` in your development environment, except for testing the feature.
+
+> The object exported by `data/local.js` is merged with your Apostrophe configuration object. Since `data/local.js` is excluded from deployment, you can use it for server-specific settings.
 
 ## Great, I have absolute URLs. How do I generate my og:meta tags?
 
