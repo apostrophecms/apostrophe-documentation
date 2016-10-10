@@ -166,7 +166,7 @@ Users editing these widgets have the option of uploading files or reusing them. 
 
 In addition to GIF, JPEG and PNG files.
 
-This can be adjusted by configuring the [apostrophe-attachments](../../reference/apostrophe-attachments/index.html) module.
+This can be adjusted by configuring the [apostrophe-attachments](../../modules/apostrophe-attachments/index.html) module.
 
 #### `apostrophe-html`
 

@@ -2,7 +2,7 @@
 
 (
   cd _api-reference-generator/ &&
-  rm -rf ../reference/ &&
+  rm -rf ../modules/ &&
   node app apostrophe:generation &&
   node app documentation:generate
 ) &&
