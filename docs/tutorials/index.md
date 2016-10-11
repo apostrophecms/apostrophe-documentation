@@ -5,6 +5,7 @@ children:
   - intermediate
   - howtos
 menu: "Documentation"
+noOnThisPage: true
 layout: "reference"
 ---
 

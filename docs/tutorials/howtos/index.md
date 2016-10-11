@@ -7,6 +7,7 @@ children:
   - search
   - admin-bar
   - children-and-joins
+  - redirecting-after-login
   - facebook
   - adding-fields-to-all-pieces
   - multicore

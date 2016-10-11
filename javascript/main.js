@@ -13,6 +13,9 @@ $( function() {
 // });
 
 $(function() {
+  if ($('body').hasClass('no-on-this-page')) {
+    return;
+  }
   // Turn internal headings into an additional sidebar section
   // Grab the ones that markdown gave anchors
   var $headings = $('h2:has(a[name]),h3:has(a[name])');
@@ -46,9 +49,9 @@ $(function() {
       $li.append($link);
       $ul.append($li);
     });
-    
+
     if ($('.current-page').parent().hasClass('.sidebar-namespace-items')) {
-      
+
     } else {
       $('.current-page').append($ul);
     }
