@@ -6,6 +6,5 @@
   node app apostrophe:generation &&
   node app documentation:generate
 ) &&
-habit &&
+node_modules/habit/bin/habit &&
 echo "Done!"
-

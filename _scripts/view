@@ -1,5 +1,4 @@
 #!/bin/sh
 
-habit &&
+node_modules/habit/bin/habit &&
 open _site/index.html
-

@@ -10,17 +10,10 @@ Building the docs
 
 ### 1. Setup
 
-The static site generator ([Habit](https://github.com/punkave/habit)) is required to generate the docs.
-
-```sh
-$ npm install -g habit
-```
-
-Clone the repo.
-
 ```sh
 $ git clone https://github.com/punkave/apostrophe-documentation.git
 $ cd apostrophe-documentation
+$ npm install
 ```
 
 Now you can run the build scripts.
@@ -30,7 +23,7 @@ Now you can run the build scripts.
 To see your work locally, type:
 
 ```sh
-$ ./view
+$ npm run view
 ```
 
 That will compile your site and open it in your browser.
@@ -40,7 +33,7 @@ That will compile your site and open it in your browser.
 If you have access, you can deploy your work to [apostrophecms.org/docs](http://apostrophecms.org/docs/index.html). Just do:
 
 ```sh
-$ ./deploy
+$ npm run deploy
 ```
 
 Make sure you commit and push your work of course.
@@ -71,7 +64,7 @@ Now your page gets rendered with foo.html instead of default.html. I've done thi
 
 ### Making links that don't break
 
-For this project if we are hardcoding links in markdown text we go ahead and assume `/` is the home page of the doc site. This won't work with `./view` but it will work if you set up a local server and it will work in production.
+For this project if we are hardcoding links in markdown text we go ahead and assume `/` is the home page of the doc site. This won't work with `npm run view` but it will work if you set up a local server and it will work in production.
 
 Regenerating the API docs
 -------------------------
@@ -101,9 +94,9 @@ $ sudo apt install phantomjs
 Now you can regenerate the `docs/modules` folder:
 
 ```sh
-$ ./generate
+$ npm run generate
 ```
 
-`./generate` ends by running `habit` for you. It takes a few seconds because it's doing some fancy things to get information about all of the moog types.
+`npm run generate` ends by running `habit` for you. It takes a few seconds because it's doing some fancy things to get information about all of the moog types.
 
 If you need to document a newer version of Apostrophe you will want to `npm update` in the reference generator app folder.

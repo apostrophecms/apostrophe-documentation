@@ -1,0 +1,25 @@
+{
+  "name": "apostrophe-documentation",
+  "version": "1.0.0",
+  "description": "Wiki and A2 build for the Apostrophe 2 Documentation site.",
+  "main": "index.js",
+  "scripts": {
+    "generate": "_scripts/generate",
+    "view": "_scripts/view",
+    "deploy": "_scripts/deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/punkave/apostrophe-documentation.git"
+  },
+  "author": "P'unk Avenue LLC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/punkave/apostrophe-documentation/issues"
+  },
+  "homepage": "http://apostrophecms.org/",
+  "devDependencies": {
+    "habit": "^0.4.1"
+  },
+  "dependencies": {}
+}

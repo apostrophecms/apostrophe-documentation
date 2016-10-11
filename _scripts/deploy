@@ -1,6 +1,6 @@
 #!/bin/sh
 
-habit &&
+node_modules/habit/bin/habit &&
 (
   cd _site &&
   sitemap-static --prefix=http://apostrophenow.org/ > sitemap.xml &&
@@ -8,4 +8,3 @@ habit &&
 ) &&
 rsync --delete -a _site/ apostro2@45.56.109.144:/var/www/docs &&
 echo "Done!"
-
