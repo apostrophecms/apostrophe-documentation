@@ -125,7 +125,7 @@
   {%- endblock -%}
   <div class="header {{ headerClass }} {% block headerClass %}{% endblock %}">
     <div class="breadcrumb">
-      {% for page in ancestors %}<a href="{{ root }}{{ page.url }}">{{ page.title }}</a>{{ ' &gt; ' if page.url != url }}{% endfor %}
+      {% for page in ancestors %}<a href="{{ root }}{{ page.url }}">{{ page.title }}</a>{{ ' > ' if page.url != url }}{% endfor %}
     </div>
     <div class="inner {% block headerInnerClass %}{% endblock %}">
       {% block header %}

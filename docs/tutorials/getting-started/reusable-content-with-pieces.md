@@ -130,7 +130,7 @@ You'll notice there is still a separate prompt to enter the full name. Let's get
 ]
 ```
 
-> There are many other methods you can override or extend to change the behavior of pieces. See [the apostrophe-pieces API methods](../../modules/apostrophe-pieces/api.html) for more information.
+> There are many other methods you can override or extend to change the behavior of pieces. See [the apostrophe-pieces API methods](../../modules/apostrophe-pieces/index.html) for more information.
 
 ### Arranging fields
 
