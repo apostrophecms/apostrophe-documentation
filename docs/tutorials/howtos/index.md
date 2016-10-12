@@ -13,6 +13,7 @@ children:
   - multicore
   - ckeditor
   - extending-the-pieces-editor-modal
+  - storing-images-and-files-in-amazon-s3
   - windows
   - migration
 ---
