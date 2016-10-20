@@ -16,6 +16,7 @@ children:
   - storing-images-and-files-in-amazon-s3
   - windows
   - migration
+  - docker
 ---
 
 These HOWTOs cover a variety of topics that don't quite fit neatly into a tutorial series.
