@@ -1,11 +1,24 @@
+@footer-shrink: ~"(max-width: 800px)";
+
 footer
 {
-  margin-top: 6rem;
-  padding: 3rem 0 6rem 0;
+  margin-top: 20px;
+  padding: 2rem 0;
   background-color: @green;
   color: @white;
 
   a { color: white; text-decoration: underline; }
+
+  .inner
+  {
+    display: flex;
+    align-items: flex-end;
+
+    @media @footer-shrink
+    {
+      display: block;
+    }
+  }
 
   .punk-logo
   {
@@ -19,5 +32,26 @@ footer
 
     background-image: url('../images/logo-word-short-LORES.png');
     background-size: cover;
+  }
+
+  .team-description,
+  .credit
+  {
+    margin: 20px 0;
+  }
+
+  .team-description
+  {
+    flex: 1;
+  }
+
+  .credit
+  {
+    @media @footer-shrink
+    {
+      opacity: 0.9;
+      font-size: 0.9em;
+      text-align: center;
+    }
   }
 }

@@ -68,6 +68,7 @@
 <html lang="en-US">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>Apostrophe: {{ title }}</title>
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" type="text/css" href="{{ root }}stylesheets/main.css?v3">
@@ -124,16 +125,18 @@
     </div>
   {%- endblock -%}
   <div class="header {{ headerClass }} {% block headerClass %}{% endblock %}">
-    <div class="breadcrumb">
-      {% for page in ancestors %}<a href="{{ root }}{{ page.url }}">{{ page.title }}</a>{{ ' > ' if page.url != url }}{% endfor %}
-    </div>
     <div class="inner {% block headerInnerClass %}{% endblock %}">
-      {% block header %}
-        <div class="doc-type">
-          <div class="type-image {{ typeCheck() }} {{ docTypeClass() }}"></div>
-        </div>
-        <h1 class="{% if title.length > 30 %}long{% endif %}">{{ title | e }}</h1>
-      {% endblock %}
+      <div class="breadcrumb">
+        {% for page in ancestors %}<a href="{{ root }}{{ page.url }}">{{ page.title }}</a>{{ ' > ' if page.url != url }}{% endfor %}
+      </div>
+      <div class="header-content">
+        {% block header %}
+          <div class="doc-type">
+            <div class="type-image {{ typeCheck() }} {{ docTypeClass() }}"></div>
+          </div>
+          <h1 class="{% if title.length > 30 %}long{% endif %}">{{ title | e }}</h1>
+        {% endblock %}
+      </div>
     </div>
   </div>
   {% block extraHeader%}
@@ -154,11 +157,11 @@
   </div>
   <footer>
     <div class="inner">
-      <div class="left">
+      <div class="team-description">
         <a href="http://punkave.com" class="punk-logo"></a>
         Apostrophe is led by <a href="http://punkave.com">P'unk Avenue</a> in Philadelphia, PA.
       </div>
-      <div class="right">
+      <div class="credit">
         Generously hosted by <a href="http://linode.com">linode.</a>
       </div>
     </div>

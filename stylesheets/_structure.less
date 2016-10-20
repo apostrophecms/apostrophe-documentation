@@ -20,6 +20,7 @@
   max-width: @inner;
   margin: 0 auto;
   position: relative;
+  padding: 0 15px;
 }
 
 .half
@@ -28,6 +29,7 @@
   margin-bottom: 5rem;
   @media screen and (max-width: 700px){
     width: 100%;
+    margin-bottom: 40px;
   }
 }
 
@@ -40,6 +42,19 @@
   {
     margin: 1rem 0;
   }
+
+  @media (max-width: 800px)
+  {
+    padding: 0;
+  }
+}
+
+.logos.punkave
+{
+  @media (max-width: 800px)
+  {
+    display: none;
+  }
 }
 
 .landing:not(.header--home), .default
@@ -48,6 +63,12 @@
   {
     width: 76%;
     margin: 0 12%;
+
+    @media (max-width: 800px)
+    {
+      width: 100%;
+      margin: 0;
+    }
   }
 }
 
@@ -68,6 +89,11 @@
     background: @white;
     padding: 3em 3em 2em 3em;
     border: 1px solid fade(@dark, 15%);
+
+    @media (max-width: 700px) {
+      width: calc(~"100% - 10px");
+      padding: 15px 15px 10px 15px;
+    }
 
     a.card-link
     {

@@ -1,7 +1,7 @@
 .header
 {
   position: relative;
-  padding: 6.75rem 0;
+  padding: 36px 0;
   background-color: @purple;
 
   color: @white;
@@ -10,24 +10,27 @@
     margin-bottom: 0;
     max-width: 60%;
     line-height: 1em;
+    position: relative;
+    z-index: 1;
     &.long
     {
       font-size: 2em;
+    }
+
+    @media (max-width: 500px)
+    {
+      font-size: 2rem;
+      max-width: 100%;
     }
   }
 
   .breadcrumb
   {
-    padding-bottom: 75px;
     font-size: 1rem;
 
     max-width: @inner;
-    position: absolute;
-    top: 36px;
     margin-left: auto;
     margin-right: auto;
-    left: 0;
-    right: 0;
 
     a
     {
@@ -39,6 +42,11 @@
     }
   }
   .home .breadcrumb { display: none; }
+
+  .header-content
+  {
+    padding: 40px 0;
+  }
 
   .doc-type
   {
@@ -110,10 +118,25 @@
 
 .header.landing
 {
-  padding: 200px 0;
-  
-  @media screen and (max-width: 490px) {
-    padding-top: 90px;
+
+  .header-content
+  {
+    padding: 128px 0;
+
+    @media (max-width: 560px)
+    {
+      padding: 40px 0;
+
+      .landing-illustration
+      {
+        display: none;
+      }
+    }
+  }
+
+  @media screen and (max-width: 490px)
+  {
+    padding: 20px 0;
   }
 
   &.header--home
@@ -141,6 +164,11 @@
         }
       }
     }
+
+    .header-content
+    {
+      padding: 0;
+    }
   }
 
   .landing-illustration
@@ -157,8 +185,9 @@
       background-position: center;
       max-width: 100%;
       background-size: contain;
-      @media screen and (max-width: 760px) {
-        background-size: cover;
+      @media screen and (max-width: 760px)
+      {
+        display: none;
       }
     }
     &.landing-illustration--documentation
@@ -244,35 +273,38 @@
 
   @media screen and (max-width:1140px)
   {
-    width: 80%;
+    width: 100%;
   }
 
   h3 { margin-bottom: .25em; }
 
   //Handle this code snippet instance differently
-  pre
+  code
   {
     background: #333;
-    padding-top: 20px;
+    padding: 60px 0 60px 100px;
     margin: 20px 0;
-
-    code
+    color: white;
+    font-size: 1.5rem;
+    line-height: 1.3;
+    text-shadow: 1px 1px 1px #444;
+    font-weight: bold;
+    display: block;
+    white-space: normal;
+    .token.operator
     {
-      background: #333;
+      background: none;
       color: white;
-      font-size: 1.5rem;
-      line-height: 1.3;
-      text-shadow: 1px 1px 1px #444;
-      font-weight: bold;
-      .token.operator
-      {
-        background: none;
-        color: white;
-      }
-      .red
-      {
-        color: @red;
-      }
+    }
+    .red
+    {
+      color: @red;
+    }
+
+    @media (max-width: 700px)
+    {
+      padding: 40px 20px;
+      font-size: 1rem;
     }
   }
 }

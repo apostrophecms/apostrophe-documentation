@@ -60,7 +60,7 @@ layout: "home"
   <p>The Apostrophe project is led by [P'unk Avenue](http://punkave.com), a design and build firm with a special focus on positive social impact, urbanism, health & wellness, arts & culture, and education. Giving back to the open source community is part of that focus.</p>
 </div>
 
-<div class="right half logos">
+<div class="right half logos punkave">
   <a href="http://punkave.com/" target="blank">
     <img src="images/logo-word-short-LORES.png" class="retina-image">
   </a>
