@@ -1,17 +1,20 @@
 .main ul.developer-directory {
-  margin: 0;
-  margin-top: 40px;
+  margin: -1.4em 0 40px -10px;
   padding: 0;
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
   li {
-    margin-left: 0;
     list-style: none;
-    display: inline-block;
-    width: 200px;
-    margin-right: 20px;
-    margin-bottom: 40px;
+    margin: 40px 10px 0;
+    max-width: 275px;
+    a {
+      display: block;
+    }
     img {
-      height: 50px;
+      max-height: 50px;
+      vertical-align: middle;
     }
   }
 }
