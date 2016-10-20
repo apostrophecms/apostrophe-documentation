@@ -34,6 +34,7 @@ RUN npm install
 
 # Mount persistent storage
 VOLUME /app/data
+VOLUME /app/public/uploads
 
 EXPOSE 3000
 CMD [ "npm", "start" ]
