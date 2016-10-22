@@ -224,9 +224,9 @@ In any object-oriented language, it's common to inherit methods from the type yo
 
 In Apostrophe, we follow the "`super` pattern" to do this. For instance, let's say we're extending a module that extends `apostrophe-pieces`. Both modules might have a `beforeShow` method, and we don't want to lose it. So let's capture the old one, call it from the new one, and then do our own work:
 
+```javascript
 var superBeforeShow = self.beforeShow;
 
-```javascript
 self.beforeShow = function(req, callback) {
   return superBeforeShow(req, function(err) {
     if (err) {
