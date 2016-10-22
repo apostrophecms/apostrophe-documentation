@@ -187,6 +187,11 @@ method or the `and` method. For this reason,
 `and` is a more common choice. You can also
 pass a criteria object as the second argument
 to any `find` method.
+### addLateCriteria(*value*)
+Filter. Provides an object to be merged directly into the final
+criteria object that will go to MongoDB. This is to be used only
+in cases where MongoDB forbids the use of an operator inside
+`$and`, such as the `$near` operator.
 ### and(*value*)
 Filter. Requires all criteria already specified AND
 the criteria object specified by `c` to match

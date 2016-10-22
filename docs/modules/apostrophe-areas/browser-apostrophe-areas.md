@@ -37,6 +37,9 @@ that widget type is invoked to get the data.
 When a `[data-apos-add-content]` button is clicked, toggle the `apos-active` class
 on the closest ancestor with `[data-apos-dropdown]`, and also the closest
 ancestor with `.apos-area-controls`.
+### enhanceControlsHover(*sel*)
+Handles the hovering of widgets in the specified selector or jQuery object
+and reveals only the controls on the directly hovered widget, not the parent wrapper widget
 ### getTemplates(*callback*)
 
 ### fromTemplate(*sel*)
@@ -46,7 +49,8 @@ ancestor with `.apos-area-controls`.
 ### enableOnEnhance()
 
 ### enableAll(*sel*)
-
+Enable the areas in the specified selector or jQuery object to be edited.
+If sel is falsy all areas currently in the body are made editable
 ### register(*docId*, *dotPath*, *editor*)
 
 ### enableShift()
