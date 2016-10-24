@@ -13,6 +13,7 @@ Here is a list of optional official Apostrophe modules you can `npm install` to 
 * [apostrophe-blog](https://npmjs.org/packages/apostrophe-blog)
 * [apostrophe-events](https://npmjs.org/packages/apostrophe-events)
 * [apostrophe-second-chance-login](https://npmjs.org/packages/apostrophe-second-chance-login)
+* [apostrophe-redirects](https://npmjs.org/packages/apostrophe-redirects)
 
 ## Publishing your own npm modules for Apostrophe
 
