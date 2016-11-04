@@ -535,6 +535,25 @@ Example:
 
 **Since there is a relationship, the `_departments` property will be an array of objects with `item` and `relationship` properties.** The `item` property will be the actual department, and the `relationship` property will contain the relationship fields, which are unique to this person.
 
+###### Inline relationship fields
+
+Sometimes, expecting users to click a special button to access a separate modal dialog box to edit relationship fields isn't worth it. Users just don't find it, or the fields are few enough that it would make more sense to add the form field directly to the chooser.
+
+You can do this with the `inline: true` flag (since 2.6.0):
+
+```javascript
+relationship: [
+  {
+    name: 'jobTitle',
+    label: 'Job Title',
+    type: 'string',
+    inline: true
+  }
+],
+```
+
+If you have a mix of inline and regular fields, you'll still get the option of opening the modal, but for data integrity reasons fields are presented only in one place or the other.
+
 #### `joinByOneReverse`
 
 A `joinByOneReverse` field allows us to access the other side of a [joinByOne](#joinByOne) relationship. Since this is the "other end" of the relationship, there is no editing interface. It is just a convenience allowing us to "see" the related object from the other point of view.
