@@ -171,6 +171,8 @@ Implement the command line task that lists all widgets of
 this type found in the database:
 
 `node app your-module-name-here-widgets:list`
+### addSearchTexts(*widget*, *texts*)
+
 ## API Routes
 ### POST /modules/apostrophe-widgets/modal
 A POST route to render `widgetEditor.html`. `data.label` and

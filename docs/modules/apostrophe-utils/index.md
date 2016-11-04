@@ -214,6 +214,9 @@ the specified property.
 ### filterNonempty(*arr*, *property*)
 Find all the array elements, if any, for which the specified property
 is truthy.
+### filterEmpty(*arr*, *property*)
+Find all the array elements, if any, for which the specified property
+is not truthy.
 ### isEmpty(*item*)
 Returns true if the specified array or object is considered empty.
 Objects are empty if they have no own enumerable properties.

@@ -10,6 +10,10 @@ namespace: browser
 Use afterShow so that .width() works
 ### initCropper()
 
+### testMinimumSize(*e*)
+
+### zoom(*e*)
+
 ### getCropperData()
 
 ### saveContent(*callback*)

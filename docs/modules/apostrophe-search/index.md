@@ -31,7 +31,11 @@ Search is powered by the full-text search features of MongoDB.
 ### enableFilters()
 
 ### indexPage(*req*, *callback*)
-
+This method implements the search results page. It populates `req.data.docs`
+and provides pagination via `req.data.currentPage` and `req.data.totalPages`,
+not to be confused with `req.data.totalDocs` which is the total number of
+documents matching the search. The filters configured for the module are
+respected.
 ### beforeIndex(*req*, *callback*)
 Called before each page of search results is rendered; override hook
 ### dispatchAll()
@@ -39,6 +43,17 @@ Called before each page of search results is rendered; override hook
 ### docBeforeSave(*req*, *doc*, *options*)
 Implementation of search indexing as documents are saved. Invoked
 via callAll by the docs module
+### indexDoc(*req*, *doc*)
+Index one doc for participation in search
+### indexTask(*apos*, *argv*, *callback*)
+Implements the `apostrophe-search:index` task, which re-indexes all pages.
+This should only be needed if you have changed your mind about the
+`searchable` property for various schema fields. Indexing is automatic
+every time a doc is saved
+### indexTaskOne(*req*, *doc*, *callback*)
+Indexes just one document as part of the implementation of the
+`apostrophe-search:index` task. This isn't the method you want to
+override. See `indexDoc` and `getSearchTexts`
 ### getSearchTexts(*doc*)
 Returns texts which are a reasonable basis for
 generating search results for this page. Should return

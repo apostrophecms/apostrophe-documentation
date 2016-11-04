@@ -98,6 +98,30 @@ string to be autocompleted; otherwise an empty array is delivered
 to the callback.
 
 We don't launder the input here, see the 'autocomplete' route.
+### addSearchIndexListener() *[api]*
+Adds a listener for the `docSearchIndex` Apostrophe event, pointing to the
+`searchIndexListener` method.
+### searchIndexListener(*doc*, *texts*) *[api]*
+Invoked when a `docSearchIndex` event takes place, this method adds
+additional search texts to the `texts` array (modify it in place by
+pushing new objects to it). These texts influence search results.
+The default behavior is quite useful, so you won't often need to
+override this.
+
+Each "text" is an *object* and must have at least `weight` and `text` properties.
+If `weight` is >= 10, the text will be included in autocomplete searches and
+given higher priority in full-text searches. Otherwise it will be included
+only in full-text searches.
+
+If `silent` is `true`, the `searchSummary` property will not contain
+the text.
+
+By default this method invokes `schemas.indexFields`, which will push
+texts for all of the schema fields that support this unless they are
+explicitly set `searchable: false`.
+
+In any case, the text of rich text widgets is always included as
+lower-priority search text.
 ### pushAssets() *[browser]*
 
 ### pushDefineSingleton() *[browser]*

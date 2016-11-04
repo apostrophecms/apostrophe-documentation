@@ -9,7 +9,8 @@ namespace: browser
 ### load(*callback*)
 
 ### set(*choices*)
-
+Set a new array of currently selected choices. Each should have
+label and value properties at a minimum
 ### get(*callback*)
 
 ### getFinal(*callback*)
@@ -20,7 +21,9 @@ namespace: browser
 
 ### remove(*_id*)
 
-### refresh()
+### refresh(*options*)
+
+### convertInlineRelationships(*callback*)
 
 ### decrementRefreshing()
 
@@ -38,6 +41,8 @@ additional options from the first argument. Async because
 the constructor is async. Delivers (err, newChooser)
 ### onChange()
 
+### enableInlineSchema()
+
 ### decorateManager(*manager*, *options*)
 Adds and overrides methods of the apostrophe-pieces-manager-modal to
 accommodate its use as a full-featured selection tool for the chooser,
@@ -46,3 +51,5 @@ including the ability to create new items on the fly and choose them
 
 ### afterManagerCancel()
 
+### pieceInsertedListener(*piece*)
+This listener only actually gets installed for a chooser appearing in a manager

@@ -62,8 +62,9 @@ Determine whether an object is empty according to the schema.
 Note this is not the same thing as matching the defaults. A
 nonempty string or array is never considered empty. A numeric
 value of 0 is considered empty
-### indexFields(*schema*, *object*, *lines*)
-Index the object's fields for participation in Apostrophe search
+### indexFields(*schema*, *object*, *texts*)
+Index the object's fields for participation in Apostrophe search unless
+`searchable: false` is set for the field in question
 ### convert(*req*, *schema*, *from*, *data*, *object*, *callback*)
 Convert submitted `data`, sanitizing it and populating `object` with it
 ### export(*req*, *schema*, *to*, *object*, *object*, *callback*)

@@ -56,6 +56,67 @@ Now you're ready to install the stagecoach deployment system and deploy your Apo
 
 Once deployment is complete, you're ready to start welcoming traffic to your website. [See the mechanic documentation](https://github.com/punkave/mechanic) for how to painlessly configure nginx as your reverse proxy. Or, if you wish, you can configure any reverse proxy of your choice to forward traffic on port 3000 to your Apostrophe site. You can support multiple sites on a single server; stagecoach assigns each one a distinct port. See the text file `/opt/stagecoach/apps/MYAPPNAME/current/data/port` for the port number.
 
+## Minifying assets
+
+You really don't want Apostrophe to insert tags to separately load dozens of JavaScript files. Instead, turn on Apostrophe's support for "minifying" files to bundle them together.
+
+This is an option to the `apostrophe-assets` module:
+
+```javascript
+// in app.js
+modules: {
+  // other modules, then...
+  apostrophe-assets: {
+    minify: true
+  }
+}
+```
+
+But, you don't want to do this in a development environment! So how do we make production behave differently?
+
+One great way is to use a `data/local.js` file on the production server. It looks much the same:
+
+```javascript
+  module.exports = {
+    // in app.js
+    modules: {
+      // other modules, then...
+      apostrophe-assets: {
+        minify: true
+      }
+    }
+  };
+```
+
+**Everything you put in this file gets merged with the object you pass to Apostrophe in `app.js`, and this file is never deployed** if you are following our Stagecoach deployment recipes (see below). So it is safe to put settings here that vary from server to server.
+
+If you are not using Stagecoach, but you can set environment variables when running Apostrophe, then you might use an approach like this:
+
+```javascript
+// in app.js
+modules: {
+  // other modules, then...
+  apostrophe-assets: {
+    minify: (process.env.ENV === 'prod')
+  }
+}
+```
+
+Here `minify` kicks in only if the `ENV` environment variable is set to `prod`. You can set environment variables when using hosts like Heroku and it is a popular technique for do-it-yourself admins as well.
+
+## Always minify before startup!
+
+If you are using our Stagecoach recipes, the `deployment/dependencies` script will run *before* Apostrophe starts up, and it will run this Apostrophe command line task:
+
+```
+node app apostrophe:generation
+```
+
+This will carry out the minifying operation without race conditions or other problems that can occur if you just launch lots of Apostrophe server processes at once without minifying first.
+
+If you are not using Stagecoach, just make sure you run this command line task as part of your own deployment recipe.
+
 ## Multicore and multiserver configurations
 
 Because node is asynchronous, these single-server, single-core instructions are quite adequate for most clients, including many sites with high traffic at the city scale. However, if performance does become an issue, you may want to check out [running Apostrophe on multiple cores and/or servers](../howtos/multicore.html) as well. Just be sure to master the above material first.
+
