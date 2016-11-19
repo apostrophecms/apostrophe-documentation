@@ -62,7 +62,22 @@ $(function() {
     $(this).text($(this).text().replace(/ \(.*?\)\s*$/, ''));
   });
 
-  if ($('.current-page')) {
+  if ($('.current-page').length) {
     $('.sidebar').animate({scrollTop: $('.current-page').position().top - 25}, 200, 'linear');
   }
+  
+  // Clicking a card should be enough to follow its link as long as
+  // there is only one .card-link inside it. -Tom
+
+  $('.card').each(function() {
+    var $card = $(this);
+    var $links = $(this).find('.card-link');
+    if ($links.length === 1) {
+      $card.css('cursor', 'pointer');
+      $card.on('click', function() {
+        window.location.href = $links.attr('href');
+        return false;
+      });
+    }
+  });
 });
