@@ -10,10 +10,10 @@
 {% block header %}
   <div class="landing-text">
     <h2>Apostrophe 2.x is in the building.</h2>
-    <h3>Apostrophe is a content management system that helps you stay on mission.</h3>
+    <h3>Apostrophe is a node.js content management system that helps you stay on mission.</h3>
     <div class="landing-buttons">
-      <a target="_new" href="http://forum.apostrophecms.org/t/announcing-apostrophe-2-x/20" class="landing-button">Read the Announcement</a>
-      <a href="http://demo.apostrophenow.com" class="landing-button">Try the Live Demo</a>
+      <a href="docs/tutorials/getting-started/index.html" class="landing-button">Get Started (Tutorial)</a>
+      <a href="http://demo.apostrophecms.org" class="landing-button">Try the Live Demo</a>
     </div>
   </div>
   <div class="landing-illustration landing-illustration--home"></div>
@@ -29,7 +29,11 @@
           <span class="red">$</span> apostrophe create &lt;project-name&gt;
         </code>
       </pre>
-      <p>Don't know what <strong>npm</strong> means? Don't have <strong>Mongo</strong> and <strong>Imagemagick</strong>? Check out our <a href="tutorials/getting-started/index.html">Getting Started</a> tutorial.</p>
+      <p>Get up and running in fifteen minutes with our <a href="docs/tutorials/getting-started/index.html">Getting Started</a> tutorial.</p>
     </div>
   </div>
+{% endblock %}
+
+{% block inner %}
+  {{ content }}
 {% endblock %}

@@ -10,6 +10,17 @@
   float: right;
 }
 
+.home-column {
+  // Same as extra-header
+  width: 50%;
+  margin: 0 auto;
+
+  @media screen and (max-width:1140px)
+  {
+    width: 80%;
+  }
+}
+
 .inline-block(@valign) {
   display: inline-block;
   vertical-align: @valign;
@@ -39,6 +50,7 @@
   img
   {
     margin: 1rem 0;
+    max-width: 100%;
   }
 }
 
