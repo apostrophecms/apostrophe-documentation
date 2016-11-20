@@ -11,9 +11,6 @@ layout: "home"
   <h4>Announcing Apostrophe 2.x</h4>
   <p>We're proud to announce the launch of Apostrophe 2.x, a stable, long-term-support release of the Apostrophe open source CMS framework for node.js.</p>
   <p>Apostrophe emphasizes ease of use, in-context editing, ease of development, performance and the benefits of working in a single programming language on the front and the back end: JavaScript.</p>
-  <h4>The road to 2.x</h4>
-  <p>Apostrophe is the cumulative product of seven years of work here at P'unk Avenue. Four years ago we began the process of migrating to the node.js platform. And a year and a half ago, after building a successful open source node.js CMS "on the fly," we recommitted ourselves through a series of pair programming sprints in which every line of code and every user experience was reconsidered and rebuilt.</p>
-  <p>The result is a stable, reliable and fast CMS framework in which just about any feature can be easily extended and improved to suit your project with a minimum of coding and effort.</p>
   <h4>Features for rapid website development</h4>
   <p>Whether you're working with the page tree, creating unique content types with Apostrophe's "pieces," building and editing relationships between content types with Apostrophe's "join" feature or just creating custom widgets and templates for inclusion on your pages, you'll find that we've created a uniquely user- and developer-friendly experience without compromises.</p>
   <p>Just by defining a simple schema, you can create both the "back end" and a rich user interface on the front end for editing custom content types like blog posts, events or products as well as editing content on the page.</p>
