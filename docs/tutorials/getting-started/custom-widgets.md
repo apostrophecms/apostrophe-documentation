@@ -36,7 +36,7 @@ Then we'll include the module in our `app.js` by adding the following to the `mo
   }
 ```
 
-Now we'll write the code for our module in `lib/modules/custom-navigation-widgets/index.js`:
+Now we'll write the code for our module in `lib/modules/link-widgets/index.js`:
 
 ```javascript
 module.exports = {
