@@ -13,4 +13,4 @@ Thanks to open source, you're not "locked in" to one vendor with Apostrophe. Che
 
 ## Community support
 
-Apostrophe is an open source project with an active community of developers. See the [community support](../community/index.html) page for a variety of options for free support.
+Apostrophe is an open source project with an active community of developers. See the [community support](../community/index.html) page for a variety of options for how to connect with them.
