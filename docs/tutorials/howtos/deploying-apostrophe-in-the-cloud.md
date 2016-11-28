@@ -1,5 +1,6 @@
 ---
 title: "Deploying Apostrophe in the Cloud"
+layout: tutorial
 ---
 
 There are many cloud hosting services, but they all present the same challenges. Separate servers often don't share a single filesystem. The database usually needs its own scalable cloud hosting. And performing tasks like minifying assets is often best done in your development environment, minimizing what has to be done in production.
