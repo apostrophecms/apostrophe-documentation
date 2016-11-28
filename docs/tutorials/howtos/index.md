@@ -10,12 +10,13 @@ children:
   - redirecting-after-login
   - facebook
   - adding-fields-to-all-pieces
-  - multicore
   - ckeditor
   - extending-the-pieces-editor-modal
   - storing-images-and-files-in-amazon-s3
-  - windows
   - migration
+  - deploying-apostrophe-in-the-cloud
+  - multicore
+  - windows
   - docker
 ---
 
