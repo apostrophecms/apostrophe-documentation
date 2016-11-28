@@ -86,5 +86,7 @@ YOUR ITERATOR MUST BE ASYNCHRONOUS.
 
 ### migrationTask(*apos*, *argv*, *callback*) *[implementation]*
 
+### migrate(*options*, *callback*) *[implementation]*
+
 ### runOne(*migration*, *callback*) *[implementation]*
 

@@ -74,7 +74,13 @@ Used to search for fieldsets at this level of the schema,
 without false positives for any schemas nested within it
 ### findSafe(*$el*, *sel*)
 Used to search for elements without false positives from nested
-schemas in unrelated fieldsets
+schemas in unrelated fieldsets, however see `findFieldset` or
+`findSafeInFieldset` for what you probably want.
+### findSafeInFieldset(*$el*, *name*, *sel*)
+A convenient way to find something safely within a specific fieldset
+(safely means "not inside a nested schema"). The fieldset is found first,
+then `sel` is located within it, without recursing into any nested
+schema forms that may be present.
 ### findField(*$el*, *name*)
 Used to search for simple elements that have a
 "name" attribute, without false positives from nested

@@ -37,13 +37,13 @@ on which the current user is permitted to perform the
 specified action.
 ### addPublic(*permission*) *[api]*
 Add a permission everyone gets in the generic case, even if
-not logged in. It is useful to add edit-files, for instance, to
+not logged in. It is useful to add edit-attachment, for instance, to
 allow file uploads by anonymous users for apostrophe-moderator.
 
 View permissions are handled separately.
 ### setPublic(*permissions*) *[api]*
 Set all the public permissions at once. Pass an array of
-actions, like this: [ 'edit-file' ]
+actions, like this: [ 'edit-attachment' ]
 
 View permissions are handled separately.
 ### annotate(*req*, *action*, *objects*) *[api]*

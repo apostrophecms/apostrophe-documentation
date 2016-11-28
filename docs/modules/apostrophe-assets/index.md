@@ -41,12 +41,33 @@ Other assets are pushed by individual core modules that require them.
 If set to true, both stylesheets and scripts are combined into a single file
 and unnecessary whitespace removed to speed delivery. It is strongly recommended
 that you enable this option in production, and also in staging so you can see
-any unexpected effects.
+any unexpected effects. If this option is undefined, the APOS_MINIFY
+environment variable is consulted.
 
 
 ## Methods
+### setDefaultStylesheets()
+
+### setDefaultScripts()
+
+### setAssetTypes()
+
+### setTypeMap()
+
 ### determineGeneration()
 
+### extractBundleIfAppropriate()
+Extract an asset bundle if appropriate. The default implementation
+looks for an APOS_BUNDLE=XYZ environment variable and, if present, extracts
+a bundle with the name XYZ
+### extractBundle(*name*)
+Extract the named asset bundle, as created by the
+apostrophe:generation task with the --create-bundle=NAME
+option. An asset bundle is just a folder from which files are
+recursively copied into the project root folder in a production
+environment after deployment, allowing minified assets to be
+provided to a server via a separate folder in git rather than
+cluttering the dev environment with them
 ### push(*type*, *name*, *options*, *context*)
 This method pushes assets to be delivered to the browser
 on every page load.
@@ -96,11 +117,12 @@ initialization - to symlink public/modules subdirectories,
 build master LESS files, and minify (if desired). This
 allows other modules to wait until they can talk to
 each other (modulesReady) before pushing assets.
-### ensureFolder()
+### ensureFolder(*root*)
 Ensure that the standard asset folders exist at project level,
 notably `public` (the web-accessible folder) and `public/modules`
 (where symbolic links to the `public` subdirectories of Apostrophe modules are automatically
-created by `symlinkModules`).
+created by `symlinkModules`). If `root` is not set, the root
+of the project is assumed.
 ### symlinkModules(*callback*)
 Ensure that `public/modules/modulename` points to exactly the
 same content as `lib/modules/modulename/public`. On platforms that
@@ -109,6 +131,10 @@ that don't, make a recursive copy. (This poses no significant
 performance problem for Apostrophe's assets, which are modest
 in size. If you were hoping to push huge files as permanent
 static assets this way, well... complain to Microsoft.)
+### getAssetRoot()
+Get the effective project root folder. This will be the actual
+project root folder except when creating an asset bundle to be
+unpacked later
 ### linkAssetFolder(*from*, *to*)
 Create or refresh a symbolic link from
 the path "from" to the existing, actual folder
@@ -123,12 +149,18 @@ we're thinking in terms of a symbolic link.
 Create or refresh a symbolic link from
 the path "from" to the existing, actual folder
 "to" on Unix-derived platforms (not Windows).
-### linkAssetFolderOnWindows(*from*, *to*)
-On Windows, simulate a symbolic link from "from" to "to"
-by recursively copying the contents of "to" to "from".
 
-(Confused? Well, yes, it's odd when you word it this way,
-but it makes sense when you have symbolic links.)
+If we are creating an asset bundle to deploy
+to production, we'll copy everything instead.
+### linkAssetFolderOnWindows(*from*, *to*)
+
+### removeThenRecursiveCopy(*from*, *to*)
+Remove the existing folder or symlink `to` and then recursively copy
+the contents of `from` to it, creating a new folder at `to`.
+### recursiveCopy(*from*, *to*)
+Copy the existing folder at `from` to the new folder `to`.
+If `to` already exists files are added or overwritten as appropriate
+and files not present in `from` are left intact.
 ### buildLessMasters(*callback*)
 
 ### minify(*callback*)
@@ -179,8 +211,16 @@ be a particularly short string. Not currently implemented
 for DOM templates
 ### splitWithBless(*filename*, *content*)
 
+### enableCsrf()
+
+### enablePrefix()
+
+### enableLessMiddleware()
+
 ### prefixCssUrls(*css*)
 Prefix all URLs in CSS with the global site prefix
+### servePublicAssets()
+
 ## Nunjucks template helpers
 ### stylesheets(*when*)
 apos.assets.stylesheets renders markup to load CSS that
