@@ -173,7 +173,7 @@
 .main
 {
   color: @dark;
-  
+
   .inline-block(top);
 
   pre
@@ -299,4 +299,38 @@
     margin-left: 30%;
     float: left;
   }
+}
+
+.lockup {
+  display: flex;
+  margin: 50px 0;
+
+  &-icon {
+    width: 33%;
+    background-size: contain;;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    height: 125px;
+
+    &--tools {
+      background-image: url('../images/icon-tools.svg');
+    }
+
+    &--question {
+      background-image: url('../images/icon-question-mark.svg');
+    }
+
+    &--roadmap {
+      background-image: url('../images/icon-roadmap.svg');
+    }
+  }
+
+  &-text {
+    width: 67%;
+  }
+}
+
+.main .landing-buttons {
+  text-align: center;
+  margin-bottom: 4em;
 }

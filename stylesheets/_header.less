@@ -111,7 +111,7 @@
 .header.landing
 {
   padding: 200px 0;
-  
+
   @media screen and (max-width: 490px) {
     padding-top: 90px;
   }
@@ -130,7 +130,7 @@
     {
       margin: 60px 0;
 
-      .landing-button { color: @green; border: 1px solid @green; margin: 0 5px; }
+      .landing-button { background-color: @white; color: @green; border: 1px solid @green; margin: 0 5px; }
       .landing-button:hover { background-color: @green; color: @white; }
       @media screen and (max-width: 485px)
       {
@@ -205,30 +205,30 @@
     line-height: 1em;
     color: @white;
   }
-
-  .landing-button
-  {
-    .inline-block(top);
-    padding: 1.5rem 2rem;
-
-    border: 1px solid @white;
-    border-radius: 3px;
-
-    .Karla();
-    font-size: 1rem;
-    font-weight: bold;
-    color: @white;
-
-    .transition(all 0.06s);
-
-    &:hover
-    {
-      background-color: @white;
-      color: @red;
-    }
-  }
 }
 
+.landing-button
+{
+  .inline-block(top);
+  padding: 1.5rem 2rem;
+
+  border: 1px solid @green;
+  border-radius: 3px;
+
+  .Karla();
+  font-size: 1rem;
+  font-weight: bold;
+  color: @white;
+
+  .transition(all 0.06s);
+  background-color: @green;
+
+  &:hover
+  {
+    background-color: @white;
+    color: @green;
+  }
+}
 
 // ---------------------------------------------------------------
 // ---------------------------------------------------------------

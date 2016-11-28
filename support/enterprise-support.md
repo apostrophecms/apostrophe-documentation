@@ -3,26 +3,33 @@ title: "Enterprise support"
 headerClass: "header--support"
 ---
 
-## About Apostrophe enterprise support
+## Enterprise support from the creators of Apostrophe
+[P'unk Avenue](http://punkave.com) is a full service design and development studio based in sunny South Philadelphia. As the originators of Apostrophe, we are your best option for ongoing support of Apostrophe projects. [Please reach out to us](mailto:support@punkave.com) to start a conversation around how we can support your Apostrophe projects!
 
-Enterprise support for Apostrophe is available via [P'unk Avenue](https://punkave.com), the full-service web design and build firm where Apostrophe was born. **As the originators of Apostrophe, we are your best option for ongoing support of Apostrophe projects.**
+<div class="lockup">
+  <div class="lockup-text">
+    <p><strong>Developer Support</strong><br>If you have Apostrophe developers in-house, we can provide timely support to them on an hourly basis, with a minimum of overhead. We  offer SLAs that are designed to meet the needs of your team.</p>
+  </div>
+  <div class="lockup-icon lockup-icon--question"></div>
+</div>
 
-Our enterprise support offerings are structured around your organization's needs.
+<div class="lockup">
+  <div class="lockup-icon lockup-icon--tools"></div>
+  <div class="lockup-text">
+    <p><strong>Full-service Development Team</strong><br>We can serve as your full-service Apostrophe development team, both maintaining existing projects created by other developers and launching new projects with you.</p>
+  </div>
+</div>
 
-If you have Apostrophe developers in-house, we can provide timely support to them on an hourly basis, with a minimum of overhead.
+<div class="lockup">
+  <div class="lockup-text">
+    <p><strong>Long Term Commitment</strong><br>Support is available for previous versions of Apostrophe, including those we do not otherwise update on a regular basis at this point. See <a href="/support/roadmap.html">our roadmap</a> for details on support for specific releases.</p>
+  </div>
+  <div class="lockup-icon lockup-icon--roadmap"></div>
+</div>
 
-We can also serve as your full-service Apostrophe development team, both maintaining existing projects created by other developers and launching new projects with you.
+<p class="landing-buttons">
+  <a href="mailto:support@punkave.com" class="landing-button landing-button--inverse">Get in touch with us to learn more!</a>
+</p>
 
-## Long term commitment
-
-We are committed to the long-term success of Apostrophe-based projects. We actively support numerous Apostrophe projects that originated in older versions of Apostrophe and will continue to do so. We maintain a content migration path from the very earliest versions of Apostrophe and will continue to do so for the very latest.
-
-Enterprise support is available for previous versions of Apostrophe, including those we do not otherwise update on a regular basis at this point. Also see our [roadmap](roadmap.html) for details on support for specific releases.
-
-## Get in touch
-
-Please reach out to our support team via [support@punkave.com](mailto:support@punkave.com) to start a support relationship with us.
-
-## Community support
-
-Apostrophe is an open source project with an active community of developers. See the [community support](../community/index.html) page for a variety of options for free support.
+**Looking for community support?**
+Apostrophe is an open source project with an active community of developers. See [the community page](/community/index.html) for a variety of options for how to connect with them.
