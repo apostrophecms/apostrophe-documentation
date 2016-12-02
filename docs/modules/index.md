@@ -23,6 +23,7 @@ children:
   - apostrophe-images
   - apostrophe-images-widgets
   - apostrophe-launder
+  - apostrophe-locks
   - apostrophe-login
   - apostrophe-migrations
   - apostrophe-modal

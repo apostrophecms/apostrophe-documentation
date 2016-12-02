@@ -200,6 +200,19 @@ the docs.
 Filter. Sets the MongoDB projection. You can also
 set the projection as the third argument to any
 `find` method.
+### defaultSort(*value*)
+Filter. Changes the default value for the `sort` filter.
+The argument is the same as for the `sort` filter: an
+object like `{ title: 1 }`. `false` can be passed to clear
+a default.
+
+This filter is called by apostrophe-pieces based on its
+`sort` configuration option.
+
+It is distinct from the `sort` filter so that we can
+distinguish between cases where a default sort should be ignored
+(for instance, the `search` filter is present) and cases
+where a sort is explicitly demanded by the user.
 ### sort(*value*)
 Filter. Sets the MongoDB sort, with some extra features.
 
