@@ -1,7 +1,9 @@
+@nav-collapse: ~"(max-width: 1000px)";
+
 nav.outer
 {
   width: 100%;
-  padding: 0.25em;
+  padding: 15px;
   background-color: @white;
 
   .clearfix();
@@ -26,10 +28,16 @@ nav.outer
   background-repeat: no-repeat;
 }
 
+.links.right {
+  @media @nav-collapse {
+    width: 100%;
+    margin: 20px 0;
+  }
+}
+
 .page-link, .page-dropdown
 {
   .inline-block(middle);
-  padding: 0.25rem 0;
   margin-right: 1.25rem;
 
   a
@@ -38,10 +46,26 @@ nav.outer
     color: @green;
     text-decoration: none;
     letter-spacing: 0.02em;
+    padding: 0.25rem 0;
+    display: block;
+    transition: color 0.2s;
+
+    @media @nav-collapse {
+      padding: 10px 0;
+    }
+
+    &:hover
+    {
+      color: lighten(@green, 6%);
+    }
   }
 
   &.old-stuff {
     font-size: 70%;
+  }
+
+  @media @nav-collapse {
+    display: block;
   }
 }
 
@@ -66,6 +90,14 @@ nav.outer
         margin-bottom: 0.5em;
       }
     }
+  }
+}
+
+.search-box
+{
+  @media @nav-collapse
+  {
+    margin-top: 20px;
   }
 }
 

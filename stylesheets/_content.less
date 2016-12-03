@@ -1,11 +1,8 @@
+@sidebar-stack: ~"(max-width: 800px)";
+
 .wrap
 {
   padding-top: 5rem;
-  @media screen and (max-width: 900px)
-  {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
 }
 
 // --------------------------------------------------
@@ -45,6 +42,17 @@
     .KarlaBold();
     &, a {  color: @red; }
 
+  }
+
+  @media @sidebar-stack
+  {
+    position: static;
+    width: 100%;
+
+    .mark--sidebar
+    {
+      display: none;
+    }
   }
 
 
@@ -157,12 +165,22 @@
     h1
     {
       margin-left: 30%;
+
+      @media @sidebar-stack
+      {
+        margin-left: 0;
+      }
     }
   }
 
   footer
   {
-    padding: 3rem 5% 6rem 30%;
+    padding-left: 30%;
+
+    @media @sidebar-stack
+    {
+      padding-left: 0;
+    }
   }
 }
 
@@ -256,7 +274,7 @@
       max-width: 38%;
       &.client-logo
       {
-        height: 80px;
+        max-height: 80px;
         margin-left: 0;
         margin-right: 0;
         width: auto;
@@ -298,6 +316,13 @@
     max-width: 880px;
     margin-left: 30%;
     float: left;
+
+    @media @sidebar-stack
+    {
+      width: 100%;
+      margin-left: 0;
+      padding: 0 20px;
+    }
   }
 }
 
