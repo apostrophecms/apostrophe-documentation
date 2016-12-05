@@ -18,7 +18,7 @@ In the getting started tutorials, we saw this in `app.js`:
       groups: [
         {
           title: 'guest',
-          permissions: [ ]
+          permissions: [ 'guest' ]
         },
         {
           title: 'admin',
@@ -31,7 +31,7 @@ In the getting started tutorials, we saw this in `app.js`:
 
 This is Apostrophe's "simplified permissions model." Rather than asking the end user who owns the site to manage groups of people and grant permissions to them, we configure two groups as "standard equipment" for this site, and a simple dropdown menu appears in the settings for each user. Everyone is either a "guest" or an "admin."
 
-A guest can view pages that are marked as "Login required" via "Page Settings."
+A guest can view pages that are marked as "Login required" via "Page Settings," because they have the `guest` permission.
 
 And an admin can do... well, everything.
 
