@@ -112,3 +112,62 @@ the click event are both automatically stopped.
 
 The word "object" refers to "the object of the sentence."
 It is a STRING, not a javascript object.
+### enableAjax()
+
+### ajaxSubmitHandler(*event*)
+
+### ajaxClickHandler(*event*)
+
+### ajaxContextOf(*$el*)
+Given a jQuery object, return the name of the ajax context containing it
+(the `data-apos-ajax-context` attribute of its closest ancestor that has one).
+### ajaxGo(*name*, *url*, *data*, *options*)
+Refresh the named data-apos-ajax-context with the content returned by the specified
+URL. The URL is submitted with the additional query data specified by `data`, if any;
+it may be a string (the output of serializing a form) or an object for convenience.
+The URL will be pushed to the browser history as specified unless `options.push`
+is explicitly `false`.
+
+Any text input or textarea fields, and any other elements with a distinct data-apos-ajax-preserve
+attribute, are NOT refreshed; their ancestors are also not refreshed. This prevents loss of
+focus when typing which is a very severe cross browser problem otherwise.
+
+After the replacement takes place, the `enhance` and `ajax` Apostrophe events
+are emitted, in that order, with a jQuery object containing the ajax context div
+as the argument.
+
+Note that your event handlers for these should watch out for preserved elements and
+their ancestors, and not do things twice. You can address this by checking for
+`data-apos-ajax-preserve` and `data-apos-ajax-preserved` attributes.
+### ajaxPopStateHandler(*event*)
+
+### ajaxPushHistory(*name*, *url*)
+Push the specified URL to the browser history, associating it with the named data-apos-ajax-context
+element in the page. Any apos-ajax query parameter is stripped off so that the history shows
+full-page URLs rather than ajax refresh URLs. You will not need to call this method yourself. It is
+called for you by `ajaxGo`.
+### isAjaxUrl(*url*)
+Returns true if the given URL is appropriate for an AJAX update when found
+within `data-apos-ajax-context`. To avoid unexpected results the default behavior
+is quite conservative: the URL must be the same as the current page, except
+for the query string and/or hashtag.
+### ajaxError(*err*)
+
+### replaceUnpreserved(*$old*, *$new*, *options*)
+This method is used to AJAX-refresh forms without breaking text input in progress
+and can also be used to single out other elements for preservation during an
+ajax replace.
+
+The jquery objects $old and $new represent HTML container elements. $old is
+something currently in the DOM such as a form. $new is newly constituted from an AJAX call.
+Replace the contents of $new with the contents of $old, except that elements
+of $old with a data-apos-ajax-preserve attribute are preserved, and of
+necessity their ancestors are also preserved, because removing an input element
+from the DOM temporarily is as bad as removing it forever as far as text input in
+progress is concerned.
+
+Each preserved element must have a **unique value** for data-apos-ajax-preserve,
+and this attribute must be consistent between $old and $new.
+
+If options.text is true, all text input and textarea elements are automatically
+marked to be preserved, provided they have a name attribute.

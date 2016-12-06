@@ -58,7 +58,8 @@ values for each schema field.
 Returns a MongoDB projection object to be used when querying
 for this type if all that is needed is a title for display
 in an autocomplete menu. Default behavior is to
-return only the `title` and `_id` properties.
+return only the `title`, `_id` and `slug` properties.
+Removing any of these three is not recommended.
 
 `query.field` will contain the schema field definition for
 the join the user is attempting to match titles from.

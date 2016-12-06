@@ -24,6 +24,15 @@ To learn more and see complete examples, see:
 
 [Reusable content with pieces](../../tutorials/getting-started/reusable-content-with-pieces.html)
 
+## Options
+
+### `piecesFilters`
+
+If present, this is an array of objects with `name` properties. The named cursor filters are 
+marked as `safeFor: "public"` if they exist, and an array of choices for each is populated
+in `req.data.piecesFilters.tags` (if the field in question is `tags`), etc. The choices in the
+array are objects with `label` and `value` properties.
+
 
 ## Methods
 ### indexCursor(*req*)
@@ -103,3 +112,12 @@ and joins shut off.
 ### enableAddUrlsToPieces()
 Configure our `addUrlsToPieces` method as the `addUrls` method
 of the related pieces module.
+### populatePiecesFilters(*cursor*, *callback*)
+Populate `req.data.piecesFilters` with arrays of choice objects,
+with label and value properties, for each filter configured in the
+`piecesFilters` array option. Each filter in that array must have a
+`name` property. Distinct values are fetched for the corresponding
+cursor filter (note that most schema fields automatically get a
+corresponding cursor filter method). Each filter's choices are
+reduced by the other filters; for instance, "tags" might only reveal
+choices not ruled out by the current "topic" filter setting.

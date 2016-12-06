@@ -203,6 +203,8 @@ Cursors can also be called automatically. Many cursor filters provide a `sanitiz
 
 A cursor is always an instance of [apostrophe-cursor](modules/apostrophe-docs/server-apostrophe-cursor.html) or one of its subclasses. The right way to obtain one is via the `find` method of a doc type manager, such as a module that extends pieces.
 
+**Every cursor object obtained in this way automatically has methods with the same name as each field in the schema.** For instance, you can write `.slug('party').toArray(function(err, docs) { ... })` to find all docs with a slug (URL) that contains the word `party`.
+
 See [working with cursors](tutorials/intermediate/cursors.md) for more information.
 
 ### `req.data` and the `data` object in Nunjucks

@@ -89,7 +89,7 @@ Turns a user-entered search query into a regular expression.
 If the string contains multiple words, at least one space is
 required between them in matching documents, but additional words
 may also be skipped between them, up to a reasonable limit to
-preserve performance and avoid useless results.
+preserve performance and avoid useless strings.
 
 Although we now have MongoDB full text search this is still
 a highly useful method, for instance to locate autocomplete
@@ -120,7 +120,7 @@ a good thing in the former case.
 `ids` should be an array of mongodb IDs. The elements of the `items` array, which
 should be the result of a mongodb query, are returned in the order specified by `ids`.
 This is useful after performing an `$in` query with MongoDB (note that `$in` does NOT sort its
-results in the order given).
+strings in the order given).
 
 Any IDs that do not actually exist for an item in the `items` array are not returned,
 and vice versa. You should not assume the result will have the same length as
@@ -154,6 +154,13 @@ See apos.utils.bless. Checks whether the given set of arguments
 ### hashBlessing(*args*) *[api]*
 See `self.bless` and `self.isBlessed`. Creates a unique hash for a given
 set of arguments. Arguments must be JSON-friendly.
+### insensitiveSort(*strings*) *[api]*
+Sort the given array of strings in place, comparing strings in a case-insensitive way.
+### insensitiveSortByProperty(*objects*, *property*) *[api]*
+Sort the given array of objects in place, based on the value of the given property of each object,
+in a case-insensitive way.
+### insensitiveSortCompare(*a*, *b*) *[api]*
+Copmpare two strings in a case-insensitive way, returning -1, 0 or 1, suitable for use with sort().
 ### modulesReady()
 Add these after we're sure the templates module
 is ready. Only necessary because this module is
@@ -205,6 +212,9 @@ you to pass in an options object without checking if it is null.
 ### find(*arr*, *property*, *value*)
 Find the first array element, if any, that has the specified value for
 the specified property.
+### indexBy(*arr*, *iteratee*)
+Creates an object composed of keys generated from the results of running 
+each element of collection through iteratee.
 ### filter(*arr*, *property*, *value*)
 Find all the array elements, if any, that have the specified value for
 the specified property.

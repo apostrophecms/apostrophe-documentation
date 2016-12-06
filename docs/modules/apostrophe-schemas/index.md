@@ -154,11 +154,44 @@ index: function(value, field, texts) {
 Note that areas are *always* indexed.
 ### getFieldType(*typeName*)
 
+### addFilters(*schema*, *options*, *cursor*)
+Given a schema and a cursor, add filter methods to the cursor
+for each of the fields in the schema, based on their field type,
+if supported by the field type. If a field name exists in `options.override`
+this is done even if such a filter is already present on the cursor object.
+### joinFilterChoices(*field*, *cursor*, *valueField*)
+You don't need to call this. It is called for you when you invoke `toChoices` for any
+cursor filter based on a join. It delivers an array of choice objects to its callback.
+### addJoinSlugFilter(*field*, *cursor*, *suffix*)
+You don't need to call this. It is called for you as part of the mechanism that
+adds cursor filter methods for all joins.
+
+If you named your join properly (leading _), you also get a filter
+*without* the `_` that accepts slugs rather than ids - it's suitable
+for public use in URLs (and it's good naming because the public would find the _ weird).
+
+If you're wondering, you should have had the leading _ anyway to keep it from
+persisting the loaded data for the join back to your doc, which could easily blow
+mongodb's doc size limit and in any case is out of data info in your database.
+
 ### pageServe(*req*)
 When a page is served to a logged-in user, make sure the session contains a blessing
 for every join configured in schemas for doc types
 ### bless(*req*, *schema*)
-
+Bless a schema. Makes a note in the user's session that
+the various area, widget and array schema options found
+within this schema are genuine. This allows the server to later
+re-render those things based on new edits without the need
+for sanitization of the options being sent back by the browser,
+provided the option set was blessed in this manner.
+### sortedDistinct(*property*, *cursor*, *callback*)
+Fetch the distinct values for the specified property via the specified
+cursor and sort them before delivering them to the callback as the
+second argument. Like `toDistinct`, but sorted. A convenience used
+by the standard filters for many field types.
+### cursorFilterInterested(*cursor*, *name*)
+For most cursor filters, if the value is undefined or null,
+the filter should do nothing. This method implements that test.
 ## Nunjucks template helpers
 ### toGroups(*fields*)
 

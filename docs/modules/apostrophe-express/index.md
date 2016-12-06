@@ -48,6 +48,12 @@ option is set to another port.
 In any case, if the `PORT` environment variable is set, it is used
 instead.
 
+### `bodyParser`
+
+The `json` and `urlencoded` properties of this object are merged
+with Apostrophe's default options to be passed to the `body-parser`
+npm module's `json` and `urlencoded` flavors of middleware.
+
 ### `prefix` *(a global option, not a module option)*
 
 This module implements parts of the sitewide `prefix` option, which is a global

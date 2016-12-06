@@ -106,10 +106,30 @@ entire series of finalizers is invoked
 again. This is useful if you wish to simplify
 the query and be assured that all of the other
 finalizers will see your modification.
+### safeFilters(*filters*)
+The filters automatically added for each schema field are marked as
+`safeFor: "manage"` because of the risk they will be used to get information
+the public shouldn't have. You can mark these filters `safeFor: "public"`
+conveniently by passing an array of filter names to this method.
+apostrophe-pieces-pages automatically does this when a filter is
+specified for its `piecesFilters` option.
+
+This method is chainable (it returns the cursor).
 ### toDistinct(*property*, *callback*)
 Invokes callback with `(err, results)` where
 `results` is an array of all distinct values
-for the given `property`. Not chainable.
+for the given `property`. Not chainable. Wraps
+MongoDB's `distinct` and does not understand
+join fields directly. However, see also
+`toChoices`.
+### toChoices(*property*, *callback*)
+Invokes callback with `(err, results)` where
+`results` is an array of objects with
+`label` and `value` properties suitable for
+display as a `select` menu or use as an
+autocomplete API response. Most field types
+support this well, including `joinByOne` and
+`joinByArray`.
 ### toObject(*callback*)
 Invokes callback with `(err, doc)` where
 `doc` is the first document matching the query.

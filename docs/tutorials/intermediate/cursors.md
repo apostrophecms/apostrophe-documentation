@@ -83,9 +83,13 @@ The `search` filter performs a MongoDB full-text search *and* adjusts the sort o
 
 ## Pieces pages and filters
 
-To make it easier to browse a listing of pieces, the [apostrophe-pieces-pages](../../modules/apostrophe-pieces-pages/index.html) module will *automatically permit filters to be used as query string parameters*, provided they are marked as safe for the public. You can try this with the `search` filter, which is marked as safe. But where this feature really comes into its own is when we add custom filters to our modules.
+To make it easier to browse a listing of pieces, the [apostrophe-pieces-pages](../../modules/apostrophe-pieces-pages/index.html) module will *automatically permit filters to be used as query string parameters*, provided they are marked as safe for the public. You can try this with the `search` filter, which is marked as safe, or with any of the filters provided to you automatically for your schema fields, provided you use the `piecesFilters` option as shown below.
 
-## Custom filters: browsing profiles by market
+## Built-in filters: every schema field gets one!
+
+**Every cursor object obtained via `find` from a manager automatically has methods with the same name as each field in the schema.** For instance, you can write `.slug('party').toArray(function(err, docs) { ... })` to find all docs with a slug (URL) that contains the word `party`. This works for most schema field types, although there are a few for which filters don't make sense or don't exist yet.
+
+## Filtering joins: browsing profiles by market
 
 Let's say our profiles have a [join](../getting-started/schema-guide.html) with another content type, `market`. Each profile is for a salesperson who works in a particular market:
 
@@ -115,9 +119,95 @@ Let's say our profiles have a [join](../getting-started/schema-guide.html) with 
 }
 ```
 
-We'd like to be able to fetch profiles by market. We could do that by writing a MongoDB criteria object, but if we're doing it often, it would be a lot nicer to call `.market(id)`. Better yet, `.market(slug)`, which would allow us to have user-friendly query strings in the address bar.
+We'd like to be able to fetch profiles by market. We could do that by writing a MongoDB criteria object, but if we're doing it often, it would be a lot nicer to call `._market(id)`. Better yet, `.market(slug)`, which would allow us to have user-friendly query strings in the address bar.
 
-Here's how we do the latter:
+**Good news! You used to have to add these filters yourself; now they are built in.** The `_market` filter expects an id, while the `market` filter expects a slug (underscores are for programmers, plain names are for the public).
+
+*For security reasons, these filters don't automatically become available for public use via query strings.* However this *does* happen if you configure them with `piecesFilters` as shown below.
+
+## Creating filter UI with `apostrophe-pieces-pages`
+
+If you are working with [apostrophe-pieces-pages](../../modules/apostrophe-pieces-pages/index.html), you'll likely want to display links to each tag, each market, etc. and allow the user to filter the profiles.
+
+This is easy thanks to the `piecesFilters` option:
+
+```javascript
+  'profiles-pages': {
+    extend: 'apostrophe-pieces-pages',
+    piecesFilters: [
+      {
+        name: 'tags'
+      },
+      {
+        name: 'market'
+      }
+    ]
+  }
+```
+
+Here we're asking `apostrophe-pieces-pages` to automatically populate `req.data.piecesFilters.tags` and `req.data.piecesFilters.market` with arrays of choices. 
+
+Now we can take advantage of that:
+
+```markup
+{# Somewhere in lib/modules/profiles-pages/index.html #}
+
+{# Link to all the tags, adding a parameter to the query string #}
+<ul class="tag-filters">
+  {% for tag in data.piecesFilters.tags %}
+    <li><a href="{{ data._url | build({ tags: tag.value }) }}">{{ tag.label }}</a></li>
+  {% endfor %}
+</ul>
+
+{# Link to all the markets, adding a parameter to the query string #}
+<ul class="tag-filters">
+  {% for market in data.piecesFilters.market %}
+    <li><a href="{{ data._url | build({ market: market.value }) }}">{{ market.label }}</a></li>
+  {% endfor %}
+</ul>
+```
+
+Notice that even though tags and joins are very different animals, the template code is exactly the same. That's because the choices provided to us are always in a consistent format: the `label` is a label, while the `value` is intended to be the query string parameter for this particular filter. So you can easily write a universal nunjucks macro for filters.
+
+## Showing the current state of the filter
+
+Usually we want to indicate the tag the user has already chosen. How can we do that?
+
+```markup
+{# Somewhere in lib/modules/profiles-pages/index.html #}
+
+{# Link to all the tags, adding a parameter to the query string #}
+<ul class="tag-filters">
+  {% for tag in data.piecesFilters.tags %}
+    <li><a href="{{ data._url | build({ tags: tag.value }) }}"
+      class="{{ 'current' if data.query.tags == tag.value }}">{{ tag.label }}</a></li>
+  {% endfor %}
+</ul>
+```
+
+Here's the really interesting bit:
+
+```
+class="{{ 'current' if data.query.tags == tag.value }}"
+```
+
+The current query string is automatically unpacked to `data.query` for you as an object. So just compare `data.query.tags` to the value of each of the choices.
+
+*Here we're using the alternate `if` syntax for Nunjucks, for convenience.*
+
+## Filtering on multiple values
+
+You're not restricted to filtering on a single value for a join. If you pass an array to one of the filters for a join, you'll get back results that have *any* of the specified values.
+
+If you want to be more restrictive and only display results that have *all* of the specified values, just add `And` to the filter name. For instance, `_marketAnd()` expects ids, and `marketAnd()` expects slugs.
+
+It's possible to build query strings that contain arrays. It's usually easiest to do that in an actual old-fashioned GET-method form, perhaps with JavaScript code that enhances it with nicer-looking lists of links and sets multiple-select values in the form, triggering submit afterwards.
+
+## Custom filters
+
+**TODO: this example now duplicates a standard filter.** We should write a new example that does something you don't get for free.
+
+Here's how we would implement the `market` filter from scratch if it **didn't already exist**:
 
 ```javascript
 // In lib/modules/profiles/lib/cursor.js
@@ -207,6 +297,6 @@ What's happening in this code?
 * In that module, we called `self.apos.define`, a convenience method that invokes `self.apos.synth.define` to define a new type of object. But *since that type already exists, it creates an implicit subclass*, in which *our version replaces the original but does not discard it*. Instead, our `construct` function is called `after` the regular one. This allows us to add additional filters as we see fit.
 * We used `require` to pull in the actual definition from `pagesCursor.js`, just to keep the code tidy.
 
-## Whoa, that was intense
+## Whoa, that was intense... I mean cool
 
-It's true, cursors are a little intense once you start extending them. But they are also one of Apostrophe's most powerful and useful features. The more you work with them, the more you'll appreciate the convenience.
+Cursors are one of the coolest things in Apostrophe. We used to say one of the most intense, before they were created for you automatically in most use cases. But now that they are built-in for most schema fields, it's tough to see them as anything but cool.
