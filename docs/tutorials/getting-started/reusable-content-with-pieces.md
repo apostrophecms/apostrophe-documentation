@@ -358,6 +358,10 @@ Add a little CSS and you've got a nice directory.
 > **Always specify the size.** Loading a large version of the image for an index view like this just slows down your site. See [adding editable content to pages](adding-editable-content-to-pages.html) for more information about image sizes.
 >
 
+### Filtering the list of people
+
+Before long you'll start wanting to filter this list of people, taking advantage of joins, tags and other field types. This is easy to do thanks to the new built-in [cursor filters for most schema fields](../intermediate/cursors.html). `apostrophe-pieces-pages` offers a `piecesFilters` option that automatically takes advantage of these. This is a fine time to read the [cursors tutorial](../intermediate/cursors.html) to learn all about it.
+
 ### Creating custom templates for individual people
 
 Next we'll want to override the `show.html` template as well. This is the template that displays just one profile in detail:
