@@ -362,6 +362,48 @@ Add a little CSS and you've got a nice directory.
 
 Before long you'll start wanting to filter this list of people, taking advantage of joins, tags and other field types. This is easy to do thanks to the new built-in [cursor filters for most schema fields](../intermediate/cursors.html). `apostrophe-pieces-pages` offers a `piecesFilters` option that automatically takes advantage of these. This is a fine time to read the [cursors tutorial](../intermediate/cursors.html) to learn all about it.
 
+### Using AJAX to enhance filters
+
+Apostrophe offers an general-purpose, extremely easy solution for AJAX refreshes.
+
+"What the heck is an AJAX refresh?" Right now, if you click on a filter, the whole page reloads. Instead, an AJAX refresh only updates the relevant part of the page.
+
+Here's how you do it:
+
+Just add a `data-apos-ajax-context="name"` attribute to the outer div that should be refreshed when any link or form submission inside it takes place and has a URL that points back to the same page.
+
+*The value of the attribute must be unique on the page.*
+
+Next, refactor your `index.html` template so that the actual list of people and any filters are in an `indexAjax.html` template, which is included at the appropriate point, wrapped in a div that has the `data-apos-ajax-context` attribute:
+
+```markup
+{# index.html #}
+{% extend data.outerLayout %}
+<h2>People</h2>
+<div data-apos-ajax-context="people">
+  {% include "indexAjax.html" %}
+</div>
+```
+
+```markup
+{# indexAjax.html, which does NOT extend anything #}
+{% for piece in data.pieces %}
+  <h4>
+    {% set image = apos.images.first(piece.thumbnail) %}
+    {% if image %}
+      <img src="{{ apos.attachments.url(image, { size: 'one-sixth' }) }}" />
+    {% endif %}
+    <a href="{{ piece._url }}">{{ piece.title }}</a>
+  </h4>
+{% endfor %}
+```
+
+That's it! Really.
+
+Combine this with the [techniques in the cursors tutorial](../intermediate/cursors.html) and you'll get very modern results without the need to pull React or Angular into your project. 
+
+**Tip:** you'll want to include your filter links and forms in `indexAjax.html` so that they too can be refreshed automatically, narrowing down the choices based on the other filters already in use. Any input elements or textareas that currently have the focus will not be refreshed, so you can even implement typeahead by triggering a submit of the form via JavaScript as the user types. (TODO: a good example of this with proper debouncing.)
+
 ### Creating custom templates for individual people
 
 Next we'll want to override the `show.html` template as well. This is the template that displays just one profile in detail:
