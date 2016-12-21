@@ -15,6 +15,7 @@ Here is a list of optional official Apostrophe modules you can `npm install` to 
 * [apostrophe-second-chance-login](https://npmjs.org/packages/apostrophe-second-chance-login)
 * [apostrophe-redirects](https://npmjs.org/packages/apostrophe-redirects)
 * [apostrophe-legacy-import](https://npmjs.org/packages/apostrophe-legacy-import)
+* [apostrophe-pieces-import](https://npmjs.org/packages/apostrophe-pieces-import)
 
 ## Publishing your own npm modules for Apostrophe
 
