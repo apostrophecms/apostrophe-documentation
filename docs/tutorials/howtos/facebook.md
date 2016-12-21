@@ -82,3 +82,7 @@ It's pretty easy, since `data.page._url` is now absolute, and so are your image 
 * If there is a singleton named `facebookImage` in our context (tip: add it to the schema), we use that for `og:url`. If not we use the first image we find in the `thumbnail` or `body` areas. This allows for custom Facebook images, if you want to include them in your page or piece schema, and also allows for Apostrophe to track something down to use instead.
 
 * The body area is converted to plaintext and the first 200 characters are used to create the Facebook meta description. If you wanted, you could add a special Facebook description field to your schema, and output that instead.
+
+### What if I need to construct an absolute URL to assets of my own?
+
+You can access `baseUrl` directly in your page templates as of Apostrophe 2.13.0 and use that to prefix any site-relative URLs you may have. If the assets are being served by Apostrophe it is better to use `baseUrlWithPrefix`, as that will also do the right thing if you configure your site with a `prefix` option to serve it as a "virtual directory" of another site, and will still work if you don't. If their location is independent of the prefix, use `baseUrl` by itself.

@@ -358,6 +358,8 @@ Registers a manager for a specific page type that doesn't already have one via `
 `manageOrphans`
 ### registerTrashPageType(*callback*) *[api]*
 
+### validateTypeChoices() *[api]*
+
 ### modulesReady(*callback*)
 When all modules are ready, invoke `registerGenericPageTypes` to register a manager
 for any page type that doesn't already have one via `apostrophe-custom-pages`,

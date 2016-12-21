@@ -49,7 +49,12 @@ unlimited admin permissions.
 
 ### usage()
 
-### getReq()
+### getReq(*properties*)
 Return a req object with permission to do anything.
 Useful since most APIs require one and most tasks
 should run with administrative rights.
+
+Optionally a `properties` object can be passed. If it is
+passed its properties are added to the req object before
+any initialization tasks such as computing `req.absoluteUrl`.
+This allows testing of that mechanism by setting `req.url`.

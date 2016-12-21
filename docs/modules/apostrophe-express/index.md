@@ -24,13 +24,16 @@ and implements the server side of CSRF protection for Apostrophe.
 
 ## Options
 
-### `baseUrl`
+### `baseUrl` (GLOBAL OPTION, NOT SET FOR THIS SPECIFIC MODULE)
 
 As a convenience, `req.absoluteUrl` is set to the absolute URL of
-the current request. If the `baseUrl` option is set to a string
+the current request. If the `baseUrl` option **at the top level,
+not for this specific module** is set to a string
 such as `http://mysite.com`, any site-wide prefix and `req.url` are
 appended to that. Otherwise the absolute URL is constructed based
-on the browser's request.
+on the browser's request. Setting the `baseUrl` global option is
+necessary for reasonable URLs when generating markup from a
+command line task.
 
 ### `address`
 
@@ -157,6 +160,14 @@ available via `req.files`. See the
 [connect-multiparty](https://npmjs.org/package/connect-multiparty) npm module.
 This middleware is used by [apostrophe-attachments](../apostrophe-attachments/index.html).
 
+## Module-specific middleware
+
+In addition, this module will look for an `expressMiddleware` property
+in EVERY module. If such a property is found, it will be invoked as
+middleware on ALL routes, after the required middleware (such as the body parser) and
+before the configured middleware. If the property is an array, all of the functions
+in the array are invoked as middleware.
+
 
 ## Methods
 ### createApp()
@@ -184,6 +195,10 @@ Install all standard middleware:
 * Internationalization (see [apostrophe-i18n](../apostrophe-i18n/index.html))
 * `req.absoluteUrl` always available (also see [baseUrl](#baseUrl))
 
+### useModuleMiddleware()
+Implement middleware added via self.expressMiddleware properties in modules.
+### configuredMiddleware()
+
 ### enableCsrf()
 
 ### compileCsrfExceptions()
@@ -209,3 +224,28 @@ at the end of its initialization process.
 Standard middleware. Sets the `req.absoluteUrl` property for all requests,
 based on the `baseUrl` option if available, otherwise based on the user's
 request headers. The global `prefix` option and `req.url` are then appended.
+
+`req.baseUrl` and `req.baseUrlWithPrefix` are also made available, and all three
+properties are also added to `req.data` if not already present.
+
+The `baseUrl` option should be configured at the top level, for Apostrophe itself,
+NOT specifically for this module, but for bc the latter is also accepted in this
+one case. For a satisfyingly global result, set it at the top level instead.
+### addAbsoluteUrlsToReq(*req*)
+Sets the `req.absoluteUrl` property for all requests,
+based on the `baseUrl` option if available, otherwise based on the user's
+request headers. The global `prefix` option and `req.url` are then appended.
+
+`req.baseUrl` and `req.baseUrlWithPrefix` are also made available, and all three
+properties are also added to `req.data` if not already present.
+
+The `baseUrl` option should be configured at the top level, for Apostrophe itself,
+NOT specifically for this module, but for bc the latter is also accepted in this
+one case. For a satisfyingly global result, set it at the top level instead.
+
+If you want reasonable URLs in req objects used in tasks you must
+set the `baseUrl` option for Apostrophe.
+### afterInit()
+Locate modules with middleware and add it to the list
+### findModuleMiddleware()
+Locate modules with middleware and add it to the list

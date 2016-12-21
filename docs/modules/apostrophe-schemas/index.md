@@ -110,8 +110,9 @@ collisions with future official Apostrophe field types.
 
 ### `converters`
 
-Required. An object with  `csv` and `form` sub-properties, functions which are invoked for
-CSV import and form submissions respectively. These are functions which accept:
+Required. An object with  `string` and `form` sub-properties, functions which are invoked for
+strings (as often needed for imports) and Apostrophe-specific form submissions respectively.
+These are functions which accept:
 
 `req, data, name, object, field, callback`
 
@@ -121,9 +122,9 @@ known to be safe to `object[name]`. Then invoke the callback.
 `field` contains the schema field definition, useful to access
 `def`, `min`, `max`, etc.
 
-If `form` is the same as `csv` you may write:
+If `form` can use the same logic as `string` you may write:
 
-form: 'csv'
+form: 'string'
 
 To reuse it.
 

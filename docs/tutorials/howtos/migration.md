@@ -11,11 +11,11 @@ Basically: *we got rid of the cruft*. The minimum `index.js` file for a module u
 
 0.5 developers should definitely [check out the tutorials](tutorials/index.html) as well as the [glossary](glossary.html) first! After you've done that, here's a guide to making the jump.
 
-> **Don't worry, a content migration tool for existing 0.5 databases is forthcoming.** We have over 70 clients running 0.5. You can bet we need this tool too!
->
-> By the same token, we will obviously be supporting 0.5 for a long time. It might not be necessary to bring every project to 2.x.
->
-> Right now, we are focusing on rolling out new projects on 2.x, but we have a long history of upgrade projects, and so this is a priority for us.
+[Our content migration tool is currently in beta and you can use it today.](https://www.npmjs.com/package/apostrophe-legacy-import) So far it has been tested primarily on cases such as importing snippets like blog posts as pieces for 2.x. This tool will continue to improve and grow more complete as our needs and yours indicate. Pull requests are warmly welcome.
+
+We will obviously be supporting 0.5 for a long time. It might not be necessary to bring every project to 2.x.
+
+Right now, we are focusing on rolling out new projects on 2.x, but we have a long history of upgrade projects, and so this is a priority for us.
 
 ### The `apostrophe-site` module is gone
 
