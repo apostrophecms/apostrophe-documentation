@@ -258,7 +258,7 @@ Here's the markup for our form widget:
 <form class="contact-form" data-contact-form>
   <h4>Contact Us</h4>
   {{ schemas.fields(data.schema, { tabs: false }) }}
-  <button>Send Message</button>
+  <button type="submit">Send Message</button>
   {# Later gets hoisted out and becomes visible #}
   <div class="thank-you" data-thank-you>
     <h4>Thank you for getting in touch! We'll respond soon.</h4>
