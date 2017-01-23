@@ -426,7 +426,7 @@ The `idField` option must be set to the name of a property in which to store the
 
 By default, if the related type has joins of its own, they are **not** carried out. To carry out "nested" joins, set the `withJoins` option to an array containing those join field names. You may also use "dot notation" in these names to indicate that you want to follow a series of joins between related types.
 
-**For performance, it is strongly recommended that you set a projection filter** via the `filters` option, limiting the amount of information fetched about each related doc. You may also call other [cursor filters](../../modules/apostrophe-docs/server-apostrophe-cursor.html) by setting subproperties of the `filters` property. This is a useful way to limit the acceptable choices for the join.
+**For performance, it is strongly recommended that you set a projection filter** via the `filters` option, limiting the amount of information fetched about each related doc. You may also call other [cursor filters](../../modules/apostrophe-docs/server-apostrophe-cursor.html) by setting subproperties of the `filters` property. This is a useful way to limit the acceptable choices for the join. *You must have `title`, `slug`, `type`, and `tags` set in the projection to get the `_url` property.*
 
 Example:
 
