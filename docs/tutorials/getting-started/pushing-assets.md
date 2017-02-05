@@ -52,9 +52,11 @@ body
 }
 ```
 
-> Notice the use of `@import`. In LESS, `@import` is compiled just once on the server, so there is no performance hit. You can use it to bring in additional LESS files, so it's common to only configure one in `app.js`.
->
-> Also notice that the styles for `.main-content h3` are written by nesting styles for `h3` inside `.main-content`. This nesting feature is one of the most important advantages of LESS over plain-vanilla CSS. We are also using some color variables defined by Apostrophe's default stylesheets; your code will probably not use these, but you could define your own variables. Check out the [LESS documentation](http://lesscss.org/) for much more.
+> Notice that the styles for `.main-content h3` are written by nesting styles for `h3` inside `.main-content`. This nesting feature is one of the most important advantages of LESS over plain-vanilla CSS. We are also using some color variables defined by Apostrophe's default stylesheets; your code will probably not use these, but you could define your own variables. Check out the [LESS documentation](http://lesscss.org/) for much more.
+
+LESS provides a lot of power for CSS preprocessing, but Apostrophe also supports plain CSS files and will look for both (but prioritize LESS files) when you configure apostrophe-assets or call `pushAsset`.
+
+Apostrophe will compile and concatenate LESS files just once on the server, so there's no performance hit in the browser. But to ensure that LESS files are still recompiled between requests in development, the less-middleware module is used. While individual stylesheets are automatically recompiled, keep in mind that adding another stylesheet to the configuration might mean that you have to remove the `public/css` folder. That's where Apostrophe stores the main LESS bundles, which are essentially just a list of `@import` statements to the stylesheets that have been added.
 
 ## Configuring JavaScript for the browser
 
