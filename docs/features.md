@@ -115,7 +115,7 @@ On an end user level, Apostrophe offers the ability to secure pages or entire po
 
 ### "What about integration with other platforms?"
 
-Apostrophe supports the [oEmbed standard](http://oembed.com/), an open standard for embedding third-party services. This allows Apostrophe's video and embed widgets to accommodate most accommodations you'll want to handle.
+Apostrophe supports the [oEmbed standard](http://oembed.com/), an open standard for embedding third-party services. This allows Apostrophe's video and embed widgets to accommodate most integrations you'll want to handle.
 
 The great majority of other services offer a "generic embed code" that can be added to page templates or, if you choose to enable it, pasted into our raw HTML widget.
 
