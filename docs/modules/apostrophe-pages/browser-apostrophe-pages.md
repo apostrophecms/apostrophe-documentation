@@ -14,3 +14,5 @@ lies elsewhere in modals for those particular tasks.
 
 ### trash(*_id*, *callback*)
 
+### deleteFromTrash(*_id*, *callback*)
+

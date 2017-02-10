@@ -177,6 +177,13 @@ See the [apostrophe-pages-cursor](server-apostrophe-pages-cursor.html) type for 
 cursor filters and options you might wish to configure, such as adding
 a `depth` option to `children`.
 
+**`deleteFromTrash`: if set to `true`, Apostrophe offers a button in the
+"reorganize" view to permanently delete pages that are already in the trash.**
+This option defaults to `false` because, in our experience, customers usually
+ask for a way to "un-empty the trash," and of course there isn't one. We don't
+recommend enabling the feature on a permanent basis but it can be useful during
+the early stages of site population.
+
 
 ## Methods
 ### pushAssets() *[browser]*
@@ -237,6 +244,15 @@ Delivers `err`, `parentSlug` (the slug of the page's
 former parent), and `changed` (an array of objects with
 _id and slug properties, including all subpages that
 had to move too).
+### deleteFromTrash(*req*, *_id*, *callback*) *[api]*
+Empty the trash (destroy a page in the trash permanently).
+
+Currently you must specify the _id of a single
+page, however if it has descendants they are also destroyed.
+
+If the page does not exist or is not in the trash an error is reported.
+
+Delivers (err, parentSlug) to the callback.
 ### update(*req*, *page*, *options*, *callback*) *[api]*
 Update a page. The `options` argument may be omitted entirely.
 if it is present and `options.permissions` is set to `false`,
@@ -302,7 +318,14 @@ should make your own req.browserCalls
 ### docFixUniqueError(*req*, *doc*) *[api]*
 Invoked via callForAll in the docs module
 ### updateDescendantsAfterMove(*req*, *page*, *originalPath*, *originalSlug*, *callback*) *[api]*
+Update the paths and slugs of descendant pages,
+changing slugs only if they were
+compatible with the original slug. Also update
+the level of descendants.
 
+On success, invokes callback with
+null and an array of objects with _id and slug properties, indicating
+the new slugs for any objects that were modified.
 ### manageOrphans(*callback*) *[api]*
 
 ### implementParkAll(*callback*) *[api]*
@@ -394,6 +417,8 @@ except that the parent page id is determined differently
 ### POST /modules/apostrophe-pages/move
 
 ### POST /modules/apostrophe-pages/move-to-trash
+
+### POST /modules/apostrophe-pages/delete-from-trash
 
 ### POST /modules/apostrophe-pages/get-jqtree
 

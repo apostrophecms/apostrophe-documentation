@@ -3,7 +3,9 @@ title: "Features"
 layout: "reference"
 ---
 
-*Sometimes, you just need to see the Big List.*
+You and your coworkers and partners need to know what Apostrophe can do. And you need to make the case for Apostrophe in your organization. We can help.
+
+We'll start by sharing what Apostrophe can do from a user's perspective. Then we'll dive into the juicy developer stuff. And we'll wrap up by answering some common concerns about Apostrophe.
 
 ## Features for editors and site visitors
 

@@ -17,8 +17,8 @@ layout: "home"
   <h4>The end user experience</h4>
   <p>In-context editing is key: end users can edit content directly on the page, via a familiar interface. Uploaded images automatically resize to suit the right balance of bandwidth and presentation. Past versions of your work are easy to find; users can't accidentally delete content permanently.</p>
   <p>But Apostrophe also takes the needs of larger projects very seriously. Robust permissions features are provided, allowing you to designate the right person or group of people to edit each part of the site.</p>
-  <h4>All the features</h4>
-  <p>Sometimes, you just want to <a href="docs/features.html">see the big list.</a></p>
+  <h4>All the features... and how to make the case for them</h4>
+  <p>Need to see the complete list? Want to make the case for using Apostrophe for your project? Check out our <a href="docs/features.html">features page</a>, which also features answers to common concerns about choosing Apostrophe.</a></p>
 </div>
 <div class="logos home-column">
   <a href="http://nodejs.org/" target="blank">

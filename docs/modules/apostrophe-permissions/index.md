@@ -41,6 +41,9 @@ not logged in. It is useful to add edit-attachment, for instance, to
 allow file uploads by anonymous users for apostrophe-moderator.
 
 View permissions are handled separately.
+
+You may pass multiple arguments, all are added as public permissions. If you
+pass an array as an argument, all permissions in the array are added.
 ### setPublic(*permissions*) *[api]*
 Set all the public permissions at once. Pass an array of
 actions, like this: [ 'edit-attachment' ]

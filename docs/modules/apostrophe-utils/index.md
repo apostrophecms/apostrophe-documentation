@@ -116,6 +116,11 @@ when using `clonePermanent` to limit JSON inserted into
 browser attributes, rather than filtering for the database.
 Preserving simple string properties like `._url` is usually
 a good thing in the former case.
+
+Arrays are cloned as such only if they are true arrays
+(Array.isArray returns true). Otherwise all objects with
+a length property would be treated as arrays, which is
+an unrealistic restriction on apostrophe doc schemas.
 ### orderById(*ids*, *items*, *idProperty*) *[api]*
 `ids` should be an array of mongodb IDs. The elements of the `items` array, which
 should be the result of a mongodb query, are returned in the order specified by `ids`.
@@ -212,9 +217,11 @@ you to pass in an options object without checking if it is null.
 ### find(*arr*, *property*, *value*)
 Find the first array element, if any, that has the specified value for
 the specified property.
-### indexBy(*arr*, *iteratee*)
-Creates an object composed of keys generated from the results of running 
-each element of collection through iteratee.
+### indexBy(*arr*, *propertyName*)
+If propertyName is _id, then the keys in the returned
+object will be the ids of each object in arr,
+and the values will be the corresponding objects.
+You may index by any property name.
 ### filter(*arr*, *property*, *value*)
 Find all the array elements, if any, that have the specified value for
 the specified property.

@@ -178,7 +178,7 @@ Move the given document to the trash. You
 should call .rescue(), not this method. However
 you can override this method to alter the
 implementation.
-### emptyTrash(*req*, *idOrCriteria*, *callback*) *[api]*
+### deleteFromTrash(*req*, *idOrCriteria*, *callback*) *[api]*
 Forever discard the specified document or
 documents. All documents matching the criteria
 are discarded completely.
@@ -193,6 +193,8 @@ The use of this API without extensive user
 confirmation is strongly discouraged. Users
 who ask for a way to empty the trash will often
 ask for a way to un-empty it. There isn't one.
+### emptyTrash(*req*, *idOrCriteria*, *callback*) *[api]*
+bc wrapper for self.deleteFromTrash
 ### walk(*doc*, *callback*, *_dotPath*, *_ancestors*) *[api]*
 Recursively visit every property of a doc,
 invoking a callback for each one. Optionally
@@ -231,7 +233,7 @@ unique indexes. The actor is not passed
 any arguments other than a callback. If
 an error does occur, docFixUniqueError is
 invoked on all modules with `doc` and an
-optional callback.
+optional callback before the next retry.
 ### docBeforeInsert(*req*, *doc*, *options*) *[api]*
 Invoked before any doc is inserted. Checks
 that the user has general permission to
