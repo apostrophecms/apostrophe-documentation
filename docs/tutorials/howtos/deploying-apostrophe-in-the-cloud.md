@@ -87,7 +87,7 @@ APOS_MONGODB_URI=mongodb://YOUR-uri-goes-here node app
 
 > At a small scale, "the cloud" is always slower than a single-server configuration. When things have to talk to each other, running them farther apart doesn't speed things up. However, after you reach a certain scale, a single server is impractical. And of course a single server is a single point of failure.
 
-> Tip: if you forgot to configure the `apostrophe-db` module, it'll seem to work because it will connect to your own mongodb. You can shut down your local mongodb server if you want to be really, really sure.
+> If you do not `node app` with the environment variable correctly, it'll seem to work because it will connect to your own mongodb. You can shut down your local mongodb server temporarily if you want to be really, really sure.
 
 8. Your database exists now on mlab, but it contains no users, so you won't be able to log in. Let's use the command line to connect again to fix that:
 
