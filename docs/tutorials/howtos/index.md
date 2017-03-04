@@ -10,8 +10,9 @@ children:
   - redirecting-after-login
   - facebook
   - adding-fields-to-all-pieces
-  - ckeditor
+  - adding-new-batch-operations
   - extending-the-pieces-editor-modal
+  - ckeditor
   - storing-images-and-files-in-amazon-s3
   - migration
   - deploying-apostrophe-in-the-cloud

@@ -149,7 +149,7 @@ which allows the pages module to piggyback and add `applyToSubpages` behavior.
 
 The `options` object is for future extension and is passed on
 to this method by `insert` and `update`.
-### trash(*req*, *idOrCriteria*, *callback*) *[api]*
+### trash(*req*, *idOrCriteria*, *options*, *callback*) *[api]*
 Trash a single document. The second
 argument may be either an _id, or a MongoDB
 criteria object. If more than one document
@@ -160,14 +160,22 @@ edit the document.
 docBeforeTrash and docAfterTrash
 are invoked on all modules.
 
+If `options.permission` is set, that permission is required
+(or none if it is set to `false`), otherwise `'edit-doc'` is required.
+
+The `options` argument may be omitted entirely.
+
 On success the callback receives `(null, doc)`.
 ### trashBody(*req*, *doc*, *callback*) *[api]*
 
-### rescue(*req*, *idOrCriteria*, *callback*) *[api]*
+### rescue(*req*, *idOrCriteria*, *options*, *callback*) *[api]*
 Rescue the document matching the specified
 criteria from the trash. Only one document
 is rescued regardless of the criteria.
 You must have permission to edit it.
+
+If `options.permission` is set, that permission is required
+(or none if it is set to `false`), otherwise `'edit-doc'` is required.
 
 docBeforeRescue and docAfterRescue are
 invoked on all modules.

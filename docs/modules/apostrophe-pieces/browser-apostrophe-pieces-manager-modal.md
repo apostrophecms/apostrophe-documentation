@@ -19,11 +19,66 @@ turn a filter config object into a working filter
 
 ### enableFilters()
 
+### enableBatchOperations(*callback*)
+Enables batch operations, such as moving every selected
+item to the trash. Maps the operations found in options.batchOperations
+to methods, for instance `{ name: 'trash'}` maps to
+a call to `self.batchTrash()`. Also implements the UI for
+selecting and invoking a batch operation.
+### reflectBatchOperation()
+Invoked when a new batch operation is chosen to reflect it in the UI
+by displaying the appropriate button and, where relevant, the
+appropriate string field. Also invoked when the manage view is refreshed,
+so that filters can impact which operations are currently enabled.
+### enableBatchOperation(*batchOperation*, *callback*)
+Preps for supporting a single batch operation, matching the operation name
+to a method name such as `batchTrash` via the `name` property.
+Also populates the subform for it, if any. Requires callback.
+Invoked for you by `enableBatchOperations`. Do not invoke directly.
+### batchTrash()
+Moves all selected items (`self.choices`) to the trash, after
+asking for user confirmation.
+### batchRescue()
+Rescues all selected items (`self.choices`) from the trash, after
+asking for user confirmation.
+### batchPublish()
+Publishes all selected items (`self.choices`), after asking for
+user confirmation.
+### batchUnpublish()
+Unpublishes all selected items (`self.choices`), after asking for
+user confirmation.
+### batchTag()
+Tags all selected items (`self.choices`), after asking for
+user confirmation.
+### batchUntag()
+Untags all selected items (`self.choices`), after asking for
+user confirmation.
+### batchSimple(*operationName*, *confirmationPrompt*, *options*)
+Carry out a named batch operation, such as `trash`, displaying the
+provided prompt and, if confirmed by the user, invoking the
+corresponding verb in this module's API.
 ### enableSorts()
 
 ### enableChooseViews()
 
 ### enableSearch()
+
+### enableCheckboxEvents()
+Enable checkbox selection of pieces. The ids of the chosen pieces are added
+to `self.choices`. This mechanism is used for ordinary manager modals and their
+bulk features, like "Trash All Selected". The chooser used for selecting
+pieces for joins overrides this with an empty method and substitutes its
+own implementation.
+### reflectChoicesInCheckboxes()
+Reflect existing choices in checkboxes. Invoked by `self.refresh` after
+the main view is refreshed. Important when the user is selecting items
+while paginating. This mechanism is used for ordinary manager modals and their
+bulk features, like "Trash All Selected". The chooser used for selecting
+pieces for joins overrides this with an empty method and substitutes its
+own implementation.
+### reflectChoiceInCheckbox(*id*)
+
+### reflectChoiceCount()
 
 ### refresh(*callback*)
 

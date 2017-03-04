@@ -140,6 +140,26 @@ Called by [apostrophe-pieces-pages](../apostrophe-pieces-pages/index.html) to
 replace the default `addUrls` method with one that assigns `._url`
 properties to pieces based on the most suitable pages of that type.
 See [the `addUrlsToPieces` method of `apostrophe-pieces-pages`](../apostrophe-pieces-pages/index.html#addUrlsToPieces).
+### composeBatchOperations() *[api]*
+
+### batchSimpleRoute(*req*, *name*, *change*) *[api]*
+Implements a simple batch operation like publish or unpublish.
+Pass `req`, the `name` of a configurated batch operation, and
+and a function that accepts (req, piece, data, callback),
+performs the modification on that one piece (including calling
+`update` if appropriate), and invokes its callback.
+
+`data` is an object containing any schema fields specified
+for the batch operation. If there is no schema it will be
+an empty object.
+
+Replies to the request with { status: 'ok', data: piece }
+on success. If `ids` rather than `_id` were specified,
+`data` is an empty object.
+
+To avoid RAM issues with very large selections and ensure that
+lifecycle callbacks like beforeUpdate, etc. are invoked, the current
+implementation processes the pieces in series.
 ### createRoutes() *[routes]*
 
 ### pushAssets() *[browser]*
@@ -158,6 +178,12 @@ See [the `addUrlsToPieces` method of `apostrophe-pieces-pages`](../apostrophe-pi
 ### POST /modules/apostrophe-pieces/update
 
 ### POST /modules/apostrophe-pieces/publish
+
+### POST /modules/apostrophe-pieces/unpublish
+
+### POST /modules/apostrophe-pieces/tag
+
+### POST /modules/apostrophe-pieces/untag
 
 ### POST /modules/apostrophe-pieces/manager-modal
 

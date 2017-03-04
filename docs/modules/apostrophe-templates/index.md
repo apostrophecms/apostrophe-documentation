@@ -84,7 +84,14 @@ a filename.
 ### jsonForHtml(*data*)
 Stringify the data as JSON, then escape any sequences
 that would cause a `script` tag to end prematurely if
-the JSON were embedded in it.
+the JSON were embedded in it. Also make sure the JSON is
+JS-friendly by escaping unicode line and paragraph
+separators.
+
+If the argument is `undefined`, `"null"` is returned. This is
+better than the behavior of JSON.stringify (which returns
+`undefined`, not "undefined") while still being JSONic
+(`undefined` is not valid in JSON).
 ### renderBody(*req*, *type*, *s*, *data*, *module*)
 Implements `render` and `renderString`. See their
 documentation.

@@ -14,3 +14,5 @@ Image Gallery
 
 ### afterRefresh()
 
+### reflectChoiceInCheckbox(*id*)
+
