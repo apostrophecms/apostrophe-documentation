@@ -307,7 +307,7 @@ And our `widget.html` file looks like this:
 
 ```javascript
 {# in lib/modules/drawer-widgets/views/widget.html #}
-<h4><a data-drawer-title href="#">{{ data.widget.title }}</a></h4>
+<h4><a data-drawer-title class="drawer-title" href="#">{{ data.widget.title }}</a></h4>
 <div data-drawer class="drawer-body">
   {{ apos.area(data.widget, 'content', { edit: false }) }}
 </div>
@@ -380,7 +380,7 @@ Now we need to supply `always.less` in the right place: the `public/css` subdire
   text-align: center;
 }
 
-.drawer {
+.drawer-body {
   padding: 2em 0;
   display: none;
 }
