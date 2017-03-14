@@ -63,7 +63,9 @@ Open up `lib/modules/apostrophe-pages/views/pages/home.html` in your text editor
 {% block main %}
   <div class="main-content">
     <h3>Hello world!
-      <a class="login-link" href="/login">Login</a>
+      {% if not data.user %}
+        <a class="login-link" href="/login">Login</a>
+      {% endif %}
     </h3>
     <p>This is a very barebones Apostrophe project. Now, get to work and make a real website!</p>
     {{ apos.area(data.page, 'body', {

@@ -9,9 +9,9 @@ We're going to start from the very beginning by installing the software necessar
 
 ### Install the Software
 
-**These instructions are for MacOS X,** which most developers use to test code that will eventually deploy to Linux. Also see this lovely [HOWTO for Windows](../howtos/windows.html) contributed by Michael Brown.
+**These instructions are for MacOS X,** which most developers use to test code that will eventually deploy to Linux. Also see this lovely [HOWTO for Windows](../howtos/windows.html) contributed by Michael Brown. Linux users can get going by installing the same operating system packages required by our [deployment HOWTO](../intermediate/deployment.html).
 
-This will get you set up on a Mac running OSX 10.9 or better.
+This tutorial will get you set up on a Mac running OSX 10.9 or better.
 
 We're going to install the following software:
 
@@ -41,8 +41,10 @@ Launch the "Terminal" app. From this point on, anything `formatted like this` is
 Installing Homebrew is easy:
 
 ```bash
-ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
+
+*Trouble? Visit the [Homebrew site](http://brew.sh/) for the latest instructions.*
 
 ##### Install Node
 
@@ -56,7 +58,7 @@ brew install node
 
 The terminal prompt finds commands in folders listed in an environment variable called PATH. We'll need to add node's directory to our $PATH in order for it to work its magic.
 
-Create a plaintext file called `.profile` in your home directory if you don't already have one and open it with your text editor (if you haven't used one before, you'll get TextEdit):
+Create a plaintext file called `.profile` in your home directory if you don't already have one and open it with your text editor (which will default to TextEdit on a Mac, which is fine):
 
 ```bash
 touch ~/.profile && open ~/.profile
@@ -66,7 +68,7 @@ In this new file, add these two lines:
 
 ```bash
 export NODE_PATH="/usr/local/lib/node"
-export PATH="/usr/local/share/npm/bin:$PATH”
+export PATH="/usr/local/share/npm/bin:$PATH"
 ```
 
 You should verify that this worked by opening a _new_ Terminal tab and running:
@@ -107,25 +109,17 @@ MongoDB is the database that Apostrophe uses. You can install it with homebrew:
 brew install mongo
 ```
 
-During the mongo install, it will print out instructions for starting mongo on login (recommended for developers), which should look like this:
+During the mongo install, **it will print out instructions for starting mongo on login, which you should follow. The latest steps may change, so read what it says!**
 
-```bash
-==> Caveats
-To have launchd start mongodb at login:
-    ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgents
-Then to load mongodb now:
-    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
-Or, if you don't want/need launchctl, you can just run:
-    mongod
-```
-
-Run those, open a new tab and try:
+Now open a **new terminal window** and try:
 
 ```bash
 mongo
 ```
 
 It should start an interactive mongo prompt. ctrl+c to exit.
+
+> "Hey, it didn't connect to MongoDB!" You probably did not follow the instructions that were printed after installing MongoDB to actually start it and ensure it starts every time you boot. Follow those instructions now.
 
 ##### Install ImageMagick
 
