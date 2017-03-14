@@ -67,8 +67,8 @@ Index the object's fields for participation in Apostrophe search unless
 `searchable: false` is set for the field in question
 ### convert(*req*, *schema*, *from*, *data*, *object*, *callback*)
 Convert submitted `data`, sanitizing it and populating `object` with it
-### export(*req*, *schema*, *to*, *object*, *object*, *callback*)
-Export sanitized 'object' into 'object'
+### export(*req*, *schema*, *to*, *object*, *output*, *callback*)
+Export sanitized 'object' into 'output'
 ### joinDriver(*req*, *method*, *reverse*, *items*, *idField*, *relationshipsField*, *objectField*, *options*, *callback*)
 Driver invoked by the "join" methods of the standard
 join field types.

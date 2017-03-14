@@ -6,6 +6,12 @@ namespace: server
 ## Inherits from: [apostrophe-cursor](../apostrophe-docs/server-apostrophe-cursor.html)
 
 ## Methods
+### ancestorPerformanceRestrictions()
+Apply default restrictions suitable for fetching ancestor pages to the cursor as
+a starting point before applying the ancestor options. Called by the
+ancestors filter here and also by pages.pageBeforeSend when it fetches just
+the home page using the same options, in the event ancestors were not loaded,
+such as on the home page itself. You should not need to modify or invoke this.
 ### isPage(*value*)
 Filter. When calling `self.pages.find` our expectation is that we will only get pages,
 not docs that are not a part of the page tree. This filter defaults to `true`.
