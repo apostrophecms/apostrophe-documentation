@@ -1,5 +1,5 @@
 ---
-title: "The core apostrophe object (browser side)"
+title: "Apostrophe core object, browser-side"
 layout: reference
 module: false
 ---
