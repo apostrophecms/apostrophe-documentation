@@ -44,6 +44,39 @@ Like `addImageSizes`, but Apostrophe's standard sizes are completely replaced. B
 that certain sizes are used by Apostrophe's editing interface unless overridden. We recommend
 using `addImageSizes`.
 
+### `fileGroups`
+
+Apostrophe will reject files that do not have extensions configured via `fileGroups`.
+the default setting is:
+
+```
+[
+  {
+    name: 'images',
+    label: 'Images',
+    extensions: [ 'gif', 'jpg', 'png' ],
+    extensionMaps: {
+      jpeg: 'jpg'
+    },
+    // uploadfs should treat this as an image and create scaled versions
+    image: true
+  },
+  {
+    name: 'office',
+    label: 'Office',
+    extensions: [ 'txt', 'rtf', 'pdf', 'xls', 'ppt', 'doc', 'pptx', 'sldx', 'ppsx', 'potx', 'xlsx', 'xltx', 'csv', 'docx', 'dotx' ],
+    extensionMaps: {},
+    // uploadfs should just accept this file as-is
+    image: false
+  }
+]
+```
+
+NOTE: adding another extension for `images` will not make web browsers
+magically know how to show it or teach uploadfs how to scale it. Don't do that.
+
+You may add extensions to the `office` fileGroup.
+
 
 ## Methods
 ### addFieldType() *[schemaField]*
