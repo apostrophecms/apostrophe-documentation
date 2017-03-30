@@ -20,7 +20,7 @@ Now you can use it to create a new project.
 
 ```bash
 # Create a project
-apostrophe create test-project
+apostrophe create:project test-project
 ```
 
 **Important: rather than `test-project`, use your own project's "short name" containing only letters, digits, hyphens and/or underscores. It will be used by default as a MongoDB database name and a basis for cookie names, etc.** (Hyphens seem more popular than underscores for such purposes.)
