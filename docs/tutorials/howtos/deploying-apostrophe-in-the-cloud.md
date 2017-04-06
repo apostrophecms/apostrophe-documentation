@@ -239,7 +239,31 @@ Whenever you wish to deploy to Heroku.
 
 ## Efficient asset delivery
 
-In this setup, images are delivered efficiently via S3, but other static assets like CSS and JS are delivered via the node application. This is not the fastest way to deliver those static assets. However, it is straightforward to set up a CDN like [Cloudflare](https://www.cloudflare.com/lp/ddos-a/?_bt=157293179478&_bk=cloudflare&_bm=e&_bn=g&gclid=CKeuzI3VxtACFZBMDQodZhAMKg) to act as a "frontend reverse proxy" for your site, caching these static assets while leaving the traffic for pages alone so that logins still work normally. Cloudflare makes this easy, and they even offer a free plan, so we suggest giving it a try.
+In this setup, images are delivered efficiently via S3, but other static assets like CSS and JS are delivered via the node application. This is not the fastest way to deliver those static assets. Let's look at how to deliver the assets via S3 as well.
+
+> For some, the best option is to set up a simplified CDN like [Cloudflare](https://www.cloudflare.com/lp/ddos-a/?_bt=157293179478&_bk=cloudflare&_bm=e&_bn=g&gclid=CKeuzI3VxtACFZBMDQodZhAMKg) to act as a "frontend reverse proxy" for your site, caching these static assets while leaving the traffic for pages alone so that logins still work normally. Cloudflare makes this easy, and they even offer a free plan, so we suggest giving it a try.
+
+### Pushing assets to S3
+
+Apostrophe can push your assets to S3 as part of the bundle-creation step:
+
+```bash
+APOS_MINIFY=1 node app apostrophe:generation --create-bundle=prod-bundle --sync-to-uploadfs
+```
+
+When the `--sync-to-uploadfs` option is used, Apostrophe will create the bundle in a folder by that name as usual, and will then upload the bundle's `public/` subdirectory to the `assets/XXXX` "folder" of your S3 bucket, where `XXXX` is a unique identifier for the current generation of assets. **You should still commit and push the `prod-bundle` folder.**
+
+Your Heroku configuration will look almost the same as before, with one addition:
+
+```bash
+heroku config:set APOS_MINIFY=1
+heroku config:set APOS_BUNDLE=prod-bundle
+heroku config:set APOS_BUNDLE_SYNC_TO_UPLOADFS=1
+```
+
+To ensure the contents of the bundle's `data/` subdirectory are still available, and to provide backwards compatibility for any URLs you have hard-coded in your templates that are not aware that the relevant contents of `public/` have been copied to S3, the bundle is still extracted to the application's folder on Heroku. Apostrophe, however, will consistently reference the contents via S3 URLs instead.
+
+> "When do the old assets get cleaned up?" Apostrophe will wait at least 5 minutes, allowing for old dynos to shut down, then start cleaning up assets left over by old deployments.
 
 ## Taking advantage of the "release phase"
 
