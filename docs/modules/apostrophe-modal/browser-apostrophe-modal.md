@@ -93,6 +93,12 @@ and other top-level operations on this modal and stores a
 jQuery reference to it in `self.$controls`. Part of the implementation
 of the slide transition, which moves these controls to a shared div
 outside of the individual slide modals for layout reasons.
+### captureFilters()
+Locates the div that contains the filters for this modal and stores a
+jQuery reference to it in `self.$modalFilters`. Part of the implementation
+of the slide transition, which moves these filters to a shared div
+outside of the individual slide modals for layout reasons. The name
+`modalFilters` avoids a bc break with the pieces manager modal.
 ### captureInstructions()
 Locates the div that contains the instructions (the explanatory caption)
 for the modal and stores a jQuery reference to it in `self.$instructions`.
@@ -104,7 +110,7 @@ Part of the implementation of the slide transition. When sliding a
 new modal in, `self.$el` is reset to the `[data-modal-content]` element
 within the modal, so that event handlers relying on `self.$el` work
 reasonably after the original modal div is diced up to move the
-controls and instrutions to one area of the slide container and
+controls, filters and instructions to one area of the slide container and
 the content div to another.
 
 If this modal does not have the `{ transition: 'slide' }` option,
@@ -174,7 +180,7 @@ CSS class.
 ### resizeContentHeight()
 Calculates the appropriate modal body height by subtracting
 header, breadcrumb, and footer heights and an additional
-100 pixels from the browser window height. Invoked for you
+50 pixels from the browser window height. Invoked for you
 by `self.show()`.
 ### refreshBreadcrumb()
 Rebuilds the breadcrumb trail of slide titles inside the slideable

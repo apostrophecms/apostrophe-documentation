@@ -197,3 +197,5 @@ implementation processes the pieces in series.
 
 ### POST /modules/apostrophe-pieces/rescue
 
+### POST /modules/apostrophe-pieces/insert-via-upload
+

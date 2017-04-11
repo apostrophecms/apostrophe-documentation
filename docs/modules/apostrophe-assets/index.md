@@ -56,10 +56,18 @@ environment variable is consulted.
 
 ### determineGeneration()
 
+### enableBundles()
+Initialize services required for asset bundles. Obtains the
+self.generations mongodb collection, extracts a bundle if appropriate,
+and initializes cleanup of old bundles in uploadfs if appropriate.
 ### extractBundleIfAppropriate()
 Extract an asset bundle if appropriate. The default implementation
 looks for an APOS_BUNDLE=XYZ environment variable and, if present, extracts
 a bundle with the name XYZ
+### uploadfsBundleCleanup()
+Clean up old asset bundles in uploadfs, if any, after a
+suitably safe interval allowing services such as Heroku to
+shut down old instances that might be using them
 ### extractBundle(*name*)
 Extract the named asset bundle, as created by the
 apostrophe:generation task with the --create-bundle=NAME
@@ -161,6 +169,13 @@ the contents of `from` to it, creating a new folder at `to`.
 Copy the existing folder at `from` to the new folder `to`.
 If `to` already exists files are added or overwritten as appropriate
 and files not present in `from` are left intact.
+### syncToUploadfs(*from*, *to*, *callback*)
+Copy the existing local folder at `from` to the uploadfs folder `to`.
+(uploadfs doesn't really have folders per se, so this just means
+prefixing the filenames with "to" plus a slash.)
+
+WARNING: if `to` already exists, any contents that don't also appear in `from`
+are removed.
 ### buildLessMasters(*callback*)
 
 ### minify(*callback*)
@@ -219,8 +234,18 @@ for DOM templates
 
 ### prefixCssUrls(*css*)
 Prefix all URLs in CSS with the global site prefix
+### prefixCssUrlsWith(*css*, *prefix*)
+Prefix all URLs in CSS with a particular string
 ### servePublicAssets()
 
+### assetUrl(*web*)
+Given the site-relative URL an asset would have when hosting assets locally,
+return the asset URL to be used in script or link tags. Often the same, but
+when APOS_S3_BUNDLE is in effect it can point elsewhere
+### generationTask(*callback*)
+This task is primarily implemented by the logic in afterInit, however
+if we are sending a bundle to uploadfs this is a fine time to do
+that part.
 ## Nunjucks template helpers
 ### stylesheets(*when*)
 apos.assets.stylesheets renders markup to load CSS that

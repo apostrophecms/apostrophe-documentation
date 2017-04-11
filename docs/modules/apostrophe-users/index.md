@@ -7,8 +7,8 @@ namespaces:
   browser: true
 children:
   - server-apostrophe-users-cursor
-  - browser-apostrophe-users-editor-modal
   - browser-apostrophe-users
+  - browser-apostrophe-users-editor-modal
   - browser-apostrophe-users-chooser
   - browser-apostrophe-users-relationship-editor
   - browser-apostrophe-users-manager-modal

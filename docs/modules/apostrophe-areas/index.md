@@ -115,6 +115,11 @@ undefined are tolerated and converted to empty areas.
 When all modules are ready and all widget managers therefore should have been
 added, determine the list of rich text widgets for purposes of the
 apos.areas.richText() method which returns just the rich text of the area
+### loadDeferredWidgets(*req*, *callback*) *[api]*
+Load widgets which were deferred until as late as possible. Only
+comes into play if `req.deferWidgetLoading` was set to true for
+the request. Invoked after the last `pageBeforeSend` handler, and
+also at the end of the `apostrophe-global` middleware.
 ### pageBeforeSend(*req*) *[browser]*
 
 ### getCreateSingletonOptions(*req*) *[browser]*

@@ -66,9 +66,11 @@ Make an error visible. You can use this in your own validation
 code, see self.error() for an easy way to make an error object
 ### scrollToError(*$el*)
 A convenience allowing you to scroll to the first error present,
-if any. Not called automatically. You can call this when
-convert passes an error or when your own validation code
-has invoked showError().
+if any. convert() will call this if an error is present.
+Also ensures the appropriate tab group is actually visible.
+### showGroupContaining(*$element*)
+Show the tab group containing the given element, if not already visible,
+by triggering the appropriate tab button.
 ### findFieldset(*$el*, *name*)
 Used to search for fieldsets at this level of the schema,
 without false positives for any schemas nested within it

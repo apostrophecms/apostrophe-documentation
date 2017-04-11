@@ -3,8 +3,10 @@ title: "apostrophe-global (browser)"
 layout: reference
 namespace: browser
 ---
-## Inherits from: [apostrophe-doc-type-manager](../apostrophe-doc-type-manager/browser-apostrophe-doc-type-manager.html)
+## Inherits from: [apostrophe-pieces](../apostrophe-pieces/browser-apostrophe-pieces.html)
 
 ## Methods
+### manage()
+
 ### addClickHandlers()
 

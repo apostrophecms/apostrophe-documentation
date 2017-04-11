@@ -93,6 +93,8 @@ You may specify `extension` or `extensions` (an array of extensions)
 to filter the results.
 ### enableHelpers() *[api]*
 
+### afterList(*req*, *results*, *callback*) *[api]*
+Make the minimum size, if any, accessible to the templates
 ## Nunjucks template helpers
 ### first(*within*, *options*)
 This method is available as a template helper: apos.images.first
