@@ -258,7 +258,7 @@ Your Heroku configuration will look almost the same as before, with one addition
 ```bash
 heroku config:set APOS_MINIFY=1
 heroku config:set APOS_BUNDLE=prod-bundle
-heroku config:set APOS_BUNDLE_SYNC_TO_UPLOADFS=1
+heroku config:set APOS_BUNDLE_IN_UPLOADFS=1
 ```
 
 To ensure the contents of the bundle's `data/` subdirectory are still available, and to provide backwards compatibility for any URLs you have hard-coded in your templates that are not aware that the relevant contents of `public/` have been copied to S3, the bundle is still extracted to the application's folder on Heroku. Apostrophe, however, will consistently reference the contents via S3 URLs instead.
