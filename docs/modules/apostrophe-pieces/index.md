@@ -36,9 +36,7 @@ middleware for JSON API routes that expect the ID of
 an existing piece at req.body._id, with editing privileges
 ### requirePieceEditorView(*req*, *res*, *next*) *[api]*
 middleware for JSON API routes that expect the ID of
-an existing piece at req.body._id, with privileges sufficient
-to create items of this type and also to view this particular
-piece (e.g. good enough to add a crop to an image)
+an existing piece this user is allowed to edit at req.body._id
 ### requireEditor(*req*, *res*, *next*) *[api]*
 User must have some editing privileges for this type
 ### list(*req*, *filters*, *callback*) *[api]*

@@ -122,7 +122,7 @@ for the given `property`. Not chainable. Wraps
 MongoDB's `distinct` and does not understand
 join fields directly. However, see also
 `toChoices`.
-### toChoices(*property*, *callback*)
+### toChoices(*property*, *options*, *callback*)
 Invokes callback with `(err, results)` where
 `results` is an array of objects with
 `label` and `value` properties suitable for
@@ -130,6 +130,24 @@ display as a `select` menu or use as an
 autocomplete API response. Most field types
 support this well, including `joinByOne` and
 `joinByArray`.
+
+the `options` object can be omitted completely.
+
+It is best to add your properties to your schema, using
+a schema field type that features a `choices` property (most do), so
+there is no ambiguity about what this method should do.
+However, there are fallbacks:
+
+1. Normally, if there is no choices function or no filter at all,
+the distinct database values for the property are presented as the options.
+
+2. If there is a filter but it has no choices function, and
+options.legacyFilterChoices is truthy, the filter is assumed to have a
+boolean interface and options are fetched on that basis. The labels will
+just be "Yes" and "No", however the pieces module manage view patches these
+via the legacy `choices` feature of `addFilters`.
+### legacyChoices(*name*, *callback*)
+
 ### toObject(*callback*)
 Invokes callback with `(err, doc)` where
 `doc` is the first document matching the query.

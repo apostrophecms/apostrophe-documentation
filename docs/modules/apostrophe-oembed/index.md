@@ -34,14 +34,16 @@ endpoints list.
 ## Methods
 ### query(*req*, *url*, *options*, *mainCallback*) *[api]*
 This method fetches the specified URL, determines its best embedded
-representation via oembetter, and on success invokes its callback with null
+representation via `oembetter`, and on success invokes its callback with null
 and an object containing the oembed API response from the service provider.
 
-If oembetter has no luck, open graph is used as a fallback.
+If `oembetter` has no luck, open graph is used as a fallback.
 
-If options.alwaysIframe is true, the result is a simple
-iframe of the URL. If options.iframeHeight is set, the iframe
+If `options.alwaysIframe` is true, the result is a simple
+iframe of the URL. If `options.iframeHeight` is set, the iframe
 has that height in pixels, otherwise it is left to CSS.
+
+The `options` object is passed on to `oembetter.fetch`.
 
 Responses are automatically cached, by default for one hour. See the
 cacheLifetime option to the module.

@@ -182,6 +182,10 @@ Test whether the specified date object refers to a date in the current year.
 The events module utilizes this
 ### isUndefined(*o*)
 check if something is properly undefined
+### isFalse(*o*)
+check if something is strictly equal to false
+### startCase(*o*)
+Convert string to start case (make default labels out of camelCase property names)
 ### isFunction(*o*)
 check if something is a function (as opposd to property)
 ### eqStrict(*a*, *b*)
