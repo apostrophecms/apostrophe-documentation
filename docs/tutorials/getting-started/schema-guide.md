@@ -231,7 +231,7 @@ This is a multiple-select field. For a single yes-or-no choice, see [boolean](#b
 
 A single-select dropdown menu. The `choices` array should be an array of objects with `label` and `value` properties. `value` is what winds up in the database, `label` is what the user sees.
 
-**The `withFields` option can be used to show and hide other fields based on the choice that was made.** This is a very powerful way to make forms more user-friendly.
+**The `showFields` option can be used to show and hide other fields based on the choice that was made.** This is a very powerful way to make forms more user-friendly.
 
 Example:
 
@@ -244,7 +244,7 @@ Example:
     {
       label: 'on-campus',
       value: 'On Campus',
-      withFields: [
+      showFields: [
         'accessible', 'vegetarian'
       ]
     },
