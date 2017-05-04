@@ -412,7 +412,7 @@ In the "manage" modal, enabling a "tags" filter for admins is even easier:
 // in lib/modules/people/index.js
 module.exports = {
   // Other configuration options, then...
-  addFilters:  addFilters: [
+  addFilters: [
     {
       name: 'tags',
       label: 'Tags'
