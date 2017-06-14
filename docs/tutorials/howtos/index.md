@@ -13,6 +13,8 @@ children:
   - adding-new-batch-operations
   - extending-the-pieces-editor-modal
   - ckeditor
+  - how-apostrophe-starts-up
+  - how-apostrophe-handles-requests
   - storing-images-and-files-in-amazon-s3
   - migration
   - deploying-apostrophe-in-the-cloud
