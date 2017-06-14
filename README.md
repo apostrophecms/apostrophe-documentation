@@ -37,7 +37,9 @@ That will compile your site and open it in your browser.
 
 ### 3. Deploying
 
-If you have access, you can deploy your work to [apostrophecms.org/docs](http://apostrophecms.org/docs/index.html). Just do:
+If you have access, you can deploy your work to [apostrophecms.org/docs](http://apostrophecms.org/docs/index.html). You'll need the `sitemap-static` module installed: `npm install -g sitemap-static`.
+
+To deploy, run:
 
 ```sh
 $ ./deploy
