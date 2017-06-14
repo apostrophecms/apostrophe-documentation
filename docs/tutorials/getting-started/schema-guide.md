@@ -242,15 +242,15 @@ Example:
   label: 'Where will you be staying?',
   choices: [
     {
-      label: 'on-campus',
-      value: 'On Campus',
+      label: 'On Campus',
+      value: 'on-campus',
       showFields: [
         'accessible', 'vegetarian'
       ]
     },
     {
-      label: 'off-campus',
-      value: 'Off Campus'
+      label: 'Off Campus',
+      value: 'off-campus'
     }
   ]
 }
