@@ -3,7 +3,7 @@ Apostrophe Documentation
 
 This project contains [the documentation site](http://apostrophecms.org/docs/index.html) for [Apostrophe](http://apostrophecms.org/).
 
-You don't need to read this page just to read the documentation! [Read the actual documentation here.](index.html) This page is about *contributing* to the documentation.
+You don't need to read this page just to read the documentation! [Read the actual documentation here.](http://apostrophecms.org/docs/) This page is about *contributing* to the documentation.
 
 Building the docs
 -----------------
