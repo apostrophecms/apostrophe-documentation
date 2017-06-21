@@ -145,7 +145,7 @@ This is easy thanks to the `piecesFilters` option:
   }
 ```
 
-Here we're asking `apostrophe-pieces-pages` to automatically populate `req.data.piecesFilters.tags` and `req.data.piecesFilters.market` with arrays of choices. 
+Here we're asking `apostrophe-pieces-pages` to automatically populate `req.data.piecesFilters.tags` and `req.data.piecesFilters.market` with arrays of choices.
 
 Now we can take advantage of that:
 
@@ -204,8 +204,6 @@ If you want to be more restrictive and only display results that have *all* of t
 It's possible to build query strings that contain arrays. It's usually easiest to do that in an actual old-fashioned GET-method form, perhaps with JavaScript code that enhances it with nicer-looking lists of links and sets multiple-select values in the form, triggering submit afterwards.
 
 ## Custom filters
-
-**TODO: this example now duplicates a standard filter.** We should write a new example that does something you don't get for free.
 
 Here's how we would implement the `market` filter from scratch if it **didn't already exist**:
 
