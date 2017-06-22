@@ -20,7 +20,7 @@ We're going to install the following software:
 - Git
 - Node & NPM
 - MongoDB
-- Imagemagick (for image manipulation- required by Apostrophe)
+- Optional: Imagemagick (for fast image manipulation with animated GIF support)
 
 ##### Install XCode
 
@@ -127,7 +127,7 @@ It should start an interactive mongo prompt. ctrl+c to exit.
 brew install imagemagick
 ```
 
-Now you have the `convert` and `identify` command line tools, which Apostrophe uses to scale and crop images.
+Now you have the `convert` and `identify` command line tools, which Apostrophe uses to scale and crop images quickly, with animated GIF support. *If you skip this step, Apostrophe can still handle image uploads more slowly, thanks to [Jimp](https://npmjs.org/package/jimp).*
 
 ## Build a website!
 
