@@ -224,6 +224,8 @@ module.exports = {
         if (!slug) {
           return setImmediate(callback);
         }
+        // Get the request object to pass to `find`
+        var req = self.get('req');
         return self.apos.docs.getManager('market').find(req, {
           slug: slug
         }, {
