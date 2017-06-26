@@ -4,7 +4,7 @@ layout: tutorial
 ---
 ## Editing Page Templates
 
-This tutorial will introduce you to the `apostrophe-pages` and `apostrophe-templates` modules.  It will also cover the basics of editing page templates in [Nunjucks](http://nunjucks.jlongster.com/), and show you how to add a hero section to the Home page.
+This tutorial will introduce you to the `apostrophe-pages` and `apostrophe-templates` modules.  It will also cover the basics of editing page templates in [Nunjucks](https://mozilla.github.io/nunjucks/), and show you how to add a hero section to the Home page.
 
 But first, two quick questions we should answer... what the heck is an Apostrophe module? And what's this `app.js` file all about?
 
@@ -64,7 +64,7 @@ Now let's take a look at how to add content to the page.
 
 With an empty `default.html`, we don't get much; not even a page title. But we can get quite a bit for free just by extending a layout template.
 
-[Nunjucks](http://nunjucks.jlongster.com/) allows you to extend another template, with the option of overriding `blocks` to update or change the template. For example:
+[Nunjucks](https://mozilla.github.io/nunjucks/) allows you to extend another template, with the option of overriding `blocks` to update or change the template. For example:
 
 ```markup
 {% extends data.outerLayout %}
