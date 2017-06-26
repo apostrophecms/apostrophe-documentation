@@ -89,6 +89,8 @@ In a moment we'll look at all of the schema field types. But first, here are a f
 * `required`, if true, makes the field mandatory.
 * `type` specifies the field type, as listed below.
 
+> You can skip the `label` property. If you do, it is inferred from `name`. It works pretty well but feel free to specify `label` yourself.
+
 Other properties vary by type.
 
 ### Guide to schema field types
@@ -426,9 +428,10 @@ For instance, if `product` pieces have a `joinByOne` field called `_fabric` that
 
 The `name` option **must begin with `_`** to signify that this is temporary information that also lives elsewhere in the database.
 
-The `withType` option must be set to the name of related type.
+The `withType` option **may** be set to the name of the related type. If you do not set `withType`, then the name of the join must match the name of the related type, with a leading `_` added.
 
-The `idField` option must be set to the name of a property in which to store the id. *Convention:* if the join is called `_fabric`, set `idField` to `fabricId`.
+The `idField` option **may** be set to the name of a property in which to store the id.
+**If you don't set it yourself, it will be set automatically for you.** For instance, if your join is named `_fabric`, then `idField` will automatically be set to `fabricId`.
 
 By default, if the related type has joins of its own, they are **not** carried out. To carry out "nested" joins, set the `withJoins` option to an array containing those join field names. You may also use "dot notation" in these names to indicate that you want to follow a series of joins between related types.
 
@@ -439,12 +442,10 @@ Example:
 ```javascript
 {
   name: '_fabric',
-  label: 'Fabric',
-  // Must match the `name` option given when configuring `fabric` as a subclass of pieces
+  // Must match the `name` option given when configuring `fabric` as a subclass of pieces.
+  // You could skip this since the name of the join matches the name of the other type.
   withType: 'fabric',
   type: 'joinByOne',
-  // The id of the fabric will be stored in the fabricId property of the product
-  idField: 'fabricId',
   filters: {
     // Fetch just enough information
     projection: {
@@ -468,9 +469,9 @@ For instance, if `product` pieces have a `joinByArray` field called `_fabrics` t
 
 The `name` option **must begin with `_`** to signify that this is temporary information that also lives elsewhere in the database. The `name` option should be plural to signify that this is a one-to-many relationship.
 
-The `withType` option must be set to the name of related type.
+The `withType` option **may** be set to the name of the related type. If you do not set `withType`, then the name of the join must match the name of the related type, with a leading `_` added and an optional `s` following.
 
-The `idsField` (NOTE: PLURAL) option must be set to the name of a property in which to store the array of IDs. *Convention:* if the join is called `_fabrics`, set `idsField` to `fabricIds`.
+The `idsField` option **may** be set to the name of a property in which to store the ids of the related objects. **If you don't set it yourself, it will be set automatically for you.** For instance, if your join is named `_fabrics`, then `idsField` will automatically be set to `fabricsIds`.
 
 By default, if the related type has joins of its own, they are **not** carried out. To carry out "nested" joins, set the `withJoins` option to an array containing those join field names. You may also use "dot notation" in these names to indicate that you want to follow a series of joins between related types.
 
@@ -482,11 +483,10 @@ Example:
 {
   name: '_fabrics',
   label: 'Fabrics',
-  // Must match the `name` option given when configuring `fabric` as a subclass of pieces
+  // This is optional since the name of our join matches the name of the
+  // other type, if the names don't match it is mandatory
   withType: 'fabric',
   type: 'joinByArray',
-  // The id of the fabric will be stored in the fabricIds property of the product
-  idsField: 'fabricIds',
   filters: {
     // Fetch just enough information
     projection: {
@@ -505,7 +505,7 @@ Sometimes, the relationship between the two objects has properties of its own. F
 
 You can express these relationships by using the `relationship` property, which allows you to specify a schema for the relationship. *You may use most schema field types, however joins are not permitted inside the schema for the relationship. If the relationship is overly complex, it is recommended that you consider treating it as a third type of object related to both of the other two.*
 
-When you specify the `relationship` property, you must also specify `relationshipsField`, a property name to store the relationships in. *Convention: if the join is called `_departments`, set `relationshipsField` to `departmentRelationships`.*
+When you specify the `relationship` property, you **may** also specify `relationshipsField`, a property name to store the relationships in. If you do not specify this property, it is set automatically. For instance, if the join is named `_departments`, the relationships will be stored in `departmentsRelationships`.
 
 
 Example:
@@ -514,11 +514,11 @@ Example:
 {
   name: '_departments',
   label: 'Departments',
-  // Must match the `name` option given when configuring `fabric` as a subclass of pieces
+  // We could skip this since it is the same as the name of the join,
+  // plus an s. Since we specified it, it must match the `name` property
+  // of another type (it'll be singular)
   withType: 'department',
   type: 'joinByArray',
-  // The id of the fabric will be stored in the fabricIds property of the product
-  idsField: 'departmentIds',
   filters: {
     // Fetch just enough information
     projection: {
@@ -534,8 +534,7 @@ Example:
       label: 'Job Title',
       type: 'string'
     }
-  ],
-  relationshipsField: '_departmentsRelationships'
+  ]
 }
 ```
 
@@ -564,19 +563,29 @@ If you have a mix of inline and regular fields, you'll still get the option of o
 
 A `joinByOneReverse` field allows us to access the other side of a [joinByOne](#joinByOne) relationship. Since this is the "other end" of the relationship, there is no editing interface. It is just a convenience allowing us to "see" the related object from the other point of view.
 
-The `idField` option **must match the setting of `idField` on the corresponding `joinByOne` field**, in the schema of the other type. We are not storing any new information of our own.
+You **may** set the `withType` property to the name of the other document type, the one you are joining with. This is singular and will match the `name` option you gave when you configured the module for that type. If you do not set `withType`, then the name of your join must match the name of the other type, with an optional "s" on the end.
+
+You **may** set the `reverseOf` property to the name of the *other join* (the one you are reversing, which will be part of the schema for the other type). If you do not, Apostrophe will look for the first join in the other type that points to this document type.
+
+*For backwards compatibility, you can set the `idField` option instead to match that in the other join, but this is confusing and hard to maintain. Just use `reverseOf`.*
+
+Again, note that a reverse join just looks up information that is saved in another, existing join in the other type of document. We are not storing any new information of our own.
 
 Example:
 
 ```javascript
 // Part of our schema for fabrics (see the joinByOne example)
 {
-  name: '_product',
-  // No actual editing interface is currently offered, edit it from the other end
-  label: 'Product',
+  // No editing interface is currently offered, edit it from the other end
+  //
+  // Name is plural because more than one product might be joining to
+  // each fabric; that's why `_products` will be an array
+  name: '_products',
   type: 'joinByOneReverse',
+  // Optional since our join name matches the other type's name
   withType: 'product',
-  idField: 'fabricId'
+  // Optional since there is only one join to fabrics in the other type
+  reverseOf: '_fabric',
 }
 ```
 
@@ -586,22 +595,29 @@ We can now see `_product` as a property of each `fabric` object that is related 
 
 A `joinByArrayReverse` field allows us to access the other side of a [joinByArray](#joinByArray) relationship. Since this is the "other end" of the relationship, there is no editing interface. It is just a convenience allowing us to "see" the related objects from the other point of view.
 
-The `idsField` option **must match the setting of `idsField` on the corresponding `joinByArray` field**, in the schema of the other type. We are not storing any new information of our own.
+You **may** set the `withType` property to the name of the other document type, the one you are joining with. This is singular and will match the `name` option you gave when you configured the module for that type. If you do not set `withType`, then the name of your join must match the name of the other type, with an optional "s" on the end.
+
+You **may** set the `reverseOf` property to the name of the *other join* (the one you are reversing, which will be part of the schema for the other type). If you do not, Apostrophe will look for the first join in the other type that points to this document type.
+
+*For backwards compatibility, you can set the `idsField` option instead to match that in the other join, but this is confusing and hard to maintain. Just use `reverseOf`.*
+
+Again, note that a reverse join just looks up information that is saved in another, existing join in the other type of document. We are not storing any new information of our own.
 
 Example:
 
 ```javascript
 // Part of our schema for fabrics (see the joinByArray example)
 {
-  name: '_products',
   // No actual editing interface is currently offered, edit it from the other end
-  label: 'Product',
+  name: '_products',
   type: 'joinByArrayReverse',
+  // Optional since the name of our join matches the name of the type, plus an s
   withType: 'product',
-  idField: 'fabricIds'
+  // Optional since there is only one join with fabrics in the product schema 
+  reverseOf: '_fabrics'
 }
 ```
 
 We can now see `_products` as a property of each `fabric` object that is related to a product.
 
-If desired, we can specify `relationship` and `relationshipsField` just as we would for `joinByArray`. They must actually exist in the original `joinByArray` field and `relationshipField` must have the *same* setting as we are just referring to the information stored on the other end. Just as before, the `_products` array now becomes an array of objects with `item` and `relationship` properties.
+If desired, we can specify `relationship` and `relationshipsField` just as we would for `joinByArray`. Currently these are not automatic in a reverse join and must be fully specified if relationship properties are to be accessed. Most array joins do not have relationship properties and thus do not require reverse access to them.

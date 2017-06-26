@@ -99,7 +99,6 @@ module.exports = {
   addFields: [
     {
       name: 'author',
-      label: 'Author',
       type: 'string',
       required: true
     }
@@ -123,7 +122,7 @@ addFields: [
     type: 'joinByArray',
     name: '_offices',
     label: 'Offices',
-    idsField: 'officeIds',
+    // Optional since it can be inferred from the name of the join
     withType: 'office'
   }
 ]
