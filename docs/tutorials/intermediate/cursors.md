@@ -35,7 +35,7 @@ Let's say we've created a `profiles` module that [extends apostrophe-pieces](../
 Now, from another module, we want to fetch the ten most recently updated profiles by authors over 30:
 
 ```javascript
-return apos.docs.getManager('profile').docs.find(req,
+return apos.docs.getManager('profile').find(req,
     {
       reputation: {
         $gte: 30
@@ -63,7 +63,7 @@ So far this looks familiar to MongoDB developers. But Apostrophe adds some [filt
 Let's search for profiles related to shoes, based on the text of each document:
 
 ```javascript
-return apos.docs.getManager('profile').docs.find(req,
+return apos.docs.getManager('profile').find(req,
     {
       reputation: {
         $gte: 30
