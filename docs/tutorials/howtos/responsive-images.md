@@ -89,7 +89,7 @@ If you are not setting `background-position` and wish to use the focal point per
 
 ## Focal points for freestanding attachments
 
-TODO write this
+Freestanding attachment schema fields — those that are part of your own piece types, and thus never in Apostrophe's main "images" media library — can also have focal points. You can enable that by setting the `focalPoint: true` option for the schema field in question.
 
 ## Alternatives
 
