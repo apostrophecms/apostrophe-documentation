@@ -32,7 +32,7 @@ Let's say we've created a `profiles` module that [extends apostrophe-pieces](../
 }
 ```
 
-Now, from another module, we want to fetch the ten most recently updated profiles by authors over 30:
+Now, from another module, we want to fetch the ten most recently updated profiles by reputation over 30:
 
 ```javascript
 return apos.docs.getManager('profile').docs.find(req,
