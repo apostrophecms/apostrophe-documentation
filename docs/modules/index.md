@@ -28,6 +28,7 @@ children:
   - apostrophe-migrations
   - apostrophe-modal
   - apostrophe-module
+  - apostrophe-notifications
   - apostrophe-oembed
   - apostrophe-pager
   - apostrophe-pages

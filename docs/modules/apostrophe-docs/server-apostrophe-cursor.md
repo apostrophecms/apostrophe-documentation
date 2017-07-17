@@ -370,7 +370,7 @@ exist in the array but not in the database are
 also absent from the result.
 
 You may optionally specify a property name
-other than `_id` to order the results on as a
+other than `_id` to order the results on a
 second argument.
 ### type(*value*)
 Filter. This cursor will only retrieve documents of the

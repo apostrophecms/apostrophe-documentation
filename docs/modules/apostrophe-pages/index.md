@@ -332,6 +332,14 @@ treated as a "404 not found" situation
 
 ### ensureIndexes(*callback*) *[api]*
 
+### ensurePathIndex(*callback*) *[api]*
+
+### getPathIndexParams() *[api]*
+
+### ensureLevelRankIndex(*callback*) *[api]*
+
+### getLevelRankIndexParams() *[api]*
+
 ### pruneCurrentPageForBrowser(*page*) *[api]*
 A limited subset of page properties is pushed to
 browser-side JavaScript. If you want more you
@@ -404,6 +412,9 @@ Registers a manager for a specific page type that doesn't already have one via `
 
 ### validateTypeChoices() *[api]*
 
+### removeSlugFromHomepageSchema(*page*, *schema*) *[api]*
+If the given page is level 0 (home page), return the given schema minus
+any `slug` field named `slug`. If not, return the schema unmodified.
 ### modulesReady(*callback*)
 When all modules are ready, invoke `registerGenericPageTypes` to register a manager
 for any page type that doesn't already have one via `apostrophe-custom-pages`,

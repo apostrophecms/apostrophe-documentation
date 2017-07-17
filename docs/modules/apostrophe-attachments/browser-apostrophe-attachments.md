@@ -23,6 +23,13 @@ can be stored as the crop property of the attachment (when there is
 one and only one crop ever for this attachment), or stored as part
 of a relationship to the doc containing the attachment; that part
 is up to you.
+### focalPoint(*attachment*, *options*, *callback*)
+Invoke with an attachment, options (such as minSize), and a callback.
+Callback receives (err, focalPoint). If no err, focalPoint has x and y
+properties and can be stored as the focalPoint property of the attachment
+(when there is one and only one focal point ever for this attachment), or
+stored as part of a relationship to the doc containing the attachment; that part
+is up to you.
 ### addFieldType()
 
 ### populate(*object*, *name*, *$field*, *$el*, *field*, *callback*)

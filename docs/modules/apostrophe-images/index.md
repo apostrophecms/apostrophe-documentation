@@ -11,6 +11,7 @@ children:
   - browser-apostrophe-images-relationship-editor
   - browser-apostrophe-images-manager-modal
   - browser-apostrophe-images-editor-modal
+  - browser-apostrophe-images-focal-point-editor
   - browser-apostrophe-images
 ---
 ## Inherits from: [apostrophe-pieces](../apostrophe-pieces/index.html)

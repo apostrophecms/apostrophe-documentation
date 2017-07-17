@@ -26,6 +26,8 @@ this method is called for you when you extend the `apostrophe-widgets`
 module, which is recommended.
 ### getWidgetManager(*name*) *[api]*
 Get the manager object for the given widget type name.
+### warnMissingWidgetType(*name*) *[api]*
+Print warning message about a missing widget type — only once per run per type.
 ### renderArea(*area*, *options*) *[api]*
 Render the given `area` object via `area.html`, passing the
 specified `options` to the template. Called for you by the

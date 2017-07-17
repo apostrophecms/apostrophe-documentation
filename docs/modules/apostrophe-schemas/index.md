@@ -193,10 +193,22 @@ by the standard filters for many field types.
 ### cursorFilterInterested(*cursor*, *name*)
 For most cursor filters, if the value is undefined or null,
 the filter should do nothing. This method implements that test.
+### afterInit()
+Validate schemas. We wait this long so that we can know if
+`withType` and friends make sense
+### validate(*schema*, *options*)
+Validate a schema for errors. This is about validating the schema itself,
+not a data object. For instance, a field without a type property is flagged.
+Serious errors throw an exception, while certain lesser errors just print a message
+to stderr for bc.
+
+This method may also prevent errors by automatically supplying
+reasonable values for certain properties, such as the `idField` property
+of a `joinByOne` field, or the `label` property of anything.
 ## Nunjucks template helpers
 ### toGroups(*fields*)
 
-### field(*field*)
+### field(*field*, *readOnly*)
 
 ## API Routes
 ### POST /modules/apostrophe-schemas/arrayEditor

@@ -171,8 +171,11 @@ Add these after we're sure the templates module
 is ready. Only necessary because this module is
 initialized first
 ## Nunjucks template helpers
-### slugify(*string*)
-
+### slugify(*string*, *options*)
+Turn the provided string into a string suitable for use as a slug.
+ONE punctuation character normally forbidden in slugs may
+optionally be permitted by specifying it via options.allow.
+The separator may be changed via options.separator.
 ### log(*m*)
 Log a message to the console from a Nunjucks template. Great for debugging.
 ### generateId()

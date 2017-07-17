@@ -56,7 +56,7 @@ Typical example:
 self.html('editor', { _id: 5555 }, function(html) {
   self.$editorDiv.html(html);
 }, function() {
-  alert('An error occurred');
+  apos.notify('An error occurred', { type: 'error', dismiss: true });
 });
 
 See $.jsonCall for details.

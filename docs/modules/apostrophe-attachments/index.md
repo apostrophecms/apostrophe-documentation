@@ -7,6 +7,7 @@ namespaces:
 children:
   - browser-apostrophe-attachments
   - browser-apostrophe-attachments-crop-editor
+  - browser-apostrophe-attachments-focal-point-editor
 ---
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 ### `apos.attachments`
@@ -191,6 +192,19 @@ If only 3 arguments are given the limit defaults to 1.
 
 For use only in command line tasks, migrations and other batch operations
 in which permissions are a complete nonissue. NEVER use on the front end.
+### hasFocalPoint(*attachment*) *[api]*
+Returns true if, based on the provided attachment object,
+a valid focal point has been specified. Useful to avoid
+the default of `background-position: center center` if
+not desired.
+### focalPointToBackgroundPosition(*attachment*) *[api]*
+If a focal point is present on the attachment, convert it to
+CSS syntax for `background-position`. No trailing `;` is returned.
+The coordinates are in percentage terms.
+### getFocalPoint(*attachment*) *[api]*
+Returns an object with `x` and `y` properties containing the
+focal point chosen by the user, as percentages. If there is no
+focal point, null is returned.
 ### addTypeMigration() *[api]*
 
 ### pushAssets() *[browser]*
@@ -283,6 +297,19 @@ OPTIONS:
 
 You may specify `extension`, `extensions` (an array of extensions)
 or `group` to filter the results.
+### hasFocalPoint(*attachment*)
+Returns true if, based on the provided attachment object,
+a valid focal point has been specified. Useful to avoid
+the default of `background-position: center center` if
+not desired.
+### getFocalPoint(*attachment*)
+Returns an object with `x` and `y` properties containing the
+focal point chosen by the user, as percentages. If there is no
+focal point, null is returned.
+### focalPointToBackgroundPosition(*attachment*)
+If a focal point is present on the attachment, convert it to
+CSS syntax for `background-position`. No trailing `;` is returned.
+The coordinates are in percentage terms.
 ## API Routes
 ### POST /modules/apostrophe-attachments/upload
 
@@ -300,4 +327,6 @@ the existing image to uploadfs, named:
 The `crop` object is appended to the `crops` array property
 of the file object.
 ### POST /modules/apostrophe-attachments/crop-editor
+
+### POST /modules/apostrophe-attachments/focal-point-editor
 
