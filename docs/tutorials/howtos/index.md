@@ -12,6 +12,7 @@ children:
   - adding-fields-to-all-pieces
   - adding-new-batch-operations
   - extending-the-pieces-editor-modal
+  - responsive-images
   - ckeditor
   - how-apostrophe-starts-up
   - how-apostrophe-handles-requests
