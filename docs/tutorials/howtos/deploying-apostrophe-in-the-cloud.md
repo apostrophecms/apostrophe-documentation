@@ -39,7 +39,7 @@ Apostrophe requires a `mongodb` database, which Heroku doesn't offer. Fortunatel
 
 When you're finished verifying your account with mlab, click "Create New," then "Single-node" and "Sandbox."
 
-> You can of course pick a replica set cluster and various non-free plans instead if you wish. Do not use sharding, it is not appropriate to our use case.
+> You can of course pick a replica set cluster and various non-free plans instead if you wish. Do not use sharding, it is not appropriate to our use case. Do not change the default read preference. See [replica sets](replica-set.html) for more information.
 
 If you can, give your database the same name as your app, just for simplicity, but it's not mandatory.
 

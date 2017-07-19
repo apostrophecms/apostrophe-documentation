@@ -22,6 +22,7 @@ children:
   - multicore
   - windows
   - docker
+  - replica-set
 ---
 
 These HOWTOs cover a variety of topics that don't quite fit neatly into a tutorial series.
