@@ -76,7 +76,7 @@ apos.on('ready', function() {
 
 `user.js` usually contains a moog definition for a type with the same name as the module. A single instance of that type gets created when the module code on the server side pushes a browser call to do that (`pushBrowserCall`). There are a well-developed set of convenience methods for this in `apostrophe-module`, the base class of all modules. Pieces always push `user.js` as such a singleton; you do not have to reinvent that wheel when extending pieces.
 
-**`other js files in the browser**, by convention, usually define a single additional moog type (with `apos.define`) and don’t contain any other executable code. For instance, `editor.js` will define an editor modal; `user.js` will actually instantiate it when an admin bar button is clicked.
+**other js files in the browser**, by convention, usually define a single additional moog type (with `apos.define`) and don’t contain any other executable code. For instance, `editor.js` will define an editor modal; `user.js` will actually instantiate it when an admin bar button is clicked.
 
 ### Relax, Apostrophe pushed that for you
 
