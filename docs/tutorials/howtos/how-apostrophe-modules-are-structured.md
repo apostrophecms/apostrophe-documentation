@@ -15,7 +15,7 @@ Some of this material will reference advanced Apostrophe concepts. You may want 
 
 It's best to carry out any initialization, like connecting to APIs or databases, in `afterConstruct`. This allows time for those subclassing and extending your module to replace and extend methods defined in `construct`.
 
-> Anything configured in `app.js` for that module merges with the object exported by `index.js` but by convention we don’t put much in `app.js` for each module, to keep it clean. Anything configured in `data/local.js` also merges with the object, which is useful because `data/local.js` is not deployed and can thus vary from server to server.
+> Anything configured in `app.js` for that module merges with the object exported by `index.js`. However, by convention we don’t put much in `app.js` for each module, to keep it clean. Anything configured in `data/local.js` also merges with the object, which is useful because `data/local.js` is not deployed and can thus vary from server to server.
 
 ## Breaking it up
 
