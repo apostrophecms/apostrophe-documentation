@@ -16,6 +16,7 @@ children:
   - ckeditor
   - how-apostrophe-starts-up
   - how-apostrophe-handles-requests
+  - how-apostrophe-modules-are-structured
   - storing-images-and-files-in-amazon-s3
   - migration
   - deploying-apostrophe-in-the-cloud
