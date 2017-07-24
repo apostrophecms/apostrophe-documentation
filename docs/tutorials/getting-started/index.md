@@ -6,10 +6,12 @@ children:
   - creating-your-first-project
   - editing-page-templates
   - adding-editable-content-to-pages
+  - global
   - pushing-assets
   - building-navigation
   - custom-widgets
   - reusable-content-with-pieces
+  - settings
   - schema-guide
 ---
 

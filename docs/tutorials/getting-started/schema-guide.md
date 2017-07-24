@@ -3,7 +3,7 @@ title: Guide to schemas
 layout: tutorial
 ---
 
-No introduction to Apostrophe would be complete without a good look at schemas! We've already seen some basic uses of schemas, but now it's time to introduce all of the available schema field types, as well as the options that allow you to build up the schema you want.
+No introduction to Apostrophe would be complete without a closer look at schemas! We've already seen some basic uses of schemas, but now it's time to introduce all of the available schema field types, as well as the options that allow you to build up the schema you want.
 
 ## Schemas save us time and trouble everywhere
 
