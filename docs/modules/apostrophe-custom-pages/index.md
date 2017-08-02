@@ -90,3 +90,15 @@ the schema field definition for the join the user is attempting
 to match titles from. The default behavior is to return
 the `title` property, but since this is a page we are including
 the slug as well.
+### getEditPermissionName() *[api]*
+Returns the minimum permission name that should be checked for
+to determine if this user has some edit privileges for
+this doc type (not necessarily every instance of it),
+for example the ability to create one. Determines
+admin bar menu item visibility. For pages this is always
+`edit-apostrophe-page` because page types can be switched.
+### getAdminPermissionName() *[api]*
+Returns the minimum permission name that should be checked for
+to determine if this user has blanket admin privileges for
+this doc type. For pages this is always `admin-apostrophe-page`
+because page types can be switched.

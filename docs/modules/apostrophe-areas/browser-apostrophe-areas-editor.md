@@ -86,8 +86,16 @@ TODO: we should prevent input during this time
 ### serialize()
 Serialize the editor to an array of items, exactly as expected for
 storage in an area.
-### saveIfNeeded(*sync*)
+### onInterval()
 
+### saveIfNeeded(*sync*, *callback*)
+If the area editor believes its content has changed, send it to the
+save-area route. If `sync` is true, make a synchronous AJAX call (this should ONLY
+be used as a last-ditch save when the page is being closed; async calls fail
+at that point).
+
+`callback` is optional and is invoked when the work is complete,
+or immediately if there is no work to do.
 ### changeOwners(*$item*)
 Take an item that might belong to a different
 area and make it ours

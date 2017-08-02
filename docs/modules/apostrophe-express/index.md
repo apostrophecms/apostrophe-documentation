@@ -99,9 +99,24 @@ If each is not otherwise specified, Apostrophe enables these defaults:
     // Default login lifetime between requests is one day
     maxAge: 86400000
   },
-  store: // creates an instance of connect-mongo/es5
+  store: (instance of connect-mongo/es5 provided by Apostrophe)
 }
 ```
+
+If you want to use another session store, you can pass an instance,
+but it's easier to let Apostrophe do the work of setting it up:
+
+session: {
+  store: {
+    name: 'connect-redis',
+    options: { 
+      // redis-specific options here
+    }
+  }
+}
+
+Just be sure to install `connect-redis`, or the store of your choice,
+as an npm dependency.
 
 ### `csrf`
 
@@ -168,7 +183,11 @@ middleware on ALL routes, after the required middleware (such as the body parser
 before the configured middleware. If the property is an array, all of the functions
 in the array are invoked as middleware.
 
-If `expressMiddleware` is a non-array object, it must have a `middleware` property containing a function or an array of functions, and it may also have a `before` property containing the name of another module. The function(s) in the `middleware` property will be run before those for the named module.
+If `expressMiddleware` is a non-array object, it must have a `middleware`
+property containing a function or an array of functions, and it may also have a
+`before` property containing the name of another module. The function(s) in the
+`middleware` property will be run before those for the named module.
+
 
 ## Methods
 ### createApp()
@@ -221,6 +240,9 @@ of the `apos.middleware` object. Currently just `apos.middleware.files`.
 ### addListenMethod()
 Establish the `apos.listen` method, which Apostrophe will invoke
 at the end of its initialization process.
+### apostropheDestroy(*callback*)
+Invoked by `callAll` when `apos.destroy` is called.
+Destroys the HTTP server object, freeing the port.
 ### absoluteUrl(*req*, *res*, *next*)
 Standard middleware. Sets the `req.absoluteUrl` property for all requests,
 based on the `baseUrl` option if available, otherwise based on the user's

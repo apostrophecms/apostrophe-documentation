@@ -218,6 +218,10 @@ change. You probably wanted toMongo.
 ### after(*results*, *callback*)
 Invokes "after" methods of all filters
 that have them. Invoked for you by `toArray`.
+### nextOrPrevious(*verb*)
+Implementation detail of the `previous` and `next` filters
+### finalizeSort()
+
 ### criteria(*value*)
 Filter. Sets the MongoDB criteria, discarding
 criteria previously added using this
@@ -407,6 +411,16 @@ it may be left unset.
 
 Defaults to `true`. If set to false, `addUrls` methods are
 not invoked.
+### previous(*value*)
+If set to a doc object, this filter will limit results to the
+docs that precede it in the current sort order.
+
+The _id is used as a tiebreaker sort to avoid loops.
+### next(*value*)
+If set to a doc object, this filter will limit results to the
+docs that follow it in the current sort order.
+
+The _id is used as a tiebreaker sort to avoid loops.
 ### pageUrl(*value*)
 Filter. All docs that are part of the page tree (they have a slug
 beginning with a `/`) receive a `._url` property, which takes the

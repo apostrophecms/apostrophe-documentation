@@ -13,7 +13,7 @@ This module manages the permissions of docs in Apostrophe.
 
 
 ## Methods
-### can(*req*, *action*, *object*) *[api]*
+### can(*req*, *action*, *object*, *newObject*) *[api]*
 Determines whether the active user "can" carry out the
 action specified by "action". Returns true if the action
 is permitted, false if not permitted.
@@ -31,6 +31,11 @@ perform the action in question to create a new object.
 
 If there is a third argument, this method checks whether the user can
 carry out the specified action on that particular object.
+
+The newObject argument is used instead if the object is a new one not
+yet in the database. This is a backwards-compatible way to make it
+possible to consider properties of the object to be created before
+making a decision.
 ### criteria(*req*, *action*) *[api]*
 Returns a MongoDB criteria object which will match only objects
 on which the current user is permitted to perform the
@@ -72,8 +77,12 @@ groups and so on. Call any time before `modulesReady`
 The argument should be an object with `value` and `label` properties.
 `value` is the permission name, such as `edit-attachment`.
 `label` is a short label such as `Edit Attachment`.
-### _check(*req*, *action*, *event*, *_true*, *_false*, *object*, *then*) *[api]*
+### _check(*req*, *action*, *event*, *_true*, *_false*, *object*, *newObject*, *then*) *[api]*
 
+### getEffectiveTypeName(*type*) *[api]*
+Return the effective type name of a type name for permissions checks.
+Normally this is the type name itself, however for pages it is
+the generic `apostrophe-page`, because pages can change type.
 ### userPermissionNames(*user*, *names*) *[api]*
 Given a permission name, this method appends the user ID and
 the user's group IDs to each one and returns the resulting

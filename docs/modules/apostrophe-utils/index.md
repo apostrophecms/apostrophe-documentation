@@ -166,6 +166,22 @@ Sort the given array of objects in place, based on the value of the given proper
 in a case-insensitive way.
 ### insensitiveSortCompare(*a*, *b*) *[api]*
 Copmpare two strings in a case-insensitive way, returning -1, 0 or 1, suitable for use with sort().
+### findNestedObjectById(*object*, *id*) *[api]*
+Within the given object (typically a doc or widget),
+find a subobject with the given `_id` property.
+Can be nested at any depth.
+
+Useful to locate a specific widget within a doc.
+### findNestedObjectAndDotPathById(*object*, *id*, *_dotPath*) *[api]*
+Within the given object (typically a doc or widget),
+find a subobject with the given `_id` property.
+Can be nested at any depth.
+
+Useful to locate a specific widget within a doc.
+
+Returns an object like this: `{ object: { ... }, dotPath: 'dot.path.of.object' }`
+
+Ignore the `_dotPath` argument to this method; it is used for recursion.
 ### modulesReady()
 Add these after we're sure the templates module
 is ready. Only necessary because this module is
@@ -252,6 +268,19 @@ the value of that property for each object.
 Given an object, return an object without
 the named properties or array of named
 properties (see _.omit()).
+### difference(*array*, *without*, *property*)
+Given the arrays `array` and `without`, return
+only the elements of `array` that do not occur
+in `without`. If `without` is not an array it is
+treated as an empty array.
+
+If `property` is present, then that property of
+each element of array is compared to elements
+of `without`. This is useful when `array` contains
+full-blown choices with a `value` property, while
+`without `just contains actual values.
+
+A deep comparison is performed with `_.isEqual`.
 ### concat(*arrOrObj1*, *arrOrObj2 *, *, ...*)
 Concatenate all of the given arrays and/or values
 into a single array. If an argument is an array, all

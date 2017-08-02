@@ -40,6 +40,16 @@ See the [schema guide](../../tutorials/getting-started/schema-guide.html).
 
 
 ## Methods
+### getEditPermissionName() *[api]*
+Returns the minimum permission name that should be checked for
+to determine if this user has some edit privileges for
+this doc type (not necessarily every instance of it),
+for example the ability to create one. Determines
+admin bar menu item visibility
+### getAdminPermissionName() *[api]*
+Returns the minimum permission name that should be checked for
+to determine if this user has full admin privileges for
+this doc type
 ### defineCursor() *[api]*
 Define the related type "cursor", so that all of our subclasses
 automatically have a cursor type too, and it is autoloaded from
@@ -87,6 +97,12 @@ current user has the permission specified by the `permission`
 property of the schema field, or there is no `permission` property for the field.
 ### composeSchema() *[api]*
 
+### patchAdminPermissionInSchema() *[api]*
+In the schema, `_editUsers` and `_editGroups` are
+initially locked down to sitewide admins. Now that
+we've constructed the module completely, take advantage
+of `getAdminPermissionName` to specify a more nuanced permission,
+such as the admin permission for this piece type, or for pages
 ### autocomplete(*req*, *query*, *callback*) *[api]*
 This method provides the back end of /autocomplete routes.
 For the implementation of the autocomplete() filter see autocomplete.js.

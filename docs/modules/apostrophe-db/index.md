@@ -36,3 +36,7 @@ and start up your app, which will recreate them.
 
 ### dropAllCollections(*callback*)
 
+### apostropheDestroy(*callback*)
+Invoked by `callAll` when `apos.destroy` is called.
+Closes the database connection and the keepalive
+interval timer.

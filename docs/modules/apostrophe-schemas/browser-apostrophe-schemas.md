@@ -18,6 +18,12 @@ create a modal, populate it with existing data, and then
 attempt to convert it on save. If a conversion fails it is
 OK to try again after the user corrects errors such as
 absent required fields.
+### beforePopulate(*$el*, *schema*, *object*, *callback*)
+Invoked at the start of `populate`. Does nothing by default.
+Provides a convenient way to extend the behavior of all
+schemas. When implementing custom field types you should
+not need to override this method, however it is sometimes useful for
+concerns that cut across multiple methods.
 ### afterPopulate(*$el*, *schema*, *object*, *callback*)
 Invoked at the end of `populate`. Does nothing by default.
 Provides a convenient way to extend the behavior of all
@@ -50,7 +56,10 @@ with extra properties
 ### enableGroupTabs(*$el*)
 Add click handlers for group tabs
 ### contextualConvertArea(*data*, *name*, *$el*, *field*)
-
+Convert an in-context area, storing it in data[name],
+if an editor is active
+### contextualIsPresentArea(*$el*, *field*)
+Returns true if an editor is actually active for the given area
 ### enableSingleton(*$el*, *name*, *area*, *type*, *_options*, *callback*)
 
 ### enableArea(*$el*, *name*, *area*, *options*, *callback*)
@@ -97,13 +106,21 @@ Enable autocomplete of tags. Expects the fieldset element
 assigned to this item. Exported for the convenience of
 code that is not fully schema-based but wants to enhance
 tag fields in the same way.
-### enableSlug(*$title*, *$slug*)
+### enableSlug(*$title*, *$slug*, *title*, *slug*)
 Reusable utility to watch the title and use it to
 suggest valid slugs.
+
 If the initial slug contains slashes, only the last component
 (after the last slash) is changed on title edits.
+
 If the original slug (or its last component) is not in sync with the
 title, it is assumed that the user already made deliberate changes to
 the slug, and the slug is not automatically updated.
+
+`$title` and `$slug` are jQuery objects referencing the actually
+input elements. `title` and `slug` are the schema field definitions.
+
+This has become an implementation detail of enableSlugSuggestions
+but for bc it remains a publicly available API.
 ### enableShowFields(*data*, *name*, *$field*, *$el*, *field*)
 

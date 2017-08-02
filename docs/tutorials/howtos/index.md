@@ -25,6 +25,7 @@ children:
   - windows
   - docker
   - replica-set
+  - storing-sessions-in-redis
 ---
 
 These HOWTOs cover a variety of topics that don't quite fit neatly into a tutorial series.

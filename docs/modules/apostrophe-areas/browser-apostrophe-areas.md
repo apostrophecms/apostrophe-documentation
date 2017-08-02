@@ -65,3 +65,10 @@ Get the options that apply to the widget in its current context
 
 ### setWidgetData(*$widget*, *data*)
 
+### getEditors()
+Return an array of all area editor objects
+(subclasses of apostrophe-areas-editor) which
+are currently visible.
+### saveAllIfNeeded(*callback*)
+Gives all area editors a chance to save changes,
+if they need to, before invoking the callback.

@@ -63,6 +63,8 @@ powered by the [credential](https://npmjs.org/package/credential) module.
 ### enableMiddleware()
 Add Passport's initialize and session middleware.
 Also add middleware to add the `req.data.user` property.
+Now works via the expressMiddleware property, allowing
+control of timing relative to other modules.
 ### addRoutes()
 Add the `/login` route, both GET (show the form) and POST (submit the form).
 Also add the `/logout` route.

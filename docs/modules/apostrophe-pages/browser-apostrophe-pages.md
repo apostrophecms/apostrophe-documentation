@@ -12,7 +12,12 @@ lies elsewhere in modals for those particular tasks.
 ## Methods
 ### addLinks()
 
+### reorganize()
+Display UI permitting the user to reorganize the page tree
 ### trash(*_id*, *callback*)
 
+### rescue(*_id*, *callback*)
+Rescue a page from the trash. Currently invoked
+only when trashInSchema option is true
 ### deleteFromTrash(*_id*, *callback*)
-
+Irrevocably delete something from the trash

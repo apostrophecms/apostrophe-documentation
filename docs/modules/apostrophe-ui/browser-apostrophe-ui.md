@@ -112,6 +112,10 @@ the click event are both automatically stopped.
 
 The word "object" refers to "the object of the sentence."
 It is a STRING, not a javascript object.
+
+The `object` argument may be null if the language doesn't
+flow that way, for example 'apos-workflow-export' does not
+end with a noun, so just pass it as `verb`.
 ### enableAjax()
 
 ### ajaxSubmitHandler(*event*)

@@ -21,9 +21,28 @@ is `apos.docs.find()`, which returns a [cursor](server-apostrophe-cursor.html) f
 fetching documents of all types. This is useful when implementing something
 like the [apostrophe-search](../apostrophe-search/index.html) module.
 
+## Options
+
+**`trashInSchema`: if set to `true`, a "trash" checkbox appears in the
+schema for each doc type, and pieces in the trash can be edited. Pages
+in the trash are visually displayed beneath a trashcan for every "folder"
+(parent page), which is another way of expressing that trash is just a flag.
+
+This allows pages to be restored to their exact previous position and decouples
+moving pages from trashing pages, which is useful for the `apostrophe-workflow`
+module. In addition, it becomes possible to edit the page settings of a page
+that is in the trash. Similar benefits apply to pieces and are needed for the
+workflow module. On the minus side, a trashcan at each level is less intuitive
+to users raised on the traditional shared trashcan.
+
 
 ## Methods
 ### enableCollection(*callback*) *[api]*
+
+### ensureSlugIndex(*callback*) *[api]*
+Index on the slug property. Emits a slugIndex event with a params object
+so it can be altered by other listening modules
+### getSlugIndexParams() *[api]*
 
 ### ensureIndexes(*callback*) *[api]*
 
@@ -182,7 +201,7 @@ invoked on all modules.
 
 On success the callback receives `(null, doc)`.
 ### rescueBody(*req*, *doc*, *callback*) *[api]*
-Move the given document to the trash. You
+Remove the given document from the trash. You
 should call .rescue(), not this method. However
 you can override this method to alter the
 implementation.
@@ -255,6 +274,11 @@ take a callback and are invoked in series.
 
 If `options.permissions` is explicitly `false`,
 permissions checks are not performed.
+### testInsertPermissions(*req*, *doc*, *options*) *[api]*
+Called by `docBeforeInsert` to confirm that the user
+has the appropriate permissions for the doc's type
+and, in some extensions of Apostrophe, the new doc's
+content.
 ### docBeforeSave(*req*, *doc*, *options*) *[api]*
 Invoked before any doc is saved (either
 updated or inserted). Generates a slug

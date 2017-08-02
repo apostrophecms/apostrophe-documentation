@@ -122,6 +122,12 @@ Load widgets which were deferred until as late as possible. Only
 comes into play if `req.deferWidgetLoading` was set to true for
 the request. Invoked after the last `pageBeforeSend` handler, and
 also at the end of the `apostrophe-global` middleware.
+### widgetControlGroups(*req*, *widget*, *options*) *[api]*
+This method is called when rendering widgets in an area,
+to add top-level controls to them, such as the movement arrows
+and the edit pencil. It can be extended to add more controls in
+a context-sensitive way, or configured via the addWidgetControlGroups
+option (see the source, TODO: document the format in detail)
 ### pageBeforeSend(*req*) *[browser]*
 
 ### getCreateSingletonOptions(*req*) *[browser]*
@@ -210,6 +216,11 @@ if you wish.
 
 Content will be retrieved from any widget type that supplies a
 `getRichText` method.
+### widgetControlGroups(*widget*, *options*)
+Output the widget controls. The `addWidgetControlGroups` option can
+be used to append additional control groups. See the
+`widgetControlGroups` method for the format. That method can also
+be extended via the `super` pattern to make the decision dynamically.
 ## API Routes
 ### POST /modules/apostrophe-areas/save-area
 

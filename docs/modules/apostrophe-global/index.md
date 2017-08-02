@@ -66,3 +66,9 @@ Add the `addGlobalToData` middleware.
 Standard middleware. Fetch the global doc and add it to `req.data` as `req.data.global`.
 ### getCreateSingletonOptions(*req*)
 
+### addToAdminBar()
+There is only one useful object of this type, so having access to the admin
+bar button is not helpful unless you can edit that one, rather than
+merely creating a new one (for which there is no UI). Thus we need
+to set the permission requirement to admin-apostrophe-global.
+This is called for you.

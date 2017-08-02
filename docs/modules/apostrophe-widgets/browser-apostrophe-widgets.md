@@ -33,7 +33,10 @@ also store data as markup
 Returns true if we are allowed to edit this widget.
 Independent of `getData` because that is sometimes
 overridden but this is always the right place to get
-the `_edit` flag from. -Tom
+the `_edit` flag from.
+
+If editing would otherwise be permitted but is specifically
+disabled for this area for workflow reasons, false is returned.
 ### edit(*data*, *options*, *save*)
 Opens the editor modal of a widget, unless the widget is contextualOnly,
 in which case we simply save the widget and call the save method

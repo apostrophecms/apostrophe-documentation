@@ -27,6 +27,8 @@ into pages all over the site. To learn more, see:
 ## Methods
 ### addTrashPrefixFields(*fields*) *[api]*
 
+### finalizeControls() *[api]*
+
 ### findForEditing(*req*, *criteria*, *projection*) *[api]*
 Returns a cursor that finds docs the current user can edit. Unlike
 find(), this cursor defaults to including unpublished docs. Subclasses
@@ -158,6 +160,10 @@ on success. If `ids` rather than `_id` were specified,
 To avoid RAM issues with very large selections and ensure that
 lifecycle callbacks like beforeUpdate, etc. are invoked, the current
 implementation processes the pieces in series.
+### getCreateControls(*req*) *[api]*
+
+### getEditControls(*req*) *[api]*
+
 ### createRoutes() *[routes]*
 
 ### pushAssets() *[browser]*

@@ -14,6 +14,8 @@ navigate there or to the home page or just refresh to reflect
 possible new tabs
 ### visit(*$node*)
 
+### edit(*$node*)
+
 ### delete(*$node*)
 
 ### deleteFromTrash(*$node*)
@@ -21,6 +23,10 @@ possible new tabs
 ### move(*e*)
 
 ### reload(*callback*)
+
+### updateVirtualTrashcans()
+
+### updateVirtualTrashcan(*node*)
 
 ### errorOnReload()
 

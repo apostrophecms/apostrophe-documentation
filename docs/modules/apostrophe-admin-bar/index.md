@@ -80,6 +80,10 @@ render time so we can handle it properly if an individual
 user only sees one of them, etc. Called by `afterInit`
 ### pushAssets()
 
+### itemIsVisible(*req*, *item*)
+Determine if the specified admin bar item object should
+be rendered or not, for the given req; based on item.permission
+if any. `req.user` is guaranteed to exist at this point.
 ## Nunjucks template helpers
 ### output()
 Render the admin bar. If the user is not able to see any items,

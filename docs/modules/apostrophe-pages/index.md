@@ -92,7 +92,7 @@ setting is:
 ```javascript
 publishMenu: [
   {
-    action: 'publish-page',
+    action: 'publish-apostrophe-page',
     label: 'Publish Page'
   }
 ]
@@ -248,8 +248,9 @@ returns null. The permissions of the new child page match
 the permissions of the parent.
 ### allowedChildTypes(*page*) *[api]*
 
-### move(*req*, *movedId*, *targetId*, *position*, *callback*) *[api]*
+### move(*req*, *movedId*, *targetId*, *position*, *options*, *callback*) *[api]*
 Move a page already in the page tree to another location.
+
 position can be 'before', 'after' or 'inside' and
 determines the moved page's new relationship to
 the target page.
@@ -258,13 +259,83 @@ The callback receives an error and, if there is no
 error, also an array of objects with _id and slug
 properties, indicating the new slugs of all
 modified pages.
+
+*Less commonly used features*
+
+These are mainly for use by modules that extend Apostrophe's model layer,
+such as `apostrophe-workflow`.
+
+The `options` argument may be omitted entirely.
+
+If `options.criteria` is present, it is merged with
+all MongoDB criteria used to read and write the database in `self.move`.
+If `options.filters` is present, those filters are invoked
+on any Apostrophe cursor find() calls used to read and write the database in `self.move`. 
+
+In addition, `options` is passed back to the callback as a third argument,
+which is useful to detect recursive scenarios that come up in the
+workflow module.
+
+`options` is also passed back to the `movePermissions` method,
+and passed as the `options` property of the `info` parameter of `afterMove`.
+
+After the moved and target pages are fetched, the `beforeMove` method is invoked with
+`req, moved, target, position, options` and an optional callback.
+
+`beforeMove` may safely modify top-level properties of `options` without an impact
+beyond the exit of the current `self.move` call. If modifying deeper properties, clone them.
+### movePermissions(*req*, *moved*, *data*, *options*, *callback*) *[api]*
+Based on `req`, `moved`, `data.moved`, `data.oldParent` and `data.parent`, decide whether
+this move should be permitted. If it should not be, throw an error.
+This is invoked with `callAll`, so other methods may implement it and
+may optionally take a callback as a second argument, in which case errors
+should be passed to the callback rather than thrown.
+
+`options` is the same options object that was passed to `self.move`, or an empty object
+if none was passed.
+### beforeMove(*req*, *moved*, *target*, *position*, *options*, *callback*) *[api]*
+Override this method to alter the `options` object before
+the `move` method carries out a move in the page tree
+### afterMove(*req*, *moved*, *info*, *callback*) *[api]*
+Invoked after a page is moved. Override to carry out
+aditional actions
 ### moveToTrash(*req*, *_id*, *callback*) *[api]*
 Accepts `req`, `_id` and `callback`.
 
 Delivers `err`, `parentSlug` (the slug of the page's
 former parent), and `changed` (an array of objects with
 _id and slug properties, including all subpages that
-had to move too).
+had to move too). If the `trashInSchema: true` option was
+set for the module, `parentSlug` is still provided
+although the parent does not change, and `changed` is
+still provided although the slugs of the descendants
+do not change.
+### trashInSchema(*req*, *_id*, *callback*) *[api]*
+"Move" a page to the trash by just setting its trash flag
+and keeping it under the same parent. Called by `moveToTrash`
+when the `trashInSchema` flag is in effect. The home page
+still cannot be moved to the trash even in this mode.
+Trashes descendant pages as well.
+
+See `moveToTrash` for what the callback receives.
+### rescueInTree(*req*, *_id*, *callback*) *[api]*
+Rescue a page previously trashed via `trashInSchema`. This is an operation that only
+makes sense when the `trashInSchema` option flag is set for the module.
+Rescues descendants as well. Invokes its callback with `(null, parentSlug, changed)`,
+where:
+
+`parentSlug` is the slug of the parent of the page rescued, for consistency
+with the `moveToTrash` method, although the parent does not change;
+
+`changed` is an array of descendant pages whose trash status also changed,
+with `_id` and `slug` properties.
+### trashInSchemaBody(*req*, *_id*, *trash*, *callback*) *[api]*
+Implementation detail of `trashInSchema` and `rescueInTree`. Accepts a boolean
+to do either.
+### moveToSharedTrash(*req*, *_id*, *callback*) *[api]*
+Implements `moveToTrash` when `trashInSchema` is false (the default),
+by moving the page inside the trashcan page. See `moveToTrash`
+for what the callback receives.
 ### deleteFromTrash(*req*, *_id*, *callback*) *[api]*
 Empty the trash (destroy a page in the trash permanently).
 
@@ -290,13 +361,14 @@ child of the home page, which is always parked.
 See also the `park` option; typically invoked via
 that option when configuring the module.
 ### serve(*req*, *res*) *[api]*
-self.pageAfterMove = function(req, moved, info, callback) {
-  // eventually invoke callback
-};
 Route that serves pages. See afterInit in
 index.js for the wildcard argument and the app.get call
 ### serveGetPage(*req*, *callback*) *[api]*
 
+### removeTrailingSlugSlashes(*slug*) *[api]*
+Remove trailing slashes from a slug. This is factored out
+so that it can be overridden, for instance by the
+apostrophe-workflow module.
 ### serveLoaders(*req*, *callback*) *[api]*
 
 ### serveNotFound(*req*, *callback*) *[api]*
@@ -343,10 +415,12 @@ treated as a "404 not found" situation
 ### pruneCurrentPageForBrowser(*page*) *[api]*
 A limited subset of page properties is pushed to
 browser-side JavaScript. If you want more you
-should make your own req.browserCalls
+should make your own req.browserCalls or override
+this method. Don't push gigantic joins if you don't
+want slow pages
 ### docFixUniqueError(*req*, *doc*) *[api]*
 Invoked via callForAll in the docs module
-### updateDescendantsAfterMove(*req*, *page*, *originalPath*, *originalSlug*, *callback*) *[api]*
+### updateDescendantsAfterMove(*req*, *page*, *originalPath*, *originalSlug*, *options*, *callback*) *[api]*
 Update the paths and slugs of descendant pages,
 changing slugs only if they were
 compatible with the original slug. Also update
@@ -412,9 +486,28 @@ Registers a manager for a specific page type that doesn't already have one via `
 
 ### validateTypeChoices() *[api]*
 
+### addAfterContextMenu(*helper*) *[api]*
+Register a function to be invoked after the
+context menu is output. This allows for adding additional contextual
+UI in that general area of the page without changing the outerLayout template.
+It is commonly used in the implementation of optional npm modules that
+enhance the Apostrophe UI.
+
+Your function will receive `req`, for convenience. Since page template rendering
+is already in progress it will be equal to `self.apos.templates.contextReq`.
+### finalizeControls() *[api]*
+
+### addPermissions() *[api]*
+
 ### removeSlugFromHomepageSchema(*page*, *schema*) *[api]*
 If the given page is level 0 (home page), return the given schema minus
 any `slug` field named `slug`. If not, return the schema unmodified.
+### getCreateControls(*req*) *[api]*
+
+### getEditControls(*req*) *[api]*
+
+### addToAdminBar() *[api]*
+
 ### modulesReady(*callback*)
 When all modules are ready, invoke `registerGenericPageTypes` to register a manager
 for any page type that doesn't already have one via `apostrophe-custom-pages`,
@@ -430,6 +523,12 @@ other routes are not blocked
 
 ### isAncestorOf(*possibleAncestorPage*, *ofPage*)
 
+### afterContextMenu()
+
+### createControls()
+Emit controls section of page create modal: the cancel/save buttons, etc.
+### editControls()
+Emit controls section of page editor modal: the cancel/save buttons, etc.
 ## API Routes
 ### POST /modules/apostrophe-pages/editor
 Render the editor for page settings
@@ -449,6 +548,8 @@ except that the parent page id is determined differently
 ### POST /modules/apostrophe-pages/move
 
 ### POST /modules/apostrophe-pages/move-to-trash
+
+### POST /modules/apostrophe-pages/rescue-from-trash
 
 ### POST /modules/apostrophe-pages/delete-from-trash
 

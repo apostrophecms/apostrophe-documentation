@@ -171,3 +171,8 @@ visible in Nunjucks:
 * `refreshing` (true if we are refreshing the content area of the page without reloading)
 * `js.globalCalls` (javascript markup to insert all global pushed javascript calls)
 * `js.reqCalls` (javascript markup to insert all req-specific pushed javascript calls)
+### addBodyClass(*req*, *bodyClass*)
+Add a body class or classes to be emitted when the page is rendered. This information
+is attached to `req.data`, where the string `req.data.aposBodyClasses` is built up.
+The default `outerLayoutBase.html` template outputs that string.
+The string passed may contain space-separated class names.

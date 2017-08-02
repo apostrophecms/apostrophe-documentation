@@ -87,18 +87,22 @@ You may add extensions to the `office` fileGroup.
 ### indexer(*value*, *field*, *texts*) *[schemaField]*
 
 ### accept(*req*, *file*, *callback*) *[api]*
-Accept a file as submitted by an HTTP file upload.
-req is checked for permissions. The callback receives an error if any
-followed by a file object.
-
-"file" should be an object with "name" and "path" properties.
-"name" must be the name the user claims for the file, while "path"
+For backwards compatibility. Equivalent to calling `insert` with
+the same three arguments.
+### insert(*req*, *file*, *options*, *callback*) *[api]*
+Insert a file as an Apostrophe attachment. The `file` object
+should be an object with `name` and `path` properties. 
+`name` must be the name the user claims for the file, while `path`
 must be the actual full path to the file on disk and need not have
 any file extension necessarily.
 
-(Note that when using Express to handle file uploads,
+Note that when using Express to handle file uploads,
 req.files['yourfieldname'] will be such an object as long as you
-configure jquery fileupload to submit one per request.)
+configure jquery fileupload to submit one per request.
+
+The `options` argument may be omitted completely.
+If `options.permissions` is explicitly set to `false`,
+permissions are not checked.
 ### getFileGroup(*extension*) *[api]*
 
 ### crop(*req*, *_id*, *crop*, *callback*) *[api]*
