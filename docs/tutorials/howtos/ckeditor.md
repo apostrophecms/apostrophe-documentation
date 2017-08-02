@@ -23,7 +23,7 @@ apos.define('apostrophe-areas', {
     self.enableCkeditor = function() {
       superEnableCkeditor();
       // Now do as we please
-      CKEDITOR.plugins.addExternal('myplugin', 'url/of/plugin/folder', 'plugin.js');
+      CKEDITOR.plugins.addExternal('myplugin', '/modules/my-apostrophe-areas/js/ckeditorPlugins/YOUR-PLUGIN-NAME/', 'plugin.js');
     };
   }
 });
@@ -35,7 +35,7 @@ apos.define('apostrophe-areas', {
 * Calling `apos.define('apostrophe-areas', { ... })` adds a new definition for the browser-side object that manages editable areas — basically, the browser's version of the areas module. When we do this, moog gives us an [implicit subclass](../glossary.html#implicit-subclassing) of the original type, replacing it with our enhanced version.
 * We then use the [super pattern](../glossary.html#code-super-code-pattern) to extend the existing `enableCkeditor` method, calling the old version and then adding new functionality.
 * Inside that method, we call `CKEDITOR.plugins.addExternal` to add a [CKEditor plugin](http://ckeditor.com/addons/plugins/all). Any toolbar buttons it makes available can now be used when configuring the `toolbar` option for the [apostrophe-rich-text widget](../../modules/apostrophe-rich-text-widgets/index.html).
-
+* The URL of the plugin begins with `/modules/my-apostrophe-areas`. This path will always point to the `public` subdirectory of your project-level extension of the `apostrophe-areas` module (`lib/modules/apostrophe-areas/public` in your project). The `my-` prefix is automatically added to distinguish it from the assets folder of the original `apostrophe-areas` module that ships with Apostrophe.
 
 ## Instance-specific CKEditor configuration
 
