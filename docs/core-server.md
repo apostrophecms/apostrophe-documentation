@@ -161,15 +161,19 @@ When `callAll` is invoked with a method name such as `docBeforeSave`, Apostrophe
 
 The `callAll` technique is widely used in Apostrophe. For instance, [page-before-send](modules/apostrophe-pages/index.html#pageBeforeSend) is invoked just before a page is sent to the browser, allowing all modules one last opportunity to do some asynchronous work and add more information to `req.data`.
 
-### `listen()`
+### `destroy()`
 
-The `listen` method is invoked automatically when Apostrophe is ready to listen for connections. It is supplied by the `apostrophe-express` module. Another module could choose to supply a different implementation, replacing the default one.
+The `destroy` method destroys the `apos` object, freeing resources such as database connections and HTTP server ports. It does **not** delete any persistent data. The database and media files remain available for the next startup. Invokes the `apostropheDestroy` methods of all modules that provide one; use this mechanism to free your own server-side resources that could prevent garbage collection by the JavaScript engine, such as timers and intervals.
 
 ### `emit(eventName, args...)`
 
 Apostrophe provides an event mechanism. The `apos.emit` method takes an event name and additional, optional arguments and invokes all event listeners for that event name. For example, the [apostrophe-search](modules/apostrophe-search/index.html) module emits a `docSearchIndex` event with a `doc` and an array of `texts`, allowing other modules to potentially add more search texts.
 
 On the server side, Apostrophe uses the `callAll` mechanism much more often than events, because an async-friendly solution is usually desired. However `emit` is used when async is explicitly forbidden, typically for performance reasons.
+
+### `listen()`
+
+The `listen` method is invoked automatically when Apostrophe is ready to listen for connections. It is supplied by the `apostrophe-express` module. Another module could choose to supply a different implementation, replacing the default one.
 
 ### `on(eventName, fn)`
 

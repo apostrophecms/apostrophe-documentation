@@ -9,6 +9,7 @@ children:
   - children-and-joins
   - redirecting-after-login
   - facebook
+  - next-and-previous-pieces
   - adding-fields-to-all-pieces
   - adding-new-batch-operations
   - extending-the-pieces-editor-modal
