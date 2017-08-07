@@ -18,6 +18,7 @@ Here is a list of optional official Apostrophe modules you can `npm install` to 
 * [apostrophe-pieces-import](https://npmjs.org/packages/apostrophe-pieces-import)
 * [apostrophe-site-map](https://npmjs.org/packages/apostrophe-site-map)
 * [apostrophe-workflow](https://npmjs.org/packages/apostrophe-workflow), which covers both workflow and localization / internationalization
+* [apostrophe-caches-redis](https://npmjs.org/packages/apostrophe-caches-redis)
 
 ## Publishing your own npm modules for Apostrophe
 
