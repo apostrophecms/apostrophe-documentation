@@ -33,3 +33,7 @@ Notice that you don't have to use `require` because Apostrophe does it for you.
 This technique is not limited to Redis. You can use any store that follows the standard conventions for connect/Express session store modules.
 
 The `options` object you supply is passed on to the store when it is created. For more information about options for Redis, see the [connect-redis](https://www.npmjs.com/package/connect-redis) documentation.
+
+## "What about caches?"
+
+You can also remap Apostrophe's cache mechanism to Redis. Check out the optional  [apostrophe-caches-redis](https://npmjs.org/packages/apostrophe-caches-redis) module.
