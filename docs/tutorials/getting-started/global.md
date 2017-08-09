@@ -10,7 +10,7 @@ Most of the time, you'll have content that is shared between the different page 
 First, let's create a `layout.html` file. All of our page templates can then extend that file, so we don't have to fuss with `data.outerLayout`, and we can share some of the template markup:
 
 ```markup
-{# lib/modules/apostrophe-templates/views/layout.html in your project #}
+{# lib/modules/apostrophe-pages/views/layout.html in your project #}
 
 {% extends data.outerLayout %}
 
