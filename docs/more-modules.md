@@ -19,6 +19,7 @@ Here is a list of optional official Apostrophe modules you can `npm install` to 
 * [apostrophe-site-map](https://npmjs.org/packages/apostrophe-site-map)
 * [apostrophe-workflow](https://npmjs.org/packages/apostrophe-workflow), which covers both workflow and localization / internationalization
 * [apostrophe-caches-redis](https://npmjs.org/packages/apostrophe-caches-redis)
+* [apostrophe-passport](https://npmjs.org/packages/apostrophe-passport), which provides single sign-on via Facebook, Twitter, Google, Gitlab, etc.
 
 ## Publishing your own npm modules for Apostrophe
 
