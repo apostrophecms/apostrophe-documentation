@@ -3,7 +3,7 @@ title: "Logging in via Google, Twitter, Facebook and other sites"
 layout: tutorial
 ---
 
-With the release of the [apostrophe-passport](https://npmjs.org/package/apostrophe-passport) module, it has become very easy to implement login via Google, Twitter, Facebook, Github, Gitlab and other providers. 
+With the release of the [apostrophe-passport](https://npmjs.org/package/apostrophe-passport) module, it has become very easy to implement login via Google, Twitter, Facebook, Github, Gitlab, just about any site that supports OpenAuth, and many other solutions such as SAML. This capability is often known as federation or "single sign-on."
 
 See the [apostrophe-passport](https://npmjs.org/package/apostrophe-passport) documentation for complete examples of Gitlab and Google login configuration.
 
