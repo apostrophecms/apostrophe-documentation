@@ -14,7 +14,7 @@ This works well for contact forms, since you can just define a piece type with a
 
 ## Doing it your way: a note on CSRF protection
 
-Apostrophe provides tools that can help you build contact forms, including the [Check out the apostrophe-pieces-submit-widgets module](https://npmjs.org/package/apostrophe-pieces-submit-widgets) module and other techniques. And we'll look at them. But first: of course you can also do your own thing.
+Apostrophe provides tools that can help you build contact forms, including the [ apostrophe-pieces-submit-widgets module](https://npmjs.org/package/apostrophe-pieces-submit-widgets) module and other techniques. And we'll look at them. But first: of course you can also do your own thing.
 
 Apostrophe sites are still node and Express apps, and you still have HTML5, JavaScript, lodash and jQuery at your disposal on the browser side. Wing it if you want to, especially in "project level" code that's not part of a reusable Apostrophe module.
 
