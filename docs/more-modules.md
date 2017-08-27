@@ -12,6 +12,7 @@ Here is a list of optional official Apostrophe modules you can `npm install` to 
 * [apostrophe-twitter-widgets](https://npmjs.org/packages/apostrophe-twitter-widgets)
 * [apostrophe-blog](https://npmjs.org/packages/apostrophe-blog)
 * [apostrophe-events](https://npmjs.org/packages/apostrophe-events)
+* [apostrophe-pieces-submit-widgets](https://npmjs.org/package/apostrophe-pieces-submit-widgets), which lets you set up public contact forms, event submission forms, etc.
 * [apostrophe-second-chance-login](https://npmjs.org/packages/apostrophe-second-chance-login)
 * [apostrophe-redirects](https://npmjs.org/packages/apostrophe-redirects)
 * [apostrophe-legacy-import](https://npmjs.org/packages/apostrophe-legacy-import)
