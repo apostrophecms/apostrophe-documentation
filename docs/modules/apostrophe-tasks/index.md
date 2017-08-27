@@ -50,9 +50,29 @@ unlimited admin permissions.
 ### usage()
 
 ### getReq(*properties*)
-Return a req object with permission to do anything.
+Return a `req` object with permission to do anything.
 Useful since most APIs require one and most tasks
 should run with administrative rights.
+
+The `req` object returned is a mockup of a true Express `req` object
+with sufficient functionality to implement Apostrophe's
+unit tests, so it is suitable for command line
+task code that requires a `req` as well.
+
+Optionally a `properties` object can be passed. If it is
+passed its properties are added to the req object before
+any initialization tasks such as computing `req.absoluteUrl`.
+This allows testing of that mechanism by setting `req.url`.
+### getAnonReq(*properties*)
+Return a `req` object with privileges equivalent
+to an anonymous user visiting the website. Most
+often used for unit testing but sometimes useful
+in tasks as well.
+
+The `req` object returned is a mockup of a true Express `req` object
+with sufficient functionality to implement Apostrophe's
+unit tests, so it is suitable for command line
+task code that requires a `req` as well.
 
 Optionally a `properties` object can be passed. If it is
 passed its properties are added to the req object before

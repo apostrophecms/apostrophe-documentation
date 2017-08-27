@@ -19,6 +19,11 @@ The page object is the page as returned by the server after the save operation.
 ## Methods
 ### beforeShow(*callback*)
 
+### addTypeChangeHandler()
+Add a change event handler to the type field.
+This is installed at initial load time and also
+when the content is re-rendered due to a page
+type change, resulting in a new type field element.
 ### open(*callback*)
 
 ### populate(*data*, *callback*)

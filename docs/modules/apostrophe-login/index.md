@@ -11,6 +11,16 @@ children:
 ### `apos.login`
 Enable users to log in via a login form on the site at `/login`.
 
+## Options
+
+`localLogin`
+
+If explicitly set to `false`, the `/login` route does not exist,
+and it is not possible to log in via your username and password.
+This usually makes sense only in the presence of an alternative such as
+the `apostrophe-passport` module, which adds support for login via
+Google, Twitter, gitlab, etc.
+
 ## Notable properties of apos.modules['apostrophe-login']
 
 `passport`
@@ -21,7 +31,7 @@ You may access this object if you need to implement additional passport "strateg
 ## Global method: loginAfterLogin
 
 The method `loginAfterLogin` is invoked on **all modules that have one**. This method
-is a good place to set `req.redirect` to the URL of your choice. If no module settings
+is a good place to set `req.redirect` to the URL of your choice. If no module sets
 `req.redirect`, the newly logged-in user is redirected to the home page. `loginAfterLogin`
 is invoked with `req` and may also optionally take a callback.
 
@@ -74,3 +84,8 @@ Add the `user` property to `req.data` when a user is logged in.
 Push the login stylesheet.
 ### addAdminBarItems()
 Add the logout admin bar item.
+### afterLogin(*req*, *res*)
+Invoked by passport after an authentication strategy succeeds
+and the user has been logged in. Invokes `loginAfterLogin` on
+any modules that have one and redirects to `req.redirect` or,
+if it is not set, to `/`.

@@ -5,11 +5,20 @@ layout: tutorial
 
 So you want a contact form on your site. A pretty common requirement. Maybe it's not a contact form; maybe you want to accept submissions of stories, or product ideas. The same principles apply.
 
+
+## Doing it the easy way: using `apostrophe-pieces-submit-widgets`
+
+A module is available that allows users to submit any type of piece you wish to permit. You can specify the subset of fields that are appropriate for them, and avoid the work of building your own solution. Then just add the widget to the appropriate pages, and site visitors will see forms.
+
+This works well for contact forms, since you can just define a piece type with an appropriate schema. So [Check out the apostrophe-pieces-submit-widgets module](https://npmjs.org/package/apostrophe-pieces-submit-widgets) before doing anything more complex!
+
 ## Doing it your way: a note on CSRF protection
 
-Apostrophe provides tools that can help, and we'll look at doing it that way. But first: of course you can also do your own thing. Apostrophe sites are still node and Express apps, and you still have HTML5, JavaScript, lodash and jQuery at your disposal on the browser side. Wing it if you want to, especially in "project level" code that's not part of a reusable Apostrophe module.
+Apostrophe provides tools that can help you build contact forms, including the [Check out the apostrophe-pieces-submit-widgets module](https://npmjs.org/package/apostrophe-pieces-submit-widgets) module and other techniques. And we'll look at them. But first: of course you can also do your own thing.
 
-Just one thing you'll need to know before you wing it: "plain old form submissions" not executed by jQuery aren't going to work, not right out of the box. That's because Apostrophe adds [Cross Site Request Forgery (CSRF)](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_&#40;CSRF&#41;_Prevention_Cheat_Sheet) protection, as standard middleware.
+Apostrophe sites are still node and Express apps, and you still have HTML5, JavaScript, lodash and jQuery at your disposal on the browser side. Wing it if you want to, especially in "project level" code that's not part of a reusable Apostrophe module.
+
+Just one thing you'll need to know before you wing it: "plain old form submissions" not executed by jQuery aren't going to work, not right out of the box. That's because Apostrophe adds [Cross Site Request Forgery (CSRF)](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_&#40;CSRF&#41;_Prevention_Cheat_Sheet) protection, as standard middleware. Let's look at how to make that work for your code too.
 
 ### Submitting "plain old forms"
 
@@ -73,9 +82,11 @@ self.apos.app.post('/my-post-route-url', function(req, res) {
 
 > If you are allowing "plain old form submissions," you'll want to use `res.redirect` afterwards to bring the user back to a useful page. You might want to send along `data.url` in a hidden field in your form for this purpose.
 
-## Doing it our way: creating a `contact-form` module
+## Going deeper with Apostrophe: creating a `contact-form` module
 
-That being said... depending on your ambitions, Apostrophe may have a better way to offer.
+That being said... depending on your ambitions, Apostrophe may have a better way to offer. Using pieces and widgets, you can create a solution in which Apostrophe does most of the work.
+
+And actually, we've [already built that solution for you!](https://npmjs.org/package/apostrophe-pieces-submit-widgets) But perhaps you'd like to understand that path more deeply and take it in new directions. If so, the rest of this article is for you.
 
 Apostrophe provides tools to help you render forms, sanitize the user's entries, submit them, and save them where the results can be easily viewed and managed.
 

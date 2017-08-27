@@ -93,7 +93,8 @@ Ensure the existence of the groups configured via the `groups` option,
 if any, and refresh their permissions.
 ### ensureGroup(*group*, *callback*)
 Create and/or refresh a group as specified by the
-`groups` option.
+`groups` option. The group is the second argument
+to the callback.
 ### requirePiece(*req*, *res*, *next*)
 Extend the standard middleware for the piece-editing routes
 so that the `group` single-select property is automatically set
