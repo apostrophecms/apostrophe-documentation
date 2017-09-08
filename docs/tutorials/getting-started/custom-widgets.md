@@ -189,6 +189,27 @@ And pass the option in our `apos.area` call on `home.html`:
 
 Now all the page links in this particular area will get the special class. You can probably think of much fancier uses for this feature.
 
+#### Positioning Widget Controls
+
+Depending on the your site design, you may want to position your widget controls to your liking. You can do this with options as well.
+
+```markup
+{{
+  apos.singleton(data.page, 'footer', 'my-footer', { position: "bottomLeft" })
+}}
+```
+The available options are:
+
+`bottomLeft`
+
+`bottomRight`
+
+`topRight`
+
+`topLeft` (this is the default position, but you may use it for granularity)
+
+
+
 #### Giving choices to the user
 
 We can also leave the choice up to the user by adding a `boolean` field to the schema for `page-link-widgets` in its `index.js`:
