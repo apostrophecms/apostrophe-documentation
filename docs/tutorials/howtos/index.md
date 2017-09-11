@@ -27,6 +27,7 @@ children:
   - replica-set
   - storing-sessions-in-redis
   - google-twitter-and-facebook-login
+  - technical-overview
 ---
 
 These HOWTOs cover a variety of topics that don't quite fit neatly into a tutorial series.
