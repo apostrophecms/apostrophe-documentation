@@ -42,5 +42,69 @@ You can create your own "mini" search forms anywhere on the site. Just make sure
 
 Everything, basically. Joins and widgets are loaded normally for each result on the page. The `._url` property contains the best available URL for that item, if there is one. Pieces without pieces-pages will not have a URL.
 
+## Limiting search results
 
-## TODO: document the `types` and `filters` options
+You may notice search results for documents that don't have URLs, or are simply of piece types you don't want to be included. Obviously, this isn't ideal.
+
+The simplest way to limit the results is to set the `types` option to an array containing all of the piece and page types that you *do* want results for:
+
+```javascript
+'apostrophe-search': {
+  types: [
+    'home',
+    'default',
+    'apostrophe-blog'
+  ]
+},
+```
+
+When you do this, *no* other types will be included in the results. So be sure to extend the list appropriately if you add new page or piece types you would like to see.
+
+**For piece types, there must be corresponding pieces-pages** in order for a valid URL to be provided. For instance, you have a `product` type powered by a `products` module that extends `apostrophe-pieces`, and you want to include it in search results, you must also create a `products-pages` module that extends `apostrophe-pieces-pages`, providing `index.html` and `show.html` templates for it, and create at least one such page on the site. For more information, see [reusable content with pieces](../../getting-started/reusable-content-with-pieces.html).
+
+> The type name must correspond to the `name` option for a pieces module, which is what the `type` property is set to for each individual piece... **not** the name of the module itself. Think singular, not plural.
+
+## Filtering search results
+
+You can also provide the user with convenient filters, for instance to view only the blog posts, just the events, etc.
+
+To do that, configure the `filters` option. The `name` property must match the 
+
+```javascript
+'apostrophe-search': {
+  filters: [
+    {
+      name: 'apostrophe-blog',
+      label: 'Blog Posts'
+    },
+    {
+      name: 'apostrophe-event',
+      label: 'Events'
+    }
+  ]
+}
+```
+
+**When you do this, Apostrophe automatically adds one more choice labeled "Everything Else."** This makes sense because many page types and piece types may come up occasionally but aren't interesting enough to deserve their own filter.
+
+However, you can change the label of that extra filter choice by configuring one with the special name `__else`:
+
+```javascript
+'apostrophe-search': {
+  filters: [
+    {
+      name: 'apostrophe-blog',
+      label: 'Blog Posts'
+    },
+    {
+      name: 'apostrophe-event',
+      label: 'Events'
+    },
+    {
+      name: '__else',
+      label: 'Pages'
+    }
+  ]
+}
+```
+
