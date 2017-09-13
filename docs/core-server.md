@@ -46,9 +46,9 @@ If this option is not set and the port is not available, an uncaught exception i
 
 ### `bundles`
 
-The `bundles` option is used to specify an array of installed npm modules that provide more than one Apostrophe module each. These are also known as [moog bundles](http://npmjs.org/moog-require). Currently these bundles are not recognized automatically; you must set the `bundles` option to an array containing their names.
+*Deprecated.* The `bundles` option was used to specify an array of installed npm modules that provide more than one Apostrophe module each. These are also known as [moog bundles](http://npmjs.org/moog-require). Moog bundles are now recognized automatically as such.
 
-For a very straightforward example, check out [apostrophe-blog](https://npmjs.org/apostrophe-blog).
+For a straightforward example of a moog bundle, check out [apostrophe-blog](https://npmjs.org/apostrophe-blog).
 
 ### `baseUrl`
 

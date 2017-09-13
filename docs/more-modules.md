@@ -55,13 +55,5 @@ module.exports = {
 ```
 
 * The rest of your modules should live in the `lib/modules` subdirectory of your npm module.
-* Your `README.md` (yes you need one!) should tell the developer that they need to list your npm module's name in their `bundles` property in `app.js`, like this:
+* As long as the user configures your "lead module" (the one the npm module is named after), Apostrophe will automatically recognize it as a bundle. Of course the user must still configure each of your bundles, unless they use the `improve` keyword to implicitly subclass other modules, in which case they are loaded automatically for simplicity's sake.
 
-```javascript
-// in app.js
-var apos = require('apostrophe')({
-  shortName: 'myproject',
-  bundles: ['apostrophe-events', 'apostrophe-blog' ],
-  // etc
-}
-```
