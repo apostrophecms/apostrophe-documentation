@@ -49,6 +49,9 @@ Doing so has performance costs when widgets are numerous.
 Given an array of pieces, this method attaches them to the widget
 as the _pieces property correctly with pushPiecesToWidget, and
 orders them correctly if the user chose them in a specific order
+### composeSchema()
+Extend `composeSchema` to capture the join field
+as `self.joinById`.
 ### orderPiecesForWidget(*widget*)
 A utility method that puts the pieces loaded for the widget in the
 order requested by the user. widget._pieces should already be loaded
@@ -64,3 +67,5 @@ always gets called for each.
 ### widgetCursor(*req*, *criteria*)
 Hook to modify cursor before the load method is invoked. Applies the filters
 specified for the join.
+### isEmpty(*widget*)
+Returns true if the widget is considered empty

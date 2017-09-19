@@ -111,6 +111,9 @@ permissions are not checked.
 
 ### clone(*req*, *source*, *callback*) *[api]*
 Clones a file
+### getMissingAttachmentUrl() *[api]*
+This method return a default icon url if an attachment is missing
+to avoid template errors
 ### url(*attachment*, *options*) *[api]*
 This method is available as a template helper: apos.attachments.url
 

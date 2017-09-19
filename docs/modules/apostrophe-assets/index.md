@@ -228,6 +228,8 @@ for DOM templates
 
 ### enableCsrf()
 
+### enableHtmlPageId()
+
 ### enablePrefix()
 
 ### enableLessMiddleware()
@@ -242,6 +244,8 @@ Prefix all URLs in CSS with a particular string
 Given the site-relative URL an asset would have when hosting assets locally,
 return the asset URL to be used in script or link tags. Often the same, but
 when APOS_S3_BUNDLE is in effect it can point elsewhere
+### getCoreAposProperties(*when*)
+
 ### generationTask(*callback*)
 This task is primarily implemented by the logic in afterInit, however
 if we are sending a bundle to uploadfs this is a fine time to do

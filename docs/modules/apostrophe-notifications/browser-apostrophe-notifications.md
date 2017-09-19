@@ -23,6 +23,8 @@ The message is internationalized by the server, which is why the use of
 %s placeholders for any inserted titles, etc. is important.
 ### createContainer()
 
+### reparentContainer()
+
 ### addToContainer(*$notification*)
 
 ### dismiss(*$notification*)

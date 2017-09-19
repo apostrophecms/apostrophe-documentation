@@ -52,6 +52,9 @@ You may omit the `options` argument completely.
 If `options.permissions` is explicitly set to `false`, permissions are
 not checked. Otherwise the user must have the appropriate permissions to
 insert the piece.
+
+For convenience, the piece is passed to the callback as the second argument.
+It's the same piece object, with some new properties.
 ### update(*req*, *piece*, *options*, *callback*) *[api]*
 Update a piece. Also invokes the `beforeUpdate`, `beforeSave`, `afterUpdate` and
 `afterSave` methods of this module.
@@ -61,6 +64,10 @@ You may omit the `options` argument completely.
 If `options.permissions` is explicitly set to `false`, permissions are
 not checked. Otherwise the user must have the appropriate permissions to
 insert the piece.
+
+For convenience, the piece is passed to the callback as the second argument.
+It's the same piece object you passed, likely with modifications such as
+the `updatedAt` property.
 ### trash(*req*, *id*, *callback*) *[api]*
 Move a piece to the trash by id.
 ### rescue(*req*, *id*, *callback*) *[api]*

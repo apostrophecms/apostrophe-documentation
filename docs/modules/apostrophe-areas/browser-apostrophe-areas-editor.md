@@ -23,7 +23,11 @@ in user.js for where this is invoked.
 ### registerEventHandlers()
 
 ### registerAutosave()
-
+Activate the autosave mechanism, if it is not already
+operating. This method is invoked for you by
+`startAutosaving` and `startAutosavingThen`, which
+also obtain a session lock on the document first for
+the current user.
 ### addItem(*$el*, *value*)
 
 ### editItem(*$el*)
@@ -87,15 +91,33 @@ TODO: we should prevent input during this time
 Serialize the editor to an array of items, exactly as expected for
 storage in an area.
 ### onInterval()
-
+Called every 5 seconds. Default version checks for empty areas
+and autosaves if needed in appropriate cases.
+### prepareAutosaveRequest()
+Returns a JSON-friendly object ready for
+submission to the `save-area` route, if
+the area is autosaving, has modifications
+when compared to `self.previousData` and is present
+in the DOM. In all other circumstances
+this method returns `null`. Calling code should
+set `self.previousData` to the `items` property
+of the returned object, if and only if it succeeds
+in actually saving the data. This ensures that
+retries are made automatically in the event
+of network errors.
 ### saveIfNeeded(*sync*, *callback*)
 If the area editor believes its content has changed, send it to the
-save-area route. If `sync` is true, make a synchronous AJAX call (this should ONLY
-be used as a last-ditch save when the page is being closed; async calls fail
-at that point).
+save-area route. If `sync` is true, make a synchronous AJAX call
+(for bc only; we now use the saveAllIfNeededAndUnlock method of
+the areas module singleton for faster synchronous saves on page unload).
 
 `callback` is optional and is invoked when the work is complete,
 or immediately if there is no work to do.
+
+If the document cannot be saved because it has been locked
+by another user, tab or window, a message is displayed to
+the user and the page is refreshed to reflect the current
+content and avoid a cascade of such messages.
 ### changeOwners(*$item*)
 Take an item that might belong to a different
 area and make it ours
@@ -113,3 +135,31 @@ need to use $.onSafe, for the sake of nested areas.
 ### on(*eventType*, *selector*, *fn*)
 This is a wrapper for $.onSafe that avoids events that are actually
 happening in nested areas. -Tom and Sam
+### startAutosaving(*callback*)
+Given a method such as `self.addItem`, this method returns
+a new function that will first ensure the user has a session lock
+on the document, then initiate autosave for the area, and
+finally invoke the callback.
+
+If necessary the user is given the option to shatter a lock belonging
+to another user.
+
+If an error occurs, such as the user declining to steal
+a session lock, `callback` is invoked with an error rather than null.
+### startAutosavingThen(*fn*, *args*)
+Similar to `startAutosaving`, this method
+obtains a context lock and starts autosaving of
+the area, then invokes the given function,
+invoking it with the given array of arguments.
+Does not invoke `fn` at all if startAutosaving
+fails. Part of the implementation of `startAutosavingHandler`.
+### startAutosavingHandler(*fn*)
+Returns a function that invokes `startAutosavingThen`
+with the given function and passes on the arguments
+given to it. Useful as an event handler.
+### enableInterval()
+Establish the so-called `saveInterval`, which actually
+also carries out the check for empty areas and can
+be expanded to do more by extending `onInterval`. Note
+that this interval is established for all areas the
+user can edit, not just those that autosave.

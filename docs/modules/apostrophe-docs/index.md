@@ -373,7 +373,39 @@ with `apostrophe-pages` always have one).
 Add fields to the list of those unsuitable for
 rollback due to knock-on effects, permissions checks,
 etc.
+### lock(*req*, *id*, *contextId*, *options*, *callback*) *[api]*
+Lock the given doc id to a given `contextId`, such
+that other calls to `lock` for that doc id will
+fail unless they have the same `contextId`. If
+`options.force` is true, any existing lock is
+overwritten. The `options` argument may be
+omitted entirely.
+
+`id` must be truthy. If a doc is new and therefore
+has no id yet, you don't need to lock it because
+it isn't possible that anyone else knows about it.
+### verifyLock(*req*, *id*, *contextId*, *callback*) *[api]*
+Verifies that a lock obtained with `lock` is
+still held by the given context id. If not,
+the error is the string `locked` and a second
+argument with an internationalized message
+is provided also. If the lock was taken
+by the same user in another tab or window,
+the error is `locked-by-me`.
+### unlock(*req*, *id*, *contextId*, *callback*) *[api]*
+Release a document lock set via `lock` for
+a particular contextId.
+### unlockAll(*req*, *contextId*, *callback*) *[api]*
+Release all document locks set on behalf of
+the given `contextId`.
 ### pushAssets() *[browser]*
 
 ### pushCreateSingleton() *[browser]*
+
+## API Routes
+### POST /modules/apostrophe-docs/lock
+
+### POST /modules/apostrophe-docs/verify-lock
+
+### POST /modules/apostrophe-docs/unlock
 

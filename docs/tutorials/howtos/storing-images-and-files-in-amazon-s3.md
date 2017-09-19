@@ -1,5 +1,6 @@
 ---
 title: Storing images and files in Amazon S3
+layout: tutorial
 ---
 
 You can store your images and files in Amazon S3 if you wish. You don't have to use the local file system.

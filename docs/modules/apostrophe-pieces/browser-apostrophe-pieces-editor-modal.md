@@ -54,3 +54,5 @@ harm if it has.
 ### copy(*$el*)
 Save this modal, then open a new modal to create a new piece of
 this type that starts out as a copy of the current piece
+### afterHide()
+

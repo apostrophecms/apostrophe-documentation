@@ -40,8 +40,16 @@ disabled for this area for workflow reasons, false is returned.
 ### edit(*data*, *options*, *save*)
 Opens the editor modal of a widget, unless the widget is contextualOnly,
 in which case we simply save the widget and call the save method
+Widget can opitonally be set to skipInitialModal which skips the first
+edit modal but binds future editing interactions
 ### isEmpty(*$widget*)
 Area editor calls this to determine whether to apply an empty state
 class for the widget
 ### getData(*$widget*)
 
+### startAutosavingAreaThen(*$widget*, *fn*)
+Start autosaving the area containing the given widget,
+then invoke the given function. On failure fn is not invoked.
+Invoked by widgets that are edited contextually on the page,
+like apostrophe-rich-text, as opposed to widgets edited
+via a modal.

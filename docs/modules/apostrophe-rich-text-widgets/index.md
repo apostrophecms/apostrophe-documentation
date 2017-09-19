@@ -29,5 +29,7 @@ represent it as a data attribute.
 
 ### compare(*old*, *current*)
 
+### isEmpty(*widget*)
+
 ### pushAssets()
 

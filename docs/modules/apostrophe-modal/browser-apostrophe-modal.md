@@ -131,6 +131,8 @@ Invoked by `afterConstruct`.
 ### enableLifecycleEvents()
 Adds jQuery event handlers to `self.$el`, the div corresponding to
 the modal, for the `aposModalCancel` and `aposModalHide` events.
+### beforeunload()
+
 ### getLastSlide()
 Return the last slide, or the modal itself if it has no nested slides.
 Returns the `apostrophe-modal` object, not a jQuery element.

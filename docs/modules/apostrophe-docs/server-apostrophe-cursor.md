@@ -229,6 +229,9 @@ method or the `and` method. For this reason,
 `and` is a more common choice. You can also
 pass a criteria object as the second argument
 to any `find` method.
+### log(*value*)
+Filter. If .log(true) is invoked, the query
+criteria are logged to the console.
 ### addLateCriteria(*value*)
 Filter. Provides an object to be merged directly into the final
 criteria object that will go to MongoDB. This is to be used only

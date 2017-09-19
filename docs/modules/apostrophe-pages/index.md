@@ -365,7 +365,7 @@ Route that serves pages. See afterInit in
 index.js for the wildcard argument and the app.get call
 ### serveGetPage(*req*, *callback*) *[api]*
 
-### removeTrailingSlugSlashes(*slug*) *[api]*
+### removeTrailingSlugSlashes(*req*, *slug*) *[api]*
 Remove trailing slashes from a slug. This is factored out
 so that it can be overridden, for instance by the
 apostrophe-workflow module.

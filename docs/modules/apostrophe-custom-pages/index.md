@@ -102,3 +102,7 @@ Returns the minimum permission name that should be checked for
 to determine if this user has blanket admin privileges for
 this doc type. For pages this is always `admin-apostrophe-page`
 because page types can be switched.
+### composeSchema() *[api]*
+Extend `composeSchema` to flag the use of field names
+that are forbidden or nonfunctional in page types,
+i.e. path, rank, level

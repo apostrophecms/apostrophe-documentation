@@ -120,6 +120,11 @@ been used, or are wondering if you can safely remove one.
 
 
 ## Methods
+### composeSchema()
+Compose the schema, accepting `addFields`, `removeFields`, etc.
+as described in the schema guide. After `afterConstruct` invokes
+this method, `self.schema` is available. Throw an error
+if `type` is used as a field name
 ### output(*widget*, *options*)
 Returns markup for the widget. Invoked by `widget.html` in the
 `apostrophe-areas` module as it iterates over widgets in
@@ -193,6 +198,13 @@ this type found in the database:
 `node app your-module-name-here-widgets:list`
 ### addSearchTexts(*widget*, *texts*)
 
+### isEmpty(*widget*)
+Return true if this widget should be considered
+empty, for instance it is a rich text widget
+with no text or meaningful formatting so far.
+By default this method returns false, so the
+presence of any widget of this type means 
+the area containing it is not considered empty.
 ## API Routes
 ### POST /modules/apostrophe-widgets/modal
 A POST route to render `widgetEditor.html`. `data.label` and

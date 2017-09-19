@@ -53,6 +53,22 @@ saved in the database before the callback is invoked. The
 `items` array is NOT sanitized here; you should call
 `sanitizeItems` first. Called for you by the
 `save-area` route.
+### lockSanitizeAndSaveArea(*req*, *areaInfo*, *callback*) *[api]*
+Lock, sanitize and save the area described by `areaInfo` on behalf
+of `req`.
+
+`areaInfo` must have `items`, `docId` and `dotPath` 
+parameters. For bc, if `req.htmlPageId` is not present
+then advisory locking is not performed.
+
+Note that the area is not unlocked. This method is designed
+for autosave operations, which continue until the page
+is unloaded, at which time the `save-areas-and-unlock`
+route will be accessed.
+
+This method performs sanitization of all properties of
+`areaInfo` before trusting it, so passing `req.body`
+is a safe thing to do.
 ### walk(*doc*, *iterator*) *[api]*
 Walk the areas in a doc. Your iterator function is invoked once
 for each area found, and receives the
@@ -128,6 +144,19 @@ to add top-level controls to them, such as the movement arrows
 and the edit pencil. It can be extended to add more controls in
 a context-sensitive way, or configured via the addWidgetControlGroups
 option (see the source, TODO: document the format in detail)
+### isEmpty(*doc*, *name*) *[api]*
+Returns true if the named area in the given `doc` is empty.
+
+Alternate syntax: `{ area: doc.areaname, ... more options }`
+
+An area is empty if it has no widgets in it, or when
+all of the widgets in it return true when their
+`isEmpty()` methods are interrogated. For instance,
+if an area only contains a rich text widget and that
+widget. A widget with no `isEmpty()` method is never empty.
+### pageServe(*req*) *[protectedApi]*
+When a page is served to a logged-in user, make sure the session
+contains a blessing for every join configured in schemas for widgets
 ### pageBeforeSend(*req*) *[browser]*
 
 ### getCreateSingletonOptions(*req*) *[browser]*
@@ -221,9 +250,29 @@ Output the widget controls. The `addWidgetControlGroups` option can
 be used to append additional control groups. See the
 `widgetControlGroups` method for the format. That method can also
 be extended via the `super` pattern to make the decision dynamically.
+### isEmpty(*doc*, *name*)
+Returns true if the named area in the given `doc` is empty.
+
+Alternate syntax: `{ area: doc.areaname, ... more options }`
+
+An area is empty if it has no widgets in it, or when
+all of the widgets in it return true when their
+`isEmpty()` methods are interrogated. For instance,
+if an area only contains a rich text widget and that
+widget. A widget with no `isEmpty()` method is never empty.
 ## API Routes
 ### POST /modules/apostrophe-areas/save-area
 
+### POST /modules/apostrophe-areas/save-areas-and-unlock
+Similar to `save-area`. This route expects
+an object with an `areas` property, and that
+property is an array of requests in the format
+expected by the `save-area` route. In addition to
+saving all of the posted areas, this route
+releases any locks held by `req.htmlPageId`.
+property. These functions are combined for
+best performance during performance-critical
+`beforeunload` events.
 ### POST /modules/apostrophe-areas/edit-virtual-area
 Render an editor for a virtual area with the content
 specified as an array of items by the req.body.content

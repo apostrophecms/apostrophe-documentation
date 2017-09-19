@@ -69,6 +69,25 @@ Get the options that apply to the widget in its current context
 Return an array of all area editor objects
 (subclasses of apostrophe-areas-editor) which
 are currently visible.
-### saveAllIfNeeded(*callback*)
+### saveAllIfNeeded(*sync*, *callback*)
 Gives all area editors a chance to save changes,
 if they need to, before invoking the callback.
+
+Both the sync flag and the callback may be
+omitted entirely. The default is asynchronous.
+
+This method is ideal in situations where
+you wish to be sure everything has been saved
+before transitioning to a UI such as a commit dialog box
+that displays what has changed, etc.
+### saveAllIfNeededAndUnlock()
+Similar to `saveAllIfNeeded`, this method is
+invoked on a `beforeunload` event, when the user
+navigates away or closes the tab. However this method
+has no callback, makes only one synchronous API call
+to complete all of the work to maximize
+the chances of success when called during the
+`beforeunload` event, and also unlocks any docs locked
+by the current html page as part of that one API call.
+### enableUnload()
+
