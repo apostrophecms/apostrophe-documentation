@@ -1,9 +1,7 @@
 ---
-title: "Technical overview"
+title: "Technical overview: 30,000 feet"
 layout: tutorial
 ---
-
-# Apostrophe: a technical overview
 
 > You don't have to read this article to get started with Apostrophe. It's very handy for those who want to know more about the decisions that underpin its design and better grasp how to extend Apostrophe in new and interesting ways.
 
@@ -27,11 +25,11 @@ Each "doc" might be a *page*, such as the "home" or "about" page of a website, o
 
 The "global doc," which is always available to templates as `data.global`, is reserved for content you'll want almost every time you render a page. It is the right place for shared footers and site-wide copyright notices, for instance.
 
-<img src="/docs/images/technical-overview-apostrophe-doc-types.svg" />
+<img src="../images/technical-overview-apostrophe-doc-types.svg" />
 
 Each doc might contain a variety of content: rich text, images, videos and even "blog widgets" that display blog posts. Each unit of content is called a *widget*. Widgets can stand by themselves, in which case they are called *singletons*. Just as often however, widgets are grouped into *areas* in which the user is free to keep adding new widgets of various types.  Frontend developers decide which widgets are allowed in each area and code their templates accordingly.
 
-<img src="/docs/images/technical-overview-apostrophe-on-the-page.svg" />
+<img src="../images/technical-overview-apostrophe-on-the-page.svg" />
 
 ## Apostrophe's module architecture
 
@@ -144,11 +142,11 @@ Any module extending `apostrophe-pieces` or `apostrophe-custom-pages` can easily
 
 Schemas are also used to define the editable fields of a widget That allows new widgets to be created very quickly without the need for custom code.
 
-For more information, see the [schema guide](../getting-started/schema-guide.html).
+For more information, see the [schema guide](../tutorials/getting-started/schema-guide.html).
 
 ## Apostrophe joins
 
-Apostrophe also supports robust "joins" between content types. Programmers can define their own relationships between doc types, such as pages or pieces, and even between widgets and pages, or widgets and pieces. Joins are discussed in the [schema guide](../getting-started/schema-guide.html).
+Apostrophe also supports robust "joins" between content types. Programmers can define their own relationships between doc types, such as pages or pieces, and even between widgets and pages, or widgets and pieces. Joins are discussed in the [schema guide](../tutorials/getting-started/schema-guide.html).
 
 ## Dynamic properties and the magic `_`
 
@@ -160,7 +158,7 @@ The moral of the story: *always use a leading _ when naming a join field*, and *
 
 ## Apostrophe glossary
 
-To speed your understanding, we also recommend reading through the [Apostrophe glossary](../../glossary.html).
+To speed your understanding, we also recommend reading through the [Apostrophe glossary](../glossary.html).
 
 ## Did this help?
 

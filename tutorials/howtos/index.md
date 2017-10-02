@@ -15,9 +15,6 @@ children:
   - extending-the-pieces-editor-modal
   - responsive-images
   - ckeditor
-  - how-apostrophe-starts-up
-  - how-apostrophe-handles-requests
-  - how-apostrophe-modules-are-structured
   - storing-images-and-files-in-amazon-s3
   - migration
   - deploying-apostrophe-in-the-cloud
@@ -27,7 +24,6 @@ children:
   - replica-set
   - storing-sessions-in-redis
   - google-twitter-and-facebook-login
-  - technical-overview
 ---
 
 These HOWTOs cover a variety of topics that don't quite fit neatly into a tutorial series.
