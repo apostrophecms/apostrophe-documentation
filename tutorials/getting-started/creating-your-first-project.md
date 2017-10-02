@@ -40,7 +40,7 @@ node app.js
 
 You now have a test project up and running! You should be able to visit `http://localhost:3000` and view your site. You'll see a very simple home page... too simple! We'll fix that in a moment by adding more page types and some editable areas.
 
-<img src="/images/tutorials/developer/boilerplate_loggedout.png" class="shadow">
+<img src="/docs/images/tutorials/developer/boilerplate_loggedout.png" class="shadow">
 
 ### Logging in
 
@@ -48,7 +48,7 @@ We can login through the browser at `http://localhost:3000/login`. **Use the pas
 
 Once logged in, we are redirected to the home page once again, but with two additional elements present: an admin bar floating over the top left of the page and a page menu floating over the bottom left.
 
-<img src="/images/tutorials/developer/boilerplate_loggedin.png" class="shadow">
+<img src="/docs/images/tutorials/developer/boilerplate_loggedin.png" class="shadow">
 
 ### Let's make it interesting
 
@@ -101,13 +101,13 @@ Open up `lib/modules/apostrophe-pages/views/pages/home.html` in your text editor
 
 Hey, what's this new button about?
 
-<img src="/images/tutorial-plus-button.png" class="shadow">
+<img src="/docs/images/tutorial-plus-button.png" class="shadow">
 
 #### Adding rich text
 
 Click the "+" sign and pick "rich text." You're presented with a friendly editor:
 
-<img src="/images/tutorial-rich-text-editor.png" class="shadow">
+<img src="/docs/images/tutorial-rich-text-editor.png" class="shadow">
 
 Edit as you see fit and try refreshing your page. Notice that your changes have already been saved. *There is no save button because saving is automatic.*
 
@@ -117,23 +117,23 @@ Now let's add a slideshow. Click *outside* the rich text editor and you'll see t
 
 You'll see the image library, which is initially empty:
 
-<img src="/images/tutorial-images-library.png" class="shadow">
+<img src="/docs/images/tutorial-images-library.png" class="shadow">
 
 Click the "New Image" button at upper right and you'll see:
 
-<img src="/images/tutorial-new-image.png" class="shadow">
+<img src="/docs/images/tutorial-new-image.png" class="shadow">
 
 Click "Upload File" to pick a GIF, JPEG or PNG file to upload from your computer. Also fill out the title field. Then click "Save Image."
 
 Click "New Image" again and upload a second file. Then check the box next to each of them:
 
-<img src="/images/tutorial-select-images.png" class="shadow">
+<img src="/docs/images/tutorial-select-images.png" class="shadow">
 
 (As you check them off you'll see them appear at left in the "chosen items" area.)
 
 Now click "Save Choices" and boom: slideshow!
 
-<img src="/images/tutorial-slideshow.gif" class="shadow">
+<img src="/docs/images/tutorial-slideshow.gif" class="shadow">
 
 ## "Whoa, this is cool! But... what did I just do?"
 
