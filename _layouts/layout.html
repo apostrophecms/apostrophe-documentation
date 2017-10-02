@@ -91,20 +91,30 @@
     </div>
     <div class="links right">
       <ul class="page-links">
-        {% for tab in ancestors[0].children %}
+        {% set tabs = [ 
+          {
+            url: '/features', title: 'Features'
+          },
+          {
+            url: '/docs', title: 'Documentation', current: true
+          },
+          {
+            url: '/community', title: 'Community'
+          },
+          {
+            url: '/support', title: 'Support'
+          },
+          {
+            url: '/extend', title: 'Extend'
+          }
+        ] %}
+        {% for tab in tabs %}
           <li class="page-link">
-            <a href="{{ root }}{{ tab.url }}" class="{% if ancestors[1] and (tab.url == ancestors[1].url) %}selected{% endif %}">{{ tab.title | e }}</a>
+            <a href="{{ tab.url }}" class="{% if tab.current %}selected{% endif %}">{{ tab.title | e }}</a>
           </li>
         {% endfor %}
         <li class="page-link">
           <a href="https://github.com/punkave/apostrophe" target="_blank">Github</a>
-        </li>
-        <li class="page-link donate-button">
-          <form class="donate" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-            <input type="hidden" name="cmd" value="_s-xclick">
-            <input type="hidden" name="hosted_button_id" value="PPMEBL7ZZSDYC">
-            <input type="submit" value="Donate" />
-          </form>
         </li>
         <li class="page-link search-box">
           <script>
