@@ -19,8 +19,8 @@ Sites running in a [multicore](../howtos/multicore.html) configuration will requ
 
 You will need (STOP: use the package manager of your operating system! Do NOT install everything from source code!)
 
-* [nodejs](https://nodejs.org/en/) version 0.10 or better
-* [mongodb](http://www.mongodb.org/) (version 2.6 or better required)
+* [nodejs](https://nodejs.org/en/) version 4.x or better
+* [mongodb](http://www.mongodb.org/) version 2.6 or better
 * [imagemagick](http://www.imagemagick.org/script/index.php) (the command line utilities `convert` and `identify`)
 * [nginx](https://www.nginx.com/) (or another frontend proxy server)
 * [mechanic](https://npmjs.org/package/mechanic) (recommended; manages nginx)
