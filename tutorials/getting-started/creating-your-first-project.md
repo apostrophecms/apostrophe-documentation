@@ -8,8 +8,8 @@ layout: tutorial
 >
 > `npm --version`
 >
-> To make sure you don't have a 5.4.x version of NPM.
-> That version has a bug that interferes with installing
+> To make sure you don't have a 5.4.x version of NPM
+> (like 5.4.0, 5.4.1, etc). Those versions have a bug that interferes with installing
 > Apostrophe.
 >
 > If you do, downgrade to 5.3, which predates the bug and is a long term support release:
