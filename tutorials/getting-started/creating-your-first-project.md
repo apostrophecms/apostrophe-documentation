@@ -3,6 +3,23 @@ title: "Creating Your First Project"
 layout: tutorial
 ---
 
+> ## A warning about NPM version 5.4.x
+> Run this command:
+>
+> `npm --version`
+>
+> To make sure you don't have a 5.4.x version of NPM.
+> That version has a bug that interferes with installing
+> Apostrophe.
+>
+> If you do, downgrade to 5.3, which predates the bug and is a long term support release:
+>
+> `npm install -g npm@5.3`
+> 
+> Or upgrade to 5.5, where they fixed the bug, if you are feeling brave:
+>
+> `npm install -g npm@5.5`
+
 ## Creating Your First Project
 
 Now that you've got all the dependencies for Apostrophe installed, we can get you started creating your first project!
