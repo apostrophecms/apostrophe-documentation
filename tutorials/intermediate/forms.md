@@ -10,7 +10,7 @@ So you want a contact form on your site. A pretty common requirement. Maybe it's
 
 A module is available that allows users to submit any type of piece you wish to permit. You can specify the subset of fields that are appropriate for them, and avoid the work of building your own solution. Then just add the widget to the appropriate pages, and site visitors will see forms.
 
-This works well for contact forms, since you can just define a piece type with an appropriate schema. So [check out the apostrophe-pieces-submit-widgets module](https://npmjs.org/package/apostrophe-pieces-submit-widgets) before doing anything more complex!
+This works well for contact forms, since you can just define a piece type with an appropriate schema. So [check out the apostrophe-pieces-submit-widgets module](https://npmjs.org/package/apostrophe-pieces-submit-widgets) before doing anything more complex! Even if your needs *are* more complex, extending that widget is often the right way to go.
 
 ## Doing it your way: a note on CSRF protection
 
