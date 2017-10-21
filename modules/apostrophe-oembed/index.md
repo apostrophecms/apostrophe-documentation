@@ -37,7 +37,8 @@ This method fetches the specified URL, determines its best embedded
 representation via `oembetter`, and on success invokes its callback with null
 and an object containing the oembed API response from the service provider.
 
-If `oembetter` has no luck, open graph is used as a fallback.
+If `oembetter` has no luck, open graph is used as a fallback,
+unless `options.neverOpenGraph` is set.
 
 If `options.alwaysIframe` is true, the result is a simple
 iframe of the URL. If `options.iframeHeight` is set, the iframe
@@ -105,4 +106,4 @@ Add oembed query API routes. Called by `afterConstruct`.
 Simple API to self.query, with caching. Accepts url and
 alwaysIframe parameters; alwaysIframe is assumed false
 if not provided. The response is a JSON object as returned
-by apos.oembed. You may use GET or POST
+by apos.oembed.

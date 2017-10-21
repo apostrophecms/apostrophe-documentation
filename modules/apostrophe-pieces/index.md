@@ -167,6 +167,19 @@ on success. If `ids` rather than `_id` were specified,
 To avoid RAM issues with very large selections and ensure that
 lifecycle callbacks like beforeUpdate, etc. are invoked, the current
 implementation processes the pieces in series.
+### convertInsertAndRefresh(*req*, *responder*) *[api]*
+Accept a piece found at `req.body`, via
+schema-based convert mechanisms, then
+invoke `responder` with `req, res, err, piece`.
+Implements `self.routes.insert`. Also used
+by the optional `apostrophe-pieces-rest-api` module.
+### convertUpdateAndRefresh(*req*, *responder*) *[api]*
+Update the existing piece at `req.piece`
+(usually populated via the requirePiece middleware)
+based on `req.body`, fetch the updated piece
+and invoke `responder` with `req, res, err, piece`.
+Implements the back end of the `update` route, also used
+by the optional `apostrophe-pieces-rest-api` module.
 ### getCreateControls(*req*) *[api]*
 
 ### getEditControls(*req*) *[api]*

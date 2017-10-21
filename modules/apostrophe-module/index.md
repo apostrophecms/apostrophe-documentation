@@ -302,3 +302,27 @@ create an instance of `apostrophe-images-cursor`.
 As usual with moog, the callback is required only if
 at least one `construct`, `beforeConstruct` or `afterConstruct`
 function takes a callback.
+### getOption(*req*, *dotPathOrArray*, *def*)
+A convenience method to fetch properties of `self.options`.
+
+`req` is required to provide extensibility; modules such as
+`apostrophe-workflow` and `apostrophe-option-overrides` 
+can use it to change the response based on the current page
+and other factors tied to the request.
+
+The second argument may be a dotPath, as in:
+
+`(req, 'flavors.grape.sweetness')`
+
+Or an array, as in:
+
+`(req, [ 'flavors', 'grape', 'sweetness' ])`
+
+The optional `def` argument is returned if the
+property, or any of its ancestors, does not exist.
+If no third argument is given in this situation,
+`undefined` is returned.
+
+Also available as a Nunjucks helper; often convenient to invoke
+as `module.getOption`. When calling the helper,
+the `req` argument is implied, just pass the path(s).

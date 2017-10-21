@@ -120,7 +120,8 @@ the user and the page is refreshed to reflect the current
 content and avoid a cascade of such messages.
 ### changeOwners(*$item*)
 Take an item that might belong to a different
-area and make it ours
+area and make it ours. Implicitly starts
+autosaving both affected areas
 ### respectLimit()
 
 ### limitReached()

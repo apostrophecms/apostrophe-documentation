@@ -47,6 +47,20 @@ user via the [apostrophe-users](../apostrophe-users/index.html)
 module. Then invokes the `loginDeserialize` method of
 every module that has one, passing the `user` object. These
 methods may optionally take a callback.
+### deserializeUser(*id*, *callback*)
+Given a user's `_id`, fetches that user via the login module
+and, if the user is found, invokes the `loginDeserialize`
+method of all modules that have one via `callAll`. 
+Then invokes the callback with `(null, user)`.
+
+If the user is not found, invokes the callback with
+`(null, null)` (NOTE: no error in the first argument).
+
+If another error occurs, it is passed as the first argument.
+
+This method is passed to `passport.deserializeUser`.
+It is also useful when you wish to load a user exactly
+as Passport would.
 ### loginDeserialize(*user*)
 On every request, immediately after the user has been fetched,
 build the `user._permissions` object which has a simple
@@ -70,6 +84,26 @@ Users with the `disabled` property set to true may not log in.
 Passwords are verified via the `verifyPassword` method of
 [apostrophe-users](../apostrophe-users/index.html), which is
 powered by the [credential](https://npmjs.org/package/credential) module.
+### verifyLogin(*username*, *password*, *callback*)
+Verify a login attempt. `username` can be either
+the username or the email address (both are unique).
+
+If a system-level failure occurs, such that we don't
+know if the user's login should have succeeded,
+then the first argument to the callback is an error.
+
+If the user's login FAILS, the first argument is
+is `null`, and the second argument is `false` (no user).
+
+If the user's login SUCCEEDS, the first argument
+is `null` and the second argument is the user object.
+
+PLEASE NOTE THAT A USER FAILING TO LOG IN
+**DOES NOT** REPORT AN ERROR as the first callback
+argument. You MUST check the second argument.
+
+The convention is set this way for compatibility
+with `passport`.    
 ### enableMiddleware()
 Add Passport's initialize and session middleware.
 Also add middleware to add the `req.data.user` property.

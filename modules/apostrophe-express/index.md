@@ -220,12 +220,19 @@ Implement middleware added via self.expressMiddleware properties in modules.
 ### configuredMiddleware()
 
 ### enableCsrf()
-
+Enable CSRF protection middleware. See
+`compileCsrfExceptions` for details on how to
+exclude a route from this.
 ### compileCsrfExceptions()
 Compile CSRF exceptions, which may be regular expression objects or
-"minimatch" strings using the * and ** wildcards
+"minimatch" strings using the * and ** wildcards. They are
+taken from `options.csrf.exceptions`. `/login` is an exceptions
+by default, which can be overridden via `options.csrf.minimumExceptions`.
+Also invokes the `csrfExceptions` Apostrophe event, passing
+the array of exceptions so it can be added to or otherwise modified
+by modules such as `apostrophe-headless`.
 ### csrf(*req*, *res*, *next*)
-Angular-compatible CSRF protection. On safe requests (GET, HEAD, OPTIONS, TRACE),
+Angular-compatible CSRF protection middleware. On safe requests (GET, HEAD, OPTIONS, TRACE),
 set the XSRF-TOKEN cookie if missing. On unsafe requests (everything else),
 make sure our jQuery `ajaxPrefilter` set the X-XSRF-TOKEN header to match the
 cookie.
@@ -234,6 +241,12 @@ This works because if we're running via a script tag or iframe, we won't
 be able to read the cookie.
 
 [See the Angular docs for further discussion of this strategy.](https://docs.angularjs.org/api/ng/service/$http#cross-site-request-forgery-xsrf-protection)
+### csrfWithoutExceptions(*req*, *res*, *next*)
+See the `csrf` middleware method. This middleware method
+performs the actual CSRF check, without checking for exceptions
+first. It does check for and allow safe methods. This
+method is useful when you have made your own determination
+that this URL should be subject to CSRF.
 ### optionalMiddleware()
 Establish optional middleware functions as properties
 of the `apos.middleware` object. Currently just `apos.middleware.files`.
@@ -281,6 +294,8 @@ one case. For a satisfyingly global result, set it at the top level instead.
 If you want reasonable URLs in req objects used in tasks you must
 set the `baseUrl` option for Apostrophe.
 ### afterInit()
-Locate modules with middleware and add it to the list
+Locate modules with middleware and add it to the list.
+Also compile the CSRF exceptions, late, so that other
+modules can respond to the `csrfExceptions` event.
 ### findModuleMiddleware()
 Locate modules with middleware and add it to the list

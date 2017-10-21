@@ -166,6 +166,8 @@ Sort the given array of objects in place, based on the value of the given proper
 in a case-insensitive way.
 ### insensitiveSortCompare(*a*, *b*) *[api]*
 Copmpare two strings in a case-insensitive way, returning -1, 0 or 1, suitable for use with sort().
+If the two strings represent numbers, compare them as numbers for a natural sort order
+when comparing strings like '4' and '10'.
 ### findNestedObjectById(*object*, *id*) *[api]*
 Within the given object (typically a doc or widget),
 find a subobject with the given `_id` property.

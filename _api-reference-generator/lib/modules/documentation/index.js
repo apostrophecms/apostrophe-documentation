@@ -84,8 +84,8 @@ module.exports = {
         documentModule(module);
       });
 
-      mkdirp('../docs/modules');
-      var file = '../docs/modules/index.md';
+      mkdirp('../modules');
+      var file = '../modules/index.md';
       fs.writeFileSync(file,
         '---\n' +
         'title: "Module reference"\n' +
@@ -240,7 +240,7 @@ module.exports = {
         var relatedTypes = _.filter(types, function(type, name) {
           return (type.module === module) && ((type.name !== module) || (type.namespace !== 'server'));
         });
-        var folder = '../docs/modules/' + module;
+        var folder = '../modules/' + module;
         mkdirp(folder);
         var markdownFile = folder + '/index.md';
 

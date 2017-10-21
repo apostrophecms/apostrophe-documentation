@@ -120,7 +120,10 @@ This method is available as a template helper: apos.attachments.url
 Given an attachment object,
 return the URL. If options.size is set, return the URL for
 that size (one-third, one-half, two-thirds, full). full is
-"full width" (1140px), not the original. For the original, don't pass size.
+"full width" (1140px), not the original. For the original,
+pass `original`. If size is not specified, you will receive
+the `full` size if an image, otherwise the original.
+
 If the "uploadfsPath" option is true, an
 uploadfs path is returned instead of a URL.
 ### first(*within*, *options*) *[api]*
@@ -191,6 +194,11 @@ OPTIONS:
 
 You may specify `extension`, `extensions` (an array of extensions)
 or `group` to filter the results.
+
+If `options.annotate` is true, a `._urls` property is added to all
+image attachments wherever they are found in `within`, with
+subproperties for each image size name, including `original`.
+For non-images, a `._url` property is set.
 ### each(*criteria*, *limit*, *each*, *callback*) *[api]*
 Iterates over all of the attachments that exist, processing
 up to `limit` attachments at any given time.
@@ -233,7 +241,10 @@ This method is available as a template helper: apos.attachments.url
 Given an attachment object,
 return the URL. If options.size is set, return the URL for
 that size (one-third, one-half, two-thirds, full). full is
-"full width" (1140px), not the original. For the original, don't pass size.
+"full width" (1140px), not the original. For the original,
+pass `original`. If size is not specified, you will receive
+the `full` size if an image, otherwise the original.
+
 If the "uploadfsPath" option is true, an
 uploadfs path is returned instead of a URL.
 ### first(*within*, *options*)
@@ -304,6 +315,11 @@ OPTIONS:
 
 You may specify `extension`, `extensions` (an array of extensions)
 or `group` to filter the results.
+
+If `options.annotate` is true, a `._urls` property is added to all
+image attachments wherever they are found in `within`, with
+subproperties for each image size name, including `original`.
+For non-images, a `._url` property is set.
 ### hasFocalPoint(*attachment*)
 Returns true if, based on the provided attachment object,
 a valid focal point has been specified. Useful to avoid

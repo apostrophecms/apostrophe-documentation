@@ -35,6 +35,13 @@ that is in the trash. Similar benefits apply to pieces and are needed for the
 workflow module. On the minus side, a trashcan at each level is less intuitive
 to users raised on the traditional shared trashcan.
 
+**`conflictResolution`: by default, Apostrophe will attempt to resolve
+conflicts between users trying to edit the same document by presenting
+the option to take control or leave the other user in control. This
+mechanism can be disabled by explicitly setting `conflictResolution`
+to false. Doing so is *not recommended* for normal operation but has
+valid applications in automated testing.
+
 
 ## Methods
 ### enableCollection(*callback*) *[api]*
@@ -384,6 +391,12 @@ omitted entirely.
 `id` must be truthy. If a doc is new and therefore
 has no id yet, you don't need to lock it because
 it isn't possible that anyone else knows about it.
+
+If the `conflictResolution` option is set to false
+for the docs module, this method invokes its callback
+successfully without actually doing anything.
+This is *not recommended* but has valid applications
+in automated testing.
 ### verifyLock(*req*, *id*, *contextId*, *callback*) *[api]*
 Verifies that a lock obtained with `lock` is
 still held by the given context id. If not,
@@ -392,12 +405,30 @@ argument with an internationalized message
 is provided also. If the lock was taken
 by the same user in another tab or window,
 the error is `locked-by-me`.
+
+If the `conflictResolution` option is set to false
+for the docs module, this method invokes its callback
+successfully without actually doing anything.
+This is *not recommended* but has valid applications
+in automated testing.
 ### unlock(*req*, *id*, *contextId*, *callback*) *[api]*
 Release a document lock set via `lock` for
 a particular contextId.
+
+If the `conflictResolution` option is set to false
+for the docs module, this method invokes its callback
+successfully without actually doing anything.
+This is *not recommended* but has valid applications
+in automated testing.
 ### unlockAll(*req*, *contextId*, *callback*) *[api]*
 Release all document locks set on behalf of
 the given `contextId`.
+
+If the `conflictResolution` option is set to false
+for the docs module, this method invokes its callback
+successfully without actually doing anything.
+This is *not recommended* but has valid applications
+in automated testing.
 ### pushAssets() *[browser]*
 
 ### pushCreateSingleton() *[browser]*
