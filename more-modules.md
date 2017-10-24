@@ -9,18 +9,20 @@ The modules you see documented on this site are the standard Apostrophe modules 
 
 Here is a list of optional official Apostrophe modules you can `npm install` to enhance your site:
 
-* [apostrophe-twitter-widgets](https://npmjs.org/packages/apostrophe-twitter-widgets)
-* [apostrophe-blog](https://npmjs.org/packages/apostrophe-blog)
-* [apostrophe-events](https://npmjs.org/packages/apostrophe-events)
+* [apostrophe-twitter-widgets](https://npmjs.org/package/apostrophe-twitter-widgets)
+* [apostrophe-blog](https://npmjs.org/package/apostrophe-blog)
+* [apostrophe-events](https://npmjs.org/package/apostrophe-events)
 * [apostrophe-pieces-submit-widgets](https://npmjs.org/package/apostrophe-pieces-submit-widgets), which lets you set up public contact forms, event submission forms, etc.
-* [apostrophe-second-chance-login](https://npmjs.org/packages/apostrophe-second-chance-login)
-* [apostrophe-redirects](https://npmjs.org/packages/apostrophe-redirects)
-* [apostrophe-legacy-import](https://npmjs.org/packages/apostrophe-legacy-import)
-* [apostrophe-pieces-import](https://npmjs.org/packages/apostrophe-pieces-import)
-* [apostrophe-site-map](https://npmjs.org/packages/apostrophe-site-map)
-* [apostrophe-workflow](https://npmjs.org/packages/apostrophe-workflow), which covers both workflow and localization / internationalization
-* [apostrophe-caches-redis](https://npmjs.org/packages/apostrophe-caches-redis)
-* [apostrophe-passport](https://npmjs.org/packages/apostrophe-passport), which provides single sign-on via Facebook, Twitter, Google, Gitlab, etc.
+* [apostrophe-second-chance-login](https://npmjs.org/package/apostrophe-second-chance-login)
+* [apostrophe-redirects](https://npmjs.org/package/apostrophe-redirects)
+* [apostrophe-legacy-import](https://npmjs.org/package/apostrophe-legacy-import)
+* [apostrophe-pieces-import](https://npmjs.org/package/apostrophe-pieces-import)
+* [apostrophe-site-map](https://npmjs.org/package/apostrophe-site-map)
+* [apostrophe-override-options](https://npmjs.org/package/apostrophe-override-options)
+* [apostrophe-workflow](https://npmjs.org/package/apostrophe-workflow), which covers both workflow and localization / internationalization
+* [apostrophe-caches-redis](https://npmjs.org/package/apostrophe-caches-redis)
+* [apostrophe-passport](https://npmjs.org/package/apostrophe-passport), which provides single sign-on via Facebook, Twitter, Google, Gitlab, etc.
+* [apostrophe-headless](https://npmjs.org/package/apostrophe-headless) offers a headless REST interface to `apostrophe-pieces`, useful for native apps, React/Vue apps, etc.
 
 ## Publishing your own npm modules for Apostrophe
 
