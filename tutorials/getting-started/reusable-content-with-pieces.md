@@ -206,7 +206,9 @@ To solve that, you should always add a `projection` filter when configuring a su
         slug: 1,
         title: 1,
         type: 1,
-        tags: 1
+        tags: 1,
+        phone: 1,
+        thumbnail: 1
       }
     }
   }
@@ -215,7 +217,7 @@ To solve that, you should always add a `projection` filter when configuring a su
 
 This way, only the properties we really need are fetched for the widget. This can greatly speed up your site and prevent mysterious refusals to load any more data if things start joining back to themselves.
 
-> *"Which properties do I need in my projection?"* Just those that matter to you. However, `slug`, `title`, `type` and `tags` are a good minimum set. `slug` helps build URLs, `tags` usually helps determine which page is the best match for the piece, `type` makes it easier to decide how to work with each one, and `title` is self-explanatory.
+> *"Which properties do I need in my projection?"* Just those that matter to you. However, `slug`, `title`, `type` and `tags` are a good minimum set. `slug` helps build URLs, `tags` usually helps determine which page is the best match for the piece, `type` makes it easier to decide how to work with each one, and `title` is self-explanatory. In this particular article, we demonstrate phone numbers and thumbnails in a widget, so we need those too.
 
 ### Custom templates for widgets
 
@@ -442,9 +444,12 @@ The same approach works for most types of schema fields, including joins. We do 
 
 ### Creating custom templates for individual people
 
-Next we'll want to override the `show.html` template as well. This is the template that displays just one profile in detail:
+Next we'll want to override the `show.html` template of our subclass of `apostrophe-pieces` as well. The default version is very bare-bones, just enough to demonstrate the idea.
+
+`show.html` is the template that displays just one profile in detail:
 
 ```markup
+{# in lib/modules/people-pages/views/show.html #}
 {% extends "layout.html" %}
 {% block title %}{{ data.piece.title }}{% endblock %}
 
