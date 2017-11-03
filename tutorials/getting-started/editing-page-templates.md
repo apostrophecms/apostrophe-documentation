@@ -121,4 +121,8 @@ Now that we've extended `layout.html` in `default.html`, we can override the `be
 
 Because we extended the layout, we can avoid duplicating a lot of markup.
 
+### Including, importing and extending files from many modules
+
+Sometimes you'll want to write Nunjucks macros, include files, or extensible layouts that are used by many different Apostrophe modules. For convenience, you can put these "global" templates in the top-level `views/` folder of your project. Any template not found in the current module will be located there as a "fallback." *In older projects, this won't work unless you enable it. See `app.js` in the [apostrophe-boilerplate](https://github.com/punkave/apostrophe-boilerplate) project.*
+
 **But what about editable content?** Good question! That's the next topic.
