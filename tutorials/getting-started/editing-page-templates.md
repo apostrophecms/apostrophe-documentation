@@ -67,26 +67,41 @@ With an empty `default.html`, we don't get much; not even a page title. But we c
 [Nunjucks](https://mozilla.github.io/nunjucks/) allows you to extend another template, with the option of overriding `blocks` to update or change the template. For example:
 
 ```markup
-{% extends data.outerLayout %}
+{% extends "layout.html" %}
 ```
 
-Extending the `outerLayout` provides the basic Apostrophe scaffolding for a page. A quick peek at Apostrophe's `outerLayout` template reveals several blocks which will be the basic structure of your HTML page:
+Projects created with our CLI from the `apostrophe-boilerplate` project ship with a simple `layout.html` file in the top-level `views/` folder, where templates are found if they are not present in a specific module. If you peek in `layout.html`, you'll find several examples of "blocks" you can override, notably `main`:
 
 ```markup
-<div class="apos-refreshable" data-apos-refreshable>
-    {% block beforeMain %}{% endblock %}
-    {% block main %}{% endblock %}
-    {% block afterMain %}{% endblock %}
-</div>
+{% block beforeMain %}
+  {#
+    We recommend you use the beforeMain block for global page components
+    like headers or navigation.
+  #}
+{% endblock %}
+
+{% block main %}
+  {#
+    Usually, your page templates in the apostrophe-pages module will override
+    this block. It is safe to assume this is where your page-specific content
+    should go.
+  #}
+{% endblock %}
+
+{% block afterMain %}
+  {#
+    This would be a great place to put a global footer.
+  #}
+{% endblock %}
 ```
 
-Blocks are another great Nunjucks feature; they are defined in `outerLayout.html`, and you can override them in your page template just by using the `block` keyword.
+Blocks are another great Nunjucks feature; they are defined in files you extend, and you can override them in your page template just by using the `block` keyword.
 
-So using these blocks on your pages means everything output by your page template will be inserted into the outer layout in the appropriate spot.
+So using these blocks on your pages means everything output by your page template will be inserted into the layout in the appropriate spot.
 
-**"So why `data.outerLayout`? Why not just a filename?"** Apostrophe can actually refresh just the body of the page in certain situations. This variable points to the appropriate template, either the real outer layout or a simple "ajax layout" for refreshing the body. But you don't have to worry about it: just use `data.outerLayout`.
+There is also a `title` block which you can extend to set the page title, although the default `layout.html` makes a good guess based on the current piece or page.
 
-> if you peek at `outerLayout.html` in the Apostrophe npm module, you'll discover it just extends `outerLayoutBase.html`. We did this so that you can override `outerLayout.html` by supplying your own in `lib/modules/apostrophe-templates/views`, extend `outerLayoutBase.html`, and selectively override its blocks. This gives you a unique "master layout" for all of your templates in the project.
+> Even `layout.html` extends another file. For a typical page load, it extends `outerLayout.html`, which lives in the `lib/modules/apostrophe-templates/views` folder. That file extends the `outerLayoutBase.html` file that ships with Apostrophe. Most of the time you won't need to look there, but it does contain additional blocks you can override, notably `extraHead` which is perfect for adding `link` elements to the `head` element and so on.
 
 ### Using blocks to override parts of the layout
 
@@ -104,6 +119,6 @@ Now that we've extended `outerLayout` in `default.html`, we can override the `be
 {% endblock %}
 ```
 
-Because we extended the `outerLayout`, we can avoid duplicating a lot of markup.
+Because we extended the layout, we can avoid duplicating a lot of markup.
 
 **But what about editable content?** Good question! That's the next topic.

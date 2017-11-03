@@ -34,7 +34,7 @@ To set the field, just click on the admin bar, then click "Global."
 Now, let's take advantage of it in our `layout.html` file:
 
 ```markup
-{# in your lib/modules/apostrophe-templates/views/layout.html file #}
+{# in your views/layout.html file #}
 
 {% block extraHead %}
   {% if data.global.analytics %}
