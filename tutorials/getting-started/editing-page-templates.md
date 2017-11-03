@@ -105,7 +105,7 @@ There is also a `title` block which you can extend to set the page title, althou
 
 ### Using blocks to override parts of the layout
 
-Now that we've extended `outerLayout` in `default.html`, we can override the `beforeMain` block. Let's add a hero section to the top of the page:
+Now that we've extended `layout.html` in `default.html`, we can override the `beforeMain` block. Let's add a hero section to the top of the page:
 
 ```markup
 {% block beforeMain %}

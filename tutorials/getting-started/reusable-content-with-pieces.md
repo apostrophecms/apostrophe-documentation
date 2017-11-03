@@ -315,7 +315,7 @@ mkdir -p lib/modules/people-pages/views
 Now create `index.html` in that folder. You can copy what's already in `node_modules/apostrophe/lib/modules/apostrophe-pieces-pages/views/index.html` as a starting point:
 
 ```markup
-{% extends data.outerLayout %}
+{% extends "layout.html" %}
 {% block title %}{{ data.page.title }}{% endblock %}
 
 {% block main %}
@@ -380,7 +380,7 @@ Next, refactor your `index.html` template so that the actual list of people and 
 
 ```markup
 {# index.html #}
-{% extend data.outerLayout %}
+{% extend "layout.html" %}
 <h2>People</h2>
 <div data-apos-ajax-context="people">
   {% include "indexAjax.html" %}

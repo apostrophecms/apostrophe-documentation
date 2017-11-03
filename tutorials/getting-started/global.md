@@ -1,41 +1,7 @@
 ---
-title: "Layouts and the global doc: sharing content across pages"
+title: "The global doc: sharing content across pages"
 layout: tutorial
 ---
-
-## Creating your own `layout.html`
-
-Most of the time, you'll have content that is shared between the different page templates on your site. We've seen how easy it is to add editable content to a particular page. But some content, such as a footer that appears on every page of the site, should be shared. 
-
-First, let's create a `layout.html` file. All of our page templates can then extend that file, so we don't have to fuss with `data.outerLayout`, and we can share some of the template markup:
-
-```markup
-{# lib/modules/apostrophe-pages/views/layout.html in your project #}
-
-{% extends data.outerLayout %}
-
-{% block afterMain %}
-  <footer>
-    Copyright 2017, Remarkable Company
-  </footer>
-{% endblock %}
-```
-
-Now, change your individual page templates such as `default.html` and `home.html` to take advantage of it.
-
-You'll want to remove this:
-
-```markup
-{% extends data.outerLayout %}
-```
-
-And replace it with this:
-
-```markup
-{% extends "layout.html" %}
-```
-
-## Editable global content
 
 This is nice, but a static copyright notice isn't going to cut it. Your users will want to edit their own global footer.
 

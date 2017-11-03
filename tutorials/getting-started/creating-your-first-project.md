@@ -74,7 +74,7 @@ Now let's make it more interesting! Time to add an editable content area to the 
 Open up `lib/modules/apostrophe-pages/views/pages/home.html` in your text editor and just add an `apos.area` call:
 
 ```markup
-{% extends data.outerLayout %}
+{% extends "layout.html" %}
 
 {% block title %}Home{% endblock %}
 {% block main %}

@@ -11,7 +11,7 @@ However, any URLs you do set must be absolute URLs.
 
 For reasons unknown to the rest of the Internet, Facebook has never implemented support for parsing relative URLs, even if they start with a `/`. They consider it an error. Why? Who knows.
 
-In Apostrophe 2.3 or better you can get absolute URLs just by setting the `baseUrl` option:
+You can get absolute URLs just by setting the `baseUrl` option:
 
 ```
 var apos = require('apostrophe')({
@@ -54,7 +54,7 @@ You typically don't want to turn on `baseUrl` in your development environment, e
 It's pretty easy, since `data.page._url` is now absolute, and so are your image URLs. Here's a classy example:
 
 ```
-{# In lib/modules/apostrophe-templates/views/outerLayout.html #}
+{# In layout.html #}
 {% set context = data.piece or data.page %}
 {% if context %}
   {% set firstImage = apos.images.first(data.context.thumbnail, 'thumbnail') or apos.images.first(data.context.body, 'body') %}
@@ -77,7 +77,7 @@ It's pretty easy, since `data.page._url` is now absolute, and so are your image 
 
 ### What's going on in this template?
 
-* This is part of our `outerLayout.html` template, which all full-page templates extend when not doing an AJAX refresh. Some of those will just be "regular pages," others might be `show.html` templates for pieces. So we start by deciding if our context is a piece or a page. If it is neither, we don't try to set meta tags.
+* This is part of our `layout.html` template, which all full-page templates extend when not doing an AJAX refresh. Some of those will just be "regular pages," others might be `show.html` templates for pieces. So we start by deciding if our context is a piece or a page. If it is neither, we don't try to set meta tags.
 
 * If there is a singleton named `facebookImage` in our context (tip: add it to the schema), we use that for `og:url`. If not we use the first image we find in the `thumbnail` or `body` areas. This allows for custom Facebook images, if you want to include them in your page or piece schema, and also allows for Apostrophe to track something down to use instead.
 
