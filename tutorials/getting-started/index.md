@@ -10,6 +10,7 @@ children:
   - pushing-assets
   - building-navigation
   - custom-widgets
+  - layout-widgets
   - reusable-content-with-pieces
   - settings
   - schema-guide
