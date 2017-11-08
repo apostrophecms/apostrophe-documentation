@@ -184,6 +184,8 @@ by the optional `apostrophe-pieces-rest-api` module.
 
 ### getEditControls(*req*) *[api]*
 
+### modulesReady() *[api]*
+
 ### createRoutes() *[routes]*
 
 ### pushAssets() *[browser]*

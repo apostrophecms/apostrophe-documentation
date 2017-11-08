@@ -508,6 +508,16 @@ any `slug` field named `slug`. If not, return the schema unmodified.
 
 ### addToAdminBar() *[api]*
 
+### getBaseUrl(*req*) *[api]*
+Returns the effective base URL for the given request.
+If Apostrophe's top-level `baseUrl` option is set, it is returned,
+otherwise the empty string. This makes it easier to build absolute
+URLs (when `baseUrl` is configured), or to harmlessly prepend
+the empty string (when it is not configured). The
+Apostrophe cursors used to fetch Apostrophe pages
+consult this method, and it is extended by the optional
+`apostrophe-workflow` module to create correct absolute URLs
+for specific locales.
 ### modulesReady(*callback*)
 When all modules are ready, invoke `registerGenericPageTypes` to register a manager
 for any page type that doesn't already have one via `apostrophe-custom-pages`,

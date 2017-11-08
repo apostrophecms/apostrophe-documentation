@@ -18,9 +18,9 @@ of the services provided by this module thanks to
 the [apostrophe-module](../apostrophe-module/index.html) base class.
 
 Apostrophe implements two "asset scenes," `anon` and `user`. When
-you call `self.pushAsset('script', 'myfile', { scene: 'user' })`, that
+you call `self.pushAsset('script', 'myfile', { when: 'user' })`, that
 script is normally pushed only to logged-in users. When you call
-`self.pushAsset('script', 'myfile', { scene: 'always' })`, that script is
+`self.pushAsset('script', 'myfile', { when: 'always' })`, that script is
 pushed to everyone, logged in or not.
 
 If you want assets that are normally available only to logged-in users
