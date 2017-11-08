@@ -13,7 +13,7 @@ You want a widget that creates a layout of inner widgets.
 
 Generally, you need a dedicated widget to create layout. The Apostrophe team sometimes refers to these as ‘layout widgets’ that give form and structure to ‘content widgets’ (widgets whose sole job is to display content). **In this example we'll make a simple two column layout.**
 
-With the `apostrophe-cli` installed
+We'll use the [`apostrophe-cli`](https://github.com/punkave/apostrophe-cli) to quickly build a widget.
 
 ```bash
 apostrophe create-widget two-column
@@ -34,8 +34,7 @@ Now we'll define what can be in a `two-column` widget by defining it in `lib/mod
 module.exports = {
   extend: 'apostrophe-widgets',
   label: 'Two Column Layout',
-  // contextualOnly: true,
-  // skipInitialModal: true
+  contextualOnly: true,
   addFields: [
     {
       name: 'areaLeft',
@@ -53,17 +52,15 @@ module.exports = {
 
 #### Conveniences for layout widgets (contextualOnly and skipInitialModal)
 
-There are two commented properties on the widget configuration above and they both do a similar thing. These are useful for a widget dedicated to nesting other widgets.
-
-> **contextualOnly: true** If your widget contains *only* other areas and singletons you don't need the typical manager modal UI popping up when you create the widget, nor do you need an Edit button to edit non-existing configuration. `contextualOnly` will shortcut these and instantly plop your empty widget on the page.
+> **contextualOnly: true** If your widget contains *only* other areas and singletons that you want to edit contextually on the page then you don't need the typical manager modal UI popping up when you create the widget. Nor do you need an Edit button UI to edit non-existing configuration. `contextualOnly` will shortcut these and instantly plop your empty widget on the page.
 
 <video src="/docs/videos/tutorials/editor/contextualTrue.mp4" autoplay="" loop="true" muted="true"></video>
 
-> **skipInitialModal: true** If you want to skip the widget manager modal when the widget is created (like `contextualOnly`) but preserve the Edit UI for later user, `skipInitialModal` is for you. This is useful for widgets that have secondary configuration, like setting a background color.
+> **skipInitialModal: true** An alternative to `contextualOnly`, `skipInitialModal` lets you skip the widget manager modal when the widget is created (like `contextualOnly`) but preserves the Edit UI for later use. This is useful for widgets that have secondary configuration, like setting a background color.
 
 ### Putting it in the page
 
-Now, like any other widget, you need to have a template render.
+Now, like any other widget, you need to have a `widget.html` template. In this case we'll use that template to call `apos.area` once for each area and introduce nested widgets.
 
 In `lib/modules/two-column-widgets/views/widget.html`
 
