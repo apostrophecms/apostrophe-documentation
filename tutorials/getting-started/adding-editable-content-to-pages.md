@@ -176,6 +176,40 @@ But if you must turn it on, educate your end users to use it very sparingly, and
 
 It doesn't take any options.
 
+### Take control of your controls
+
+Areas and singletons both accept useful options for managing their controls. Sometimes you'd like to change the edit button, sometimes you'd like to disallow removing a singleton entirely and so on.
+
+* If `options.addLabel` is set, that text appears on the button to
+initially populate the singleton. If `options.editLabel` is set, that
+text appears on the button to edit an existing widget in the singleton.
+
+* If `options.controls.movable` is false, the widget may not be dragged out
+of the singleton. (Note that `controls` is an object nested within the options.)
+
+* If `options.controls.removable` is false, the widget may not be removed entirely.
+
+* If `options.controls.position` is set to `top-left`, `top-right`,
+`bottom-left` or `bottom-right`, the widget controls (edit, drag
+and remove) are positioned accordingly. This can be helpful if the default
+location (`top-left`) doesn't play well with your widget's design.
+
+Here's a complete example:
+
+```
+{{ apos.singleton(data.page, 'logo', 'apostrophe-images', {
+  limit: 1,
+  minSize: [ 1200, 600 ],
+  addLabel: 'Set the logo',
+  editLabel: 'Change the logo',
+  controls: {
+    movable: false,
+    removable: false,
+    position: 'bottom-right'
+  }
+}) }}
+```
+
 ### More Widgets
 
 Is that all? Definitely not! We'll discuss custom widgets, "pieces" and other strategies for creating editable content in later tutorials. But first, let's look at some intermediate frontend topics, like navigation and image sizes.
