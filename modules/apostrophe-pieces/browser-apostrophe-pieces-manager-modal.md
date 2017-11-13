@@ -59,6 +59,20 @@ user confirmation.
 Carry out a named batch operation, such as `trash`, displaying the
 provided prompt and, if confirmed by the user, invoking the
 corresponding verb in this module's API.
+
+`options.dataSource` can be used to specify a function
+to be invoked to gather more input before calling the API.
+It receives `(data, callback)`, where `data.ids` and any
+input gathered from the schema are already present, and
+should update `data` and invoke `callback` with
+null on success or with an error on failure.
+
+`options.success` is invoked only if the operation
+succeeds. It receives `(result, callback)` where
+`result` is the response from the API and `callback`
+*must* be invoked by the success function after
+completing its additional operations, even if the user
+chooses to cancel or skip those operations.
 ### enableSorts()
 
 ### enableChooseViews()
@@ -71,9 +85,21 @@ to `self.choices`. This mechanism is used for ordinary manager modals and their
 bulk features, like "Trash All Selected". The chooser used for selecting
 pieces for joins overrides this with an empty method and substitutes its
 own implementation.
+### getSelectAll()
+
+### enableSelectEverything()
+
 ### addChoice(*id*)
 
 ### removeChoice(*id*)
+
+### clearChoices()
+
+### showSelectEverything()
+
+### hideSelectEverything()
+
+### getSelectEverything()
 
 ### reflectChoicesInCheckboxes()
 Reflect existing choices in checkboxes. Invoked by `self.refresh` after
@@ -86,6 +112,11 @@ own implementation.
 
 ### reflectChoiceCount()
 
+### getListOptions(*options*)
+Given an options object, returns a new object with
+those options plus standard options for the list API,
+such as `sort`, `search` and `manageView`. Also invokes
+`self.beforeList`. Called by `refresh`.
 ### refresh(*callback*)
 
 ### beforeList(*listOptions*)

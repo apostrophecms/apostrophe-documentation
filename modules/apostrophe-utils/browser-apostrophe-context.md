@@ -31,11 +31,12 @@ Your subclass must set self.$el to use this method.
 
 The word "object" refers to "the object of the sentence."
 It is a STRING, not a javascript object. -Tom and Joel
-### api(*verb*, *data*, *options*, *success*, *failure*)
-Invoke $.jsonCall with the URL
-self.action + '/' + verb.
+### api(*route*, *data*, *options*, *success*, *failure*)
+Invoke a JSON API route implemented by the Apostrophe module
+associated with this object, or by another module if the
+":" syntax is used, like: `module-name:verb`
 
-"options" and "failure" may be omitted entirely.
+`options` and `failure` may be omitted entirely.
 
 Typical example:
 
@@ -43,13 +44,16 @@ self.api('update', { age: 50 }, function(result) {
   if (result.status === 'ok') { ... }
 });
 
-See $.jsonCall for details.
-### html(*verb*, *options*, *data*, *success*, *failure*)
-Invoke $.jsonCall with the URL self.action + '/' + verb
-and always add { dataType: 'html' } to the options. For
-fetching HTML fragments asynchronously. Since $.jsonCall
-is always POST, there is no limit to the size of the
-data object and no risk of a stale cached result coming back.
+See $.jsonCall for details of how the call is made.
+### html(*route*, *options*, *data*, *success*, *failure*)
+Invoke an API route implemented by the Apostrophe module
+associated with this object, or by another module if the
+":" syntax is used, like: `module-name:verb`
+
+The response is expected to be markup, not JSON. Otherwise
+this method is very similar to the `api` method.
+
+`options` and `failure` may be omitted entirely.
 
 Typical example:
 

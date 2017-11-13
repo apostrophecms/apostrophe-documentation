@@ -196,7 +196,7 @@ location (`top-left`) doesn't play well with your widget's design.
 
 Here's a complete example:
 
-```
+```markup
 {{ apos.singleton(data.page, 'logo', 'apostrophe-images', {
   limit: 1,
   minSize: [ 1200, 600 ],

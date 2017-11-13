@@ -163,7 +163,7 @@ contains a blessing for every join configured in schemas for widgets
 
 ## Nunjucks template helpers
 ### singleton(*doc*, *name*, *type*, *_options*)
-apos.singleton renders a single widget of a fixed type, standing alone
+`apos.singleton` renders a single widget of a fixed type, standing alone
 in the page. The `_options` object is passed to the widget.
 
 A singleton is just a special case of an area, so you can change your
@@ -176,6 +176,16 @@ If `_options.addLabel` is set, that text appears on the button to
 initially populate the singleton. If `_options.editLabel` is set, that
 text appears on the button edit an existing widget in the singleton.
 
+If `_options.controls.movable` is false, the widget may not be dragged out
+of the singleton.
+
+If `_options.controls.removable` is false, the widget
+may not be removed entirely.
+
+If `_options.controls.position` is set to `top-left`, `top-right`,
+`bottom-left` or `bottom-right`, the widget controls (edit, drag
+and remove) are positioned accordingly.
+
 If `_options` is not specified, Apostrophe falls back to the options
 configured for the given field `name` in the schema for this type of
 `doc`. For ordinary pages there usually won't be any, but this is
@@ -183,7 +193,7 @@ very convenient when working with `apostrophe-pieces`.
 
 Alternate syntax: `{ area: doc.areaname, type: type, ... more options }`
 ### area(*doc*, *name*, *_options*)
-apos.area renders an area: a column of widgets of one or more types.
+`apos.area` renders an area: a column of widgets of one or more types.
 
 If present The `_options` object must contain a `widgets` property, an object
 which must at least contain a property by the name of each allowed widget. The
@@ -200,6 +210,16 @@ The `name` property distinguishes this area from other areas in
 the same `doc`.
 
 The `limit` option may be used to limit the number of widgets allowed.
+
+If `_options.controls.movable` is false, the widget may not be dragged out
+of the singleton.
+
+If `_options.controls.removable` is false, the widget
+may not be removed entirely.
+
+If `_options.controls.position` is set to `top-left`, `top-right`,
+`bottom-left` or `bottom-right`, the widget controls (edit, drag
+and remove) are positioned accordingly.
 
 If `_options` is not specified, Apostrophe falls back to the options
 configured for the given field `name` in the schema for this type of
