@@ -51,7 +51,7 @@ mongodb://<dbuser>:<dbpassword>@dsxxxxx.mlab.com:xxxxx/YOUR-database-name
 
 You'll need to create a database user. Click on the "Users" tab, then click "Add database user" and create a user.
 
-> Be careful to not use special symbols like '@' or '/' in your password. They will break your URI.
+> Stick to alphanumeric characters or be careful to escape symbols when creating a user.
 
 Now you can create the complete URI, by inserting the username and password you just created in place of the `<dbuser>` and `<dbpassword>` fields.
 
