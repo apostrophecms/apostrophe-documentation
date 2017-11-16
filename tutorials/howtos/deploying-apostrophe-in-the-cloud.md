@@ -51,7 +51,9 @@ mongodb://<dbuser>:<dbpassword>@dsxxxxx.mlab.com:xxxxx/YOUR-database-name
 
 You'll need to create a database user. Click on the "Users" tab, then click "Add database user" and create a user.
 
-Now you can create the complete URI, which will have the database user and password you just created.
+> Stick to alphanumeric characters or be careful to escape symbols when creating a user.
+
+Now you can create the complete URI, by inserting the username and password you just created in place of the `<dbuser>` and `<dbpassword>` fields.
 
 ## Making your app aware of your mlab database
 
@@ -63,7 +65,7 @@ mongodb://localhost:27017/YOUR-SHORTNAME-HERE
 
 This is great for development, but now we need the app to know what the mlab URI is.
 
-The right database name is *server dependent*: it differs between your computer and your production Heroku environment. In Heroku, the right way to pass that kind of information is through *environment variables*. 
+The right database name is *server dependent*: it differs between your computer and your production Heroku environment. In Heroku, the right way to pass that kind of information is through *environment variables*.
 
 > This is NOT the same as your mlab account credentials. DO NOT check the read-only box.
 
@@ -76,6 +78,15 @@ heroku config:set 'APOS_MONGODB_URI=mongodb://YOUR-uri-goes-here'
 ```
 
 We use the single quotes to avoid problems with most special characters in the URI. If you used the `'` character in the URI, you'll need to escape that with `\'`.
+
+From here, you can test your site locally. This is typically done with:
+
+```
+npm install
+npm run start
+```
+
+You should be able to view your website at the designated local port.
 
 You can also test it *without* Heroku, on your local machine, by setting the environment variable just for one local run of your site:
 
@@ -102,7 +113,7 @@ APOS_MONGODB_URI=mongodb://YOUR-uri-goes-here node app apostrophe-users:add admi
 ## Storing files with Amazon S3
 
 **If you try to deploy now it will seem to work... but don't be fooled!** If you upload images, and then redeploy later, or even just wait a day or so... forget it. They are gone forever. That's because, with Heroku, local files are "written on water."
- 
+
 So we need to use Amazon S3 for persistent storage of uploads.
 
 First, [log into the Amazon Web Services console](https://aws.amazon.com/console/). Create an account if you haven't already. *You may have to provide a credit card but as of this writing, you can complete this how-to using their free service tier.*
