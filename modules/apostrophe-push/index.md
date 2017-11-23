@@ -95,3 +95,10 @@ Into javascript source code like this:
 Suitable to be emitted inside a script tag.
 
 Note that `?` JSON-encodes an argument, while `@` inserts it literally.
+## Nunjucks template helpers
+### newBrowserCalls()
+Invoke browser-side javascript calls published
+via `req.browserCall` during the current request.
+This is for use when you are implementing an AJAX refresh
+of part of the page but you need the benefit of such calls
+(for instance: apostrophe-places map calls).

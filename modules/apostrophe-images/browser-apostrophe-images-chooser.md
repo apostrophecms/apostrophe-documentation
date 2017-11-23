@@ -12,5 +12,3 @@ chooser to edit existing selections
 ## Methods
 ### finalize(*callback*)
 
-### decorateManager(*manager*, *options*)
-

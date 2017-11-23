@@ -12,7 +12,7 @@ children:
 This "module" is the base class for all other modules. This module
 is never actually configured and used directly. Instead all other modules
 extend it (or a subclass of it) and benefit from its standard features,
-including asset pushing, template rendering, etc.
+such as asset pushing.
 
 New methods added here should be lightweight wrappers that invoke
 an implementation provided in another module, such as `apostrophe-assets`,
@@ -59,9 +59,8 @@ only exceptions in apostrophe core are `apos.area` and `apos.singleton`.
 
 The helper must be added first with `addHelpers`.
 ### pushAsset(*type*, *name*, *options*)
-Push an asset to the browser. `type` may be `script`, `stylesheet`
-or `template`. The second argument is the name of the file, without
-the extension.
+Push an asset to the browser. `type` may be `script` or `stylesheet`.
+The second argument is the name of the file, without the extension.
 
 For stylesheets, if `name` is `editor`, then `public/css/editor.css`
 is pushed. If `public/css/editor.less` exists it is compiled as needed
@@ -72,11 +71,6 @@ For scripts, if `name` is `editor`, then `public/js/editor.js` is pushed.
 For both scripts and stylesheets, if the module is subclassed, and
 the file exists in both the parent module and the subclass, *both*
 files are pushed, in that order.
-
-If `type` is `template`, the corresponding template in this module is
-rendered and added to the DOM of each page before the closing `body` tag, to be
-cloned and made visible as needed. If the module is subclassed, only
-the newest (subclass) version is sent.
 
 If `options.when` is set to `always` or not specified, the asset is
 included in every page regardless of whether the user is logged in. If

@@ -85,19 +85,36 @@ to `self.choices`. This mechanism is used for ordinary manager modals and their
 bulk features, like "Trash All Selected". The chooser used for selecting
 pieces for joins overrides this with an empty method and substitutes its
 own implementation.
+### shrinkGrid()
+shrink and grow make visual reflectments to accommodate the the new Select Everything element
+### growGrid()
+
+### reflectSelectEverythingCheckbox()
+
 ### getSelectAll()
 
 ### enableSelectEverything()
 
 ### addChoice(*id*)
 
+### addChoiceToState(*id*)
+
 ### removeChoice(*id*)
 
+### removeChoiceFromState(*id*)
+
+### getIds()
+Return just the ids of the choices. Subclasses
+might need to extend this to avoid returning
+other data associated with a choice. Unlike get()
+this does not require a callback
 ### clearChoices()
 
-### showSelectEverything()
-
-### hideSelectEverything()
+### clearEverythingChoices()
+When the "select everything" checkbox is cleared,
+we go back to selecting just the current page
+of content
+### refreshSelectEverything()
 
 ### getSelectEverything()
 
@@ -109,8 +126,18 @@ bulk features, like "Trash All Selected". The chooser used for selecting
 pieces for joins overrides this with an empty method and substitutes its
 own implementation.
 ### reflectChoiceInCheckbox(*id*)
-
+Reflect the current selection state of the given id
+by checking or unchecking the relevant box, if
+currently visible
+### getCheckbox(*id*)
+Return a jquery object referencing the checkbox for the given piece id
+### displayChoiceInCheckbox(*id*, *checked*)
+Set the display state of the given checkbox. returns
+a jQuery object referencing the checkbox, for the convenience
+of subclasses that extend this
 ### reflectChoiceCount()
+
+### reflectHasChoices()
 
 ### getListOptions(*options*)
 Given an options object, returns a new object with

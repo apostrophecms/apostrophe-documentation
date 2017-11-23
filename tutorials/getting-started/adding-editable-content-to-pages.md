@@ -90,9 +90,13 @@ The `apostrophe-rich-text` widget provides a rich text editor. It is based on [C
 
 `toolbar` determines which controls appear in the editor's toolbar. Here are the frequently used controls:
 
-`Styles`, `Bold`, `Italic`, `Link`, `Unlink`, `Anchor`, `Table`, `BulletedList`, `Blockquote`, `Strike`, `Subscript`, `Superscript`
+`Styles`, `Bold`, `Italic`, `Link`, `Unlink`, `Anchor`, `Table`, `BulletedList`, `Blockquote`, `Strike`, `Subscript`, `Superscript`, `Split`
 
 **For good responsive development you should avoid offering controls for font sizes, colors, etc.** Let your design's styles provide those things in a thoughtful way.
+
+##### Using the Split control
+
+The "Split" button can be clicked to break a rich text widget in two, allowing widgets of other types to be added in between.
 
 ##### `styles`
 

@@ -151,7 +151,7 @@ See [the `addUrlsToPieces` method of `apostrophe-pieces-pages`](../apostrophe-pi
 
 ### batchSimpleRoute(*req*, *name*, *change*) *[api]*
 Implements a simple batch operation like publish or unpublish.
-Pass `req`, the `name` of a configurated batch operation, and
+Pass `req`, the `name` of a configured batch operation, and
 and a function that accepts (req, piece, data, callback),
 performs the modification on that one piece (including calling
 `update` if appropriate), and invokes its callback.
@@ -160,7 +160,12 @@ performs the modification on that one piece (including calling
 for the batch operation. If there is no schema it will be
 an empty object.
 
-Replies to the request with { status: 'ok', data: piece }
+If `req.body.job` is truthy, replies immediately to the request with
+`{ status: 'ok', jobId: 'cxxxx' }`. The `jobId` can then
+be passed to `apos.modules['apostrophe-jobs'].start()` on the rowser side to
+monitor progress.
+
+Otherwise, replies to the request with { status: 'ok', data: piece }
 on success. If `ids` rather than `_id` were specified,
 `data` is an empty object.
 

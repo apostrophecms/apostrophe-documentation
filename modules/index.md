@@ -22,6 +22,7 @@ children:
   - apostrophe-i18n
   - apostrophe-images
   - apostrophe-images-widgets
+  - apostrophe-jobs
   - apostrophe-launder
   - apostrophe-locks
   - apostrophe-login

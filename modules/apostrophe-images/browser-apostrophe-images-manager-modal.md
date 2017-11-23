@@ -14,5 +14,5 @@ Image Gallery
 
 ### afterRefresh()
 
-### reflectChoiceInCheckbox(*id*)
+### displayChoiceInCheckbox(*id*, *state*)
 

@@ -49,6 +49,10 @@ the constructor is async. Delivers (err, newChooser)
 Adds and overrides methods of the apostrophe-pieces-manager-modal to
 accommodate its use as a full-featured selection tool for the chooser,
 including the ability to create new items on the fly and choose them
+### shrinkGrid()
+shrink and grow make visual reflectments to accommodate the the new Select Everything element
+### growGrid()
+
 ### afterManagerSave()
 
 ### afterManagerCancel()
