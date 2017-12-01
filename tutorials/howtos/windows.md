@@ -51,6 +51,6 @@ Consider installing MongoDB as a "windows service." See the MongoDB documentatio
 
 Be aware of the differences in syntax between Mac OS and Windows terminals. `cp` translates to `copy`, `rm` to `del`, etc.
 
-Otherwise, the tutorial provided by [Apostrophe: Getting Started](http://apostrophenow.org/tutorials/getting-started/) can be followed.
+Otherwise, the tutorial provided by [Apostrophe: Getting Started](http://apostrophecms.org/docs/tutorials/getting-started/index.html) can be followed.
 
 NOTE: if you get permissions errors, you probably first created the site as Administrator. Make up your mind and stick to one user... which should not be Administrator. It is always a good security policy to avoid using an administrator account when you can.
