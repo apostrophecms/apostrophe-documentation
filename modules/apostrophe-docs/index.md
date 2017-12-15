@@ -116,6 +116,8 @@ The `options` object may be omitted completely.
 
 If `options.permissions` is set explicitly to
 `false`, permissions checks are bypassed.
+
+If `callback` is omitted, a promise is returned.
 ### update(*req*, *doc*, *options*, *callback*) *[api]*
 **Most often you will insert or update docs via the
 insert and update methods of the appropriate doc manager.**
@@ -165,6 +167,8 @@ The `options` object may be omitted completely.
 
 If `options.permissions` is set explicitly to
 `false`, permissions checks are bypassed.
+
+If `callback` is omitted, a promise is returned.
 ### denormalizePermissions(*req*, *doc*, *options*, *callback*) *[api]*
 Apostrophe edits doc editing and viewing permissions via joins,
 but for query performance then copies them to a single array with entries
@@ -300,6 +304,9 @@ on ALL modules that have them, starting with
 this one. Although this method takes no
 callback, other implementations MAY
 take a callback and are invoked in series.
+### ensureSlug(*doc*) *[api]*
+If the doc does not yet have a slug, add one based on the
+title; throw an error if there is no title
 ### docFixUniqueError(*req*, *doc*) *[api]*
 Invoked when a MongoDB index uniqueness error
 occurs, such as when the slug property is
@@ -429,6 +436,13 @@ for the docs module, this method invokes its callback
 successfully without actually doing anything.
 This is *not recommended* but has valid applications
 in automated testing.
+### getDefaultUrlFields() *[api]*
+Returns the field names necessary to build URLs
+for typical doc types. If a cursor specific to a
+doc type is used, the `getUrlFields` method of
+that module is called instead. This method is
+used to implement "projections" for the
+`_url` computed property
 ### pushAssets() *[browser]*
 
 ### pushCreateSingleton() *[browser]*

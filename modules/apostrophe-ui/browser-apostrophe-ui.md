@@ -118,6 +118,8 @@ flow that way, for example 'apos-workflow-export' does not
 end with a noun, so just pass it as `verb`.
 ### enableAjax()
 
+### ajaxInfiniteScrollHandler()
+
 ### ajaxSubmitHandler(*event*)
 
 ### ajaxClickHandler(*event*)
@@ -126,7 +128,7 @@ end with a noun, so just pass it as `verb`.
 Given a jQuery object, return the name of the ajax context containing it
 (the `data-apos-ajax-context` attribute of its closest ancestor that has one).
 ### ajaxGo(*name*, *url*, *data*, *options*)
-Refresh the named data-apos-ajax-context with the content returned by the specified
+Refresh the named `data-apos-ajax-context` with the content returned by the specified
 URL. The URL is submitted with the additional query data specified by `data`, if any;
 it may be a string (the output of serializing a form) or an object for convenience.
 The URL will be pushed to the browser history as specified unless `options.push`
@@ -143,6 +145,14 @@ as the argument.
 Note that your event handlers for these should watch out for preserved elements and
 their ancestors, and not do things twice. You can address this by checking for
 `data-apos-ajax-preserve` and `data-apos-ajax-preserved` attributes.
+
+If `url` or `data` contains an `append` parameter set to `1`, then the portion of
+the new content that falls within an element with the `data-apos-ajax-append` attribute
+is appended to the corresponding element already nested within `data-apos-ajax-content`.
+However everything *not* in side the `data-apos-ajax-append` element is replaced in the
+usual way. So you can refresh the "load more..." button itself, filters, etc. even when
+appending just one page of content. This is useful for "load more..." buttons and
+infinite scroll.
 ### ajaxPopStateHandler(*event*)
 
 ### ajaxPushHistory(*name*, *url*)

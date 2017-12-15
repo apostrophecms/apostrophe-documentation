@@ -69,7 +69,7 @@ This method binds click handlers for all elements inside
 because it may reside in a parent modal.
 ### remove(*id*)
 This method removes the item with the specified `id` property from the
-array. 
+array.
 ### refresh(*callback*)
 Refresh (re-render) the list of items, then invoke the `onChange` method
 if they differ from the previous set. This method is debounced. If calls to
@@ -86,6 +86,9 @@ a refresh of the display. Invokes the limit mechanism.
 ### limit()
 Implements the `limit` option by showing and hiding
 the limit message and the add button, respectively.
+### required()
+Implements the `required` option by showing and hiding
+save button.
 ### decrementRefreshing()
 Invoked by `refresh` to decrement the count of nested
 `refresh` calls. Nested `refresh` calls are automatically

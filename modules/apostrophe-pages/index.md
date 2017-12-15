@@ -220,6 +220,8 @@ Insert a page as a child of the specified page or page ID.
 The `options` argument may be omitted completely. If
 `options.permissions` is set to false, permissions checks
 are bypassed.
+
+If no callback is supplied, a promise is returned.
 ### docAfterDenormalizePermissions(*req*, *page*, *options*, *callback*) *[api]*
 This method pushes a page's permissions to its subpages selectively based on
 whether the applyToSubpages choice was selected for each one. It also copies
@@ -499,7 +501,12 @@ is already in progress it will be equal to `self.apos.templates.contextReq`.
 
 ### addPermissions() *[api]*
 
+### removeParkedPropertiesFromSchema(*page*, *schema*) *[api]*
+
 ### removeSlugFromHomepageSchema(*page*, *schema*) *[api]*
+Maintained for bc, in case project-level overrides invoke it.
+The same job is now done by removeParkedPropertiesFromSchema.
+
 If the given page is level 0 (home page), return the given schema minus
 any `slug` field named `slug`. If not, return the schema unmodified.
 ### getCreateControls(*req*) *[api]*

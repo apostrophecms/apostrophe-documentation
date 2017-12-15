@@ -139,6 +139,10 @@ explicitly set `searchable: false`.
 
 In any case, the text of rich text widgets is always included as
 lower-priority search text.
+### getUrlFields() *[api]*
+Fields required to compute the `_url` property.
+Used to implement a "projection" for `_url` if
+requested by the developer
 ### pushAssets() *[browser]*
 
 ### pushDefineSingleton() *[browser]*

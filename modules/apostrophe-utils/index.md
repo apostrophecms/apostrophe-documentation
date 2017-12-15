@@ -67,6 +67,8 @@ Add a slash to a path, but only if it does not already end in a slash.
 Perform an md5 checksum on a string. Returns hex string.
 ### md5File(*filename*, *callback*) *[api]*
 perform an md5 checksum on a file. Delivers `null`, `hexString` to callback.
+### fileLength(*filename*, *callback*) *[api]*
+Get file size in bytes. On success, delivers `(null, integer)` to callback.
 ### slugify(*s*, *options*) *[api]*
 Turn the provided string into a string suitable for use as a slug.
 ONE punctuation character normally forbidden in slugs may

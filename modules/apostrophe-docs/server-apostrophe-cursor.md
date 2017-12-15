@@ -3,55 +3,6 @@ title: "apostrophe-cursor (server)"
 layout: reference
 namespace: server
 ---
-An `apostrophe-cursor` allows you to conveniently fetch docs from
-the `aposDocs` mongodb collection using chainable filters, much
-like a MongoDB or Doctrine cursor.
-
-Usually you'll be working with a subclass of `apostrophe-cursor`
-appropriate to a particular type of piece or page. Each subclass
-typically adds new filters. Some modules also add filters to the
-main `apostrophe-cursor` class that are useful with all types
-of docs, like the `areas` filter that calls loaders for
-the widgets in Apostrophe areas.
-
-Normally you get a cursor object by calling the `find()` method of
-the module associated with the piece type or page type you are
-interested in. If you are interested in all docs, call the
-`find()` method of the `apostrophe-docs` module (`apos.docs.find`).
-If you are interested in all pages (docs that are part of the
-page tree), call the `find()` method of the `apostrophe-pages`
-module (`apos.pages.find`).
-
-All of these `find()` methods take `req` as the first argument
-in order to check permissions.
-
-Examples:
-
-Let's fetch all docs with an `age` property >= 30 that are published...
-
-```
-return apos.docs.find(req).
-  and({ age: { $gte: 30 } }).
-  published(true).
-  toArray(function(err, docs) { ... });
-```
-
-Let's get the 10 most recent blog posts (assumes the
-`apostrophe-blog` module is in use)
-
-```
-return apos.docs.getManager('apostrophe-blog').
-  find().
-  limit(10).
-  toArray(function(err, blogPosts) { ... })
-```
-
-If a filter provides a `launder` function and sets its
-`safeFor` property to `public`, then it is called
-automatically if a query parameter matching its name is seen
-on an `apostrophe-pieces-pages` page, such as a blog. In many
-cases this is the main motivation for adding a filter.
-
 
 ## Methods
 ### areas(*value*)
@@ -106,6 +57,31 @@ entire series of finalizers is invoked
 again. This is useful if you wish to simplify
 the query and be assured that all of the other
 finalizers will see your modification.
+### projectComputedField(*key*, *add*)
+Given the name of a computed field (a field other than _id that
+begins with `_`), pushes the names of the necessary physical fields
+to compute it onto `add` and returns `true` if able to do so.
+Otherwise `false` is returned. The default implementation can
+handle `_url` and `joinByOne` or `joinByArray` fields
+(not reverse).
+
+This method is a good candidate to be extended with the `super` pattern.
+### projectUrlField(*add*)
+Pushes the names of the fields necessary to populate
+`_url` onto the `add` array.
+### projectJoinField(*key*, *add*)
+Pushes the names of the fields necessary to populate
+the join field named `key` onto the `add` array
+and returns `true`.
+
+If there is no such `joinByOne` or `joinByArray`
+field this method returns `false and does nothing.
+
+Note that this mechanism will not work for a
+generic cursor obtained from `apos.docs.find`
+without calling the `type` filter.
+
+It will work for a cursor for a specific doc type.
 ### safeFilters(*filters*)
 The filters automatically added for each schema field are marked as
 `safeFor: "manage"` because of the risk they will be used to get information
@@ -122,6 +98,8 @@ for the given `property`. Not chainable. Wraps
 MongoDB's `distinct` and does not understand
 join fields directly. However, see also
 `toChoices`.
+
+Returns a promise if invoked without a callback.
 ### toChoices(*property*, *options*, *callback*)
 Invokes callback with `(err, results)` where
 `results` is an array of objects with
@@ -146,12 +124,15 @@ options.legacyFilterChoices is truthy, the filter is assumed to have a
 boolean interface and options are fetched on that basis. The labels will
 just be "Yes" and "No", however the pieces module manage view patches these
 via the legacy `choices` feature of `addFilters`.
+
+Returns a promise if invoked without a callback.
 ### legacyChoices(*name*, *callback*)
 
 ### toObject(*callback*)
 Invokes callback with `(err, doc)` where
 `doc` is the first document matching the query.
-Not chainable.
+Not chainable. If no `callback` is supplied,
+returns a promise.
 ### toCount(*callback*)
 Invokes callback with `(err, count)` where
 `count` is the number of documents matching
@@ -161,10 +142,14 @@ If the `perPage` filter is set, `totalPages` is
 made available via `cursor.get('totalPages')`.
 
 Not chainable.
+
+If called without a callback, returns a promise.
 ### toArray(*callback*)
 Invokes callback with `(err, docs)` where
 `docs` is an array of documents matching
 the query. Not chainable.
+
+If called without a callback, returns a promise.
 ### toMongo(*callback*)
 Invokes callback with `(err, mongo)` where
 `mongo` is a MongoDB self. You can use this
@@ -218,6 +203,10 @@ change. You probably wanted toMongo.
 ### after(*results*, *callback*)
 Invokes "after" methods of all filters
 that have them. Invoked for you by `toArray`.
+Occasionally called directly when you have
+obtained the data by other means.
+
+If called without a callback, returns a promise.
 ### nextOrPrevious(*verb*)
 Implementation detail of the `previous` and `next` filters
 ### finalizeSort()

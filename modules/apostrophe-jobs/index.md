@@ -42,11 +42,13 @@ cron jobs or command line tasks.
 ### run(*req*, *change*, *options*) *[api]*
 Starts and supervises a long-running job such as a
 batch operation on pieces. Call it to implement an API route
-that runs a job.
+that runs a job involving carrying out the same action
+repetitively on many things. If your job doesn't look like
+that, check out `runNonBatch` instead.
 
 The `ids` to be processed should be provided via `req.body.ids`.
 
-Pass `req` and a `change` function that accepts `(req, id, data, callback)`,
+Pass `req` and a `change` function that accepts `(req, id, callback)`,
 performs the modification on that one id and invokes its callback
 with an error if any (if passed, this is recorded as a bad item
 in the job, it does not stop the job) and an optional
@@ -96,6 +98,54 @@ a single HTTP response is sent, like:
 `firstResult` is an empty object if `ids` was passed rather than `id`.
 
 This alternative approach is for bc only. Proxy timeouts are bad. Don't use it.
+### runNonBatch(*req*, *doTheWork*, *options*) *[api]*
+Similar to `run`, this method Starts and supervises a long-running job,
+however unlike `run` the `doTheWork` callback function provided is invoked just
+once, and when it completes the job is over. This is not the way to
+implement a batch operation on pieces; see the `batchSimple` method
+of that module.
+
+The `doTheWork` function receives `(req, reporting, callback)` and may optionally invoke
+`reporting.good()` and `reporting.bad()` to update the progress and error
+counters, and `reporting.setTotal()` to indicate the total number of
+counts expected so a progress meter can be rendered. This is optional and
+an indication of progress is still displayed without it.
+`reporting.setResults(object)` may also be called to pass a
+`results` object, which is made available to the optional `success` callback
+of the job's modal on the browser side. `doTheWork` may optionally
+return a promise rather than invoking the callback.
+
+This method will send `{ status: 'ok', jobId: 'cxxxx' }` to the
+browser for you. There is no callback because there is nothing more for
+you to do in your route.
+
+The `jobId` can then be passed to `apos.modules['apostrophe-jobs'].progress(jobId)`
+on the browser side to monitor progress. After the job status is `completed`,
+the results of the job can be obtained via the progress API as the `results`
+property, an object with a sub-property for each `id`.
+
+*Options*
+
+`options.label` should be passed as an object with
+a `title` property, to title the progress modal.
+A default is provided but it is not very informative.
+
+In addition, it may have `failed`, `completed` and
+`running` properties to label the progress modal when the job
+is in those states, and `good` and `bad` properties to label
+the count of items that were successful or had errors.
+All of these properties are optional and reasonable
+defaults are supplied.
+
+You may set `options.canStop` or `options.canCancel` to true.
+If you do, a "stop" or "cancel" button is presented to the user.
+Your code may then invoke `reporting.isCanceling()` when convenient
+and, if it returns a function, must cease the operation and then invoke
+that function **instead of** its callback. If the operation has completed
+in the meantime your code must take care not to invoke it afterwards.
+
+If `canCancel` was used, your code must also
+undo all effects of the entire job **before invoking** the function.
 ### start(*options*, *callback*) *[api]*
 Start tracking a long-running job. Called by routes
 that require progress display and/or the ability to take longer

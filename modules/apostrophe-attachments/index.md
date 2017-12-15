@@ -86,6 +86,8 @@ You may add extensions to the `office` fileGroup.
 
 ### indexer(*value*, *field*, *texts*) *[schemaField]*
 
+### acceptableExtension(*field*, *attachment*) *[schemaField]*
+
 ### accept(*req*, *file*, *callback*) *[api]*
 For backwards compatibility. Equivalent to calling `insert` with
 the same three arguments.
@@ -103,6 +105,14 @@ configure jquery fileupload to submit one per request.
 The `options` argument may be omitted completely.
 If `options.permissions` is explicitly set to `false`,
 permissions are not checked.
+
+`callback` is invoked with `(null, attachment)` where
+`attachment` is an attachment object, suitable
+for passing to the `url` API and for use as the value
+of an `type: 'attachment'` schema field.
+
+If `callback` is omitted completely, a promise is returned.
+The promise resolves to an attachment object.
 ### getFileGroup(*extension*) *[api]*
 
 ### crop(*req*, *_id*, *crop*, *callback*) *[api]*
@@ -222,6 +232,21 @@ focal point chosen by the user, as percentages. If there is no
 focal point, null is returned.
 ### addTypeMigration() *[api]*
 
+### addDocReferencesMigration() *[api]*
+
+### docAfterSave(*req*, *doc*, *options*, *callback*) *[api]*
+
+### docAfterTrash(*req*, *doc*, *callback*) *[api]*
+
+### docAfterRescue(*req*, *doc*, *callback*) *[api]*
+
+### updateDocReferences(*doc*, *callback*) *[api]*
+When the last doc that contains this attachment goes to the
+trash, its permissions should change to reflect that so
+it is no longer web-accessible to those who know the URL.
+
+This method is invoked after any doc is inserted, updated, trashed
+or rescued.
 ### pushAssets() *[browser]*
 
 ### pushCreateSingleton() *[browser]*

@@ -19,6 +19,8 @@ return self.find(req, { age: { $gte: 50 }})
   .toArray(function(err, pieces) { ... })
 ```
 
+> *You may also use promises.* Apostrophe returns a promise if you do not pass a callback function to `toArray`. The promise resolves to the array of pieces (use `then`).
+
 That code will fetch only pieces this particular user is allowed to see, and also take into account your custom mongodb criteria object and a full-text search for the word `blue`, sorting the results by how well they match that search.
 
 ## Updating pieces
@@ -39,7 +41,9 @@ piece.title = 'So great!';
 return self.insert(req, piece, callback);
 ```
 
-*This will only succeed if the current user should be allowed to create pieces of this type, based on the permissions of the groups they are a member of.*
+> *This will only succeed if the current user should be allowed to create pieces of this type, based on the permissions of the groups they are a member of.*
+
+> *You may also use promises. If you do not pass the `callback` argument, Apostrophe returns a promise (use `then`).*
 
 `self.update` and `self.insert` also call `self.beforeUpdate` and `self.beforeInsert`, as well as `self.beforeSave` (called by both), which provides an easy way to add extra behavior on every save operation.
 

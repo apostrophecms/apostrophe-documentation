@@ -47,6 +47,8 @@ return apos.docs.getManager('profile').find(req,
   });
 ```
 
+> **You may also use promises.** Apostrophe returns a promise if you do not pass a callback. The promise resolves to the array of profiles (use `then`).
+
 What's going on here?
 
 * The [`getManager` method of `apostrophe-docs`](../../modules/apostrophe-docs/index.html#getManager) is telling us the right module to talk to about docs of type `profile`. That will be our `profiles` module.

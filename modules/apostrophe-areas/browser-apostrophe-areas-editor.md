@@ -28,8 +28,14 @@ operating. This method is invoked for you by
 `startAutosaving` and `startAutosavingThen`, which
 also obtain a session lock on the document first for
 the current user.
-### addItem(*$el*, *value*)
-
+### addItem(*$el*, *type*, *data*, *callback*)
+Add a new widget to the area. `$el` should be the widget wrapper
+of the widget that should immediately precede it, or null if
+we are adding at the top. `type` should be the widget type's name
+property, such as `apostrophe-rich-text` (note no suffix).
+`data` may be an object with existing properties, or null.
+`callback`, if present, is invoked after the widget has been
+added to the DOM.
 ### editItem(*$el*)
 
 ### moveItem(*$el*)
@@ -47,8 +53,8 @@ the current user.
 ### stopEditingRichText()
 
 ### insertWidget(*$wrapper*)
-Insert a newly created apos-widget, typically called by the
-widget's editor on save of a new widget
+Implementation detail of `addItem`, should not be called directly.
+Adds the given widget wrapper to the DOM, respecting the limit.
 ### enhanceWidgetControls(*$widget*)
 
 ### addAreaControls(*$widget*)
@@ -77,8 +83,11 @@ to the element being dragged.
 
 ### checkEmptyAreas()
 
-### addWidget(*type*)
+### addWidget(*type*, *data*, *callback*)
+This method is an implementation detail of `addItem` and should not be called directly.
 
+Insert a widget of the given type with the given initial data (may be null)
+and, optionally, invoke a callback after adding to the DOM.
 ### enableDroppables(*$draggable*)
 
 ### disableDroppables(*$draggable*)

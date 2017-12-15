@@ -55,6 +55,8 @@ insert the piece.
 
 For convenience, the piece is passed to the callback as the second argument.
 It's the same piece object, with some new properties.
+
+If no callback is passed, returns a promise.
 ### update(*req*, *piece*, *options*, *callback*) *[api]*
 Update a piece. Also invokes the `beforeUpdate`, `beforeSave`, `afterUpdate` and
 `afterSave` methods of this module.
@@ -69,9 +71,11 @@ For convenience, the piece is passed to the callback as the second argument.
 It's the same piece object you passed, likely with modifications such as
 the `updatedAt` property.
 ### trash(*req*, *id*, *callback*) *[api]*
-Move a piece to the trash by id.
+Move a piece to the trash by id. If `callback` is omitted,
+a promise is returned.
 ### rescue(*req*, *id*, *callback*) *[api]*
-Rescue a piece from the trash by id.
+Rescue a piece from the trash by id. If `callback` is omitted,
+a promise is returned.
 ### convert(*req*, *piece*, *callback*) *[api]*
 Convert the data supplied in `req.body` via the schema and
 update the piece object accordingly.
@@ -189,6 +193,11 @@ by the optional `apostrophe-pieces-rest-api` module.
 
 ### getEditControls(*req*) *[api]*
 
+### generate(*i*) *[api]*
+Generate a sample piece of this type. The `i` counter
+is used to distinguish it from other samples. Useful
+for things like testing pagination, see the
+`your-piece-type:generate` task.
 ### modulesReady() *[api]*
 
 ### createRoutes() *[routes]*
@@ -198,6 +207,10 @@ by the optional `apostrophe-pieces-rest-api` module.
 ### pushDefineSingleton() *[browser]*
 
 ### getCreateSingletonOptions(*req*) *[browser]*
+
+### addTasks() *[tasks]*
+
+### addGenerateTask() *[tasks]*
 
 ## API Routes
 ### POST /modules/apostrophe-pieces/insert

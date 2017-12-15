@@ -42,7 +42,8 @@ and exit with status 1 (failure).
 
 Your code will usually need to invoke methods that require a `req` argument.
 Call `self.apos.tasks.getReq()` to get a `req` object with
-unlimited admin permissions.
+unlimited admin permissions. Use `self.apos.tasks.getAnonReq()` to get
+a `req` object without permissions.
 ### run()
 
 ### find(*fullName*)
