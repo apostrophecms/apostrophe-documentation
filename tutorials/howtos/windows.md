@@ -22,7 +22,7 @@ To install Node go to [http://nodejs.org/](http://nodejs.org/) and click install
 
 To install MongoDB go to [Downloads - MongoDB](http://www.mongodb.org/downloads) and select the proper download for your computer. Be sure to select 32 or 64 bit depending on your system. Follow all of the prompts.
 
-To install Imagemagick go to: [ImageMagick : Windows Downloads](http://www.imagemagick.org/script/binary-releases.php#windows) and download the latest version. Ensure that "add environmental variables to system path" is checked during the installation process. **Make sure you check the box to install legacy executables.**
+To install Imagemagick go to: [ImageMagick : Windows Downloads](http://www.imagemagick.org/script/download.php#windows) and download the latest version. Ensure that "add environmental variables to system path" is checked during the installation process. **Make sure you check the box to install legacy executables.**
 
 ## MongoDB setup
 
@@ -51,6 +51,6 @@ Consider installing MongoDB as a "windows service." See the MongoDB documentatio
 
 Be aware of the differences in syntax between Mac OS and Windows terminals. `cp` translates to `copy`, `rm` to `del`, etc.
 
-Otherwise, the tutorial provided by [Apostrophe: Getting Started](http://apostrophenow.org/tutorials/getting-started/) can be followed.
+Otherwise, the tutorial provided by [Apostrophe: Getting Started](http://apostrophecms.org/docs/tutorials/getting-started/index.html) can be followed.
 
 NOTE: if you get permissions errors, you probably first created the site as Administrator. Make up your mind and stick to one user... which should not be Administrator. It is always a good security policy to avoid using an administrator account when you can.

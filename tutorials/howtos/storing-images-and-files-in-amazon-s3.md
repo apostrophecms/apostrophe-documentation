@@ -33,6 +33,9 @@ With this configuration all file uploads are written to S3 instead of the local 
 
 > You may pass any options supported by the [knox](https://npmjs.org/package/knox) module.
 
+### HTTPS file delivery
+To receive file from S3 via the secure HTTPS protocol, add an `https: true` option to your uploadfs options object.
+
 ## Special requirements for the US-East region
 
 The US-East region is misnamed; it is really "US Standard," and it serves files from both Oregon and Virginia.

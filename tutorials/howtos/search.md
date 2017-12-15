@@ -16,6 +16,7 @@ Apostrophe has full-text search capabilities built in. You just need to enable t
       // other configuration, then ...
       park: [
         {
+          title: 'Search',
           slug: '/search',
           type: 'apostrophe-search',
           label: 'Search',
