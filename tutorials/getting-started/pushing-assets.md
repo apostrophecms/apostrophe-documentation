@@ -7,19 +7,27 @@ layout: tutorial
 
 ## Configuring stylesheets
 
-OK! Take a peek at your `app.js` file and you'll spot some really simple configuration that is already pushing a `site.less` file:
+OK! Take a peek at your `lib/modules/apostrophe-assets/index.js` file and you'll spot some really simple configuration that is already pushing a `site.less` file, as well as a `site.js` file.
 
 ```javascript
-    // This configures the apostrophe-assets module to push a 'site.less'
-    // stylesheet
-    'apostrophe-assets': {
-      stylesheets: [
-        {
-          name: 'site'
-        }
-      ]
-    },
+// This configures the apostrophe-assets module to push a 'site.less'
+// stylesheet by default:
+
+module.exports = {
+  stylesheets: [
+    {
+      name: 'site'
+    }
+  ],
+  scripts: [
+    {
+      name: 'site'
+    }
+  ]
+};
 ```
+
+> We could have put this configuration inside `app.js`, but that leads to a cluttered `app.js` file. Apostrophe will also automatically look for a `lib/modules/MODULE-N AME-HERE/index.js` file for each module and load that too if it exists.
 
 Your LESS file might look like:
 
@@ -58,21 +66,18 @@ body
 
 ## Configuring JavaScript for the browser
 
-You can push JavaScript files to the browser too:
+You can push JavaScript files to the browser too, as you can see in the `index.js` file above:
+
 
 ```javascript
-    // This configures the apostrophe-assets module to push a 'site.less'
-    // stylesheet
-    'apostrophe-assets': {
-      scripts: [
-        {
-          name: 'site'
-        }
-      ]
-    },
+    scripts: [
+      {
+        name: 'site'
+      }
+    ]
 ```
 
-This will push the file `lib/modules/apostrophe-assets/public/css/site.js` to the browser. If you follow our [production deployment tutorial](../intermediate/deployment.html), it will be included in a single minified file along with Apostrophe's JavaScript, for much better performance. Minification is also provided for stylesheets.
+This will push the file `lib/modules/apostrophe-assets/public/js/site.js` to the browser. If you follow our [production deployment tutorial](../intermediate/deployment.html), it will be included in a single minified file along with Apostrophe's JavaScript, for much better performance. Minification is also provided for stylesheets.
 
 > Want to use `gulp`, `browserify`, `grunt` and friends? Go for it! Just set up your configuration so that the compiled output file is pushed by Apostrophe. Apostrophe doesn't need to know you are using these tools for you to be successful with them. Separation of concerns is a good thing.
 

@@ -406,9 +406,86 @@ Combine this with the [techniques in the cursors tutorial](../intermediate/curso
 
 **Tip:** you'll want to include your filter links and forms in `indexAjax.html` so that they too can be refreshed automatically, narrowing down the choices based on the other filters already in use. Any input elements or textareas that currently have the focus will not be refreshed, so you can even implement typeahead by triggering a submit of the form via JavaScript as the user types. (TODO: a good example of this with proper debouncing.)
 
+#### Combining a "Load More..." button with AJAX
+
+There's one catch with the ajax solution above: it doesn't yet account for a "load more" button that appends to, rather than replacing, the current page's worth of content.
+
+But this isn't hard to accommodate. All you have to do is:
+
+1. Wrap a new element *inside* your `data-apos-ajax-context` element around the content that makes up the current "page" of results. This should *not* wrap around filter links or the "Load More" button itself.
+2. Give that element the `data-apos-ajax-append` attribute.
+3. Add `append=1` to the query string of your `Load More` button.
+
+Here's an example. Here we assume you followed the [cursors tutorial](../intermediate/cursors.html) to enable filtering people by tag.
+
+```markup
+{# index.html #}
+{% extend "layout.html" %}
+<h2>People</h2>
+<div data-apos-ajax-context="people">
+  {% include "indexAjax.html" %}
+</div>
+```
+
+```markup
+{# indexAjax.html #}
+
+{# Filter by tag. Note this is OUTSIDE data-apos-ajax-page, so it gets REFRESHED #}
+<ul class="tag-filters">
+  {% for tag in data.piecesFilters.tags %}
+    <li><a href="{{ data._url | build({ tags: tag.value }) }}">{{ tag.label }}</a></li>
+  {% endfor %}
+</ul>
+
+{# New stuff gets appended to this element #}
+<div data-apos-ajax-append>
+  {% for piece in data.pieces %}
+    <h4>
+      {% set image = apos.images.first(piece.thumbnail) %}
+      {% if image %}
+        <img src="{{ apos.attachments.url(image, { size: 'one-sixth' }) }}" />
+      {% endif %}
+      <a href="{{ piece._url }}">{{ piece.title }}</a>
+    </h4>
+  {% endfor %}
+</div>
+
+{# Load More button. Also outside data-apos-ajax-append, so it gets refreshed #}
+{% if data.currentPage < data.totalPages %}
+  {# "Load More" button with the "append=1" flag #}
+  <a href="{{ data.url }} | build({ page: data.currentPage + 1, append: 1 })">Load More...</a>
+{% endif %}
+```
+
+#### Infinite scroll with AJAX
+
+"Load More" is nice, but what about infinite scroll? Can't we just load the next page when the user scrolls close to the bottom of the last one?
+
+It's often a great idea. But first, ask yourself if it fits into your site design! If your "footer" contains anything important, remember that users will often never reach it.
+
+That being said, here's how to make it work:
+
+1. Implement the "Load More" button, above.
+
+2. Add a `data-apos-ajax-infinite-scroll` attribute to the button itself:
+
+```markup
+{# Load More button. Also outside data-apos-ajax-append, so it gets refreshed #}
+{% if data.currentPage < data.totalPages %}
+  {# "Load More" button with the "append=1" flag #}
+  <a data-apos-ajax-infinite-scroll href="{{ data.url }} | build({ page: data.currentPage + 1, append: 1 })">Load More...</a>
+{% endif %}
+```
+
+Apostrophe will hide the button with JavaScript, but you can do it with CSS also to avoid seeing it momentarily.
+
+That's it! Apostrophe will detect the button, hide it, and convert it to a scroll position sensor that automatically triggers the appending of the next page exactly as if the button had been clicked.
+
+"Why do we still need to add the link?" If the link doesn't exist... how will Google index your content? It won't. And that would be a significant SEO failure. That's why we "progressively enhance" it to create the infinite scroll feature.
+
 ### Filters for the "manage" modal
 
-In the "manage" modal, enabling a "tags" filter for admins is even easier:
+In the "manage" modal, enabling a "tags" filter for admins is often handy:
 
 ```javascript
 // in lib/modules/people/index.js
