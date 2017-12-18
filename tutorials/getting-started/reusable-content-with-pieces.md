@@ -45,7 +45,7 @@ module.exports = {
       options: {
         widgets: {
           'apostrophe-rich-text': {
-            controls: [ 'Bold', 'Italic', 'Link', 'Unlink' ]
+            toolbar: [ 'Bold', 'Italic', 'Link', 'Unlink' ]
           },
           'apostrophe-images': {}
         }
