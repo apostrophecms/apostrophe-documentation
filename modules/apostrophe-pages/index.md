@@ -160,6 +160,8 @@ on parent-child relationships
 modify properties that are explicitly set via `park` (rather than being set once
 via `_defaults`). In any case such properties are reset by restarts.
 
+* If you need to _"unpark"_ a page, you can use the `apostrophe-pages:unpark` task: e.g., `node app apostrophe-pages:unpark /page/slug`.
+
 **`filters`: Apostrophe cursor filters applied when fetching the current page.**
 The default settings ensure that `req.data.page` has a `_children` property
 and an `_ancestors` property:
