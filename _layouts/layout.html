@@ -71,10 +71,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>Apostrophe: {{ title }}</title>
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" type="text/css" href="{{ root }}stylesheets/main.css?v7">
+  <link rel="stylesheet" type="text/css" href="{{ root }}stylesheets/main.css?v8">
   <script src="{{ root }}javascript/prism.js"></script>
   <script src="{{ root }}javascript/jquery.min.js"></script>
-  <script src="{{ root }}javascript/main.js?v6"></script>
+  <script src="{{ root }}javascript/main.js?v7"></script>
 
   <meta property="og:image" content="http://apostrophecms.org/images/apostrophe-og.png" />
   <meta property="og:image:type" content="image/png" />
@@ -91,9 +91,26 @@
     </div>
     <div class="links right">
       <ul class="page-links">
-        {% for tab in ancestors[0].children %}
+        {% set tabs = [ 
+          {
+            url: '/features', title: 'Features'
+          },
+          {
+            url: '/docs', title: 'Documentation', current: true
+          },
+          {
+            url: '/community', title: 'Community'
+          },
+          {
+            url: '/support', title: 'Support'
+          },
+          {
+            url: '/extend', title: 'Extend'
+          }
+        ] %}
+        {% for tab in tabs %}
           <li class="page-link">
-            <a href="{{ root }}{{ tab.url }}" class="{% if ancestors[1] and (tab.url == ancestors[1].url) %}selected{% endif %}">{{ tab.title | e }}</a>
+            <a href="{{ tab.url }}" class="{% if tab.current %}selected{% endif %}">{{ tab.title | e }}</a>
           </li>
         {% endfor %}
         <li class="page-link">
