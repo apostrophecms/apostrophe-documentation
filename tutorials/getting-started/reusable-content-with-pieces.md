@@ -430,7 +430,7 @@ Here's an example. Here we assume you followed the [cursors tutorial](../interme
 ```markup
 {# indexAjax.html #}
 
-{# Filter by tag. Note this is OUTSIDE data-apos-ajax-page, so it gets REFRESHED #}
+{# Filter by tag. Note this is OUTSIDE data-apos-ajax-context, so it gets REFRESHED #}
 <ul class="tag-filters">
   {% for tag in data.piecesFilters.tags %}
     <li><a href="{{ data._url | build({ tags: tag.value }) }}">{{ tag.label }}</a></li>
@@ -453,7 +453,7 @@ Here's an example. Here we assume you followed the [cursors tutorial](../interme
 {# Load More button. Also outside data-apos-ajax-append, so it gets refreshed #}
 {% if data.currentPage < data.totalPages %}
   {# "Load More" button with the "append=1" flag #}
-  <a href="{{ data.url }} | build({ page: data.currentPage + 1, append: 1 })">Load More...</a>
+  <a href="{{ data.url | build({ page: data.currentPage + 1, append: 1 }) }}">Load More...</a>
 {% endif %}
 ```
 
