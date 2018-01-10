@@ -115,7 +115,7 @@ Example:
     // just like apos.area in a template
     widgets: {
       'apostrophe-rich-text': {
-        controls: [ 'Bold', 'Italic', 'Link', 'Unlink' ]
+        toolbar: [ 'Bold', 'Italic', 'Link', 'Unlink' ]
       },
       'apostrophe-images': {}
     }
