@@ -12,13 +12,13 @@ layout: tutorial
 > (like 5.4.0, 5.4.1, etc). Those versions have a bug that interferes with installing
 > Apostrophe.
 >
-> If you do, downgrade to 5.3, which predates the bug and is a long term support release:
+> If you do, just upgrade to the latest stable release:
+>
+> `npm install -g npm`
+>
+> You could also downgrade to 5.3, although we recommend just upgrading instead:
 >
 > `npm install -g npm@5.3`
-> 
-> Or upgrade to 5.5, where they fixed the bug, if you are feeling brave:
->
-> `npm install -g npm@5.5`
 
 ## Creating Your First Project
 
