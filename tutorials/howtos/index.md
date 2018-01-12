@@ -17,6 +17,7 @@ children:
   - ckeditor
   - storing-images-and-files-in-amazon-s3
   - migration
+  - linode
   - deploying-apostrophe-in-the-cloud
   - multicore
   - windows

@@ -5,6 +5,8 @@ layout: tutorial
 
 There are many cloud hosting services, but they all present the same challenges. Separate servers often don't share a single filesystem. The database usually needs its own scalable cloud hosting. And performing tasks like minifying assets is often best done in your development environment, minimizing what has to be done in production.
 
+> "The cloud" isn't always the easiest solution to your problem. Take a look at our [Linode HOWTO](linode.html) for a quicker way that is suitable for all but the highest-traffic sites.
+
 ## Deploying Apostrophe to Heroku
 
 [Heroku](http://heroku.com) is a great starting point for cloud hosting because it is simple to set up, but all of the cloud's challenges come into play. What we learn by deploying to Heroku can be applied equally to Amazon EC2, Microsoft Azure and other cloud hosting services.
