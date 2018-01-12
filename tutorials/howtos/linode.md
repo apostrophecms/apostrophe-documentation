@@ -35,13 +35,13 @@ To do that, just follow along:
 
 * When "Boot" completes, click "Remote Access." Under "SSH Access," you'll see a suggested command to access the server as root. Write down the IP address.
 
-* Your server is now ready to run Apostrophe sites, using [stagecoach](https://github.com/punkave/stagecoach) for deployment and [mechanic](https://github.com/punkave/mechanic) to manage the nginx proxy server. Everything that follows can also be read about in the documentation of those packages. And of course you could choose to deploy in another way, or to use another frontend proxy other than nginx.
+e packages. And of course you could choose to deploy in another way, or to use another frontend proxy other than nginx.
 
 * In the `deployment` folder of your Apostrophe site on your computer,copy `settings.example` to `settings`. Then change the `PROJECT=apostrophe` setting to match your `shortName` setting from `app.js`.
 
 * In the `deployment` folder, also copy `settings.production.example` to `settings.production`. Change `USER=myuser` to `USER=nodeapps`. Change `SERVER=myserver.com` to `SERVER=a.b.c.d`, where `a.b.c.d` is the IP address of your new VPS (check the "Remote Access" tab in Linode).
 
-* [Install stagecoach on your own computer](https://github.com/punkave/stagecoach) if you haven't already. Make sure its `bin` folder becomes part of your `PATH` in your MacOS or Linux terminal window.
+* [`git clone` stagecoach on your own computer](https://github.com/punkave/stagecoach) if you haven't already. [Make sure its `bin` folder becomes part of your `PATH` in your MacOS or Linux terminal window.](https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux-unix)
 
 > Windows users: stagecoach can be run under the [Linux subsystem for Windows.](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 
