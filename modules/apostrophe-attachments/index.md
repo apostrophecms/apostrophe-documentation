@@ -247,6 +247,20 @@ it is no longer web-accessible to those who know the URL.
 
 This method is invoked after any doc is inserted, updated, trashed
 or rescued.
+### updatePermissions(*callback*) *[api]*
+Update the permissions in uploadfs of all attachments
+based on whether the documents containing them
+are in the trash or not. Specifically, if an attachment
+has been utilized at least once but no longer has
+any entries in `docIds` and `trash` is not yet true,
+it becomes web-inaccessible, `utilized` is set to false
+and `trash` is set to true. Similarly, if an attachment
+has entries in `docIds` but `trash` is true,
+it becomes web-accessible and trash becomes false.
+
+This method is invoked at the end of `updateDocReferences`
+and also at the end of the migration that adds `docIds`
+to legacy sites. You should not need to invoke it yourself.
 ### pushAssets() *[browser]*
 
 ### pushCreateSingleton() *[browser]*

@@ -222,6 +222,30 @@ The `options` argument may be omitted completely. If
 are bypassed.
 
 If no callback is supplied, a promise is returned.
+### withLock(*req*, *fn*) *[api]*
+Takes a function, `fn`, which expects a callback and performs
+some operation on the page tree. Returns a new function that
+does exactly the same thing, but obtains a lock first and
+releases it afterwards.
+
+Nested locks for the same `req` are permitted, in order to allow
+inserts or moves that are triggered by `afterMove`, `beforeInsert`, etc.
+
+If fn passes a second argument to its callback, that argument
+is passed on.
+### lock(*req*, *callback*) *[api]*
+Lock the page tree.
+
+The lock must be released by calling the `unlock` method.
+It is usually best to use the `withLock` method instead, to
+invoke a function of your own while the lock is in your
+possession, so you don't have to keep track of it.
+
+Nested locks are permitted for the same `req`.
+### unlock(*req*, *callback*) *[api]*
+Release a page tree lock obtained with the `lock` method.
+Note that it is safest to use the `withLock` method to avoid
+the bookkeeping of calling either `lock` or `unlock` yourself.
 ### docAfterDenormalizePermissions(*req*, *page*, *options*, *callback*) *[api]*
 This method pushes a page's permissions to its subpages selectively based on
 whether the applyToSubpages choice was selected for each one. It also copies
@@ -286,6 +310,8 @@ After the moved and target pages are fetched, the `beforeMove` method is invoked
 
 `beforeMove` may safely modify top-level properties of `options` without an impact
 beyond the exit of the current `self.move` call. If modifying deeper properties, clone them.
+
+If `callback` is omitted, returns a promise.
 ### movePermissions(*req*, *moved*, *data*, *options*, *callback*) *[api]*
 Based on `req`, `moved`, `data.moved`, `data.oldParent` and `data.parent`, decide whether
 this move should be permitted. If it should not be, throw an error.

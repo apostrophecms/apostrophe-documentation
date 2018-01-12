@@ -13,6 +13,7 @@ children:
   - apostrophe-db
   - apostrophe-doc-type-manager
   - apostrophe-docs
+  - apostrophe-email
   - apostrophe-express
   - apostrophe-files
   - apostrophe-files-widgets
