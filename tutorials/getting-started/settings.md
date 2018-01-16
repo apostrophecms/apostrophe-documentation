@@ -50,7 +50,7 @@ If your project contains such a file, Apostrophe will load it and **merge its co
 module.exports = {
   modules: {
     settings: {
-      analyticsId: 'totally different for this server
+      analyticsId: 'totally different for this one server'
     }
   }
 };
