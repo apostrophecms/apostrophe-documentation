@@ -19,7 +19,7 @@ construct: function (self, options) {
 
     // 2. Do stuff to populate the array with IDs. This is based on a real example, but it'll vary based on your use case.
     var features = _.filter(req.data.page.['name-of-feature-area'].items, function (obj) {
-      return obj.type === 'feature-widget'; // Your name may vary.
+      return obj.type === 'blog'; // Set this to the widget type name.
     });
 
     if (features.length > 0) {
