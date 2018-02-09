@@ -24,8 +24,10 @@ construct: function (self, options) {
 
     if (features.length > 0) {
       _.forEach(features, function (widget) {
-        omit.push(widget._piece._id);
-      }));
+        _.forEach(widget._pieces, function (piece) {
+          omit.push(piece._id);
+        });
+      });
     }
 
     // 3. Return `superIndexCursor` filtering out pieces with the IDs. This is the key.
