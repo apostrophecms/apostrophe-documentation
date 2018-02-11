@@ -163,7 +163,12 @@ So we'll build an "asset bundle" *on our dev machine*:
 APOS_MINIFY=1 node app apostrophe:generation --create-bundle=prod-bundle
 ```
 
-*We're specifying `APOS_MINIFY=1` as an environment variable to override the default behavior in a development environment, which is not to minify.*
+> IMPORTANT: the APOS_MINIFY option is OVERRIDDEN by any setting
+> you may have made for the `minify` option when configuring
+> the `apostrophe-assets` module. If you want to use the environment
+> variable, DO NOT set the option in your code.
+
+We're specifying `APOS_MINIFY=1` as an environment variable to override the **default** behavior in a development environment, which is not to minify. As noted, if the option has been set explicitly in your code, the environment variable is ignored. So don't do that.
 
 After a minute or so (especially the first time), you'll have a `prod-bundle` folder in your project.
 
