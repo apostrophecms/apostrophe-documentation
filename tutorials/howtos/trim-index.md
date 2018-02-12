@@ -10,7 +10,7 @@ It's common for an index page to have a featured piece, such as a news listing w
 In your module extending `apostrophe-pieces-pages`, extend `indexCursor` with the `super` pattern. You'll need to get the IDs of the pieces you're excluding, dropping them into an array. Then in the final return, use the `.and()` cursor method to add the additional MongoDB filter to only call for pieces that don't share those IDs.
 
 Example:
-```js
+```javascript
 construct: function (self, options) {
   var superIndexCursor = self.indexCursor;
   self.indexCursor = function (req) {
