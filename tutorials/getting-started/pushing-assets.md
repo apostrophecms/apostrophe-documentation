@@ -81,6 +81,14 @@ This will push the file `lib/modules/apostrophe-assets/public/js/site.js` to the
 
 > Want to use `gulp`, `browserify`, `grunt` and friends? Go for it! Just set up your configuration so that the compiled output file is pushed by Apostrophe. Apostrophe doesn't need to know you are using these tools for you to be successful with them. Separation of concerns is a good thing.
 
+## Including webfonts, images, and other assets
+
+We know you might not want to stick with the fonts that come with apostrophe, so we've accounted for this. Include any assets you want to use on your site in `lib/modules/apostrophe-assets/public/`. In your less files and nunjucks templates you'll then look for the assets in `/modules/my-apostrophe-assets/`. This might not be very intuitive, but it allows symbolic links from `public/modules` to differentiate between the npm version of a module and additions you've made at a project-level. 
+
+As an example, if I wanted to include the woff file for the Karla webfont, I would place the file at `lib/modules/apostrophe-assets/public/fonts/karla.woff` and in my less file I would specify `url('/modules/my-apostrophe-assets/fonts/karla.woff)`.
+
+If you're including assets in a custom module instead of apostrophe-assets or another built-in module, you won't have to worry about symbolic links, so you can use `lib/modules/my-module/public` and `/modules/my-module/`.
+
 ## Pushing stylesheets and JavaScript from your own modules
 
 Later on, when you start creating your own modules, you might want to "push" assets directly from them. When the time comes, check out the [pushAsset](../../modules/apostrophe-module/index.html#push-asset) method, which all modules in Apostrophe provide. This method gives you a powerful way to push assets only if the user is logged in, or all the time. And it allows you to organize your assets with the modules to which they are most relevant.
