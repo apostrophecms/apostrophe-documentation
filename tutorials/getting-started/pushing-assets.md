@@ -83,11 +83,43 @@ This will push the file `lib/modules/apostrophe-assets/public/js/site.js` to the
 
 ## Including webfonts, images, and other assets
 
-We know you might not want to stick with the fonts that come with apostrophe, so we've accounted for this. Include any assets you want to use on your site in `lib/modules/apostrophe-assets/public/`. In your less files and nunjucks templates you'll then look for the assets in `/modules/my-apostrophe-assets/`. This might not be very intuitive, but it allows symbolic links from `public/modules` to differentiate between the npm version of a module and additions you've made at a project-level. 
+> The following isn't necessary (strictly speaking) until you start doing production deployments on a cloud server, but since you'll probably need to put your site online eventually, why not start off on the right foot?
 
-As an example, if I wanted to include the woff file for the Karla webfont, I would place the file at `lib/modules/apostrophe-assets/public/fonts/karla.woff` and in my less file I would specify `url('/modules/my-apostrophe-assets/fonts/karla.woff)`.
+There's a couple ways you can go about this. We'd recommend creating a theme module as the pathing is more straightforward, but the choice is yours.
 
-If you're including assets in a custom module instead of apostrophe-assets or another built-in module, you won't have to worry about symbolic links, so you can use `lib/modules/my-module/public` and `/modules/my-module/`.
+### Assets in a theme module 
+
+When making comprehensive visual changes including css, javascript, web-fonts, and image assets, it's a good idea to create a theme module to all your additions together. Don't forget to push your stylesheets and javascript though, which will be described in the next section.
+
+
+Your `my-theme` module might look something like the following:
+
+```
+my-theme
+  - public/
+    - css/
+    - fonts/
+    - img/
+    - js/
+  - index.js
+```
+
+In your `my-theme` module, you'll include your assets in `lib/modules/my-theme/public/**`. You'll then reference them in your css and nunjucks templates at `modules/my-theme/**`.
+
+As an example, with `karla.woff` in `lib/modules/my-theme/public/fonts` the @font-face definition could be as simple as:
+
+```css
+@font-face {
+	font-family: 'Karla';
+	src: url('/modules/my-theme/fonts/karla.woff') format('woff');
+}
+```
+
+### Assets in apostrophe-assets
+
+When including your assets in any module that comes with Apostrophe you'll run into some unexpected differences compared to using your own module. We'll use `karla.woff` as an example again, this time in `apostrophe-assets`. 
+
+If you included `karla.woff` in `lib/modules/apostrophe-assets/public/fonts`, then in your less files the URL would be `/modules/my-apostrophe-assets/fonts/karla.woff`. The use of `my-` in front of the module name in less allows symbolic links from `public/modules` to differentiate between the npm version of a core Apostrophe module and additions you've made at a project-level. 
 
 ## Pushing stylesheets and JavaScript from your own modules
 
