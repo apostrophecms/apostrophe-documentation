@@ -421,6 +421,39 @@ Example:
 }
 ```
 
+#### `color`
+
+A `color` field provides a colorpicker interface to the editor for choosing/pasting a hex value to be stored. Values are stored as hex strings.
+
+Example:
+
+```javascript:
+{
+  type: 'color',
+  name: 'bgColor',
+  label: 'Background Color'
+}
+```
+
+#### `range`
+
+A `range` field provides a [range input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range) interface for tuning integers. Values are stored as floats.
+
+Example:
+
+```javascript:
+{
+  type: 'range',
+  name: 'fontSize',
+  label: 'Font Size',
+  min: 18,
+  max: 32,
+  step: 2 // optional
+}
+```
+
+
+
 #### `joinByOne`
 
 A `joinByOne` field expresses a one-to-one relationship between this type of object and another type of object. After Apostrophe loads the original object, it will fetch the "joined" object and attaching it to the original via the specified `name` property.
