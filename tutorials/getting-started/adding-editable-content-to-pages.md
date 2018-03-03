@@ -143,7 +143,7 @@ Here is an example with the popular options:
 
 If you don't specify a size, the `full` size is displayed.
 
-We'll talk about custom image sizes in a later tutorial.
+We'll talk about adding custom image sizes in [`apostrophe-attachments`](../../modules/apostrophe-attachments/index.html#code-add-image-sizes-code) in a later tutorial.
 
 #### `apostrophe-files`
 
