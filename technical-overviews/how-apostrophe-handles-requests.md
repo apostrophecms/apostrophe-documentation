@@ -197,4 +197,4 @@ self.apos.app.get('/special-url', function(req, res) {
 
 Note that `pageBeforeSend` methods are invoked first before the template is rendered.
 
-  `sendPage` completes your response to the Express request. There is no need to call `res.send` afterards and it will not work if you try. If you need to do anything special to the Express `res` object before the response is sent, do that first, accessing it via `req.res`.
+  `sendPage` completes your response to the Express request. There is no need to call `res.send` afterwards and it will not work if you try. If you need to do anything special to the Express `res` object before the response is sent, do that first, accessing it via `req.res`.
