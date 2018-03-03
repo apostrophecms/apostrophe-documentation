@@ -93,7 +93,7 @@ For backwards compatibility. Equivalent to calling `insert` with
 the same three arguments.
 ### insert(*req*, *file*, *options*, *callback*) *[api]*
 Insert a file as an Apostrophe attachment. The `file` object
-should be an object with `name` and `path` properties. 
+should be an object with `name` and `path` properties.
 `name` must be the name the user claims for the file, while `path`
 must be the actual full path to the file on disk and need not have
 any file extension necessarily.
@@ -392,3 +392,11 @@ of the file object.
 
 ### POST /modules/apostrophe-attachments/focal-point-editor
 
+## Command line tasks
+
+```
+node app apostrophe-attachments:rescale
+```
+Updates each size version for each image in the media library. Typically used
+after updating the `imageSizes` in order to create versions for the new or
+changed image sizes.
