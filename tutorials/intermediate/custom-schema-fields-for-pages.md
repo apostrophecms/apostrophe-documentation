@@ -3,7 +3,7 @@ title: "Custom schema fields for pages"
 layout: "tutorial"
 ---
 
-If you've read [reusable content with pieces](../getting-started/reusable-content-with-pieces.html), then you have had a good instroduction to [apostrophe schemas](../getting-started/schema-guide.html). You have already experienced the flexibility of adding new fields to your own piece types. But what about pages?
+If you've read [reusable content with pieces](../getting-started/reusable-content-with-pieces.html), then you know about [apostrophe schemas](../getting-started/schema-guide.html). You have already experienced the flexibility of adding new fields to your own piece types. But what about pages?
 
 Here's the good news: you can do the same trick with pages. The right way to do it depends on whether you want to enhance *just one* page type with extra fields in "Page Settings," or add those fields to *all* page types.
 
@@ -80,3 +80,13 @@ Instead, we use `beforeConstruct` to manipulate the options **after** our subcla
 > `beforeConstruct` is unique in that it runs "bottom first:" the deepest subclass, for instance the `gallery-pages` module we saw above, gets to run it first, and then its parent class, and so on. That's how we are able to see fields that come from our subclasses in this method, and combine them with fields of our own. This technique should always be used when you expect your module to be extended by other people.
 >
 > By creating an `index.js` file in `lib/modules/apostrophe-custom-pages`, at "project level," we have "implicitly subclassed" the core implementation of `apostrophe-custom-pages` that comes from the `apostrophe` module. That means we can add new functionality to it, and other modules will automatically see it.
+>
+> If you want to ship functionality like this in an npm module, then things can't be quite so implicit. You'll need to use the `improve` option. Check out the [apostrophe-seo module source code](https://github.com/apostrophecms/apostrophe-seo) for a very straightforward example of a "bundle" module that improves several core Apostrophe modules.
+
+## Custom schema fields for ALL document types
+
+It is possible to add fields to ALL document types, not just pages. To do that, just use the technique described above for adding fields to all page types. But, extend `apostrophe-doc-type-manager`, rather than `apostrophe-custom-pages`.
+
+`apostrophe-doc-type-manager` is the "base class" of both `apostrophe-pieces` and `apostrophe-custom-pages`.
+
+Of course you should use this power carefully. "Opt in" is a good policy. Consider crafting your `beforeConstruct` code to look for an `option` that turns on adding the fields, so they are not attached to things like `apostrophe-users` that almost certainly won't need them.
