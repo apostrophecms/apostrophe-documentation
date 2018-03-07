@@ -3,6 +3,7 @@ title: "Intermediate tutorials"
 layout: reference
 children:
   - permissions
+  - custom-schema-fields-for-pages
   - model-layer
   - cursors
   - forms
