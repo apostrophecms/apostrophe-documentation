@@ -380,7 +380,7 @@ Uploaded files are stored via [uploadfs](https://npmjs.org/package/uploadfs).
 
 Once an attachment field has a value, you can obtain a URL to the file by calling `apos.attachments.url(attachment)`. If the file is an image, you can obtain images of any configured size by calling `apos.attachments.url(attachment, { size: 'one-half' })`, etc.
 
-`attachment` fields can be limited to a particular file type group by setting the `group` option to either `images` or `office`. Other groups can be configured via the `fileGroups` option of the [apostrophe-attachments](../../modules/apostrophe-attachments/index.js) module.
+`attachment` fields can be limited to a particular file type group by setting the `group` option to either `images` or `office`. Other groups can be configured via the `fileGroups` option of the [apostrophe-attachments](../../modules/apostrophe-attachments/index.html) module.
 
 Attachments are most often used indirectly via [apostrophe-images-widgets](../../modules/apostrophe-images-widgets/index.html) or [apostrophe-files-widgets](../../modules/apostrophe-files-widgets/index.html), which are backed by the [apostrophe-images](../../modules/apostrophe-images) and [apostrophe-files](../../modules/apostrophe-files) subclasses of pieces. Each of those piece types contains an attachment field and some metadata fields, making them a convenient way to reuse files.
 
