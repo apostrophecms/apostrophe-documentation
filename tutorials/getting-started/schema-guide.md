@@ -261,6 +261,23 @@ Example:
 
 When the "On Campus" choice is selected, the schema fields named `accessible` and `vegetarian` will be visible. At all other times they will not be.
 
+**A cursor filter method is added automatically for all fields of type `select`.** This means joins to pieces containing a `select` type field can be filtered by the field's value;
+
+Example:
+
+```javascript
+{
+  name: '_post',
+  type: 'joinByOne',
+  filters: {
+    postType: 'event',
+    projection: [
+      ...
+    ]
+  }
+}
+```
+
 #### `integer`
 
 `integer` adds an editable integer field to the schema. You may set minimum and maximum values using the `min` and `max` options. Any fractional part is discarded.
