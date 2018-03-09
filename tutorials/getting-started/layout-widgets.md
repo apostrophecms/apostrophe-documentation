@@ -73,7 +73,7 @@ In `lib/modules/two-column-widgets/views/widget.html`
             }
         }) }}
     </div>
-<div class="column-right">
+    <div class="column-right">
         {{ apos.area(data.widget, 'areaRight', {
             widgets: {
                 'apostrophe-images': {}
