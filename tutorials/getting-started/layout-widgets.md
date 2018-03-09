@@ -64,7 +64,7 @@ Now, like any other widget, you need to have a `widget.html` template. In this c
 
 In `lib/modules/two-column-widgets/views/widget.html`
 
-```html
+```markup
 <div class="two-column">
     <div class="column-left">
         {{ apos.area(data.widget, 'areaLeft', {
