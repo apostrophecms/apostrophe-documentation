@@ -21,9 +21,8 @@ Anything that isn't a digit or an ASCII letter prompts the next character
 to be uppercase. Existing uppercase letters also trigger uppercase, unless
 they are the first character; this preserves existing camelCase names.
 ### cssName(*camel*)
-Convert everything else to a hyphenated css name. Not especially fast,
-hopefully you only do this during initialization and remember the result
-KEEP IN SYNC WITH SERVER SIDE VERSION in apostrophe.js
+Convert other name formats such as underscore and camelCase to a hyphenated css-style
+name.
 ### eventName()
 Create an event name from one or more strings. The original strings can be
 CSS names or camelized names, it makes no difference. The end result
@@ -65,8 +64,7 @@ for `_id`. Returns the clone.
 
 This removes the output of joins and
 other dynamic loaders, so that dynamically available
-related content is not considered when comparing the
-equality of two objects with _.isEq later.
+content is not stored redundantly in MongoDB.
 
 If the object is an array, the clone is also an array.
 
@@ -74,4 +72,53 @@ Date objects are cloned as such. All other non-JSON
 objects are cloned as plain JSON objects.
 
 If `keepScalars` is true, properties beginning with `_`
-are kept as long as they are not objects.
+are kept as long as they are not objects. This is useful
+when using `clonePermanent` to limit JSON inserted into
+browser attributes, rather than filtering for the database.
+Preserving simple string properties like `._url` is usually
+a good thing in the former case.
+
+Arrays are cloned as such only if they are true arrays
+(Array.isArray returns true). Otherwise all objects with
+a length property would be treated as arrays, which is
+an unrealistic restriction on apostrophe doc schemas.
+### log(*msg*)
+Log a message. The default
+implementation wraps `console.log` and passes on
+all arguments, so substitution strings may be used.
+
+Overrides should be written with support for
+substitution strings in mind. See the
+`console.log` documentation.
+### info(*msg*)
+Log an informational message. The default
+implementation invokes
+`console.info` if available, otherwise
+an alias for `apos.utils.log`. Note that
+substitution strings may be used.
+
+Overrides should be written with support for
+substitution strings in mind. See the
+`console.log` documentation.
+### error(*msg*)
+Log an error message. The default implementation
+wraps `console.error` and passes on all arguments,
+so substitution strings may be used.
+
+Overrides should be written with support for
+substitution strings in mind. See the
+`console.log` documentation.
+### warn(*msg*)
+Log a warning. The default implementation wraps
+`console.warn` and passes on all arguments,
+so substitution strings may be used.
+If `console.warn` does not exist, falls back
+to `apos.utils.error`.
+
+Overrides should be written with support for
+substitution strings in mind. See the
+`console.log` documentation.
+
+The intention is that `apos.utils.warn` should be
+called for situations less dire than
+`apos.utils.error`.

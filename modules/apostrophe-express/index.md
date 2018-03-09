@@ -109,7 +109,7 @@ but it's easier to let Apostrophe do the work of setting it up:
 session: {
   store: {
     name: 'connect-redis',
-    options: { 
+    options: {
       // redis-specific options here
     }
   }
@@ -226,8 +226,8 @@ exclude a route from this.
 ### compileCsrfExceptions()
 Compile CSRF exceptions, which may be regular expression objects or
 "minimatch" strings using the * and ** wildcards. They are
-taken from `options.csrf.exceptions`. `/login` is an exceptions
-by default, which can be overridden via `options.csrf.minimumExceptions`.
+taken from `options.csrf.exceptions`. `/login`, `/password-reset` and `/password-reset-request`
+are exceptions by default, which can be overridden via `options.csrf.minimumExceptions`.
 Also invokes the `csrfExceptions` Apostrophe event, passing
 the array of exceptions so it can be added to or otherwise modified
 by modules such as `apostrophe-headless`.

@@ -159,7 +159,7 @@ and `end` methods with the job object. *For convenience,
 only `start` and `end` require a callback.*
 
 Once you successfully call `start`, you *must* eventually call
-`end` with a `job` object and a callback. In addition, 
+`end` with a `job` object and a callback. In addition,
 you *may* call `success(job)` and `error(job)` any number of times
 to indicate the success or failure of one "row" or other item
 processed, and you *may* call `setTotal(job, n)` to indicate

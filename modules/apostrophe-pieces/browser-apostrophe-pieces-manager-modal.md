@@ -127,10 +127,13 @@ pieces for joins overrides this with an empty method and substitutes its
 own implementation.
 ### reflectChoiceInCheckbox(*id*)
 Reflect the current selection state of the given id
-by checking or unchecking the relevant box, if
-currently visible
+by checking or unchecking the relevant box based on
+whether it is included in `self.getIds()`
 ### getCheckbox(*id*)
 Return a jquery object referencing the checkbox for the given piece id
+### getVisibleIds()
+Return array of ids corresponding to the items currently visible
+in the modal's list view, whether checked or not
 ### displayChoiceInCheckbox(*id*, *checked*)
 Set the display state of the given checkbox. returns
 a jQuery object referencing the checkbox, for the convenience

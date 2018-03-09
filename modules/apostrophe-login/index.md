@@ -21,6 +21,18 @@ This usually makes sense only in the presence of an alternative such as
 the `apostrophe-passport` module, which adds support for login via
 Google, Twitter, gitlab, etc.
 
+`passwordReset`
+
+If set to `true`, the user is given the option to reset their password,
+provided they can receive a confirmation email. Not available if `localLogin` is `false`.
+
+`passwordResetHours`
+
+When `passwordReset` is `true`, this option controls how many hours
+a password reset request remains valid. If the confirmation email is not
+acted upon in time, the user must request a password reset again.
+The default is `48`.
+
 ## Notable properties of apos.modules['apostrophe-login']
 
 `passport`
@@ -28,7 +40,7 @@ Google, Twitter, gitlab, etc.
 Apostrophe's instance of the [passport](https://npmjs.org/package/passport) npm module.
 You may access this object if you need to implement additional passport "strategies."
 
-## Global method: loginAfterLogin
+## callAll method: loginAfterLogin
 
 The method `loginAfterLogin` is invoked on **all modules that have one**. This method
 is a good place to set `req.redirect` to the URL of your choice. If no module sets
@@ -50,7 +62,7 @@ methods may optionally take a callback.
 ### deserializeUser(*id*, *callback*)
 Given a user's `_id`, fetches that user via the login module
 and, if the user is found, invokes the `loginDeserialize`
-method of all modules that have one via `callAll`. 
+method of all modules that have one via `callAll`.
 Then invokes the callback with `(null, user)`.
 
 If the user is not found, invokes the callback with
@@ -103,7 +115,7 @@ PLEASE NOTE THAT A USER FAILING TO LOG IN
 argument. You MUST check the second argument.
 
 The convention is set this way for compatibility
-with `passport`.    
+with `passport`.
 ### enableMiddleware()
 Add Passport's initialize and session middleware.
 Also add middleware to add the `req.data.user` property.
@@ -112,6 +124,8 @@ control of timing relative to other modules.
 ### addRoutes()
 Add the `/login` route, both GET (show the form) and POST (submit the form).
 Also add the `/logout` route.
+### getPasswordResetLifetimeInMilliseconds()
+
 ### addUserToData(*req*, *res*, *next*)
 Add the `user` property to `req.data` when a user is logged in.
 ### pushAssets()

@@ -392,11 +392,3 @@ of the file object.
 
 ### POST /modules/apostrophe-attachments/focal-point-editor
 
-## Command line tasks
-
-```
-node app apostrophe-attachments:rescale
-```
-Updates each size version for each image in the media library. Typically used
-after updating the `imageSizes` in order to create versions for the new or
-changed image sizes.

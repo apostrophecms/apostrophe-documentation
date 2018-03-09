@@ -81,6 +81,8 @@ to use this method rather than simply setting
 `window.location.href` yourself.
 ### enhanceDate(*$el*, *options*)
 Enhance a plaintext date field with a pikaday date widget.
+### enhanceColorpicker(*$el*, *options*)
+Enhance a plaintext color field with Spectrum
 ### formatTime(*time*, *options*)
 Converts apostrophe-schemas 24 hour time field strings
 to local time. The format string depends on the

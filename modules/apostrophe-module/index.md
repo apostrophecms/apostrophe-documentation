@@ -300,7 +300,7 @@ function takes a callback.
 A convenience method to fetch properties of `self.options`.
 
 `req` is required to provide extensibility; modules such as
-`apostrophe-workflow` and `apostrophe-option-overrides` 
+`apostrophe-workflow` and `apostrophe-option-overrides`
 can use it to change the response based on the current page
 and other factors tied to the request.
 
@@ -339,7 +339,7 @@ of links. So you do not need a separate plaintext template.
 is passed on to `nodemailer`, except that `options.html` and
 `options.plaintext` are automatically provided via the template.
 
-In particular, your `options` object should continue
+In particular, your `options` object should contain
 `from`, `to` and `subject`. You can also configure a default
 `from` address, either globally by setting the `from` option
 of the `apostrophe-email` module, or locally for this particular
@@ -347,7 +347,7 @@ module by setting the `from` property of the `email` option
 to this module.
 
 If you need to localize `options.subject`, you can call
-`self.apos.i18n.__(subject)`. 
+`self.apos.i18n.__(subject)`.
 
 The callback receives `(err, info)`, per the Nodemailer documentation.
 With most transports, lack of an `err` indicates the message was

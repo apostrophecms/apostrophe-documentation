@@ -57,7 +57,7 @@ saved in the database before the callback is invoked. The
 Lock, sanitize and save the area described by `areaInfo` on behalf
 of `req`.
 
-`areaInfo` must have `items`, `docId` and `dotPath` 
+`areaInfo` must have `items`, `docId` and `dotPath`
 parameters. For bc, if `req.htmlPageId` is not present
 then advisory locking is not performed.
 

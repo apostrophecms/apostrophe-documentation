@@ -14,6 +14,20 @@ clearly in the domain of any other module. If you don't wish
 it was standard in JavaScript, it probably doesn't belong here.
 Many methods are simple wrappers for [lodash](https://npmjs.org/package/lodash) methods.
 
+## Options
+
+### `logger`
+
+A function which accepts `apos` and returns an object with
+at least `info`, `debug`, `warn` and `error` methods. These methods should
+support placeholders (see `util.format`). If this option is
+not supplied, logs are simply written to the Node.js `console`.
+A `log` method may also be supplied; if it is not, `info`
+is called in its place. Calls to `apos.utils.log`,
+`apos.utils.error`, etc. are routed through this object
+by Apostrophe. This provides compatibility out of
+the box with many popular logging modules, including `winston`.
+
 
 ## Methods
 ### generateId() *[api]*
@@ -186,6 +200,56 @@ Useful to locate a specific widget within a doc.
 Returns an object like this: `{ object: { ... }, dotPath: 'dot.path.of.object' }`
 
 Ignore the `_dotPath` argument to this method; it is used for recursion.
+### enableLogger() *[api]*
+
+### log(*msg*) *[api]*
+Log a message. The default
+implementation wraps `console.log` and passes on
+all arguments, so substitution strings may be used.
+
+Overrides should be written with support for
+substitution strings in mind. See the
+`console.log` documentation.
+
+If the logger has no `log` method, the `info` method
+is used. This allows an instance of `bole` or similar
+to be used directly.
+### info(*msg*) *[api]*
+Log an informational message. The default
+implementation wraps `console.info` and passes on
+all arguments, so substitution strings may be used.
+
+Overrides should be written with support for
+substitution strings in mind. See the
+`console.log` documentation.
+### debug(*msg*) *[api]*
+Log a debug message. The default implementation wraps
+`console.debug` if available, otherwise `console.log`,
+and passes on all arguments, so substitution strings may be used.
+
+Overrides should be written with support for
+substitution strings in mind. See the
+`console.warn` documentation.
+### warn(*msg*) *[api]*
+Log a warning. The default implementation wraps
+`console.warn` and passes on all arguments,
+so substitution strings may be used.
+
+Overrides should be written with support for
+substitution strings in mind. See the
+`console.warn` documentation.
+
+The intention is that `apos.utils.warn` should be
+called for situations less dire than
+`apos.utils.error`.
+### error(*msg*) *[api]*
+Log an error message. The default implementation
+wraps `console.error` and passes on all arguments,
+so substitution strings may be used.
+
+Overrides should be written with support for
+substitution strings in mind. See the
+`console.error` documentation.
 ### modulesReady()
 Add these after we're sure the templates module
 is ready. Only necessary because this module is
@@ -196,8 +260,14 @@ Turn the provided string into a string suitable for use as a slug.
 ONE punctuation character normally forbidden in slugs may
 optionally be permitted by specifying it via options.allow.
 The separator may be changed via options.separator.
-### log(*m*)
-Log a message to the console from a Nunjucks template. Great for debugging.
+### log(*msg*)
+Log a message from a Nunjucks template. Great for debugging.
+Outputs nothing to the template. Invokes apos.utils.log,
+which by default invokes console.log.
+### inspect(*o*)
+Log the properties of the given object in detail.
+Invokes `util.inspect` on the given object, down to a
+depth of 10. Outputs nothing to the template.
 ### generateId()
 Generate a globally unique ID
 ### isCurrentYear(*date*)
@@ -230,17 +300,6 @@ in addition to returning it
 If the `list` argument is a string, returns true if it begins
 with `value`. If the `list` argument is an array, returns
 true if at least one of its elements begins with `value`.
-### merge()
-Pass as many objects as you want; they will get merged via
-`_.merge` into a new object, without modifying any of them, and
-the resulting object will be returned. If several objects have
-a property, the last object wins.
-
-This is useful to add one more option to an options object
-which was passed to you.
-
-If any argument is null, it is skipped gracefully. This allows
-you to pass in an options object without checking if it is null.
 ### find(*arr*, *property*, *value*)
 Find the first array element, if any, that has the specified value for
 the specified property.
@@ -306,4 +365,13 @@ Nunjucks does not allow you to create an object with
 a property whose name is unknown at the time the
 template is written.
 ### merge()
+Pass as many objects as you want; they will get merged via
+`_.merge` into a new object, without modifying any of them, and
+the resulting object will be returned. If several objects have
+a property, the last object wins.
 
+This is useful to add one more option to an options object
+which was passed to you.
+
+If any argument is null, it is skipped gracefully. This allows
+you to pass in an options object without checking if it is null.

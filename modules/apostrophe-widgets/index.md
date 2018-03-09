@@ -35,6 +35,27 @@ and plural if it displays more than one thing, like `apostrophe-pieces`.
 of your module to set this option for you.** This is a good convention
 but you may set this option instead if you wish.
 
+### `playerData`
+
+By default, all of the permanent properties of your widget's schema
+are present in the page as JSON and can be accessed via the
+`data` argument of the `play` method of your browser-side object
+(see `always.js` in `apostrophe-images-widgets` for an example).
+
+This is often useful, but if the information is sensitive and you
+don't want it to be available in this way, set:
+
+`playerData: false`
+
+If you want the `play` method to have access to *some* of the
+properties, set:
+
+`playerData: [ 'propName1', 'propName2' ]`
+
+**When you have editing privileges, you always have access to
+100% of the permanent properties of the widget in this way.**
+This is needed for the editing experience.
+
 ### `scene`
 
 If your widget wishes to use Apostrophe features like schemas
@@ -159,6 +180,16 @@ If we don't do a good job here we get 1MB+ of markup! So if you override
 this, play nice. And seriously consider using an AJAX route to fetch
 the data you need if you only need it under certain circumstances, such as
 in response to a user click.
+
+If the user has editing privileges for the widget, all of the permanent
+properties of the widget are serialized.
+
+If the user does not have editing privileges:
+
+If the `playerData` option of the widget's module is set to `false`,
+only an empty object is supplied. If `playerData` is set to an
+array, only the named permanent properties are supplied. If `playerData is `true`
+(the default), all of the permanent properties are supplied.
 ### filterOptionsForDataAttribute(*options*)
 Filter options passed from the template to the widget before stuffing
 them into JSON for use by the widget editor. Again, we discard all
@@ -203,8 +234,12 @@ Return true if this widget should be considered
 empty, for instance it is a rich text widget
 with no text or meaningful formatting so far.
 By default this method returns false, so the
-presence of any widget of this type means 
+presence of any widget of this type means
 the area containing it is not considered empty.
+### getWidgetWrapperClasses(*widget*)
+override to add CSS classes to the outer wrapper div of the widget.
+### getWidgetClasses(*widget*)
+Override to add CSS classes to the div of the widget itself.
 ## API Routes
 ### POST /modules/apostrophe-widgets/modal
 A POST route to render `widgetEditor.html`. `data.label` and

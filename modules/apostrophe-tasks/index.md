@@ -18,6 +18,10 @@ node app apostrophe-migrations:migrate
 Apostrophe is fully initialized before your task is run, except that it does
 not listen for connections. So you may access all of its features in your task.
 
+Direct use of `console` makes sense here because
+we're implementing an interaction at the CLI.
+-Tom
+
 
 ## Methods
 ### add(*groupName*, *name*, *usage*, *callback*)

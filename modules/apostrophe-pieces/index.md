@@ -182,13 +182,29 @@ schema-based convert mechanisms, then
 invoke `responder` with `req, res, err, piece`.
 Implements `self.routes.insert`. Also used
 by the optional `apostrophe-pieces-rest-api` module.
+
+If `req.piece` has a `_copyingId` property, fetch that
+piece and, if we have permission to edit, copy its
+non-schema-based top level areas into the new piece.
+This accounts for content editor-modal.js doesn't know about.
 ### convertUpdateAndRefresh(*req*, *responder*) *[api]*
-Update the existing piece at `req.piece`
-(usually populated via the requirePiece middleware)
-based on `req.body`, fetch the updated piece
+Update the piece object at `req.piece`
+(usually populated via the requirePiece middleware
+or by the insert route) based on `req.body`, fetch the updated piece
 and invoke `responder` with `req, res, err, piece`.
 Implements the back end of the `update` route, also used
 by the optional `apostrophe-pieces-rest-api` module.
+### copyExtraAreas(*req*, *copyFrom*, *piece*, *callback*) *[api]*
+Copy top-level areas present in `copyFrom` to `piece`,
+leaving any that are already present in `piece` alone.
+The copy mechanism in the piece editor modal only
+knows about noncontextual schema fields, this method is called on the
+server side to copy contextual and undeclared areas too
+### copyExtras(*req*, *copyFrom*, *piece*, *callback*) *[api]*
+An empty stub you may override to copy extra properties
+not visible to the schema when the user carries out a
+"copy piece" operation. At this point schema fields and
+top level extra areas have already been copied
 ### getCreateControls(*req*) *[api]*
 
 ### getEditControls(*req*) *[api]*

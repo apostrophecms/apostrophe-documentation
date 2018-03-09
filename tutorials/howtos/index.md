@@ -4,6 +4,8 @@ menu: "Documentation"
 layout: reference
 children:
   - notFoundPage
+  - email
+  - password-reset
   - search
   - admin-bar
   - children-and-joins

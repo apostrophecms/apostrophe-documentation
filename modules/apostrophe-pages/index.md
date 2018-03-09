@@ -146,6 +146,14 @@ child of the home page.
 * Any other properties that do not begin with a `_` are automatically
 refreshed on the page object in the database at startup time.
 
+* RECOMMENDED: give every parked page a `parkedId` property which
+is unique among your parked pages. If you do this, you will be
+able to change the slug property later. If you don't, changing
+the slug property will result in two pages, because it is being
+used to identify the existing parked page. You MAY add this property
+later, but you MUST DO IT BEFORE you change `slug` (not at
+the same time).
+
 * If a page has a `_children` array property, these are additional parked pages,
 created as children of the page.
 
@@ -296,7 +304,7 @@ The `options` argument may be omitted entirely.
 If `options.criteria` is present, it is merged with
 all MongoDB criteria used to read and write the database in `self.move`.
 If `options.filters` is present, those filters are invoked
-on any Apostrophe cursor find() calls used to read and write the database in `self.move`. 
+on any Apostrophe cursor find() calls used to read and write the database in `self.move`.
 
 In addition, `options` is passed back to the callback as a third argument,
 which is useful to detect recursive scenarios that come up in the
@@ -599,6 +607,8 @@ except that the parent page id is determined differently
 ### POST /modules/apostrophe-pages/get-jqtree
 
 ### POST /modules/apostrophe-pages/reorganize
+
+### POST /modules/apostrophe-pages/chooser-modal
 
 ### POST /modules/apostrophe-pages/info
 

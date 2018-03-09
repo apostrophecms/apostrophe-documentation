@@ -235,6 +235,16 @@ when APOS_S3_BUNDLE is in effect it can point elsewhere
 This task is primarily implemented by the logic in afterInit, however
 if we are sending a bundle to uploadfs this is a fine time to do
 that part.
+### stylesheetsHelper(*when*)
+Implementation of stylesheeets helper, as a method for
+easier use of super pattern to extend it. See the
+documentation for the stylesheets helper. Name is
+suffixed to avoid a conflict with a property.
+### scriptsHelper(*when*)
+Implementation of scripts helper, as a method for
+easier use of super pattern to extend it. See the
+documentation for the scripts helper. Name is
+suffixed to avoid a conflict with a property.
 ## Nunjucks template helpers
 ### stylesheets(*when*)
 apos.assets.stylesheets renders markup to load CSS that

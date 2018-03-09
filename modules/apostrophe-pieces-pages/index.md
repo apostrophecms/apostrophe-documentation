@@ -28,7 +28,7 @@ To learn more and see complete examples, see:
 
 ### `piecesFilters`
 
-If present, this is an array of objects with `name` properties. The named cursor filters are 
+If present, this is an array of objects with `name` properties. The named cursor filters are
 marked as `safeFor: "public"` if they exist, and an array of choices for each is populated
 in `req.data.piecesFilters.tags` (if the field in question is `tags`), etc. The choices in the
 array are objects with `label` and `value` properties.
