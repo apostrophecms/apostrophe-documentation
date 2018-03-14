@@ -94,7 +94,7 @@ We can use the same technique to extend the `apostrophe-global` module: a specia
 
 To pull off that trick, we just extend the schema of the `apostrophe-global` module with a few new fields, like this:
 
-```js
+```javascript
 // in the lib/module/apostrophe-global/index.js file
 // of your own project. Never edit the Apostrophe
 // npm module itself
