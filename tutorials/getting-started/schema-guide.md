@@ -98,7 +98,7 @@ Other properties vary by type.
 
 Here are all of the standard schema field types. *You can also add more field types to the system; check out the source code of the `apostrophe-attachments` module for a good example.*
 
-#### `area`
+### `area`
 
 The `area` field type defines an editable content area that allows users to add a series of widgets. It is exactly like calling `apos.area` in a page template.
 
@@ -123,7 +123,7 @@ Example:
 }
 ```
 
-#### `singleton`
+### `singleton`
 
 The `singleton` field type adds a single widget to your schema. It is exactly like calling `apos.singleton` in a page template.
 
@@ -145,7 +145,7 @@ Example:
 }
 ```
 
-#### `string`
+### `string`
 
 `string` adds an editable text string field to the schema. Setting `textarea: true` presents an interface that allows multiple lines. You may set minimum and maximum numbers of characters using the `min` and `max` options.
 
@@ -170,7 +170,7 @@ Example:
 }
 ```
 
-#### `slug`
+### `slug`
 
 `slug` adds a slug field to the schema. Usually there is only one, named `slug`, and it is already part of your schema when extending pieces or custom pages.
 
@@ -178,7 +178,7 @@ If the `page` property is `true`, slashes are allowed and a leading slash is alw
 
 By default slugs are sanitized by the [sluggo](https://github.com/punkave/sluggo) module. This can be changed by overriding the `apos.utils.slugify` method.
 
-#### `tags`
+### `tags`
 
 `tags` adds a field allowing the user to enter one or more tags. The interface will suggest completions for each tag, based on those that already exist in the `tags` properties of docs on the site.
 
@@ -192,13 +192,13 @@ By default, tags are converted to lowercase and leading and trailing whitespace 
 
 This behavior can be overridden by configuring the `apostrophe-launder` module's `filterTag` option to a function that accepts a string, filters it as desired, and returns a new string.
 
-#### `boolean`
+### `boolean`
 
 A `boolean` field is a simple "Yes or No" choice. The value stored in the database will be either `true` or `false`.
 
 If a `boolean` field is set `required: true`, the user must select "Yes" to complete the form. This may seem odd but is useful for consent fields.
 
-#### `checkboxes`
+### `checkboxes`
 
 A `checkboxes` field presents an array of checkboxes. For example:
 
@@ -230,7 +230,7 @@ The `required` option currently has no meaning for `checkboxes`.
 
 This is a multiple-select field. For a single yes-or-no choice, see [boolean](#boolean). For a single-select choice, see [select](#select).
 
-#### `select`
+### `select`
 
 A single-select dropdown menu. The `choices` array should be an array of objects with `label` and `value` properties. `value` is what winds up in the database, `label` is what the user sees.
 
@@ -278,7 +278,7 @@ Example:
 }
 ```
 
-#### `integer`
+### `integer`
 
 `integer` adds an editable integer field to the schema. You may set minimum and maximum values using the `min` and `max` options. Any fractional part is discarded.
 
@@ -292,7 +292,7 @@ Example:
 }
 ```
 
-#### `float`
+### `float`
 
 `integer` adds an editable floating point numeric field to the schema. You may set minimum and maximum values using the `min` and `max` options.
 
@@ -308,7 +308,7 @@ Example:
 }
 ```
 
-#### `url`
+### `url`
 
 `url` adds an editable URL field to the schema. Apostrophe will detect common mistakes, like leaving off `http://`, and add those things. Common XSS attack vectors are laundered and discarded. Only "safe" URL schemes, e.g. `http`, `https`, `ftp` and `mailto`, are permitted.
 
@@ -322,7 +322,7 @@ Example:
 }
 ```
 
-#### `date`
+### `date`
 
 `date` adds an editable date field to the schema. A friendly date picker UI is presented when the field is clicked. Dates are stored as strings in `YYYY-MM-DD` format, which is good for sorting and comparing purposes.
 
@@ -338,7 +338,7 @@ Example:
 
 **If you do not set `def: null` or `required: true`, the date defaults to the current date.**
 
-#### `time`
+### `time`
 
 `time` adds an editable time field to the schema. No special time picker is presented, however Apostrophe is very tolerant of different time formats users may enter, such as "6p" or "6:37pm" or "17:45".
 
@@ -348,11 +348,11 @@ The default "local" time format, displayed to the user when editing, is American
 
 **If you do not set `def: null` or `required: true`, the time defaults to the current time.**
 
-#### `password`
+### `password`
 
 `password` fields are identical to `string` fields except that the user's input is not visible.
 
-#### `array`
+### `array`
 
 An `array` field has its own schema, and allows the user to create one or more objects that have the fields in that schema. These objects are stored as an array.
 
@@ -429,13 +429,13 @@ module.exports = {
 <div>{{ apos.areas.richText(item.description) }}</div>
 ```
 
-#### `object`
+### `object`
 
 An `object` field has its own schema, and is very similar to an `array` field as described above. However there is always exactly one object, represented as an object property of the doc in the database (a sub-object).
 
 The use of this field is not strictly necessary, however it does avoid unnecessary prefixing of field names and nesting does take place in the form, which opens up the possibility of styling things to match.
 
-#### `attachment`
+### `attachment`
 
 An `attachment` field allows the user to upload a file to the server. The user may also choose to replace the file later when editing the field, or leave it in place.
 
@@ -464,7 +464,7 @@ Example:
 }
 ```
 
-#### `video`
+### `video`
 
 A `video` field allows the user to embed video hosted by any [oembed](http://oembed.com/)—compatible video hosting site, or any site for which you have provided an [oembetter](https://github.com/punkave/oembetter) filter via the [apostrophe-oembed](../../modules/apostrophe-oembed/index.html) module.
 
@@ -484,7 +484,7 @@ Example:
 }
 ```
 
-#### `color`
+### `color`
 
 A `color` field provides a colorpicker interface to the editor for choosing/pasting a hex value to be stored. Values are stored as hex strings.
 
@@ -498,7 +498,7 @@ Example:
 }
 ```
 
-#### `range`
+### `range`
 
 A `range` field provides a [range input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range) interface for tuning integers. Values are stored as floats.
 
@@ -517,7 +517,7 @@ Example:
 
 
 
-#### `joinByOne`
+### `joinByOne`
 
 A `joinByOne` field expresses a one-to-one relationship between this type of object and another type of object. After Apostrophe loads the original object, it will fetch the "joined" object and attaching it to the original via the specified `name` property.
 
@@ -558,7 +558,7 @@ Example:
 
 **Always remember that the `_fabric` property of the product may be null at any time.** Perhaps the fabric was moved to the trash, or unpublished. Your code must allow for this possibility.
 
-#### `joinByArray`
+### `joinByArray`
 
 A `joinByArray` field expresses a one-to-many relationship between this type of object and another type of object. After Apostrophe loads the original object, it will fetch the "joined" object and attaching it to the original via the specified `name` property.
 
@@ -596,7 +596,7 @@ Example:
 }
 ```
 
-##### Relationship properties and `joinByArray`
+#### Relationship properties and `joinByArray`
 
 Sometimes, the relationship between the two objects has properties of its own. For example, the relationship between a person and a department might have a `jobTitle` property. Yes, a person can have more than one job title!
 
@@ -637,7 +637,7 @@ Example:
 
 **Since there is a relationship, the `_departments` property will be an array of objects with `item` and `relationship` properties.** The `item` property will be the actual department, and the `relationship` property will contain the relationship fields, which are unique to this person.
 
-###### Inline relationship fields
+##### Inline relationship fields
 
 Sometimes, expecting users to click a special button to access a separate modal dialog box to edit relationship fields isn't worth it. Users just don't find it, or the fields are few enough that it would make more sense to add the form field directly to the chooser.
 
@@ -656,7 +656,7 @@ relationship: [
 
 If you have a mix of inline and regular fields, you'll still get the option of opening the modal, but for data integrity reasons fields are presented only in one place or the other.
 
-#### `joinByOneReverse`
+### `joinByOneReverse`
 
 A `joinByOneReverse` field allows us to access the other side of a [joinByOne](#joinByOne) relationship. Since this is the "other end" of the relationship, there is no editing interface. It is just a convenience allowing us to "see" the related object from the other point of view.
 
@@ -688,7 +688,7 @@ Example:
 
 We can now see `_product` as a property of each `fabric` object that is related to a product.
 
-#### `joinByArrayReverse`
+### `joinByArrayReverse`
 
 A `joinByArrayReverse` field allows us to access the other side of a [joinByArray](#joinByArray) relationship. Since this is the "other end" of the relationship, there is no editing interface. It is just a convenience allowing us to "see" the related objects from the other point of view.
 
