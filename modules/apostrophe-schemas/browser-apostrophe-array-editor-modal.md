@@ -13,10 +13,7 @@ is also implicitly loaded after first generating the item titles for the
 list view. This method is invoked for you by `afterShow` and should not be
 invoked again.
 ### generateTitle(*item*)
-This method generates the list view title for a single item, based
-on the `titleField` property of the field. If there is none,
-item._ordinal (the index of the item when it was first added
-to the array during this editing session) is displayed.
+This method is now a bc placeholder
 ### beforeShow(*callback*)
 This method, called for you when the modal is about to display,
 binds the various click handlers.
@@ -41,7 +38,9 @@ This method adds a new item to the array. It is invoked
 by `createItem`, which should be called instead if your intention
 is to immediately display the new item in the item editor.
 ### setItemTitles()
-
+this method is now a bc placeholder, except that it
+is still responsible for setting `_ordinal` to a unique
+counting number for each item that does not yet have one
 ### refreshItems()
 bc wrapper. This method was redundant. See `refresh`
 ### createItem()

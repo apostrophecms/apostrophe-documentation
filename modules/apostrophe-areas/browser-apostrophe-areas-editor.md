@@ -38,6 +38,8 @@ property, such as `apostrophe-rich-text` (note no suffix).
 added to the DOM.
 ### editItem(*$el*)
 
+### cloneItem(*$el*)
+
 ### moveItem(*$el*)
 
 ### trashItem(*$el*)
@@ -80,6 +82,8 @@ to the element being dragged.
 ### newSeparator()
 
 ### editWidget(*$widget*)
+
+### cloneWidget(*$widget*)
 
 ### checkEmptyAreas()
 
