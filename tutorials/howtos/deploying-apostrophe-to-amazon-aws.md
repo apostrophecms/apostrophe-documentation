@@ -1,27 +1,143 @@
 ---
-title: "Deploying Apostrophe in the Cloud"
+title: "Deploying Apostrophe to the Amazon Web Services (AWS) Cloud"
 layout: tutorial
 ---
 
-There are many cloud hosting services, but they all present the same challenges. Separate servers often don't share a single filesystem. The database usually needs its own scalable cloud hosting. And performing tasks like minifying assets is often best done in your development environment, minimizing what has to be done in production.
+Amazon AWS is the most widely used cloud hosting service. In this HOWTO we'll explore how to run Apostrophe effectively on AWS in a way that properly leverages the advantages of the cloud: availability, durability and scalable storage.
+
+All cloud hosting services present the same challenges. You want multiple webservers, but separate servers don't share a single filesystem. The database usually needs its own scalable cloud hosting. And performing tasks like minifying assets is often best done in your development environment, minimizing what has to be done in production.
 
 > The cloud is the right answer for high-traffic, high-value websites. But for sites with lower traffic, there are alternatives worth considering. See our [Linode HOWTO](linode.html) for a low-cost approach some may find simpler.
 
-## Deploying Apostrophe to Heroku
+## Deploying Apostrophe to AWS
 
-[Heroku](http://heroku.com) is a great starting point for cloud hosting because it is simple to set up, but all of the cloud's challenges come into play. What we learn by deploying to Heroku can be applied equally to Amazon EC2, Microsoft Azure and other cloud hosting services.
+[AWS](http://aws.amazon.com) is a great solution for cloud hosting because of Amazon's long experience in providing cloud services. Of course, what we learn by deploying to AWS can generally be applied to Amazon EC2, Microsoft Azure and other cloud hosting services as well.
 
-So for this how-to, we'll stick to free services from Heroku and mlab, a MongoDB cloud hosting service. But keep in mind you can choose paid plans as well with much higher capacity and performance. Everything we've done here is designed to scale smoothly to those paid offerings.
+For this HOWTO, we'll stick to services available in the AWS "free tier," as well as MongoDB's official [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) database service, which is hosted in AWS and also has a free tier. But keep in mind you can choose paid plans as well with much higher capacity and performance. Everything we've done here is designed to scale smoothly to those paid offerings.
+
+> **Important: the AWS free offerings are for evaluation purposes only.** There are [limits on how long you can use free AWS services](https://aws.amazon.com/free) and they are subject to change. **Operating two load-balanced webservers as suggested here will use up your free EC2 instance time for the month in just two weeks.** Most other services are only free for one year — as of this writing.
+>
+> So please do not make long-term plans to rely on the free tier — just use it to check out what's possible in the cloud.
 
 ## Before you begin
 
 First, build an Apostrophe site! See the [getting started tutorial](../getting-started/index.html).
 
-Make sure you commit it to a git repository. git is a big part of how Heroku deploys websites.
+Make sure you commit it to a git repository. There's no sense worrying about scale if you haven't adopted a sustainable development process yet.
 
-## First steps with Heroku
+## First steps with AWS
 
-Next, create an account at [heroku.com](http://heroku.com).
+Next, create an account at [AWS](http://aws.amazon.com).
+
+You will need to add a method of payment, but keep in mind you can use resources available in the free tier to complete this tutorial, at the time of this writing.
+
+Now, install the [AWS CLI](https://aws.amazon.com/cli/). While most things we are about to do can be done via the [AWS Console](http://console.aws.amazon.com), starting with the CLI will help you script your tasks more efficiently in the future.
+
+The remaining steps assume you have successfully installed the `awscli` package with `pip`, as described on the [AWS CLI page](https://aws.amazon.com/cli/). See also their [MacOS install page](https://docs.aws.amazon.com/cli/latest/userguide/cli-install-macos.html).
+
+### Configuring the AWS CLI
+
+Next, you'll need to configure the AWS CLI:
+
+```
+aws configure
+```
+
+You will be prompted for your access key id and secret. You will obtain these while creating your account, or you can generate new ones at any time via the [AWS Console](http://console.aws.amazon.com).
+
+> Due to a [bug in the AWS CLI](https://github.com/aws/aws-cli/issues/602), you may have trouble if your secret contains `/`, `+` or `%` characters. Currently the standard advice is to generate new secrets via the console until you obtain one without these characters.
+
+### Creating a key pair
+
+We will need ssh public and private keys, for making connections to our webservers. The CLI helps us create those:
+
+```
+aws ec2 create-key-pair --key-name apostrophe-test --query 'KeyMaterial' --output text > apostrophe-test.pem
+# Set permissions so others cannot snoop on this private key
+chmod 400 apostrophe-test.pem
+```
+
+### Creating your EC2 instances (webservers)
+
+Our next step is to create two "EC2 instances." EC2 instances are virtual computers. To achieve **high availability**, we create two rather than one. We'll set up a load balancer later.
+
+These commands will create two very small EC2 instances in the free tier, in two separate **availability zones**, for durability in the event of a major incident at Amazon. You will need to use the correct `image-id` for the current version of Amazon Linux. As of this writing, that is `ami-1853ac65`, but that will become outdated, so [try the Launch Instance wizard](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#LaunchInstanceWizard) just to discover the ID.
+
+TODO TEST THIS WITH THE AVAILABILITY ZONE STUFF
+
+```
+aws ec2 run-instances --image-id ami-xxxxxxxx --instance-type t2.micro --key-name apostrophe-test
+--placement AvailabilityZone=us-east-1a
+aws ec2 run-instances --image-id ami-xxxxxxxx --instance-type t2.micro --key-name apostrophe-test
+--placement AvailabilityZone=us-east-1b
+```
+
+Note the 
+
+> For simplicity, this command will create your instances using your default [security group](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html) and [subnet](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html). In production, you'll want to use a bigger instance that isn't free. See the official list of [EC2 instance types](https://aws.amazon.com/ec2/instance-types/).
+
+Soon we'll configure these webservers to run Apostrophe. But first, let's take care of the rest of our cloud infrastructure.
+
+### Creating your load balancer
+
+TODO THIS DOES NOT USE THE CLI, FIX THAT
+
+We have two webservers, to share the load and stay responsive if one goes down. But that only works if there is a "load balancer" to actually distribute traffic to them. Let's set that up:
+
+1. In the [AWS Console](https://console.aws.amazon.com), click "EC2" again under "Compute."
+2. In the menu at left, scroll down to "Load Balancers."
+3. Click "Create Load Balancer."
+4. Click "Create" under "Application Load Balancer."
+5. Give your load balancer a name. We suggest the same name as your project's `shortname`.
+6. Under "Listeners," make sure "HTTP" is selected, with port `80`.
+7. Under "availability zone," 
+
+### Creating your MongoDB replica set (database)
+
+Now we'll need a database. We could run MongoDB directly on a webserver, but since durability is the entire point of the cloud, we should use a "replica set" — a group of at least three servers configured to automatically take over from each other. 
+
+We could set that up ourselves, and [there are HOWTOs for that on the web](https://eladnava.com/deploy-a-highly-available-mongodb-replica-set-on-aws/). But we don't recommend it. Another big win of the cloud is outsourcing "ops," and administering MongoDB database servers is best left to the professionals [at MongoDB](https://www.mongodb.com/cloud/atlas). Specifically, the [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) hosting service.
+
+To get started, [create an account on MongoDB Atlas](https://www.mongodb.com/cloud/atlas). You'll be invited to create an organization, and then a project. Then click "Build a New Cluster."
+
+When you build your cluster, make sure that:
+
+* You give it a name that will make sense to you later. We suggest the same "shortname" you gave your Apostrophe project.
+* You choose "Amazon Web Services" as the cloud provider. You want MongoDB to host your database close to your webservers, to minimize latency.
+* You choose the same AWS "region" as you chose when configuring the AWS CLI, for the same reason. If you don't recall making a choice, go with `us-east-1`.
+
+> Later you might create a cross-region cluster, for very high durability. For now, in the free tier, we'll keep it simple.
+
+* For "Instance Size," choose "M0", the free tier (512MB of storage). Later you'll want something bigger and better.
+* For the free tier, do **not** pick sharding, backup, or other optional services. Note that sharding is unsuitable for CMS work.
+* Create a database username and password. Use a secure password or let them generate one!
+* Click "Confirm & Deploy."
+
+Once you have clicked "Confirm & Deploy," you have a few more steps to take care of:
+
+* Click "Security," then "IP Whitelist." Add the IP addresses of your EC2 webservers.
+* If you don't know what they are, go back to the AWS Console, click "EC2," and scroll right to find the "IPv4 Public IP" column.
+* You must whitelist both servers.
+* Wait until the "Overview" no longer indicates the database is still being set up.
+
+### Creating your uploaded file storage (Amazon S3)
+
+Next, we'll need a place to store our uploaded files.
+
+For that, we'll use the Amazon S3 storage service. Amazon S3 is designed to provide high availability and eliminate fixed limits on how many files you can be or how much space they can take up. You pay only for the space and bandwidth you use.
+
+> **"Hey wait, don't our webservers have file storage built right in?"** Yes, they each have 30GB of local disk storage. However, they cannot "see" each other's storage... which is a problem since we're load-balancing the site between them. And, their storage is only backed up within a single AWS "availability zone." Again, high durability is part of why we're in the cloud in the first place. So let's do this right.
+
+Here's how to set up S3:
+
+* In the [AWS Console](https://console.aws.amazon.com), under "Storage," click "S3."
+* Click "Create Bucket."
+* Name the bucket. We suggest you give it the same name as your project's "shortname" but it's up to you.
+* Do not activate any of the optional services for now.
+* On the "Manage Users" page, accept the defaults for now.
+* Click "Create Bucket."
+
+LEFT OFF HERE
 
 Then create a Heroku app, choosing any app name and runtime location (US, Europe, etc.) you wish.
 
