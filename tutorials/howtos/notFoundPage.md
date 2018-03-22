@@ -6,7 +6,7 @@ layout: tutorial
 To get 404 not found pages to display (instead of an
 error saying you don't have one), just create:
 
-```
+```bash
 lib/modules/apostrophe-pages/views/notFound.html
 ```
 

@@ -130,19 +130,19 @@ If you just call `toArray`, you can get a lot of data. A *lot*. Especially if th
 
 You can use `skip` and `limit` like you would with raw MongoDB:
 
-```
+```javascript
 return self.find(req).skip(100).limit(10).toArray(function(err, pages) { ... })
 ```
 
 And you can use `toCount` to figure out how many documents there are in total:
 
-```
+```javascript
 return self.find(req).toCount(function(err, count) { ... })
 ```
 
 But, consider using the built-in `perPage` and `page` filters, which are simpler:
 
-```
+```javascript
 return self.find(req).perPage(10).page(11).toArray(function(err, pages) { ... })
 ```
 

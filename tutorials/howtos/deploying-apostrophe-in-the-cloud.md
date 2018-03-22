@@ -29,7 +29,7 @@ Now, following the instructions on the Heroku site, install the [Heroku CLI](htt
 
 To enable deployment, add Heroku as a "git remote" to which your code can be pushed:
 
-```
+```bash
 heroku git:remote -a apostrophetest (use YOUR app name)
 ```
 
@@ -47,7 +47,7 @@ If you can, give your database the same name as your app, just for simplicity, b
 
 After you create the database, click on it to reveal the connection information. You want the MongoDB URI. It will look like this:
 
-```
+```bash
 mongodb://<dbuser>:<dbpassword>@dsxxxxx.mlab.com:xxxxx/YOUR-database-name
 ```
 
@@ -61,7 +61,7 @@ Now you can create the complete URI, by inserting the username and password you 
 
 By default, Apostrophe connects to MongoDB on your local machine:
 
-```
+```bash
 mongodb://localhost:27017/YOUR-SHORTNAME-HERE
 ```
 
@@ -75,7 +75,7 @@ The right database name is *server dependent*: it differs between your computer 
 
 There's a UI for this too, but the command line is much easier to script later:
 
-```
+```bash
 heroku config:set 'APOS_MONGODB_URI=mongodb://YOUR-uri-goes-here'
 ```
 
@@ -83,7 +83,7 @@ We use the single quotes to avoid problems with most special characters in the U
 
 From here, you can test your site locally. This is typically done with:
 
-```
+```bash
 npm install
 npm run start
 ```
@@ -92,7 +92,7 @@ You should be able to view your website at the designated local port.
 
 You can also test it *without* Heroku, on your local machine, by setting the environment variable just for one local run of your site:
 
-```
+```bash
 APOS_MONGODB_URI=mongodb://YOUR-uri-goes-here node app
 ```
 
@@ -104,7 +104,7 @@ APOS_MONGODB_URI=mongodb://YOUR-uri-goes-here node app
 
 8. Your database exists now on mlab, but it contains no users, so you won't be able to log in. Let's use the command line to connect again to fix that:
 
-```
+```bash
 APOS_MONGODB_URI=mongodb://YOUR-uri-goes-here node app apostrophe-users:add admin admin
 ```
 
@@ -126,7 +126,7 @@ Choose a bucket name (the same as your app is nice but not mandatory) and a regi
 
 Now test it *without* Heroku, on your local machine, by setting the environment variables just for one run of your site (the trailing `\` characters are there to allow us to break one command line over multiple lines for readability in the `bash` shell):
 
-```
+```bash
 APOS_S3_BUCKET=YOUR-bucket-name \
 APOS_S3_SECRET=YOUR-s3-secret \
 APOS_S3_KEY=YOUR-s3-key \
@@ -144,7 +144,7 @@ Upload an image to your site, then right-click it and inspect the image URL. It 
 
 Just use `heroku config:set` again:
 
-```
+```bash
 heroku config:set APOS_S3_BUCKET=YOUR-bucket-name
 heroku config:set APOS_S3_SECRET=YOUR-s3-secret
 heroku config:set APOS_S3_KEY=YOUR-s3-key
@@ -178,7 +178,7 @@ After a minute or so (especially the first time), you'll have a `prod-bundle` fo
 
 Let's set two more Heroku variables:
 
-```
+```bash
 heroku config:set APOS_MINIFY=1
 heroku config:set APOS_BUNDLE=prod-bundle
 ```
@@ -193,7 +193,7 @@ We're ready to deploy to Heroku!
 
 Everything is in readiness! **Commit your code changes,** then type:
 
-```
+```bash
 git push heroku
 ```
 
@@ -201,7 +201,7 @@ To push your latest code from your active git branch up to heroku. Heroku will t
 
 At the end you'll see a message like this:
 
-```
+```bash
 remote: -----> Launching...
 remote:        Released v3
 remote:        https://apostrophetest.herokuapp.com/ deployed to Heroku
@@ -229,7 +229,7 @@ One thing is not incorporated in our process so far: running database migrations
 
 Since `mlab` allows access from anywhere with the right credentials, the simplest way to run a database migration is to execute it from your local dev environment, with an environment variable set to communicate with your remote database:
 
-```
+```bash
 APOS_MONGODB_URI=mongodb://YOUR-uri-goes-here node app apostrophe:migrate
 ```
 
@@ -237,7 +237,7 @@ But naturally you don't want to forget this. And you don't want to forget the bu
 
 So it's best to create your own `./scripts/deploy` command for your project:
 
-```
+```bash
 #!/bin/bash
 APOS_MINIFY=1 node app apostrophe:generation --create-bundle=prod-bundle &&
 APOS_MONGODB_URI=mongodb://YOUR-uri-goes-here node app apostrophe:migrate &&
@@ -249,7 +249,7 @@ Be sure to use `chmod u+x ./scripts/deploy` to make that script executable.
 
 Now just type:
 
-```
+```bash
 ./scripts/deploy
 ```
 

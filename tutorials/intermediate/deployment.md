@@ -110,7 +110,7 @@ Here `minify` kicks in only if the `ENV` environment variable is set to `prod`. 
 
 If you are using our Stagecoach recipes, the `deployment/dependencies` script will run *before* Apostrophe starts up, and it will run this Apostrophe command line task:
 
-```
+```bash
 node app apostrophe:generation
 ```
 
@@ -121,4 +121,3 @@ If you are not using Stagecoach, just make sure you run this command line task a
 ## Multicore and multiserver configurations
 
 Because node is asynchronous, these single-server, single-core instructions are quite adequate for most clients, including many sites with high traffic at the city scale. However, if performance does become an issue, you may want to check out [running Apostrophe on multiple cores and/or servers](../howtos/multicore.html) as well. Just be sure to master the above material first.
-

@@ -37,7 +37,7 @@ common to pass `self.__meta.name` (the module's name) as the name argument.
 
 For example, the pieces module does this:
 
-```
+```javascript
 self.apos.adminBar.add(self.__meta.name, self.pluralLabel, 'edit')
 ```
 

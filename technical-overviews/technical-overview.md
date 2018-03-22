@@ -103,7 +103,7 @@ This holds true for implicit subclasses, such as a `lib/modules/apostrophe-piece
 
 So Apostrophe will send them to the browser in this order, if they exist:
 
-```
+```javascript
 # Original npm module
 node_modules/apostrophe/lib/modules/apostrophe-pieces/public/js/user.js
 # Project-level implicit subclass of all pieces
@@ -152,7 +152,7 @@ Apostrophe also supports robust "joins" between content types. Programmers can d
 
 There's one catch with Apostrophe's policy of "simple objects:" it's not immediately clear which properties of an object were dynamically added to it on the fly, such as a joined object or the `._url` property, and which should be stored back to the database when that object is saved. This is important because storing "joined" objects back to the database would take up a tremendous amount of extra space.
 
-Apostrophe solves this with one simple rule: *any property starting with an `_` is left out of the database, except for `_id`.* And this rule holds true no matter how deeply nested the property is. 
+Apostrophe solves this with one simple rule: *any property starting with an `_` is left out of the database, except for `_id`.* And this rule holds true no matter how deeply nested the property is.
 
 The moral of the story: *always use a leading _ when naming a join field*, and *never use a leading _ when naming another type of field* such as a `string` field.
 

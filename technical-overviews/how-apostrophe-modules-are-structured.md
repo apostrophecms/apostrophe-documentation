@@ -11,7 +11,7 @@ Some of this material will reference advanced Apostrophe concepts. You may want 
 
 `index.js` is the entry point. Apostrophe (via the `moog-require` npm module) knows to start there when loading a module. `index.js` exports a single object that provides a [moog definition](https://www.npmjs.com/package/moog) for the module.
 
-`index.js` shouldn't "do anything now" other than using `require` to pull in needed libraries. All the action happens later when the `construct` and/or `afterConstruct` functions are invoked by Apostrophe. 
+`index.js` shouldn't "do anything now" other than using `require` to pull in needed libraries. All the action happens later when the `construct` and/or `afterConstruct` functions are invoked by Apostrophe.
 
 It's best to carry out any initialization, like connecting to APIs or databases, in `afterConstruct`. This allows time for those subclassing and extending your module to replace and extend methods defined in `construct`.
 
@@ -41,7 +41,7 @@ By convention all of the additional server-side `.js` files for a module live in
 self.route('get', 'sandwiches', function(req, res) { .... }))
 ```
 
-Calls to `self.route` automatically prefix the URL like this: `/modules/module-name` 
+Calls to `self.route` automatically prefix the URL like this: `/modules/module-name`
 
 So we wind up with: `/modules/module-name/sandwiches`
 
@@ -59,7 +59,7 @@ This dovetails nicely with `self.api` and `self.html` on the browser side, which
 
 ```javascript
 $(function() {
-  // You should wait at least for the DOM to be ready, like this  
+  // You should wait at least for the DOM to be ready, like this
 });
 ```
 
@@ -68,7 +68,7 @@ Or a few Apostrophe event handlers:
 ```javascript
 apos.on('ready', function() {
   // The page has been loaded for the first time,
-  // or has just been refreshed after a piece was saved  
+  // or has just been refreshed after a piece was saved
 });
 ```
 
@@ -90,7 +90,7 @@ Speaking of mirroring, something similar happens on the server side in `cursor.j
 
 `apostrophe-doc-type-manager` uses `self.defineRelatedType` to indicate that there’s another moog type related to that module:
 
-```
+```javascript
   // Define the related type "cursor", so that all of our subclasses
   // automatically have a cursor type too, and it is autoloaded from
   // ./lib/cursor.js if that exists, otherwise given an empty

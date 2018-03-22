@@ -87,14 +87,14 @@ This will push the file `lib/modules/apostrophe-assets/public/js/site.js` to the
 
 There's a couple ways you can go about this. We'd recommend creating a theme module as the pathing is more straightforward, but the choice is yours.
 
-### Assets in a theme module 
+### Assets in a theme module
 
 When making comprehensive visual changes including css, javascript, web-fonts, and image assets, it's a good idea to create a theme module to all your additions together. Don't forget to push your stylesheets and javascript though, which will be described in the next section.
 
 
 Your `my-theme` module might look something like the following:
 
-```
+```bash
 my-theme
   - public/
     - css/
@@ -117,9 +117,9 @@ As an example, with `karla.woff` in `lib/modules/my-theme/public/fonts` the @fon
 
 ### Assets in apostrophe-assets
 
-When including your assets in any module that comes with Apostrophe you'll run into some unexpected differences compared to using your own module. We'll use `karla.woff` as an example again, this time in `apostrophe-assets`. 
+When including your assets in any module that comes with Apostrophe you'll run into some unexpected differences compared to using your own module. We'll use `karla.woff` as an example again, this time in `apostrophe-assets`.
 
-If you included `karla.woff` in `lib/modules/apostrophe-assets/public/fonts`, then in your less files the URL would be `/modules/my-apostrophe-assets/fonts/karla.woff`. The use of `my-` in front of the module name in less allows symbolic links from `public/modules` to differentiate between the npm version of a core Apostrophe module and additions you've made at a project-level. 
+If you included `karla.woff` in `lib/modules/apostrophe-assets/public/fonts`, then in your less files the URL would be `/modules/my-apostrophe-assets/fonts/karla.woff`. The use of `my-` in front of the module name in less allows symbolic links from `public/modules` to differentiate between the npm version of a core Apostrophe module and additions you've made at a project-level.
 
 ## Pushing stylesheets and JavaScript from your own modules
 

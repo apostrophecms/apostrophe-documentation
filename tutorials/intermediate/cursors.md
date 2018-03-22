@@ -189,7 +189,7 @@ Usually we want to indicate the tag the user has already chosen. How can we do t
 
 Here's the really interesting bit:
 
-```
+```markup
 class="{{ 'current' if data.query.tags == tag.value }}"
 ```
 
