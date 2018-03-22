@@ -7,7 +7,7 @@ By default, Apostrophe stores sessions in its MongoDB database. That makes it ea
 
 1. Add the `connect-redis` module to your project's npm dependencies:
 
-```
+```bash
 npm install --save connect-redis
 ```
 

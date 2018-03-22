@@ -50,7 +50,7 @@ using `addImageSizes`.
 Apostrophe will reject files that do not have extensions configured via `fileGroups`.
 the default setting is:
 
-```
+```javascript
 [
   {
     name: 'images',
@@ -391,4 +391,3 @@ of the file object.
 ### POST /modules/apostrophe-attachments/crop-editor
 
 ### POST /modules/apostrophe-attachments/focal-point-editor
-

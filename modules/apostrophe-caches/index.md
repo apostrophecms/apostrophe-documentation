@@ -42,7 +42,7 @@ a promise is returned.
 
 Example (with promises):
 
-```
+```javascript
 // Get a cache for weather data, keyed by zip code
 var myCache = self.apos.caches.get('weather-data');
 
@@ -81,4 +81,3 @@ performance enhancement ONLY and data may DISAPPEAR at any time.
 ### clearCacheTask(*argv*, *callback*)
 
 ### addClearCacheTask()
-

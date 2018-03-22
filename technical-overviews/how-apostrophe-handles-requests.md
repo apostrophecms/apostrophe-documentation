@@ -25,9 +25,9 @@ Express routes are considered after the middleware, in the order added. They are
 
 ### Page requests
 
-At the last possible moment, in the `afterInit` method of the `apostrophe-pages` module, a wildcard route (matching `*`) is added to Express, which triggers the `serve` method of the `apostrophe-pages`module. This is how requests for pages are handled, if no other route matches the request. 
+At the last possible moment, in the `afterInit` method of the `apostrophe-pages` module, a wildcard route (matching `*`) is added to Express, which triggers the `serve` method of the `apostrophe-pages`module. This is how requests for pages are handled, if no other route matches the request.
 
-The `server` method of `apostrophe-pages` loads `req.data.bestPage`, which is the page matching at least a prefix component of the URL; it will always be the home page at the very least. 
+The `server` method of `apostrophe-pages` loads `req.data.bestPage`, which is the page matching at least a prefix component of the URL; it will always be the home page at the very least.
 
 `apostrophe-pages` then invokes the `pageServe` method of every module that has one, via `self.apos.callAll`. The most important implementation is in the `apostrophe-custom-pages` module. Every page type has a "manager" object which is an instance of a subclass of this module. Even "ordinary" page types like `home` and `default` automatically receive a subclass of this module.
 
@@ -96,7 +96,7 @@ This is your last chance to attach information to `req.data` and your last chanc
 
 Your `pageBeforeSend` method will receive `req` and, if you define it with both arguments, `callback` also.
 
-  **Note that `req.data.page` will not always exist in a `pageBeforeSend` handler. Be sure to handle this gracefully.** `pageBeforeSend` is invoked for all full HTML page responses, including the login "page," which does not correspond to an Apostrophe page. 
+  **Note that `req.data.page` will not always exist in a `pageBeforeSend` handler. Be sure to handle this gracefully.** `pageBeforeSend` is invoked for all full HTML page responses, including the login "page," which does not correspond to an Apostrophe page.
 
 ### Template helpers: invoking synchronous JavaScript code from your template
 

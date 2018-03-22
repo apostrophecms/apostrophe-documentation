@@ -13,7 +13,7 @@ For reasons unknown to the rest of the Internet, Facebook has never implemented 
 
 You can get absolute URLs just by setting the `baseUrl` option:
 
-```
+```javascript
 var apos = require('apostrophe')({
   // Other options, then...
   // Note: NO TRAILING SLASH
@@ -32,7 +32,7 @@ This is great, but you don't want your development URLs to point at your product
 
 So use a `data/local.js` file on your production server. Everything here is *merged* with the object you pass to `apostrophe-site` in `app.js`. And `data/local.js` is never deployed. You set it up directly on the server. So you can set `absoluteUrls` differently in production. For instance, here's a typical production `data/local.js` file:
 
-```
+```javascript
 module.exports = {
   // Absolute URLs in production
   baseUrl: 'http://mysite.com',
@@ -53,7 +53,7 @@ You typically don't want to turn on `baseUrl` in your development environment, e
 
 It's pretty easy, since `data.page._url` is now absolute, and so are your image URLs. Here's a classy example:
 
-```
+```markup
 {# In layout.html #}
 {% set context = data.piece or data.page %}
 {% if context %}

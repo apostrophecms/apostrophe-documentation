@@ -30,13 +30,13 @@ To install Imagemagick go to: [ImageMagick : Windows Downloads](http://www.image
 
 For a quick start, create a folder for your MongoDB database:
 
-```
+```bash
 mkdir c:\mongo
 ```
 
 Then run the MongoDB executable and leave that window open. *Paths below may vary slightly depending on the version you install, check the contents of the MongoDB folder.*
 
-```
+```bash
 cd \Program Files\MongoDB\Server\3.2\bin
 .\mongod.exe --dbpath=c:/mongo
 ```

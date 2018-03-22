@@ -47,13 +47,13 @@ e packages. And of course you could choose to deploy in another way, or to use a
 
 * Deploy your site for the first time:
 
-```
+```bash
 sc-deploy production
 ```
 
 At the end of the run, you should see:
 
-```
+```bash
 First startup, chose port 3000 for this site
 ```
 
@@ -61,13 +61,13 @@ First startup, chose port 3000 for this site
 
 First `ssh` to your server as root. We can do this conveniently with the `sc-shell` command, but you could also do it manually:
 
-```
+```bash
 sc-shell root@production
 ```
 
 Now use `mechanic add` to configure nginx to proxy traffic from port 80 to port 3000, taking care of caching and serving static files quickly along the way:
 
-```
+```bash
 mechanic add myshortname --host=example.com --aliases=www.example.com --static=/opt/stagecoach/apps/myshortname/current/public --backends=3000 --default=true
 ```
 
@@ -82,4 +82,3 @@ http://a.b.c.d/
 `http://example.com`
 
 * In the future, to deploy updated code, just run `sc-deploy production` again. This will not disturb your website's content; Stagecoach makes sure the `public/uploads` and `data/` folders survive each new deployment.
-

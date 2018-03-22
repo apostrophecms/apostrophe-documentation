@@ -22,7 +22,7 @@ as `apos.push.browserCall`, except that there is no `when` argument.
 
 Example:
 
-```
+```javascript
 req.browserCall('apos.someModule.method(?, ?)', arg1, arg2, ...)
 ```
 
@@ -33,7 +33,7 @@ If you need to pass the name or part of the name of a
 function dynamically, you can use @ to pass an argument
 literally:
 
-```
+```javascript
 req.browserCall('new @(?)', 'MyConstructor', { options... })
 ```
 

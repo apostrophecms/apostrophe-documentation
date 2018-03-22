@@ -275,7 +275,7 @@ the chain stops **after** defining the related type for that module.
 For instance, the module `apostrophe-files` extends
 `apostrophe-pieces`, which extends `apostrophe-doc-type-manager`.
 So when that module calls:
-```
+```javascript
 self.defineRelatedType('cursor', {
   stop: 'apostrophe-doc-type-manager'
 });

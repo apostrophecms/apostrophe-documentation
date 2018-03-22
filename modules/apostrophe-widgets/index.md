@@ -132,7 +132,7 @@ syndrome. Otherwise known as "crappy site syndrome."
 
 ## Command line tasks
 
-```
+```bash
 node app your-widget-module-name-here:list
 ```
 Lists all of the places where this widget is used on the site. This is very useful if

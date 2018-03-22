@@ -21,7 +21,7 @@ Here we will add Docker configuration to an Apostrophe project. We'll be using [
 
 Let's create a [Dockerfile](https://docs.docker.com/engine/reference/builder/). This is a plain-text file named `Dockerfile` that exists in the root of your Apostrophe project. Below is an example Dockerfile that will work with basic Apostrophe projects. You can create a blank file named `Dockerfile` in the root of your project and then paste in the commands below.
 
-```
+```bash
 FROM node:6.5.0
 
 # Create app directory
@@ -58,7 +58,7 @@ Docker will create some environment variables when you link a container to a Mon
 
 Now that we have a Dockerfile, it's time to build an image for your project. You can do this with `docker build`.
 
-```shell
+```bash
 # Enter your project directory
 $ cd ~/Projects/apostrophe-sandbox
 
@@ -76,7 +76,7 @@ We're almost ready to run the image, but we do need to set up a MongoDB containe
 
 ### Run a MongoDB container
 
-```shell
+```bash
 # Get the MongoDB image if you don't already have it
 $ docker pull mongo
 
@@ -88,7 +88,7 @@ $ docker run -d --name apostrophe-sandbox-db mongo
 
 Now we'll run your project linked to the MongoDB container.
 
-```shell
+```bash
 $ docker run -d --link=apostrophe-sandbox-db:mongodb -p 3000:3000 myname/apostrophe-sandbox
 ```
 

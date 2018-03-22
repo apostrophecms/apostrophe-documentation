@@ -23,13 +23,13 @@ Let's say your site is called `mysite`. On your server, check out the text file 
 
 Edit that file and add multiple ports, like this:
 
-```
+```javascript
 3000 3001
 ```
 
 Now restart the site the stagecoach way:
 
-```
+```bash
 [log in as the non-root user]
 cd /opt/stagecoach/apps/mysite/current
 bash deployment/stop && bash deployment/start
@@ -45,19 +45,19 @@ Good for you! This is so much easier with [mechanic](https://npmjs.org/mechanic)
 
 Let's check our current setup:
 
-```
+```bash
 mechanic list
 ```
 
 We'll get back something like this:
 
-```
+```bash
 mechanic add EXAMPLE '--backends=localhost:3000' '--canonical=true' '--host=www.EXAMPLE.com' '--static=/opt/stagecoach/apps/EXAMPLE/current/public/' '--default=true'
 ```
 
 Let's update mechanic to add port 3001 as a second backend:
 
-```
+```bash
 mechanic update EXAMPLE --backends=localhost:3000,localhost:3001
 ```
 
@@ -71,7 +71,7 @@ That's OK. Here's a sample configuration without it.
 
 You should be able to find your site configuration in ```/etc/nginx/sites-enabled/```. Here's our recommended configuration with two processes:
 
-```
+```bash
 upstream upstream-EXAMPLE  {
   server localhost:3000;
   server localhost:3001;
@@ -125,7 +125,7 @@ You can do that following the same technique as above, with a few tweaks.
 
 You'll need an nginx configuration that balances the load across multiple backend servers, like this:
 
-```
+```bash
 upstream upstream-EXAMPLE  {
   server backend-one.mydomain.com:3000;
   server backend-one.mydomain.com:3001;
@@ -161,7 +161,7 @@ At a future date we may relax this behavior so that, if configured, database rea
 
 Another possible solution is to use alternative session middleware. You may pass the `express-session`-compatible session store object of your choice to Apostrophe's `apostrophe-express` module as the `session.store` option. See [this list](https://www.npmjs.com/package/express-session#compatible-session-stores) of compatible stores.
 
-```
+```javascript
 modules: {
   'apostrophe-express': {
     session: {
