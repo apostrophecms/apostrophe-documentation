@@ -43,6 +43,7 @@ children:
   - apostrophe-schemas
   - apostrophe-search
   - apostrophe-service-bridge
+  - apostrophe-soft-redirects
   - apostrophe-tags
   - apostrophe-tasks
   - apostrophe-templates

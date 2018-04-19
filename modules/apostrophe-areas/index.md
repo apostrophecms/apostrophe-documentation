@@ -157,6 +157,21 @@ widget. A widget with no `isEmpty()` method is never empty.
 ### pageServe(*req*) *[protectedApi]*
 When a page is served to a logged-in user, make sure the session
 contains a blessing for every join configured in schemas for widgets
+### docBeforeUpdate(*req*, *doc*, *options*) *[protectedApi]*
+
+### restoreDisallowedFields(*req*, *item*, *oldItem*) *[protectedApi]*
+Restore the original values of any fields present in the
+schema for a widget but disallowed for this particular editor
+due to permissions.
+
+The original values are copied from `oldItem`. To save you
+an "if" statement, if `oldItem` is null (commonplace if
+the widget is new), nothing happens.
+
+If the field type has a `copy` method it is used.
+Otherwise, custom logic handles `join` fields, and
+the rest are copied by simple assignment to the
+named field.
 ### pageBeforeSend(*req*) *[browser]*
 
 ### getCreateSingletonOptions(*req*) *[browser]*

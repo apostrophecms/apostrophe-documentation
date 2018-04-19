@@ -267,6 +267,8 @@ to legacy sites. You should not need to invoke it yourself.
 
 ### initUploadfs(*callback*)
 
+### apostropheDestroy(*callback*)
+
 ### enableCollection(*callback*)
 
 ### enableHelpers()

@@ -14,4 +14,9 @@ usual `__()` helper function. Any options passed to this module are passed on to
 
 By default i18n locale files are generated in the `locales` subdirectory of the project.
 
+## Options
+
+`localesDir`: if specified, the locale `.json` files are stored here, otherwise they
+are stored in the `locales` subdirectory of the project root.
+
 

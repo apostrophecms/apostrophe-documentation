@@ -170,6 +170,10 @@ modal on the stack has the `apos-modal-slideable` CSS class.
 Otherwise it defaults to calling `self.stackPush()` instead,
 causing the modal to appear normally on top of any modals
 already open.
+### setDepthAttribute(*$el*)
+Make the current modal's depth available as an attribute on various
+elements such as `data-apos-modal-instructions`. This is needed for
+reliable Nightwatch testing
 ### stackPush()
 Called for you by `self.show()`, this method adds the modal to
 the stack, blacking out the page, preventing unwanted interaction

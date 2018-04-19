@@ -171,6 +171,10 @@ browser side. By default, the `input` object is sanitized via the
 so that no information in `input` is blindly trusted.
 
 The callback is invoked with `(null, output)`.
+### allowedSchema(*req*)
+Return a new schema containing only fields for which the
+current user has the permission specified by the `permission`
+property of the schema field, or there is no `permission` property for the field.
 ### filterForDataAttribute(*widget*)
 Remove all properties of a widget that are the results of joins
 (arrays or objects named with a leading `_`) for use in stuffing the

@@ -161,7 +161,7 @@ third party site; it effectively serves as an XSRF token.
 
 If a `middleware` array is present, those functions are added
 as Express middleware by the `requiredMiddleware` method, immediately
-after Apostrophe's standard middleware and module-specific middleware not configured to run later (see "module-specific middleware," below).
+after Apostrophe's standard middleware.
 
 ## Optional middleware: `apos.middleware`
 
@@ -178,8 +178,8 @@ This middleware is used by [apostrophe-attachments](../apostrophe-attachments/in
 ## Module-specific middleware
 
 In addition, this module will look for an `expressMiddleware` property
-in **every module**. If such a property is found, it will be invoked as
-middleware on **all** routes, after the required middleware (such as the body parser) and
+in EVERY module. If such a property is found, it will be invoked as
+middleware on ALL routes, after the required middleware (such as the body parser) and
 before the configured middleware. If the property is an array, all of the functions
 in the array are invoked as middleware.
 
@@ -187,8 +187,6 @@ If `expressMiddleware` is a non-array object, it must have a `middleware`
 property containing a function or an array of functions, and it may also have a
 `before` property containing the name of another module. The function(s) in the
 `middleware` property will be run before those for the named module.
-
-This object may also have a `when` property. If this property is set to `beforeRequired`, the middleware will run before *all* of the middleware otherwise added by Apostrophe, including session middleware, body parser middleware, etc. If it is set to `afterRequired`, it is added after those core features, which is the default. If it is set to `afterConfigured`, it is added last, after the `middleware` option passed to this module.
 
 
 ## Methods
@@ -217,7 +215,7 @@ Install all standard middleware:
 * Internationalization (see [apostrophe-i18n](../apostrophe-i18n/index.html))
 * `req.absoluteUrl` always available (also see [baseUrl](#baseUrl))
 
-### useModuleMiddleware()
+### useModuleMiddleware(*when*)
 Implement middleware added via self.expressMiddleware properties in modules.
 ### configuredMiddleware()
 
