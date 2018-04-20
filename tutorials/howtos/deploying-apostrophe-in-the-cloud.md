@@ -172,7 +172,9 @@ We're specifying `APOS_MINIFY=1` as an environment variable to override the **de
 
 After a minute or so (especially the first time), you'll have a `prod-bundle` folder in your project.
 
-**Commit that folder to git.** Heroku uses git for deployment, so we do want it there!
+> VERY IMPORTANT: check your `.gitignore` file. If it it contains `data` on a line by itself, *change this line* to `/data`. Otherwise, you will be unable to commit a complete bundle to git, and Heroku will not deploy it properly. We have fixed this in the latest version of our boilerplate project.
+
+**Commit that folder to git** (after FIRST checking for the `.gitignore` problem mentioned above). Heroku uses git for deployment, so we do want it there!
 
 ### Telling Heroku to use the bundle
 
