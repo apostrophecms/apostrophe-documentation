@@ -449,7 +449,7 @@ Here's an example. Here we assume you followed the [cursors tutorial](../interme
 {# Filter by tag. Note this is OUTSIDE data-apos-ajax-append, so it gets REFRESHED #}
 <ul class="tag-filters">
   {% for tag in data.piecesFilters.tags %}
-    <li><a href="{{ data._url | build({ tags: tag.value }) }}">{{ tag.label }}</a></li>
+    <li><a href="{{ data.url | build({ tags: tag.value }) }}">{{ tag.label }}</a></li>
   {% endfor %}
 </ul>
 
