@@ -20,7 +20,8 @@ children:
   - storing-images-and-files-in-amazon-s3
   - migration
   - linode
-  - deploying-apostrophe-in-the-cloud
+  - deploying-apostrophe-in-the-cloud-with-heroku
+  - deploying-apostrophe-in-the-cloud-with-aws
   - multicore
   - windows
   - docker
