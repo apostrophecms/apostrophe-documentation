@@ -1,5 +1,5 @@
 ---
-title: "Deploying Apostrophe in the Cloud"
+title: "Deploying Apostrophe in the Cloud with Heroku"
 layout: tutorial
 ---
 
