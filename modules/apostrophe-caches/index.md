@@ -79,6 +79,7 @@ performance enhancement ONLY and data may DISAPPEAR at any time.
 ### getCollection(*callback*)
 
 ### clearCacheTask(*argv*, *callback*)
+Implementation of the `apostrophe-caches:clear` task. Follow task with an existing cache name to clear that cache, e.g., run `node app apostrophe-caches:clear my-cache` to clear a cache named `my-cache`.
 
 ### addClearCacheTask()
-
+Installs the clearCacheTask method as the `apostrophe-caches:clear` task.
