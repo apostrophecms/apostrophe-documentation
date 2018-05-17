@@ -170,6 +170,8 @@ Example:
 }
 ```
 
+#### Case-insensitive, intuitive sorting
+
 If this field is part of a doc type, such as a piece or page type, you may also set `sortify: true` to automatically create a parallel `Sortified` version of the field that is more intuitive for sorting purposes. Apostrophe will automatically use it if a request is made to sort on the original field.
 
 For instance, if your field's `name` is `lastName` and you set `sortify: true`, `lastNameSortified` will automatically be created and used when sorting on the `lastName` field. This provides case-insensitive sorting that also ignores punctuation differences.
