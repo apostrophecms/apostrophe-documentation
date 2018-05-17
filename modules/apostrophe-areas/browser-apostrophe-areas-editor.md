@@ -57,6 +57,12 @@ added to the DOM.
 ### insertWidget(*$wrapper*)
 Implementation detail of `addItem`, should not be called directly.
 Adds the given widget wrapper to the DOM, respecting the limit.
+### fixInsertedWidgetDotPaths(*$widget*)
+A newly inserted widget that contains subareas cannot autosave
+correctly as part of the parent unless its doc id and
+dot path are correctly set to show that relationship. But
+render-widget has no way of knowing how to set these for us,
+so we need to fix them up
 ### enhanceWidgetControls(*$widget*)
 
 ### addAreaControls(*$widget*)

@@ -209,6 +209,10 @@ top level extra areas have already been copied
 
 ### getEditControls(*req*) *[api]*
 
+### getChooserControls(*req*) *[api]*
+
+### getManagerControls(*req*) *[api]*
+
 ### generate(*i*) *[api]*
 Generate a sample piece of this type. The `i` counter
 is used to distinguish it from other samples. Useful

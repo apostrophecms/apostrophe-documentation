@@ -41,7 +41,9 @@ This method is often useful both when triggering and when listening.
 No need to remember the correct way to construct an event name.
 ### generateId()
 Widget ids should be valid names for javascript variables, just in case
-we find that useful, so avoid hyphens
+we find that useful, so avoid hyphens. Prefixed with a `w` so it can
+always be distinguished from a cuid that came from the server; if we
+start using cuid in the browser we must keep the `w` prefix
 ### escapeHtml(*string*)
 
 ### globalReplace(*haystack*, *needle*, *replacement*)

@@ -236,7 +236,7 @@ the singleton is created only once per page lifetime in the browser,
 even if an `apos.change` event would otherwise cause it to be created again.
 
 If `req` is given and `when` is not, the singleton is always created; it is assumed that
-you are looking at the request to decide if it is needed before calling.
+you are def the request to decide if it is needed before calling.
 
 If `when` is given, the singleton is created only for the specified scene
 (`always` or `user`).
@@ -355,3 +355,18 @@ handed off but has not necessarily arrived yet and could still
 bounce back at some point.
 
 If you do not provide a callback, a promise is returned.
+### addTask(*name*, *usage*, *fn*)
+Add an Apostrophe command line task to your module. The command line
+syntax will be:
+
+`node app name-of-module:name`
+
+Where `name` is the `name` argument given here (use hyphens).
+The usage message is printed if the user asks for help with
+the task.
+
+`fn` is invoked with `(apos, argv, callback)`. You may
+return a promise, in which case you must *not* invoke `callback`.
+
+To carry out actions requiring `req` in your code, call
+`self.apos.tasks.getReq` to get a `req` with unlimited admin permissions.

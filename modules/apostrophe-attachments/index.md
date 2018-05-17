@@ -234,6 +234,8 @@ focal point, null is returned.
 
 ### addDocReferencesMigration() *[api]*
 
+### addFixPermissionsMigration() *[api]*
+
 ### docAfterSave(*req*, *doc*, *options*, *callback*) *[api]*
 
 ### docAfterTrash(*req*, *doc*, *callback*) *[api]*
@@ -261,6 +263,16 @@ it becomes web-accessible and trash becomes false.
 This method is invoked at the end of `updateDocReferences`
 and also at the end of the migration that adds `docIds`
 to legacy sites. You should not need to invoke it yourself.
+### applyPermissions(*attachment*, *trash*, *callback*) *[api]*
+Enable or disable access to the given attachment via uploadfs, based on whether
+trash is true or false. If the attachment is an image, access
+to the size indicated by the `sizeAvailableInTrash` option
+(usually `one-sixth`) remains available. This operation is carried
+out across all sizes and crops.
+### migrateToDisabledFileKeyTask(*argv*, *callback*) *[api]*
+
+### migrateFromDisabledFileKeyTask(*argv*, *callback*) *[api]*
+
 ### pushAssets() *[browser]*
 
 ### pushCreateSingleton() *[browser]*

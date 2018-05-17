@@ -226,6 +226,18 @@ If called without a callback, returns a promise.
 Implementation detail of the `previous` and `next` filters
 ### finalizeSort()
 
+### finalizeDefaultSort()
+Invoked when the default sort will be used. Figure out what that is,
+starting with the `defaultSort` filter's value and falling back
+to `title` (which the sortify behavior will turn into
+`titleSortify` later). Makes sure the default sort is
+not `search` as in the absence of an actual search
+a mongodb error would occur.
+
+A good override point for changing the default sort
+behavior in additional ways.
+
+Returns a sort object, for instance `{ title: 1 }`.
 ### criteria(*value*)
 Filter. Sets the MongoDB criteria, discarding
 criteria previously added using this

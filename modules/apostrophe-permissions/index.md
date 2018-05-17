@@ -104,3 +104,7 @@ Return an array of permissions, as objects with `value` and `label`
 properties. Suitable for creating a UI to select permissions for
 a group, for instance. Do NOT call before `modulesReady` (hint:
 patch your schema field in `modulesReady`).
+### addListTask()
+
+### modulesReady()
+

@@ -21,7 +21,7 @@ label and value properties at a minimum
 
 ### clear()
 
-### remove(*_id*)
+### remove(*_id*, *refresh*)
 
 ### refresh(*options*)
 

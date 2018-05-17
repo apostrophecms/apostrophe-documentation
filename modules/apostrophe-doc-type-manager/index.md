@@ -143,6 +143,26 @@ lower-priority search text.
 Fields required to compute the `_url` property.
 Used to implement a "projection" for `_url` if
 requested by the developer
+### addSortifyMigration(*field*) *[api]*
+Most of the time, this is called for you. Any schema field
+with `sortify: true` will automatically get a migration to
+ensure that, if the field is named `lastName`, then
+`lastNameSortified` exists.
+
+Adds a migration that takes the given field, such as `lastName`, and
+creates a parallel `lastNameSortified` field, formatted with
+`apos.utils.sortify` so that it sorts and compares in a more
+intuitive, case-insensitive way.
+
+After adding such a migration, you can add `sortify: true` to the
+schema field declaration for `field`, and any calls to
+the `sort()` cursor filter for `lastName` will automatically
+use `lastNameSortified`. You can also do that explicitly of course.
+
+Note that you want to do both things (add the migration, and
+add `sortify: true`) because `sortify: true` guarantees that
+`lastNameSortified` gets updated on all saves of a doc of this type.
+The migration is a one-time fix for existing data.
 ### pushAssets() *[browser]*
 
 ### pushDefineSingleton() *[browser]*
