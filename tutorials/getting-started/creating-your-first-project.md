@@ -114,6 +114,28 @@ Open up `lib/modules/apostrophe-pages/views/pages/home.html` in your text editor
 
 3. Refresh the browser.
 
+### Use Nodemon to watch file changes
+
+To avoid manual restarting in the future, you could use [Nodemon](https://nodemon.io) to watch project files.
+
+1. Run `npm install -g nodemon` to install it globally.
+
+2. Use `nodemon` in your project root folder. Nodemon will run `node app.js` by default.
+
+Now, every time you make changes to a file in your project, Nodemon will restart your application.
+
+#### Configure Nodemon
+
+With default config, Nodemon will restart Apostrophe every time you request a page in your browser. To avoid this, you could pass parameters to Nodemon either in the command line or using config files.
+
+You can read more about the different ways of configuration in the Nodemon docs. To keep things simple, the following snippet provides you with a base configuration in `package.json`. Feel free to adjust it to your needs.
+
+```json
+  "nodemonConfig": {
+    "watch": ["app.js", "lib/modules"]
+  }
+```
+
 ### Working with areas
 
 Hey, what's this new button about?
