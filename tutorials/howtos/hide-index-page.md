@@ -23,4 +23,20 @@ construct: function (self, options) {
 }
 ```
 
-See what we did there? Since `beforeIndex` runs before the index page is loaded, and by setting the request's `notFound` property to `true`, it'll return a 404 error rather than loading the page.
+See what we did there? Since `beforeIndex` runs before the index page is loaded, and by setting the request's `notFound` property to `true`, it'll return a 404 error rather than loading the page. This is the case even for site admins, so make sure the `apostrophe-pages` configuration doesn't give admins an option to create those pieces index pages.
+
+You might want to allow site admins to create and access those index pages, though. In that case, do [include it as an option in `apostrophe-pages` configuration](../../modules/apostrophe-pages/index.html), and make an adjustment to the `beforeIndex` method:
+
+```javascript
+construct: function (self, options) {
+  self.beforeIndex = function (req, callback) {
+    if (!req.data.page._edit) {
+      req.notFound = true;
+    }
+
+    return callback(null);
+  };
+}
+```
+
+With the `!req.data.page._edit` conditional we're allowing people with edit permissions to access the pages.
