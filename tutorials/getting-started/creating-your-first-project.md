@@ -124,17 +124,7 @@ To avoid manual restarting in the future, you could use [Nodemon](https://nodemo
 
 Now, every time you make changes to a file in your project, Nodemon will restart your application.
 
-#### Configure Nodemon
-
-With default config, Nodemon will restart Apostrophe every time you request a page in your browser. To avoid this, you could pass parameters to Nodemon either in the command line or using config files.
-
-You can read more about the different ways of configuration in the Nodemon docs. To keep things simple, the following snippet provides you with a base configuration in `package.json`. Feel free to adjust it to your needs.
-
-```json
-  "nodemonConfig": {
-    "watch": ["app.js", "lib/modules"]
-  }
-```
+If you installed Apostrophe using `apostrophe-cli` as described above, a basic Nodemon configuration is provided by the `package.json` file. Feel free to adjust these settings to your needs.
 
 ### Working with areas
 
