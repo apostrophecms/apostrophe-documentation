@@ -1,5 +1,5 @@
 ---
-title: "How can I disable an index page?"
+title: "How can I disable a pieces index page?"
 layout: tutorial
 ---
 
