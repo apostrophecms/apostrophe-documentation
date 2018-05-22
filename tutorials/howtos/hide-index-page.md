@@ -1,5 +1,5 @@
 ---
-title: "How can I disable pieces index or show pages?"
+title: "How can I disable a pieces index page?"
 layout: tutorial
 ---
 
@@ -24,8 +24,6 @@ construct: function (self, options) {
 ```
 
 See what we did there? Since `beforeIndex` runs before the index page is loaded, and by setting the request's `notFound` property to `true`, it'll return a 404 error rather than loading the page. This is the case even for site admins, so make sure the `apostrophe-pages` configuration doesn't give admins an option to create those pieces index pages.
-
-If necessary, the same thing can be done in `beforeShow` to return a 404 for individual pieces' show page. That's going to be an even rarer case, but it's come up before when that content was Ajaxed into other pages in modals.
 
 You might want to allow site admins to create and access those index pages, though. In that case, do [include it as an option in `apostrophe-pages` configuration](../../modules/apostrophe-pages/index.html), and make an adjustment to the `beforeIndex` method:
 
