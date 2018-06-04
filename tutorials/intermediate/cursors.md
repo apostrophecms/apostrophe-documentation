@@ -157,14 +157,14 @@ Now we can take advantage of that:
 {# Link to all the tags, adding a parameter to the query string #}
 <ul class="tag-filters">
   {% for tag in data.piecesFilters.tags %}
-    <li><a href="{{ data._url | build({ tags: tag.value }) }}">{{ tag.label }}</a></li>
+    <li><a href="{{ data.url | build({ tags: tag.value }) }}">{{ tag.label }}</a></li>
   {% endfor %}
 </ul>
 
 {# Link to all the markets, adding a parameter to the query string #}
 <ul class="tag-filters">
   {% for market in data.piecesFilters.market %}
-    <li><a href="{{ data._url | build({ market: market.value }) }}">{{ market.label }}</a></li>
+    <li><a href="{{ data.url | build({ market: market.value }) }}">{{ market.label }}</a></li>
   {% endfor %}
 </ul>
 ```
@@ -181,7 +181,7 @@ Usually we want to indicate the tag the user has already chosen. How can we do t
 {# Link to all the tags, adding a parameter to the query string #}
 <ul class="tag-filters">
   {% for tag in data.piecesFilters.tags %}
-    <li><a href="{{ data._url | build({ tags: tag.value }) }}"
+    <li><a href="{{ data.url | build({ tags: tag.value }) }}"
       class="{{ 'current' if data.query.tags == tag.value }}">{{ tag.label }}</a></li>
   {% endfor %}
 </ul>
