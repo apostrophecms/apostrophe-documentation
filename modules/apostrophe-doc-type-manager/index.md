@@ -143,6 +143,9 @@ lower-priority search text.
 Fields required to compute the `_url` property.
 Used to implement a "projection" for `_url` if
 requested by the developer
+### beforeChooserModal(*req*, *data*) *[api]*
+Override to modify `data` before it is passed to
+the `chooserModal.html` template
 ### addSortifyMigration(*field*) *[api]*
 Most of the time, this is called for you. Any schema field
 with `sortify: true` will automatically get a migration to

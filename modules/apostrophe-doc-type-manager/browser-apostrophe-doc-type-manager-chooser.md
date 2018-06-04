@@ -55,3 +55,5 @@ including the ability to create new items on the fly and choose them
 
 ### pieceInsertedListener(*piece*)
 This listener only actually gets installed for a chooser appearing in a manager
+### pieceIsRelevant(*piece*)
+

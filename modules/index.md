@@ -38,6 +38,7 @@ children:
   - apostrophe-pieces
   - apostrophe-pieces-pages
   - apostrophe-pieces-widgets
+  - apostrophe-polymorphic-manager
   - apostrophe-push
   - apostrophe-rich-text-widgets
   - apostrophe-schemas

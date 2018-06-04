@@ -63,7 +63,17 @@ startup process by `modulesReady`.
 ### enableMiddleware()
 Add the `addGlobalToData` middleware.
 ### addGlobalToData(*req*, *res*, *next*)
-Standard middleware. Fetch the global doc and add it to `req.data` as `req.data.global`.
+Fetch the global doc and add it to `req.data` as `req.data.global`, if it
+is not already present. If it is already present, skip the
+extra query.
+
+If called with three arguments, acts as middleware.
+
+If called with two arguments, the first is `req` and the second is
+invoked as `callback`.
+
+If called with one argument, that argument is `req` and a promise
+is returned.
 ### getCreateSingletonOptions(*req*)
 
 ### addToAdminBar()

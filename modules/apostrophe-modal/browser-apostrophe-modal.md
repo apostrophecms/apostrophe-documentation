@@ -135,7 +135,8 @@ the modal, for the `aposModalCancel` and `aposModalHide` events.
 
 ### getLastSlide()
 Return the last slide, or the modal itself if it has no nested slides.
-Returns the `apostrophe-modal` object, not a jQuery element.
+Returns the `apostrophe-modal` object, not a jQuery element. Use findSafe
+so we are not faked out by nested views.
 ### getSlides()
 Returns the `apostrophe-modal` objects corresponding to each
 slide nested in this modal, which presumably is a slide parent
