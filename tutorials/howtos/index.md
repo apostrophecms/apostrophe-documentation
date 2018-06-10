@@ -5,6 +5,7 @@ layout: reference
 children:
   - notFoundPage
   - email
+  - thumbnails-and-areas-of-child-pages
   - password-reset
   - search
   - admin-bar
