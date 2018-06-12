@@ -7,6 +7,7 @@ children:
   - model-layer
   - cursors
   - forms
+  - command-line-tasks
   - accessing-the-database-directly
   - custom-schema-field-types
   - deployment
