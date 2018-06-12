@@ -115,7 +115,7 @@ As an example, with `karla.woff` in `lib/modules/my-theme/public/fonts` the @fon
 }
 ```
 
-> Not working for you yet? Please check out the [complete, working example of a `theme` moduloe in the apostrophe-samples project](https://github.com/apostrophecms/apostrophe-samples). This project is a great place to start if you need more examples of where to put your code "in context" so that everything works!
+> Not working for you yet? Please check out the [complete, working example of a `theme` module in the apostrophe-samples project](https://github.com/apostrophecms/apostrophe-samples). This project is a great place to start if you need more examples of where to put your code "in context" so that everything works!
 
 ### Assets in apostrophe-assets
 
