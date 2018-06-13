@@ -162,6 +162,8 @@ Actually using the widget in an area is just like using the first one. But this 
 
 Now our users have a choice between do-it-yourself links that can point anywhere and "page" links that can only point to a page. Both can be useful.
 
+> It is also possible to join with more than one type. And once you check out [pieces](reusable-content-with-pieces.html), the benefit of doing so will be clear. To do that, set `withType` to an array of type names, which may include `apostrophe-pages`. The user is then able to use a tabbed interface to select items of several types for the same join. These "polymorphic joins" are primarily intended for navigation widgets like this one.
+
 #### Passing options to widgets
 
 You probably noticed that our widgets don't take any options yet. We can use options to do cool things in our templates. Let's add a simple one to choose between two presentation styles.
