@@ -58,8 +58,8 @@ environment variable is consulted.
 
 ### enableBundles()
 Initialize services required for asset bundles. Obtains the
-self.generations mongodb collection, extracts a bundle if appropriate,
-and initializes cleanup of old bundles in uploadfs if appropriate.
+self.generations mongodb collection and extracts a bundle if
+appropriate.
 ### extractBundleIfAppropriate()
 Extract an asset bundle if appropriate. The default implementation
 looks for an APOS_BUNDLE=XYZ environment variable and, if present, extracts
@@ -169,6 +169,11 @@ prefixing the filenames with "to" plus a slash.)
 
 WARNING: if `to` already exists, any contents that don't also appear in `from`
 are removed.
+### enumerateCopies(*from*, *to*)
+Given a local folder (the public/ subdir of an asset bundle)
+and an uploadfs path (where it will later be web-accessible),
+return an array of copies that must be performed, with `from`
+and `to` properties
 ### buildLessMasters(*callback*)
 
 ### minify(*callback*)

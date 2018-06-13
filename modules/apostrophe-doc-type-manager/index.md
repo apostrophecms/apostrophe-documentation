@@ -40,6 +40,17 @@ See the [schema guide](../../tutorials/getting-started/schema-guide.html).
 
 
 ## Methods
+### addTrashPrefixFields(*fields*) *[api]*
+
+### deduplicateTrash(*req*, *doc*, *callback*) *[api]*
+After moving document to the trash, prefix any fields that have
+unique indexes so that other pieces are allowed to reuse
+those usernames, email addresses, etc.
+### deduplicateRescue(*req*, *doc*, *callback*) *[api]*
+When rescuing docs from the trash, attempt to un-prefix any fields
+that have unique indexes. However, if we then find it's been taken
+in the meanwhile, leave the prefix in place and leave it up to
+the user to resolve the issue.
 ### getEditPermissionName() *[api]*
 Returns the minimum permission name that should be checked for
 to determine if this user has some edit privileges for

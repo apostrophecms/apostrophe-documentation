@@ -25,8 +25,6 @@ into pages all over the site. To learn more, see:
 
 
 ## Methods
-### addTrashPrefixFields(*fields*) *[api]*
-
 ### finalizeControls() *[api]*
 
 ### findForEditing(*req*, *criteria*, *projection*) *[api]*
@@ -98,19 +96,10 @@ Invoked by `self.update`. Does nothing by default; convenient extension point
 Invoked by `self.trash`. Does nothing by default; convenient extension point
 ### afterTrash(*req*, *id*, *callback*) *[api]*
 Invoked by `self.trash`. Does nothing by default; convenient extension point
-### deduplicateTrash(*req*, *piece*, *callback*) *[api]*
-After moving pieces to the trash, prefix any fields that have
-unique indexes so that other pieces are allowed to reuse
-those usernames, email addresses, etc.
 ### beforeRescue(*req*, *id*, *callback*) *[api]*
 
 ### afterRescue(*req*, *id*, *callback*) *[api]*
 
-### deduplicateRescue(*req*, *piece*, *callback*) *[api]*
-When rescuing pieces from the trash, attempt to un-prefix any fields
-that have unique indexes. However, if we then find it's been taken
-in the meanwhile, leave the prefix in place and leave it up to
-the user to resolve the issue.
 ### beforeList(*req*, *filters*, *callback*) *[api]*
 
 ### afterList(*req*, *results*, *callback*) *[api]*
