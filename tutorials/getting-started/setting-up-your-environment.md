@@ -22,23 +22,27 @@ We're going to install the following software:
 - MongoDB
 - Optional: Imagemagick (for fast image manipulation with animated GIF support)
 
-##### Install XCode
-
-XCode is provided free of charge by Apple. Install it via the [Mac App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12).
-
-##### XCode Command Line Tools
-
-You will also need the Xcode Command Line Tools, which can be installed by going to Xcode -> Preferences ... -> Downloads.
-
 ##### Using the Terminal
 
 Launch the "Terminal" app. From this point on, anything `formatted like this` is meant to be run at the terminal prompt. Basic familiarity with the terminal is very helpful for node and Apostrophe development.
+
+##### XCode Command Line Tools
+
+You will also need the Xcode Command Line Tools. You can install them
+by typing this command in the terminal:
+
+```
+xcode-select --install
+```
+
+This installs the XCode command line tools directly from Apple.
+You *do not* have to install the full XCode user interface.
 
 ##### Install Homebrew
 
 [Homebrew](http://brew.sh/) is a convenient software manager that makes it easier to keep track of and update your software packages.
 
-Installing Homebrew is easy:
+You can install Homebrew by copying and pasting this one-line command to the terminal:
 
 ```bash
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -103,13 +107,12 @@ brew install git
 
 ##### Install MongoDB
 
-MongoDB is the database that Apostrophe uses. You can install it with homebrew:
+MongoDB is the database that Apostrophe uses. You can install it with homebrew. Also make sure to use `brew services` to set it up to launch automatically for you, so you don't have to fuss with restarting it manually. The two terminal commands you'll need are:
 
 ```bash
-brew install mongo
+brew install mongodb
+brew services start mongodb
 ```
-
-During the mongo install, **it will print out instructions for starting mongo on login, which you should follow. The latest steps may change, so read what it says!**
 
 Now open a **new terminal window** and try:
 
@@ -119,7 +122,7 @@ mongo
 
 It should start an interactive mongo prompt. ctrl+c to exit.
 
-> "Hey, it didn't connect to MongoDB!" You probably did not follow the instructions that were printed after installing MongoDB to actually start it and ensure it starts every time you boot. Follow those instructions now.
+> "Hey, I got a connection failed error!" Possibly you didn't run `brew services start mongodb`.
 
 ##### Install ImageMagick
 
