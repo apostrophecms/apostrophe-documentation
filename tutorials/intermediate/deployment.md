@@ -69,7 +69,7 @@ chmod -R a+r /usr/lib/node_modules/
 # by non-root users, which is an improvement over everything running as root
 npm install -g --unsafe-perm forever
 # Used to manage nginx
-npm install -g --unsafe perm mechanic
+npm install -g --unsafe-perm mechanic
 ```
 
 Now you're ready to install the stagecoach deployment system and deploy your Apostrophe site. [Continue by reading the stagecoach documentation.](https://github.com/punkave/stagecoach)
