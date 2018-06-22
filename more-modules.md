@@ -18,7 +18,7 @@ Please do! It's easy. A few things to know:
 * You should take advantage of the `afterConstruct: function(self) { ... }` function in your `index.js` and invoke any methods that need to be called at startup there, rather than actually *doing things* in your `construct: function(self, options) { ... }` function. This allows project-level developers to extend your module and override your methods before `afterConstruct` runs and it's too late.
 * Speaking of which, `afterConstruct` can optionally take a callback if you need to do async stuff there.
 * Don't add fields directly with the `addFields` option. Instead, manipulate `options.addFields` in a `beforeConstruct: function(self, options) { ... }` function. And make sure you append any values that are *already* in `options.addFields`, if it exists. This allows "project level" developers to add more fields to your pieces modules, widgets, etc.
-* Add `apostrophe`, `apostrophecms` and `apostrophe-cms` to your keywords in `package.json` to increase discorverability of your module.
+* Add `apostrophe`, `apostrophecms` and `apostrophe-cms` to your keywords in `package.json` to increase discoverability of your module.
 
 ## Packaging Apostrophe modules together: creating bundles
 
