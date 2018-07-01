@@ -58,6 +58,9 @@ What's going on here?
 * Then, the [sort filter method of `apostrophe-cursor`](../../modules/apostrophe-docs/server-apostrophe-cursor.html#sort) specifies the sort order, just like the `sort()` filter in MongoDB.
 * Finally, the [`toArray` method of `apostrophe-cursor`](../../modules/apostrophe-docs/server-apostrophe-cursor.html#to-array) actually fetches the docs from the database. If all goes well, our callback function receives `(null, docs)`, and `docs` is an array of profiles.
 
+> **"But where can I put this code?"** Context helps! Check out the
+[apostrophe-samples](https://github.com/apostrophecms/apostrophe-samples)
+project, specifically [this commit](https://github.com/apostrophecms/apostrophe-samples/commit/7f0b2b90377be4c4be216c8213ca4783ed2ec656) in which we use cursors and Apostrophe's model-layer APIs to randomly select a relationship between two pieces if the user hasn't entered a value.
 ## Full text search
 
 So far this looks familiar to MongoDB developers. But Apostrophe adds some [filter methods of its own](../../modules/apostrophe-docs/server-apostrophe-cursor.html#methods) that go beyond what you get out of the box with MongoDB.
