@@ -320,7 +320,7 @@ One thing is not incorporated in our process so far: running database migrations
 Since Atlas allows access from any whitelisted IP with the right credentials, the simplest way to run a database migration is to execute it from your local dev environment, with an environment variable set to communicate with your remote database:
 
 ```
-APOS_MONGODB_URI=mongodb://YOUR-uri-goes-here node app apostrophe:migrate
+APOS_MONGODB_URI=mongodb://YOUR-uri-goes-here node app apostrophe-migrations:migrate
 ```
 
 But naturally you don't want to forget this. And you don't want to forget the bundle-building step either.
@@ -330,7 +330,7 @@ So it's best to create your own `./scripts/deploy` command for your project:
 ```
 #!/bin/bash
 APOS_MINIFY=1 node app apostrophe:generation --create-bundle=prod-bundle &&
-APOS_MONGODB_URI=mongodb://YOUR-uri-goes-here node app apostrophe:migrate &&
+APOS_MONGODB_URI=mongodb://YOUR-uri-goes-here node app apostrophe-migrations:migrate &&
 eb deploy
 ```
 
