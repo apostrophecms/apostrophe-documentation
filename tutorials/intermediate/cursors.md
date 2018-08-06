@@ -174,6 +174,33 @@ Now we can take advantage of that:
 
 Notice that even though tags and joins are very different animals, the template code is exactly the same. That's because the choices provided to us are always in a consistent format: the `label` is a label, while the `value` is intended to be the query string parameter for this particular filter. So you can easily write a universal nunjucks macro for filters.
 
+## Displaying counts for tags
+
+If we wish, we can display counts for the choices, so users know how many items are available with a given tag, related document, etc. Bear in mind that this has a performance impact:
+
+```javascript
+  'profiles-pages': {
+    extend: 'apostrophe-pieces-pages',
+    piecesFilters: [
+      {
+        name: 'tags',
+        counts: true
+      }
+    ]
+  }
+```
+
+Now we can show the counts in our template:
+
+{# Link to all the tags, adding a parameter to the query string #}
+<ul class="tag-filters">
+  {% for tag in data.piecesFilters.tags %}
+    <li><a href="{{ data.url | build({ tags: tag.value }) }}">{{ tag.label }} ({{ tag.count }})</a></li>
+  {% endfor %}
+</ul>
+
+
+
 ## Showing the current state of the filter
 
 Usually we want to indicate the tag the user has already chosen. How can we do that?
