@@ -354,7 +354,7 @@ Example with configuration of date picker:
   label: 'Date',
   type: 'date',
   pikadayOptions: {
-    format: 'DD/MM/YYY',
+    format: 'DD/MM/YYYY',
     firstDay: 1
   }
 }
