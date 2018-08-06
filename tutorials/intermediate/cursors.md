@@ -192,14 +192,14 @@ If we wish, we can display counts for the choices, so users know how many items 
 
 Now we can show the counts in our template:
 
+```markup
 {# Link to all the tags, adding a parameter to the query string #}
 <ul class="tag-filters">
   {% for tag in data.piecesFilters.tags %}
     <li><a href="{{ data.url | build({ tags: tag.value }) }}">{{ tag.label }} ({{ tag.count }})</a></li>
   {% endfor %}
 </ul>
-
-
+```
 
 ## Showing the current state of the filter
 
