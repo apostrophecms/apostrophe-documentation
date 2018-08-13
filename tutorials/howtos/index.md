@@ -31,6 +31,7 @@ children:
   - google-twitter-and-facebook-login
   - trim-index
   - hide-index-page
+  - what-to-do-when-you-are-locked-out-of-apostrophe
 ---
 
 These HOWTOs cover a variety of topics that don't quite fit neatly into a tutorial series.
