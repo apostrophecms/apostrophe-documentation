@@ -31,6 +31,17 @@ The `server` method of `apostrophe-pages` loads `req.data.bestPage`, which is th
 
 `apostrophe-pages` then invokes the `pageServe` method of every module that has one, via `self.apos.callAll`. The most important implementation is in the `apostrophe-custom-pages` module. Every page type has a "manager" object which is an instance of a subclass of this module. Even "ordinary" page types like `home` and `default` automatically receive a subclass of this module.
 
+Newer code may listen for the `serve` promise event instead. This example invokes a hypothetical API that returns information about monkeys, and attaches it to `req.data.monkeys` before the page is served.
+
+```javascript
+var request = require('request-promise');
+self.on('apostrophe-pages:serve', 'addMonkeyData', function(req) {
+  return request('http://monkey-api/').then(function(monkeys) {
+    req.data.monkeys = monkeys;
+  }); 
+});
+```
+
 ### Ordinary page templates
 
 By default, the `pageServe` method of `apostrophe-custom-pages` checks whether the slug of `req.data.bestPage` is an exact match for the request. If the page is an exact match, `req.data.page` is set accordingly.

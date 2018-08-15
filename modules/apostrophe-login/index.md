@@ -40,12 +40,25 @@ The default is `48`.
 Apostrophe's instance of the [passport](https://npmjs.org/package/passport) npm module.
 You may access this object if you need to implement additional passport "strategies."
 
-## callAll method: loginAfterLogin
+## Apostrophe promise events
 
-The method `loginAfterLogin` is invoked on **all modules that have one**. This method
-is a good place to set `req.redirect` to the URL of your choice. If no module sets
-`req.redirect`, the newly logged-in user is redirected to the home page. `loginAfterLogin`
-is invoked with `req` and may also optionally take a callback.
+### `after`
+
+This event is emitted after the user logs in. Any handlers are invoked with `req` and may return a promise if desired. This event handler is a good place to set `req.redirect` to the URL of your choice. If no module sets `req.redirect`, the newly logged-in user is redirected to the home page. Any promise returned is resolved before the next handler is run.
+
+Registering an event handler from your own module looks like this:
+
+```javascript
+self.on('apostrophe-login:after', 'setRedirect', function(req) {
+	req.redirect = '/special-place';
+});
+```
+
+The second argument is the **method name** for this event handler, required so that it can be intentionally overridden by subclass modules by reassigning to `self.setRedirect`.
+
+## legacy callAll method: loginAfterLogin
+
+The legacy method `loginAfterLogin` is invoked on **all modules that have one**. New code should use the `afterLogin` event instead, unless the goal is to override an existing `loginAfterLogin` handler in a specific module.
 
 
 ## Methods
