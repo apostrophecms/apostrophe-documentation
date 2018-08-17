@@ -12,13 +12,13 @@ layout: tutorial
 > (like 5.4.0, 5.4.1, etc). Those versions have a bug that interferes with installing
 > Apostrophe.
 >
-> If you do, downgrade to 5.3, which predates the bug and is a long term support release:
+> If you do, just upgrade to the latest stable release:
+>
+> `npm install -g npm`
+>
+> You could also downgrade to 5.3, although we recommend just upgrading instead:
 >
 > `npm install -g npm@5.3`
-> 
-> Or upgrade to 5.5, where they fixed the bug, if you are feeling brave:
->
-> `npm install -g npm@5.5`
 
 ## Creating Your First Project
 
@@ -113,6 +113,18 @@ Open up `lib/modules/apostrophe-pages/views/pages/home.html` in your text editor
 2. Run `node app.js` again (tip: just press the up arrow, then enter).
 
 3. Refresh the browser.
+
+### Use Nodemon to watch file changes
+
+To avoid manual restarting in the future, you could use [Nodemon](https://nodemon.io) to watch project files.
+
+1. Run `npm install -g nodemon` to install it globally.
+
+2. Use `nodemon` in your project root folder. Nodemon will run `node app.js` by default.
+
+Now, every time you make changes to a file in your project, Nodemon will restart your application.
+
+If you installed Apostrophe using `apostrophe-cli` as described above, a basic Nodemon configuration is provided by the `package.json` file. Feel free to adjust these settings to your needs.
 
 ### Working with areas
 

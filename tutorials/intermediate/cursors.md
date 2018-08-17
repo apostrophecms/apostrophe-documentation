@@ -58,6 +58,9 @@ What's going on here?
 * Then, the [sort filter method of `apostrophe-cursor`](../../modules/apostrophe-docs/server-apostrophe-cursor.html#sort) specifies the sort order, just like the `sort()` filter in MongoDB.
 * Finally, the [`toArray` method of `apostrophe-cursor`](../../modules/apostrophe-docs/server-apostrophe-cursor.html#to-array) actually fetches the docs from the database. If all goes well, our callback function receives `(null, docs)`, and `docs` is an array of profiles.
 
+> **"But where can I put this code?"** Context helps! Check out the
+[apostrophe-samples](https://github.com/apostrophecms/apostrophe-samples)
+project, specifically [this commit](https://github.com/apostrophecms/apostrophe-samples/commit/7f0b2b90377be4c4be216c8213ca4783ed2ec656) in which we use cursors and Apostrophe's model-layer APIs to randomly select a relationship between two pieces if the user hasn't entered a value.
 ## Full text search
 
 So far this looks familiar to MongoDB developers. But Apostrophe adds some [filter methods of its own](../../modules/apostrophe-docs/server-apostrophe-cursor.html#methods) that go beyond what you get out of the box with MongoDB.
@@ -157,19 +160,46 @@ Now we can take advantage of that:
 {# Link to all the tags, adding a parameter to the query string #}
 <ul class="tag-filters">
   {% for tag in data.piecesFilters.tags %}
-    <li><a href="{{ data._url | build({ tags: tag.value }) }}">{{ tag.label }}</a></li>
+    <li><a href="{{ data.url | build({ tags: tag.value }) }}">{{ tag.label }}</a></li>
   {% endfor %}
 </ul>
 
 {# Link to all the markets, adding a parameter to the query string #}
 <ul class="tag-filters">
   {% for market in data.piecesFilters.market %}
-    <li><a href="{{ data._url | build({ market: market.value }) }}">{{ market.label }}</a></li>
+    <li><a href="{{ data.url | build({ market: market.value }) }}">{{ market.label }}</a></li>
   {% endfor %}
 </ul>
 ```
 
 Notice that even though tags and joins are very different animals, the template code is exactly the same. That's because the choices provided to us are always in a consistent format: the `label` is a label, while the `value` is intended to be the query string parameter for this particular filter. So you can easily write a universal nunjucks macro for filters.
+
+## Displaying counts for tags
+
+If we wish, we can display counts for the choices, so users know how many items are available with a given tag, related document, etc. Bear in mind that this has a performance impact:
+
+```javascript
+  'profiles-pages': {
+    extend: 'apostrophe-pieces-pages',
+    piecesFilters: [
+      {
+        name: 'tags',
+        counts: true
+      }
+    ]
+  }
+```
+
+Now we can show the counts in our template:
+
+```markup
+{# Link to all the tags, adding a parameter to the query string #}
+<ul class="tag-filters">
+  {% for tag in data.piecesFilters.tags %}
+    <li><a href="{{ data.url | build({ tags: tag.value }) }}">{{ tag.label }} ({{ tag.count }})</a></li>
+  {% endfor %}
+</ul>
+```
 
 ## Showing the current state of the filter
 
@@ -181,7 +211,7 @@ Usually we want to indicate the tag the user has already chosen. How can we do t
 {# Link to all the tags, adding a parameter to the query string #}
 <ul class="tag-filters">
   {% for tag in data.piecesFilters.tags %}
-    <li><a href="{{ data._url | build({ tags: tag.value }) }}"
+    <li><a href="{{ data.url | build({ tags: tag.value }) }}"
       class="{{ 'current' if data.query.tags == tag.value }}">{{ tag.label }}</a></li>
   {% endfor %}
 </ul>

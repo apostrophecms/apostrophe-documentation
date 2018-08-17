@@ -135,7 +135,8 @@ the modal, for the `aposModalCancel` and `aposModalHide` events.
 
 ### getLastSlide()
 Return the last slide, or the modal itself if it has no nested slides.
-Returns the `apostrophe-modal` object, not a jQuery element.
+Returns the `apostrophe-modal` object, not a jQuery element. Use findSafe
+so we are not faked out by nested views.
 ### getSlides()
 Returns the `apostrophe-modal` objects corresponding to each
 slide nested in this modal, which presumably is a slide parent
@@ -170,6 +171,10 @@ modal on the stack has the `apos-modal-slideable` CSS class.
 Otherwise it defaults to calling `self.stackPush()` instead,
 causing the modal to appear normally on top of any modals
 already open.
+### setDepthAttribute(*$el*)
+Make the current modal's depth available as an attribute on various
+elements such as `data-apos-modal-instructions`. This is needed for
+reliable Nightwatch testing
 ### stackPush()
 Called for you by `self.show()`, this method adds the modal to
 the stack, blacking out the page, preventing unwanted interaction

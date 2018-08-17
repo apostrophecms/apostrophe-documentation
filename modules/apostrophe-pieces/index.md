@@ -21,12 +21,10 @@ you'll get a user interface for managing your content for free. Add in the
 for your pieces, and use `apostrophe-pieces-widgets` to allow them to be sprinkled
 into pages all over the site. To learn more, see:
 
-[Reusable content with pieces](http://unstable.apostrophenow.org/tutorials/getting-started/reusable-content-with-pieces.html)
+[Reusable content with pieces](../tutorials/getting-started/reusable-content-with-pieces.html)
 
 
 ## Methods
-### addTrashPrefixFields(*fields*) *[api]*
-
 ### finalizeControls() *[api]*
 
 ### findForEditing(*req*, *criteria*, *projection*) *[api]*
@@ -98,19 +96,10 @@ Invoked by `self.update`. Does nothing by default; convenient extension point
 Invoked by `self.trash`. Does nothing by default; convenient extension point
 ### afterTrash(*req*, *id*, *callback*) *[api]*
 Invoked by `self.trash`. Does nothing by default; convenient extension point
-### deduplicateTrash(*req*, *piece*, *callback*) *[api]*
-After moving pieces to the trash, prefix any fields that have
-unique indexes so that other pieces are allowed to reuse
-those usernames, email addresses, etc.
 ### beforeRescue(*req*, *id*, *callback*) *[api]*
 
 ### afterRescue(*req*, *id*, *callback*) *[api]*
 
-### deduplicateRescue(*req*, *piece*, *callback*) *[api]*
-When rescuing pieces from the trash, attempt to un-prefix any fields
-that have unique indexes. However, if we then find it's been taken
-in the meanwhile, leave the prefix in place and leave it up to
-the user to resolve the issue.
 ### beforeList(*req*, *filters*, *callback*) *[api]*
 
 ### afterList(*req*, *results*, *callback*) *[api]*
@@ -182,16 +171,36 @@ schema-based convert mechanisms, then
 invoke `responder` with `req, res, err, piece`.
 Implements `self.routes.insert`. Also used
 by the optional `apostrophe-pieces-rest-api` module.
+
+If `req.piece` has a `_copyingId` property, fetch that
+piece and, if we have permission to edit, copy its
+non-schema-based top level areas into the new piece.
+This accounts for content editor-modal.js doesn't know about.
 ### convertUpdateAndRefresh(*req*, *responder*) *[api]*
-Update the existing piece at `req.piece`
-(usually populated via the requirePiece middleware)
-based on `req.body`, fetch the updated piece
+Update the piece object at `req.piece`
+(usually populated via the requirePiece middleware
+or by the insert route) based on `req.body`, fetch the updated piece
 and invoke `responder` with `req, res, err, piece`.
 Implements the back end of the `update` route, also used
 by the optional `apostrophe-pieces-rest-api` module.
+### copyExtraAreas(*req*, *copyFrom*, *piece*, *callback*) *[api]*
+Copy top-level areas present in `copyFrom` to `piece`,
+leaving any that are already present in `piece` alone.
+The copy mechanism in the piece editor modal only
+knows about noncontextual schema fields, this method is called on the
+server side to copy contextual and undeclared areas too
+### copyExtras(*req*, *copyFrom*, *piece*, *callback*) *[api]*
+An empty stub you may override to copy extra properties
+not visible to the schema when the user carries out a
+"copy piece" operation. At this point schema fields and
+top level extra areas have already been copied
 ### getCreateControls(*req*) *[api]*
 
 ### getEditControls(*req*) *[api]*
+
+### getChooserControls(*req*) *[api]*
+
+### getManagerControls(*req*) *[api]*
 
 ### generate(*i*) *[api]*
 Generate a sample piece of this type. The `i` counter

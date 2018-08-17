@@ -31,6 +31,8 @@ You may also want:
 
 For CentOS 7 or Red Hat Enterprise 7 Linux, these commands will get you there:
 
+> You can skip most of these steps and set up a Linux server with Stagecoach, ready to deploy, with hardly any effort if you use our [Linode stackscript](https://www.linode.com/stackscripts/view/239217-punkave-Apostrophe+CMS). For more information check out our [Linode HOWTO](../howtos/linode.html).
+
 ```bash
 # Grab some command line basics
 yum install wget rsync perl git nano
@@ -38,18 +40,36 @@ yum install wget rsync perl git nano
 yum install epel-release
 # Front end proxy webserver
 yum install nginx
-# Install node, imagemagick, npm, and compiler tools so an efficient
-# mongo driver can be compiled by npm
-yum install gcc automake autoconf libtool make nodejs ImageMagick npm
-# Install mongodb
-yum install mongodb-server mongodb
+# Install imagemagick, and compiler tools so
+# an efficient mongo driver can be compiled by npm
+yum install -y gcc gcc-c++ automake autoconf libtool make ImageMagick
+# Configure the nodesource repository, which provides easy installation of
+# a modern version of nodejs
+( curl -sL https://rpm.nodesource.com/setup_8.x | bash - )
+# Install nodejs (and npm)
+yum install -y nodejs
+# Install MongoDB 3.6.x from the official MongoDB repository
+cat > /etc/yum.repos.d/mongodb-org-3.6.repo <<EOF
+[mongodb-org-3.6]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/\$releasever/mongodb-org/3.6/x86_64/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.mongodb.org/static/pgp/server-3.6.asc
+EOF
+yum install -y mongodb-org
+systemctl restart mongod.service
+# Make sure mongod starts on each boot
+systemctl enable mongod.service
 # Allow non-root users to run command line applications installed with
 # "npm install -g", otherwise it is not very useful
 chmod -R a+r /usr/lib/node_modules/
-# Used to run things indefinitely restarting as needed
-npm install -g forever
+# Used to run things indefinitely restarting as needed.
+# --unsafe-perm simply allows the installed package to actually be used 
+# by non-root users, which is an improvement over everything running as root
+npm install -g --unsafe-perm forever
 # Used to manage nginx
-npm install -g mechanic
+npm install -g --unsafe-perm mechanic
 ```
 
 Now you're ready to install the stagecoach deployment system and deploy your Apostrophe site. [Continue by reading the stagecoach documentation.](https://github.com/punkave/stagecoach)

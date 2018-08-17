@@ -98,7 +98,7 @@ Other properties vary by type.
 
 Here are all of the standard schema field types. *You can also add more field types to the system; check out the source code of the `apostrophe-attachments` module for a good example.*
 
-#### `area`
+### `area`
 
 The `area` field type defines an editable content area that allows users to add a series of widgets. It is exactly like calling `apos.area` in a page template.
 
@@ -123,7 +123,7 @@ Example:
 }
 ```
 
-#### `singleton`
+### `singleton`
 
 The `singleton` field type adds a single widget to your schema. It is exactly like calling `apos.singleton` in a page template.
 
@@ -145,7 +145,7 @@ Example:
 }
 ```
 
-#### `string`
+### `string`
 
 `string` adds an editable text string field to the schema. Setting `textarea: true` presents an interface that allows multiple lines. You may set minimum and maximum numbers of characters using the `min` and `max` options.
 
@@ -170,7 +170,15 @@ Example:
 }
 ```
 
-#### `slug`
+#### Case-insensitive, intuitive sorting
+
+If this field is part of a doc type, such as a piece or page type, you may also set `sortify: true` to automatically create a parallel `Sortified` version of the field that is more intuitive for sorting purposes. Apostrophe will automatically use it if a request is made to sort on the original field.
+
+For instance, if your field's `name` is `lastName` and you set `sortify: true`, `lastNameSortified` will automatically be created and used when sorting on the `lastName` field. This provides case-insensitive sorting that also ignores punctuation differences.
+
+Note that if you add `sortify: true` to an existing field, existing objects will get the sortified version of the field the next time you run the `apostrophe-migrations:migrate` command line task. Migrations like this only need to be run once because on future updates or inserts of a document the sortified property is automatically set.
+
+### `slug`
 
 `slug` adds a slug field to the schema. Usually there is only one, named `slug`, and it is already part of your schema when extending pieces or custom pages.
 
@@ -178,7 +186,7 @@ If the `page` property is `true`, slashes are allowed and a leading slash is alw
 
 By default slugs are sanitized by the [sluggo](https://github.com/punkave/sluggo) module. This can be changed by overriding the `apos.utils.slugify` method.
 
-#### `tags`
+### `tags`
 
 `tags` adds a field allowing the user to enter one or more tags. The interface will suggest completions for each tag, based on those that already exist in the `tags` properties of docs on the site.
 
@@ -192,13 +200,13 @@ By default, tags are converted to lowercase and leading and trailing whitespace 
 
 This behavior can be overridden by configuring the `apostrophe-launder` module's `filterTag` option to a function that accepts a string, filters it as desired, and returns a new string.
 
-#### `boolean`
+### `boolean`
 
 A `boolean` field is a simple "Yes or No" choice. The value stored in the database will be either `true` or `false`.
 
 If a `boolean` field is set `required: true`, the user must select "Yes" to complete the form. This may seem odd but is useful for consent fields.
 
-#### `checkboxes`
+### `checkboxes`
 
 A `checkboxes` field presents an array of checkboxes. For example:
 
@@ -230,7 +238,7 @@ The `required` option currently has no meaning for `checkboxes`.
 
 This is a multiple-select field. For a single yes-or-no choice, see [boolean](#boolean). For a single-select choice, see [select](#select).
 
-#### `select`
+### `select`
 
 A single-select dropdown menu. The `choices` array should be an array of objects with `label` and `value` properties. `value` is what winds up in the database, `label` is what the user sees.
 
@@ -261,7 +269,24 @@ Example:
 
 When the "On Campus" choice is selected, the schema fields named `accessible` and `vegetarian` will be visible. At all other times they will not be.
 
-#### `integer`
+**A cursor filter method is added automatically for all fields of type `select`.** This means joins to pieces containing a `select` type field can be filtered by the field's value;
+
+Example:
+
+```javascript
+{
+  name: '_post',
+  type: 'joinByOne',
+  filters: {
+    postType: 'event',
+    projection: [
+      ...
+    ]
+  }
+}
+```
+
+### `integer`
 
 `integer` adds an editable integer field to the schema. You may set minimum and maximum values using the `min` and `max` options. Any fractional part is discarded.
 
@@ -275,7 +300,7 @@ Example:
 }
 ```
 
-#### `float`
+### `float`
 
 `integer` adds an editable floating point numeric field to the schema. You may set minimum and maximum values using the `min` and `max` options.
 
@@ -291,7 +316,7 @@ Example:
 }
 ```
 
-#### `url`
+### `url`
 
 `url` adds an editable URL field to the schema. Apostrophe will detect common mistakes, like leaving off `http://`, and add those things. Common XSS attack vectors are laundered and discarded. Only "safe" URL schemes, e.g. `http`, `https`, `ftp` and `mailto`, are permitted.
 
@@ -305,7 +330,7 @@ Example:
 }
 ```
 
-#### `date`
+### `date`
 
 `date` adds an editable date field to the schema. A friendly date picker UI is presented when the field is clicked. Dates are stored as strings in `YYYY-MM-DD` format, which is good for sorting and comparing purposes.
 
@@ -319,9 +344,27 @@ Example:
 }
 ```
 
+
+The date picker UI can be configured by using the `pikadayOptions` configuration. We use [pikaday](https://github.com/dbushell/Pikaday#usage) and most configurations should work witout problems.
+
+Example with configuration of date picker:
+```javascript
+{
+  name: 'date',
+  label: 'Date',
+  type: 'date',
+  pikadayOptions: {
+    format: 'DD/MM/YYYY',
+    firstDay: 1
+  }
+}
+```
+
+**Note: Apostrophe tries its best to convert any date picker format to the above mentioned `YYYY-MM-DD` friendly sorting format, but very advanced configurations may not work out of the box, so please keep that in mind.**
+
 **If you do not set `def: null` or `required: true`, the date defaults to the current date.**
 
-#### `time`
+### `time`
 
 `time` adds an editable time field to the schema. No special time picker is presented, however Apostrophe is very tolerant of different time formats users may enter, such as "6p" or "6:37pm" or "17:45".
 
@@ -331,17 +374,21 @@ The default "local" time format, displayed to the user when editing, is American
 
 **If you do not set `def: null` or `required: true`, the time defaults to the current time.**
 
-#### `password`
+### `password`
 
 `password` fields are identical to `string` fields except that the user's input is not visible.
 
-#### `array`
+### `array`
 
 An `array` field has its own schema, and allows the user to create one or more objects that have the fields in that schema. These objects are stored as an array.
 
 This is useful for collections that clearly belong to a parent object, such as multiple homes for a person, and do not have any other relationships to other objects. If the objects in the array are also related to other types of objects, you should be using joins instead.
 
-If the `titleField` property is set, the editing interface will use the value of that field as a distinguishing label for each entry in the array. If there is no such property, the items are numbered. Setting `titleField` is recommended.
+If the `titleField` property is set, the editing interface will use the value of that field as a distinguishing label for each entry in the array. You may also use "dot notation" to access a nested property just as you would with MongoDB.
+
+If there is no `titleField` setting, the items are numbered. Setting `titleField` is recommended.
+
+Note that `titleField` can access joins beginning with Apostrophe 2.50.0, which is especially useful with dot notation.
 
 Example:
 
@@ -366,13 +413,55 @@ Example:
 }
 ```
 
-#### `object`
+If `titleField` is not enough for your purposes, you can completely customize the output of the titles by setting `listItemTemplate` to the name of a custom Nunjucks template. All your template has to do is output whatever it wants, based on the `item` variable provided to it.
+
+This template will be loaded from the `apostrophe-schemas` module, at project level (`lib/modules/apostrophe/schemas/views/your-template-name.html` at project level). **If you would rather it came from your own module, use "cross-module include" syntax,** like in the example below:
+
+```javascript
+// app.js
+// ... where you configure your modules ...
+  modules: {
+    products: {},
+    // other modules...
+  }
+```
+
+```javascript
+// lib/modules/products/index.js
+module.exports = {
+  extend: 'apostrophe-pieces',
+  name: 'product',
+  addFields: [
+    {
+      type: 'array',
+      name: 'features',
+      listItemTemplate: 'products:listItem.html',
+      schema: [
+        {
+          type: 'singleton',
+          name: 'description',
+          widgetType: 'apostrophe-rich-text',
+          required: true
+        }
+      ]
+    }
+  ]
+}
+```
+
+```markup
+{# lib/modules/products/listItem.html #}
+
+<div>{{ apos.areas.richText(item.description) }}</div>
+```
+
+### `object`
 
 An `object` field has its own schema, and is very similar to an `array` field as described above. However there is always exactly one object, represented as an object property of the doc in the database (a sub-object).
 
 The use of this field is not strictly necessary, however it does avoid unnecessary prefixing of field names and nesting does take place in the form, which opens up the possibility of styling things to match.
 
-#### `attachment`
+### `attachment`
 
 An `attachment` field allows the user to upload a file to the server. The user may also choose to replace the file later when editing the field, or leave it in place.
 
@@ -380,7 +469,7 @@ Uploaded files are stored via [uploadfs](https://npmjs.org/package/uploadfs).
 
 Once an attachment field has a value, you can obtain a URL to the file by calling `apos.attachments.url(attachment)`. If the file is an image, you can obtain images of any configured size by calling `apos.attachments.url(attachment, { size: 'one-half' })`, etc.
 
-`attachment` fields can be limited to a particular file type group by setting the `group` option to either `images` or `office`. Other groups can be configured via the `fileGroups` option of the [apostrophe-attachments](../../modules/apostrophe-attachments/index.js) module.
+`attachment` fields can be limited to a particular file type group by setting the `group` option to either `images` or `office`. Other groups can be configured via the `fileGroups` option of the [apostrophe-attachments](../../modules/apostrophe-attachments/index.html) module.
 
 Attachments are most often used indirectly via [apostrophe-images-widgets](../../modules/apostrophe-images-widgets/index.html) or [apostrophe-files-widgets](../../modules/apostrophe-files-widgets/index.html), which are backed by the [apostrophe-images](../../modules/apostrophe-images) and [apostrophe-files](../../modules/apostrophe-files) subclasses of pieces. Each of those piece types contains an attachment field and some metadata fields, making them a convenient way to reuse files.
 
@@ -401,7 +490,7 @@ Example:
 }
 ```
 
-#### `video`
+### `video`
 
 A `video` field allows the user to embed video hosted by any [oembed](http://oembed.com/)—compatible video hosting site, or any site for which you have provided an [oembetter](https://github.com/punkave/oembetter) filter via the [apostrophe-oembed](../../modules/apostrophe-oembed/index.html) module.
 
@@ -421,7 +510,40 @@ Example:
 }
 ```
 
-#### `joinByOne`
+### `color`
+
+A `color` field provides a colorpicker interface to the editor for choosing/pasting a hex value to be stored. Values are stored as hex strings.
+
+Example:
+
+```javascript:
+{
+  type: 'color',
+  name: 'bgColor',
+  label: 'Background Color'
+}
+```
+
+### `range`
+
+A `range` field provides a [range input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range) interface for tuning integers. Values are stored as floats.
+
+Example:
+
+```javascript:
+{
+  type: 'range',
+  name: 'fontSize',
+  label: 'Font Size',
+  min: 18,
+  max: 32,
+  step: 2 // optional
+}
+```
+
+
+
+### `joinByOne`
 
 A `joinByOne` field expresses a one-to-one relationship between this type of object and another type of object. After Apostrophe loads the original object, it will fetch the "joined" object and attaching it to the original via the specified `name` property.
 
@@ -462,7 +584,7 @@ Example:
 
 **Always remember that the `_fabric` property of the product may be null at any time.** Perhaps the fabric was moved to the trash, or unpublished. Your code must allow for this possibility.
 
-#### `joinByArray`
+### `joinByArray`
 
 A `joinByArray` field expresses a one-to-many relationship between this type of object and another type of object. After Apostrophe loads the original object, it will fetch the "joined" object and attaching it to the original via the specified `name` property.
 
@@ -471,6 +593,8 @@ For instance, if `product` pieces have a `joinByArray` field called `_fabrics` t
 The `name` option **must begin with `_`** to signify that this is temporary information that also lives elsewhere in the database. The `name` option should be plural to signify that this is a one-to-many relationship.
 
 The `withType` option **may** be set to the name of the related type. If you do not set `withType`, then the name of the join must match the name of the related type, with a leading `_` added and an optional `s` following.
+
+> Beginning with Apostrophe 2.58.0, you may also set `withType` to an **array** of type names. When you do so, the chooser allows you to pick items of several types via a tabbed interface and create a combined list. These "polymorphic joins" are primarily intended for navigation widgets. They currently do not support pieces filters or `joinByArrayReverse`.
 
 The `idsField` option **may** be set to the name of a property in which to store the ids of the related objects. **If you don't set it yourself, it will be set automatically for you.** For instance, if your join is named `_fabrics`, then `idsField` will automatically be set to `fabricsIds`.
 
@@ -500,7 +624,7 @@ Example:
 }
 ```
 
-##### Relationship properties and `joinByArray`
+#### Relationship properties and `joinByArray`
 
 Sometimes, the relationship between the two objects has properties of its own. For example, the relationship between a person and a department might have a `jobTitle` property. Yes, a person can have more than one job title!
 
@@ -541,7 +665,7 @@ Example:
 
 **Since there is a relationship, the `_departments` property will be an array of objects with `item` and `relationship` properties.** The `item` property will be the actual department, and the `relationship` property will contain the relationship fields, which are unique to this person.
 
-###### Inline relationship fields
+##### Inline relationship fields
 
 Sometimes, expecting users to click a special button to access a separate modal dialog box to edit relationship fields isn't worth it. Users just don't find it, or the fields are few enough that it would make more sense to add the form field directly to the chooser.
 
@@ -560,7 +684,7 @@ relationship: [
 
 If you have a mix of inline and regular fields, you'll still get the option of opening the modal, but for data integrity reasons fields are presented only in one place or the other.
 
-#### `joinByOneReverse`
+### `joinByOneReverse`
 
 A `joinByOneReverse` field allows us to access the other side of a [joinByOne](#joinByOne) relationship. Since this is the "other end" of the relationship, there is no editing interface. It is just a convenience allowing us to "see" the related object from the other point of view.
 
@@ -592,7 +716,7 @@ Example:
 
 We can now see `_product` as a property of each `fabric` object that is related to a product.
 
-#### `joinByArrayReverse`
+### `joinByArrayReverse`
 
 A `joinByArrayReverse` field allows us to access the other side of a [joinByArray](#joinByArray) relationship. Since this is the "other end" of the relationship, there is no editing interface. It is just a convenience allowing us to "see" the related objects from the other point of view.
 

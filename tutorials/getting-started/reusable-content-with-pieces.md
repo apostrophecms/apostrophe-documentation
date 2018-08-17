@@ -92,6 +92,22 @@ You can even add a profile photo, via the `thumbnail` field. This field has the 
 
 And, there's a "biography" section. This is a full-blown content area in which the editor can add rich text and images. *There's nothing to stop us from allowing more controls and widgets here. Limiting the choices just helps keep things from getting out of hand.*
 
+### Fine-grained permissions for pieces
+
+As you may know, you can set individual permissions for pages. You can set the view permissions to "Login Required," or even to "Certain People." And you can give out editing permissions to users and groups as well.
+
+This feature is also available for pieces. By default, it is disabled because it is not used as often.
+
+To enable it for your module, just set `permissionsFields: true` in `lib/modules/people/index.js`:
+
+```javascript
+module.exports = {
+  extend: 'apostrophe-pieces',
+  permissionsFields: true,
+  // ... other settings ...
+};
+```
+
 ### Customizing the model layer: setting the `title` automatically
 
 Right now, the `title` property (which is always the full name of the piece) is independent of `firstName` and `lastName`. For people, it makes more sense for the `title` to be generated automatically from `firstName` and `lastName`.
@@ -430,10 +446,10 @@ Here's an example. Here we assume you followed the [cursors tutorial](../interme
 ```markup
 {# indexAjax.html #}
 
-{# Filter by tag. Note this is OUTSIDE data-apos-ajax-page, so it gets REFRESHED #}
+{# Filter by tag. Note this is OUTSIDE data-apos-ajax-append, so it gets REFRESHED #}
 <ul class="tag-filters">
   {% for tag in data.piecesFilters.tags %}
-    <li><a href="{{ data._url | build({ tags: tag.value }) }}">{{ tag.label }}</a></li>
+    <li><a href="{{ data.url | build({ tags: tag.value }) }}">{{ tag.label }}</a></li>
   {% endfor %}
 </ul>
 
@@ -453,7 +469,7 @@ Here's an example. Here we assume you followed the [cursors tutorial](../interme
 {# Load More button. Also outside data-apos-ajax-append, so it gets refreshed #}
 {% if data.currentPage < data.totalPages %}
   {# "Load More" button with the "append=1" flag #}
-  <a href="{{ data.url }} | build({ page: data.currentPage + 1, append: 1 })">Load More...</a>
+  <a href="{{ data.url | build({ page: data.currentPage + 1, append: 1 }) }}">Load More...</a>
 {% endif %}
 ```
 

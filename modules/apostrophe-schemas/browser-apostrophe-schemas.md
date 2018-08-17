@@ -82,11 +82,24 @@ Show the tab group containing the given element, if not already visible,
 by triggering the appropriate tab button.
 ### findFieldset(*$el*, *name*)
 Used to search for fieldsets at this level of the schema,
-without false positives for any schemas nested within it
+without false positives for any schemas nested within it.
 ### findSafe(*$el*, *sel*)
 Used to search for elements without false positives from nested
 schemas in unrelated fieldsets, however see `findFieldset` or
 `findSafeInFieldset` for what you probably want.
+
+Optimized implementation at the DOM level, the jQuery
+`findSafe` plugin is much slower. Still returns a
+jQuery object, so there is no incompatibility with
+existing code that uses this method.
+Used to search for elements without false positives from nested
+schemas in unrelated fieldsets, however see `findFieldset` or
+`findSafeInFieldset` for what you probably want.
+
+Optimized implementation at the DOM level, the jQuery
+`findSafe` plugin is much slower. Still returns a
+jQuery object, so there is no incompatibility with
+existing code that uses this method.
 ### findSafeInFieldset(*$el*, *name*, *sel*)
 A convenient way to find something safely within a specific fieldset
 (safely means "not inside a nested schema"). The fieldset is found first,

@@ -56,6 +56,22 @@ locks are released.
 See also apos.busy for interactions that
 only need to indicate that one particular
 element is busy.
+### pushGlobalBusy()
+Call this method when the global busy mechanism is in effect, but
+you need to temporarily suspend it and allow interaction again.
+Must be paired with a call to `popGlobalBusy`. This is probably
+not what you need for most situations, see `globalBusy`.
+
+If the global busy mechanism was not in effect in the first place, that is
+handled gracefully.
+### popGlobalBusy()
+Call this method when the global busy mechanism has been suspended,
+and you are ready to allow it back into effect.
+Must be paired with a call to `pushGlobalBusy`. This is probably
+not what you need for most situations, see `globalBusy`.
+
+If the global busy mechanism was not in effect in the first place, that is
+handled gracefully.
 ### globalLock()
 Do not call this method yourself. It is called
 by self.globalBusy to display the global spinner.
@@ -81,6 +97,8 @@ to use this method rather than simply setting
 `window.location.href` yourself.
 ### enhanceDate(*$el*, *options*)
 Enhance a plaintext date field with a pikaday date widget.
+### enhanceColorpicker(*$el*, *options*)
+Enhance a plaintext color field with Spectrum
 ### formatTime(*time*, *options*)
 Converts apostrophe-schemas 24 hour time field strings
 to local time. The format string depends on the

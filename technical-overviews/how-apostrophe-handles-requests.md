@@ -31,6 +31,17 @@ The `server` method of `apostrophe-pages` loads `req.data.bestPage`, which is th
 
 `apostrophe-pages` then invokes the `pageServe` method of every module that has one, via `self.apos.callAll`. The most important implementation is in the `apostrophe-custom-pages` module. Every page type has a "manager" object which is an instance of a subclass of this module. Even "ordinary" page types like `home` and `default` automatically receive a subclass of this module.
 
+Newer code may listen for the `serve` promise event instead. This example invokes a hypothetical API that returns information about monkeys, and attaches it to `req.data.monkeys` before the page is served.
+
+```javascript
+var request = require('request-promise');
+self.on('apostrophe-pages:serve', 'addMonkeyData', function(req) {
+  return request('http://monkey-api/').then(function(monkeys) {
+    req.data.monkeys = monkeys;
+  }); 
+});
+```
+
 ### Ordinary page templates
 
 By default, the `pageServe` method of `apostrophe-custom-pages` checks whether the slug of `req.data.bestPage` is an exact match for the request. If the page is an exact match, `req.data.page` is set accordingly.
@@ -43,7 +54,7 @@ As mentioned, every page type is managed by a module that extends `apostrophe-cu
 
 For instance, you might implement a module that displays an index if you request its URL exactly, and displays an individual document if you match the URL of the page plus the slug of the document:
 
-```
+```javascript
 // in app.js
 modules: {
   'home-pages': {}
@@ -123,7 +134,7 @@ module.exports = {
 }
 ```
 
-```
+```markup
 {# in any template #}
 {{ apos.clap(data.page.title) }}
 ```
@@ -154,7 +165,7 @@ module.exports = {
 
 If you need to, you can access `req` inside a helper function as:
 
-```
+```javascript
 self.apos.templates.contextReq
 ```
 
@@ -173,7 +184,7 @@ self.addHelpers({
 });
 ```
 
-```
+```markup
 {# inside any template #}
 {% for piece in data.pieces %}
   {{ address(piece) }}
@@ -197,4 +208,4 @@ self.apos.app.get('/special-url', function(req, res) {
 
 Note that `pageBeforeSend` methods are invoked first before the template is rendered.
 
-  `sendPage` completes your response to the Express request. There is no need to call `res.send` afterards and it will not work if you try. If you need to do anything special to the Express `res` object before the response is sent, do that first, accessing it via `req.res`.
+  `sendPage` completes your response to the Express request. There is no need to call `res.send` afterwards and it will not work if you try. If you need to do anything special to the Express `res` object before the response is sent, do that first, accessing it via `req.res`.

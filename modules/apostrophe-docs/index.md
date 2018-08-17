@@ -51,9 +51,13 @@ Index on the slug property. Emits a slugIndex event with a params object
 so it can be altered by other listening modules
 ### getSlugIndexParams() *[api]*
 
+### getPathLevelIndexParams() *[api]*
+
 ### ensureIndexes(*callback*) *[api]*
 
 ### ensureTextIndex(*callback*) *[api]*
+
+### ensurePathLevelIndex(*callback*) *[api]*
 
 ### find(*req*, *criteria*, *projection*) *[api]*
 Returns a query cursor based on the permissions

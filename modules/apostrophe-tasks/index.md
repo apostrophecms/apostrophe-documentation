@@ -18,6 +18,10 @@ node app apostrophe-migrations:migrate
 Apostrophe is fully initialized before your task is run, except that it does
 not listen for connections. So you may access all of its features in your task.
 
+Direct use of `console` makes sense here because
+we're implementing an interaction at the CLI.
+-Tom
+
 
 ## Methods
 ### add(*groupName*, *name*, *usage*, *callback*)
@@ -39,6 +43,9 @@ On completing the task your function should invoke the callback.
 If the callback is invoked with `null`, Apostrophe will exit quietly
 with status 0 (success), otherwise it will display the error given
 and exit with status 1 (failure).
+
+**Your task may return a promise** instead of invoking the callback.
+You **must not** do both.
 
 Your code will usually need to invoke methods that require a `req` argument.
 Call `self.apos.tasks.getReq()` to get a `req` object with

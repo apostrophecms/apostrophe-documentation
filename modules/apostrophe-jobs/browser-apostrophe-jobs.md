@@ -7,7 +7,7 @@ namespace: browser
 
 ## Methods
 ### progress(*jobId*, *options*)
-Start a progress display for the given job id. 
+Start a progress display for the given job id.
 If `options.change` is set, an `apos.change` call is
 made with that argument when the progress display
 is dismissed.

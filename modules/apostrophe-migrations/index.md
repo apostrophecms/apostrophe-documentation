@@ -80,11 +80,44 @@ Widget loaders are NOT called.
 THIS API IS FOR MIGRATION AND TASK USE ONLY AND HAS NO SECURITY.
 
 YOUR ITERATOR MUST BE ASYNCHRONOUS.
-### enableCache() *[implementation]*
+### addSortify(*migrationNamePrefix*, *criteria*, *field*) *[api]*
+Most of the time, this is called automatically for you. Any
+doc type schema field marked with `sortify: true` automatically
+gets a migration implemented via this method. Don't forget
+to run the `apostrophe-migration:migrate` task.
 
+Adds a migration that takes the given field, such as `lastName`, and
+creates a parallel `lastNameSortified` field, formatted with
+`apos.utils.sortify` so that it sorts and compares in a more
+intuitive, case-insensitive way.
+
+The migration applies only to documents that match `criteria`.
+
+After adding such a migration, you can add `sortify: true` to the
+schema field declaration for `field`, and any calls to
+the `sort()` cursor filter for `lastName` will automatically
+use `lastNameSortified`. You can also do that explicitly of course.
+
+Note that you want to do both things (add the migration, and
+add `sortify: true`) because `sortify: true` guarantees that
+`lastNameSortified` gets updated on all saves of the doc.
+
+`migrationNamePrefix` just helps uniquely identify this
+migration, since different modules might contribute migrations
+for fields of the same name.
+### enableCache() *[implementation]*
+Legacy cache of migrations performed
+### enableCollection(*callback*) *[implementation]*
+How we now track migrations performed: a mongodb collection (persistent)
 ### addMigrationTask() *[implementation]*
 
 ### migrationTask(*apos*, *argv*, *callback*) *[implementation]*
+
+### addCollectionMigration() *[implementation]*
+
+### afterInit() *[implementation]*
+
+### addSortifyMigrations() *[implementation]*
 
 ### migrate(*options*, *callback*) *[implementation]*
 

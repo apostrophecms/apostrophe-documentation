@@ -20,7 +20,7 @@ with sensible defaults for the current module. For instance,
 any module can call `self.render(req, 'show', { data... })` to
 render the `views/show.html` template of that module.
 
-TODO: wrappers for delivering email and adding command-line tasks.
+TODO: wrapper for adding command-line tasks.
 In the meantime it is recommended that you always use
 your module's name and a colon as the prefix for a task name when
 calling `self.apos.tasks.add`.
@@ -236,7 +236,7 @@ the singleton is created only once per page lifetime in the browser,
 even if an `apos.change` event would otherwise cause it to be created again.
 
 If `req` is given and `when` is not, the singleton is always created; it is assumed that
-you are looking at the request to decide if it is needed before calling.
+you are def the request to decide if it is needed before calling.
 
 If `when` is given, the singleton is created only for the specified scene
 (`always` or `user`).
@@ -300,7 +300,7 @@ function takes a callback.
 A convenience method to fetch properties of `self.options`.
 
 `req` is required to provide extensibility; modules such as
-`apostrophe-workflow` and `apostrophe-option-overrides` 
+`apostrophe-workflow` and `apostrophe-option-overrides`
 can use it to change the response based on the current page
 and other factors tied to the request.
 
@@ -320,3 +320,53 @@ If no third argument is given in this situation,
 Also available as a Nunjucks helper; often convenient to invoke
 as `module.getOption`. When calling the helper,
 the `req` argument is implied, just pass the path(s).
+### email(*req*, *templateName*, *data*, *options*, *callback*)
+Send email. Renders an HTML email message using the template
+specified in `templateName`, which receives `data` as its
+`data` object (literally called `data` in your templates,
+just like with page templates).
+
+**The `nodemailer` option of the `apostrophe-email` module
+must be configured before this method can be used.** That
+option's value is passed to Nodemailer's `createTransport`
+method. See the [Nodemailer documentation](https://nodemailer.com).
+
+A plaintext version is automatically generated for email
+clients that require or prefer it, including plaintext versions
+of links. So you do not need a separate plaintext template.
+
+`nodemailer` is used to deliver the email. The `options` object
+is passed on to `nodemailer`, except that `options.html` and
+`options.plaintext` are automatically provided via the template.
+
+In particular, your `options` object should contain
+`from`, `to` and `subject`. You can also configure a default
+`from` address, either globally by setting the `from` option
+of the `apostrophe-email` module, or locally for this particular
+module by setting the `from` property of the `email` option
+to this module.
+
+If you need to localize `options.subject`, you can call
+`self.apos.i18n.__(subject)`.
+
+The callback receives `(err, info)`, per the Nodemailer documentation.
+With most transports, lack of an `err` indicates the message was
+handed off but has not necessarily arrived yet and could still
+bounce back at some point.
+
+If you do not provide a callback, a promise is returned.
+### addTask(*name*, *usage*, *fn*)
+Add an Apostrophe command line task to your module. The command line
+syntax will be:
+
+`node app name-of-module:name`
+
+Where `name` is the `name` argument given here (use hyphens).
+The usage message is printed if the user asks for help with
+the task.
+
+`fn` is invoked with `(apos, argv, callback)`. You may
+return a promise, in which case you must *not* invoke `callback`.
+
+To carry out actions requiring `req` in your code, call
+`self.apos.tasks.getReq` to get a `req` with unlimited admin permissions.

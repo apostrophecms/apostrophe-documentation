@@ -93,7 +93,7 @@ For backwards compatibility. Equivalent to calling `insert` with
 the same three arguments.
 ### insert(*req*, *file*, *options*, *callback*) *[api]*
 Insert a file as an Apostrophe attachment. The `file` object
-should be an object with `name` and `path` properties. 
+should be an object with `name` and `path` properties.
 `name` must be the name the user claims for the file, while `path`
 must be the actual full path to the file on disk and need not have
 any file extension necessarily.
@@ -234,6 +234,8 @@ focal point, null is returned.
 
 ### addDocReferencesMigration() *[api]*
 
+### addFixPermissionsMigration() *[api]*
+
 ### docAfterSave(*req*, *doc*, *options*, *callback*) *[api]*
 
 ### docAfterTrash(*req*, *doc*, *callback*) *[api]*
@@ -247,11 +249,37 @@ it is no longer web-accessible to those who know the URL.
 
 This method is invoked after any doc is inserted, updated, trashed
 or rescued.
+### updatePermissions(*callback*) *[api]*
+Update the permissions in uploadfs of all attachments
+based on whether the documents containing them
+are in the trash or not. Specifically, if an attachment
+has been utilized at least once but no longer has
+any entries in `docIds` and `trash` is not yet true,
+it becomes web-inaccessible, `utilized` is set to false
+and `trash` is set to true. Similarly, if an attachment
+has entries in `docIds` but `trash` is true,
+it becomes web-accessible and trash becomes false.
+
+This method is invoked at the end of `updateDocReferences`
+and also at the end of the migration that adds `docIds`
+to legacy sites. You should not need to invoke it yourself.
+### applyPermissions(*attachment*, *trash*, *callback*) *[api]*
+Enable or disable access to the given attachment via uploadfs, based on whether
+trash is true or false. If the attachment is an image, access
+to the size indicated by the `sizeAvailableInTrash` option
+(usually `one-sixth`) remains available. This operation is carried
+out across all sizes and crops.
+### migrateToDisabledFileKeyTask(*argv*, *callback*) *[api]*
+
+### migrateFromDisabledFileKeyTask(*argv*, *callback*) *[api]*
+
 ### pushAssets() *[browser]*
 
 ### pushCreateSingleton() *[browser]*
 
 ### initUploadfs(*callback*)
+
+### apostropheDestroy(*callback*)
 
 ### enableCollection(*callback*)
 

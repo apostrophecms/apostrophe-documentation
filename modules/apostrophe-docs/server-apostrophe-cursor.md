@@ -12,6 +12,16 @@ this does occur. With `.areas(false)` you can
 shut it off for a particular cursor. With
 .areas([ 'thumbnail' ]) you can load just that
 one area for all pages matching the query.
+### originalWidgets(*value*)
+Makes the original value of each widget available
+indexed by id in `_originalWidgets`. This filter
+is required in order to save widgets that have
+restricted permissions for editing certain fields.
+Without it content would be lost when an edit is
+performed on an existing widget by someone without
+those permissions. Called by default. You will
+probably never disable this, but you could if
+your operations are strictly read-only.
 ### addFilter(*name*, *definition*)
 Add a new filter method to this cursor.
 
@@ -158,6 +168,11 @@ If you use it, you should also invoke `after`
 for each result (see below). Generally you should
 use `toObject`, `toArray`, etc. but for some
 low-level operations this may be desirable. Not chainable.
+### lowLevelMongoCursor(*req*, *criteria*, *projection*, *options*)
+Create a mongo cursor directly from the given parameters. You don't want this API.
+It is a low level implementation detail overridden by `apostrophe-optimizer` as needed.
+Seemingly we don't need req at all here, but overrides like apostrophe-optimizer need it,
+so it must be provided
 ### clone()
 Clones a cursor, creating an independent
 clone that can be modified without modifying
@@ -211,6 +226,18 @@ If called without a callback, returns a promise.
 Implementation detail of the `previous` and `next` filters
 ### finalizeSort()
 
+### finalizeDefaultSort()
+Invoked when the default sort will be used. Figure out what that is,
+starting with the `defaultSort` filter's value and falling back
+to `title` (which the sortify behavior will turn into
+`titleSortify` later). Makes sure the default sort is
+not `search` as in the absence of an actual search
+a mongodb error would occur.
+
+A good override point for changing the default sort
+behavior in additional ways.
+
+Returns a sort object, for instance `{ title: 1 }`.
 ### criteria(*value*)
 Filter. Sets the MongoDB criteria, discarding
 criteria previously added using this

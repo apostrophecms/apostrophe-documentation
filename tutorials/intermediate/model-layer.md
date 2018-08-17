@@ -27,6 +27,10 @@ return self.find(req, {
 
 That code will fetch only pieces this particular user is allowed to see, and also take into account your custom mongodb criteria object and a full-text search for the word `blue`, sorting the results by how well they match that search.
 
+> **"But where can I put this code?"** Context helps! Check out the
+[apostrophe-samples](https://github.com/apostrophecms/apostrophe-samples)
+project, specifically [this commit](https://github.com/apostrophecms/apostrophe-samples/commit/7f0b2b90377be4c4be216c8213ca4783ed2ec656) in which we use cursors and Apostrophe's model-layer APIs to randomly select a relationship between two pieces if the user hasn't entered a value.
+
 ## Updating pieces
 
 You can also update a piece fetched in this way, again taking permissions into account:

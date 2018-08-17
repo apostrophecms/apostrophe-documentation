@@ -5,6 +5,7 @@ children:
   - glossary
   - technical-overviews
   - modules
+  - nunjucks-filters
   - more-modules
   - core-server
   - core-browser

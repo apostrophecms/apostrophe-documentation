@@ -45,3 +45,5 @@ you may implicitly subclass it at project level to change its behavior.
 ### addToAdminBarIfSuitable()
 Adds an admin bar button if and only if the `apostrophe-users` module
 is not using its `groups` option for simplified group administration.
+### enableAddGroupTask()
+

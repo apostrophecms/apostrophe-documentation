@@ -1,9 +1,11 @@
 ---
-title: "Deploying Apostrophe in the Cloud"
+title: "Deploying Apostrophe in the Cloud with Heroku"
 layout: tutorial
 ---
 
 There are many cloud hosting services, but they all present the same challenges. Separate servers often don't share a single filesystem. The database usually needs its own scalable cloud hosting. And performing tasks like minifying assets is often best done in your development environment, minimizing what has to be done in production.
+
+> "The cloud" isn't always the easiest solution to your problem. Take a look at our [Linode HOWTO](linode.html) for a quicker way that is suitable for all but the highest-traffic sites.
 
 ## Deploying Apostrophe to Heroku
 
@@ -161,11 +163,18 @@ So we'll build an "asset bundle" *on our dev machine*:
 APOS_MINIFY=1 node app apostrophe:generation --create-bundle=prod-bundle
 ```
 
-*We're specifying `APOS_MINIFY=1` as an environment variable to override the default behavior in a development environment, which is not to minify.*
+> IMPORTANT: the APOS_MINIFY environment variable is OVERRIDDEN by any setting
+> you may have made for the `minify` option when configuring
+> the `apostrophe-assets` module. If you want to use the environment
+> variable, DO NOT set the option in your code.
+
+We're specifying `APOS_MINIFY=1` as an environment variable to override the **default** behavior in a development environment, which is not to minify. As noted, if the option has been set explicitly in your code, the environment variable is ignored. So don't do that.
 
 After a minute or so (especially the first time), you'll have a `prod-bundle` folder in your project.
 
-**Commit that folder to git.** Heroku uses git for deployment, so we do want it there!
+> VERY IMPORTANT: check your `.gitignore` file. If it it contains `data` on a line by itself, *change this line* to `/data`. Otherwise, you will be unable to commit a complete bundle to git, and Heroku will not deploy it properly. We have fixed this in the latest version of our boilerplate project.
+
+**Commit that folder to git** (after FIRST checking for the `.gitignore` problem mentioned above). Heroku uses git for deployment, so we do want it there!
 
 ### Telling Heroku to use the bundle
 

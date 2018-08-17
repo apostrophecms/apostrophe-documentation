@@ -14,6 +14,8 @@ lies elsewhere in modals for those particular tasks.
 
 ### reorganize()
 Display UI permitting the user to reorganize the page tree
+### chooserModal(*options*)
+options.chooser is required
 ### trash(*_id*, *callback*)
 
 ### rescue(*_id*, *callback*)

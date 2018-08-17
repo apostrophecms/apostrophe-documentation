@@ -4,6 +4,9 @@ menu: "Documentation"
 layout: reference
 children:
   - notFoundPage
+  - email
+  - thumbnails-and-areas-of-child-pages
+  - password-reset
   - search
   - admin-bar
   - children-and-joins
@@ -17,13 +20,18 @@ children:
   - ckeditor
   - storing-images-and-files-in-amazon-s3
   - migration
-  - deploying-apostrophe-in-the-cloud
+  - linode
+  - deploying-apostrophe-in-the-cloud-with-heroku
+  - deploying-apostrophe-in-the-cloud-with-aws
   - multicore
   - windows
   - docker
   - replica-set
   - storing-sessions-in-redis
   - google-twitter-and-facebook-login
+  - trim-index
+  - hide-index-page
+  - what-to-do-when-you-are-locked-out-of-apostrophe
 ---
 
 These HOWTOs cover a variety of topics that don't quite fit neatly into a tutorial series.

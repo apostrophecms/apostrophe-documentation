@@ -92,6 +92,11 @@ OPTIONS:
 
 You may specify `extension` or `extensions` (an array of extensions)
 to filter the results.
+### srcset(*attachment*, *cropRelationship*) *[api]*
+This method is available as a template helper: apos.images.srcset
+
+Given an image attachment, return a string that can be used as the value
+of a `srcset` HTML attribute.
 ### enableHelpers() *[api]*
 
 ### afterList(*req*, *results*, *callback*) *[api]*
@@ -161,3 +166,8 @@ OPTIONS:
 
 You may specify `extension` or `extensions` (an array of extensions)
 to filter the results.
+### srcset(*attachment*, *cropRelationship*)
+This method is available as a template helper: apos.images.srcset
+
+Given an image attachment, return a string that can be used as the value
+of a `srcset` HTML attribute.

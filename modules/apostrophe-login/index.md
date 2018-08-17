@@ -21,6 +21,18 @@ This usually makes sense only in the presence of an alternative such as
 the `apostrophe-passport` module, which adds support for login via
 Google, Twitter, gitlab, etc.
 
+`passwordReset`
+
+If set to `true`, the user is given the option to reset their password,
+provided they can receive a confirmation email. Not available if `localLogin` is `false`.
+
+`passwordResetHours`
+
+When `passwordReset` is `true`, this option controls how many hours
+a password reset request remains valid. If the confirmation email is not
+acted upon in time, the user must request a password reset again.
+The default is `48`.
+
 ## Notable properties of apos.modules['apostrophe-login']
 
 `passport`
@@ -28,12 +40,25 @@ Google, Twitter, gitlab, etc.
 Apostrophe's instance of the [passport](https://npmjs.org/package/passport) npm module.
 You may access this object if you need to implement additional passport "strategies."
 
-## Global method: loginAfterLogin
+## Apostrophe promise events
 
-The method `loginAfterLogin` is invoked on **all modules that have one**. This method
-is a good place to set `req.redirect` to the URL of your choice. If no module sets
-`req.redirect`, the newly logged-in user is redirected to the home page. `loginAfterLogin`
-is invoked with `req` and may also optionally take a callback.
+### `after`
+
+This event is emitted after the user logs in. Any handlers are invoked with `req` and may return a promise if desired. This event handler is a good place to set `req.redirect` to the URL of your choice. If no module sets `req.redirect`, the newly logged-in user is redirected to the home page. Any promise returned is resolved before the next handler is run.
+
+Registering an event handler from your own module looks like this:
+
+```javascript
+self.on('apostrophe-login:after', 'setRedirect', function(req) {
+	req.redirect = '/special-place';
+});
+```
+
+The second argument is the **method name** for this event handler, required so that it can be intentionally overridden by subclass modules by reassigning to `self.setRedirect`.
+
+## legacy callAll method: loginAfterLogin
+
+The legacy method `loginAfterLogin` is invoked on **all modules that have one**. New code should use the `afterLogin` event instead, unless the goal is to override an existing `loginAfterLogin` handler in a specific module.
 
 
 ## Methods
@@ -50,7 +75,7 @@ methods may optionally take a callback.
 ### deserializeUser(*id*, *callback*)
 Given a user's `_id`, fetches that user via the login module
 and, if the user is found, invokes the `loginDeserialize`
-method of all modules that have one via `callAll`. 
+method of all modules that have one via `callAll`.
 Then invokes the callback with `(null, user)`.
 
 If the user is not found, invokes the callback with
@@ -103,7 +128,7 @@ PLEASE NOTE THAT A USER FAILING TO LOG IN
 argument. You MUST check the second argument.
 
 The convention is set this way for compatibility
-with `passport`.    
+with `passport`.
 ### enableMiddleware()
 Add Passport's initialize and session middleware.
 Also add middleware to add the `req.data.user` property.
@@ -112,6 +137,8 @@ control of timing relative to other modules.
 ### addRoutes()
 Add the `/login` route, both GET (show the form) and POST (submit the form).
 Also add the `/logout` route.
+### getPasswordResetLifetimeInMilliseconds()
+
 ### addUserToData(*req*, *res*, *next*)
 Add the `user` property to `req.data` when a user is logged in.
 ### pushAssets()

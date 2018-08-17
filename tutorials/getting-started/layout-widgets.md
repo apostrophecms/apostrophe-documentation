@@ -64,7 +64,7 @@ Now, like any other widget, you need to have a `widget.html` template. In this c
 
 In `lib/modules/two-column-widgets/views/widget.html`
 
-```html
+```markup
 <div class="two-column">
     <div class="column-left">
         {{ apos.area(data.widget, 'areaLeft', {
@@ -73,7 +73,7 @@ In `lib/modules/two-column-widgets/views/widget.html`
             }
         }) }}
     </div>
-<div class="column-right">
+    <div class="column-right">
         {{ apos.area(data.widget, 'areaRight', {
             widgets: {
                 'apostrophe-images': {}
@@ -82,3 +82,5 @@ In `lib/modules/two-column-widgets/views/widget.html`
     </div>
 </div>
 ```
+
+> "Why are the two columns stacked on top of each other?" You need to write your own CSS to position the `column-left` and `column-right` divs. However, you can find a [complete, working example with CSS here in the apostrophe-samples project](https://github.com/apostrophecms/apostrophe-samples).

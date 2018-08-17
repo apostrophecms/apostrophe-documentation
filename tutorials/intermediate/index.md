@@ -3,9 +3,11 @@ title: "Intermediate tutorials"
 layout: reference
 children:
   - permissions
+  - custom-schema-fields-for-pages
   - model-layer
   - cursors
   - forms
+  - command-line-tasks
   - accessing-the-database-directly
   - custom-schema-field-types
   - deployment
