@@ -3,7 +3,7 @@ Apostrophe Documentation
 
 This project contains [the documentation site](http://apostrophecms.org/docs/index.html) for [Apostrophe](http://apostrophecms.org/).
 
-You don't need to read this page just to read the documentation! [Read the actual documentation here.](index.html) This page is about *contributing* to the documentation.
+You don't need to read this page just to read the documentation! [Read the actual documentation here.](http://apostrophecms.org/docs/) This page is about *contributing* to the documentation.
 
 Building the docs
 -----------------
@@ -37,7 +37,9 @@ That will compile your site and open it in your browser.
 
 ### 3. Deploying
 
-If you have access, you can deploy your work to [apostrophecms.org/docs](http://apostrophecms.org/docs/index.html). Just do:
+If you have access, you can deploy your work to [apostrophecms.org/docs](http://apostrophecms.org/docs/index.html). You'll need the `sitemap-static` module installed: `npm install -g sitemap-static`.
+
+To deploy, run:
 
 ```sh
 $ ./deploy

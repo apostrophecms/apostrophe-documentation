@@ -50,10 +50,14 @@ $(function() {
       $ul.append($li);
     });
 
-    if ($('.current-page').parent().hasClass('.sidebar-namespace-items')) {
+    var $currentPage = $('.current-page');
+    if (!$currentPage.length) {
+      $currentPage = $('.sidebar');
+    }
+    if ($currentPage.parent().hasClass('.sidebar-namespace-items')) {
 
     } else {
-      $('.current-page').append($ul);
+      $currentPage.append($ul);
     }
 
     $ul.prepend('<li class="on-this-page">On this page</li>');
