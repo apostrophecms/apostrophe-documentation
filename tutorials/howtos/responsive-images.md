@@ -3,7 +3,62 @@ title: "Responsive images"
 layout: tutorial
 ---
 
-The `apostrophe-images` widget provides a powerful way to select and display images on the site, including the ability to manually crop images. But sometimes, this isn't best for mobile-responsive site designs.
+The `apostrophe-images-widgets` module provides a powerful way to select and display images on the site, including the ability to manually crop images on the server or responsively on the client.
+
+However, this dynamic behavior comes at the expense of not rendering images as `<img>` tags, but rather as CSS based background images. If you're looking to use the `srcset` attribute, you can do so by loading a custom widget.
+
+## An image widget that supports `srcset`
+
+The `srcset` attribute was introduced to give developers a way to declaratively specify which sizes of an image are available on the server. It is coupled with the `sizes` attribute that lets us specify how much space the image if supposed to take up in the browser. Eric Portis has an excellent [explanation](https://ericportis.com/posts/2014/srcset-sizes/) on his blog.
+
+Apostrophe lets use make use of this browser feature through the `apos.images.srcset` template helper. In the following example, we load a simple custom widget that renders and image with both a `srcset` and a `sizes` attribute.
+
+> Remember that it's up to the developer to specify the `sizes` attribute, so when you load the widget into an area or singleton, follow this example:
+
+```markup
+{{ apos.area(data.page, 'content', {
+  widgets: {
+    'apostrophe-rich-text': {},
+    'image': {
+      sizesAttr: '(min-width: 1024px) 50vw, 100vw'
+    }
+  }
+}) }}
+```
+
+Now for the actual widget code:
+
+```javascript
+// lib/modules/image-widgets/index.js
+
+module.exports = {
+  extend: 'apostrophe-widgets',
+  label: 'Image',
+  addFields: [
+    {
+      name: '_image',
+      type: 'joinByOne',
+      withType: 'apostrophe-image',
+      label: 'Image',
+      required: true,
+      idField: 'imageId',
+      filters: {
+        projection: {
+          attachment: true,
+          description: true,
+          title: true
+        }
+      }
+    }
+  ]
+};
+```
+
+```markup
+<!-- lib/modules/image-widgets/views/widget.html -->
+
+<img src="{{ apos.attachments.url(data.widget._image.attachment, { size: data.options.size or 'full' }) }}" srcset="{{ apos.images.srcset(data.widget._image.attachment) }}" sizes="{{ data.options.sizesAttr or '100vw' }}" alt="{{ data.widget._image.description or data.widget._image.title }}">
+```
 
 ## Responsive images can meet mobile design needs
 
