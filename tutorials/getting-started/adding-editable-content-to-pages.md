@@ -113,8 +113,7 @@ Here is an example with the popular options:
     minSize: [ 700, 350 ],
     aspectRatio: [ 2, 1 ],
     limit: 1,
-    size: 'full',
-    sizesAttr: '100vw, (min-width: 768px) 50vw'
+    size: 'full'
   }) }}
 ```
 
@@ -132,9 +131,7 @@ Here is an example with the popular options:
 
 ##### `size`
 
-`size` controls the size of the image that's rendered in the images' `src` attributes. Picking an appropriate size will help conserve bandwidth for your site's visitors. However, Apostrophe will also render a `srcset` attribute for each image, which lets browsers themselves determine which image size is the most appropriate. Just keep in mind that to get the most out of the `srcset` feature, you'll want to pass the `sizesAttr` option to the widget.
-
-Apostrophe resizes your image to the following sizes by default, always preserving the aspect ratio:
+`size` controls the size of the image that gets displayed. To conserve bandwidth Apostrophe never sends the original image by default. Apostrophe resizes your image to the following sizes by default, always preserving the aspect ratio:
 
 * `max`: no larger than 1600x1600.
 * `full`: no larger than 1140x1140.
@@ -147,10 +144,6 @@ Apostrophe resizes your image to the following sizes by default, always preservi
 If you don't specify a size, the `full` size is displayed.
 
 We'll talk about adding custom image sizes in [`apostrophe-attachments`](../../modules/apostrophe-attachments/index.html#code-add-image-sizes-code) in a later tutorial.
-
-##### `sizesAttr`
-
-`sizesAttr` is directly outputted to the `sizes` attributes of the resulting `<img>` elements. If you don't pass a value for it, it defaults to `100vw`. Browsers use this attribute to decide which image from the `srcset` attribute to download.
 
 #### `apostrophe-files`
 
