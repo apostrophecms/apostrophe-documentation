@@ -3,7 +3,7 @@ title: "Responsive images"
 layout: tutorial
 ---
 
-The `apostrophe-images-widgets` module provides a powerful way to select and display images on the site, including the ability to manually crop images on the server or responsively on the client.
+The `apostrophe-images-widgets` module provides a powerful way to select and display images on the site, including the ability to manually crop images, or rely on CSS to carry out various automatic responsive cropping approaches.
 
 However, this dynamic behavior comes at the expense of not rendering images as `<img>` tags, but rather as CSS based background images. If you're looking to use the `srcset` attribute, you can do so by loading a custom widget.
 
@@ -11,14 +11,15 @@ However, this dynamic behavior comes at the expense of not rendering images as `
 
 The `srcset` attribute was introduced to give developers a way to declaratively specify which sizes of an image are available on the server. It is coupled with the `sizes` attribute that lets us specify how much space the image if supposed to take up in the browser. Eric Portis has an excellent [explanation](https://ericportis.com/posts/2014/srcset-sizes/) on his blog.
 
-Apostrophe lets use make use of this browser feature through the `apos.images.srcset` template helper. In the following example, we load a simple custom widget that renders and image with both a `srcset` and a `sizes` attribute.
+Apostrophe lets use make use of this browser feature through the `apos.images.srcset` template helper. In the following example, we'll write a simple custom widget that renders an image with both a `srcset` and a `sizes` attribute.
 
-> Remember that it's up to the developer to specify the `sizes` attribute, so when you load the widget into an area or singleton, follow this example:
+> This example assumes that you know how to load and work with custom widgets. If you're unsure about that, please refer to the [custom widgets tutorial](../getting-started/custom-widgets.html).
+
+With this example widget, it's up to the developer to specify the `sizesAttr` option (which is what we use for the `sizes` attribute on the image). So when you load the widget into an area or singleton, follow this example:
 
 ```markup
 {{ apos.area(data.page, 'content', {
   widgets: {
-    'apostrophe-rich-text': {},
     'image': {
       sizesAttr: '(min-width: 1024px) 50vw, 100vw'
     }
