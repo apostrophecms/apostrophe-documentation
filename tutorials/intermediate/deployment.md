@@ -65,7 +65,7 @@ systemctl enable mongod.service
 # "npm install -g", otherwise it is not very useful
 chmod -R a+r /usr/lib/node_modules/
 # Used to run things indefinitely restarting as needed.
-# --unsafe-perm simply allows the installed package to actually be used 
+# --unsafe-perm simply allows the installed package to actually be used
 # by non-root users, which is an improvement over everything running as root
 npm install -g --unsafe-perm forever
 # Used to manage nginx
@@ -132,11 +132,10 @@ If you are using our Stagecoach recipes, the `deployment/dependencies` script wi
 node app apostrophe:generation
 ```
 
-This will carry out the minifying operation without race conditions or other problems that can occur if you just launch lots of Apostrophe server processes at once without minifying first.
+This will carry out the minifying operation and save the fingerprint of the minified files in `data/generation`. The existence of that fingerprint file prevents Apostrophe from running the minification task when it starts up. This is important when running multiple Apostrophe server processes at once, since we run into a race condition if they all attempt to minify the CSS/JS simultaneously.
 
 If you are not using Stagecoach, just make sure you run this command line task as part of your own deployment recipe.
 
 ## Multicore and multiserver configurations
 
 Because node is asynchronous, these single-server, single-core instructions are quite adequate for most clients, including many sites with high traffic at the city scale. However, if performance does become an issue, you may want to check out [running Apostrophe on multiple cores and/or servers](../howtos/multicore.html) as well. Just be sure to master the above material first.
-
