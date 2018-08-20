@@ -219,6 +219,22 @@ Anything attached to the `req.data` object becomes visible as the `data` object 
 * `home`: the home page, typically with a populated `._children` property
 * `global`: a doc which may be used for elements common to all pages, like global footers
 
+### Promise Events
+
+On the server side, Apostrophe emits [promise events](events.html) at various points in the life cycle of a document or page, such as:
+
+* Inserting a document
+* Updating a document
+* Sending a page to the browser
+
+Your code can listen for any promise event, such as `apostrophe-pages:beforeSend`, in order to do extra work at that point.
+
+The main advantages of promise events are:
+
+* Your handler may be an `async function`, or simply return a promise, and Apostrophe will wait for that to resolve before continuing to the next handler, sending the page, etc.
+* Since handler names may not be identical to event names, collisions between handlers in parent modules and their subclass modules are rare.
+* Unlike traditional event emitters, promise event handlers *do* have names, so you may still *intentionally* override them.
+
 ### `super` pattern
 
 In any object-oriented language, it's common to inherit methods from the type you're extending. Sometimes you want to override those methods... but you don't want to completely discard or duplicate them. Instead, you want to call them and then change the result, or call them first before carrying out some action of your own.
