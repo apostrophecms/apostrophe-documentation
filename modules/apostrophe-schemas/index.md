@@ -66,7 +66,10 @@ value of 0 is considered empty
 Index the object's fields for participation in Apostrophe search unless
 `searchable: false` is set for the field in question
 ### convert(*req*, *schema*, *from*, *data*, *object*, *callback*)
-Convert submitted `data`, sanitizing it and populating `object` with it
+Convert submitted `data`, sanitizing it and populating `object` with it.
+### isVisible(*schema*, *object*, *name*)
+Determine whether the given field is visible
+based on showFields options of all fields
 ### export(*req*, *schema*, *to*, *object*, *output*, *callback*)
 Export sanitized 'object' into 'output'
 ### joinDriver(*req*, *method*, *reverse*, *items*, *idField*, *relationshipsField*, *objectField*, *options*, *callback*)

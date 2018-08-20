@@ -33,6 +33,10 @@ marked as `safeFor: "public"` if they exist, and an array of choices for each is
 in `req.data.piecesFilters.tags` (if the field in question is `tags`), etc. The choices in the
 array are objects with `label` and `value` properties.
 
+If a filter configuration has a `counts` property set to `true`, then the array provided for
+that filter will also have a `count` property for each value. This has a performance
+impact.
+
 
 ## Methods
 ### indexCursor(*req*)
@@ -121,3 +125,7 @@ cursor filter (note that most schema fields automatically get a
 corresponding cursor filter method). Each filter's choices are
 reduced by the other filters; for instance, "tags" might only reveal
 choices not ruled out by the current "topic" filter setting.
+
+If a filter in the array has its `counts` property set to true,
+Apostrophe will supply a `count` property for each distinct value,
+whenever possible. This has a performance impact.

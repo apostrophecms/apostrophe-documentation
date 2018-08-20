@@ -184,6 +184,11 @@ modals that do not have the `transition: 'slide'` option set,
 and fallback behavior if there is no parent modal already on
 the stack or the parent modal does not have the `apos-modal-slideable`
 CSS class.
+### indicateCurrentModal(*adding*)
+For ease of browser regression testing, make sure the current modal
+and its proxies such as $instructions, $modalFilters, etc.
+all have the data-apos-modal-current attribute, and
+that nothing else does.
 ### resizeContentHeight()
 Calculates the appropriate modal body height by subtracting
 header, breadcrumb, and footer heights and an additional

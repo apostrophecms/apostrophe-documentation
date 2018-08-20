@@ -19,6 +19,14 @@ To learn more and see complete examples, see:
 
 [Reusable content with pieces](../../tutorials/getting-started/reusable-content-with-pieces.html)
 
+## options
+
+### `loadManyById`
+
+If `true` (the default), Apostrophe will take all the widgets passed to the `load` method for which pieces
+were chosen "by id", i.e. manually in a join, and do a single query to fetch them. This is usually more efficient,
+however if you have customized the `loadOne` method you may not wish to use it.
+
 
 ## Methods
 ### load(*req*, *widgets*, *callback*)
@@ -29,6 +37,9 @@ self.loadManyById. For everything we'll call self.loadOne individually, via
 self.loadOthersOneAtATime. But in ALL cases, we invoke self.afterLoadOne for
 each widget, allowing an opportunity to do custom work without thinking
 about all this.
+
+Also in all cases, joins found in the schema other than the `_pieces` join
+are loaded in the normal way for each widget.
 ### loadManyById(*req*, *widgets*, *callback*)
 Load many widgets, all of which were set to choose pieces "by id." This allows
 Apostrophe to work efficiently when a page contains many pieces widgets in an
@@ -45,6 +56,8 @@ self.load calls it for you.
 Load related content for a single widget. This method is invoked only
 if the `loadManyById` option has been set to `false` for your subclass.
 Doing so has performance costs when widgets are numerous.
+### loadOtherJoins(*req*, *widgets*, *callback*)
+
 ### attachPiecesToWidget(*widget*, *pieces*)
 Given an array of pieces, this method attaches them to the widget
 as the _pieces property correctly with pushPiecesToWidget, and

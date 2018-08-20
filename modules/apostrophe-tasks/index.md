@@ -24,10 +24,46 @@ we're implementing an interaction at the CLI.
 
 
 ## Methods
-### add(*groupName*, *name*, *usage*, *callback*)
-Add a command line task to Apostrophe.
+### invoke(*name*, *args*, *options*, *callback*)
+For use when you wish to execute an Apostrophe command line task from your code and continue,
+without using the command line or using the `child_process` module.
 
-The group name, by convention, should be the name of your module.
+Except for `name`, all arguments may be omitted.
+
+If you do not pass a callback, a promise is returned.
+
+Examples (assume `products` extends `apostrophe-pieces`):
+
+`self.apos.tasks.invoke('apostrophe-users:add', [ 'admin', 'admin' ]).then(function() { ... })`
+
+`self.apos.tasks.invoke('products:generate', { total: 20 }).then(function() { ... })`
+
+The `args` and `options` arguments may be completely omitted.
+
+If present, `args` contains an array of positional arguments to
+the task, **not including** the task name.
+
+If present, `options` contains the optional parameters that would normally
+be hyphenated, i.e. at the command line you might write `--total=20`.
+
+**Gotchas**
+
+If you can invoke a method directly rather than invoking a task, do that. This
+method is for cases where that option is not readily available.
+
+During the execution of the task, `self.apos.argv` will have a new,
+temporary value to accommodate tasks that inspect this property directly
+rather than examining their `argv` argument. `self.apos.argv` will be
+restored at the end of task execution.
+
+Some tasks may not be written to be "good neighbors." For instance, a
+task developer might assume they can exit the process directly.
+### add(*groupName*, *name*, *usage*, *callback*)
+Add a command line task to Apostrophe. It is easiest to invoke this
+via the `addTask` method of your own module. You may also call it
+directly.
+
+If you do call directly, the group name should be the name of your module.
 
 The name may be any short, memorable identifier, hyphenated if necessary.
 
@@ -52,11 +88,23 @@ Call `self.apos.tasks.getReq()` to get a `req` object with
 unlimited admin permissions. Use `self.apos.tasks.getAnonReq()` to get
 a `req` object without permissions.
 ### run()
+You should not need to call this method directly. You probably
+want `apos.tasks.invoke` (see above).
 
+This method is invoked by Apostrophe to execute the task specified
+by the first command line argument. On completion the process exits.
+If the task experiences an error it is printed to `console.error`
+and the process exits with a nonzero status code.
+
+This method also implements the `help` task directly.
 ### find(*fullName*)
-
+Identifies the task corresponding to the given command line argument.
+This allows for Rails-style hyphenated syntax with a `:` separator,
+which is the documented syntax, and also allows camel-cased syntax with a `.`
+separator for those who prefer a more JavaScript-y syntax.
 ### usage()
-
+Displays a usage message, including a list of available tasks,
+and exits the entire program with a nonzero status code.
 ### getReq(*properties*)
 Return a `req` object with permission to do anything.
 Useful since most APIs require one and most tasks

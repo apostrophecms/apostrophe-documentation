@@ -82,3 +82,5 @@ bar button is not helpful unless you can edit that one, rather than
 merely creating a new one (for which there is no UI). Thus we need
 to set the permission requirement to admin-apostrophe-global.
 This is called for you.
+### getEditControls(*req*)
+

@@ -27,6 +27,53 @@ calling `self.apos.tasks.add`.
 
 
 ## Methods
+### emit(*name *, *, arg1, arg2...*) *[events]*
+Emit an event from this module. Returns a promise.
+
+The promise will not resolve until all of the event handlers
+have resolved, in the order they were registered. Note that
+it is OK for event handlers to return a simple value rather
+than a promise, in which case they resolve immediately.
+
+Any extra parameters passed after `name` are passed to
+the event handlers as parameters, in the order given.
+
+See the `on` method.
+### on(*name*, *methodName*, *fn*) *[events]*
+Register an event handler method in this module. The
+given method name will be invoked when the given event
+name is emitted with `emit`. As a shortcut, you may
+optionally pass a function as a third argument. That
+function becomes a method of your module called `methodName`.
+This is exactly the same as defining it the normal way.
+
+Your method may return a promise. If it does, the next
+event handler method will not begin running until your
+promise resolves. If your promise rejects, the chain
+stops and the promise returned by the `emit` method
+also rejects.
+
+"What about events of other modules?" Register them
+with this `name` syntax: `module-name:methodName`. This is
+similar to the "cross-module includes" syntax used
+elsewhere in Apostrophe.
+
+"Why do I need a method name? Why not a function alone?"
+It should always be possible for subclasses to intentionally
+override or extend your method via the `super` pattern.
+
+"Why can't I use a methodName that is identical to
+the event name?" Doing so sets you up for an accidental
+collision with other event handlers in subclasses.
+Your method name should describe what your method does
+in response to the event.
+### callAllAndEmit(*callAllName*, *eventName*, *callback*, *argument, ...*) *[events]*
+Invoke a callAll method *and* emit a new-style promise event. `callAll` is invoked first,
+and if its callback does not receive an error, `emit` is invoked. When the promise
+returned by `emit` resolves, the final callback is invoked. A promise interface
+is not provided here because this method should only be used to migrate away from
+legacy `callAll` invocations. New code should always emit a promise event and
+avoid `callAll`.
 ### route(*method*, *path*, *fn*)
 Add an Express route to apos.app. The `path` argument is
 appended to the "action" of this module, which is

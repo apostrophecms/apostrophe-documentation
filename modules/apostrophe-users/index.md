@@ -35,7 +35,7 @@ The properties of each group in the array are `name`, `label` and
 
 ### Public "staff directories" vs. users
 
-In our experience, combing the concept of a "user" who can log in and do things
+In our experience, combining the concept of a "user" who can log in and do things
 with the concept of a "staff member" who appears in a staff directory is more
 trouble than it is worth. That's why the `published` field is not present in
 `apostrophe-users`. You can add it back in, but then you have to deal with
@@ -45,6 +45,22 @@ So for a staff directory, we suggest you create a separate `employee` module
 or similar, extending `apostrophe-pieces`, unless it's true that basically
 everyone should be allowed to log in.
 
+### `secrets` option
+
+For security the `password` property is not stored as plaintext and
+is not kept in the aposDocs collection. Instead, it is hashed and salted
+using the `credential` module and the resulting hash is stored
+in a separate `aposUsersSafe` collection.
+
+Additional secrets may be hashed in this way. If you set the
+`secrets` option to an array of property names, those properties
+are never stored directly to the database. Instead, only their
+hashes are stored, and only in `aposUsersSafe`.
+
+You may also call `apos.users.addSecret('name')` to add a new
+secret property. This is convenient when implementing a module
+such as `apostrophe-signup`.
+
 
 ## Methods
 ### addOurTrashPrefixFields()
@@ -52,6 +68,9 @@ Add `username` and `email` to the list of fields that automatically get uniquely
 when a user is in the trash, so that they can be reused by another piece. When
 the piece is rescued from the trash the prefix is removed again, unless the username
 or email address has been claimed by another user in the meanwhile.
+### enableSecrets()
+See `options.secrets` and also the `addSecret` method. `enableSecrets`
+is part of the implementation and should not be called directly.
 ### ensureSafe(*callback*)
 Index and obtain access to the `aposUsersSafe` MongoDB collection as `self.safe`.
 ### ensureSafeCollection(*callback*)
@@ -76,14 +95,76 @@ Insert or update a user's record in the safe, which stores the
 password hash completely outside of the `aposDocs` collection.
 First checks to be sure this is an `apostrophe-user` and invokes
 its callback immediately if not. Invoked by `docBeforeInsert`
-and `docBeforeSave`.
+and `docBeforeUpdate`.
 ### hashPassword(*doc*, *safeUser*, *callback*)
 Hash the `password` property of `doc`, then delete that property
 and update the `passwordHash` property of `safeUser`. This method is
-called by the `docBeforeSave` handler of this module.
+called by the `docBeforeInsert` and `docBeforeSave handlers of this
+module. If `password` is falsy (i.e. the user left it blank,
+requesting no change), it is left alone and `safeUser` is
+not updated.
+### hashSecrets(*doc*, *safeUser*, *callback*)
+Similar to `hashPassword`, this method hashes all of the properties
+enumerated in `options.secrets` and via `addSecrets`, then deletes them
+and updates the corresponding properties of `safeUser`. If
+a secret is named `signup`, the corresponding property in
+`safeUser` will be named `signupHash`.
+
+This method is called by the `docBeforeInsert` and `docBeforeSave`
+handlers of this module.
+### addSecret(*name*)
+Add the property specified by `name` to a list of
+secret properties. These are never stored directly
+to the user's doc in mongodb. Instead, if any of
+them have non-falsy values at the time a user is saved,
+those values are hashed and the hash is recorded
+in a separate mongodb collection used only for this purpose.
+You may then call `verifySecret` later to verify that
+a newly entered value matches the previously hashed
+value. This is useful to verify password reset codes,
+signup verification codes and the like with security
+just as good as that used for the password.
+### hashSecret(*doc*, *safeUser*, *secret*, *callback*)
+Hashes a secret property of `doc`, deletes the property,
+and stores only the hash in `safeUser`. `secret` is
+the name of the property of `doc`, not the secret itself.
+
+If `secret` is the string `'password'`, then the `password`
+property will be deleted from `doc` and the `passwordHash`
+property of `safeUser` will be set.
+
+If the secret property is falsy (i.e. the user left the
+password field blank, requesting no change), it is left
+alone and `safeUser` is not updated.
+
+Called automatically by `hashSecrets`, above.
 ### verifyPassword(*user*, *password*, *callback*)
 Verify the given password by checking it against the
 hash in the safe. `user` is an `apostrophe-user` doc.
+### verifySecret(*user*, *secret*, *attempt*, *callback*)
+Check whether the provided value `attempt` matches
+the hash of the secret property `secret`. For security
+the user's password and other property names specified
+in `options.secrets` when configuring this module or via
+`addSecrets` are not stored as plaintext and are not kept in the
+aposDocs collection. Instead, they are hashed and salted using the
+`credential` module and the resulting hash is stored
+in a separate `aposUsersSafe` collection. This method
+can be used to verify that `attempt` matches the
+previously hashed value for the property named `secret`,
+without ever storing the actual value of the secret.
+
+If no callback is passed, a promise is returned.
+If the verification fails the promise is rejected.
+### forgetSecret(*user*, *secret*, *callback*)
+Forget the secret associated with the property name
+passed in `secret`. If `secret` is `'passwordReset'`,
+then the `passwordResetHash` property is deleted from
+the appropriate record in the `aposUsersSafe`
+collection. Note that the plaintext of the secret
+was never stored in the database in the first place.
+
+If no callback is passed, a promise is returned.
 ### deduplicateTrash(*req*, *piece*, *callback*)
 Reflect email and username changes in the safe after deduplicating in the piece
 ### deduplicateRescue(*req*, *piece*, *callback*)

@@ -42,8 +42,14 @@ See the [schema guide](../../tutorials/getting-started/schema-guide.html).
 ## Methods
 ### addTrashPrefixFields(*fields*) *[api]*
 
+### removeTrashPrefixFields(*fields*) *[api]*
+
+### addTrashSuffixFields(*fields*) *[api]*
+
+### removeTrashSuffixFields(*fields*) *[api]*
+
 ### deduplicateTrash(*req*, *doc*, *callback*) *[api]*
-After moving document to the trash, prefix any fields that have
+prefix any fields that have
 unique indexes so that other pieces are allowed to reuse
 those usernames, email addresses, etc.
 ### deduplicateRescue(*req*, *doc*, *callback*) *[api]*

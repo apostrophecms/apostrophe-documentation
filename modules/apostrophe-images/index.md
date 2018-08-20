@@ -97,6 +97,8 @@ This method is available as a template helper: apos.images.srcset
 
 Given an image attachment, return a string that can be used as the value
 of a `srcset` HTML attribute.
+### isCroppable(*image*) *[api]*
+
 ### enableHelpers() *[api]*
 
 ### afterList(*req*, *results*, *callback*) *[api]*
@@ -171,3 +173,5 @@ This method is available as a template helper: apos.images.srcset
 
 Given an image attachment, return a string that can be used as the value
 of a `srcset` HTML attribute.
+### isCroppable(*image*)
+

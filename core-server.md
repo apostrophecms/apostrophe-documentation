@@ -18,11 +18,11 @@ var apos = require('apostrophe')({
 }
 ```
 
-This article is a reference guide to the options and methods of that object. Most of the time you'll be more interested in Apostrophe's [modules](modules/index.html).
+This article is a reference guide to the options and methods of that object. Most of the time you'll be more interested in Apostrophe's [modules](modules/index.html). See also [apostrophe promise events](events.html) for information on how to "hook in" to the life cycle of pages and documents in Apostrophe.
 
 This article is not the right place to start learning Apostrophe. For that, see the [getting started tutorial](tutorials/getting-started/index.html).
 
-It is possible to have more than one `apos` object in a node.js application, but this is unusual. You only need one to represent your website.
+It is possible to have more than one `apos` object in a node.js application, for instance with the `apostrophe-multisite` module, but typically you will only have one.
 
 ## Options
 
@@ -169,9 +169,11 @@ The `destroy` method destroys the `apos` object, freeing resources such as datab
 
 ### `emit(eventName, args...)`
 
-Apostrophe provides an event mechanism. The `apos.emit` method takes an event name and additional, optional arguments and invokes all event listeners for that event name. For example, the [apostrophe-search](modules/apostrophe-search/index.html) module emits a `docSearchIndex` event with a `doc` and an array of `texts`, allowing other modules to potentially add more search texts.
+For legacy reasons, Apostrophe provides a simple mechanism for synchronous events. This is separate from [promise events](events.html), which support asynchronous programming and are generally preferred in new code. Synchronous events may still be useful in new code when code is invoked so often that no delay can be tolerated.
 
-On the server side, Apostrophe uses the `callAll` mechanism much more often than events, because an async-friendly solution is usually desired. However `emit` is used when async is explicitly forbidden, typically for performance reasons.
+The `apos.emit` method takes an event name and additional, optional arguments and invokes all event listeners for that event name. For example, the [apostrophe-search](modules/apostrophe-search/index.html) module emits a `docSearchIndex` event with a `doc` and an array of `texts`, allowing other modules to potentially add more search texts.
+
+On the server side, Apostrophe emits [promise events](events.html) far more often.
 
 ### `listen()`
 
@@ -179,9 +181,8 @@ The `listen` method is invoked automatically when Apostrophe is ready to listen 
 
 ### `on(eventName, fn)`
 
-Registers an event handler to be invoked when the named event is emitted (see [emit](#code-emit)). The event handler function will receive any additional arguments passed to `emit`.
+Registers an event handler to be invoked when the named event is emitted (see [emit](#code-emit)). The event handler function will receive any additional arguments passed to `emit`. **In most situations this should be regarded as a legacy feature,** see [promise events](events.html).
 
 ### `off(eventName, fn)`
 
-Removes the specified event handler from the list of event handlers for the named event (see [on](#code-on)).
-
+Removes the specified event handler from the list of event handlers for the named synchronous event (see [on](#code-on)). Primarily a legacy feature. See [promise events](events.html).

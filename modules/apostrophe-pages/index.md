@@ -92,7 +92,7 @@ setting is:
 ```javascript
 publishMenu: [
   {
-    action: 'publish-apostrophe-page',
+    action: 'publish-page',
     label: 'Publish Page'
   }
 ]
@@ -346,7 +346,7 @@ set for the module, `parentSlug` is still provided
 although the parent does not change, and `changed` is
 still provided although the slugs of the descendants
 do not change.
-### trashInSchema(*req*, *_id*, *callback*) *[api]*
+### trashInSchema(*req*, *_id*, *toTrash*, *callback*) *[api]*
 "Move" a page to the trash by just setting its trash flag
 and keeping it under the same parent. Called by `moveToTrash`
 when the `trashInSchema` flag is in effect. The home page
@@ -354,6 +354,8 @@ still cannot be moved to the trash even in this mode.
 Trashes descendant pages as well.
 
 See `moveToTrash` for what the callback receives.
+### deduplicatePages(*req*, *pages*, *toTrash*, *callback*) *[api]*
+
 ### rescueInTree(*req*, *_id*, *callback*) *[api]*
 Rescue a page previously trashed via `trashInSchema`. This is an operation that only
 makes sense when the `trashInSchema` option flag is set for the module.
@@ -365,9 +367,6 @@ with the `moveToTrash` method, although the parent does not change;
 
 `changed` is an array of descendant pages whose trash status also changed,
 with `_id` and `slug` properties.
-### trashInSchemaBody(*req*, *_id*, *trash*, *callback*) *[api]*
-Implementation detail of `trashInSchema` and `rescueInTree`. Accepts a boolean
-to do either.
 ### moveToSharedTrash(*req*, *_id*, *callback*) *[api]*
 Implements `moveToTrash` when `trashInSchema` is false (the default),
 by moving the page inside the trashcan page. See `moveToTrash`
@@ -523,14 +522,7 @@ Registers a manager for a specific page type that doesn't already have one via `
 ### validateTypeChoices() *[api]*
 
 ### addAfterContextMenu(*helper*) *[api]*
-Register a function to be invoked after the
-context menu is output. This allows for adding additional contextual
-UI in that general area of the page without changing the outerLayout template.
-It is commonly used in the implementation of optional npm modules that
-enhance the Apostrophe UI.
-
-Your function will receive `req`, for convenience. Since page template rendering
-is already in progress it will be equal to `self.apos.templates.contextReq`.
+bc wrapper for `apos.templates.append('contextMenu', helper)`.
 ### finalizeControls() *[api]*
 
 ### addPermissions() *[api]*
@@ -538,10 +530,6 @@ is already in progress it will be equal to `self.apos.templates.contextReq`.
 ### removeParkedPropertiesFromSchema(*page*, *schema*) *[api]*
 
 ### removeSlugFromHomepageSchema(*page*, *schema*) *[api]*
-Maintained for bc, in case project-level overrides invoke it.
-The same job is now done by removeParkedPropertiesFromSchema.
-
-If the given page is level 0 (home page), return the given schema minus
 any `slug` field named `slug`. If not, return the schema unmodified.
 ### getCreateControls(*req*) *[api]*
 

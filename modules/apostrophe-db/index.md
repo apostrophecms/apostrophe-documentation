@@ -32,6 +32,15 @@ reinitialization of collection indexes and creation of parked pages, etc.
 PLEASE NOTE: this will drop collections UNRELATED to apostrophe.
 If that is a concern for you, drop Apostrophe's collections yourself
 and start up your app, which will recreate them.
+### bcPatch()
+Makes a `findWithProjection` method available on all collections,
+which is just an alias for `find` because the MongoDB 2.x driver
+already allows a projection as the second argument. This is useful
+because the `apostrophe-db-mongo-3-driver` module provides the
+same method while allowing you to use the newer MongoDB 3.x driver.
+All existing Apostrophe code that directly calls MongoDB's `find()`
+is being migrated to use `findWithProjection` for forwards and
+backwards compatibility.
 ### resetFromTask(*callback*)
 
 ### dropAllCollections(*callback*)

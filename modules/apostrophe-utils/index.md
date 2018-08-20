@@ -250,6 +250,34 @@ so substitution strings may be used.
 Overrides should be written with support for
 substitution strings in mind. See the
 `console.error` documentation.
+### profile(*req*, *key*, *optionalDuration*) *[api]*
+Performance profiling method. At the start of the operation you want
+to profile, call with req (may be null or omitted entirely) and a
+dot-namespaced key. A function is returned. Call that function
+with no arguments at the end of your operation.
+
+Alternatively, you may pass the duration in milliseconds yourself as the
+third argument. In this case no function is returned. This is useful if
+you are already gathering timing information for other purposes.
+
+Profiler modules such as `apostrophe-profiler` override this
+method to provide detailed performance analysis. Note that they must
+support both calling syntaxes. The default implementation does nothing.
+
+If the dot-separated key looks like `callAll.pageBeforeSend.module-name`,
+time is tracked to `callAll`, `callAll.pageBeforeSend`, and
+`callAll.pageBeforeSend.module-name` as categories. Note that the
+most general category should come first.
+
+To avoid overhead and bloat in the core, the default implementation
+does nothing. Also most core modules and methods do not invoke this method.
+However, the `apostrophe-profiler` module extends them to invoke it,
+for performance reasons: the profiler itself can have
+a performance overhead.
+### now() *[api]*
+Returns time since the start of the process in milliseconds,
+with high-resolution accuracy. Used by apos.utils.profile.
+See: https://www.npmjs.com/package/performance-now
 ### modulesReady()
 Add these after we're sure the templates module
 is ready. Only necessary because this module is

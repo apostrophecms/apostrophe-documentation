@@ -107,9 +107,15 @@ Invokes callback with `(err, results)` where
 for the given `property`. Not chainable. Wraps
 MongoDB's `distinct` and does not understand
 join fields directly. However, see also
-`toChoices`.
+`toChoices`, which is built upon it.
 
 Returns a promise if invoked without a callback.
+
+If `cursor.set('distinctCounts', true)` has been
+invoked, a count of docs matching each value
+of `property` is available after this method
+resolves, via `cursor.get('distinctCounts')`.
+This has a performance impact.
 ### toChoices(*property*, *options*, *callback*)
 Invokes callback with `(err, results)` where
 `results` is an array of objects with
@@ -118,6 +124,10 @@ display as a `select` menu or use as an
 autocomplete API response. Most field types
 support this well, including `joinByOne` and
 `joinByArray`.
+
+If `options.counts` is truthy, then each result
+in the array will also have a `count` property,
+wherever this is supported.
 
 the `options` object can be omitted completely.
 
@@ -261,6 +271,16 @@ the docs.
 Filter. Sets the MongoDB projection. You can also
 set the projection as the third argument to any
 `find` method.
+### distinctCounts(*value*)
+Filter. If set to `true`, it is possible to obtain
+counts for each distinct value after a call to
+`toCount()` is resolved by calling
+`cursor.get('distinctCounts')`. These
+are returned as an object in which the keys are
+the distinct values of the field, and the values
+are the number of occurrences for each value.
+
+This has a performance impact.
 ### defaultSort(*value*)
 Filter. Changes the default value for the `sort` filter.
 The argument is the same as for the `sort` filter: an

@@ -19,6 +19,23 @@ implementing a helper that returns a value that should not be
 escaped by Nunjucks. You also might call `self.apos.templates.filter` to
 add a new filter to Nunjucks.
 
+## Options
+
+### `filters`: an object in which
+each key is the name of a Nunjucks filter and
+its corresponding value is a function that implements it.
+You may find it easier and more maintainable to call `apos.templates.addFilter(name, fn)`.
+
+### `language`: your own alternative to the object
+returned by require('nunjucks'). Replacing Nunjucks
+entirely in Apostrophe would be a vast undertaking, but perhaps
+you have a custom version of Nunjucks that is compatible.
+
+### `viewsFolderFallback`: specifies a folder to be checked for templates
+if they are not found in the module that called `self.render` or `self.partial`
+or those it extends. This is a handy place for project-wide macro files.
+Often set to `__dirname + '/views'` in `app.js`.
+
 
 ## Methods
 ### addHelpersForModule(*module*, *object *, *or module, name, value*)
@@ -176,3 +193,77 @@ Add a body class or classes to be emitted when the page is rendered. This inform
 is attached to `req.data`, where the string `req.data.aposBodyClasses` is built up.
 The default `outerLayoutBase.html` template outputs that string.
 The string passed may contain space-separated class names.
+### addBodyDataAttribute(*req*, *name*, *value = ''*)
+Add a body attribute to be emitted when the page is rendered. This information
+is attached to `req.data`, where `req.data.aposBodyDataAttributes` is built up
+using `name` as the attribute name which is automatically prepended with "data-"
+and the optional `value` argument
+Also receives an object with key/pair values which becomes attribute name(s) and value(s)
+The default `outerLayoutBase.html` template outputs that string.
+### prepend(*location*, *helperFn*)
+Use this method to provide a function that will be invoked at the point
+in the page layout identified by the string `location`. Standard locations
+are `head`, `body`, `main` and `contextMenu`.
+
+ The page layout, template or outerLayout must contain a corresponding
+`apos.templates.prepended('location')` call, with the same location, to
+actually insert the content.
+
+**Your function is called once per request,** and will receive `req` as an argument
+as a convenience. Since page rendering is in progress, `req` will be equal to
+`apos.templates.contextReq`.
+
+The output of functions added with `prepend` is prepended just after the
+opening tag of an element, such as `<head>`. Use `append` to insert material
+before the closing tag.
+
+This method is most often used when writing a module that adds new UI
+to Apostrophe and allows you to add that markup without forcing
+developers to customize their layout for your module to work.
+### append(*location*, *helperFn*)
+Use this method to provide a function that will be invoked at the point
+in the page layout identified by the string `location`. Standard locations
+are `head`, `body`, `main` and `contextMenu`.
+
+ The page layout, template or outerLayout must contain a corresponding
+`apos.templates.prepended('location')` call, with the same location, to
+actually insert the content.
+
+**Your function is called once per request,** and will receive `req` as an argument
+as a convenience. Since page rendering is in progress, `req` will be equal to
+`apos.templates.contextReq`.
+
+The output of functions added with `append` is appended just before the
+closing tag of an element, such as `</head>`. Use `prepend` to insert material
+after the opening tag.
+
+This method is most often used when writing a module that adds new UI
+to Apostrophe and allows you to add that markup without forcing
+developers to customize their layout for your module to work.
+### insert(*end*, *location*, *helperFn*)
+Implementation detail of `apos.templates.prepend` and `apos.templates.append`.
+### inserted(*end*, *location*)
+Implementation detail of `apos.templates.prepended` and `apos.templates.appended`.
+### prepended(*location*)
+Invokes all of the `prepend` helper functions registered for the given
+location and returns the resulting markup as a Nunjucks "safe" string
+(HTML tags are allowed). Available as the `apos.templates.prepended`
+helper, and invoked as such by `outerLayoutBase.html`.
+### appended(*location*)
+Invokes all of the `append` helper functions registered for the given
+location and returns the resulting markup as a Nunjucks "safe" string
+(HTML tags are allowed). Available as the `apos.templates.appended`
+helper, and invoked as such by `outerLayoutBase.html`.
+### enableHelpers()
+
+## Nunjucks template helpers
+### prepended(*location*)
+Invokes all of the `prepend` helper functions registered for the given
+location and returns the resulting markup as a Nunjucks "safe" string
+(HTML tags are allowed). Available as the `apos.templates.prepended`
+helper, and invoked as such by `outerLayoutBase.html`.
+### appended(*location*)
+Invokes all of the `append` helper functions registered for the given
+location and returns the resulting markup as a Nunjucks "safe" string
+(HTML tags are allowed). Available as the `apos.templates.appended`
+helper, and invoked as such by `outerLayoutBase.html`.

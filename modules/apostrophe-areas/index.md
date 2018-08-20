@@ -39,6 +39,12 @@ sanitize method for each widget's manager. Widgets
 with no manager are discarded. Invoked for you by
 the routes that save areas and by the implementation
 of the `area` schema field type.
+
+If the sanitize method of a widget manager reports
+a string error, this method will report a string error
+like "5.required", where `5` is the index of the
+widget in the area and `required` is the string error
+from the widget.
 ### renderWidget(*req*, *type*, *data*, *options*, *callback*) *[api]*
 Renders markup for a widget of the given `type`. The actual
 content of the widget is passed in `data`. The callback is
@@ -226,15 +232,11 @@ the same `doc`.
 
 The `limit` option may be used to limit the number of widgets allowed.
 
-If `_options.controls.movable` is false, the widget may not be dragged out
-of the singleton.
-
-If `_options.controls.removable` is false, the widget
-may not be removed entirely.
-
-If `_options.controls.position` is set to `top-left`, `top-right`,
-`bottom-left` or `bottom-right`, the widget controls (edit, drag
-and remove) are positioned accordingly.
+For every widget in `_options.widgets`, you can pass the same options as
+in `apos.singleton`. See the documentation above for `addLabel`,
+`controls.movable`, `controls.removable` and `controls.position`. Note
+that `addLabel` normally does not actually begin with `Add ` in areas, as
+opposed to in singletons.
 
 If `_options` is not specified, Apostrophe falls back to the options
 configured for the given field `name` in the schema for this type of

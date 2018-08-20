@@ -35,5 +35,22 @@ via `lock`. Calling this method when you do not already have the lock will
 yield an error.
 
 If you call without a callback, a promise is returned instead.
+### withLock(*name*, *fn*, *callback*)
+Obtains the named lock, then invokes the provided function,
+which must take one argument (a callback), or
+take zero arguments and return a promise. Then `callback`
+is invoked or, if there is no callback, an error is returned.
+
+You can think of this as an "upgrade" of your function to
+run within a lock in every way. If you use promises,
+the promise returned by `withLock` will resolve to the
+value that `fn` resolves to. If you use callbacks, the
+second argument is passed on as you would expect.
+
+You may omit `callback`, in which case `withLock`
+returns a promise.
+
+The lock gets released at the end, whether fn results in an
+error or not.
 ### ensureCollection(*callback*)
 

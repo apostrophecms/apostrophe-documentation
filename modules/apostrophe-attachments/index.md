@@ -74,9 +74,26 @@ the default setting is:
 ```
 
 NOTE: adding another extension for `images` will not make web browsers
-magically know how to show it or teach uploadfs how to scale it. Don't do that.
+magically know how to show it or teach uploadfs how to scale it. So don't do that.
+However, see `svgImages` below.
 
 You may add extensions to the `office` fileGroup.
+
+## `svgImages`
+
+If set to `true`, SVGs are permitted to be uploaded as "images" in Apostrophe. This
+means they may appear in any widget that uses images, such as the `apostrophe-images`
+widget. Since programmatically cropping SVGs across all possible SVG configurations is
+difficult if not impossible, manual cropping is not permitted, and autocropping does
+not take place either, even if an `aspectRatio` option is present for the widget.
+To help you account for this, the CSS class `apos-slideshow-item--svg` is added
+to the relevant item in the slideshow on the front end. And, the standard `widgetBase.html`
+for this module works together with styles provided in `always.less` to do something
+reasonable, presenting the svg with `background-size: contain`, which leverages the
+fact that most SVGs play very nicely with your background.
+
+If you have overridden `widget.html` for `apostrophe-images-widgets`, view recent commits
+on `widgetBase.html` to see how to implement this technique yourself.
 
 
 ## Methods
@@ -230,6 +247,15 @@ The coordinates are in percentage terms.
 Returns an object with `x` and `y` properties containing the
 focal point chosen by the user, as percentages. If there is no
 focal point, null is returned.
+### isCroppable(*attachment*) *[api]*
+Returns true if this type of attachment is croppable.
+Available as a template helper.
+### isSized(*attachment*) *[api]*
+Returns true if this type of attachment is sized,
+i.e. uploadfs produces versions of it for each configured
+size, as it does with GIF, JPEG and PNG files.
+
+Accepts either an entire attachment object or an extension.
 ### addTypeMigration() *[api]*
 
 ### addDocReferencesMigration() *[api]*
@@ -386,6 +412,9 @@ focal point, null is returned.
 If a focal point is present on the attachment, convert it to
 CSS syntax for `background-position`. No trailing `;` is returned.
 The coordinates are in percentage terms.
+### isCroppable(*attachment*)
+Returns true if this type of attachment is croppable.
+Available as a template helper.
 ## API Routes
 ### POST /modules/apostrophe-attachments/upload
 

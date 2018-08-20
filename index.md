@@ -8,6 +8,7 @@ children:
   - nunjucks-filters
   - more-modules
   - core-server
+  - events
   - core-browser
 layout: "landing-documentation"
 ---
