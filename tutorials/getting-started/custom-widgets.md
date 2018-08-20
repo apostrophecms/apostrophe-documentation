@@ -250,7 +250,7 @@ module.exports = {
       filters: {
         projection: {
           title: 1,
-          slug: 1
+          _url: 1
         }
       }
     }
@@ -258,11 +258,11 @@ module.exports = {
 };
 ```
 
-The new bit is the `filters` option. By specifying a `projection` filter, we can limit Apostrophe to loading just the `title` and `slug` properties. Apostrophe needs the `slug` to figure out the URL of the page.
+The new bit is the `filters` option. By specifying a `projection` filter, we can limit Apostrophe to loading just the `title` and `_url` properties. Apostrophe needs `_url` to figure out the URL of a page. It's almost always a good idea to limit the projection to the fields you care about.
 
-It's almost always a good idea to limit the projection to the fields you care about.
+>*`_url`, `slug`... what's the difference?* For most sites, nothing. But for sites with a `prefix` option, the `_url` property might have a folder name prepended to it. And there are other ways to transform `_url` to suit your needs. So always remember to use it instead of `slug` when you output page URLs. And use `_url` in your projection to fetch all the properties Apostrophe knows might be involved in calculating the `_url` property of the page.
 
->*`_url`, `slug`... what's the difference?* For most sites, nothing. But for sites with a `prefix` option, the `_url` property might have a folder name prepended to it. And there are other ways to transform `_url` to suit your needs. So always remember to use it instead of `slug` when you output page URLs.
+> **Watch out for reverse joins! If you have [reverse joins](schema-guide.html) and your widget doesn't need them,** the `projection` filter can't help you avoid loading them, because they are loaded from "the other side" (the ids are stored with the documents linking *to* your documents). Instead, use the `joins` filter, and specify an array of join field names your widget actually needs — if any.
 
 >*What else can I do with `filters`?* That's an intermediate topic, but you can do anything that [ cursors](../intermediate/cursors.html) can do. Check those out if you're in a rush.
 
