@@ -199,6 +199,9 @@ if the piece has many joins.
 
 Returns an array of attachments, or an empty array if none are found.
 
+When available, the `_description`, `_credit` and `_creditUrl` are
+also returned as part of the object.
+
 For ease of use, a null or undefined `within` argument is accepted.
 
 Examples:
@@ -371,6 +374,9 @@ object if you can pass piece.thumbnail to avoid an exhaustive search, especially
 if the piece has many joins.
 
 Returns an array of attachments, or an empty array if none are found.
+
+When available, the `_description`, `_credit` and `_creditUrl` are
+also returned as part of the object.
 
 For ease of use, a null or undefined `within` argument is accepted.
 
