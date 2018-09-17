@@ -12,6 +12,8 @@ namespace: browser
 
 ### beforeShow(*callback*)
 
+### afterShow(*callback*)
+Wait for afterShow to do things that might pop more modals
 ### getData()
 
 ### onChange(*e*)

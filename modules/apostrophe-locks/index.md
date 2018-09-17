@@ -18,10 +18,17 @@ see below).
 
 We MUST release the lock later by calling `unlock` with the same name.
 
+If the lock is in use by another party, this method will wait until it is
+no longer in use, unless `options.wait` is present. If `options.wait`
+is explicitly `false`, the method will not wait at all, and
+the error reported will be the string `'locked'`. If `options.wait`
+is a number, the method will wait that many milliseconds before
+reporting the `locked` error.
+
 The `options` argument can be omitted completely.
 
 Calling this method when you already have the specified lock will
-yield an error.
+yield an error unless the `waitForSelf` option is true.
 
 If you call without a callback, a promise is returned instead.
 

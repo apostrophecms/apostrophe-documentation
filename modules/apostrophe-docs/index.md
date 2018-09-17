@@ -242,6 +242,11 @@ Recursively visit every property of a doc,
 invoking a callback for each one. Optionally
 deletes properties.
 
+The `_originalWidgets` property and its subproperties
+are not walked because they are temporary information
+present only to preserve widgets during save operations
+performed by users without permissions for those widgets.
+
 The second argument must be a function that takes
 an object, a key, a value, a "dot path" and an
 array containing the ancestors of this property

@@ -74,6 +74,33 @@ invoked as `callback`.
 
 If called with one argument, that argument is `req` and a promise
 is returned.
+### busyTryAgainSoon(*req*)
+
+### whileBusy(*fn*, *options*)
+Run the given function while the entire site is marked as busy.
+
+This is a promise-based method. `fn` may return a promise, which will
+be awaited. This method will return a promise, which must be awaited.
+
+While the site is busy new requests are delayed as much as possible,
+then GET requests receive a simple "busy" page that retries
+after an interval, etc. To address the issue of requests already
+in progress, this method marks the site busy, then waits for
+`options.whileBusyDelay` seconds before invoking `fn`.
+That option defaults to 60 (one minute). Explicitly tracking
+all requests in flight would have too much performance impact
+on normal operation.
+
+This method should be used very rarely, for instance for a procedure
+that deploys an entirely new set of content to the site. Use of
+this method for anything more routine would have a crippling
+performance impact.
+
+**Use with workflow**: if `options.locale` argument is present, only
+the given locale name is marked busy. If `req` has any other
+`req.locale` it proceeds normally. This option works only with
+'apostrophe-workflow' (the global docs must have `workflowLocale`
+properties).
 ### getCreateSingletonOptions(*req*)
 
 ### addToAdminBar()

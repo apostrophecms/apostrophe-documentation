@@ -25,7 +25,7 @@ powered by a module), the context menu (big gear menu) and the publish menu.
 
 ## Options
 
-**`types`: specifies the page types that can be chosen for a page.** This list must
+###`types`: specifies the page types that can be chosen for a page.** This list must
 include all page types that will be present in the tree (not piece types).
 
 The default setting is:
@@ -45,7 +45,33 @@ The default setting is:
 
 The `home` page type is required.
 
-**`contextMenu`: specifies the default offerings on the context menu.** These
+###`allowedHomepageTypes`: an array of page type names that are permitted for
+the homepage. This should be a subset of the types that appear in the
+`types` option. Example:
+
+```javascript
+allowedHomepageTypes: [ 'home' ]
+```
+
+If this option is not specified, the homepage may be switched to any type
+present in `types`.
+
+###`allowedSubpageTypes`: an array of page type names that are allowed
+**when adding a subpage of a page of each type.** If this array is empty,
+you **cannot** add a subpage to a page of that type. Example:
+
+```javascript
+allowedSubpageTypes: {
+  home: [ 'default', 'blog-page' ],
+  default: [ 'grandchild' ],
+  grandchild: []
+}
+```
+
+If subpages are not specified for a type, then it may have subpages
+of **any type** present in `types`.
+
+###`contextMenu`: specifies the default offerings on the context menu.** These
 can also be overridden for any request by setting `req.contextMenu` to an array
 in the same format.
 
@@ -84,7 +110,7 @@ menu item. If `permission` is set, the item is only shown to users
 with that permission (this is NOT sufficient protection for the
 backend routes it may access, they must also be secured).
 
-**`publishMenu`: configures the publication menu,** which appears
+###`publishMenu`: configures the publication menu,** which appears
 only if the current page is unpublished or `data.pieces` is present
 and is unpublished. Syntax is identical to `contextMenu`. The default
 setting is:
@@ -104,7 +130,7 @@ If you are looking for the schema fields common to all pages in the tree,
 check out the [apostrophe-custom-pages](../apostrophe-custom-pages/index.html)
 module, which all page types extend, including "ordinary" pages.
 
-**`park`: configures certain pages to be automatically created and refreshed
+###`park`: configures certain pages to be automatically created and refreshed
 whenever the site starts up.** The parked pages you get are actually the
 concatenation of the `minimumPark` and `park` options.
 
@@ -168,7 +194,7 @@ on parent-child relationships
 modify properties that are explicitly set via `park` (rather than being set once
 via `_defaults`). In any case such properties are reset by restarts.
 
-**`filters`: Apostrophe cursor filters applied when fetching the current page.**
+###`filters`: Apostrophe cursor filters applied when fetching the current page.**
 The default settings ensure that `req.data.page` has a `_children` property
 and an `_ancestors` property:
 
@@ -206,7 +232,7 @@ of the home page. You can shut that off, and still get the home page:
 }
 ```
 
-**`deleteFromTrash`: if set to `true`, Apostrophe offers a button in the
+###`deleteFromTrash`: if set to `true`, Apostrophe offers a button in the
 "reorganize" view to permanently delete pages that are already in the trash.**
 This option defaults to `false` because, in our experience, customers usually
 ask for a way to "un-empty the trash," and of course there isn't one. We don't
@@ -222,6 +248,9 @@ the early stages of site population.
 ### find(*req*, *criteria*, *projection*) *[api]*
 Obtain a cursor for finding pages. Adds filters useful for
 including ancestors, descendants, etc.
+### findForBatch(*req*, *criteria*, *projection*) *[api]*
+Returns a cursor that finds pages the current user can edit
+in a batch operation, including unpublished and trashed pages.
 ### insert(*req*, *parentOrId*, *page*, *options*, *callback*) *[api]*
 Insert a page as a child of the specified page or page ID.
 
@@ -547,6 +576,34 @@ Apostrophe cursors used to fetch Apostrophe pages
 consult this method, and it is extended by the optional
 `apostrophe-workflow` module to create correct absolute URLs
 for specific locales.
+### batchSimpleRoute(*req*, *name*, *change*) *[api]*
+Implements a simple batch operation like publish or unpublish.
+Pass `req`, the `name` of a configured batch operation, and
+and a function that accepts (req, page, data, callback),
+performs the modification on that one page (including calling
+`update` if appropriate), and invokes its callback.
+
+`data` is an object containing any schema fields specified
+for the batch operation. If there is no schema it will be
+an empty object.
+
+If `req.body.job` is truthy, replies immediately to the request with
+`{ status: 'ok', jobId: 'cxxxx' }`. The `jobId` can then
+be passed to `apos.modules['apostrophe-jobs'].start()` on the rowser side to
+monitor progress.
+
+Otherwise, replies to the request with { status: 'ok', data: page }
+on success. If `ids` rather than `_id` were specified,
+`data` is an empty object.
+
+To avoid RAM issues with very large selections and ensure that
+lifecycle callbacks like beforeUpdate, etc. are invoked, the current
+implementation processes the pages in series.
+### allowedSchema(*req*, *page*, *parentPage*) *[api]*
+Given a page and its parent (if any), returns a schema that
+is filtered appropriately to that page's type, taking into
+account whether the page is new and the parent's allowed
+subpage types
 ### modulesReady(*callback*)
 When all modules are ready, invoke `registerGenericPageTypes` to register a manager
 for any page type that doesn't already have one via `apostrophe-custom-pages`,
@@ -580,7 +637,7 @@ Fetch data needed to edit and ultimately update a page
 ### POST /modules/apostrophe-pages/update
 
 ### POST /modules/apostrophe-pages/fetch-to-copy
-Fetch data needed to copy a page. Currently identical to fetch-to-update
+Fetch data needed to copy a page.
 ### POST /modules/apostrophe-pages/copy
 Fetch data needed to insert a copied page. Currently identical to insert
 except that the parent page id is determined differently
@@ -600,3 +657,30 @@ except that the parent page id is determined differently
 
 ### POST /modules/apostrophe-pages/info
 
+### POST /modules/apostrophe-pages/publish
+Implement the publish route, which can publish
+one page (via req.body._id) or many (via req.body.ids).
+The `data` property of the API response will contain the page
+only for the `req.body._id` case.
+### POST /modules/apostrophe-pages/unpublish
+Implement the unpublish route, which can publish
+one page (via req.body._id) or many (via req.body.ids).
+The `data` property of the API response will contain the page
+only for the `req.body._id` case.
+### POST /modules/apostrophe-pages/tag
+Implement the tag route, which can tag
+one page (via `req.body._id`) or many (via `req.body.ids`).
+The tags to be added are in the `req.body.tags` array.
+### POST /modules/apostrophe-pages/untag
+Implement the untag route, which can untag
+one page (via `req.body._id`) or many (via `req.body.ids`).
+The tags to be removed are in `req.body.tags`.
+### POST /modules/apostrophe-pages/trash
+Implement the batch trash route, which can trash
+many pages (via req.body.ids) and responds with a job id.
+### POST /modules/apostrophe-pages/rescue
+Implement the batch rescue route, which can rescue
+many pages (via req.body.ids) and responds with a job id.
+Cannot be invoked when trashInSchema is false, as there
+is no sensible way to place them when they return to
+the tree - better to drag them out of the trash.

@@ -48,6 +48,8 @@ By default, any errors are highlighted via showError().
 If you explicitly set options.showErrors to false, errors are
 not highlighted (but are still reported). This is useful
 for autosave and similar operations.
+### returnToError(*$el*, *schema*, *errorPath*, *error*, *callback*)
+
 ### error(*field*, *type*)
 Create a valid error object to be reported from a converter.
 You can also report a string in which case self.convert creates
