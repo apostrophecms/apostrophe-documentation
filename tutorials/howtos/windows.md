@@ -26,26 +26,7 @@ To install Imagemagick go to: [ImageMagick : Windows Downloads](http://www.image
 
 ## MongoDB setup
 
-### Quick start
-
-For a quick start, create a folder for your MongoDB database:
-
-```
-mkdir c:\mongo
-```
-
-Then run the MongoDB executable and leave that window open. *Paths below may vary slightly depending on the version you install, check the contents of the MongoDB folder.*
-
-```
-cd \Program Files\MongoDB\Server\3.2\bin
-.\mongod.exe --dbpath=c:/mongo
-```
-
-*Use of a forward slash is intentional.*
-
-### Long-term setup
-
-Consider installing MongoDB as a "windows service." See the MongoDB documentation for more information.
+MongoDB should automatically start up and begin operation if you allowed it to install itself according to the defaults. If not, you will need to start it manually. See the MongoDB documentation.
 
 ## Step 2: You're good to go!
 
@@ -54,3 +35,6 @@ Be aware of the differences in syntax between Mac OS and Windows terminals. `cp`
 Otherwise, the tutorial provided by [Apostrophe: Getting Started](http://apostrophecms.org/docs/tutorials/getting-started/index.html) can be followed.
 
 NOTE: if you get permissions errors, you probably first created the site as Administrator. Make up your mind and stick to one user... which should not be Administrator. It is always a good security policy to avoid using an administrator account when you can.
+
+> You may get a "Windows Firewall has blocked some features of this app" when you start Apostrophe on Windows for the first time. That's because Apostrophe is a type of web server, and any server process requires your permission. Be sure to grant it.
+
