@@ -25,7 +25,7 @@ powered by a module), the context menu (big gear menu) and the publish menu.
 
 ## Options
 
-###`types`: specifies the page types that can be chosen for a page.** This list must
+### `types`: specifies the page types that can be chosen for a page.** This list must
 include all page types that will be present in the tree (not piece types).
 
 The default setting is:
@@ -45,7 +45,7 @@ The default setting is:
 
 The `home` page type is required.
 
-###`allowedHomepageTypes`: an array of page type names that are permitted for
+### `allowedHomepageTypes`: an array of page type names that are permitted for
 the homepage. This should be a subset of the types that appear in the
 `types` option. Example:
 
@@ -56,7 +56,7 @@ allowedHomepageTypes: [ 'home' ]
 If this option is not specified, the homepage may be switched to any type
 present in `types`.
 
-###`allowedSubpageTypes`: an array of page type names that are allowed
+### `allowedSubpageTypes`: an array of page type names that are allowed
 **when adding a subpage of a page of each type.** If this array is empty,
 you **cannot** add a subpage to a page of that type. Example:
 
@@ -71,7 +71,7 @@ allowedSubpageTypes: {
 If subpages are not specified for a type, then it may have subpages
 of **any type** present in `types`.
 
-###`contextMenu`: specifies the default offerings on the context menu.** These
+### `contextMenu`: specifies the default offerings on the context menu.** These
 can also be overridden for any request by setting `req.contextMenu` to an array
 in the same format.
 
@@ -110,7 +110,7 @@ menu item. If `permission` is set, the item is only shown to users
 with that permission (this is NOT sufficient protection for the
 backend routes it may access, they must also be secured).
 
-###`publishMenu`: configures the publication menu,** which appears
+### `publishMenu`: configures the publication menu,** which appears
 only if the current page is unpublished or `data.pieces` is present
 and is unpublished. Syntax is identical to `contextMenu`. The default
 setting is:
@@ -130,7 +130,7 @@ If you are looking for the schema fields common to all pages in the tree,
 check out the [apostrophe-custom-pages](../apostrophe-custom-pages/index.html)
 module, which all page types extend, including "ordinary" pages.
 
-###`park`: configures certain pages to be automatically created and refreshed
+### `park`: configures certain pages to be automatically created and refreshed
 whenever the site starts up.** The parked pages you get are actually the
 concatenation of the `minimumPark` and `park` options.
 
@@ -211,7 +211,7 @@ See the [apostrophe-pages-cursor](server-apostrophe-pages-cursor.html) type for 
 cursor filters and options you might wish to configure, such as adding
 a `depth` option to `children`.
 
-** `home`: Apostrophe populates the home page from `req.page._ancestors[0]` if possible.
+### `home`: Apostrophe populates the home page from `req.page._ancestors[0]` if possible.
 If not, Apostrophe fetches the home page separately, using the same filters configured for
 ancestors. You can shut this extra query off:
 
@@ -232,7 +232,7 @@ of the home page. You can shut that off, and still get the home page:
 }
 ```
 
-###`deleteFromTrash`: if set to `true`, Apostrophe offers a button in the
+### `deleteFromTrash`: if set to `true`, Apostrophe offers a button in the
 "reorganize" view to permanently delete pages that are already in the trash.**
 This option defaults to `false` because, in our experience, customers usually
 ask for a way to "un-empty the trash," and of course there isn't one. We don't
