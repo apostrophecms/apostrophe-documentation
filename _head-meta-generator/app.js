@@ -19,6 +19,7 @@ request('https://apostrophecms.org/', function(error, response, data) {
     'link[rel="manifest"]',
     'link[rel="mask-icon"]',
     'link[rel="shortcut icon"]',
+    'meta[name="description"]',
     'meta[name="msapplication-config"]',
     'meta[name="theme-color"]',
     'meta[property="og:image:height"]',
