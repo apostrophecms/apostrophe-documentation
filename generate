@@ -1,5 +1,6 @@
 #!/bin/bash
 
+node _head-meta-generator/app &&
 (
   cd _api-reference-generator/ &&
   rm -rf ../modules/ &&
@@ -8,4 +9,3 @@
 ) &&
 habit &&
 echo "Done!"
-
