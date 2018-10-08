@@ -64,6 +64,31 @@ body
 >
 > Also notice that the styles for `.main-content h3` are written by nesting styles for `h3` inside `.main-content`. This nesting feature is one of the most important advantages of LESS over plain-vanilla CSS. We are also using some color variables defined by Apostrophe's default stylesheets; your code will probably not use these, but you could define your own variables. Check out the [LESS documentation](http://lesscss.org/) for much more.
 
+### Pushing a CSS stylesheet without LESS compilation
+
+What if you're building your own CSS file, using your own Webpack-based setup?
+
+You can push the output file to Apostrophe just like any other asset, following the techniques above. And that will work... mostly. But once in a while your CSS might contain something LESS doesn't yet accept.
+
+You can work around this by using import flags:
+
+```javascript
+// in lib/modules/apostrophe-assets/index.js
+
+module.exports = {
+  stylesheets: [
+    {
+      name: 'site',
+      import: {
+        inline: true
+      }
+    }
+  ]
+};
+```
+
+When you use the `inline` import flag, the LESS compiler will import your file as-is, without attempting to interpret it as LESS.
+
 ## Configuring JavaScript for the browser
 
 You can push JavaScript files to the browser too, as you can see in the `index.js` file above:
@@ -126,3 +151,6 @@ If you included `karla.woff` in `lib/modules/apostrophe-assets/public/fonts`, th
 ## Pushing stylesheets and JavaScript from your own modules
 
 Later on, when you start creating your own modules, you might want to "push" assets directly from them. When the time comes, check out the [pushAsset](../../modules/apostrophe-module/index.html#push-asset) method, which all modules in Apostrophe provide. This method gives you a powerful way to push assets only if the user is logged in, or all the time. And it allows you to organize your assets with the modules to which they are most relevant.
+
+Just as before, you can optionally use `import` flags by including an `import` object in the options object you pass to `pushAsset`.
+
