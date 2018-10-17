@@ -225,21 +225,21 @@ Victory!
 
 **If you get no CSS and JavaScript**, you probably configured the `APOS_MINIFY` and `APOS_BUNDLE` variables but never built the bundle or never committed it to git before pushing to heroku.
 
-## If CORS errors show in console
+### Fonts, other assets, and CORS errors in the browser console
 
-Visit your amazon S3 bucket to configure CORS configuration. 
+To ensure there are no CORS (Cross-Origin Resource) errors, visit your amazon S3 bucket settings to adjust the CORS configuration:
 
-Amazon S3 --> [bucket] --> Permissions Tab --> CORS configuration button.
+`Amazon S3 --> [bucket] --> Permissions Tab --> CORS configuration button`
 
-Verify the value of Allowed Origin. It should match the heroku url or a custom one use point to the heroku apostrophe project.
-```
-<AllowedOrigin>http://apostrophenow.com</AllowedOrigin>
-```
+Verify the value of `AllowedOrigin`. It should match the heroku url and/or the production URL of your project:
 
 ```
-<AllowedOrigin>http://apostrophe.herokuapp.com</AllowedOrigin>
+<AllowedOrigin>https://example.com</AllowedOrigin>
 ```
 
+```
+<AllowedOrigin>https://example.herokuapp.com</AllowedOrigin>
+```
 
 ## Database migrations
 

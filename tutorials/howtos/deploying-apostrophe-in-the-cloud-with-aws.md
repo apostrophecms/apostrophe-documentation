@@ -379,3 +379,20 @@ APOS_BUNDLE_IN_UPLOADFS 1
 To ensure the contents of the bundle's `data/` subdirectory are still available, and to provide backwards compatibility for any URLs you have hard-coded in your templates that are not aware that the relevant contents of `public/` have been copied to S3, the bundle is still extracted to the application's folder on Elastic Beanstalk. Apostrophe, however, will consistently reference the contents via S3 URLs instead.
 
 > "When do the old assets get cleaned up?" Apostrophe will wait at least 5 minutes, allowing for old processes to shut down, then start cleaning up assets left over by old deployments.
+
+### Fonts, other assets, and CORS errors in the browser console
+
+To ensure there are no CORS (Cross-Origin Resource) errors, visit your amazon S3 bucket settings to adjust the CORS configuration:
+
+`Amazon S3 --> [bucket] --> Permissions Tab --> CORS configuration button`
+
+Verify the value of `AllowedOrigin`. It should match the Elastic Beanstalk URL and/or the production URL of your project:
+
+```
+<AllowedOrigin>https://example.com</AllowedOrigin>
+```
+
+```
+<AllowedOrigin>https://your-elastic-beanstalk-url-here.aws.com</AllowedOrigin>
+```
+
