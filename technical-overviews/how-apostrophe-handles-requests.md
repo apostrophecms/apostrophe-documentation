@@ -57,7 +57,9 @@ For instance, you might implement a module that displays an index if you request
 ```javascript
 // in app.js
 modules: {
-  'home-pages': {}
+  'home-pages': {
+   extend: 'apostrophe-custom-pages'
+  }
 }
 
 // in lib/modules/home-pages/index.js
