@@ -75,6 +75,7 @@ module.exports = {
     };
     self.indexPage = function(req, callback) {
       req.template = self.renderer('index');
+      return callback(null);
     };
     self.showPage = function(req, callback) {
       return goFindSomethingBySlug(req.params.slug, function(err, doc) {
@@ -82,9 +83,9 @@ module.exports = {
         if (!doc) {
           // Let Apostrophe render the 404 page
           req.notFound = true;
-          return callback(null);
         }
         req.template = self.renderer('show', { doc: doc });
+        return callback(null);
       });
     };
   }
