@@ -556,6 +556,8 @@ The `withType` option **may** be set to the name of the related type. If you do 
 The `idField` option **may** be set to the name of a property in which to store the id.
 **If you don't set it yourself, it will be set automatically for you.** For instance, if your join is named `_fabric`, then `idField` will automatically be set to `fabricId`.
 
+The `ifOnlyOne` option **may** be set to `true` to avoid carrying out the join when you are working with more than one document. This is a handy way to avoid a heavy performance impact except in a `show.html` template or other context where there is just one "main" document in play, so the number of joined documents will be manageable.
+
 By default, if the related type has joins of its own, they are **not** carried out. To carry out "nested" joins, set the `withJoins` option to an array containing those join field names. You may also use "dot notation" in these names to indicate that you want to follow a series of joins between related types.
 
 **For performance, it is strongly recommended that you set a projection filter** via the `filters` option, limiting the amount of information fetched about each related doc. You may also call other [cursor filters](../../modules/apostrophe-docs/server-apostrophe-cursor.html) by setting subproperties of the `filters` property. This is a useful way to limit the acceptable choices for the join. *You must have `title`, `slug`, `type`, and `tags` set in the projection to get the `_url` property.*
@@ -597,6 +599,8 @@ The `withType` option **may** be set to the name of the related type. If you do 
 > Beginning with Apostrophe 2.58.0, you may also set `withType` to an **array** of type names. When you do so, the chooser allows you to pick items of several types via a tabbed interface and create a combined list. These "polymorphic joins" are primarily intended for navigation widgets. They currently do not support pieces filters or `joinByArrayReverse`.
 
 The `idsField` option **may** be set to the name of a property in which to store the ids of the related objects. **If you don't set it yourself, it will be set automatically for you.** For instance, if your join is named `_fabrics`, then `idsField` will automatically be set to `fabricsIds`.
+
+The `ifOnlyOne` option **may** be set to `true` to avoid carrying out the join when you are working with more than one document. This is a handy way to avoid a heavy performance impact except in a `show.html` template or other context where there is just one "main" document in play, so the number of joined documents will be manageable.
 
 By default, if the related type has joins of its own, they are **not** carried out. To carry out "nested" joins, set the `withJoins` option to an array containing those join field names. You may also use "dot notation" in these names to indicate that you want to follow a series of joins between related types.
 
@@ -696,6 +700,8 @@ You **may** set the `reverseOf` property to the name of the *other join* (the on
 
 Again, note that a reverse join just looks up information that is saved in another, existing join in the other type of document. We are not storing any new information of our own.
 
+The `ifOnlyOne` option **may** be set to `true` to avoid carrying out the join when you are working with more than one document. This is a handy way to avoid a heavy performance impact except in a `show.html` template or other context where there is just one "main" document in play, so the number of joined documents will be manageable. This option is especially useful with reverse joins where the number of joined documents may be high.
+
 Example:
 
 ```javascript
@@ -727,6 +733,8 @@ You **may** set the `reverseOf` property to the name of the *other join* (the on
 *For backwards compatibility, you can set the `idsField` option instead to match that in the other join, but this is confusing and hard to maintain. Just use `reverseOf`.*
 
 Again, note that a reverse join just looks up information that is saved in another, existing join in the other type of document. We are not storing any new information of our own.
+
+The `ifOnlyOne` option **may** be set to `true` to avoid carrying out the join when you are working with more than one document. This is a handy way to avoid a heavy performance impact except in a `show.html` template or other context where there is just one "main" document in play, so the number of joined documents will be manageable. This option is especially useful with reverse joins where the number of joined documents may be high.
 
 Example:
 
