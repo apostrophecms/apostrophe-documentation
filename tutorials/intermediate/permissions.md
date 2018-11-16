@@ -85,6 +85,18 @@ Once we do this, the `apostrophe-groups` module, which has been politely working
 
 Now we can create groups, just like any other kind of piece (although we must be an `admin` already to do so). We can check off boxes to add permissions to those groups. And we can add people to those groups, by editing the user and typing the names of groups — it's exactly like adding individual pieces to a pieces widget.
 
+## Creating a site with custom groups from the very beginning
+
+You don't have to use the `groups` option of `apostrophe-users` at all, not even when you first create your site. If you choose not to use that option, you can "bootstrap" your first group with this command:
+
+```
+node app apostrophe-groups:add admin admin
+```
+
+This will create a group called `admin` (the first argument), with the `admin` permission (the second argument). You may list as many permissions as you wish, separated by spaces.
+
+> If a group has the `admin` permission, all other permissions are implied, so don't bother to give them out separately.
+
 ## Checking permissions in your own code
 
 Pieces automatically check for permissions when performing all sorts of operations. But you can check for permissions yourself:
