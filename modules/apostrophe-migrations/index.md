@@ -22,10 +22,12 @@ difficult to guarantee, you may wish to write a task instead.
 
 
 ## Methods
-### add(*name*, *callback*, *options*) *[api]*
-Add a migration callback to be invoked when the apostrophe-migrations:migrate task is invoked. As an optimization,
-the callback MIGHT not be invoked if it has been invoked before, but your callback MUST be idempotent (it must not
-behave badly if the migration has been run before).
+### add(*name*, *fn*, *options*) *[api]*
+Add a migration function to be invoked when the apostrophe-migrations:migrate task is invoked.
+
+The function is invoked with a callback. If it returns a promise,
+the promise is awaited, and the function should not also invoke the callback.
+However for bc this situation is tolerated.
 
 The options argument may be omitted. If options.safe is true, this migration will still be run when the
 --safe option is passed to the task. ONLY SET THIS OPTION IF THE CALLBACK HAS NO NEGATIVE IMPACT ON A RUNNING,
@@ -35,19 +37,28 @@ Invoke the iterator function once for each doc in the aposDocs collection.
 If only three arguments are given, `limit` is assumed to be 1 (only one
 doc may be processed at a time).
 
+The iterator is passed a document and a callback. If the iterator
+returns a promise, it is awaited, and must NOT invoke the callback.
+
 This method will never visit the same doc twice in a single call, even if
 modifications are made.
 
-THIS API IS FOR MIGRATION AND TASK USE ONLY AND HAS NO SECURITY.
+THIS API IS FOR MIGRATION AND TASK USE ONLY AND HAS NO SECURITY
+
+This method returns a promise if no callback is supplied.
 ### each(*collection*, *criteria*, *limit*, *iterator*, *callback*) *[api]*
 Invoke the iterator function once for each document in the given collection.
-If only three arguments are given, `limit` is assumed to be 1 (only one
+If `limit` is omitted, `limit` is assumed to be 1 (only one
 doc may be processed at a time).
 
 This method will never visit the same document twice in a single call, even if
 modifications are made.
 
 THIS API IS FOR MIGRATION AND TASK USE ONLY AND HAS NO SECURITY.
+
+The iterator is passed a document and a callback. If the iterator
+accepts only one parameter, it is assumed to return a promise,
+which is awaited in lieu of a callback.
 ### eachArea(*criteria*, *limit*, *iterator*, *callback*) *[api]*
 Invoke the iterator function once for each area in each doc in
 the aposDocs collection. The `iterator` function receives
@@ -60,22 +71,34 @@ doc may be processed at a time).
 This method will never visit the same doc twice in a single call, even if
 modifications are made.
 
+If `callback` is omitted, a promise is returned.
+
+If the iterator accepts only four parameters, it is assumed to
+return a promise. The promise is awaited, and the
+iterator must NOT invoke its callback.
+
 THIS API IS FOR MIGRATION AND TASK USE ONLY AND HAS NO SECURITY.
 
 YOUR ITERATOR MUST BE ASYNCHRONOUS.
 ### eachWidget(*criteria*, *limit*, *iterator*, *callback*) *[api]*
 Invoke the iterator function once for each widget in each area in each doc
-in the aposDocs collection. The `iterator` function receives
-`(doc, widget, dotPath, callback)`. `criteria` may be used to limit
-the docs for which this is done.
+in the aposDocs collection.
 
 If only three arguments are given, `limit` is assumed to be 1 (only one
 doc may be processed at a time).
+
+The `iterator` function receives `(doc, widget, dotPath, callback)`.
+`criteria` may be used to limit
+the docs for which this is done. If the iterator accepts exactly
+three arguments, it is assumed to return a promise, and the iterator
+must NOT invoke the callback.
 
 This method will never visit the same doc twice in a single call, even if
 modifications are made.
 
 Widget loaders are NOT called.
+
+If `callback` is omitted, a promise is returned.
 
 THIS API IS FOR MIGRATION AND TASK USE ONLY AND HAS NO SECURITY.
 
@@ -116,6 +139,10 @@ How we now track migrations performed: a mongodb collection (persistent)
 ### addCollectionMigration() *[implementation]*
 
 ### afterInit() *[implementation]*
+
+### addDeduplicatePiecesInTrashMigration() *[implementation]*
+
+### addDeduplicatePagesInTrashMigration() *[implementation]*
 
 ### addSortifyMigrations() *[implementation]*
 

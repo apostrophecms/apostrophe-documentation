@@ -199,7 +199,7 @@ if the piece has many joins.
 
 Returns an array of attachments, or an empty array if none are found.
 
-When available, the `_description`, `_credit` and `_creditUrl` are
+When available, the `_description`, `_credit`, `_creditUrl`, and '_title' are
 also returned as part of the object.
 
 For ease of use, a null or undefined `within` argument is accepted.
@@ -259,6 +259,12 @@ i.e. uploadfs produces versions of it for each configured
 size, as it does with GIF, JPEG and PNG files.
 
 Accepts either an entire attachment object or an extension.
+
+Can accept `jpeg` or `jpg`, because it is needed prior to the
+imagemagick code that resolves that difference.
+### resolveExtension(*extension*) *[api]*
+Resolve a file extension such as jpeg to its canonical form (jpg).
+If no extension map is configured for this extension, return it as-is.
 ### addTypeMigration() *[api]*
 
 ### addDocReferencesMigration() *[api]*
@@ -301,6 +307,8 @@ out across all sizes and crops.
 ### migrateToDisabledFileKeyTask(*argv*, *callback*) *[api]*
 
 ### migrateFromDisabledFileKeyTask(*argv*, *callback*) *[api]*
+
+### urlsTask(*callback*) *[api]*
 
 ### pushAssets() *[browser]*
 
@@ -375,7 +383,7 @@ if the piece has many joins.
 
 Returns an array of attachments, or an empty array if none are found.
 
-When available, the `_description`, `_credit` and `_creditUrl` are
+When available, the `_description`, `_credit`, `_creditUrl`, and '_title' are
 also returned as part of the object.
 
 For ease of use, a null or undefined `within` argument is accepted.

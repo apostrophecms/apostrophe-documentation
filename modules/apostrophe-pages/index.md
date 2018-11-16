@@ -328,7 +328,13 @@ such that no child page types are permitted, this method
 returns null. The permissions of the new child page match
 the permissions of the parent.
 ### allowedChildTypes(*page*) *[api]*
-
+Return an array of child page type names permitted
+given the specified parent page. If page is null,
+allowable type names for the home page are returned.
+### isAllowedChildType(*page*, *type*) *[api]*
+Return true if the given type name is allowable for a child
+of the given page. If page is null, this method returns true
+if the given type name is allowable for the home page.
 ### move(*req*, *movedId*, *targetId*, *position*, *options*, *callback*) *[api]*
 Move a page already in the page tree to another location.
 

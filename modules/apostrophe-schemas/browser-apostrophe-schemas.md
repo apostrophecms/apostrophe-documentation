@@ -137,5 +137,7 @@ input elements. `title` and `slug` are the schema field definitions.
 
 This has become an implementation detail of enableSlugSuggestions
 but for bc it remains a publicly available API.
+### watchSlugConflicts(*$title*, *$slug*, *title*, *slug*, *object*)
+
 ### enableShowFields(*data*, *name*, *$field*, *$el*, *field*)
 

@@ -42,6 +42,12 @@ mechanism can be disabled by explicitly setting `conflictResolution`
 to false. Doing so is *not recommended* for normal operation but has
 valid applications in automated testing.
 
+**`deconflictSlugs`: by default, Apostrophe will suggest nonconflicting
+slugs based on the title as the user types the title of a page or piece.
+If you do not want this feature and would prefer that the user encouter
+a clear error message every time their slug is in conflict, forcing
+them to make a manual choice, explicitly set this option to `false`.
+
 
 ## Methods
 ### enableCollection(*callback*) *[api]*
@@ -183,6 +189,9 @@ which allows the pages module to piggyback and add `applyToSubpages` behavior.
 
 The `options` object is for future extension and is passed on
 to this method by `insert` and `update`.
+
+This method also repairs any properties related to these which are null
+rather than a properly empty array or object.
 ### trash(*req*, *idOrCriteria*, *options*, *callback*) *[api]*
 Trash a single document. The second
 argument may be either an _id, or a MongoDB
@@ -462,4 +471,10 @@ used to implement "projections" for the
 ### POST /modules/apostrophe-docs/verify-lock
 
 ### POST /modules/apostrophe-docs/unlock
+
+### POST /modules/apostrophe-docs/slug-taken
+Determine if a particular slug is available. Since the slug namespace
+is shared by all doc types, you only need to be a user to access this
+route. No other information about the document with that slug is returned
+### POST /modules/apostrophe-docs/slug-deconflict
 

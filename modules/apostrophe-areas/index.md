@@ -131,10 +131,11 @@ Also available as a helper via `apos.areas.plaintext(area, options)` in template
 
 Content will be retrieved from any widget type that supplies a
 `getRichText` method.
-### fromPlaintext(*plaintext*) *[api]*
+### fromPlaintext(*plaintext*, *options*) *[api]*
 Very handy for imports of all kinds: convert plaintext to an area with
 one `apostrophe-rich-text` widget if it is not blank, otherwise an empty area. null and
 undefined are tolerated and converted to empty areas.
+Takes an option `el` if you wish to specify a wrapper element. Ex: `fromPlaintext(text, { el: 'p' })`.
 ### modulesReady() *[api]*
 When all modules are ready and all widget managers therefore should have been
 added, determine the list of rich text widgets for purposes of the

@@ -70,7 +70,7 @@ For best performance be reasonably specific; don't pass an entire page or piece
 object if you can pass page.thumbnail to avoid an exhaustive search, especially
 if the page has many joins.
 
-When available, the `_description`, `_credit` and `_creditUrl` are
+When available, the `_description`, `_credit`, `_creditUrl`, and '_title' are
 also returned as part of the object.
 
 For ease of use, a null or undefined `within` argument is accepted.
@@ -149,7 +149,7 @@ For best performance be reasonably specific; don't pass an entire page or piece
 object if you can pass page.thumbnail to avoid an exhaustive search, especially
 if the page has many joins.
 
-When available, the `_description`, `_credit` and `_creditUrl` are
+When available, the `_description`, `_credit`, `_creditUrl`, and '_title' are
 also returned as part of the object.
 
 For ease of use, a null or undefined `within` argument is accepted.

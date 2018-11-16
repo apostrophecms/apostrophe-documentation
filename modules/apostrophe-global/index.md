@@ -46,6 +46,12 @@ This module provides middleware so that `req.data.global` is always available,
 even in requests that are not for Apostrophe pages. In a command line task, you can use
 the provided `findGlobal` method.
 
+`separateWhileBusyMiddleware`: if true, the `whileBusy` method is powered
+by separate middleware that checks for the lock flag in `apostrophe-global`
+even if the regular middleware of this method has been disabled and/or
+overridden to cache in such a way as to make it unsuitable for
+this purpose.
+
 ## properties
 
 `_id`: the MongoDB ID of the global doc. Available after `modulesReady`.
@@ -61,7 +67,14 @@ with `(null, global)`.
 Initialize the `global` doc, if necessary. Invoked late in the
 startup process by `modulesReady`.
 ### enableMiddleware()
-Add the `addGlobalToData` middleware.
+Add the `addGlobalToData` middleware. And if requested,
+the separate middleware for checking the global busy flag
+when addGlobalToData has been overridden in a way that might
+involve caching or otherwise not be up to date at all times.
+### whileBusyMiddleware(*req*, *res*, *next*)
+
+### checkWhileBusy(*req*, *_global*, *callback*)
+
 ### addGlobalToData(*req*, *res*, *next*)
 Fetch the global doc and add it to `req.data` as `req.data.global`, if it
 is not already present. If it is already present, skip the

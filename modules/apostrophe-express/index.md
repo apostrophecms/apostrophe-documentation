@@ -157,6 +157,21 @@ that ships with Apostrophe. XSRF protection for login forms
 is unnecessary because the password itself is unknown to the
 third party site; it effectively serves as an XSRF token.
 
+You can also pass options to the Express [`res.cookie`](https://expressjs.com/en/api.html#res.cookie) call that sets the cookie:
+
+```javascript
+csrf: {
+  exceptions: [ '/cheesy-post-route' ],
+  cookie: {
+    // Send it only if the request is HTTPS
+    secure: true
+  }
+}
+```
+
+Do not set the `httpOnly` flag as this will prevent legitimate same-origin
+JavaScript from adding it to requests.
+
 ### middleware
 
 If a `middleware` array is present, those functions are added

@@ -187,6 +187,8 @@ Initialize the [credential](https://npmjs.org/package/credential) module.
 Implement the `apostrophe-users:add` command line task.
 ### changePasswordFromTask(*callback*)
 Implement the `apostrophe-users:change-password` task.
+### addNonNullJoinMigration()
+
 ## API Routes
 ### POST /modules/apostrophe-users/unique-username
 A route which accepts a `username` POST parameter and responds

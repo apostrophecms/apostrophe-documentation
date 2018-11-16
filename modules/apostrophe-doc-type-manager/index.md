@@ -183,6 +183,8 @@ Note that you want to do both things (add the migration, and
 add `sortify: true`) because `sortify: true` guarantees that
 `lastNameSortified` gets updated on all saves of a doc of this type.
 The migration is a one-time fix for existing data.
+### addSlugPrefixMigration() *[api]*
+
 ### pushAssets() *[browser]*
 
 ### pushDefineSingleton() *[browser]*

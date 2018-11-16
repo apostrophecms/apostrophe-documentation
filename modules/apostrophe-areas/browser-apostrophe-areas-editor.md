@@ -46,6 +46,10 @@ added to the DOM.
 
 ### getWidgets()
 
+### disableAreaControls()
+Disable area controls interactions while certain menus are open
+### enableAreaControls()
+
 ### dismissContextContentMenu()
 
 ### linkWidgetsToAreaEditor()
