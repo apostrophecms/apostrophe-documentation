@@ -143,7 +143,7 @@ apos.areas.richText() method which returns just the rich text of the area
 ### loadDeferredWidgets(*req*, *callback*) *[api]*
 Load widgets which were deferred until as late as possible. Only
 comes into play if `req.deferWidgetLoading` was set to true for
-the request. Invoked after the last `pageBeforeSend` handler, and
+the request. Invoked after the `apostrophe-pages:beforeSend` promise event handlers and any `pageBeforeSend` methods have been invoked, and
 also at the end of the `apostrophe-global` middleware.
 ### widgetControlGroups(*req*, *widget*, *options*) *[api]*
 This method is called when rendering widgets in an area,
@@ -179,9 +179,12 @@ If the field type has a `copy` method it is used.
 Otherwise, custom logic handles `join` fields, and
 the rest are copied by simple assignment to the
 named field.
-### pageBeforeSend(*req*) *[browser]*
 
-### getCreateSingletonOptions(*req*) *[browser]*
+### pageBeforeSend(*req*) *[server]*
+
+Ensures the `apos.areas` singleton exists in the browser.
+
+### getCreateSingletonOptions(*req*) *[server]*
 
 ## Nunjucks template helpers
 ### singleton(*doc*, *name*, *type*, *_options*)

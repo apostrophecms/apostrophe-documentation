@@ -130,7 +130,7 @@ Because Apostrophe is built on Node.js, it is asynchronous. However, we have cho
 
 This was done to avoid introducing complex back-end async programming concepts into frontend template code. Code dealing with callbacks belongs in JavaScript, not Nunjucks. Synchronous templates also render faster.
 
-The `pageBeforeSend` method of each module is your last chance to carry out async tasks before the page is rendered. For more on this technique, see [how Apostrophe handles requests](how-apostrophe-handles-requests.html).
+Writing a `apostrophe-pages:beforeSend` promise event handler is your best option to carry out async tasks just before the page is rendered. For more on this technique, see [how Apostrophe handles requests](how-apostrophe-handles-requests.html).
 
 ## Apostrophe schemas
 

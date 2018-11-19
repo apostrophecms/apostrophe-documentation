@@ -29,9 +29,9 @@ At the last possible moment, in the `afterInit` method of the `apostrophe-pages`
 
 The `server` method of `apostrophe-pages` loads `req.data.bestPage`, which is the page matching at least a prefix component of the URL; it will always be the home page at the very least. 
 
-`apostrophe-pages` then invokes the `pageServe` method of every module that has one, via `self.apos.callAll`. The most important implementation is in the `apostrophe-custom-pages` module. Every page type has a "manager" object which is an instance of a subclass of this module. Even "ordinary" page types like `home` and `default` automatically receive a subclass of this module.
+`apostrophe-pages` then emits the `apostrophe-pages:serve` promise event and the legacy `pageServe` method of every module that has one, via `self.apos.callAllAndEmit`. The most important implementation of `pageServe` is in the `apostrophe-custom-pages` module. Every page type has a "manager" object which is an instance of a subclass of this module. Even "ordinary" page types like `home` and `default` automatically receive a subclass of this module.
 
-Newer code may listen for the `serve` promise event instead. This example invokes a hypothetical API that returns information about monkeys, and attaches it to `req.data.monkeys` before the page is served.
+Newer code may listen for the `apostrophe-pages:serve` promise event instead. This example invokes a hypothetical API that returns information about monkeys, and attaches it to `req.data.monkeys` before the page is served.
 
 ```javascript
 var request = require('request-promise');
@@ -102,15 +102,15 @@ Now we can access that data in `views/show.html` within our module.
 
   "Where is the `goFindSomethingBySlug` function?" That depends on you! The purpose of `apostrophe-custom-pages` is to let you do custom work based on "the rest" of the URL. If you are just looking to display pieces, there is already a great subclass of `apostrophe-custom-pages` for you. Check out [reusable content with pieces](../getting-started/reusable-content-with-pieces.html) and [apostrophe-pieces-pages](../../modules/apostrophe-pieces-pages/index.html).
 
-### `pageBeforeSend`: your last chance to do async work for a page
+### `apostrophe-pages:beforeSend`: your last chance to do async work for a page
 
-When Apostrophe renders a page, the last thing it does is invoke the `pageBeforeSend` method of every module that has one.
+When Apostrophe renders a page, the last thing it does is emit the `apostrophe-pages:beforeSend` [promise event](/docs/events.html).
 
 This is your last chance to attach information to `req.data` and your last chance to do anything that requires a callback.
 
-Your `pageBeforeSend` method will receive `req` and, if you define it with both arguments, `callback` also.
+Your handler will receive `req`. If it is an `async` function, or returns a promise, it will be awaited before the page renders.
 
-  **Note that `req.data.page` will not always exist in a `pageBeforeSend` handler. Be sure to handle this gracefully.** `pageBeforeSend` is invoked for all full HTML page responses, including the login "page," which does not correspond to an Apostrophe page. 
+  **Note that `req.data.page` will not always exist in an `apostrophe-pages:beforeSend` handler. Be sure to handle this gracefully.** `apostrophe-pages:beforeSend` is invoked for all full HTML page responses, including the login "page," which does not correspond to an Apostrophe page. 
 
 ### Template helpers: invoking synchronous JavaScript code from your template
 
@@ -118,7 +118,7 @@ You have one more chance to write JavaScript that is part of the rendering of a 
 
 Apostrophe provides many "template helpers" you've seen before, like `apos.area` or `apos.attachments.url`. Adding helpers is a good way to provide code that would be too ugly, complicated or unmaintainable written in Nunjucks.
 
-Just remember that the code must be synchronous — it must not involve callbacks. If you need callbacks to do your work, use a `pageBeforeSend` method.
+Just remember that the code must be synchronous — it must not involve callbacks. If you need callbacks to do your work, write an [apostrophe-pages:beforeSend handler, or another promise event handler](/docs/events.html).
 
 Here's how to add a helper via your module:
 
@@ -141,6 +141,8 @@ module.exports = {
 {# in any template #}
 {{ apos.clap(data.page.title) }}
 ```
+
+> Again, helper functions **may not** be async functions and may not return promises (that is, they will not be awaited). They must be synchronous. If you need to do asynchronous work just before the page is rendered, write an `apostrophe-pages:beforeSend` promise event handler.
 
 #### Rendering HTML inside a helper
 
@@ -209,6 +211,6 @@ self.apos.app.get('/special-url', function(req, res) {
 });
 ```
 
-Note that `pageBeforeSend` methods are invoked first before the template is rendered.
+Note that the `apostrophe-pages:beforeSend` promise event is emitted, and any handlers are awaited, before the template is rendered.
 
   `sendPage` completes your response to the Express request. There is no need to call `res.send` afterwards and it will not work if you try. If you need to do anything special to the Express `res` object before the response is sent, do that first, accessing it via `req.res`.

@@ -155,13 +155,13 @@ Core Apostrophe modules, and project-specific modules, usually register an "alia
 
 ### `callAll(methodName, args..., callback)`
 
-**This is a legacy method, all instances of it in the apostrophe core now instead call `callAllAndEmit` which also emits an Apostrophe promise event.**
+**This is a legacy method, all instances of it in the apostrophe core now instead call `callAllAndEmit` which also emits an Apostrophe [promise event](/docs/events.html).**
 
 When `callAll` is invoked with a method name such as `docBeforeSave`, Apostrophe invokes that method on **ALL modules that have one**.
 
 **A callback is required when invoking `callAll`, but optional when receiving it.** That is, your code that invokes `callAll` **must** be asynchronous and pass a callback as the last argument to `callAll`. However, some of the modules that implement `methodName` may omit the callback if they do not need to do any asynchronous work. `docBeforeSave` is a good example: some modules only need to copy one property to another, while others might need to consult another database.
 
-The `callAll` technique is widely used in Apostrophe. For instance, [page-before-send](modules/apostrophe-pages/index.html#pageBeforeSend) is invoked just before a page is sent to the browser, allowing all modules one last opportunity to do some asynchronous work and add more information to `req.data`.
+For legacy reasons, the `callAll` technique is widely used in core Apostrophe modules. For instance, [page-before-send](modules/apostrophe-pages/index.html#pageBeforeSend) is invoked just before a page is sent to the browser, allowing all modules one last opportunity to do some asynchronous work and add more information to `req.data`. But new code should listen for the `apostrophe-pages:beforeSend` [promise event](/docs/events.html) instead.
 
 ### `destroy()`
 

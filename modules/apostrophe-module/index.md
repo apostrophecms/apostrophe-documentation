@@ -260,9 +260,9 @@ the `data` object in nunjucks:
   request-specific calls pushed by server-side code)
 `data.home` (basic information about the home page, usually with ._children)
 
-First, `pageBeforeSend` is invoked on **every module that
-has such a method**. It receives `req` and an optional callback, and
-can modify `req.data`.
+First, the `apostrophe-pages:beforeSend` promise event is emitted, and its handlers are awaited. Then, for legacy reasons, `pageBeforeSend` is invoked on every module that
+has such a method. The recommended way to do asynchronous work at the "last possible minute" is to write an `apostrophe-pages:beforeSend` promise event handler.
+
 ### pushCreateSingleton(*req*, *when*)
 Push a browser call to instantiate an object with the same
 moog type name as this module on the browser side, passing the
