@@ -29,18 +29,9 @@ At the last possible moment, in the `afterInit` method of the `apostrophe-pages`
 
 The `server` method of `apostrophe-pages` loads `req.data.bestPage`, which is the page matching at least a prefix component of the URL; it will always be the home page at the very least. 
 
-`apostrophe-pages` then emits the `apostrophe-pages:serve` promise event and the legacy `pageServe` method of every module that has one, via `self.apos.callAllAndEmit`. The most important implementation of `pageServe` is in the `apostrophe-custom-pages` module. Every page type has a "manager" object which is an instance of a subclass of this module. Even "ordinary" page types like `home` and `default` automatically receive a subclass of this module.
+`apostrophe-pages` then invokes the `pageServe` method of every module that has one, via `self.apos.callAll`. The most important implementation is in the `apostrophe-custom-pages` module. Every page type has a "manager" object which is an instance of a subclass of this module. Even "ordinary" page types like `home` and `default` automatically receive a subclass of this module.
 
-Newer code may listen for the `apostrophe-pages:serve` promise event instead. This example invokes a hypothetical API that returns information about monkeys, and attaches it to `req.data.monkeys` before the page is served.
-
-```javascript
-var request = require('request-promise');
-self.on('apostrophe-pages:serve', 'addMonkeyData', function(req) {
-  return request('http://monkey-api/').then(function(monkeys) {
-    req.data.monkeys = monkeys;
-  }); 
-});
-```
+Newer code may listen for the `apostrophe-pages:serve` promise event instead, however it usually makes sense to just use the `dispatch` feature as described below.
 
 ### Ordinary page templates
 
@@ -111,6 +102,24 @@ This is your last chance to attach information to `req.data` and your last chanc
 Your handler will receive `req`. If it is an `async` function, or returns a promise, it will be awaited before the page renders.
 
   **Note that `req.data.page` will not always exist in an `apostrophe-pages:beforeSend` handler. Be sure to handle this gracefully.** `apostrophe-pages:beforeSend` is invoked for all full HTML page responses, including the login "page," which does not correspond to an Apostrophe page. 
+
+### Widget loaders
+
+Apostrophe can also load additional content on behalf of each type of widget that has been loaded as part of a document. Certain standard widgets make heavy use of this feature, especially `apostrophe-pieces-widgets` and its subclasses like `apostrophe-images-widgets`.
+
+The `load` method of a widgets module looks like:
+
+```javascript
+self.load = function(req, widgets, callback) { ... }
+```
+
+By default, this method takes care of any joins in the widget's schema. In `apostrophe-pieces-widgets`, it also fetches the pieces that were chosen by tag and so on.
+
+To allow performance optimizations, this method takes an array of widgets, rather than just one at a time.
+
+#### Deferred widget loaders
+
+Normally widget loaders run right after the documents containing the widgets are loaded. However, you can set `defer: true` as an option to your widgets module to delay this until much later, in fact *after* all `apostrophe-pages:beforeSend` handlers. This yields a performance improvement because more widgets can be loaded simultaneously. However, it means you cannot access the loaded content in your `beforeSend` handlers, because it has not been loaded yet.
 
 ### Template helpers: invoking synchronous JavaScript code from your template
 
