@@ -37,7 +37,7 @@ Any modules you pass to the `apostrophe-i18n` module are automatically passed on
     }
 ```
 
-Here is a guide to the available option:
+Here is a guide to the available options:
 
 `localesDir`: if specified, the locale .`json` files are stored here, otherwise they are stored in the `locales` subdirectory of the project root.
 
