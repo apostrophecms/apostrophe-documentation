@@ -16,8 +16,8 @@ Internationalization of static content is a built-in feature of Apostrophe. All 
 `apostrophe-i18n` makes an instance of the i18n npm module available as `apos.i18n`. More importantly, Apostrophe makes this available in Nunjucks templates via the usual `__()` helper function. So to translate static content in your templates, just write:
 
 ```markup
-
 <h3>{{ __('Hello World') }}</h3>
+```
 
 Now, when you start the application, you will see files in the `locales` subdirectory of your project with names like `en.json` and these files will automatically gain new properties over time as new text strings are seen for the first time. In production, you can configure the module differently so that new strings are not added.
 
