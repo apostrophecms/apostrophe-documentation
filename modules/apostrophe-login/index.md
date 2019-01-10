@@ -126,6 +126,14 @@ Add the `/login` route, both GET (show the form) and POST (submit the form).
 Also add the `/logout` route.
 ### getPasswordResetLifetimeInMilliseconds()
 
+### sendPasswordResetEmail(*req*, *user*)
+Send a password reset email, with a magic link to a one-time-use
+form to reset the password, to the given `user`. Returns
+a promise; when that promise resolves the email has been
+handed off for delivery (not necessarily received).
+
+NOTE: the promise will be rejected if the user has no
+`email` property to which to send an email.
 ### addUserToData(*req*, *res*, *next*)
 Add the `user` property to `req.data` when a user is logged in.
 ### pushAssets()

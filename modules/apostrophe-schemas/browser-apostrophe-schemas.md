@@ -114,7 +114,8 @@ schemas in unrelated fieldsets.
 ### enhanceSelectiveWithSlugs(*$field*)
 
 ### newInstance(*schema*)
-
+Return a new object with all default settings
+defined in the schema
 ### enableTags(*$el*, *tags*, *field*)
 Enable autocomplete of tags. Expects the fieldset element
 (not the input element) and an array of existing tags already

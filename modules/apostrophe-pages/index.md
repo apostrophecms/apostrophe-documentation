@@ -303,9 +303,8 @@ Note that it is safest to use the `withLock` method to avoid
 the bookkeeping of calling either `lock` or `unlock` yourself.
 ### docAfterDenormalizePermissions(*req*, *page*, *options*, *callback*) *[api]*
 This method pushes a page's permissions to its subpages selectively based on
-whether the applyToSubpages choice was selected for each one. It also copies
-the `loginRequired` property to subpages if the `applyLoginRequiredToSubpages`
-choice was selected.
+whether the applyToSubpages action was selected. It also copies
+the `loginRequired` property to subpages in that situation.
 
 Both additions and deletions from the permissions list can be propagated
 in this way.

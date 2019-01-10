@@ -75,7 +75,7 @@ on a single type of piece.
 
 *Options*
 
-`options.label` should be passed as an object with
+`options.labels` should be passed as an object with
 a `title` property, to title the progress modal.
 A default is provided but it is not very informative.
 
@@ -126,7 +126,7 @@ property, an object with a sub-property for each `id`.
 
 *Options*
 
-`options.label` should be passed as an object with
+`options.labels` should be passed as an object with
 a `title` property, to title the progress modal.
 A default is provided but it is not very informative.
 
@@ -185,9 +185,9 @@ undo things fully, of course.
 You should not offer both. If you do, only "Cancel" is presented
 to the user.
 
-*Labeling the progress modal: `options.label`*
+*Labeling the progress modal: `options.labels`*
 
-`options.label` should be passed as an object with
+`options.labels` should be passed as an object with
 a `title` property, to title the progress modal.
 
 In addition, it may have `failed`, `completed` and

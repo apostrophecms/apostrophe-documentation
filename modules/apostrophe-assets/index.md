@@ -62,6 +62,38 @@ Example:
 }
 ```
 
+### `uploadfsBundleCleanup`
+
+If explicitly set to `false`, the mechanism that otherwise removes stale
+uploadfs static asset bundles five minutes after launch is disabled.
+See [Deploying Apostrophe in the Cloud with Heroku](https://apostrophecms.org/docs/tutorials/howtos/deploying-apostrophe-in-the-cloud-with-heroku.html)
+for more information.
+
+## Additional Environment Variables
+
+### `APOS_BUNDLE`
+
+If set to the name of a static asset bundle, the specified bundle is unpacked
+at startup. See [Deploying Apostrophe in the Cloud with Heroku](https://apostrophecms.org/docs/tutorials/howtos/deploying-apostrophe-in-the-cloud-with-heroku.html)
+for more information.
+
+### `APOS_BUNDLE_IN_UPLOADFS`
+
+If set, static asset URLs are generated to the bundle in uploadfs rather than being
+served locally. Since not every module that utilizes static assets of modules will
+necessarily participate, the bundle is still unpacked locally as well. See
+[Deploying Apostrophe in the Cloud with Heroku](https://apostrophecms.org/docs/tutorials/howtos/deploying-apostrophe-in-the-cloud-with-heroku.html)
+for more information.
+
+### `APOS_BUNDLE_CLEANUP_DELAY`
+
+If set to a number of milliseconds, Apostrophe delays that long before
+cleaning up obsolete static asset bundles in uploadfs. The default
+is 5 minutes. The assumption is that all production servers have received
+the new deployment and finished serving any straggler HTTP requests by this point.
+See [Deploying Apostrophe in the Cloud with Heroku](https://apostrophecms.org/docs/tutorials/howtos/deploying-apostrophe-in-the-cloud-with-heroku.html)
+for more information.
+
 
 ## Methods
 ### setDefaultStylesheets()
