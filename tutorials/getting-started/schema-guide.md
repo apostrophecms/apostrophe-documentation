@@ -206,9 +206,37 @@ A `boolean` field is a simple "Yes or No" choice. The value stored in the databa
 
 If a `boolean` field is set `required: true`, the user must select "Yes" to complete the form. This may seem odd but is useful for consent fields.
 
+**The `showFields` option can be used to show and hide other fields based on the choice that was made.** This is a very powerful way to make forms more user-friendly.
+
+Example:
+
+```javascript
+{
+  type: 'boolean',
+  name: 'housing',
+  label: 'Do you require housing?',
+  choices: [
+    {
+      value: true,
+      showFields: [
+        'dormPreference', 'vegetarian'
+      ]
+    }
+  ]
+}
+```
+
+When "Yes" is selected, the `value` becomes `true`, and the fields named `dormPreference` and `vegetarian` will be visible. At all other times they will not be.
+
+You can also set `showFields` for the value `false` if you wish.
+
 ### `checkboxes`
 
-A `checkboxes` field presents an array of checkboxes. For example:
+A `checkboxes` field presents an array of checkboxes. Its value is an array containing the values of the selected checkboxes.
+
+**The `showFields` option can be used to show and hide other fields based on the choices that were made.** This is a very powerful way to make forms more user-friendly.
+
+For example:
 
 ```javascript
 {
@@ -222,7 +250,8 @@ A `checkboxes` field presents an array of checkboxes. For example:
     },
     {
       label: 'Friendly',
-      value: 'friendly'
+      value: 'friendly',
+      showFields: [ 'friends' ]
     },
     {
       label: 'Furry',
@@ -233,6 +262,8 @@ A `checkboxes` field presents an array of checkboxes. For example:
 ```
 
 **In this example, the value of the `preferences` property of the data object will be an array of strings.** Each string is the `name` property of a choice that was checked. If no boxes are checked, the value is an empty array.
+
+When "Friendly" is one of the selected checkboxes, the field named `friends` becomes visible. Otherwise that field is hidden.
 
 The `required` option currently has no meaning for `checkboxes`.
 
