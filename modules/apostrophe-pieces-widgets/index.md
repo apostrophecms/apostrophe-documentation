@@ -27,6 +27,23 @@ If `true` (the default), Apostrophe will take all the widgets passed to the `loa
 were chosen "by id", i.e. manually in a join, and do a single query to fetch them. This is usually more efficient,
 however if you have customized the `loadOne` method you may not wish to use it.
 
+### `limitByAll`
+
+Integer that sets the widget cursor limit when all pieces are fetched.
+If this option is not set, editors will be presented with the usual
+`Maximum Displayed` schema field to set this number manually
+
+### `limitByTag`
+
+Integer that sets the widget cursor limit when pieces are fetched by tag.
+If this option is not set, editors will be presented with the usual
+`Maximum Displayed` schema field to set this number manually
+
+### `limitById`
+
+Integer that sets the widget cursor limit for fetching
+pieces individually
+
 
 ## Methods
 ### load(*req*, *widgets*, *callback*)

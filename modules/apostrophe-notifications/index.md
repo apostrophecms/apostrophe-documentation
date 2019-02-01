@@ -56,22 +56,13 @@ The method returns a promise, which you may await if you need
 to be absolutely certain the notification has been committed
 to the database, for instance before exiting a command line task.
 You may also pass a callback as a final argument.
-### find(*req*, *options*, *callback*)
-Resolves with an object with `notifications` and `dismissed`
-properties.
+### expressMiddleware(*req*, *res*, *next*)
+This middleware is essentially a POST route at
+`/modules/apostrophe-global/poll-notifications`. It is implemented
+as middleware to allow it to run before `req.data.global` is loaded,
+which can be a very expensive operation on some sites and should
+thus not be required before a high-frequency polling operation.
 
-Returns a promise if no callback is passed.
-
-If `options.displayingIds` is set, notifications
-whose `_id` properties appear in it are not returned.
-### ensureCollection(*callback*)
-
-## API Routes
-### POST /modules/apostrophe-notifications/trigger
-Send a new notification for the user.
-### POST /modules/apostrophe-notifications/dismiss
-Dismiss the notification indicated by `req.body._id`.
-### POST /modules/apostrophe-notifications/poll-notifications
 Poll for active notifications. Responds with:
 
 `{ status: 'ok', notifications: [ ... ], dismissed: [ id1... ] }`
@@ -88,8 +79,22 @@ dismiss route are sent.
 If any of the ids in `displayingIds` have been recently dismissed,
 the response will include them in its `dismissed` property.
 
-This route will wait up to 10 seconds
-for new notifications (long polling), but then respond with an
-empty array to avoid proxy server timeouts.
+Waits up to 10 seconds for new notifications (long polling),
+but then respond with an empty array to avoid proxy server timeouts.
 
 As usual POST is used to avoid unwanted caching of the response.
+### find(*req*, *options*, *callback*)
+Resolves with an object with `notifications` and `dismissed`
+properties.
+
+Returns a promise if no callback is passed.
+
+If `options.displayingIds` is set, notifications
+whose `_id` properties appear in it are not returned.
+### ensureCollection(*callback*)
+
+## API Routes
+### POST /modules/apostrophe-notifications/trigger
+Send a new notification for the user.
+### POST /modules/apostrophe-notifications/dismiss
+Dismiss the notification indicated by `req.body._id`.
