@@ -14,6 +14,7 @@ children:
   - facebook
   - next-and-previous-pieces
   - adding-fields-to-all-pieces
+  - sending-user-notifications
   - adding-new-batch-operations
   - extending-the-pieces-editor-modal
   - responsive-images
@@ -33,6 +34,7 @@ children:
   - hide-index-page
   - what-to-do-when-you-are-locked-out-of-apostrophe
   - apostrophe-i18n-config
+  - nested-module-folders
 ---
 
 These HOWTOs cover a variety of topics that don't quite fit neatly into a tutorial series.
