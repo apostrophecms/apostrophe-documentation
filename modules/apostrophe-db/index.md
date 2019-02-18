@@ -48,4 +48,7 @@ backwards compatibility.
 ### apostropheDestroy(*callback*)
 Invoked by `callAll` when `apos.destroy` is called.
 Closes the database connection and the keepalive
-interval timer.
+interval timer. Sets `apos.db.closed` to true,
+allowing detection of the fact that the database
+connection is no longer available by code that
+might still be in progress.
