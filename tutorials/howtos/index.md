@@ -20,6 +20,8 @@ children:
   - responsive-images
   - ckeditor
   - storing-images-and-files-in-amazon-s3
+  - storing-images-and-files-in-azure-blob-storage
+  - storing-images-and-files-in-google-cloud-storage
   - migration
   - linode
   - deploying-apostrophe-in-the-cloud-with-heroku
