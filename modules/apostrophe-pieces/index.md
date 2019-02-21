@@ -21,7 +21,7 @@ you'll get a user interface for managing your content for free. Add in the
 for your pieces, and use `apostrophe-pieces-widgets` to allow them to be sprinkled
 into pages all over the site. To learn more, see:
 
-[Reusable content with pieces](../tutorials/getting-started/reusable-content-with-pieces.html)
+[Reusable content with pieces](../../tutorials/getting-started/reusable-content-with-pieces.html)
 
 ## Options
 
@@ -33,7 +33,7 @@ conflicts with the slugs of other piece types.
 
 ## More Options
 
-See [reusable content with pieces](../tutorials/getting-started/reusable-content-with-pieces.html)
+See [reusable content with pieces](../../tutorials/getting-started/reusable-content-with-pieces.html)
 for many additional options.
 
 
@@ -266,4 +266,3 @@ for things like testing pagination, see the
 ### POST /modules/apostrophe-pieces/rescue
 
 ### POST /modules/apostrophe-pieces/insert-via-upload
-
