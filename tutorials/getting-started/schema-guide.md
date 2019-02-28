@@ -237,7 +237,7 @@ This behavior can be overridden by configuring the `apostrophe-launder` module's
 
 A `boolean` field is a simple "Yes or No" choice. The value stored in the database will be either `true` or `false`.
 
-If a `boolean` field is set `required: true`, the user must select "Yes" to complete the form. This may seem odd but is useful for consent fields.
+A `boolean` field can have a `mandatory` property that will require the user to change the value you to `true` during validation. Supply a string as the `mandatory` property and it will be the validation error message. Turning it to true will use a default message.
 
 **The `showFields` option can be used to show and hide other fields based on the choice that was made.** This is a very powerful way to make forms more user-friendly.
 
@@ -248,6 +248,7 @@ Example:
   type: 'boolean',
   name: 'housing',
   label: 'Do you require housing?',
+  mandatory: 'Sorry, you need to have housing!'
   choices: [
     {
       value: true,
