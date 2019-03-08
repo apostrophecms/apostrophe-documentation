@@ -100,7 +100,7 @@ You can [read more about Dockerfiles](https://docs.docker.com/engine/reference/b
 
 ## Database configuration
 
-Docker will create some environment variables when you link a container to a MongoDB container. We can make use of them by pulling them in when connecting to MongoDB in our `app.js`.
+We created some environment variables in our ```dockerfile``` and/or ```docker-compose.yml``` file. We can make use of them by pulling them in when connecting to MongoDB in our `app.js`.
 
 ```javascript
     'apostrophe-db': {
