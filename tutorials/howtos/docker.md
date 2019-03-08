@@ -36,11 +36,65 @@ RUN npm install
 VOLUME /app/data
 VOLUME /app/public/uploads
 
+# Add the environment variable 
+# to copy files rather than use symlinks
+ENV APOS_ALWAYS_COPY_ASSETS=1
+
 EXPOSE 3000
 CMD [ "npm", "start" ]
 ```
+## Make a .dockerignore file to exclude files and folders from the container
+
+```
+.git
+Dockerfile
+.dockerignore
+.gitignore
+data
+public/uploads
+
+```
 
 A Dockerfile contains a set of instructions for how Docker should build the app image for your project. In this case, we're telling Docker to pull in the [Node.js base image](https://hub.docker.com/_/node/) then copy our project files in and run the app server when the container starts.
+
+A Docker Compose file is another way of running docker containers and starting multiple services at the same time. Here is a simple example of a docker-compose.yml file that runs a mongodb container and Apostrophe, this would be used in addition the the above Dockerfile that builds the container. Note that docker-compose files are YAML format so space indentation is important [Read more about YAML](https://yaml.org/start.html)
+
+## Example docker-compose.yml
+```
+version: '3'
+
+services:
+  mongo:
+    image: 'mongo:latest'
+    volumes:
+      - 'mongo:/data/db'
+    ports:
+      - '127.0.0.1:27017:27017'
+    restart: always  
+
+  aposcms:
+    image: "aposDockerImageFileName:latest"
+    ports:
+      - '3000:3000'
+    volumes:
+      - /app/data:/app/data
+      - /app/public/uploads:/app/public/uploads
+    links:
+      - mongo:mongo
+    depends_on:
+      - mongo
+    environment:
+      MONGODB_PORT_27017_TCP_ADDR: 'mongodb://mongo'
+      MONGODB_PORT_27017_TCP_PORT: '27017'
+      APOS_ALWAYS_COPY_ASSETS: '1'
+    restart: always
+
+volumes:
+  mongo:
+```
+
+The above compose file will first bring the mongodb service online and expose the service on port `27017` to all processes on the server. When the database is running Apostrophe will then start as the `depends_on` instruction will pause execution until the mongodb process has signalled it has started, this is no guarantee it is ready to except connections. The `restart: always` instruction will start the processes on system boot as part of the docker-compose.service and also perform a keep alive function (remove any keep alive monitors your `package.json` file).
+
 
 You can [read more about Dockerfiles](https://docs.docker.com/engine/reference/builder/) if you'd like to customize your Dockerfile.
 
@@ -90,6 +144,22 @@ Now we'll run your project linked to the MongoDB container.
 
 ```shell
 $ docker run -d --link=apostrophe-sandbox-db:mongodb -p 3000:3000 myname/apostrophe-sandbox
+```
+
+## Run as a Docker Compose service
+
+### Start services
+From the folder that contains your docker-compose.yaml file run the following to start both MongoDB and Apostrophe 
+```
+docker-compose up
+
+```
+Once run for the first time and 'restart: always' instruction is present in the service configuration - that service will always be run on boot
+
+### Stop services
+To stop the docker-compose services
+```
+docker-compose down
 ```
 
 Viola! Visit `localhost:3000` in your web browser and the site should be up. Note that you can change the `-p 3000:3000` option to start the server on any port. See the [docker run](https://docs.docker.com/engine/reference/commandline/run/) docs for more details.
