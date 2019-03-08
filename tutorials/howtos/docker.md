@@ -161,13 +161,14 @@ To stop the docker-compose services
 ```
 docker-compose down
 ```
-## Add your first Admin user 
+
+## Add your first Admin user if you have an empty Apostrophe database
 
 Your MongoDB container needs to be running, your Apostrophe container can also be running but is not a requirement.
 ```
 docker run --network="host" -it <YourApostropheContainer:latest> /bin/bash
 ```
-The above command creates an interactive session in your Apostrophe container where you can issue the following command to add an Apostrophe user.
+The above command creates an interactive session in your Apostrophe container where you can issue the following command to add an Apostrophe user. The /bin/bash part ay differ depending on your OS
 
 ```
 node app.js apostrophe-users:add admin "admin"
