@@ -168,7 +168,7 @@ Your MongoDB container needs to be running, your Apostrophe container can also b
 ```
 docker run --network="host" -it <YourApostropheContainer:latest> /bin/bash
 ```
-The above command creates an interactive session in your Apostrophe container where you can issue the following command to add an Apostrophe user. The /bin/bash part ay differ depending on your OS
+The above command creates an interactive session in your Apostrophe container where you can issue the following command to add an Apostrophe user. The /bin/bash part may differ depending on your OS
 
 ```
 node app.js apostrophe-users:add admin "admin"
