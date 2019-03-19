@@ -153,28 +153,31 @@ heroku config:set APOS_S3_REGION=YOUR-chosen-region
 
 ## Minifying assets
 
-The site can work with Heroku at this point, but *performance will be poor because CSS and JavaScript files are not "minified"* (combined to save space). We need to generate minified files in our dev environment in such a way that Heroku can access them after deployment.
+The site can work with Heroku at this point, but *performance will be poor because CSS and JavaScript files are not "minified"* (combined to save space). We need to tell Heroku to minify the assets.
 
-Apostrophe generates minified files with the `apostrophe:generation` task. For simple single-server deployments we usually just run `apostrophe:generation` in production, but this doesn't work for Heroku because every "dyno" in Heroku gets its own, temporary local files and we want every dyno to see copies of the same exact assets. You'll encounter the same issue with most other cloud hosting services.
+Apostrophe generates minified files with the `apostrophe:generation` task. For simple single-server deployments we usually just run `apostrophe:generation` in production. This didn't work on Heroku previously because each "dyno" in Heroku gets its own, temporary local file system and we want every dyno to see copies of the same exact assets. To solve that we needed to minify the assets on our dev machine then push to them to Heroku. You'll encounter the same issue with most other cloud hosting services.
 
-So we'll build an "asset bundle" *on our dev machine*:
+Fortunately with [recent changes from Heroku](https://devcenter.heroku.com/changelog-items/1557), a "build phase" is introduced which is perfect for minifying assets. Heroku will automatically run `npm run build` during deploy and transfer the generated files to all web dynos. We need to add a `build` script to `package.json`:
 
-```bash
-APOS_MINIFY=1 node app apostrophe:generation --create-bundle=prod-bundle
+```json
+# package.json
+...
+  "scripts": {
+  	...
+    "build": "APOS_MINIFY=1 APOS_BUNDLE='' node app apostrophe:generation --create-bundle=prod-bundle"
+  },
+...
 ```
+*Note: If you wonder, we specify the environment variables in the script because build-time variables are different than runtime variables. The latter will be configured on heroku directly and we don't want them to interfere our build-time.*
 
 > IMPORTANT: the APOS_MINIFY environment variable is OVERRIDDEN by any setting
 > you may have made for the `minify` option when configuring
-> the `apostrophe-assets` module. If you want to use the environment
+> the `apostrophe-assets` module. If you want to configure it with the environment
 > variable, DO NOT set the option in your code.
 
 We're specifying `APOS_MINIFY=1` as an environment variable to override the **default** behavior in a development environment, which is not to minify. As noted, if the option has been set explicitly in your code, the environment variable is ignored. So don't do that.
 
-After a minute or so (especially the first time), you'll have a `prod-bundle` folder in your project.
-
-> VERY IMPORTANT: check your `.gitignore` file. If it it contains `data` on a line by itself, *change this line* to `/data`. Otherwise, you will be unable to commit a complete bundle to git, and Heroku will not deploy it properly. We have fixed this in the latest version of our boilerplate project.
-
-**Commit that folder to git** (after FIRST checking for the `.gitignore` problem mentioned above). Heroku uses git for deployment, so we do want it there!
+**Commit your changes to git and continue.**
 
 ### Telling Heroku to use the bundle
 
@@ -185,11 +188,7 @@ heroku config:set APOS_MINIFY=1
 heroku config:set APOS_BUNDLE=prod-bundle
 ```
 
-The first will tell Apostrophe that we're using minified assets. The second tells Apostrophe what the bundle folder is called, so it can copy the assets from it just before starting up.
-
-> "Why does Apostrophe need to unpack assets each time a dyno starts up?" Remember, every dyno in Heroku gets its own completely temporary and separate set of local files. Heroku deploys from git, but we don't want to use minified files all the time in dev. In dev we also benefit from using live symbolic links to the asset folders of modules; but in production we want copies, for speed. The bundle strategy lets us keep the production assets in git without actually cluttering up the dev environment.
-
-We're ready to deploy to Heroku!
+The first will tell Apostrophe that we're using minified assets. The second tells Apostrophe what the bundle folder is called, so it can copy the assets from the building phase that we configured above.
 
 ## Deploying to Heroku
 
@@ -281,13 +280,24 @@ In this setup, images are delivered efficiently via S3, but other static assets 
 
 ### Pushing assets to S3
 
-Apostrophe can push your assets to S3 as part of the bundle-creation step:
+Apostrophe can push your assets to S3 as part of the bundle-creation step, you can run the following command on your dev machine:
 
 ```bash
 APOS_MINIFY=1 node app apostrophe:generation --create-bundle=prod-bundle --sync-to-uploadfs
 ```
+or put the following command in `package.json`:
 
-When the `--sync-to-uploadfs` option is used, Apostrophe will create the bundle in a folder by that name as usual, and will then upload the bundle's `public/` subdirectory to the `assets/XXXX` "folder" of your S3 bucket, where `XXXX` is a unique identifier for the current generation of assets. **You should still commit and push the `prod-bundle` folder.**
+```json
+# package.json
+...
+  "scripts": {
+  	...
+    "build": "APOS_MINIFY=1 APOS_BUNDLE='' APOS_BUNDLE_IN_UPLOADFS='' node app apostrophe:generation --create-bundle=prod-bundle --sync-to-uploadfs"
+  },
+...
+```
+
+When the `--sync-to-uploadfs` option is used, Apostrophe will create the bundle in a folder by that name as usual, and will then upload the bundle's `public/` subdirectory to the `assets/XXXX` "folder" of your S3 bucket, where `XXXX` is a unique identifier for the current generation of assets. **If you minify the assets on your dev machine, you should commit and push the `prod-bundle` folder.**
 
 Your Heroku configuration will look almost the same as before, with one addition:
 
