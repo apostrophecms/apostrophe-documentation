@@ -9,7 +9,7 @@ You've seen a lot of the widgets that come "in the box" with Apostrophe. But you
 
 ### Custom navigation
 
-A common case: you want to build your own navigation menu. [Apostrophe's page tree is awesome](building-navigation.html) but sometimes you want to "cherrypick" pages from all over the tree, perhaps for a special footer.
+A common case: you want to build your own navigation menu. [Apostrophe's page tree is awesome](building-navigation.md) but sometimes you want to "cherrypick" pages from all over the tree, perhaps for a special footer.
 
 You could use a rich text widget and just tell users to add links manually. But they'll just break each time a page is moved around the site. And it's easier for users to mess up the formatting that way. We want something more consistent.
 
@@ -62,7 +62,7 @@ module.exports = {
 > *"What does `extend` mean here?"* Our module is extending the `apostrophe-widgets` module, which provides almost all the code we need.  Yes, `extend` is the correct spelling. Apostrophe uses [moog](https://npmjs.org/packages/moog) to handle extending or "subclassing" other modules.
 
 > *"What other field types can I add?"* The `apostrophe-schemas` module gives us a powerful way to build forms and structure data with almost no work. We just pass an array of field definitions as the `addFields` option.
-> We'll introduce the details gradually. But if you're in a hurry, check out the [schema guide](schema-guide.html).
+> We'll introduce the details gradually. But if you're in a hurry, check out the [schema guide](schema-guide.md).
 
 > *"What does the `name` property do?"* Each field needs to be stored in the widget under its own property name. Play around with `aposDocs.find().pretty()` in the mongodb shell to see what it looks like after you save the widget.
 
@@ -80,7 +80,7 @@ Now let's create a Nunjucks template in `lib/modules/link-widgets/views/widget.h
 
 > *"Hey, don't we need to escape the label before we output it as HTML?"* No, Nunjucks does it automatically. If you need to output content that is already valid, safe markup, you must use the `| safe` filter to output it without escaping.
 
-Now we'll want to add this widget to an area in one of our page templates, like we learned in [adding editable content to pages](adding-editable-content-to-pages.html). Let's add the following to the `main` block of our `lib/modules/apostrophe-pages/views/pages/home.html`:
+Now we'll want to add this widget to an area in one of our page templates, like we learned in [adding editable content to pages](adding-editable-content-to-pages.md). Let's add the following to the `main` block of our `lib/modules/apostrophe-pages/views/pages/home.html`:
 
 ```markup
 {{
@@ -162,7 +162,7 @@ Actually using the widget in an area is just like using the first one. But this 
 
 Now our users have a choice between do-it-yourself links that can point anywhere and "page" links that can only point to a page. Both can be useful.
 
-> It is also possible to join with more than one type. And once you check out [pieces](reusable-content-with-pieces.html), the benefit of doing so will be clear. To do that, set `withType` to an array of type names, which may include `apostrophe-pages`. The user is then able to use a tabbed interface to select items of several types for the same join. These "polymorphic joins" are primarily intended for navigation widgets like this one.
+> It is also possible to join with more than one type. And once you check out [pieces](reusable-content-with-pieces.md), the benefit of doing so will be clear. To do that, set `withType` to an array of type names, which may include `apostrophe-pages`. The user is then able to use a tabbed interface to select items of several types for the same join. These "polymorphic joins" are primarily intended for navigation widgets like this one.
 
 #### Passing options to widgets
 
@@ -262,9 +262,9 @@ The new bit is the `filters` option. By specifying a `projection` filter, we can
 
 >*`_url`, `slug`... what's the difference?* For most sites, nothing. But for sites with a `prefix` option, the `_url` property might have a folder name prepended to it. And there are other ways to transform `_url` to suit your needs. So always remember to use it instead of `slug` when you output page URLs. And use `_url` in your projection to fetch all the properties Apostrophe knows might be involved in calculating the `_url` property of the page.
 
-> **Watch out for reverse joins! If you have [reverse joins](schema-guide.html) and your widget doesn't need them,** the `projection` filter can't help you avoid loading them, because they are loaded from "the other side" (the ids are stored with the documents linking *to* your documents). Instead, use the `joins` filter, and specify an array of join field names your widget actually needs — if any.
+> **Watch out for reverse joins! If you have [reverse joins](schema-guide.md) and your widget doesn't need them,** the `projection` filter can't help you avoid loading them, because they are loaded from "the other side" (the ids are stored with the documents linking *to* your documents). Instead, use the `joins` filter, and specify an array of join field names your widget actually needs — if any.
 
->*What else can I do with `filters`?* That's an intermediate topic, but you can do anything that [ cursors](../intermediate/cursors.html) can do. Check those out if you're in a rush.
+>*What else can I do with `filters`?* That's an intermediate topic, but you can do anything that [ cursors](../intermediate/cursors.md) can do. Check those out if you're in a rush.
 
 ### Adding a JavaScript widget player on the browser side
 
@@ -368,9 +368,9 @@ module.exports = {
 };
 ```
 
-In Apostrophe modules, the `construct` function is called to add methods to the module. Here we are following the "super pattern," making a note of the original method we inherited from [apostrophe-widgets](../../modules/apostrophe-widgets/index.html), creating our own replacement method, invoking the original from within it, and then pushing our own asset to the browser.
+In Apostrophe modules, the `construct` function is called to add methods to the module. Here we are following the "super pattern," making a note of the original method we inherited from [apostrophe-widgets](../../modules/apostrophe-widgets/index.md), creating our own replacement method, invoking the original from within it, and then pushing our own asset to the browser.
 
-The [pushAsset method](../../modules/apostrophe-module/index.html#push-asset) can push both stylesheets and scripts. The name `always` is a convention meaning "everyone sees this stylesheet, whether logged in or not." And we make sure of that by setting the `when` option to `always`.
+The [pushAsset method](../../modules/apostrophe-module/index.md#push-asset) can push both stylesheets and scripts. The name `always` is a convention meaning "everyone sees this stylesheet, whether logged in or not." And we make sure of that by setting the `when` option to `always`.
 
 Now we need to supply `always.less` in the right place: the `public/css` subdirectory of our module's directory.
 
@@ -414,9 +414,9 @@ apos.define('drawer-widgets', {
 
 What's happening in this code?
 
-* We called `apos.define` to define a [moog type](../../glossary.html#moog-type) for our "widget manager." A widget manager is an object that is responsible for directing everything related to widgets of that type in the browser. Think of it as the browser's half of our module.
+* We called `apos.define` to define a [moog type](../../glossary.md#moog-type) for our "widget manager." A widget manager is an object that is responsible for directing everything related to widgets of that type in the browser. Think of it as the browser's half of our module.
 
-* The first argument to `apos.define` is the name of our new type, which is the same as the name of our module. The second argument is an object that defines the type. Just like our `index.js` file on the server, it contains a `construct` function. That's because Apostrophe uses [moog](../../glossary.html#moog-type) to manage object-oriented programming in both places. The only difference is that on the server, Apostrophe figures out what type is being defined automatically based on the module's name. Here in browser-land, it's up to us to call `apos.define`.
+* The first argument to `apos.define` is the name of our new type, which is the same as the name of our module. The second argument is an object that defines the type. Just like our `index.js` file on the server, it contains a `construct` function. That's because Apostrophe uses [moog](../../glossary.md#moog-type) to manage object-oriented programming in both places. The only difference is that on the server, Apostrophe figures out what type is being defined automatically based on the module's name. Here in browser-land, it's up to us to call `apos.define`.
 
 * The `extend` property indicates that we want to extend ("subclass" or "inherit from") the `apostrophe-widgets` type, which provides most of the plumbing for managing our widget. All we need to do is supply a `play` method.
 
