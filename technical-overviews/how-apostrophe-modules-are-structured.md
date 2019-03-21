@@ -5,7 +5,7 @@ layout: tutorial
 
 In this HOWTO, we'll talk about how Apostrophe modules are typically structured. Following these naming conventions will improve your own code.
 
-Some of this material will reference advanced Apostrophe concepts. You may want to read the [Apostrophe glossary](/docs/glossary.html) first and complete the basic and intermediate tutorials.
+Some of this material will reference advanced Apostrophe concepts. You may want to read the [Apostrophe glossary](../glossary.md) first and complete the basic and intermediate tutorials.
 
 ## index.js
 

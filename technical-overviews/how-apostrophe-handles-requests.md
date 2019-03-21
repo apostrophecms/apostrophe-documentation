@@ -127,7 +127,7 @@ You have one more chance to write JavaScript that is part of the rendering of a 
 
 Apostrophe provides many "template helpers" you've seen before, like `apos.area` or `apos.attachments.url`. Adding helpers is a good way to provide code that would be too ugly, complicated or unmaintainable written in Nunjucks.
 
-Just remember that the code must be synchronous — it must not involve callbacks. If you need callbacks to do your work, write an [apostrophe-pages:beforeSend handler, or another promise event handler](/docs/events.html).
+Just remember that the code must be synchronous — it must not involve callbacks. If you need callbacks to do your work, write an [apostrophe-pages:beforeSend handler, or another promise event handler](../events.md).
 
 Here's how to add a helper via your module:
 
