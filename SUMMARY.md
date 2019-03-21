@@ -1,6 +1,6 @@
 # Table of contents
 
-* [ApostropheCMS is a rapid website framework written in Node.js](README.md)
+* [ApostropheCMS Documentation](README.md)
 
 ## Tutorial Sets
 

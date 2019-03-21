@@ -1,0 +1,2 @@
+# How Apostrophe starts up
+
