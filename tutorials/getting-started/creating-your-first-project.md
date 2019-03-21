@@ -113,7 +113,7 @@ If you installed Apostrophe using `apostrophe-cli` as described above, a basic N
 
 Hey, what's this new button about?
 
-<img src="./images/tutorial-plus-button.png" class="shadow">
+<img src="../../images/tutorial-plus-button.png" class="shadow">
 
 #### Adding rich text
 
