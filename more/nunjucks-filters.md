@@ -1,2 +1,0 @@
-# Nunjucks Filters
-

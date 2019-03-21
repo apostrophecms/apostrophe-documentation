@@ -1,2 +1,0 @@
-# Custom schema field types
-

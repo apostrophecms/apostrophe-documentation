@@ -1,2 +1,0 @@
-# apostrophe-admin-bar
-

@@ -1,2 +1,0 @@
-# How Apostrophe handles requests
-
