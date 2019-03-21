@@ -1,6 +1,6 @@
 ---
-title: "HOWTOs"
-menu: "Documentation"
+title: HOWTOs
+menu: Documentation
 layout: reference
 children:
   - notFoundPage
@@ -39,4 +39,7 @@ children:
   - nested-module-folders
 ---
 
+# index
+
 These HOWTOs cover a variety of topics that don't quite fit neatly into a tutorial series.
+

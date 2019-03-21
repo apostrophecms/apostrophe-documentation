@@ -1,6 +1,2 @@
----
-title: "apostrophe-groups-cursor (server)"
-layout: reference
-namespace: server
----
+# server-apostrophe-groups-cursor
 

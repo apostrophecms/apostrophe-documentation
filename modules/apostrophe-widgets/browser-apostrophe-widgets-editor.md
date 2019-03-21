@@ -1,20 +1,26 @@
 ---
-title: "apostrophe-widgets-editor (browser)"
+title: apostrophe-widgets-editor (browser)
 layout: reference
 namespace: browser
 ---
-## Inherits from: [apostrophe-modal](../apostrophe-modal/browser-apostrophe-modal.html)
+
+# browser-apostrophe-widgets-editor
+
+## Inherits from: [apostrophe-modal](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/modules/apostrophe-modal/browser-apostrophe-modal.html)
 
 ## Methods
-### saveContent(*callback*)
 
-### beforeSave(*callback*)
+### saveContent\(_callback_\)
 
-### beforeShow(*callback*)
+### beforeSave\(_callback_\)
 
-### afterShow(*callback*)
+### beforeShow\(_callback_\)
+
+### afterShow\(_callback_\)
+
 Wait for afterShow to do things that might pop more modals
-### getData()
 
-### onChange(*e*)
+### getData\(\)
+
+### onChange\(_e_\)
 

@@ -1,14 +1,18 @@
 ---
-title: "apostrophe-images-relationship-editor (browser)"
+title: apostrophe-images-relationship-editor (browser)
 layout: reference
 namespace: browser
 ---
-## Inherits from: [apostrophe-context](../apostrophe-utils/browser-apostrophe-context.html)
+
+# browser-apostrophe-images-relationship-editor
+
+## Inherits from: [apostrophe-context](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/modules/apostrophe-utils/browser-apostrophe-context.html)
 
 ## Methods
-### retrieve(*callback*)
 
-### edit()
+### retrieve\(_callback_\)
 
-### crop()
+### edit\(\)
+
+### crop\(\)
 

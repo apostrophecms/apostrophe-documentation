@@ -1,5 +1,5 @@
 ---
-title: "apostrophe-files (module)"
+title: apostrophe-files (module)
 layout: reference
 module: true
 namespaces:
@@ -13,6 +13,8 @@ children:
   - browser-apostrophe-files-relationship-editor
   - browser-apostrophe-files-manager-modal
 ---
-## Inherits from: [apostrophe-pieces](../apostrophe-pieces/index.html)
-### `apos.files`
+
+# Inherits from: apostrophe-pieces
+
+## `apos.files`
 

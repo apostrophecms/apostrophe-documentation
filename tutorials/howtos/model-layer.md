@@ -1,11 +1,13 @@
 ---
-title: "Apostrophe's model layer: working with the database"
+title: 'Apostrophe''s model layer: working with the database'
 layout: tutorial
 ---
 
-Apostrophe provides a model layer (database layer) that gives you convenient ways to read and write docs programmatically, taking advantage of the same features that underpin modules like `apostrophe-pieces`. Using these features where possible ensures that permissions are respected, widgets are loaded, joins are fetched, versions are recorded for rollback... so many good things.
+# model-layer
 
-That being said, you can also [access the database directly](../intermediate/accessing-the-database-directly.html) and there's a time and place for that too, most frequently when you must use `$set`, `$inc`, `$unset`, `$push`, `$pull` or `$addToSet` and you are confident you've already determined the user should be allowed to do something. See [accessing the database directly](../intermediate/accessing-the-database-directly.html) for more information.
+Apostrophe provides a model layer \(database layer\) that gives you convenient ways to read and write docs programmatically, taking advantage of the same features that underpin modules like `apostrophe-pieces`. Using these features where possible ensures that permissions are respected, widgets are loaded, joins are fetched, versions are recorded for rollback... so many good things.
+
+That being said, you can also [access the database directly](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/tutorials/intermediate/accessing-the-database-directly.html) and there's a time and place for that too, most frequently when you must use `$set`, `$inc`, `$unset`, `$push`, `$pull` or `$addToSet` and you are confident you've already determined the user should be allowed to do something. See [accessing the database directly](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/tutorials/intermediate/accessing-the-database-directly.html) for more information.
 
 ## Fetching pieces with Apostrophe
 
@@ -19,7 +21,7 @@ return self.find(req, { age: { $gte: 50 }})
   .toArray(function(err, pieces) { ... })
 ```
 
-> *You may also use promises.* Apostrophe returns a promise if you do not pass a callback function to `toArray`. The promise resolves to the array of pieces (use `then`).
+> _You may also use promises._ Apostrophe returns a promise if you do not pass a callback function to `toArray`. The promise resolves to the array of pieces \(use `then`\).
 
 That code will fetch only pieces this particular user is allowed to see, and also take into account your custom mongodb criteria object and a full-text search for the word `blue`, sorting the results by how well they match that search.
 
@@ -41,11 +43,11 @@ piece.title = 'So great!';
 return self.insert(req, piece, callback);
 ```
 
-> *This will only succeed if the current user should be allowed to create pieces of this type, based on the permissions of the groups they are a member of.*
+> _This will only succeed if the current user should be allowed to create pieces of this type, based on the permissions of the groups they are a member of._
+>
+> _You may also use promises. If you do not pass the_ `callback` _argument, Apostrophe returns a promise \(use_ `then`_\)._
 
-> *You may also use promises. If you do not pass the `callback` argument, Apostrophe returns a promise (use `then`).*
-
-`self.update` and `self.insert` also call `self.beforeUpdate` and `self.beforeInsert`, as well as `self.beforeSave` (called by both), which provides an easy way to add extra behavior on every save operation.
+`self.update` and `self.insert` also call `self.beforeUpdate` and `self.beforeInsert`, as well as `self.beforeSave` \(called by both\), which provides an easy way to add extra behavior on every save operation.
 
 ### Properties with a leading `_` are special
 
@@ -63,7 +65,7 @@ return self.find(req, { age: { $gte: 50 }}, { title: 1, tags: 1 })
   .toArray(function(err, pieces) { ... })
 ```
 
-This projection restricts the results to the `title` and `tags` properties only. Including `tags` is a good idea if you want the `._url` property of each piece to automatically be populated, taking into account the best match with an existing pieces-page on the site (i.e. a blog that is configured to show documents with those tags).
+This projection restricts the results to the `title` and `tags` properties only. Including `tags` is a good idea if you want the `._url` property of each piece to automatically be populated, taking into account the best match with an existing pieces-page on the site \(i.e. a blog that is configured to show documents with those tags\).
 
 Working with projections is great for performance. However, **do not use projections if you plan to save the doc back to the database.** You will lose information permanently. Use them for read-only operations only.
 
@@ -77,13 +79,13 @@ If your code is in a different module, then `self.find` won't be the right metho
 return self.apos.docs.getManager('candy').find(...)
 ```
 
-If there's a subclass of pieces with its `name` option set to `candy`, then this call will return it. (*Note:* this is not the same thing as the name of the module. It is the name, usually singular, of one individual piece in the database, as found in the `type` property of each piece.)
+If there's a subclass of pieces with its `name` option set to `candy`, then this call will return it. \(_Note:_ this is not the same thing as the name of the module. It is the name, usually singular, of one individual piece in the database, as found in the `type` property of each piece.\)
 
 Working with the right manager in this way ensures you get the benefit of any extra behavior that may be built into cursors, `insert` and `update` for this particular type.
 
 ### More about cursors
 
-As you may have noticed, Apostrophe's cursors — the objects returned by `find()` — are pretty great. Check out the [reference documentation](../../modules/apostrophe-docs/server-apostrophe-cursor.html) for more information about cursors. *TODO: give examples of adding a refinment to an existing cursor moog type to add more filters correctly. See the `apostrophe-pieces` source*
+As you may have noticed, Apostrophe's cursors — the objects returned by `find()` — are pretty great. Check out the [reference documentation](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/modules/apostrophe-docs/server-apostrophe-cursor.html) for more information about cursors. _TODO: give examples of adding a refinment to an existing cursor moog type to add more filters correctly. See the_ `apostrophe-pieces` _source_
 
 ## Working with pages
 
@@ -120,33 +122,33 @@ return self.apos.docs.find(req).search('blue').toArray(function(err, docs) {
 });
 ```
 
-*When you call `docs.find` in this way, pieces won't have a `._url` property.* For that you need to use the `find` method of the appropriate module.
+_When you call_ `docs.find` _in this way, pieces won't have a_ `._url` _property._ For that you need to use the `find` method of the appropriate module.
 
 The `docs` module also has `insert` and `update` methods. These work just like the `insert` and `update` methods of pieces, but they won't invoke the `beforeInsert`, etc. methods of pieces. So use the method of the appropriate module unless you're bypassing this intentionally.
 
 ## `skip`, `limit`, `page` and `perPage`: paginating results
 
-If you just call `toArray`, you can get a lot of data. A *lot*. Especially if there are thousands of, for instance, blog posts. Fetching it all every time is not scalable.
+If you just call `toArray`, you can get a lot of data. A _lot_. Especially if there are thousands of, for instance, blog posts. Fetching it all every time is not scalable.
 
 You can use `skip` and `limit` like you would with raw MongoDB:
 
-```
+```text
 return self.find(req).skip(100).limit(10).toArray(function(err, pages) { ... })
 ```
 
 And you can use `toCount` to figure out how many documents there are in total:
 
-```
+```text
 return self.find(req).toCount(function(err, count) { ... })
 ```
 
 But, consider using the built-in `perPage` and `page` filters, which are simpler:
 
-```
+```text
 return self.find(req).perPage(10).page(11).toArray(function(err, pages) { ... })
 ```
 
-*Tip: the `apostrophe-pieces-pages` module uses all this stuff, and it's pretty easy to follow. Check out the source code. And consider whether you should just be using it to display your pieces. It's pretty flexible and extensible.*
+_Tip: the_ `apostrophe-pieces-pages` _module uses all this stuff, and it's pretty easy to follow. Check out the source code. And consider whether you should just be using it to display your pieces. It's pretty flexible and extensible._
 
 ## Adding special behavior when a piece is saved
 
@@ -162,16 +164,15 @@ self.beforeSave = function(req, piece, callback) {
 
 This works for all insert and update operations that go through the module's `insert` and `update` operations, which includes all of the normal UI for editing pieces.
 
-*Here I'm invoking the original, "super" or "parent" version of the method after my own, to make sure I don't lose any existing useful `beforeSave` behavior. If I'm subclassing pieces directly, I know it's empty, so I can skip that bit and just invoke the callback.*
+_Here I'm invoking the original, "super" or "parent" version of the method after my own, to make sure I don't lose any existing useful_ `beforeSave` _behavior. If I'm subclassing pieces directly, I know it's empty, so I can skip that bit and just invoke the callback._
 
-## Adding special behavior when *anything* is saved
+## Adding special behavior when _anything_ is saved
 
 You can also extend Apostrophe's behavior for saving all types of docs. This is really useful if you're implementing something like a custom search engine.
 
 A custom search engine module might have an `index.js` file a little like this:
 
 ```javascript
-
 var coolSearch = require('made-up-search-engine');
 
 module.exports = {
@@ -183,8 +184,9 @@ module.exports = {
 };
 ```
 
-Here's the magic: *Apostrophe will call `docBeforeSave` for every module that has one.*
+Here's the magic: _Apostrophe will call_ `docBeforeSave` _for every module that has one._
 
 Note that the callback is optional. If your `docBeforeSave` handler doesn't need to do anything async, it can declare just `req, doc` as parameters.
 
 **Performance warning:** `docBeforeSave` handlers should be as fast as possible. Always begin by asking, "is this doc any of my business?" Usually a peek at `doc.type` tells you. If the answer is no... just invoke the callback and return immediately!
+

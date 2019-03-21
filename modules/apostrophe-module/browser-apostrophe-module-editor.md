@@ -1,6 +1,2 @@
----
-title: "apostrophe-module-editor (browser)"
-layout: reference
-namespace: browser
----
+# browser-apostrophe-module-editor
 

@@ -1,9 +1,10 @@
 ---
-title: "apostrophe-images-cursor (server)"
+title: apostrophe-images-cursor (server)
 layout: reference
 namespace: server
 ---
 
-## Methods
-### minSize(*value*)
+# Methods
+
+## minSize\(_value_\)
 

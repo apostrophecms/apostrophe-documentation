@@ -1,10 +1,11 @@
 ---
-title: "Nested module folders"
+title: Nested module folders
 layout: tutorial
 ---
 
-Apostrophe 2.x has optional support for nested subdirectories of modules, tucked
-inside `lib/modules`.
+# nested-module-folders
+
+Apostrophe 2.x has optional support for nested subdirectories of modules, tucked inside `lib/modules`.
 
 You must set the `nestedModuleSubdirs` option to `true` in `app.js`, like this:
 
@@ -22,9 +23,7 @@ require('apostrophe')({
 });
 ```
 
-Now you can nest modules in subdirectories, like this. We'll start with a `modules.js`
-file in the parent `lib/modules/products` folder. Here we'll activate all of the
-modules that relate to products, making `app.js` shorter:
+Now you can nest modules in subdirectories, like this. We'll start with a `modules.js` file in the parent `lib/modules/products` folder. Here we'll activate all of the modules that relate to products, making `app.js` shorter:
 
 ```javascript
 // in lib/modules/products/modules.js
@@ -67,7 +66,7 @@ module.exports = {
 
 The resulting directory tree looks like this:
 
-```
+```text
 /app.js
 /lib/modules
 /lib/modules/products (modules.js lives here, activates three modules)
@@ -76,8 +75,7 @@ The resulting directory tree looks like this:
 /lib/modules/products/product-widgets (index.js, views/widget.html, etc.)
 ```
 
-Just remember: **the names of the parent folders do not matter, and the names of the actual
-module folders at the bottom MUST still match the name of each module.**
+Just remember: **the names of the parent folders do not matter, and the names of the actual module folders at the bottom MUST still match the name of each module.**
 
 By following through with this approach you can make `app.js` much shorter.
 

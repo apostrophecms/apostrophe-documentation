@@ -1,13 +1,15 @@
 ---
-title: "Using MongoDB replica sets with Apostrophe"
+title: Using MongoDB replica sets with Apostrophe
 layout: tutorial
 ---
+
+# replica-set
 
 [MongoDB replica sets](https://docs.mongodb.com/manual/replication/) provide redundant, highly available storage. Their purpose is to enhance reliability, not speed. For more information, see the [MongoDB documentation](https://docs.mongodb.com/manual/replication/).
 
 Once you have [created a MongoDB replica set](https://docs.mongodb.com/manual/replication/), you can connect to it by configuring Apostrophe to use the replica set's URI:
 
-```
+```text
 // in app.js, configuring your modules
 modules: {
   // Other modules, then...
@@ -29,4 +31,5 @@ We do not recommend changing the MongoDB "read preference," and generally speaki
 
 ## Performance improvements
 
-If speed is your concern, replica sets are not the solution to that particular problem. The throughput of MongoDB is quite high, and you will often find that Apostrophe's node processes saturate the CPU before MongoDB does. If so, see the [multiple cores and/or servers](multicore.html) HOWTO.
+If speed is your concern, replica sets are not the solution to that particular problem. The throughput of MongoDB is quite high, and you will often find that Apostrophe's node processes saturate the CPU before MongoDB does. If so, see the [multiple cores and/or servers](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/tutorials/howtos/multicore.html) HOWTO.
+

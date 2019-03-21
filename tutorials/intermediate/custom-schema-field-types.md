@@ -1,9 +1,11 @@
 ---
-title: "Custom schema field types"
-layout: "tutorial"
+title: Custom schema field types
+layout: tutorial
 ---
 
-Apostrophe's [schemas](../getting-started/schema-guide.html) provide a simple and powerful way to add new properties to any doc type in Apostrophe, such as a piece or a page. It's a powerful feature. But sometimes you might want to add a field type that doesn't already exist.
+# custom-schema-field-types
+
+Apostrophe's [schemas](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/tutorials/getting-started/schema-guide.html) provide a simple and powerful way to add new properties to any doc type in Apostrophe, such as a piece or a page. It's a powerful feature. But sometimes you might want to add a field type that doesn't already exist.
 
 ## A simple color picker: the server side
 
@@ -91,7 +93,7 @@ In `afterConstruct` we invoke `addFieldType`, `pushAssets` and `pushCreateSingle
 
 > We don't have to delay the "real work" until `afterConstruct` like this, but doing so allows anyone extending our module a chance to override first.
 
-`addFieldType` calls the [addFieldType method of the `apostrophe-schemas` module](../../modules/apostrophe-schemas/index.html#add-field-type) to add a new schema field type to Apostrophe.
+`addFieldType` calls the [addFieldType method of the `apostrophe-schemas` module](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/modules/apostrophe-schemas/index.html#add-field-type) to add a new schema field type to Apostrophe.
 
 The `converters` property covers two cases: CSV import and ordinary form submissions.
 
@@ -107,22 +109,17 @@ If anything looks suspicious, we just set it to the default, or to black.
 
 > Remember, **you can never, ever trust a web browser! Browser side "validation" is ONLY a convenience to help the user** and must not be trusted under any circumstances. That's why our server-side code must check the input thoroughly. That "web browser" might just be a malicious program that doesn't even run your nice JavaScript.
 
-You can invoke `callback` with an error if the response is unacceptable, but this is not a good user
-experience. **Whenever you can, just supply a reasonable default.** You can use browser-side code to
-encourage better user responses. The server's job is just to make sure what is saved is safe and reasonable.
+You can invoke `callback` with an error if the response is unacceptable, but this is not a good user experience. **Whenever you can, just supply a reasonable default.** You can use browser-side code to encourage better user responses. The server's job is just to make sure what is saved is safe and reasonable.
 
 When we're done, we copy the cleaned-up value into `object[name]` and invoke the callback.
 
-> **"Why don't you just invoke `callback(null)`?"** Converters are allowed to be asynchronous, but this one
-> doesn't make any asynchronous calls. If our schema is large and too many fields like this one just invoke `callback(null)`, the stack will
-> eventually crash. Calling `setImmediate(callback)` and then returning guarantees that doesn't happen.
-> If your converter actually does something that is asynchronous, then you can just invoke `callback(null)`.
+> **"Why don't you just invoke** `callback(null)`**?"** Converters are allowed to be asynchronous, but this one doesn't make any asynchronous calls. If our schema is large and too many fields like this one just invoke `callback(null)`, the stack will eventually crash. Calling `setImmediate(callback)` and then returning guarantees that doesn't happen. If your converter actually does something that is asynchronous, then you can just invoke `callback(null)`.
 
 ### The template
 
 We also supply a `fieldTypePartial` method and configure the `partial` property of the new field type to use it. This method is responsible for rendering the markup for the field.
 
-> The [self.partial](../../modules/apostrophe-module/index.html#partial) method renders a Nunjucks template in the `views/` folder of this module with the data we pass to it, as *part of* a larger response that is already being generated, such as a complete modal for editing a piece. Since a response is already in progress for a specific request, we don't pass `req` to this method. This is different from [self.render](../../modules/apostrophe-module/index.html#render), which is used when you want to generate and send an HTML fragment directly in response to an AJAX request.
+> The [self.partial](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/modules/apostrophe-module/index.html#partial) method renders a Nunjucks template in the `views/` folder of this module with the data we pass to it, as _part of_ a larger response that is already being generated, such as a complete modal for editing a piece. Since a response is already in progress for a specific request, we don't pass `req` to this method. This is different from [self.render](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/modules/apostrophe-module/index.html#render), which is used when you want to generate and send an HTML fragment directly in response to an AJAX request.
 
 Here's the template file we need:
 
@@ -175,7 +172,7 @@ Don't forget the stylesheet! You'll have a tough time seeing the clickable color
 
 Earlier in `afterConstruct` we saw a call to `pushAssets`. That method pushes a stylesheet and a javascript file to the browser when a user is logged in and might need to pick colors.
 
-In addition, we saw a call to `pushCreateSingleton`. This method creates an object to represent our module on the browser side. It'll look for one with a [moog type name](../../glossary.html#moog-type) that matches the module's name... and our `user.js` file will provide that:
+In addition, we saw a call to `pushCreateSingleton`. This method creates an object to represent our module on the browser side. It'll look for one with a [moog type name](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/glossary.html#moog-type) that matches the module's name... and our `user.js` file will provide that:
 
 ```javascript
 // in lib/modules/color-picker/public/js/user.js
@@ -252,7 +249,7 @@ apos.define('color-picker', {
 
 ### What's going on in this code?
 
-We start by calling `apos.define` to create a [moog type](../../glossary.html#moog-type) on the browser side with the same name as the module. The `pushCreateSingleton` call earlier will take care of calling `apos.create` for us.
+We start by calling `apos.define` to create a [moog type](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/glossary.html#moog-type) on the browser side with the same name as the module. The `pushCreateSingleton` call earlier will take care of calling `apos.create` for us.
 
 Next we define an `addFieldType` method in `construct` and call it from `afterConstruct`, just like on the server side.
 
@@ -262,13 +259,13 @@ On the browser side we need to provide a `populate` function and a `convert` fun
 
 In `populate`, we get the field ready to pick colors and display the current color.
 
-We use `apos.schemas.findFieldset` to locate the `fieldset` element that contains the entire field, then we use jQuery's `find` method to locate things within that. *Never, ever use `$('...')` directly here.* There can be more than one color picker in your world! *Always use find()* within the fieldset to keep things in scope.
+We use `apos.schemas.findFieldset` to locate the `fieldset` element that contains the entire field, then we use jQuery's `find` method to locate things within that. _Never, ever use_ `$('...')` _directly here._ There can be more than one color picker in your world! _Always use find\(\)_ within the fieldset to keep things in scope.
 
 > "Can't we just use `$field`?" That's just a convenience for cases where the field type is a simple one like `string` where there's a traditional form field, like an input element. For interesting controls like this one, we need the fieldset, which is guaranteed to contain all of our markup.
 
 Displaying the current color is easy: we know it's already a CSS-friendly color string, so we just set the `background-color` CSS attribute of our preview element.
 
-Choosing colors is a little tricker. We create a simple grid of 4x4 boxes, offering a choice of 512 colors. (No, they aren't great colors. Hey, it's just an example.) And we use an HTML5 (canvas)[https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial] element to render those colors without creating hundreds of spans or divs.
+Choosing colors is a little tricker. We create a simple grid of 4x4 boxes, offering a choice of 512 colors. \(No, they aren't great colors. Hey, it's just an example.\) And we use an HTML5 \(canvas\)\[[https://developer.mozilla.org/en-US/docs/Web/API/Canvas\_API/Tutorial](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial)\] element to render those colors without creating hundreds of spans or divs.
 
 When a click takes place on the canvas, we turn the process around. We grab the location of the click in the document, subtract the offset of the canvas, and scale the numbers to get back to a range between 0 and 255 for each channel: red, green and blue.
 
@@ -328,4 +325,5 @@ Naturally you will also need to add it to `package.json` so that `npm install` k
 
 ## More examples of custom field types
 
-There are two excellent examples of custom field types already built as separate modules in Apostrophe: [apostrophe-attachments](../../modules/apostrophe-attachments/index.html) and [apostrophe-video-fields](../../modules/apostrophe-video-fields/index.html). You can [learn from the code on github](https://github.com/punkave/apostrophe/tree/master/lib/modules/apostrophe-video-fields). The video field type is the simpler of the two. There's no magic here: if you build a field type using a module in your project in exactly the same way, or publish it to npm, it will work just as well.
+There are two excellent examples of custom field types already built as separate modules in Apostrophe: [apostrophe-attachments](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/modules/apostrophe-attachments/index.html) and [apostrophe-video-fields](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/modules/apostrophe-video-fields/index.html). You can [learn from the code on github](https://github.com/punkave/apostrophe/tree/master/lib/modules/apostrophe-video-fields). The video field type is the simpler of the two. There's no magic here: if you build a field type using a module in your project in exactly the same way, or publish it to npm, it will work just as well.
+

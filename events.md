@@ -1,7 +1,9 @@
 ---
-title: "Apostrophe Events"
+title: Apostrophe Events
 layout: reference
 ---
+
+# events
 
 ## Apostrophe Promise Events: responding to events on the server side
 
@@ -10,20 +12,16 @@ Need to do something every time a page is rendered... like fetching extra data f
 To listen to a promise event in your own server-side code:
 
 1. Create a module, or extend an existing one with project-level code or a subclass.
-
 2. In `index.js`, make a call to `self.on()` inside the `construct` function of your module.
-
 3. Specify the name of the promise event you want to listen to.
-
 4. Specify a unique name for your event **handler**, which will **become a method of your module**.
-
 5. Pass a function containing your custom code.
 
 Here is a **complete example**. Here we will use promise events to add the current weather forecast to every page.
 
 If you try out this code yourself you must [register your own openweathermap api key](https://openweathermap.org/) and substitute it below.
 
-```
+```text
 # Install the request-promise module for fetching data from APIs
 npm install request-promise
 
@@ -75,11 +73,11 @@ module.exports = {
 >
 > **"What if I don't have Node 8 yet and I can't use async/await?"** You can return a promise instead. We suggest using Bluebird promises, but built-in JavaScript promises are fine.
 >
-> **"What if I don't need to return a promise because I'm not doing any asynchronous work?"** That's OK. Just do what you need to do and return. But if you are fetching information from a database or API, understand that you *are* doing asynchronous work and *must* return a promise or use `async/await`.
+> **"What if I don't need to return a promise because I'm not doing any asynchronous work?"** That's OK. Just do what you need to do and return. But if you are fetching information from a database or API, understand that you _are_ doing asynchronous work and _must_ return a promise or use `async/await`.
 
 ## Relationship to the older `callAll` feature
 
-In Apostrophe 2.x, many modules still rely on the `callAll` feature, in which Apostrophe invokes a named method on *every module that has one.* While similar to events, this feature did not support promises and led to hard-to-debug problems if a matching method were added to a superclass module later. 
+In Apostrophe 2.x, many modules still rely on the `callAll` feature, in which Apostrophe invokes a named method on _every module that has one._ While similar to events, this feature did not support promises and led to hard-to-debug problems if a matching method were added to a superclass module later.
 
 Beginning with Apostrophe 2.63.0, Apostrophe also emits a promise event every time it invokes a callAll method, so there is no benefit to writing new `docBeforeSave` or `pagesBeforeSend` handlers, unless your intention is to override one in a method you are extending.
 
@@ -89,19 +87,19 @@ Here is the complete list of promise events you can listen to with "straight out
 
 ### `apostrophe:destroy`
 
-Invoked when an `apos` object is being shut down. Your handlers should clean up any custom `setTimeout`s, `setInterval`s and/or open socket or database connections you have created. This is important if you are using the [apostrophe-multisite](https://github.com/apostrophecms/apostrophe-multisite) module. You should *not* "destroy" your actual website content. Just close any remaining open connections, timeouts, etc.
+Invoked when an `apos` object is being shut down. Your handlers should clean up any custom `setTimeout`s, `setInterval`s and/or open socket or database connections you have created. This is important if you are using the [apostrophe-multisite](https://github.com/apostrophecms/apostrophe-multisite) module. You should _not_ "destroy" your actual website content. Just close any remaining open connections, timeouts, etc.
 
 ### `apostrophe:modulesReady`
 
-Invoked when all of Apostrophe's modules, including core modules, npm modules and your own project-level modules, have been completely constructed. Use this listener to avoid "chicken and egg" problems where your module has to wait for another one to be ready. 
+Invoked when all of Apostrophe's modules, including core modules, npm modules and your own project-level modules, have been completely constructed. Use this listener to avoid "chicken and egg" problems where your module has to wait for another one to be ready.
 
 ### `apostrophe:afterInit`
 
-Invoked after all `apostrophe:modulesReady` handlers have completed. **Note that it is too late to add Express routes at this point.** Express routes should be added no later than `apostrophe:modulesReady` and are usually added in your module's `afterConstruct` function. (Hint: remember, the route isn't actually executed until requests begin arriving, which will be safely after everything has initialized. You can access resources inside a route that don't yet exist when your module is first initializing.)
+Invoked after all `apostrophe:modulesReady` handlers have completed. **Note that it is too late to add Express routes at this point.** Express routes should be added no later than `apostrophe:modulesReady` and are usually added in your module's `afterConstruct` function. \(Hint: remember, the route isn't actually executed until requests begin arriving, which will be safely after everything has initialized. You can access resources inside a route that don't yet exist when your module is first initializing.\)
 
 ### `apostrophe-db:reset`
 
-Invoked after Apostrophe resets the database in the `apostrophe-db:reset` command line task (drops all collections). You may wish to delete content of your own to extend this task.
+Invoked after Apostrophe resets the database in the `apostrophe-db:reset` command line task \(drops all collections\). You may wish to delete content of your own to extend this task.
 
 ### `apostrophe-docs:beforeInsert(req, doc, options)`
 
@@ -109,7 +107,7 @@ Invoked just before Apostrophe inserts a document into the database for the firs
 
 ### `apostrophe-docs:beforeSave(req, doc, options)`
 
-Invoked just before Apostrophe either inserts *or* updates a document. **Always check doc.type first, and return right away if it is not relevant to your code.** The arguments are the same arguments that were passed to `apos.docs.insert` or `apos.docs.update`.
+Invoked just before Apostrophe either inserts _or_ updates a document. **Always check doc.type first, and return right away if it is not relevant to your code.** The arguments are the same arguments that were passed to `apos.docs.insert` or `apos.docs.update`.
 
 ### `apostrophe-docs:beforeUpdate(req, doc, options)`
 
@@ -121,7 +119,7 @@ Invoked just **after** Apostrophe inserts a document into the database for the f
 
 ### `apostrophe-docs:afterSave(req, doc, options)`
 
-Invoked just **after** Apostrophe either inserts *or* updates a document. **Always check doc.type first, and return right away if it is not relevant to your code.** The arguments are the same arguments that were passed to `apos.docs.insert` or `apos.docs.update`.
+Invoked just **after** Apostrophe either inserts _or_ updates a document. **Always check doc.type first, and return right away if it is not relevant to your code.** The arguments are the same arguments that were passed to `apos.docs.insert` or `apos.docs.update`.
 
 ### `apostrophe-docs:afterUpdate(req, doc, options)`
 
@@ -157,7 +155,7 @@ Invoked on each request just after the current user, if any, has been fetched fr
 
 ### `apostrophe-login:after(req)`
 
-Invoked immediately after login, this handler may set `req.redirect` to any URL (this is a string property that you assign a value to). If it does, the user will be redirected there.
+Invoked immediately after login, this handler may set `req.redirect` to any URL \(this is a string property that you assign a value to\). If it does, the user will be redirected there.
 
 ### `apostrophe-pages:beforeSend(req)`
 
@@ -179,7 +177,7 @@ Invoked before a page is copied. When a user elects to copy an existing page, sc
 
 ### `apostrophe-pages:beforeInfo(req, page)`
 
-Invoked just before an API response is sent back by the `info` API endpoint of the `apostrophe-pages` module, a simple API which accepts an `_id` POST parameter and responds with the page as a JSON object. This is an opportunity to modify `page` before it is sent. This API is primarily used by the "reorganize" feature ("Manage Pages") and is **unrelated** to the `apostrophe-headless` module.
+Invoked just before an API response is sent back by the `info` API endpoint of the `apostrophe-pages` module, a simple API which accepts an `_id` POST parameter and responds with the page as a JSON object. This is an opportunity to modify `page` before it is sent. This API is primarily used by the "reorganize" feature \("Manage Pages"\) and is **unrelated** to the `apostrophe-headless` module.
 
 ### `apostrophe-search:determineTypes(types)`
 
@@ -191,7 +189,7 @@ If the developer explicitly sets a `types` option for the `apostrophe-search` mo
 
 ### `apostrophe-service-bridge:ready`
 
-This event is emitted when all of the core Apostrophe modules — those defined in the `apostrophe` npm module itself — have been constructed. Project level modules and other npm modules **have not** been initialized at this point. See `apostrophe:modulesReady` for an event that is invoked when **all** modules are ready.
+This event is emitted when all of the core Apostrophe modules — those defined in the `apostrophe` npm module itself — have been constructed. Project level modules and other npm modules **have not** been initialized at this point. See `apostrophe:modulesReady` for an event that is invoked when **all** modules are ready.
 
 ### `apostrophe-versions:unversionedFields(req, doc, unversionedFields)`
 
@@ -257,4 +255,5 @@ self.addWeather = function() {
 
 Code like this is common at project level, for instance to change what a handler in an npm module does without throwing it out altogether.
 
-Note that we call the original version in this override. If you don't need to do that — if you are replacing its behavior entirely — just assign a new method and skip the `super` pattern. To disable a handler, assign an empty method.
+Note that we call the original version in this override. If you don't need to do that — if you are replacing its behavior entirely — just assign a new method and skip the `super` pattern. To disable a handler, assign an empty method.
+

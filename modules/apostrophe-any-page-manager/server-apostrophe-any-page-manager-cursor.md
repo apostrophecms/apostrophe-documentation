@@ -1,6 +1,2 @@
----
-title: "apostrophe-any-page-manager-cursor (server)"
-layout: reference
-namespace: server
----
+# server-apostrophe-any-page-manager-cursor
 

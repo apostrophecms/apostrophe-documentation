@@ -1,60 +1,58 @@
 ---
-title: "apostrophe-pieces-editor-modal (browser)"
+title: apostrophe-pieces-editor-modal (browser)
 layout: reference
 namespace: browser
 ---
-## Inherits from: [apostrophe-modal](../apostrophe-modal/browser-apostrophe-modal.html)
-An editor modal for creating and updating pieces. An instance of this modal is created
-each time you click "Add" or click to edit an existing piece. Relies on
-[apostrophe-schemas](../apostrophe-schemas/index.html) to edit the fields.
 
+# browser-apostrophe-pieces-editor-modal
+
+## Inherits from: [apostrophe-modal](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/modules/apostrophe-modal/browser-apostrophe-modal.html)
+
+An editor modal for creating and updating pieces. An instance of this modal is created each time you click "Add" or click to edit an existing piece. Relies on [apostrophe-schemas](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/modules/apostrophe-schemas/index.html) to edit the fields.
 
 ## Methods
-### beforeShow(*callback*)
 
-### edit(*_id*, *callback*)
+### beforeShow\(_callback_\)
 
-### create(*callback*)
+### edit\(_\_id_, _callback_\)
 
-### open(*verb*, *data*, *callback*)
+### create\(_callback_\)
 
-### populate(*piece*, *callback*)
+### open\(_verb_, _data_, _callback_\)
 
-### beforePopulate(*piece*, *callback*)
+### populate\(_piece_, _callback_\)
 
-### afterPopulate(*piece*, *callback*)
+### beforePopulate\(_piece_, _callback_\)
 
-### saveContent(*callback*)
+### afterPopulate\(_piece_, _callback_\)
 
-### getErrorMessage(*err*)
+### saveContent\(_callback_\)
 
-### beforeConvert(*piece*, *callback*)
+### getErrorMessage\(_err_\)
 
-### afterConvert(*piece*, *callback*)
+### beforeConvert\(_piece_, _callback_\)
 
-### displayResponse(*result*, *callback*)
+### afterConvert\(_piece_, _callback_\)
+
+### displayResponse\(_result_, _callback_\)
+
 Update the display in response to this item being saved.
 
-If the piece is brand new and the server provided
-a `_url` property and set `contextual: true` for this
-type of piece, or the piece has been updated and
-apos.pages.piece._id (the in-context piece) matches the
-id of the piece just edited, go to `_url`.
+If the piece is brand new and the server provided a `_url` property and set `contextual: true` for this type of piece, or the piece has been updated and apos.pages.piece.\_id \(the in-context piece\) matches the id of the piece just edited, go to `_url`.
 
-In any case, the main content area is refreshed and the manage
-view, if open, refreshes its list (`apos.change` is invoked).
-This will all make sense if the URL hasn't changed, and do no
-harm if it has.
-### onChange(*e*)
+In any case, the main content area is refreshed and the manage view, if open, refreshes its list \(`apos.change` is invoked\). This will all make sense if the URL hasn't changed, and do no harm if it has.
 
-### trash(*$el*, *next*)
+### onChange\(_e_\)
 
-### versions(*$el*)
+### trash\(_$el_, _next_\)
 
-### copy(*$el*)
-Save this modal, then open a new modal to create a new piece of
-this type that starts out as a copy of the current piece
-### displayResponse(*result*, *callback*)
+### versions\(_$el_\)
 
-### afterHide()
+### copy\(_$el_\)
+
+Save this modal, then open a new modal to create a new piece of this type that starts out as a copy of the current piece
+
+### displayResponse\(_result_, _callback_\)
+
+### afterHide\(\)
 

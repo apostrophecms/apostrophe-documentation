@@ -1,29 +1,32 @@
 ---
-title: "apostrophe-polymorphic-manager-manager-modal (browser)"
+title: apostrophe-polymorphic-manager-manager-modal (browser)
 layout: reference
 namespace: browser
 ---
-## Inherits from: [apostrophe-modal](../apostrophe-modal/browser-apostrophe-modal.html)
+
+# browser-apostrophe-polymorphic-manager-manager-modal
+
+## Inherits from: [apostrophe-modal](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/modules/apostrophe-modal/browser-apostrophe-modal.html)
+
 A "chooser" modal for multiple doc types simultaneously.
 
-Type name is `-manager` so that subclassing doc-type-manager will
-automatically gives us plumbing to create one.
-
+Type name is `-manager` so that subclassing doc-type-manager will automatically gives us plumbing to create one.
 
 ## Methods
-### enableChooserViews()
 
-### hideOthers()
+### enableChooserViews\(\)
 
-### beforeShow(*callback*)
+### hideOthers\(\)
 
-### enableChooser(*callback*)
+### beforeShow\(_callback_\)
 
-### saveContent(*callback*)
+### enableChooser\(_callback_\)
 
-### afterHide()
+### saveContent\(_callback_\)
 
-### reflectChoicesInCheckboxes()
+### afterHide\(\)
 
-### decorateManager(*manager*, *options*)
+### reflectChoicesInCheckboxes\(\)
+
+### decorateManager\(_manager_, _options_\)
 
