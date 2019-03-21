@@ -91,7 +91,7 @@ We just provide a template name and, optionally, data to be passed to the functi
 
 Now we can access that data in `views/show.html` within our module.
 
-  "Where is the `goFindSomethingBySlug` function?" That depends on you! The purpose of `apostrophe-custom-pages` is to let you do custom work based on "the rest" of the URL. If you are just looking to display pieces, there is already a great subclass of `apostrophe-custom-pages` for you. Check out [reusable content with pieces](../tutorials/getting-started/reusable-content-with-pieces.md) and [apostrophe-pieces-pages](modules/apostrophe-pieces-pages/index.md).
+  "Where is the `goFindSomethingBySlug` function?" That depends on you! The purpose of `apostrophe-custom-pages` is to let you do custom work based on "the rest" of the URL. If you are just looking to display pieces, there is already a great subclass of `apostrophe-custom-pages` for you. Check out [reusable content with pieces](../tutorials/getting-started/reusable-content-with-pieces.md) and [apostrophe-pieces-pages](./modules/apostrophe-pieces-pages/index.md).
 
 ### `apostrophe-pages:beforeSend`: your last chance to do async work for a page
 
