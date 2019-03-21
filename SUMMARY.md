@@ -2,7 +2,7 @@
 
 * [ApostropheCMS Documentation](README.md)
 
-## Tutorial Sets
+## Tutorials
 
 * [Getting Started](tutorials/getting-started/index.md)
   * [Setting up your environment](tutorials/getting-started/setting-up-your-environment.md)
@@ -30,25 +30,27 @@
 * [HOWTOs](tutorials/howtos/index.md)
   * [How do I create a 404 Not Found page?](tutorials/howtos/notfoundpage.md)
 
-## Technical Overview
+## Technical Overviews
 
 * [Technical overview: 30,000 feet](technical-overviews/technical-overview.md)
 * [How Apostrophe starts up](technical-overviews/how-apostrophe-starts-up.md)
 * [How Apostrophe handles requests](technical-overviews/how-apostrophe-handles-requests.md)
 * [How Apostrophe modules are structured](technical-overviews/how-apostrophe-modules-are-structured.md)
 
-## More
+## Modules
 
 * [Module Reference](modules/index.md)
-  * [apostrophe-admin-bar](modules/apostrophe-admin-bar/index.md)
-    * [Browser](modules/apostrophe-admin-bar/browser-apostrophe-admin-bar.md)
-  * [apostrophe-any-page-manager](modules/apostrophe-any-page-manager/index.md)
-    * Server
-      * [apostrophe-any-page-manager-cursor](modules/apostrophe-any-page-manager/server-apostrophe-any-page-manager-cursor.md)
-    * Browser
-      * [apostrophe-any-page-manager-chooser](modules/apostrophe-any-page-manager/browser-apostrophe-any-page-manager-chooser.md)
-      * [apostrophe-any-page-manager-relationship](modules/apostrophe-any-page-manager/browser-apostrophe-any-page-manager-relationship-editor.md)
-      * [apostrophe-any-page-manager](modules/apostrophe-any-page-manager/browser-apostrophe-any-page-manager.md)
+* [apostrophe-admin-bar](modules/apostrophe-admin-bar/index.md)
+  * [Browser](modules/apostrophe-admin-bar/browser-apostrophe-admin-bar.md)
+* [apostrophe-any-page-manager](modules/apostrophe-any-page-manager/index.md)
+  * Server
+    * [apostrophe-any-page-manager-cursor](modules/apostrophe-any-page-manager/server-apostrophe-any-page-manager-cursor.md)
+  * Browser
+    * [apostrophe-any-page-manager-chooser](modules/apostrophe-any-page-manager/browser-apostrophe-any-page-manager-chooser.md)
+    * [apostrophe-any-page-manager-relationship](modules/apostrophe-any-page-manager/browser-apostrophe-any-page-manager-relationship-editor.md)
+    * [apostrophe-any-page-manager](modules/apostrophe-any-page-manager/browser-apostrophe-any-page-manager.md)
+
+## More
 * [Promise Events](events.md)
 * [Nunjucks Filters](nunjucks-filters.md)
 * [Glossary](glossary.md)
