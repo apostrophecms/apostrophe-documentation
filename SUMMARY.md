@@ -49,6 +49,13 @@
     * [apostrophe-any-page-manager-chooser](modules/apostrophe-any-page-manager/browser-apostrophe-any-page-manager-chooser.md)
     * [apostrophe-any-page-manager-relationship](modules/apostrophe-any-page-manager/browser-apostrophe-any-page-manager-relationship-editor.md)
     * [apostrophe-any-page-manager](modules/apostrophe-any-page-manager/browser-apostrophe-any-page-manager.md)
+* [apostrophe-pieces-pages](modules/apostrophe-pieces-pages/index.md)
+  * Server
+    * [apostrophe-pieces-pages-cursor](modules/apostrophe-pieces-pages/server-apostrophe-pieces-pages-cursor.md)
+  * Browser
+    * [apostrophe-pieces-pages-chooser](modules/apostrophe-pieces-pages/browser-apostrophe-pieces-pages-chooser.md)
+    * [apostrophe-pieces-pages-relationship-editor](modules/apostrophe-pieces-pages/browser-apostrophe-pieces-pages-relationship-editor.md)
+    * [apostrophe-pieces-pages](modules/apostrophe-pieces-pages/browser-apostrophe-pieces-pages.md)
 
 ## More
 * [Promise Events](events.md)
