@@ -533,6 +533,58 @@ module.exports = {
 
 The same approach works for most types of schema fields, including joins. We do not recommend using it if the number of items in the dropdown will be very large. However, adding options to support filters that employ typeahead and avoid sending a large list of options to the browser is on our roadmap.
 
+### Custom columns and sortable columns for the "manage" modal
+
+By default, the "manage" modal displays just a few columns: "title," "last updated," and "published." The "title" and "updated at" columns support sorting on that column, by clicking on the column heading.
+
+You can extend this list and even specify your own sortable columns. Here's how to do that:
+
+```javascript
+// in lib/modules/people/index.js
+module.exports = {
+  // Other configuration options, then...
+  addColumns: [
+    // These are the standard columns, we would not add
+    // them twice, just using them as an example
+    {
+      name: 'title',
+      label: 'Title',
+      sort: {
+        // Sort on this property. The `1` is required
+        title: 1
+      }
+    },
+    {
+      name: 'updatedAt',
+      label: 'Last Updated',
+      sort: {
+        // Sort on this property. The `1` is required
+        updatedAt: 1
+      },
+      // Use a custom nunjucks template to output the
+      // value, rather than outputting the value simply
+      // as a string. The value of the property shows up
+      // as `data.value` in the template
+      partial: function(value) {
+        if (!value) {
+          // Don't crash if updatedAt is missing
+          return '';
+        }
+        return self.partial('manageUpdatedAt.html', { value: value });
+      }
+    }
+  ]
+```
+
+> Notice that for `sort` you specify an object exactly like what you'd pass to MongoDB's
+`sort()` method, or Apostrophe's `sort()` cursor filter. In particular, the actual property
+you sort on does not have to match the property name displayed in the column. For example,
+when working with people's names you might sort on `{ lastName: 1, firstName: 1 }` rather
+than `title`.
+
+**If you want to change one of the standard columns, override `defaultColumns`** rather
+than setting `addColumns`.
+
 ### Creating custom templates for individual people
 
 Next we'll want to override the `show.html` template of our subclass of `apostrophe-pieces` as well. The default version is very bare-bones, just enough to demonstrate the idea.
