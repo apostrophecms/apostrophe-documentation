@@ -1,17 +1,4 @@
----
-title: "Technical Overviews"
-children:
-  - technical-overview
-  - how-apostrophe-starts-up
-  - how-apostrophe-handles-requests
-  - how-apostrophe-modules-are-structured
-  
-menu: "Documentation"
-noOnThisPage: true
-layout: "reference"
----
-
-## Technical overview: 30,000 feet
+# Technical overview: 30,000 feet
 
 [Technical overview: 30,000 feet](technical-overview.md) provides a high-level guide to the technical decisions, tools and philosophies that underpin Apostrophe. For those who want to understand our thinking better, this is a great place to go deeper.
 

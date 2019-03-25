@@ -4,19 +4,19 @@
 
 ## Tutorials
 
-* [Getting Started](tutorials/index/README.md)
-  * [Setting up your environment](tutorials/index/setting-up-your-environment.md)
-  * [Creating your first project](tutorials/index/creating-your-first-project.md)
-  * [Editing page templates](tutorials/index/editing-page-templates.md)
-  * [Adding editable content to pages](tutorials/index/adding-editable-content-to-pages.md)
-  * [The global doc: sharing content across pages](tutorials/index/global.md)
-  * [Pushing assets to the browser](tutorials/index/pushing-assets.md)
-  * [Building Navigation](tutorials/index/building-navigation.md)
-  * [Custom widgets](tutorials/index/custom-widgets.md)
-  * [Layout / Nested widgets](tutorials/index/layout-widgets.md)
-  * [Reusable content with pieces](tutorials/index/reusable-content-with-pieces.md)
-  * [Global Settings](tutorials/index/global-settings.md)
-  * [Guide to schemas](tutorials/index/schema-guide.md)
+* [Getting Started](tutorials/getting-started/README.md)
+  * [Setting up your environment](tutorials/getting-started/setting-up-your-environment.md)
+  * [Creating your first project](tutorials/getting-started/creating-your-first-project.md)
+  * [Editing page templates](tutorials/getting-started/editing-page-templates.md)
+  * [Adding editable content to pages](tutorials/getting-started/adding-editable-content-to-pages.md)
+  * [The global doc: sharing content across pages](tutorials/getting-started/global.md)
+  * [Pushing assets to the browser](tutorials/getting-started/pushing-assets.md)
+  * [Building Navigation](tutorials/getting-started/building-navigation.md)
+  * [Custom widgets](tutorials/getting-started/custom-widgets.md)
+  * [Layout / Nested widgets](tutorials/getting-started/layout-widgets.md)
+  * [Reusable content with pieces](tutorials/getting-started/reusable-content-with-pieces.md)
+  * [Global Settings](tutorials/getting-started/global-settings.md)
+  * [Guide to schemas](tutorials/getting-started/schema-guide.md)
 * [Intermediate Tutorials](tutorials/intermediate-tutorials/README.md)
   * [Managing your permissions](tutorials/intermediate-tutorials/managing-your-permissions.md)
   * [Custom schema fields for pages](tutorials/intermediate-tutorials/custom-schema-fields-for-pages.md)
@@ -27,12 +27,12 @@
   * [Accessing the database directly](tutorials/intermediate-tutorials/accessing-the-database-directly.md)
   * [Custom schema field types](tutorials/intermediate-tutorials/custom-schema-field-types.md)
   * [Hosting Apostrophe in production](tutorials/intermediate-tutorials/hosting-apostrophe-in-production.md)
-* [HOWTOs](tutorials/index-1/README.md)
-  * [How do I create a 404 Not Found page?](tutorials/index-1/how-do-i-create-a-404-not-found-page.md)
+* HOWTOs
+  * [How do I create a 404 Not Found page?](tutorials/howtos/how-do-i-create-a-404-not-found-page.md)
 
 ## Technical Overviews
 
-* [Technical overview: 30,000 feet](technical-overviews/technical-overview.md)
+* [Technical overview: 30,000 feet](technical-overviews/README.md)
 * [How Apostrophe starts up](technical-overviews/how-apostrophe-starts-up.md)
 * [How Apostrophe handles requests](technical-overviews/how-apostrophe-handles-requests.md)
 * [How Apostrophe modules are structured](technical-overviews/how-apostrophe-modules-are-structured.md)
@@ -40,24 +40,15 @@
 ## Modules
 
 * [Module Reference](modules/index.md)
-* [apostrophe-admin-bar](modules/index-1/README.md)
-  * [Browser](modules/index-1/browser-apostrophe-admin-bar.md)
-* [apostrophe-any-page-manager](modules/index-2/README.md)
-  * [Server](modules/index-2/server/README.md)
-    * [apostrophe-any-page-manager-cursor](modules/index-2/server/server-apostrophe-any-page-manager-cursor.md)
-  * [Browser](modules/index-2/browser/README.md)
-    * [apostrophe-any-page-manager-chooser](modules/index-2/browser/browser-apostrophe-any-page-manager-chooser.md)
-    * [apostrophe-any-page-manager-relationship](modules/index-2/browser/browser-apostrophe-any-page-manager-relationship-editor.md)
-    * [apostrophe-any-page-manager](modules/index-2/browser/browser-apostrophe-any-page-manager.md)
-* [apostrophe-pieces-pages](modules/index-3/README.md)
-  * [Server](modules/index-3/server/README.md)
-    * [apostrophe-pieces-pages-cursor](modules/index-3/server/server-apostrophe-pieces-pages-cursor.md)
-  * [Browser](modules/index-3/browser/README.md)
-    * [apostrophe-pieces-pages-chooser](modules/index-3/browser/browser-apostrophe-pieces-pages-chooser.md)
-    * [apostrophe-pieces-pages-relationship-editor](modules/index-3/browser/browser-apostrophe-pieces-pages-relationship-editor.md)
-    * [apostrophe-pieces-pages](modules/index-3/browser/browser-apostrophe-pieces-pages.md)
+* [apostrophe-pieces-pages](modules/apostrophe-pieces-pages/README.md)
+  * Server
+    * [apostrophe-pieces-pages-cursor](modules/apostrophe-pieces-pages/server-apostrophe-pieces-pages-cursor.md)
+  * Browser
+    * [apostrophe-pieces-pages-chooser](modules/apostrophe-pieces-pages/browser-apostrophe-pieces-pages-chooser.md)
+    * [apostrophe-pieces-pages-relationship-editor](modules/apostrophe-pieces-pages/browser-apostrophe-pieces-pages-relationship-editor.md)
+    * [apostrophe-pieces-pages](modules/apostrophe-pieces-pages/browser-apostrophe-pieces-pages.md)
 
-## More
+## Other
 
 * [Promise Events](more/events.md)
 * [Nunjucks Filters](more/nunjucks-filters.md)
