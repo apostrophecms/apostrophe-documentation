@@ -50,10 +50,10 @@
 
 ## Other
 
-* [Promise Events](more/events.md)
-* [Nunjucks Filters](more/nunjucks-filters.md)
-* [Glossary](more/glossary.md)
-* [More on Modules](more/more-modules.md)
-* [Core Browser](more/core-browser.md)
-* [Core Server](more/core-server.md)
+* [Promise Events](other/events.md)
+* [Nunjucks Filters](other/nunjucks-filters.md)
+* [Glossary](other/glossary.md)
+* [More on Modules](other/more-modules.md)
+* [Core Browser](other/core-browser.md)
+* [Core Server](other/core-server.md)
 
