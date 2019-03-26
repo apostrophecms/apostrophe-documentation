@@ -1,2 +1,0 @@
-# apostrophe-soft-redirects
-

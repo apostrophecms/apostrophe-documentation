@@ -3,8 +3,6 @@ title: Building combined menus and custom buttons with the admin bar
 layout: tutorial
 ---
 
-# admin-bar
-
 ## Grouping admin bar items into dropdown menus
 
 Apostrophe's admin bar automatically contains buttons to manage every subclass of pieces in your project, among other things. It's nice, but it can quickly become too wide.
@@ -31,11 +29,12 @@ modules: {
 }
 ```
 
-_The name of each item is usually the same as the name of the module it came from._ This is always the case for everything derived from `apostrophe-pieces`.
+*The name of each item is usually the same as the name of the module it came from.* This is always the case for everything derived from `apostrophe-pieces`.
 
 Of course you can put more than one "group" in that array if you wish.
 
 If you're happy using the label of the first item as the label of the dropdown menu, there's a simpler syntax:
+
 
 ```javascript
 modules: {
@@ -66,7 +65,7 @@ It's easy to add one from your module's code:
 self.apos.adminBar.add(self.__meta.name, 'Monkeys')
 ```
 
-`self.__meta.name` _is always the name of the current module. This is helpful if someone might subclass your module later, so it's a good habit to use it._
+*`self.__meta.name` is always the name of the current module. This is helpful if someone might subclass your module later, so it's a good habit to use it.*
 
 ## Restricting admin bar items based on permissions
 
@@ -82,7 +81,7 @@ Our module would also need to register the `edit-monkeys` permission so it can b
 self.apos.permissions.add({ value: 'edit-monkeys', label: 'Edit Monkeys' });
 ```
 
-_This is done for you if you're subclassing pieces. Registering new permissions is useful if you want to check for custom permissions._
+*This is done for you if you're subclassing pieces. Registering new permissions is useful if you want to check for custom permissions.*
 
 **Requiring a permission to see an admin bar item doesn't actually secure anything.** You need to secure the routes that power the back end of your features, too.
 
@@ -103,4 +102,3 @@ apos.adminBar.link('apostrophe-monkeys', function() {
   // Take action
 });
 ```
-

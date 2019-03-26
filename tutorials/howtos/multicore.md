@@ -3,8 +3,6 @@ title: Running Apostrophe on multiple cores and/or servers
 layout: tutorial
 ---
 
-# multicore
-
 Although Apostrophe runs very well as a single process, and you can deploy production sites that way, you should run at least two processes to provide reliability when one process is restarting. And for higher traffic levels you'll want to take advantage of multiple cores, or even multiple servers. Here's how to do that.
 
 ## Requirements
@@ -21,23 +19,23 @@ You should run at least two processes for reliability. Beyond that, don't run mo
 
 ## Multicore: multiple ports, multiple processes
 
-Let's say your site is called `mysite`. On your server, check out the text file `/opt/stagecoach/apps/mysite/current/data/port`. This will contain a single port number, probably `3000` unless you are deploying multiple sites to the same server.
+Let's say your site is called `mysite`. On your server, check out the text file  `/opt/stagecoach/apps/mysite/current/data/port`. This will contain a single port number, probably `3000` unless you are deploying multiple sites to the same server.
 
 Edit that file and add multiple ports, like this:
 
-```text
+```
 3000 3001
 ```
 
 Now restart the site the stagecoach way:
 
-```text
+```
 [log in as the non-root user]
 cd /opt/stagecoach/apps/mysite/current
 bash deployment/stop && bash deployment/start
 ```
 
-You'll note that stagecoach launches _two_ "forever" processes instead of just one. Each one is listening on a separate port.
+You'll note that stagecoach launches *two* "forever" processes instead of just one. Each one is listening on a separate port.
 
 Now we need to configure nginx to balance the load over the two ports.
 
@@ -47,19 +45,19 @@ Good for you! This is so much easier with [mechanic](https://npmjs.org/mechanic)
 
 Let's check our current setup:
 
-```text
+```
 mechanic list
 ```
 
 We'll get back something like this:
 
-```text
+```
 mechanic add EXAMPLE '--backends=localhost:3000' '--canonical=true' '--host=www.EXAMPLE.com' '--static=/opt/stagecoach/apps/EXAMPLE/current/public/' '--default=true'
 ```
 
 Let's update mechanic to add port 3001 as a second backend:
 
-```text
+```
 mechanic update EXAMPLE --backends=localhost:3000,localhost:3001
 ```
 
@@ -71,9 +69,9 @@ Use the `siege` utility to test your site, and watch `top` to make sure that bot
 
 That's OK. Here's a sample configuration without it.
 
-You should be able to find your site configuration in `/etc/nginx/sites-enabled/`. Here's our recommended configuration with two processes:
+You should be able to find your site configuration in ```/etc/nginx/sites-enabled/```. Here's our recommended configuration with two processes:
 
-```text
+```
 upstream upstream-EXAMPLE  {
   server localhost:3000;
   server localhost:3001;
@@ -113,7 +111,7 @@ The `upstream` block lists both back-end ports that node is listening on. When w
 
 The above configuration also includes smart settings to take advantage of compression and to deliver static files directly from nginx.
 
-Now restart `nginx` and you're ready to go. If you're on an Ubuntu server, use the command `service nginx restart` as the root user. If you're on CentOS 7, use `systemctl restart nginx.service` as the root user.
+Now restart `nginx` and you're ready to go. If you're on an Ubuntu server, use the command ```service nginx restart``` as the root user. If you're on CentOS 7, use ```systemctl restart nginx.service``` as the root user.
 
 Use the `siege` utility to test your site, and watch `top` to see that both node processes are consuming CPU.
 
@@ -127,7 +125,7 @@ You can do that following the same technique as above, with a few tweaks.
 
 You'll need an nginx configuration that balances the load across multiple backend servers, like this:
 
-```text
+```
 upstream upstream-EXAMPLE  {
   server backend-one.mydomain.com:3000;
   server backend-one.mydomain.com:3001;
@@ -153,17 +151,17 @@ module.exports = {
 
 Here I assume you're using passwords with mongodb, since your `mongodb` server must be set up to allow connections from other servers.
 
-A single instance of mongodb is smart enough to use multiple cores. For reliability, however, you may wish to set up a [mongodb replica set](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/tutorials/howtos/replica-set.html).
+A single instance of mongodb is smart enough to use multiple cores. For reliability, however, you may wish to set up a [mongodb replica set](replica-set.html).
 
 If you are doing that in order to achieve high availability, great! It will make sure your mongodb database remains available if one of the servers goes down.
 
-But if you are doing it for performance reasons, be aware that _Apostrophe needs to be able to immediately read what it has written._ And this means that, by default, it always reads from the primary node \(the default behavior in MongoDB replica sets\).
+But if you are doing it for performance reasons, be aware that *Apostrophe needs to be able to immediately read what it has written.* And this means that, by default, it always reads from the primary node (the default behavior in MongoDB replica sets).
 
 At a future date we may relax this behavior so that, if configured, database reads for logged-out users who have no session data so far are permitted to read from secondary nodes. This would yield a performance benefit without compromising the consistency of what users experience.
 
 Another possible solution is to use alternative session middleware. You may pass the `express-session`-compatible session store object of your choice to Apostrophe's `apostrophe-express` module as the `session.store` option. See [this list](https://www.npmjs.com/package/express-session#compatible-session-stores) of compatible stores.
 
-```text
+```
 modules: {
   'apostrophe-express': {
     session: {
@@ -173,13 +171,13 @@ modules: {
 }
 ```
 
+
 ### Sharing one set of uploaded media files
 
 By default Apostrophe writes uploaded files to the server's local hard drive. This is no good if you are load balancing across multiple servers.
 
 Fortunately Apostrophe uses [uploadfs](https://github.com/punkave/uploadfs), which also supports using Amazon S3 as a back end for file storage.
 
-To do that, [check out our separate HOWTO on using Amazon S3 with apostrophe](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/tutorials/howtos/storing-images-and-files-in-amazon-s3.html).
+To do that, [check out our separate HOWTO on using Amazon S3 with apostrophe](storing-images-and-files-in-amazon-s3.html).
 
 Alternatively, you could use NFS to make the same filesystem visible to more than one server. Or you could write a custom `uploadfs` back end; see the uploadfs documentation for more information about that strategy.
-

@@ -1,2 +1,0 @@
-# apostrophe-doc-type-manager
-

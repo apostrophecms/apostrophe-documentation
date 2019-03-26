@@ -1,2 +1,6 @@
-# browser-apostrophe-module-manager-modal
+---
+title: "apostrophe-module-manager-modal (browser)"
+layout: reference
+namespace: browser
+---
 

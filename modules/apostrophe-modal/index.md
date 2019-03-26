@@ -1,5 +1,5 @@
 ---
-title: apostrophe-modal (module)
+title: "apostrophe-modal (module)"
 layout: reference
 module: true
 namespaces:
@@ -7,8 +7,8 @@ namespaces:
 children:
   - browser-apostrophe-modal
 ---
+## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+This module provides a base class for modal dialog boxes and supplies
+related markup and LESS files.
 
-# Inherits from: apostrophe-module
-
-This module provides a base class for modal dialog boxes and supplies related markup and LESS files.
 

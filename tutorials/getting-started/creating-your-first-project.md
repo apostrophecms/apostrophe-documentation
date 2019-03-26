@@ -1,9 +1,7 @@
 ---
-title: Creating Your First Project
+title: "Creating Your First Project"
 layout: tutorial
 ---
-
-# creating-your-first-project
 
 ## Creating Your First Project
 
@@ -28,7 +26,7 @@ apostrophe create-project test-project
 apostrophe create-project --boilerplate https://github.com/apostrophecms/apostrophe-open-museum test-project
 ```
 
-**Important: rather than** `test-project`**, use your own project's "short name" containing only letters, digits, hyphens and/or underscores. It will be used by default as a MongoDB database name and a basis for cookie names, etc.** \(Hyphens seem more popular than underscores for such purposes.\)
+**Important: rather than `test-project`, use your own project's "short name" containing only letters, digits, hyphens and/or underscores. It will be used by default as a MongoDB database name and a basis for cookie names, etc.** (Hyphens seem more popular than underscores for such purposes.)
 
 With the project created, you just need to jump in, install the dependencies, and start the server.
 
@@ -45,15 +43,15 @@ node app.js
 
 You now have a test project up and running! You should be able to visit `http://localhost:3000` and view your site. You'll see a very simple home page... too simple! We'll fix that in a moment by adding more page types and some editable areas.
 
-![](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/docs/images/tutorials/developer/boilerplate_loggedout.png)
+<img src="/docs/images/tutorials/developer/boilerplate_loggedout.png" class="shadow">
 
 ### Logging in
 
-We can login through the browser at `http://localhost:3000/login`. **Use the password you chose a moment ago** when you ran the `apostrophe-users:add` task \(see above\) and **username** `admin`.
+We can login through the browser at `http://localhost:3000/login`. **Use the password you chose a moment ago** when you ran the `apostrophe-users:add` task (see above) and **username `admin`**.
 
 Once logged in, we are redirected to the home page once again, but with two additional elements present: an admin bar floating over the top left of the page and a page menu floating over the bottom left.
 
-![](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/docs/images/tutorials/developer/boilerplate_loggedin.png)
+<img src="/docs/images/tutorials/developer/boilerplate_loggedin.png" class="shadow">
 
 ### Let's make it interesting
 
@@ -96,8 +94,10 @@ Open up `lib/modules/apostrophe-pages/views/pages/home.html` in your text editor
 
 **Now restart the site** so you can see the impact of the changes:
 
-1. Press "control-C" in the terminal window where `node app.js` is running. \(You need to leave it running as long as your site is up. In production, there are other ways, which we'll cover later.\)
-2. Run `node app.js` again \(tip: just press the up arrow, then enter\).
+1. Press "control-C" in the terminal window where `node app.js` is running. (You need to leave it running as long as your site is up. In production, there are other ways, which we'll cover later.)
+
+2. Run `node app.js` again (tip: just press the up arrow, then enter).
+
 3. Refresh the browser.
 
 ### Use Nodemon to watch file changes
@@ -105,6 +105,7 @@ Open up `lib/modules/apostrophe-pages/views/pages/home.html` in your text editor
 To avoid manual restarting in the future, you could use [Nodemon](https://nodemon.io) to watch project files.
 
 1. Run `npm install -g nodemon` to install it globally.
+
 2. Use `nodemon` in your project root folder. Nodemon will run `node app.js` by default.
 
 Now, every time you make changes to a file in your project, Nodemon will restart your application.
@@ -115,41 +116,40 @@ If you installed Apostrophe using `apostrophe-cli` as described above, a basic N
 
 Hey, what's this new button about?
 
-![](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/docs/images/tutorial-plus-button.png)
+<img src="/docs/images/tutorial-plus-button.png" class="shadow">
 
 #### Adding rich text
 
 Click the "+" sign and pick "rich text." You're presented with a friendly editor:
 
-![](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/docs/images/tutorial-rich-text-editor.png)
+<img src="/docs/images/tutorial-rich-text-editor.png" class="shadow">
 
-Edit as you see fit and try refreshing your page. Notice that your changes have already been saved. _There is no save button because saving is automatic._
+Edit as you see fit and try refreshing your page. Notice that your changes have already been saved. *There is no save button because saving is automatic.*
 
 #### Adding a slideshow
 
-Now let's add a slideshow. Click _outside_ the rich text editor and you'll see two new "+" signs: one above the text and one below it. Click either one and pick "Image\(s\)".
+Now let's add a slideshow. Click *outside* the rich text editor and you'll see two new "+" signs: one above the text and one below it. Click either one and pick "Image(s)".
 
 You'll see the image library, which is initially empty:
 
-![](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/docs/images/tutorial-images-library.png)
+<img src="/docs/images/tutorial-images-library.png" class="shadow">
 
 Click the "New Image" button at upper right and you'll see:
 
-![](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/docs/images/tutorial-new-image.png)
+<img src="/docs/images/tutorial-new-image.png" class="shadow">
 
 Click "Upload File" to pick a GIF, JPEG or PNG file to upload from your computer. Also fill out the title field. Then click "Save Image."
 
 Click "New Image" again and upload a second file. Then check the box next to each of them:
 
-![](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/docs/images/tutorial-select-images.png)
+<img src="/docs/images/tutorial-select-images.png" class="shadow">
 
-\(As you check them off you'll see them appear at left in the "chosen items" area.\)
+(As you check them off you'll see them appear at left in the "chosen items" area.)
 
 Now click "Save Choices" and boom: slideshow!
 
-![](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/docs/images/tutorial-slideshow.gif)
+<img src="/docs/images/tutorial-slideshow.gif" class="shadow">
 
 ## "Whoa, this is cool! But... what did I just do?"
 
 Great question! Now that we've had our "whoa" moment, let's break it all down.
-

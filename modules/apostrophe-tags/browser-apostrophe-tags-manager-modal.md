@@ -1,30 +1,26 @@
 ---
-title: apostrophe-tags-manager-modal (browser)
+title: "apostrophe-tags-manager-modal (browser)"
 layout: reference
 namespace: browser
 ---
-
-# browser-apostrophe-tags-manager-modal
-
-## Inherits from: [apostrophe-modal](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/modules/apostrophe-modal/browser-apostrophe-modal.html)
+## Inherits from: [apostrophe-modal](../apostrophe-modal/browser-apostrophe-modal.html)
 
 ## Methods
+### beforeShow(*callback*)
 
-### beforeShow\(_callback_\)
+### addClickHandlers()
 
-### addClickHandlers\(\)
+### refresh(*callback*)
 
-### refresh\(_callback_\)
+### add(*$el*)
 
-### add\(_$el_\)
+### edit(*$el*, *value*)
 
-### edit\(_$el_, _value_\)
+### rename(*$el*, *value*)
 
-### rename\(_$el_, _value_\)
+### delete(*$el*, *value*)
 
-### delete\(_$el_, _value_\)
+### beforeRefresh(*options*)
 
-### beforeRefresh\(_options_\)
-
-### afterRefresh\(\)
+### afterRefresh()
 
