@@ -1,4 +1,4 @@
 root: ./
 structure:
-  readme: index.md
+  readme: INDEX.md
   summary: SUMMARY.md
