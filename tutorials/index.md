@@ -15,6 +15,8 @@ layout: "reference"
 
 Practical examples of these concepts are illustrated in the [Open Musuem project, a fully featured Apostrophe site](https://github.com/apostrophecms/apostrophe-open-museum). [You can access the code](https://github.com/apostrophecms/apostrophe-open-museum) or [try a live demo](http://demo.apostrophecms.org).
 
+Practical examples of these concepts are illustrated in the [Open Musuem project, a fully featured Apostrophe site](https://github.com/apostrophecms/apostrophe-open-museum). [You can access the code](https://github.com/apostrophecms/apostrophe-open-museum) or [try a live demo](http://demo.apostrophecms.org).
+
 ## Intermediate
 
 [The "intermediate" tutorials](intermediate/index.html)
