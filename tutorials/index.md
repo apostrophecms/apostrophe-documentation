@@ -15,7 +15,7 @@ layout: reference
 
 [The "getting started" tutorials](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/tutorials/getting-started/index.html) are written for developers who are new to Apostrophe. They will walk you through the process of getting your environment set up, creating a basic website, and even diving deeper into some of the more advanced features.
 
-Practical examples of these concepts are illustrated in the [Open Musuem project, a fully featured Apostrophe site](https://github.com/apostrophecms/apostrophe-open-museum), which you can clone to your machine or [try a live demo](http://demo.apostrophecms.org).
+Practical examples of these concepts are illustrated in the [Open Musuem project, a fully featured Apostrophe site](https://github.com/apostrophecms/apostrophe-open-museum). [You can access the code](https://github.com/apostrophecms/apostrophe-open-museum) or [try a live demo](http://demo.apostrophecms.org).
 
 ## Intermediate
 
