@@ -1,6 +1,2 @@
----
-title: "apostrophe-global-cursor (server)"
-layout: reference
-namespace: server
----
+# server-apostrophe-global-cursor
 

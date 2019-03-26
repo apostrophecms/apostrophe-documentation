@@ -1,6 +1,2 @@
----
-title: "apostrophe-files-cursor (server)"
-layout: reference
-namespace: server
----
+# server-apostrophe-files-cursor
 

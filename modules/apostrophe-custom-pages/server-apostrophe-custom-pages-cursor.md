@@ -1,13 +1,12 @@
 ---
-title: "apostrophe-custom-pages-cursor (server)"
+title: apostrophe-custom-pages-cursor (server)
 layout: reference
 namespace: server
 ---
-Cursor for fetching docs of this specific type. The `afterConstruct`
-method locks the results down to this type by calling the
-`self.type` filter for us. Subclasses frequently add new filters.
 
-We subclass `apostrophe-pages-cursor` so that cursors for page types
-are able to use `.children()`, `.ancestors()`, etc.
+# server-apostrophe-custom-pages-cursor
 
+Cursor for fetching docs of this specific type. The `afterConstruct` method locks the results down to this type by calling the `self.type` filter for us. Subclasses frequently add new filters.
+
+We subclass `apostrophe-pages-cursor` so that cursors for page types are able to use `.children()`, `.ancestors()`, etc.
 

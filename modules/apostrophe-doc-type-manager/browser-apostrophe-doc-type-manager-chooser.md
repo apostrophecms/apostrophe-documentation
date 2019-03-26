@@ -1,59 +1,66 @@
 ---
-title: "apostrophe-doc-type-manager-chooser (browser)"
+title: apostrophe-doc-type-manager-chooser (browser)
 layout: reference
 namespace: browser
 ---
-## Inherits from: [apostrophe-context](../apostrophe-utils/browser-apostrophe-context.html)
+
+# browser-apostrophe-doc-type-manager-chooser
+
+## Inherits from: [apostrophe-context](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/modules/apostrophe-utils/browser-apostrophe-context.html)
 
 ## Methods
-### load(*callback*)
 
-### set(*choices*)
-Set a new array of currently selected choices. Each should have
-label and value properties at a minimum
-### get(*callback*)
+### load\(_callback_\)
 
-### getFinal(*callback*)
+### set\(_choices_\)
 
-### finalize(*callback*)
+Set a new array of currently selected choices. Each should have label and value properties at a minimum
 
-### add(*_id*)
+### get\(_callback_\)
 
-### clear()
+### getFinal\(_callback_\)
 
-### remove(*_id*, *refresh*)
+### finalize\(_callback_\)
 
-### refresh(*options*)
+### add\(_\_id_\)
 
-### convertInlineRelationships(*callback*)
+### clear\(\)
 
-### decrementRefreshing()
+### remove\(_\_id_, _refresh_\)
 
-### enableLinks()
+### refresh\(_options_\)
 
-### enableAutocomplete()
+### convertInlineRelationships\(_callback_\)
 
-### getBrowserType()
+### decrementRefreshing\(\)
 
-### launchBrowser()
+### enableLinks\(\)
 
-### clone(*options*, *callback*)
-Create a new chooser with the same data and options, merging in any
-additional options from the first argument. Async because
-the constructor is async. Delivers (err, newChooser)
-### onChange()
+### enableAutocomplete\(\)
 
-### enableInlineSchema()
+### getBrowserType\(\)
 
-### decorateManager(*manager*, *options*)
-Adds and overrides methods of the apostrophe-pieces-manager-modal to
-accommodate its use as a full-featured selection tool for the chooser,
-including the ability to create new items on the fly and choose them
-### afterManagerSave()
+### launchBrowser\(\)
 
-### afterManagerCancel()
+### clone\(_options_, _callback_\)
 
-### pieceInsertedListener(*piece*)
+Create a new chooser with the same data and options, merging in any additional options from the first argument. Async because the constructor is async. Delivers \(err, newChooser\)
+
+### onChange\(\)
+
+### enableInlineSchema\(\)
+
+### decorateManager\(_manager_, _options_\)
+
+Adds and overrides methods of the apostrophe-pieces-manager-modal to accommodate its use as a full-featured selection tool for the chooser, including the ability to create new items on the fly and choose them
+
+### afterManagerSave\(\)
+
+### afterManagerCancel\(\)
+
+### pieceInsertedListener\(_piece_\)
+
 This listener only actually gets installed for a chooser appearing in a manager
-### pieceIsRelevant(*piece*)
+
+### pieceIsRelevant\(_piece_\)
 
