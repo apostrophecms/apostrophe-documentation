@@ -74,7 +74,7 @@
 ## Modules
 
 * [Module Reference](modules/README.md)
-* [apostrophe-pieces-pages](modules/apostrophe-pieces-pages/index.md)
+* [apostrophe-pieces-pages](modules/apostrophe-pieces-pages/README.md)
   * Server
     * [apostrophe-pieces-pages-cursor](modules/apostrophe-pieces-pages/server/server-apostrophe-pieces-pages-cursor.md)
   * Browser
