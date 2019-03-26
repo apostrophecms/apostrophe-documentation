@@ -1,9 +1,7 @@
 ---
-title: Deploying Apostrophe with AWS and Elastic Beanstalk
+title: "Deploying Apostrophe with AWS and Elastic Beanstalk"
 layout: tutorial
 ---
-
-# deploying-apostrophe-in-the-cloud-with-aws
 
 Amazon AWS is hands down and far away the most popular cloud hosting solution, and for good reason. They have the best understanding of the problem and the largest infrastructure. But it can be confusing. Fortunately, Amazon offers Elastic Beanstalk, which provides much of the simplicity of options like Heroku without any added cost over configuring AWS directly.
 
@@ -34,7 +32,7 @@ First, [install the Elastic Beanstalk command line tools following Amazon's dire
 
 Now, `cd` to your existing Apostrophe website project and initialize Beanstalk:
 
-```text
+```
 cd ~/Sites/my-project
 eb init
 ```
@@ -50,12 +48,12 @@ Say yes to setting up ssh for your instances.
 You will be prompted for a keypair name. This is a name for an ssh public and private key to be used to make secure connections to your servers. We suggest one for each project but you could reuse one.
 
 > You must have the `ssh-keygen` utility installed. It is standard in MacOS and most Linux distributions. For Windows it is [possible to obtain it](https://stackoverflow.com/questions/11771378/ssh-keygen-is-not-recognized-as-an-internal-or-external-command). Or you could generate your keypair in a different way.
->
+
 > Do not enter a passphrase unless you want to be required to provide it every time you enter a command.
 
 Now ignore files that should not be deployed. Create a `.ebignore` file in the project folder:
 
-```text
+```
 # Server-specific data
 data
 # Server-specific temporary files
@@ -77,7 +75,7 @@ node_modules
 
 Our next step is to use `eb create` to create our first Elastic Beanstalk environment:
 
-```text
+```
 eb create
 Enter Environment Name
 (default is my-project-dev): [press enter, or change suffix]
@@ -97,21 +95,21 @@ Creating application version archive "XYZABC".
 
 Eventually you will see:
 
-```text
+```
 Printing Status:
 INFO: createEnvironment is starting.
  -- Events -- (safe to Ctrl+C) Use "eb abort" to cancel the command.
-```
+ ```
 
-At this point, you may press control-C to get back to the terminal, or you can just wait for the environment to be live, which may take several minutes.
+ At this point, you may press control-C to get back to the terminal, or you can just wait for the environment to be live, which may take several minutes.
 
-If you do press control-C, you may type `eb status` to check the progress of the deployment.
+ If you do press control-C, you may type `eb status` to check the progress of the deployment.
 
-If you stay connected to the progress, you'll eventually see:
+ If you stay connected to the progress, you'll eventually see:
 
-```text
+ ```
  INFO: Successfully launched environment: my-project-dev
-```
+ ```
 
 > Elastic Beanstalk will automatically fire up more instances if necessary to handle the traffic. Since the scaling is automatic, be aware you could be on the hook for a variable monthly bill.
 
@@ -119,7 +117,7 @@ If you stay connected to the progress, you'll eventually see:
 
 Type `eb status` and you'll see:
 
-```text
+```
 eb status
 ...
 Health: Red
@@ -127,7 +125,7 @@ Health: Red
 
 Uh-oh. What's going on?
 
-```text
+```
 eb health
 ...
 Following services are not running: applicati
@@ -135,7 +133,7 @@ Following services are not running: applicati
 
 We'd better check the logs.
 
-```text
+```
 eb logs
 ...
 /var/log/nodejs/nodejs.log
@@ -169,19 +167,26 @@ If you are using a small or free plan, just click "Allow Access from Anywhere" o
 So far we've been able to do everything with the CLI, which is nice. But to set environment variables just for this one environment, we'll use the Beanstalk website. That way we can set them separately for environments created for staging, production, etc.
 
 1. Log into the AWS console if you aren't already.
+
 2. Click on "Elastic Beanstalk."
+
 3. Don't see your environment — just a welcome page? Use the region picker at upper right. Make sure you pick the same region you set up for your environment with the CLI.
-4. Still don't see it? Look closely: at upper left there is now a small dropdown with environment names. Click yours \(even if it is already picked\) and the interface will appear.
+
+4. Still don't see it? Look closely: at upper left there is now a small dropdown with environment names. Click yours (even if it is already picked) and the interface will appear.
+
 5. Click "Configuration."
+
 6. Under "Software," click "Modify."
+
 7. Under "Environment properties," enter the name:
 
 `APOS_MONGODB_URI`
 
-And for "value," paste in the URI that the MongoDB Atlas interface recommends under "Connection" \(use the one for the MongoDB driver 3.4 and below\).
+And for "value," paste in the URI that the MongoDB Atlas interface recommends under "Connection" (use the one for the MongoDB driver 3.4 and below).
 
-1. Click "Save."
-2. Click "Apply Configuration."
+8. Click "Save."
+
+9. Click "Apply Configuration."
 
 Your configuration change will take time to apply. Once that is complete, the health of your application will change to "Green."
 
@@ -193,7 +198,7 @@ You may want to use MongoDB's `db.copyDatabase` feature to copy an existing Mong
 
 Or, add a user remotely! Here we are connecting directly to the MongoDB Atlas database from a local instance of Apostrophe on your computer:
 
-```text
+```
 APOS_MONGODB_URI=mongodb://SAME-AS-ABOVE node app apostrophe-users:add admin admin
 ```
 
@@ -201,7 +206,7 @@ APOS_MONGODB_URI=mongodb://SAME-AS-ABOVE node app apostrophe-users:add admin adm
 
 ## Storing files with Amazon S3
 
-**If you try to deploy with** `eb deploy` **now it will seem to work... but don't be fooled!** If you upload images, and then redeploy later, or even just wait a day or so... forget it. They are gone forever. That's because, with Elastic Beanstalk instances, local files are "written on water."
+**If you try to deploy with `eb deploy` now it will seem to work... but don't be fooled!** If you upload images, and then redeploy later, or even just wait a day or so... forget it. They are gone forever. That's because, with Elastic Beanstalk instances, local files are "written on water."
 
 So we need to use Amazon S3 for persistent storage of uploads.
 
@@ -209,13 +214,13 @@ Return to the [Amazon Web Services console](https://aws.amazon.com/console/).
 
 From the Amazon Web Services control panel, click on S3. Then click "Create Bucket."
 
-Choose a bucket name \(the same as your beanstalk environment is nice but not mandatory\) and a region \(definitelyu the same as your beanstalk environment\). Then click "Create."
+Choose a bucket name (the same as your beanstalk environment is nice but not mandatory) and a region (definitelyu the same as your beanstalk environment). Then click "Create."
 
-> **Regarding the** `APOS_S3_REGION` **setting:** you'll need to look this up in the [AWS regions table](http://docs.aws.amazon.com/general/latest/gr/rande.html) \(it's halfway down the page, "Amazon API Gateway"\). Use the value in the "Region" column corresponding to the "Region Name" you chose.
+> **Regarding the `APOS_S3_REGION` setting:** you'll need to look this up in the [AWS regions table](http://docs.aws.amazon.com/general/latest/gr/rande.html) (it's halfway down the page, "Amazon API Gateway"). Use the value in the "Region" column corresponding to the "Region Name" you chose.
 
-Now test it _without_ Beanstalk, on your local machine, by setting the environment variables just for one run of your site \(the trailing `\` characters are there to allow us to break one command line over multiple lines for readability in the `bash` shell\):
+Now test it *without* Beanstalk, on your local machine, by setting the environment variables just for one run of your site (the trailing `\` characters are there to allow us to break one command line over multiple lines for readability in the `bash` shell):
 
-```text
+```
 APOS_S3_BUCKET=YOUR-bucket-name \
 APOS_S3_SECRET=YOUR-s3-secret \
 APOS_S3_KEY=YOUR-s3-key \
@@ -225,54 +230,57 @@ node app
 
 Upload an image to your site, then right-click it and inspect the image URL. It should be on an Amazon S3 server at this point, **not localhost**.
 
-> "What if I want to use an S3-compatible service that isn't run by Amazon?" You can set the `APOS_S3_ENDPOINT` variable to a complete hostname. If you do, you should _not_ set `APOS_S3_REGION`.
+> "What if I want to use an S3-compatible service that isn't run by Amazon?" You can set the `APOS_S3_ENDPOINT` variable to a complete hostname. If you do, you should *not* set `APOS_S3_REGION`.
 
 ### Adding the S3 variables to Elastic Beanstalk
 
 Return to the Elastic Beanstalk console. Once again, click on your environment, then "Software," then "Modify." Under "Environment Properties," add these name/value pairs:
 
-```text
+```
 APOS_S3_BUCKET YOUR-bucket-name
 APOS_S3_SECRET YOUR-s3-secret
 APOS_S3_KEY YOUR-s3-key
 APOS_S3_REGION YOUR-chosen-region
 ```
 
-From here on out, all of your media uploads will go to S3 and persist there.
+From here on out, all of your media uploads will go to S3 and persist there. 
 
 If you have existing files for this website and are migrating them into S3, you can upload them to the appropriate path in your bucket. The [AWS CLI](https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html) can do it:
 
-```text
+```
 aws s3 cp --recursive ./public/uploads/ s3://YOUR-bucket-name/
 ```
 
 ## Minifying assets
 
-The site can work with Elastic Beanstalk at this point, but _performance will be poor because CSS and JavaScript files are not "minified"_ \(combined to save space\). We need to generate minified files in our dev environment in such a way that ELastic Beanstalk's EC2 instances can access them after deployment.
+The site can work with Elastic Beanstalk at this point, but *performance will be poor because CSS and JavaScript files are not "minified"* (combined to save space). We need to generate minified files in our dev environment in such a way that ELastic Beanstalk's EC2 instances can access them after deployment.
 
 Apostrophe generates minified files with the `apostrophe:generation` task. For simple single-server deployments we usually just run `apostrophe:generation` in production, but this doesn't work for Elastic Beanstalk because every instance gets its own, temporary local files and we want every instance to see copies of the same exact assets. You'll encounter the same issue with most other cloud hosting services.
 
-So we'll build an "asset bundle" _on our dev machine_:
+So we'll build an "asset bundle" *on our dev machine*:
 
 ```bash
 APOS_MINIFY=1 node app apostrophe:generation --create-bundle=prod-bundle
 ```
 
-> IMPORTANT: the APOS\_MINIFY environment variable is OVERRIDDEN by any setting you may have made for the `minify` option when configuring the `apostrophe-assets` module. If you want to use the environment variable, DO NOT set the option in your code.
+> IMPORTANT: the APOS_MINIFY environment variable is OVERRIDDEN by any setting
+> you may have made for the `minify` option when configuring
+> the `apostrophe-assets` module. If you want to use the environment
+> variable, DO NOT set the option in your code.
 
 We're specifying `APOS_MINIFY=1` as an environment variable to override the **default** behavior in a development environment, which is not to minify. As noted, if the option has been set explicitly in your code, the environment variable is ignored. So don't do that.
 
-After a minute or so \(especially the first time\), you'll have a `prod-bundle` folder in your project.
+After a minute or so (especially the first time), you'll have a `prod-bundle` folder in your project.
 
-> VERY IMPORTANT: check your `.gitignore` file. If it it contains `data` on a line by itself, _change this line_ to `/data`. Otherwise, you will be unable to commit a complete bundle to git, and Elastic Beanstalk will not deploy it properly. We have fixed this in the latest version of our boilerplate project.
+> VERY IMPORTANT: check your `.gitignore` file. If it it contains `data` on a line by itself, *change this line* to `/data`. Otherwise, you will be unable to commit a complete bundle to git, and Elastic Beanstalk will not deploy it properly. We have fixed this in the latest version of our boilerplate project.
 
-**It's OK to commit that folder to git** \(after FIRST checking for the `.gitignore` problem mentioned above\). And it's a good idea to have a record of what was last deployed.
+**It's OK to commit that folder to git** (after FIRST checking for the `.gitignore` problem mentioned above). And it's a good idea to have a record of what was last deployed.
 
 ### Telling Elastic Beanstalk to use the bundle
 
 Let's set two more Elastic Beanstalk environment properties, via the Elastic Beanstalk console, following the same process we did earlier:
 
-```text
+```
 APOS_MINIFY 1
 APOS_BUNDLE prod-bundle
 ```
@@ -287,7 +295,7 @@ We're ready to deploy to Elastic Beanstalk!
 
 Everything is in readiness! **Commit your code changes** so you don't lose track. Then type:
 
-```text
+```
 eb deploy
 ```
 
@@ -311,7 +319,7 @@ One thing is not incorporated in our process so far: running database migrations
 
 Since Atlas allows access from any whitelisted IP with the right credentials, the simplest way to run a database migration is to execute it from your local dev environment, with an environment variable set to communicate with your remote database:
 
-```text
+```
 APOS_MONGODB_URI=mongodb://YOUR-uri-goes-here node app apostrophe-migrations:migrate
 ```
 
@@ -319,7 +327,7 @@ But naturally you don't want to forget this. And you don't want to forget the bu
 
 So it's best to create your own `./scripts/deploy` command for your project:
 
-```text
+```
 #!/bin/bash
 APOS_MINIFY=1 node app apostrophe:generation --create-bundle=prod-bundle &&
 APOS_MONGODB_URI=mongodb://YOUR-uri-goes-here node app apostrophe-migrations:migrate &&
@@ -330,7 +338,7 @@ Be sure to use `chmod u+x ./scripts/deploy` to make that script executable.
 
 Now just type:
 
-```text
+```
 ./scripts/deploy
 ```
 
@@ -360,11 +368,11 @@ Apostrophe can push your assets to S3 as part of the bundle-creation step:
 APOS_MINIFY=1 node app apostrophe:generation --create-bundle=prod-bundle --sync-to-uploadfs
 ```
 
-When the `--sync-to-uploadfs` option is used, Apostrophe will create the bundle in a folder by that name as usual, and will then upload the bundle's `public/` subdirectory to the `assets/XXXX` "folder" of your S3 bucket, where `XXXX` is a unique identifier for the current generation of assets. **You should still commit and push the** `prod-bundle` **folder.**
+When the `--sync-to-uploadfs` option is used, Apostrophe will create the bundle in a folder by that name as usual, and will then upload the bundle's `public/` subdirectory to the `assets/XXXX` "folder" of your S3 bucket, where `XXXX` is a unique identifier for the current generation of assets. **You should still commit and push the `prod-bundle` folder.**
 
 Your Elastic Beanstalk environment properties will look almost the same as before, with one extra setting:
 
-```text
+```
 APOS_BUNDLE_IN_UPLOADFS 1
 ```
 
@@ -374,17 +382,17 @@ To ensure the contents of the bundle's `data/` subdirectory are still available,
 
 ### Fonts, other assets, and CORS errors in the browser console
 
-To ensure there are no CORS \(Cross-Origin Resource\) errors, visit your amazon S3 bucket settings to adjust the CORS configuration:
+To ensure there are no CORS (Cross-Origin Resource) errors, visit your amazon S3 bucket settings to adjust the CORS configuration:
 
 `Amazon S3 --> [bucket] --> Permissions Tab --> CORS configuration button`
 
 Verify the value of `AllowedOrigin`. It should match the Elastic Beanstalk URL and/or the production URL of your project:
 
-```text
+```
 <AllowedOrigin>https://example.com</AllowedOrigin>
 ```
 
-```text
+```
 <AllowedOrigin>https://your-elastic-beanstalk-url-here.aws.com</AllowedOrigin>
 ```
 

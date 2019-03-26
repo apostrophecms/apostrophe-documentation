@@ -1,9 +1,7 @@
 ---
-title: Managing permissions for your site
+title: "Managing permissions for your site"
 layout: tutorial
 ---
-
-# permissions
 
 So far our tutorials have skimmed over the issue of permissions. Let's take a closer look.
 
@@ -62,7 +60,7 @@ When things get a little more complicated, you'll want to add an `editor` group 
 
 Now members of the editor group are allowed to:
 
-* Create all types of pieces, except those locked down to site-wide admins only with the `adminOnly` option \(users and groups, because of the security implications\).
+* Create all types of pieces, except those locked down to site-wide admins only with the `adminOnly` option (users and groups, because of the security implications).
 * Edit the pieces that they themselves created.
 * Edit pages if and when an admin grants them permission to edit that particular page via "Page Settings."
 
@@ -81,21 +79,21 @@ Here's how we do it: just remove the `groups` property!
 `apostrophe-users': {}
 ```
 
-_Well, that was easy._
+*Well, that was easy.*
 
 Once we do this, the `apostrophe-groups` module, which has been politely working in the background until now, appears in its own right on the admin bar.
 
-Now we can create groups, just like any other kind of piece \(although we must be an `admin` already to do so\). We can check off boxes to add permissions to those groups. And we can add people to those groups, by editing the user and typing the names of groups — it's exactly like adding individual pieces to a pieces widget.
+Now we can create groups, just like any other kind of piece (although we must be an `admin` already to do so). We can check off boxes to add permissions to those groups. And we can add people to those groups, by editing the user and typing the names of groups — it's exactly like adding individual pieces to a pieces widget.
 
 ## Creating a site with custom groups from the very beginning
 
 You don't have to use the `groups` option of `apostrophe-users` at all, not even when you first create your site. If you choose not to use that option, you can "bootstrap" your first group with this command:
 
-```text
+```
 node app apostrophe-groups:add admin admin
 ```
 
-This will create a group called `admin` \(the first argument\), with the `admin` permission \(the second argument\). You may list as many permissions as you wish, separated by spaces.
+This will create a group called `admin` (the first argument), with the `admin` permission (the second argument). You may list as many permissions as you wish, separated by spaces.
 
 > If a group has the `admin` permission, all other permissions are implied, so don't bother to give them out separately.
 
@@ -121,4 +119,3 @@ To add `download-granola` to the list of permissions available for groups, you'l
 As long as you do this in `construct` or `afterConstruct` of your own module, it'll happen soon enough.
 
 If you want those who have the general-purpose `edit` permission to automatically get your permission too, prefix its name with `edit-`.
-

@@ -1,34 +1,27 @@
 ---
-title: apostrophe-attachments-focal-point-editor (browser)
+title: "apostrophe-attachments-focal-point-editor (browser)"
 layout: reference
 namespace: browser
 ---
-
-# browser-apostrophe-attachments-focal-point-editor
-
-## Inherits from: [apostrophe-modal](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/modules/apostrophe-modal/browser-apostrophe-modal.html)
+## Inherits from: [apostrophe-modal](../apostrophe-modal/browser-apostrophe-modal.html)
 
 ## Methods
+### afterShow()
+Use afterShow so that imagesReady and width() work
+### click(*event*)
+jQuery event handler for clicks on the image,
+which updates the focal point.
+### saveContent(*callback*)
 
-### afterShow\(\)
+### render()
 
-Use afterShow so that imagesReady and width\(\) work
+### scaleToAbsoluteX(*percentage*)
 
-### click\(_event_\)
+### scaleToAbsoluteY(*percentage*)
 
-jQuery event handler for clicks on the image, which updates the focal point.
+### scaleToPercentageX(*absolute*)
 
-### saveContent\(_callback_\)
+### scaleToPercentageY(*absolute*)
 
-### render\(\)
-
-### scaleToAbsoluteX\(_percentage_\)
-
-### scaleToAbsoluteY\(_percentage_\)
-
-### scaleToPercentageX\(_absolute_\)
-
-### scaleToPercentageY\(_absolute_\)
-
-### busy\(_state_\)
+### busy(*state*)
 

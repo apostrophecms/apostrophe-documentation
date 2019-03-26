@@ -1,13 +1,11 @@
 ---
-title: Deploying Apostrophe in the Cloud with Heroku
+title: "Deploying Apostrophe in the Cloud with Heroku"
 layout: tutorial
 ---
 
-# deploying-apostrophe-in-the-cloud-with-heroku
-
 There are many cloud hosting services, but they all present the same challenges. Separate servers often don't share a single filesystem. The database usually needs its own scalable cloud hosting. And performing tasks like minifying assets is often best done in your development environment, minimizing what has to be done in production.
 
-> "The cloud" isn't always the easiest solution to your problem. Take a look at our [Linode HOWTO](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/tutorials/howtos/linode.html) for a quicker way that is suitable for all but the highest-traffic sites.
+> "The cloud" isn't always the easiest solution to your problem. Take a look at our [Linode HOWTO](linode.html) for a quicker way that is suitable for all but the highest-traffic sites.
 
 ## Deploying Apostrophe to Heroku
 
@@ -17,7 +15,7 @@ So for this how-to, we'll stick to free services from Heroku and mlab, a MongoDB
 
 ## Before you begin
 
-First, build an Apostrophe site! See the [getting started tutorial](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/tutorials/getting-started/index.html).
+First, build an Apostrophe site! See the [getting started tutorial](../getting-started/index.html).
 
 Make sure you commit it to a git repository. git is a big part of how Heroku deploys websites.
 
@@ -25,13 +23,13 @@ Make sure you commit it to a git repository. git is a big part of how Heroku dep
 
 Next, create an account at [heroku.com](http://heroku.com).
 
-Then create a Heroku app, choosing any app name and runtime location \(US, Europe, etc.\) you wish.
+Then create a Heroku app, choosing any app name and runtime location (US, Europe, etc.) you wish.
 
 Now, following the instructions on the Heroku site, install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line) if you haven't already.
 
 To enable deployment, add Heroku as a "git remote" to which your code can be pushed:
 
-```text
+```
 heroku git:remote -a apostrophetest (use YOUR app name)
 ```
 
@@ -39,17 +37,17 @@ Now we're almost ready to deploy. But, we need a database.
 
 ## Using mlab with Apostrophe and Heroku
 
-Apostrophe requires a `mongodb` database, which Heroku doesn't offer. Fortunately, mlab \(formerly mongolab\) has you covered. So [create a database with mlab](https://mlab.com/signup/) to get started.
+Apostrophe requires a `mongodb` database, which Heroku doesn't offer. Fortunately, mlab (formerly mongolab) has you covered. So [create a database with mlab](https://mlab.com/signup/) to get started.
 
 When you're finished verifying your account with mlab, click "Create New," then "Single-node" and "Sandbox."
 
-> You can of course pick a replica set cluster and various non-free plans instead if you wish. Do not use sharding, it is not appropriate to our use case. Do not change the default read preference. See [replica sets](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/tutorials/howtos/replica-set.html) for more information.
+> You can of course pick a replica set cluster and various non-free plans instead if you wish. Do not use sharding, it is not appropriate to our use case. Do not change the default read preference. See [replica sets](replica-set.html) for more information.
 
 If you can, give your database the same name as your app, just for simplicity, but it's not mandatory.
 
 After you create the database, click on it to reveal the connection information. You want the MongoDB URI. It will look like this:
 
-```text
+```
 mongodb://<dbuser>:<dbpassword>@dsxxxxx.mlab.com:xxxxx/YOUR-database-name
 ```
 
@@ -63,13 +61,13 @@ Now you can create the complete URI, by inserting the username and password you 
 
 By default, Apostrophe connects to MongoDB on your local machine:
 
-```text
+```
 mongodb://localhost:27017/YOUR-SHORTNAME-HERE
 ```
 
 This is great for development, but now we need the app to know what the mlab URI is.
 
-The right database name is _server dependent_: it differs between your computer and your production Heroku environment. In Heroku, the right way to pass that kind of information is through _environment variables_.
+The right database name is *server dependent*: it differs between your computer and your production Heroku environment. In Heroku, the right way to pass that kind of information is through *environment variables*.
 
 > This is NOT the same as your mlab account credentials. DO NOT check the read-only box.
 
@@ -77,7 +75,7 @@ The right database name is _server dependent_: it differs between your computer 
 
 There's a UI for this too, but the command line is much easier to script later:
 
-```text
+```
 heroku config:set 'APOS_MONGODB_URI=mongodb://YOUR-uri-goes-here'
 ```
 
@@ -85,32 +83,32 @@ We use the single quotes to avoid problems with most special characters in the U
 
 From here, you can test your site locally. This is typically done with:
 
-```text
+```
 npm install
 npm run start
 ```
 
 You should be able to view your website at the designated local port.
 
-You can also test it _without_ Heroku, on your local machine, by setting the environment variable just for one local run of your site:
+You can also test it *without* Heroku, on your local machine, by setting the environment variable just for one local run of your site:
 
-```text
+```
 APOS_MONGODB_URI=mongodb://YOUR-uri-goes-here node app
 ```
 
-1. Press Control-C after you successfully test the site. Startup may take an extra moment because of the remote connection to MongoDB.
+7. Press Control-C after you successfully test the site. Startup may take an extra moment because of the remote connection to MongoDB.
 
 > At a small scale, "the cloud" is always slower than a single-server configuration. When things have to talk to each other, running them farther apart doesn't speed things up. However, after you reach a certain scale, a single server is impractical. And of course a single server is a single point of failure.
->
+
 > If you do not `node app` with the environment variable correctly, it'll seem to work because it will connect to your own mongodb. You can shut down your local mongodb server temporarily if you want to be really, really sure.
 
-1. Your database exists now on mlab, but it contains no users, so you won't be able to log in. Let's use the command line to connect again to fix that:
+8. Your database exists now on mlab, but it contains no users, so you won't be able to log in. Let's use the command line to connect again to fix that:
 
-```text
+```
 APOS_MONGODB_URI=mongodb://YOUR-uri-goes-here node app apostrophe-users:add admin admin
 ```
 
-_This is the same user-creation command you saw in our getting-started tutorial._ We're just talking to a different database.
+*This is the same user-creation command you saw in our getting-started tutorial.* We're just talking to a different database.
 
 > You could also create your database locally and then copy it to mlab using the mongodb shell.
 
@@ -120,15 +118,15 @@ _This is the same user-creation command you saw in our getting-started tutorial.
 
 So we need to use Amazon S3 for persistent storage of uploads.
 
-First, [log into the Amazon Web Services console](https://aws.amazon.com/console/). Create an account if you haven't already. _You may have to provide a credit card but as of this writing, you can complete this how-to using their free service tier._
+First, [log into the Amazon Web Services console](https://aws.amazon.com/console/). Create an account if you haven't already. *You may have to provide a credit card but as of this writing, you can complete this how-to using their free service tier.*
 
 From the Amazon Web Services control panel, click on S3. Then click "Create Bucket."
 
-Choose a bucket name \(the same as your app is nice but not mandatory\) and a region \(we recommend you not use "US Standard" because it does not have read-after-write semantics\). Then click "Create."
+Choose a bucket name (the same as your app is nice but not mandatory) and a region (we recommend you not use "US Standard" because it does not have read-after-write semantics). Then click "Create."
 
-Now test it _without_ Heroku, on your local machine, by setting the environment variables just for one run of your site \(the trailing `\` characters are there to allow us to break one command line over multiple lines for readability in the `bash` shell\):
+Now test it *without* Heroku, on your local machine, by setting the environment variables just for one run of your site (the trailing `\` characters are there to allow us to break one command line over multiple lines for readability in the `bash` shell):
 
-```text
+```
 APOS_S3_BUCKET=YOUR-bucket-name \
 APOS_S3_SECRET=YOUR-s3-secret \
 APOS_S3_KEY=YOUR-s3-key \
@@ -136,17 +134,17 @@ APOS_S3_REGION=YOUR-chosen-region \
 node app
 ```
 
-**Regarding the** `APOS_S3_REGION` **setting:** you'll need to look this up in the [AWS regions table](http://docs.aws.amazon.com/general/latest/gr/rande.html) \(it's halfway down the page, "Amazon API Gateway"\). Use the value in the "Region" column corresponding to the "Region Name" you chose.
+**Regarding the `APOS_S3_REGION` setting:** you'll need to look this up in the [AWS regions table](http://docs.aws.amazon.com/general/latest/gr/rande.html) (it's halfway down the page, "Amazon API Gateway"). Use the value in the "Region" column corresponding to the "Region Name" you chose.
 
 Upload an image to your site, then right-click it and inspect the image URL. It should be on an Amazon S3 server at this point, **not localhost**.
 
-> "What if I want to use an S3-compatible service that isn't run by Amazon?" You can set the `APOS_S3_ENDPOINT` variable to a complete hostname. If you do, you should _not_ set `APOS_S3_REGION`.
+> "What if I want to use an S3-compatible service that isn't run by Amazon?" You can set the `APOS_S3_ENDPOINT` variable to a complete hostname. If you do, you should *not* set `APOS_S3_REGION`.
 
 ### Adding the S3 variables to Heroku
 
 Just use `heroku config:set` again:
 
-```text
+```
 heroku config:set APOS_S3_BUCKET=YOUR-bucket-name
 heroku config:set APOS_S3_SECRET=YOUR-s3-secret
 heroku config:set APOS_S3_KEY=YOUR-s3-key
@@ -155,31 +153,34 @@ heroku config:set APOS_S3_REGION=YOUR-chosen-region
 
 ## Minifying assets
 
-The site can work with Heroku at this point, but _performance will be poor because CSS and JavaScript files are not "minified"_ \(combined to save space\). We need to generate minified files in our dev environment in such a way that Heroku can access them after deployment.
+The site can work with Heroku at this point, but *performance will be poor because CSS and JavaScript files are not "minified"* (combined to save space). We need to generate minified files in our dev environment in such a way that Heroku can access them after deployment.
 
 Apostrophe generates minified files with the `apostrophe:generation` task. For simple single-server deployments we usually just run `apostrophe:generation` in production, but this doesn't work for Heroku because every "dyno" in Heroku gets its own, temporary local files and we want every dyno to see copies of the same exact assets. You'll encounter the same issue with most other cloud hosting services.
 
-So we'll build an "asset bundle" _on our dev machine_:
+So we'll build an "asset bundle" *on our dev machine*:
 
 ```bash
 APOS_MINIFY=1 node app apostrophe:generation --create-bundle=prod-bundle
 ```
 
-> IMPORTANT: the APOS\_MINIFY environment variable is OVERRIDDEN by any setting you may have made for the `minify` option when configuring the `apostrophe-assets` module. If you want to use the environment variable, DO NOT set the option in your code.
+> IMPORTANT: the APOS_MINIFY environment variable is OVERRIDDEN by any setting
+> you may have made for the `minify` option when configuring
+> the `apostrophe-assets` module. If you want to use the environment
+> variable, DO NOT set the option in your code.
 
 We're specifying `APOS_MINIFY=1` as an environment variable to override the **default** behavior in a development environment, which is not to minify. As noted, if the option has been set explicitly in your code, the environment variable is ignored. So don't do that.
 
-After a minute or so \(especially the first time\), you'll have a `prod-bundle` folder in your project.
+After a minute or so (especially the first time), you'll have a `prod-bundle` folder in your project.
 
-> VERY IMPORTANT: check your `.gitignore` file. If it it contains `data` on a line by itself, _change this line_ to `/data`. Otherwise, you will be unable to commit a complete bundle to git, and Heroku will not deploy it properly. We have fixed this in the latest version of our boilerplate project.
+> VERY IMPORTANT: check your `.gitignore` file. If it it contains `data` on a line by itself, *change this line* to `/data`. Otherwise, you will be unable to commit a complete bundle to git, and Heroku will not deploy it properly. We have fixed this in the latest version of our boilerplate project.
 
-**Commit that folder to git** \(after FIRST checking for the `.gitignore` problem mentioned above\). Heroku uses git for deployment, so we do want it there!
+**Commit that folder to git** (after FIRST checking for the `.gitignore` problem mentioned above). Heroku uses git for deployment, so we do want it there!
 
 ### Telling Heroku to use the bundle
 
 Let's set two more Heroku variables:
 
-```text
+```
 heroku config:set APOS_MINIFY=1
 heroku config:set APOS_BUNDLE=prod-bundle
 ```
@@ -194,7 +195,7 @@ We're ready to deploy to Heroku!
 
 Everything is in readiness! **Commit your code changes,** then type:
 
-```text
+```
 git push heroku
 ```
 
@@ -202,7 +203,7 @@ To push your latest code from your active git branch up to heroku. Heroku will t
 
 At the end you'll see a message like this:
 
-```text
+```
 remote: -----> Launching...
 remote:        Released v3
 remote:        https://apostrophetest.herokuapp.com/ deployed to Heroku
@@ -210,7 +211,7 @@ remote:        https://apostrophetest.herokuapp.com/ deployed to Heroku
 
 Now just visit:
 
-[https://YOUR-app-name-here.herokuapp.com/](https://YOUR-app-name-here.herokuapp.com/)
+https://YOUR-app-name-here.herokuapp.com/
 
 And log in.
 
@@ -226,17 +227,17 @@ Victory!
 
 ### Fonts, other assets, and CORS errors in the browser console
 
-To ensure there are no CORS \(Cross-Origin Resource\) errors, visit your amazon S3 bucket settings to adjust the CORS configuration:
+To ensure there are no CORS (Cross-Origin Resource) errors, visit your amazon S3 bucket settings to adjust the CORS configuration:
 
 `Amazon S3 --> [bucket] --> Permissions Tab --> CORS configuration button`
 
 Verify the value of `AllowedOrigin`. It should match the heroku url and/or the production URL of your project:
 
-```text
+```
 <AllowedOrigin>https://example.com</AllowedOrigin>
 ```
 
-```text
+```
 <AllowedOrigin>https://example.herokuapp.com</AllowedOrigin>
 ```
 
@@ -246,7 +247,7 @@ One thing is not incorporated in our process so far: running database migrations
 
 Since `mlab` allows access from anywhere with the right credentials, the simplest way to run a database migration is to execute it from your local dev environment, with an environment variable set to communicate with your remote database:
 
-```text
+```
 APOS_MONGODB_URI=mongodb://YOUR-uri-goes-here node app apostrophe:migrate
 ```
 
@@ -254,7 +255,7 @@ But naturally you don't want to forget this. And you don't want to forget the bu
 
 So it's best to create your own `./scripts/deploy` command for your project:
 
-```text
+```
 #!/bin/bash
 APOS_MINIFY=1 node app apostrophe:generation --create-bundle=prod-bundle &&
 APOS_MONGODB_URI=mongodb://YOUR-uri-goes-here node app apostrophe:migrate &&
@@ -266,7 +267,7 @@ Be sure to use `chmod u+x ./scripts/deploy` to make that script executable.
 
 Now just type:
 
-```text
+```
 ./scripts/deploy
 ```
 
@@ -286,7 +287,7 @@ Apostrophe can push your assets to S3 as part of the bundle-creation step:
 APOS_MINIFY=1 node app apostrophe:generation --create-bundle=prod-bundle --sync-to-uploadfs
 ```
 
-When the `--sync-to-uploadfs` option is used, Apostrophe will create the bundle in a folder by that name as usual, and will then upload the bundle's `public/` subdirectory to the `assets/XXXX` "folder" of your S3 bucket, where `XXXX` is a unique identifier for the current generation of assets. **You should still commit and push the** `prod-bundle` **folder.**
+When the `--sync-to-uploadfs` option is used, Apostrophe will create the bundle in a folder by that name as usual, and will then upload the bundle's `public/` subdirectory to the `assets/XXXX` "folder" of your S3 bucket, where `XXXX` is a unique identifier for the current generation of assets. **You should still commit and push the `prod-bundle` folder.**
 
 Your Heroku configuration will look almost the same as before, with one addition:
 
@@ -302,5 +303,4 @@ To ensure the contents of the bundle's `data/` subdirectory are still available,
 
 ## Taking advantage of the "release phase"
 
-Now in beta on Heroku is a feature called "release phase" in which you can execute commands on a Heroku "one-off dyno" just before your app goes live in a new release. This solves a chicken and egg problem by allowing you to run your latest code before the website actually goes live with the new code. This is another potential solution for running database migrations which doesn't require a database connection from your dev environment. For more information, see [Release Phase \(beta\)](https://devcenter.heroku.com/articles/release-phase) on Heroku.
-
+Now in beta on Heroku is a feature called "release phase" in which you can execute commands on a Heroku "one-off dyno" just before your app goes live in a new release. This solves a chicken and egg problem by allowing you to run your latest code before the website actually goes live with the new code. This is another potential solution for running database migrations which doesn't require a database connection from your dev environment. For more information, see [Release Phase (beta)](https://devcenter.heroku.com/articles/release-phase) on Heroku.

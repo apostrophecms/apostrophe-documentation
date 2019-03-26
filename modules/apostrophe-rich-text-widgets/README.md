@@ -1,2 +1,0 @@
-# apostrophe-rich-text-widgets
-

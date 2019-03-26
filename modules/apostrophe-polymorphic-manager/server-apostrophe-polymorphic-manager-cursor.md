@@ -1,2 +1,6 @@
-# server-apostrophe-polymorphic-manager-cursor
+---
+title: "apostrophe-polymorphic-manager-cursor (server)"
+layout: reference
+namespace: server
+---
 

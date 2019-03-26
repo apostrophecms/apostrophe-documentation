@@ -1,2 +1,6 @@
-# server-apostrophe-search-cursor
+---
+title: "apostrophe-search-cursor (server)"
+layout: reference
+namespace: server
+---
 

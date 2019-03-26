@@ -1,2 +1,0 @@
-# apostrophe-browser-utils
-

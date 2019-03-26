@@ -3,11 +3,9 @@ title: Extending the pieces editor modal
 layout: tutorial
 ---
 
-# extending-the-pieces-editor-modal
-
 Let's look at adding a custom button for use when editing a particular subclass of `apostrophe-pieces`.
 
-_If all you want is an extra field in the form, there's a much easier way. Just use_ `addFields` _to add more schema fields to your subclass of pieces. See the tutorials!_
+*If all you want is an extra field in the form, there's a much easier way. Just use `addFields` to add more schema fields to your subclass of pieces. See the tutorials!*
 
 For starters, you'll want to override `editorModal.html` for your module.
 
@@ -25,11 +23,11 @@ For starters, you'll want to override `editorModal.html` for your module.
 {%- endblock -%}
 ```
 
-_You will want to do exactly the same thing for_ `createModal.html` _if your button also makes sense when creating new pieces._
+*You will want to do exactly the same thing for `createModal.html` if your button also makes sense when creating new pieces.*
 
 Next check out `editor-modal.js`, where the pieces module overrides `beforeShow` to add a bunch of jquery click handlers.
 
-`self.link('mything', function() { ... })` calls that function when a `data-mything` attribute is found in the context of `self.$el` \(the modal\).
+`self.link('mything', function() { ... })` calls that function when a `data-mything` attribute is found in the context of `self.$el` (the modal).
 
 You can extend this by creating your own `editor-modal.js` file in your own module's `public/js` folder. Since you are extending `apostrophe-pieces`, which already pushes `editor-modal.js`, your own version automatically gets pushed to the browser too.
 
@@ -82,4 +80,3 @@ module.exports = {
 ```
 
 Calling `self.route('apiname'...)` is similar to calling `self.apos.app.post('/modules/mymodulename/apiname', ...)`, but it's a lot less work, and you can call again with the same apiname to override it, which you can't do with `app.post`.
-

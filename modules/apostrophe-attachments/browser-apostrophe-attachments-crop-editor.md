@@ -1,36 +1,30 @@
 ---
-title: apostrophe-attachments-crop-editor (browser)
+title: "apostrophe-attachments-crop-editor (browser)"
 layout: reference
 namespace: browser
 ---
-
-# browser-apostrophe-attachments-crop-editor
-
-## Inherits from: [apostrophe-modal](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/modules/apostrophe-modal/browser-apostrophe-modal.html)
+## Inherits from: [apostrophe-modal](../apostrophe-modal/browser-apostrophe-modal.html)
 
 ## Methods
+### afterShow()
+Use afterShow so that .width() works
+### initCropper()
 
-### afterShow\(\)
+### testMinimumSize(*e*)
 
-Use afterShow so that .width\(\) works
+### zoom(*e*)
 
-### initCropper\(\)
+### getCropperData()
 
-### testMinimumSize\(_e_\)
+### saveContent(*callback*)
 
-### zoom\(_e_\)
+### scaleDown(*coord*)
 
-### getCropperData\(\)
+### scaleUp(*coord*)
 
-### saveContent\(_callback_\)
+### deserializeCrop(*data*)
 
-### scaleDown\(_coord_\)
+### serializeCrop(*data*)
 
-### scaleUp\(_coord_\)
-
-### deserializeCrop\(_data_\)
-
-### serializeCrop\(_data_\)
-
-### busy\(_state_\)
+### busy(*state*)
 

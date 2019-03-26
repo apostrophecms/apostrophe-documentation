@@ -3,8 +3,6 @@ title: Storing images and files in Amazon S3
 layout: tutorial
 ---
 
-# storing-images-and-files-in-amazon-s3
-
 You can store your images and files in Amazon S3 if you wish. You don't have to use the local file system.
 
 This is essential to host an Apostrophe site on Heroku, or an Amazon EC2 instance without persistent storage.
@@ -36,7 +34,6 @@ With this configuration all file uploads are written to S3 instead of the local 
 > You may pass any options supported by the [knox](https://npmjs.org/package/knox) module.
 
 ### HTTPS file delivery
-
 To receive file from S3 via the secure HTTPS protocol, add an `https: true` option to your uploadfs options object.
 
 ## Special requirements for the US-East region
@@ -53,5 +50,4 @@ If the East Coast is the best fit for you, use this instead as your "region" set
 
 `external-1`
 
-In June 2015, Amazon announced that the US-East region supports read-after-write consistency, but [only if you use the s3-external-1 endpoint](https://forums.aws.amazon.com/ann.jspa?annID=3112). Setting `region` to `external-1` will cause uploadfs to use the proper URLs for this. \(Note: do not include the `s3-` in the string.\)
-
+In June 2015, Amazon announced that the US-East region supports read-after-write consistency, but [only if you use the s3-external-1 endpoint](https://forums.aws.amazon.com/ann.jspa?annID=3112). Setting `region` to `external-1` will cause uploadfs to use the proper URLs for this. (Note: do not include the `s3-` in the string.)

@@ -3,9 +3,7 @@ title: Running Apostrophe on Windows
 layout: tutorial
 ---
 
-# windows
-
-_Thanks to Andrew Brown for the original version of this HOWTO, which has been updated._
+*Thanks to Andrew Brown for the original version of this HOWTO, which has been updated.*
 
 ## Step 1: Install Software
 
@@ -14,7 +12,7 @@ For Apostrophe 2 to work on Windows you need to install:
 * Git
 * Nodejs
 * MongoDB
-* Imagemagick \(for image manipulation- required by Apostrophe\)
+* Imagemagick (for image manipulation- required by Apostrophe)
 
 ## Where to get the software
 

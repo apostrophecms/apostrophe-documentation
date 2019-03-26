@@ -3,9 +3,7 @@ title: Internationalization and localization
 layout: tutorial
 ---
 
-# apostrophe-i18n-config
-
-With Apostrophe, the best solution for internationalization \(also known as i18n, or localization\) depends on whether you're interested in translating "static" text in your templates and our interface, or dynamic text created by editing on the page, creating pieces, and so on.
+With Apostrophe, the best solution for internationalization (also known as i18n, or localization) depends on whether you're interested in translating "static" text in your templates and our interface, or dynamic text created by editing on the page, creating pieces, and so on.
 
 ## Internationalization of dynamic content
 
@@ -43,7 +41,7 @@ Here is a guide to the available options:
 
 `localesDir`: if specified, the locale .`json` files are stored here, otherwise they are stored in the `locales` subdirectory of the project root.
 
-`locales`: array of locale codes, such as `en` \(English, generally\) or `en-gb` \(English, localized for Great Britain\).
+`locales`: array of locale codes, such as `en` (English, generally) or `en-gb` (English, localized for Great Britain).
 
 `defaultLocale`: a default locale, such as `defaultLocale: 'it'`.
 
@@ -51,19 +49,19 @@ Here is a guide to the available options:
 
 `fallbacks: { 'it': 'en'} // falls back to English`
 
-`cookie`: \(string\) set a custom cookie name to hold the current locale selection. _This does not actually cause it to be stored to the cookie, it only causes the cookie to be read if it exists._ You can set the cookie yourself via the usual Express APIs.
+`cookie`: (string) set a custom cookie name to hold the current locale selection. *This does not actually cause it to be stored to the cookie, it only causes the cookie to be read if it exists.* You can set the cookie yourself via the usual Express APIs.
 
 `cookie: 'apos_language'`
 
-`queryParameter`: \(string\) set a query parameter to switch the locale for localization of static content. Note that this works regardless of what the URL is, for instance:
+`queryParameter`: (string) set a query parameter to switch the locale for localization of static content. Note that this works regardless of what the URL is, for instance:
 
 `queryParameter: 'lang'`
 
 `http://example.com/?lang=fr`
 
-`updateFiles`: \(boolean\) if this is set false, do **not** write new locale information to disk even if new strings are seen for the first time. Defaults to true. In production environments you will want to set this to `false`.
+`updateFiles`: (boolean) if this is set false, do **not** write new locale information to disk even if new strings are seen for the first time. Defaults to true. In production environments you will want to set this to `false`.
 
-`prefix`: \(string\) may be used to prefix the names of the `json` files in the locales folder. Not usually needed.
+`prefix`: (string) may be used to prefix the names of the `json` files in the locales folder. Not usually needed.
 
 `prefix:'web-'`
 
@@ -86,4 +84,3 @@ Here is a guide to the available options:
 ```
 
 There are many more options, which you can read about in the [i18n npm module documentation](https://www.npmjs.com/package/i18n).
-

@@ -1,2 +1,6 @@
-# server-apostrophe-tags-cursor
+---
+title: "apostrophe-tags-cursor (server)"
+layout: reference
+namespace: server
+---
 
