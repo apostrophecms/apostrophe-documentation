@@ -1,0 +1,2 @@
+# apostrophe-polymorphic-manager
+

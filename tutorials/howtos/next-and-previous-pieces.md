@@ -1,13 +1,15 @@
 ---
-title: "\"Next\" and \"previous\" links for pieces"
+title: '"Next" and "previous" links for pieces'
 layout: tutorial
 ---
 
-Sometimes it's desirable to provide links to the "next" and "previous" piece on the "show page" for that piece (the `show.html` template).
+# next-and-previous-pieces
+
+Sometimes it's desirable to provide links to the "next" and "previous" piece on the "show page" for that piece \(the `show.html` template\).
 
 To enable that, just configure your module that subclasses `apostrophe-pieces-pages` appropriately:
 
-```
+```text
 // in my-articles-pages/index.js
 
 module.exports = {

@@ -3,6 +3,8 @@ title: Accessing the database directly
 layout: tutorial
 ---
 
+# accessing-the-database-directly
+
 ## Working with your own collections
 
 Sometimes you'll want to work with your own MongoDB collections.
@@ -26,9 +28,9 @@ For more information, [see the mongodb-native module documentation](http://mongo
 
 ## Raw access to Apostrophe's docs
 
-Most of the time, you should [use Apostrophe's model layer](model-layer.html) to access Apostrophe's content. That gives you the benefit of permissions, sensible default sorting orders, widget loaders, joins... so, so many good things.
+Most of the time, you should [use Apostrophe's model layer](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/tutorials/intermediate/model-layer.html) to access Apostrophe's content. That gives you the benefit of permissions, sensible default sorting orders, widget loaders, joins... so, so many good things.
 
-But once in a while, that's *exactly what you don't want.*
+But once in a while, that's _exactly what you don't want._
 
 A good example is updating a "hit counter" on a piece. You don't care about permissions for this; you don't want any overhead. You don't want to needlessly update the entire object. Or create nasty race conditions. You just need to increment that counter. Fast.
 
@@ -46,9 +48,9 @@ self.beforeShow = function(req, callback) {
 }
 ```
 
-`self.apos.docs.db` gives you direct access to the `aposDocs` MongoDB collection object. *Note:* this is not the same thing as `self.apos.db`, which is the main MongoDB connection object, useful for starting new collections.
+`self.apos.docs.db` gives you direct access to the `aposDocs` MongoDB collection object. _Note:_ this is not the same thing as `self.apos.db`, which is the main MongoDB connection object, useful for starting new collections.
 
-In general, if you need to use `$set`, `$pull`, `$push`, `$addToSet`, `$unset` or `$inc`, using MongoDB directly makes sense, because *Apostrophe's model layer only writes complete docs*. For read operations it usually does not make sense to skip the model layer.
+In general, if you need to use `$set`, `$pull`, `$push`, `$addToSet`, `$unset` or `$inc`, using MongoDB directly makes sense, because _Apostrophe's model layer only writes complete docs_. For read operations it usually does not make sense to skip the model layer.
 
 Often a good strategy is to use Apostrophe for read operations, which allows you to check `._edit` to see if the current user is allowed to write to something, before writing to it directly with MongoDB. Just keep in mind you're bypassing any useful `beforeInsert`, `beforeUpdate` and `beforeSave` handlers that might exist. Sometimes, that's exactly what you want.
 
@@ -59,3 +61,4 @@ Maybe you don't want to work with the mongodb native module. Maybe you'd like to
 Just open your own database connections. There's an npm module for everything!
 
 Opening two connections to MongoDB might seem wasteful, but keep in mind that since node apps typically run very few processes, typically one per CPU core at most, you're not actually wasting scarce resources. Two connections total really isn't a big deal.
+

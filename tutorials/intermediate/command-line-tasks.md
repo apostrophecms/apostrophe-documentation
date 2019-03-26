@@ -3,11 +3,11 @@ title: Command line tasks
 layout: tutorial
 ---
 
-Sometimes, you'll want to do something to your Apostrophe site's content
-via the command line. And there are plenty of built-in command line tasks
-for this purpose. You ran one the day you created your site:
+# command-line-tasks
 
-```
+Sometimes, you'll want to do something to your Apostrophe site's content via the command line. And there are plenty of built-in command line tasks for this purpose. You ran one the day you created your site:
+
+```text
 node app apostrophe-users:add admin admin
 ```
 
@@ -49,13 +49,9 @@ self.addTask('list', 'Lists public, published products and their URLs', (apos, a
 });
 ```
 
-This task returns a promise. You can also write tasks that
-accept a callback, as seen in the next example. It's up to you.
+This task returns a promise. You can also write tasks that accept a callback, as seen in the next example. It's up to you.
 
-This code uses [Apostrophe cursors](https://apostrophecms.org/docs/tutorials/intermediate/cursors.html) to fetch information like
-a member of the public would. It doesn't see anything unpublished
-or in the trash, and it can see the `_url` property of each product,
-which is set for us dynamically when we fetch products with a cursor.
+This code uses [Apostrophe cursors](https://apostrophecms.org/docs/tutorials/intermediate/cursors.html) to fetch information like a member of the public would. It doesn't see anything unpublished or in the trash, and it can see the `_url` property of each product, which is set for us dynamically when we fetch products with a cursor.
 
 For more information, see [Apostrophe cursors](https://apostrophecms.org/docs/tutorials/intermediate/cursors.html) and [Apostrophe's model layer: working with the database](https://apostrophecms.org/docs/tutorials/intermediate/model-layer.html).
 
@@ -63,39 +59,31 @@ For more information, see [Apostrophe cursors](https://apostrophecms.org/docs/tu
 
 To run the task, type:
 
-```
+```text
 node app products:list
 ```
 
 To list all the tasks available, type:
 
-```
+```text
 node app help
 ```
 
 ### Obtaining a `req` object for a task
 
-Lots of Apostrophe APIs require a `req` object, but we're not handling
-an Express request. How do we get a `req` inside a task?
+Lots of Apostrophe APIs require a `req` object, but we're not handling an Express request. How do we get a `req` inside a task?
 
-As seen above, our code can ask the `apostrophe-tasks` module 
-for a `req` object like this:
+As seen above, our code can ask the `apostrophe-tasks` module for a `req` object like this:
 
 `self.apos.tasks.getAnonReq()`
 
-This `req` object is anonymous: it can **only do what the public can
-do**.
+This `req` object is anonymous: it can **only do what the public can do**.
 
-If your task needs to call `self.insert` and `self.update`,
-call `self.apos.tasks.getReq()` instead. This gives you an "admin"
-`req` object that can do anything an administrator can do on the site.
+If your task needs to call `self.insert` and `self.update`, call `self.apos.tasks.getReq()` instead. This gives you an "admin" `req` object that can do anything an administrator can do on the site.
 
 ## A task to cut prices: fast tasks with the migration API and MongoDB
 
-We can also write tasks that use Apostrophe's migration API to iterate
-over every document that matches a query. And, we can use MongoDB's APIs
-directly to gain access to features like MongoDB's `$set`. Here's
-how we do it:
+We can also write tasks that use Apostrophe's migration API to iterate over every document that matches a query. And, we can use MongoDB's APIs directly to gain access to features like MongoDB's `$set`. Here's how we do it:
 
 ```javascript
 // This time we are using the migrations API, which only supports
@@ -131,18 +119,9 @@ self.addTask('discount', 'Lowers prices by the specified percentage.', (apos, ar
 });
 ```
 
-> **When should I use the migrations API?** When you are absolutely sure
-you want to iterate over **everything, including the trash**... and
-when you need to operate quickly on thousands of objects without running
-> out of memory. 
+> **When should I use the migrations API?** When you are absolutely sure you want to iterate over **everything, including the trash**... and when you need to operate quickly on thousands of objects without running out of memory.
 >
-> In this example, we could have used cursors and the `update` method of
-> the products module instead. This code is faster, but it ignores permissions
-> and lowers prices on products that are currently in the trash. We could
-> adjust our query to account for that, but that takes extra work.
-> So the best choice depends on your use case.
+> In this example, we could have used cursors and the `update` method of the products module instead. This code is faster, but it ignores permissions and lowers prices on products that are currently in the trash. We could adjust our query to account for that, but that takes extra work. So the best choice depends on your use case.
 >
-> **Where can I learn more about using the MongoDB API directly?**
-> See [accessing the database directly](https://apostrophecms.org/docs/tutorials/intermediate/accessing-the-database-directly.html) and, of course,
-> the [MongoDB documentation for NodeJS](http://mongodb.github.io/node-mongodb-native/).
+> **Where can I learn more about using the MongoDB API directly?** See [accessing the database directly](https://apostrophecms.org/docs/tutorials/intermediate/accessing-the-database-directly.html) and, of course, the [MongoDB documentation for NodeJS](http://mongodb.github.io/node-mongodb-native/).
 

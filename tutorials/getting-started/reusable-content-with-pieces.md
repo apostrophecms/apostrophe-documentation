@@ -1,7 +1,9 @@
 ---
-title: "Reusable content with pieces"
+title: Reusable content with pieces
 layout: tutorial
 ---
+
+# reusable-content-with-pieces
 
 We've already learned how to add editable content to pages, and how to create some new types of editable content. But sometimes we want to reuse the same content all over the site. For a job like that, widgets in pages aren't the right answer, because a page lives in one place on the site.
 
@@ -9,7 +11,7 @@ We've already learned how to add editable content to pages, and how to create so
 
 Let's say we want to create a directory of people who work for a company. People are "global content": they are useful to display here and there all over the site, they aren't tied down to one page. The `apostrophe-pieces` module provides a great starting point to create many types of global content. We'll extend it to make our own `people` module. You can extend `apostrophe-pieces` many times in the same project.
 
-> **"What about users?"** Yes, you already have a "Users" menu on your admin bar. And yes, users are powered by pieces. But we've found that confusing website editors with the publicly visible staff directory tends to cause problems in the long run. Plus, this way, it's a teachable moment. :)
+> **"What about users?"** Yes, you already have a "Users" menu on your admin bar. And yes, users are powered by pieces. But we've found that confusing website editors with the publicly visible staff directory tends to cause problems in the long run. Plus, this way, it's a teachable moment. :\)
 
 Let's create a `lib/modules/people/index.js` file:
 
@@ -71,9 +73,9 @@ module.exports = {
 };
 ```
 
-> **IMPORTANT: note the `name` property. This identifies ONE piece in the database, so it is always singular.** Remember: Modules Are Plural (MAP), but the things they manage may not be.
+> **IMPORTANT: note the** `name` **property. This identifies ONE piece in the database, so it is always singular.** Remember: Modules Are Plural \(MAP\), but the things they manage may not be.
 
-Now let's turn the module on in `app.js`. *From now on, we'll show `modules` with just the modules we're adding. Of course you will have other modules in your `app.js` file as well.*
+Now let's turn the module on in `app.js`. _From now on, we'll show_ `modules` _with just the modules we're adding. Of course you will have other modules in your_ `app.js` _file as well._
 
 ```javascript
 modules: {
@@ -86,11 +88,11 @@ Just like that, you'll see a new "People" menu in the admin bar when you log int
 
 > We could have configured the module entirely in `app.js`. But that leads to giant `app.js` files, so we don't recommend it. However, some developers feel it's a good place for high-level properties like `extend` that help give you a quick overview of what the module is and does.
 
-There are certain additional fields that you get by default with every piece, such as `title` (the full name of the piece), `slug` (used when the piece appears as part of a URL), and `published` (which determines whether the public can see the piece, as you'll see below). But in this case, we re-declared `title` in order to change its label to `Full Name` so that the "New Person" form is not confusing.
+There are certain additional fields that you get by default with every piece, such as `title` \(the full name of the piece\), `slug` \(used when the piece appears as part of a URL\), and `published` \(which determines whether the public can see the piece, as you'll see below\). But in this case, we re-declared `title` in order to change its label to `Full Name` so that the "New Person" form is not confusing.
 
-You can even add a profile photo, via the `thumbnail` field. This field has the `singleton` type, which allows us to include a widget in the [schema](schema-guide.html) for this type of piece, exactly as if we were calling `apos.singleton` in a template. We just need to specify the `widgetType` and pass any desired options to the widget via the `options` property. You can also add fields of the `area` type.
+You can even add a profile photo, via the `thumbnail` field. This field has the `singleton` type, which allows us to include a widget in the [schema](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/tutorials/getting-started/schema-guide.html) for this type of piece, exactly as if we were calling `apos.singleton` in a template. We just need to specify the `widgetType` and pass any desired options to the widget via the `options` property. You can also add fields of the `area` type.
 
-And, there's a "biography" section. This is a full-blown content area in which the editor can add rich text and images. *There's nothing to stop us from allowing more controls and widgets here. Limiting the choices just helps keep things from getting out of hand.*
+And, there's a "biography" section. This is a full-blown content area in which the editor can add rich text and images. _There's nothing to stop us from allowing more controls and widgets here. Limiting the choices just helps keep things from getting out of hand._
 
 ### Fine-grained permissions for pieces
 
@@ -110,10 +112,9 @@ module.exports = {
 
 ### Customizing the model layer: setting the `title` automatically
 
-Right now, the `title` property (which is always the full name of the piece) is independent of `firstName` and `lastName`. For people, it makes more sense for the `title` to be generated automatically from `firstName` and `lastName`.
+Right now, the `title` property \(which is always the full name of the piece\) is independent of `firstName` and `lastName`. For people, it makes more sense for the `title` to be generated automatically from `firstName` and `lastName`.
 
 So let's add a `beforeSave` method in `lib/modules/people/index.js`:
-
 
 ```javascript
 module.exports = {
@@ -146,11 +147,11 @@ You'll notice there is still a separate prompt to enter the full name. Let's get
 ]
 ```
 
-> There are many other methods you can override or extend to change the behavior of pieces. See [the apostrophe-pieces API methods](../../modules/apostrophe-pieces/index.html) for more information.
+> There are many other methods you can override or extend to change the behavior of pieces. See [the apostrophe-pieces API methods](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/modules/apostrophe-pieces/index.html) for more information.
 
 ### Arranging fields
 
-As we create increasingly complex [schemas](schema-guide.html) for pieces and widgets, we will want to arrange the fields in the modal in a way that supports a logical workflow for editors.
+As we create increasingly complex [schemas](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/tutorials/getting-started/schema-guide.html) for pieces and widgets, we will want to arrange the fields in the modal in a way that supports a logical workflow for editors.
 
 We can use `arrangeFields` to break the schema into multiple tabs in the editor modal. This can be achieved by passing an array of objects, each containing a name, label, and array of fields, to `arrangeFields`:
 
@@ -233,7 +234,7 @@ To solve that, you should always add a `projection` filter when configuring a su
 
 This way, only the properties we really need are fetched for the widget. This can greatly speed up your site and prevent mysterious refusals to load any more data if things start joining back to themselves.
 
-> *"Which properties do I need in my projection?"* Just those that matter to you. However, `slug`, `title`, `type` and `tags` are a good minimum set. `slug` helps build URLs, `tags` usually helps determine which page is the best match for the piece, `type` makes it easier to decide how to work with each one, and `title` is self-explanatory. In this particular article, we demonstrate phone numbers and thumbnails in a widget, so we need those too.
+> _"Which properties do I need in my projection?"_ Just those that matter to you. However, `slug`, `title`, `type` and `tags` are a good minimum set. `slug` helps build URLs, `tags` usually helps determine which page is the best match for the piece, `type` makes it easier to decide how to work with each one, and `title` is self-explanatory. In this particular article, we demonstrate phone numbers and thumbnails in a widget, so we need those too.
 
 ### Custom templates for widgets
 
@@ -265,10 +266,10 @@ Our widget isn't very satisfying yet. It just displays full names. Let's improve
 {% endfor %}
 ```
 
-> **"Where do those `piece._url` links go?"** Nowhere, yet. Read on to learn about `apostrophe-pieces-pages`, which provide a destination for those links.
-
+> **"Where do those** `piece._url` **links go?"** Nowhere, yet. Read on to learn about `apostrophe-pieces-pages`, which provide a destination for those links.
+>
 > The `apostrophe-pieces-widgets` module already has a `widget.html` file. When we extend a widget and provide our own version of an existing template, our version gets rendered instead.
-
+>
 > Notice that we can pass our piece to `apos.singleton` the same way we would pass a page. Both are Apostrophe docs, and both live in the `aposDocs` MongoDB collection. Pages have a `slug` property that starts with a `/`, so they can be viewed at their own URLs. Pieces do not.
 
 ## Displaying a directory of people on a page with `apostrophe-pieces-pages`
@@ -365,7 +366,7 @@ Next, let's dress up the people with their headshots by replacing the existing `
 
 Add a little CSS and you've got a nice directory.
 
-> *We could have used `apos.singleton` to display the thumbnail,* but sometimes you don't want the extra markup, editing controls, et cetera.
+> _We could have used_ `apos.singleton` _to display the thumbnail,_ but sometimes you don't want the extra markup, editing controls, et cetera.
 >
 > The `apos.images.first` helper can find an image, also known as an "attachment," anywhere in the object we pass to it. You can pass the entire `piece` object if you want to. But, it's slower than than going straight to the thumbnail.
 >
@@ -373,12 +374,11 @@ Add a little CSS and you've got a nice directory.
 >
 > **Never assume the editor remembered to pick a thumbnail.** Always use an `if` statement to check.
 >
-> **Always specify the size.** Loading a large version of the image for an index view like this just slows down your site. See [adding editable content to pages](adding-editable-content-to-pages.html) for more information about image sizes.
->
+> **Always specify the size.** Loading a large version of the image for an index view like this just slows down your site. See [adding editable content to pages](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/tutorials/getting-started/adding-editable-content-to-pages.html) for more information about image sizes.
 
 ### Filtering the list of people
 
-Before long you'll start wanting to filter this list of people, taking advantage of joins, tags and other field types. On the public-facing site, this is easy to do thanks to the new built-in [cursor filters for most schema fields](../intermediate/cursors.html). `apostrophe-pieces-pages` offers a `piecesFilters` option that automatically takes advantage of these. This is a fine time to read the [cursors tutorial](../intermediate/cursors.html) to learn all about it.
+Before long you'll start wanting to filter this list of people, taking advantage of joins, tags and other field types. On the public-facing site, this is easy to do thanks to the new built-in [cursor filters for most schema fields](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/tutorials/intermediate/cursors.html). `apostrophe-pieces-pages` offers a `piecesFilters` option that automatically takes advantage of these. This is a fine time to read the [cursors tutorial](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/tutorials/intermediate/cursors.html) to learn all about it.
 
 ### Using AJAX to enhance filters
 
@@ -390,7 +390,7 @@ Here's how you do it:
 
 Just add a `data-apos-ajax-context="name"` attribute to the outer div that should be refreshed when any link or form submission inside it takes place and has a URL that points back to the same page.
 
-*The value of the attribute must be unique on the page.*
+_The value of the attribute must be unique on the page._
 
 Next, refactor your `index.html` template so that the actual list of people and any filters are in an `indexAjax.html` template, which is included at the appropriate point, wrapped in a div that has the `data-apos-ajax-context` attribute:
 
@@ -418,9 +418,9 @@ Next, refactor your `index.html` template so that the actual list of people and 
 
 That's it! Really.
 
-Combine this with the [techniques in the cursors tutorial](../intermediate/cursors.html) and you'll get very modern results without the need to pull React or Angular into your project. 
+Combine this with the [techniques in the cursors tutorial](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/tutorials/intermediate/cursors.html) and you'll get very modern results without the need to pull React or Angular into your project.
 
-**Tip:** you'll want to include your filter links and forms in `indexAjax.html` so that they too can be refreshed automatically, narrowing down the choices based on the other filters already in use. Any input elements or textareas that currently have the focus will not be refreshed, so you can even implement typeahead by triggering a submit of the form via JavaScript as the user types. (TODO: a good example of this with proper debouncing.)
+**Tip:** you'll want to include your filter links and forms in `indexAjax.html` so that they too can be refreshed automatically, narrowing down the choices based on the other filters already in use. Any input elements or textareas that currently have the focus will not be refreshed, so you can even implement typeahead by triggering a submit of the form via JavaScript as the user types. \(TODO: a good example of this with proper debouncing.\)
 
 #### Combining a "Load More..." button with AJAX
 
@@ -428,11 +428,11 @@ There's one catch with the ajax solution above: it doesn't yet account for a "lo
 
 But this isn't hard to accommodate. All you have to do is:
 
-1. Wrap a new element *inside* your `data-apos-ajax-context` element around the content that makes up the current "page" of results. This should *not* wrap around filter links or the "Load More" button itself.
+1. Wrap a new element _inside_ your `data-apos-ajax-context` element around the content that makes up the current "page" of results. This should _not_ wrap around filter links or the "Load More" button itself.
 2. Give that element the `data-apos-ajax-append` attribute.
 3. Add `append=1` to the query string of your `Load More` button.
 
-Here's an example. Here we assume you followed the [cursors tutorial](../intermediate/cursors.html) to enable filtering people by tag.
+Here's an example. Here we assume you followed the [cursors tutorial](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/tutorials/intermediate/cursors.html) to enable filtering people by tag.
 
 ```markup
 {# index.html #}
@@ -482,7 +482,6 @@ It's often a great idea. But first, ask yourself if it fits into your site desig
 That being said, here's how to make it work:
 
 1. Implement the "Load More" button, above.
-
 2. Add a `data-apos-ajax-infinite-scroll` attribute to the button itself:
 
 ```markup
@@ -532,8 +531,59 @@ module.exports = {
 };
 ```
 
-
 The same approach works for most types of schema fields, including joins. We do not recommend using it if the number of items in the dropdown will be very large. However, adding options to support filters that employ typeahead and avoid sending a large list of options to the browser is on our roadmap.
+
+### Custom columns and sortable columns for the "manage" modal
+
+By default, the "manage" modal displays just a few columns: "title," "last updated," and "published." The "title" and "updated at" columns support sorting on that column, by clicking on the column heading.
+
+You can extend this list and even specify your own sortable columns. Here's how to do that:
+
+```javascript
+// in lib/modules/people/index.js
+module.exports = {
+  // Other configuration options, then...
+  addColumns: [
+    // These are the standard columns, we would not add
+    // them twice, just using them as an example
+    {
+      name: 'title',
+      label: 'Title',
+      sort: {
+        // Sort on this property. The `1` is required
+        title: 1
+      }
+    },
+    {
+      name: 'updatedAt',
+      label: 'Last Updated',
+      sort: {
+        // Sort on this property. The `1` is required
+        updatedAt: 1
+      },
+      // Use a custom nunjucks template to output the
+      // value, rather than outputting the value simply
+      // as a string. The value of the property shows up
+      // as `data.value` in the template
+      partial: function(value) {
+        if (!value) {
+          // Don't crash if updatedAt is missing
+          return '';
+        }
+        return self.partial('manageUpdatedAt.html', { value: value });
+      }
+    }
+  ]
+```
+
+> Notice that for `sort` you specify an object exactly like what you'd pass to MongoDB's
+`sort()` method, or Apostrophe's `sort()` cursor filter. In particular, the actual property
+you sort on does not have to match the property name displayed in the column. For example,
+when working with people's names you might sort on `{ lastName: 1, firstName: 1 }` rather
+than `title`.
+
+**If you want to change one of the standard columns, override `defaultColumns`** rather
+than setting `addColumns`.
 
 ### Creating custom templates for individual people
 
@@ -555,7 +605,7 @@ Next we'll want to override the `show.html` template of our subclass of `apostro
 {% endblock %}
 ```
 
-> *We didn't pass an options object to `apos.area` or `apos.singleton` because we already specified the options in the [schema](schema-guide.html),* as part of `addFields`. If you *do* pass an options object to `apos.area` or `apos.singleton`, the original options object passed to the [schema](schema-guide.html) is ignored, so be sure to repeat anything that is relevant.
+> _We didn't pass an options object to_ `apos.area` _or_ `apos.singleton` _because we already specified the options in the_ [_schema_](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/tutorials/getting-started/schema-guide.html)_,_ as part of `addFields`. If you _do_ pass an options object to `apos.area` or `apos.singleton`, the original options object passed to the [schema](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/tutorials/getting-started/schema-guide.html) is ignored, so be sure to repeat anything that is relevant.
 
 ### Contextual pieces: editing pieces "on the page"
 
@@ -571,10 +621,11 @@ module.exports = {
 };
 ```
 
-When we do this, *the user is automatically redirected to the `show.html` page for each person as soon as they create and save it.*
+When we do this, _the user is automatically redirected to the_ `show.html` _page for each person as soon as they create and save it._
 
 Note that this only makes sense if you are using `apostrophe-pieces-pages`.
 
 Now that we've made this choice, we might want to switch to calling `apos.singleton` in the page for the profile photo as well.
 
-We can also set `contextual: true` on each of the `body` and `thumbnail` [schema](schema-guide.html) fields so that they don't show up in the modal dialog box but are instead only editable on the page. Whether to do that is up to you, but it does help reinforce the idea that you edit this content on the page.
+We can also set `contextual: true` on each of the `body` and `thumbnail` [schema](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/tutorials/getting-started/schema-guide.html) fields so that they don't show up in the modal dialog box but are instead only editable on the page. Whether to do that is up to you, but it does help reinforce the idea that you edit this content on the page.
+

@@ -1,7 +1,9 @@
 ---
-title: "Sending email from your Apostrophe project"
+title: Sending email from your Apostrophe project
 layout: tutorial
 ---
+
+# email
 
 Any module in an Apostrophe project can send email easily. Here's an example. This example builds on `apostrophe-pieces`, which we have already learned about.
 
@@ -68,3 +70,4 @@ A plaintext version of the email is also automatically created, with valid URLs 
 **"Hey, all of my emails wound up in the spam folder!"** Staying out of the spam folder is outside the scope of Apostrophe... but see the above advice re: using a reliable delivery service like Postmark or Amazon SES, or configuring your own mailserver carefully to sign everything well.
 
 **"Hey, a suggestions module sounds great, where's the rest of the code for that?"** We're just demonstrating email here, but check out the [apostrophe-pieces-submit-widgets](https://npmjs.org/package/apostrophe-pieces-submit-widgets) module, which is what you're looking for. Add the above `afterInsert` method to send email to the administrator when new submissions are made.
+

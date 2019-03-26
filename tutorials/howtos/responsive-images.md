@@ -1,7 +1,9 @@
 ---
-title: "Responsive images"
+title: Responsive images
 layout: tutorial
 ---
+
+# responsive-images
 
 The `apostrophe-images-widgets` module provides a powerful way to select and display images on the site, including the ability to manually crop images, or rely on CSS to carry out various automatic responsive cropping approaches.
 
@@ -13,9 +15,9 @@ The `srcset` attribute was introduced to give developers a way to declaratively 
 
 Apostrophe lets use make use of this browser feature through the `apos.images.srcset` template helper. In the following example, we'll write a simple custom widget that renders an image with both a `srcset` and a `sizes` attribute.
 
-> This example assumes that you know how to load and work with custom widgets. If you're unsure about that, please refer to the [custom widgets tutorial](../getting-started/custom-widgets.html).
+> This example assumes that you know how to load and work with custom widgets. If you're unsure about that, please refer to the [custom widgets tutorial](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/tutorials/getting-started/custom-widgets.html).
 
-With this example widget, it's up to the developer to specify the `sizesAttr` option (which is what we use for the `sizes` attribute on the image). So when you load the widget into an area or singleton, follow this example:
+With this example widget, it's up to the developer to specify the `sizesAttr` option \(which is what we use for the `sizes` attribute on the image\). So when you load the widget into an area or singleton, follow this example:
 
 ```markup
 {{ apos.area(data.page, 'content', {
@@ -65,7 +67,7 @@ module.exports = {
 
 Rather than scaling all of the images to have the same height while displaying at their full width, it can be more appropriate to allow CSS to crop the image, creating a "vignette" effect in which the design doesn't require that users see the entire image — they just need a background to fill, for instance, the top half the screen on their device of choice, whether it is a smartphone or a desktop browser. This isn't hard to achieve with the `background-size: cover` CSS property and the `noHeight` option of the `apostrophe-images` widget:
 
-```less
+```css
 // In your own .less file
 .my-marquee .apos-slideshow-item
 {
@@ -152,3 +154,4 @@ Freestanding attachment schema fields — those that are part of your own piece 
 Sometimes even the focal point strategy doesn't give end users enough confidence that critical elements won't be cropped out.
 
 One alternative is to provide two `apostrophe-images` widgets, which can be manually cropped for two fixed aspect ratios, and use CSS media queries to decide which one appears on a given device.
+

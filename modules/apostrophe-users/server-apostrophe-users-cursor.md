@@ -1,9 +1,10 @@
 ---
-title: "apostrophe-users-cursor (server)"
+title: apostrophe-users-cursor (server)
 layout: reference
 namespace: server
 ---
 
-## Methods
-### singleGroup(*value*)
+# Methods
+
+## singleGroup\(_value_\)
 

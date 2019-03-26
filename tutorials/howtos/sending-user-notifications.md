@@ -3,6 +3,8 @@ title: Sending user notifications
 layout: tutorial
 ---
 
+# sending-user-notifications
+
 Apostrophe has very good support for sending notifications to users. This is useful whenever something happens, either in the browser or on the server, that should be called to the user's attention.
 
 It is especially useful as a way of calling attention to something that happens on the server without creating new API routes and browser-side JavaScript just to convey that information.
@@ -118,7 +120,7 @@ module.exports = {
 
 ### Sending server-side notifications in tasks
 
-Sending a notification in a [command-line task](../intermediate/command-line-tasks.html) works just as shown above. However, if you wish to send one at the *end* of the task, you should `await` the `apos.notify` call. This ensures that the notification reaches the database before the task process exits.
+Sending a notification in a [command-line task](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/tutorials/intermediate/command-line-tasks.html) works just as shown above. However, if you wish to send one at the _end_ of the task, you should `await` the `apos.notify` call. This ensures that the notification reaches the database before the task process exits.
 
 Under other circumstances, you don't need to `await` when calling `apos.notify`. It will take care of itself.
 
@@ -147,3 +149,4 @@ You can substitute strings into your message using `%s`. Pass additional strings
 ### Detailed example
 
 The [apostrophe-workflow module](https://github.com/apostrophecms/apostrophe-workflow/blob/master/public/js/export-modal.js) uses `apos.notify` calls to display error messages in many situations. See the source code for [export-modal.js](https://github.com/apostrophecms/apostrophe-workflow/blob/master/public/js/export-modal.js).
+

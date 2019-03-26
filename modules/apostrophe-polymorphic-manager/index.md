@@ -1,5 +1,5 @@
 ---
-title: "apostrophe-polymorphic-manager (module)"
+title: apostrophe-polymorphic-manager (module)
 layout: reference
 module: true
 namespaces:
@@ -12,8 +12,12 @@ children:
   - browser-apostrophe-polymorphic-manager
   - browser-apostrophe-polymorphic-manager-relationship-editor
 ---
-## Inherits from: [apostrophe-doc-type-manager](../apostrophe-doc-type-manager/index.html)
+
+# index
+
+## Inherits from: [apostrophe-doc-type-manager](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/modules/apostrophe-doc-type-manager/index.html)
 
 ## API Routes
+
 ### POST /modules/apostrophe-polymorphic-manager/polymorphic-chooser-modal
 

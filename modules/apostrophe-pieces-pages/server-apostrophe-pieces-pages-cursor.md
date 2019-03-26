@@ -1,6 +1,2 @@
----
-title: "apostrophe-pieces-pages-cursor (server)"
-layout: reference
-namespace: server
----
+# server-apostrophe-pieces-pages-cursor
 
