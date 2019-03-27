@@ -1,2 +1,0 @@
-# Hosting Apostrophe in production
-
