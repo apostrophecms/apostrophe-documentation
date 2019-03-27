@@ -17,7 +17,7 @@ The [apostrophe-schemas](../../modules/apostrophe-schemas/README.md) module prov
 
 ### Building schemas with `addFields` and friends
 
-Modules like [apostrophe-pieces](../../modules/apostrophe-pieces/index.md) pass on their `addFields`, `removeFields`, `alterFields` and `arrangeFields` options to the `compose` method of [apostrophe-schemas\#compose](../../modules/apostrophe-schemas/index.md). And the beautiful thing about `compose` is how easy it becomes to create the schema you want, adding fields here, removing fields there and arranging them into tabs to suit your needs.
+Modules like [apostrophe-pieces](../../modules/apostrophe-pieces/README.md) pass on their `addFields`, `removeFields`, `alterFields` and `arrangeFields` options to the `compose` method of [apostrophe-schemas\#compose](../../modules/apostrophe-schemas/README.md#compose). And the beautiful thing about `compose` is how easy it becomes to create the schema you want, adding fields here, removing fields there and arranging them into tabs to suit your needs.
 
 `addFields` is simply an array of field definitions as seen below; if a field appears more than once, the later definition wins.
 
@@ -53,7 +53,7 @@ This makes it easy to arrange and then re-arrange the groups in subclasses witho
 
 ### Using `beforeConstruct` to adjust schemas
 
-When you create a new module that extends [apostrophe-pieces](../../modules/apostrophe-pieces/index.md) at the project level, you will often use these options directly.
+When you create a new module that extends [apostrophe-pieces](../../modules/apostrophe-pieces/README.md) at the project level, you will often use these options directly.
 
 But when you're working on a module that other people will extend, you need a little more nuance. You want to configure the schema your way, then honor _their_ settings so that everything is gracefully added to your work.
 
@@ -809,7 +809,7 @@ Example:
   type: 'joinByArrayReverse',
   // Optional since the name of our join matches the name of the type, plus an s
   withType: 'product',
-  /// Optional since there is only one join with fabrics in the product schema
+  // Optional since there is only one join with fabrics in the product schema
   reverseOf: '_fabrics'
 }
 ```
