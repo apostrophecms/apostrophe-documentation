@@ -267,7 +267,7 @@ The new bit is the `filters` option. By specifying a `projection` filter, we can
 >
 > **Watch out for reverse joins! If you have** [**reverse joins**](schema-guide.md) **and your widget doesn't need them,** the `projection` filter can't help you avoid loading them, because they are loaded from "the other side" \(the ids are stored with the documents linking _to_ your documents\). Instead, use the `joins` filter, and specify an array of join field names your widget actually needs — if any.
 >
-> _What else can I do with_ `filters`_?_ That's an intermediate topic, but you can do anything that [ cursors](https://github.com/apostrophecms/apostrophe-documentation/tree/75c44ebf643c2311c37ac7d95760172bdfad13d1/tutorials/intermediate/cursors.md) can do. Check those out if you're in a rush.
+> _What else can I do with_ `filters`_?_ That's an intermediate topic, but you can do anything that [ cursors](../intermediate/cursors.md) can do. Check those out if you're in a rush.
 
 ## Adding a JavaScript widget player on the browser side
 
@@ -371,9 +371,9 @@ module.exports = {
 };
 ```
 
-In Apostrophe modules, the `construct` function is called to add methods to the module. Here we are following the "super pattern," making a note of the original method we inherited from [apostrophe-widgets](https://github.com/apostrophecms/apostrophe-documentation/tree/75c44ebf643c2311c37ac7d95760172bdfad13d1/modules/apostrophe-widgets/index.md), creating our own replacement method, invoking the original from within it, and then pushing our own asset to the browser.
+In Apostrophe modules, the `construct` function is called to add methods to the module. Here we are following the "super pattern," making a note of the original method we inherited from [apostrophe-widgets](../../modules/apostrophe-widgets/index.md), creating our own replacement method, invoking the original from within it, and then pushing our own asset to the browser.
 
-The [pushAsset method](https://github.com/apostrophecms/apostrophe-documentation/tree/75c44ebf643c2311c37ac7d95760172bdfad13d1/modules/apostrophe-module/index.md#push-asset) can push both stylesheets and scripts. The name `always` is a convention meaning "everyone sees this stylesheet, whether logged in or not." And we make sure of that by setting the `when` option to `always`.
+The [pushAsset method](../../modules/apostrophe-module/index.md#push-asset) can push both stylesheets and scripts. The name `always` is a convention meaning "everyone sees this stylesheet, whether logged in or not." And we make sure of that by setting the `when` option to `always`.
 
 Now we need to supply `always.less` in the right place: the `public/css` subdirectory of our module's directory.
 

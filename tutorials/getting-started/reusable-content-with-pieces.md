@@ -147,7 +147,7 @@ You'll notice there is still a separate prompt to enter the full name. Let's get
 ]
 ```
 
-> There are many other methods you can override or extend to change the behavior of pieces. See [the apostrophe-pieces API methods](https://github.com/apostrophecms/apostrophe-documentation/tree/75c44ebf643c2311c37ac7d95760172bdfad13d1/modules/apostrophe-pieces/index.md) for more information.
+> There are many other methods you can override or extend to change the behavior of pieces. See [the apostrophe-pieces API methods](../../modules/apostrophe-pieces/README.md) for more information.
 
 ### Arranging fields
 
@@ -378,7 +378,7 @@ Add a little CSS and you've got a nice directory.
 
 ### Filtering the list of people
 
-Before long you'll start wanting to filter this list of people, taking advantage of joins, tags and other field types. On the public-facing site, this is easy to do thanks to the new built-in [cursor filters for most schema fields](https://github.com/apostrophecms/apostrophe-documentation/tree/75c44ebf643c2311c37ac7d95760172bdfad13d1/tutorials/intermediate/cursors.md). `apostrophe-pieces-pages` offers a `piecesFilters` option that automatically takes advantage of these. This is a fine time to read the [cursors tutorial](https://github.com/apostrophecms/apostrophe-documentation/tree/75c44ebf643c2311c37ac7d95760172bdfad13d1/tutorials/intermediate/cursors.md) to learn all about it.
+Before long you'll start wanting to filter this list of people, taking advantage of joins, tags and other field types. On the public-facing site, this is easy to do thanks to the new built-in [cursor filters for most schema fields](../intermediate/cursors.md). `apostrophe-pieces-pages` offers a `piecesFilters` option that automatically takes advantage of these. This is a fine time to read the [cursors tutorial](../intermediate/cursors.md) to learn all about it.
 
 ### Using AJAX to enhance filters
 
@@ -418,7 +418,7 @@ Next, refactor your `index.html` template so that the actual list of people and 
 
 That's it! Really.
 
-Combine this with the [techniques in the cursors tutorial](https://github.com/apostrophecms/apostrophe-documentation/tree/75c44ebf643c2311c37ac7d95760172bdfad13d1/tutorials/intermediate/cursors.md) and you'll get very modern results without the need to pull React or Angular into your project.
+Combine this with the [techniques in the cursors tutorial](../intermediate/cursors.md) and you'll get very modern results without the need to pull React or Angular into your project.
 
 **Tip:** you'll want to include your filter links and forms in `indexAjax.html` so that they too can be refreshed automatically, narrowing down the choices based on the other filters already in use. Any input elements or textareas that currently have the focus will not be refreshed, so you can even implement typeahead by triggering a submit of the form via JavaScript as the user types. \(TODO: a good example of this with proper debouncing.\)
 
@@ -432,7 +432,7 @@ But this isn't hard to accommodate. All you have to do is:
 2. Give that element the `data-apos-ajax-append` attribute.
 3. Add `append=1` to the query string of your `Load More` button.
 
-Here's an example. Here we assume you followed the [cursors tutorial](https://github.com/apostrophecms/apostrophe-documentation/tree/75c44ebf643c2311c37ac7d95760172bdfad13d1/tutorials/intermediate/cursors.md) to enable filtering people by tag.
+Here's an example. Here we assume you followed the [cursors tutorial](../intermediate/cursors.md) to enable filtering people by tag.
 
 ```markup
 {# index.html #}

@@ -18,9 +18,9 @@ var apos = require('apostrophe')({
 }
 ```
 
-This article is a reference guide to the options and methods of that object. Most of the time you'll be more interested in Apostrophe's [modules](https://github.com/apostrophecms/apostrophe-documentation/tree/56e9be7df36a153d8751804c1aac4ce5a70fd5c2/modules/index.html). See also [apostrophe promise events](https://github.com/apostrophecms/apostrophe-documentation/tree/56e9be7df36a153d8751804c1aac4ce5a70fd5c2/events.html) for information on how to "hook in" to the life cycle of pages and documents in Apostrophe.
+This article is a reference guide to the options and methods of that object. Most of the time you'll be more interested in Apostrophe's [modules](events.md) for information on how to "hook in" to the life cycle of pages and documents in Apostrophe.
 
-This article is not the right place to start learning Apostrophe. For that, see the [getting started tutorial](https://github.com/apostrophecms/apostrophe-documentation/tree/56e9be7df36a153d8751804c1aac4ce5a70fd5c2/tutorials/getting-started/index.html).
+This article is not the right place to start learning Apostrophe. For that, see the [getting started tutorial](../tutorials/getting-started/README.md).
 
 It is possible to have more than one `apos` object in a node.js application, for instance with the `apostrophe-multisite` module, but typically you will only have one.
 
@@ -30,7 +30,7 @@ It is possible to have more than one `apos` object in a node.js application, for
 
 If present, this function is invoked with a callback, just before Apostrophe either listens for connections or, when arguments are present on the command line, carries out a task.
 
-Note that it is too late to add routes at this point because [apostrophe-pages](https://github.com/apostrophecms/apostrophe-documentation/tree/56e9be7df36a153d8751804c1aac4ce5a70fd5c2/modules/apostrophe-pages/index.html) will already be responding to all remaining URLs. If you wish to add routes you should do so in your own Apostrophe modules.
+Note that it is too late to add routes at this point because [apostrophe-pages](modules/apostrophe-pages/README.md) will already be responding to all remaining URLs. If you wish to add routes you should do so in your own Apostrophe modules.
 
 This function does not receive an error object and is only invoked when Apostrophe has been successful in initialization so far \(see `initFailed`\). This function **must invoke its callback**. If an error is passed to the callback Apostrophe initialization will fail.
 
@@ -68,7 +68,7 @@ Otherwise Apostrophe will print the error and exit the node.js application.
 
 However Apostrophe also loads an object from `lib/modules/name-of-module/index.js`. Any settings present in `app.js` itself override those found in `index.js`.
 
-The combined object is used to define the new module or extend an existing one. The usual rules of [moog types](https://github.com/apostrophecms/apostrophe-documentation/tree/56e9be7df36a153d8751804c1aac4ce5a70fd5c2/glossary.html#moog-type) apply.
+The combined object is used to define the new module or extend an existing one. The usual rules of [moog types](glossary.md#moog-type) apply.
 
 So in principle you can write a `construct` function for your module right in `app.js`. However we don't recommend it because it produces a very long `app.js` file.
 
@@ -95,7 +95,7 @@ module.exports = {
 
 `alias`: the module becomes available as a property of the `apos` object by this name. **It is considered poor practice to set this option** _**and rely on its value**_ **in published npm modules.** Apart from the core Apostrophe modules, the decision to alias a module should be left to the project-level developer, so that they can avoid conflicts. Note that all modules can be recognized as properties of `apos.modules` by their full names.
 
-`beforeConstruct`, `construct`, `afterConstruct`: functions that create and initialize the module. See [moog types](https://github.com/apostrophecms/apostrophe-documentation/tree/56e9be7df36a153d8751804c1aac4ce5a70fd5c2/glossary.html#moog-type).
+`beforeConstruct`, `construct`, `afterConstruct`: functions that create and initialize the module. See [moog types](glossary.md#moog-type).
 
 Currently all other property names set options for the module.
 
@@ -155,13 +155,13 @@ Core Apostrophe modules, and project-specific modules, usually register an "alia
 
 ### `callAll(methodName, args..., callback)`
 
-**This is a legacy method, all instances of it in the apostrophe core now instead call** `callAllAndEmit` **which also emits an Apostrophe** [**promise event**](https://github.com/apostrophecms/apostrophe-documentation/tree/56e9be7df36a153d8751804c1aac4ce5a70fd5c2/docs/events.html)**.**
+**This is a legacy method, all instances of it in the apostrophe core now instead call** `callAllAndEmit` **which also emits an Apostrophe** [**promise event**](events.md)**.**
 
 When `callAll` is invoked with a method name such as `docBeforeSave`, Apostrophe invokes that method on **ALL modules that have one**.
 
 **A callback is required when invoking** `callAll`**, but optional when receiving it.** That is, your code that invokes `callAll` **must** be asynchronous and pass a callback as the last argument to `callAll`. However, some of the modules that implement `methodName` may omit the callback if they do not need to do any asynchronous work. `docBeforeSave` is a good example: some modules only need to copy one property to another, while others might need to consult another database.
 
-For legacy reasons, the `callAll` technique is widely used in core Apostrophe modules. For instance, [page-before-send](https://github.com/apostrophecms/apostrophe-documentation/tree/56e9be7df36a153d8751804c1aac4ce5a70fd5c2/modules/apostrophe-pages/index.html#pageBeforeSend) is invoked just before a page is sent to the browser, allowing all modules one last opportunity to do some asynchronous work and add more information to `req.data`. But new code should listen for the `apostrophe-pages:beforeSend` [promise event](https://github.com/apostrophecms/apostrophe-documentation/tree/56e9be7df36a153d8751804c1aac4ce5a70fd5c2/docs/events.html) instead.
+For legacy reasons, the `callAll` technique is widely used in core Apostrophe modules. For instance, [page-before-send](../modules/apostrophe-pages/README.md#pageBeforeSend) is invoked just before a page is sent to the browser, allowing all modules one last opportunity to do some asynchronous work and add more information to `req.data`. But new code should listen for the `apostrophe-pages:beforeSend` [promise event](../events.md) instead.
 
 ### `destroy()`
 
@@ -169,11 +169,11 @@ The `destroy` method destroys the `apos` object, freeing resources such as datab
 
 ### `emit(eventName, args...)`
 
-For legacy reasons, Apostrophe provides a simple mechanism for synchronous events. This is separate from [promise events](https://github.com/apostrophecms/apostrophe-documentation/tree/56e9be7df36a153d8751804c1aac4ce5a70fd5c2/events.html), which support asynchronous programming and are generally preferred in new code. Synchronous events may still be useful in new code when code is invoked so often that no delay can be tolerated.
+For legacy reasons, Apostrophe provides a simple mechanism for synchronous events. This is separate from [promise events](events.html), which support asynchronous programming and are generally preferred in new code. Synchronous events may still be useful in new code when code is invoked so often that no delay can be tolerated.
 
-The `apos.emit` method takes an event name and additional, optional arguments and invokes all event listeners for that event name. For example, the [apostrophe-search](https://github.com/apostrophecms/apostrophe-documentation/tree/56e9be7df36a153d8751804c1aac4ce5a70fd5c2/modules/apostrophe-search/index.html) module emits a `docSearchIndex` event with a `doc` and an array of `texts`, allowing other modules to potentially add more search texts.
+The `apos.emit` method takes an event name and additional, optional arguments and invokes all event listeners for that event name. For example, the [apostrophe-search](../modules/apostrophe-search/README.md) module emits a `docSearchIndex` event with a `doc` and an array of `texts`, allowing other modules to potentially add more search texts.
 
-On the server side, Apostrophe emits [promise events](https://github.com/apostrophecms/apostrophe-documentation/tree/56e9be7df36a153d8751804c1aac4ce5a70fd5c2/events.html) far more often.
+On the server side, Apostrophe emits [promise events](events.md) far more often.
 
 ### `listen()`
 
@@ -181,9 +181,9 @@ The `listen` method is invoked automatically when Apostrophe is ready to listen 
 
 ### `on(eventName, fn)`
 
-Registers an event handler to be invoked when the named event is emitted \(see [emit](core-server.md#code-emit)\). The event handler function will receive any additional arguments passed to `emit`. **In most situations this should be regarded as a legacy feature,** see [promise events](https://github.com/apostrophecms/apostrophe-documentation/tree/56e9be7df36a153d8751804c1aac4ce5a70fd5c2/events.html).
+Registers an event handler to be invoked when the named event is emitted \(see [emit](core-server.md#code-emit)\). The event handler function will receive any additional arguments passed to `emit`. **In most situations this should be regarded as a legacy feature,** see [promise events](events.md).
 
 ### `off(eventName, fn)`
 
-Removes the specified event handler from the list of event handlers for the named synchronous event \(see [on](core-server.md#code-on)\). Primarily a legacy feature. See [promise events](https://github.com/apostrophecms/apostrophe-documentation/tree/56e9be7df36a153d8751804c1aac4ce5a70fd5c2/events.html).
+Removes the specified event handler from the list of event handlers for the named synchronous event \(see [on](core-server.md#code-on)\). Primarily a legacy feature. See [promise events](events.md).
 

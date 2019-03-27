@@ -64,7 +64,7 @@ To avoid problems with double-registration of event handlers when the main body 
 
 Many, but not all, modules push a call to this method from the server side; you will see those calls in "view source."
 
-Typical modules have a `user.js` file on the browser side, which invokes [apos.define](core-browser.md#define) with the same type name as the module. This method is used to actually create the object, after project-level code and other modules have had a chance to extend the definition via [implicit subclassing](glossary.html#implicit-subclassing).
+Typical modules have a `user.js` file on the browser side, which invokes [apos.define](core-browser.md#define) with the same type name as the module. This method is used to actually create the object, after project-level code and other modules have had a chance to extend the definition via [implicit subclassing](glossary.md#implicit-subclassing).
 
 ### `csrf()`
 
@@ -76,7 +76,7 @@ This method automatically prefixes any AJAX operations carried out via jQuery wi
 
 ### `define(typeName, definitionObject)`
 
-Defines a new [moog type](../glossary.html#moog-type) on the browser side. `apos.define` is seen in every core module that does browser-side work. Its use allows easy subclassing and enhancement at the project level. An alias for `apos.synth.define`. Many of the core Apostrophe source files on the browser side consist entirely of an `apos.define` call. The object is then created later via `apos.create`.
+Defines a new [moog type](glossary.md#moog-type) on the browser side. `apos.define` is seen in every core module that does browser-side work. Its use allows easy subclassing and enhancement at the project level. An alias for `apos.synth.define`. Many of the core Apostrophe source files on the browser side consist entirely of an `apos.define` call. The object is then created later via `apos.create`.
 
 The `definitionObject` looks exactly like an `index.js` file on the server side, with properties to set default values for options and often `beforeConstruct`, `construct` and `afterConstruct` functions. Both the browser and the server rely on moog to support highly flexible object-oriented programming.
 
@@ -86,7 +86,7 @@ Apostrophe provides an event mechanism. The `apos.emit` method takes an event na
 
 ### `isDefined(typeName)`
 
-Returns true if the specified [moog type](../glossary.html#moog-type) is defined. An alias for `apos.synth.isDefined`.
+Returns true if the specified [moog type](glossary.md#moog-type) is defined. An alias for `apos.synth.isDefined`.
 
 ### `log(msg)`
 
@@ -111,13 +111,13 @@ Removes the specified event handler from the list of event handlers for the name
 
 ### `pageReady($el)`
 
-The [apostrophe-templates](../modules/apostrophe-templates/README.html) module will push a call to this method automatically, via the `pageReadyWhenCalm` method, when loading a new page or refreshing `data-apos-refreshable`. This method emits the `ready` and `enhance` events.
+The [apostrophe-templates](../modules/apostrophe-templates/README.md) module will push a call to this method automatically, via the `pageReadyWhenCalm` method, when loading a new page or refreshing `data-apos-refreshable`. This method emits the `ready` and `enhance` events.
 
 ### `pageReadyWhenCalm($el)`
 
-Invokes `pageReady` after first waiting for jQuery's DOMready event and then waiting for "next tick" via `setImmediate`. This allows time for code in your own JavaScript files to run first and potentially patch or replace core functionality. A call to this method is pushed automatically by the [apostrophe-templates](../modules/apostrophe-templates/README.html) module.
+Invokes `pageReady` after first waiting for jQuery's DOMready event and then waiting for "next tick" via `setImmediate`. This allows time for code in your own JavaScript files to run first and potentially patch or replace core functionality. A call to this method is pushed automatically by the [apostrophe-templates](../modules/apostrophe-templates/README.md) module.
 
 ### `redefine(typeName, definitionObject)`
 
-Redefines a [moog type](../glossary.html#moog-type) on the browser side, throwing out any previous definition rather than implicitly subclassing as a second call to `apos.define` would do.
+Redefines a [moog type](../glossary.md#moog-type) on the browser side, throwing out any previous definition rather than implicitly subclassing as a second call to `apos.define` would do.
 
