@@ -15,7 +15,7 @@
   * [Custom widgets](tutorials/getting-started/custom-widgets.md)
   * [Layout / Nested widgets](tutorials/getting-started/layout-widgets.md)
   * [Reusable content with pieces](tutorials/getting-started/reusable-content-with-pieces.md)
-  * [Global Settings](tutorials/getting-started/settings.md)
+  * [Global Ssettings](tutorials/getting-started/settings.md)
   * [Guide to schemas](tutorials/getting-started/schema-guide.md)
 * [Intermediate Tutorials](tutorials/intermediate-tutorials/README.md)
   * [Managing your permissions](tutorials/intermediate-tutorials/managing-your-permissions.md)
