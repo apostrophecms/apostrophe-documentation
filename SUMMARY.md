@@ -71,6 +71,15 @@
 * [How Apostrophe handles requests](technical-overviews/how-apostrophe-handles-requests.md)
 * [How Apostrophe modules are structured](technical-overviews/how-apostrophe-modules-are-structured.md)
 
+## Other
+
+* [Promise Events](other/events.md)
+* [Nunjucks Filters](other/nunjucks-filters.md)
+* [Glossary](other/glossary.md)
+* [More on Modules](other/more-modules.md)
+* [Core Browser](other/core-browser.md)
+* [Core Server](other/core-server.md)
+
 ## Modules
 
 * [Module Reference](modules/README.md)
@@ -242,13 +251,4 @@
 * [apostrophe-widgets](modules/apostrophe-widgets/README.md)
   * [browser-apostrophe-widgets-editor](modules/apostrophe-widgets/browser-apostrophe-widgets-editor.md)
   * [browser-apostrophe-widgets](modules/apostrophe-widgets/browser-apostrophe-widgets.md)
-
-## Other
-
-* [Promise Events](other/events.md)
-* [Nunjucks Filters](other/nunjucks-filters.md)
-* [Glossary](other/glossary.md)
-* [More on Modules](other/more-modules.md)
-* [Core Browser](other/core-browser.md)
-* [Core Server](other/core-server.md)
 
