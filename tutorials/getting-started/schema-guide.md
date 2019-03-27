@@ -809,7 +809,7 @@ Example:
   type: 'joinByArrayReverse',
   // Optional since the name of our join matches the name of the type, plus an s
   withType: 'product',
-  // Optional since there is only one join with fabrics in the product schema
+  /// Optional since there is only one join with fabrics in the product schema
   reverseOf: '_fabrics'
 }
 ```
