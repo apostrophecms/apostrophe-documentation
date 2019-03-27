@@ -10,9 +10,9 @@ Apostrophe always creates an `apos` object and attaches it to the `window` objec
 
 Most of Apostrophe's browser-side functionality is implemented by its individual modules, many of which can be accessed through aliases on the `apos` object, such as `apos.utils` or `apos.ui`.
 
-This article is a reference guide to the options and methods of the browser-side `apos` object itself. Most of the time you'll be more interested in Apostrophe's [modules](../modules/README.html).
+This article is a reference guide to the options and methods of the browser-side `apos` object itself. Most of the time you'll be more interested in Apostrophe's [modules](../modules/README.md).
 
-This article is not the right place to start learning Apostrophe. For that, see the [getting started tutorial](../tutorials/getting-started/README.html).
+This article is not the right place to start learning Apostrophe. For that, see the [getting started tutorial](../tutorials/getting-started/README.md).
 
 Since Apostrophe is responsible for generating the webpage, there will only be one `apos` object in the browser.
 
@@ -32,11 +32,11 @@ Not all Apostrophe modules have a browser-side object; only those that require o
 
 ### `prefix`
 
-Passed through to the browser by the server, `apos.prefix` will match its value on the server side if a site is running as a "virtual subdirectory." Apostrophe also automatically adjusts jQuery's AJAX behavior to respect the prefix and provides `apos.ui.redirect`, a convenience method that prepends the prefix to whatever is passed to it. So in most cases you will not need to prepend this yourself. See [the prefix option](../core-server.html).
+Passed through to the browser by the server, `apos.prefix` will match its value on the server side if a site is running as a "virtual subdirectory." Apostrophe also automatically adjusts jQuery's AJAX behavior to respect the prefix and provides `apos.ui.redirect`, a convenience method that prepends the prefix to whatever is passed to it. So in most cases you will not need to prepend this yourself. See [the prefix option](core-server.md).
 
 ### `synth`
 
-The instance of `moog` that powers `apos.create`, `apos.define`, etc. on the browser side, providing [object-oriented programming features](../glossary.html#moog-type). Can also be used directly \(`apos.synth.create`, etc\).
+The instance of `moog` that powers `apos.create`, `apos.define`, etc. on the browser side, providing [object-oriented programming features](glossary.md#moog-type). Can also be used directly \(`apos.synth.create`, etc\).
 
 ## Methods
 
@@ -50,7 +50,7 @@ Typically `apos.change` is invoked by the "edit" modals of pieces in order to re
 
 ### `create(typeName, optionsObject, [callback])`
 
-Creates an object. Specifically, an instance of any [moog type](../glossary.html#moog-type) that is defined on the browser side. You will see `apos.create` calls when you peek at "view source" because server-side modules push them to create singletons that provide their UI.
+Creates an object. Specifically, an instance of any [moog type](glossary.md#moog-type) that is defined on the browser side. You will see `apos.create` calls when you peek at "view source" because server-side modules push them to create singletons that provide their UI.
 
 The callback is optional, provided that neither the type you are creating nor any of its base classes take a callback in their constructor. If there is a callback it will receive `(err, object)`.
 
@@ -64,7 +64,7 @@ To avoid problems with double-registration of event handlers when the main body 
 
 Many, but not all, modules push a call to this method from the server side; you will see those calls in "view source."
 
-Typical modules have a `user.js` file on the browser side, which invokes [apos.define](core-browser.md#define) with the same type name as the module. This method is used to actually create the object, after project-level code and other modules have had a chance to extend the definition via [implicit subclassing](../glossary.html#implicit-subclassing).
+Typical modules have a `user.js` file on the browser side, which invokes [apos.define](core-browser.md#define) with the same type name as the module. This method is used to actually create the object, after project-level code and other modules have had a chance to extend the definition via [implicit subclassing](glossary.html#implicit-subclassing).
 
 ### `csrf()`
 
