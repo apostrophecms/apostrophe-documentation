@@ -5,7 +5,7 @@ layout: reference
 
 # More on Modules
 
-_This page is about optional modules for Apostrophe. For the standard modules, see the_ [_reference_](https://github.com/apostrophecms/apostrophe-documentation/tree/56e9be7df36a153d8751804c1aac4ce5a70fd5c2/modules/index.html)_._
+_This page is about optional modules for Apostrophe. For the standard modules, see the_ [_reference_](../modules/index.html)_._
 
 ## More official modules for Apostrophe
 

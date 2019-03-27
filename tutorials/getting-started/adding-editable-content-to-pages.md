@@ -143,7 +143,7 @@ Here is an example with the popular options:
 
 If you don't specify a size, the `full` size is displayed.
 
-We'll talk about adding custom image sizes in [`apostrophe-attachments`](https://github.com/apostrophecms/apostrophe-documentation/tree/75c44ebf643c2311c37ac7d95760172bdfad13d1/modules/apostrophe-attachments/index.md#code-add-image-sizes-code) in a later tutorial.
+We'll talk about adding custom image sizes in [`apostrophe-attachments`](../../modules/apostrophe-attachments/README.md#addimagesizes) in a later tutorial.
 
 ### `apostrophe-files`
 
@@ -169,7 +169,7 @@ Users editing these widgets have the option of uploading files or reusing them. 
 
 In addition to GIF, JPEG and PNG files.
 
-This can be adjusted by configuring the [apostrophe-attachments](https://github.com/apostrophecms/apostrophe-documentation/tree/75c44ebf643c2311c37ac7d95760172bdfad13d1/modules/apostrophe-attachments/index.md) module.
+This can be adjusted by configuring the [apostrophe-attachments](../../modules/apostrophe-attachments/README.md) module.
 
 ### `apostrophe-html`
 
