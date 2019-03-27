@@ -30,7 +30,7 @@
 * HOWTOs
   * [How do I create a '404 not found' page?](tutorials/howtos/notFoundPage.md)
   * [Sending email from your Apostrophe project](tutorials/howtos/email.md)
-  * [Accessing images inside related pages](tutorials/howtos/thumbnails-and-areas-of-child-pages.md.md)
+  * [Accessing images inside related pages](tutorials/howtos/thumbnails-and-areas-of-child-pages.md)
   * [Activating the "password reset" feature of Apostrophe](tutorials/howtos/password-reset.md)
   * [How do I enable site-wide full text search?](tutorials/howtos/search.md)
   * [Building combined menus and custom buttons with the admin bar](tutorials/howtos/admin-bar.md)
