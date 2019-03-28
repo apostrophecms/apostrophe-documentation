@@ -11,7 +11,7 @@ We're going to start from the very beginning by installing the software necessar
 
 ### Install the Software
 
-**These instructions are for MacOS X,** which most developers use to test code that will eventually deploy to Linux. Also see this lovely [HOWTO for Windows](../tutorials/howtos/windows.md) contributed by Michael Brown. Linux users can get going by installing the same operating system packages required by our [deployment HOWTO](../tutorials/intermediate/deployment.md).
+**These instructions are for MacOS X,** which most developers use to test code that will eventually deploy to Linux. Also see this lovely [HOWTO for Windows](../howtos/windows.md) contributed by Michael Brown. Linux users can get going by installing the same operating system packages required by our [deployment HOWTO](../intermediate/deployment.md).
 
 This tutorial will get you set up on a Mac running OSX 10.9 or better.
 
