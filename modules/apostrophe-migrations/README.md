@@ -1,12 +1,3 @@
----
-title: "apostrophe-migrations (module)"
-layout: reference
-module: true
-namespaces:
-
-children:
-
----
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 ### `apos.migrations`
 Provide services for database migration. The `apostrophe-migrations:migrate` task

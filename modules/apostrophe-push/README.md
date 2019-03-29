@@ -1,12 +1,3 @@
----
-title: "apostrophe-push (module)"
-layout: reference
-module: true
-namespaces:
-
-children:
-
----
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 ### `apos.push`
 This module provides ways to "push" JavaScript calls so that they happen in the

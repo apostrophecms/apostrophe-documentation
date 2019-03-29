@@ -1,13 +1,3 @@
----
-title: "apostrophe-schemas (module)"
-layout: reference
-module: true
-namespaces:
-  browser: true
-children:
-  - browser-apostrophe-schemas
-  - browser-apostrophe-array-editor-modal
----
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 ### `apos.schemas`
 This module provides schemas, a flexible and fast way to create new data types

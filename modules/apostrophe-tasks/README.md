@@ -1,12 +1,3 @@
----
-title: "apostrophe-tasks (module)"
-layout: reference
-module: true
-namespaces:
-
-children:
-
----
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 ### `apos.tasks`
 This module allows other modules to create command line tasks.

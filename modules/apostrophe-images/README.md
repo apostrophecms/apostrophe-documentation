@@ -1,19 +1,3 @@
----
-title: "apostrophe-images (module)"
-layout: reference
-module: true
-namespaces:
-  server: true
-  browser: true
-children:
-  - server-apostrophe-images-cursor
-  - browser-apostrophe-images-chooser
-  - browser-apostrophe-images-relationship-editor
-  - browser-apostrophe-images-manager-modal
-  - browser-apostrophe-images-editor-modal
-  - browser-apostrophe-images-focal-point-editor
-  - browser-apostrophe-images
----
 ## Inherits from: [apostrophe-pieces](../apostrophe-pieces/index.html)
 ### `apos.images`
 A subclass of `apostrophe-pieces`, `apostrophe-images` establishes a library

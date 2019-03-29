@@ -1,13 +1,3 @@
----
-title: "apostrophe-rich-text-widgets (module)"
-layout: reference
-module: true
-namespaces:
-  browser: true
-children:
-  - browser-apostrophe-rich-text-widgets
-  - browser-apostrophe-rich-text-widgets-editor
----
 ## Inherits from: [apostrophe-widgets](../apostrophe-widgets/index.html)
 Implements rich text editor widgets. Unlike most widget types, the rich text
 editor does not use a modal; instead you edit in context on the page.

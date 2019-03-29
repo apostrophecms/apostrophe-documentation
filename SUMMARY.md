@@ -81,6 +81,7 @@
 * [Core Server](other/core-server.md)
 
 ## Modules
+
 * [apostrophe-admin-bar](modules/apostrophe-admin-bar)
   * [apostrophe-admin-bar (browser)](modules/apostrophe-admin-bar/browser-apostrophe-admin-bar)
 * [apostrophe-any-page-manager](modules/apostrophe-any-page-manager)

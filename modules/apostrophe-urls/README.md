@@ -1,12 +1,3 @@
----
-title: "apostrophe-urls (module)"
-layout: reference
-module: true
-namespaces:
-
-children:
-
----
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 ### `apos.urls`
 Provides the `build` method, a flexible and powerful way to build

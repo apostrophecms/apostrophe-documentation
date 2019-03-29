@@ -1,19 +1,3 @@
----
-title: "apostrophe-pieces (module)"
-layout: reference
-module: true
-namespaces:
-  server: true
-  browser: true
-children:
-  - server-apostrophe-pieces-cursor
-  - browser-apostrophe-pieces
-  - browser-apostrophe-pieces-manager-modal
-  - browser-apostrophe-pieces-editor-modal
-  - browser-apostrophe-pieces-batch-permissions-modal
-  - browser-apostrophe-pieces-chooser
-  - browser-apostrophe-pieces-relationship-editor
----
 ## Inherits from: [apostrophe-doc-type-manager](../apostrophe-doc-type-manager/index.html)
 `apostrophe-pieces` provides a "base class" you can extend to create new content
 types for your project. Just use the `addFields` option to create a schema and

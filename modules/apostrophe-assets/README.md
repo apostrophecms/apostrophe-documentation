@@ -1,12 +1,3 @@
----
-title: "apostrophe-assets (module)"
-layout: reference
-module: true
-namespaces:
-
-children:
-
----
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 ### `apos.assets`
 This module provides minification and delivery of browser-side assets

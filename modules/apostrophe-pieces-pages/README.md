@@ -1,16 +1,3 @@
----
-title: "apostrophe-pieces-pages (module)"
-layout: reference
-module: true
-namespaces:
-  server: true
-  browser: true
-children:
-  - server-apostrophe-pieces-pages-cursor
-  - browser-apostrophe-pieces-pages
-  - browser-apostrophe-pieces-pages-chooser
-  - browser-apostrophe-pieces-pages-relationship-editor
----
 ## Inherits from: [apostrophe-custom-pages](../apostrophe-custom-pages/index.html)
 `apostrophe-pieces-pages` implements "index pages" that display pieces of a
 particular type in a paginated, filterable way. It's great for implementing

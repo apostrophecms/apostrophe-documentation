@@ -1,8 +1,3 @@
----
-title: "apostrophe-pages-editor (browser)"
-layout: reference
-namespace: browser
----
 Edit page settings.
 
 Typically instantiated by the page settings button, however it can be instantiated

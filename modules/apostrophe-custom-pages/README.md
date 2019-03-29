@@ -1,16 +1,3 @@
----
-title: "apostrophe-custom-pages (module)"
-layout: reference
-module: true
-namespaces:
-  server: true
-  browser: true
-children:
-  - server-apostrophe-custom-pages-cursor
-  - browser-apostrophe-custom-pages
-  - browser-apostrophe-custom-pages-chooser
-  - browser-apostrophe-custom-pages-relationship-editor
----
 ## Inherits from: [apostrophe-doc-type-manager](../apostrophe-doc-type-manager/index.html)
 A base class for modules that enhance the functionality of a page type.
 Extra fields can be added to the page settings modal in the usual way via

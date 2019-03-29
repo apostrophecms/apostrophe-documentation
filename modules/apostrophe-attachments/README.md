@@ -1,14 +1,3 @@
----
-title: "apostrophe-attachments (module)"
-layout: reference
-module: true
-namespaces:
-  browser: true
-children:
-  - browser-apostrophe-attachments
-  - browser-apostrophe-attachments-crop-editor
-  - browser-apostrophe-attachments-focal-point-editor
----
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 ### `apos.attachments`
 This module implements the

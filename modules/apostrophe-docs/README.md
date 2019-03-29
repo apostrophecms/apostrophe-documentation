@@ -1,14 +1,3 @@
----
-title: "apostrophe-docs (module)"
-layout: reference
-module: true
-namespaces:
-  server: true
-  browser: true
-children:
-  - server-apostrophe-cursor
-  - browser-apostrophe-docs
----
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 ### `apos.docs`
 This module is responsible for managing all of the documents (apostrophe "docs")

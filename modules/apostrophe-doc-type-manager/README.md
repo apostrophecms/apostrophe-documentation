@@ -1,17 +1,3 @@
----
-title: "apostrophe-doc-type-manager (module)"
-layout: reference
-module: true
-namespaces:
-  server: true
-  browser: true
-children:
-  - server-apostrophe-doc-type-manager-cursor
-  - browser-apostrophe-doc-type-manager
-  - browser-apostrophe-doc-type-manager-chooser
-  - browser-apostrophe-doc-type-manager-relationship-editor
-  - browser-apostrophe-doc-type-manager-manager-modal
----
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 This module is the base class of `apostrophe-custom-pages`, `apostrophe-pieces`,
 `apostrophe-global` and any other module that serves as the manager for a

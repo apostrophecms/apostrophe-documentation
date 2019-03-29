@@ -254,7 +254,7 @@ module.exports = {
           var method = _.find(type.methods, { name: name });
           if (!method) {
             console.error(type.name);
-            console.error("Helper " + name + " was picked but not found");
+            console.error("helper " + name + " was picked but not found");
           } else {
             type.helpers.push(method);
           }
@@ -274,19 +274,6 @@ module.exports = {
         var namespaces = _.uniq(_.map(relatedTypes, 'namespace'));
 
         fs.writeFileSync(markdownFile,
-          '---\n' +
-          'title: "' + type.title + '"\n' +
-          'layout: reference\n' +
-          'module: true\n' +
-          'namespaces:\n' +
-            _.map(namespaces, function(namespace) {
-              return '  ' + namespace + ': true';
-            }).join("\n") + "\n" +
-          'children:\n' +
-            _.map(relatedTypes, function(relatedType) {
-              return '  - ' + relatedType.nameNamespaced;
-            }).join('\n') + '\n' +
-          '---\n' +
           documentExtend(type) +
           documentAlias(type) +
           documentComments(type.comments) + "\n" +
@@ -299,11 +286,6 @@ module.exports = {
           var namespace = type.namespace;
           var markdownFile = folder + '/' + type.nameNamespaced + '.md';
           fs.writeFileSync(markdownFile,
-            '---\n' +
-            'title: "' + type.title + '"\n' +
-            'layout: reference\n' +
-            'namespace: ' + namespace + '\n' +
-            '---\n' +
             documentExtend(type) +
             documentComments(type.comments) + "\n" +
             documentMethods(type) +

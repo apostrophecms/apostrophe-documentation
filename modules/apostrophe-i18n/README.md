@@ -1,12 +1,3 @@
----
-title: "apostrophe-i18n (module)"
-layout: reference
-module: true
-namespaces:
-
-children:
-
----
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 This module makes an instance of the [i18n](https://npmjs.org/package/i18n) npm module available
 as `apos.i18n`. Apostrophe also makes this available in Nunjucks templates via the

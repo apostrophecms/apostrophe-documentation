@@ -1,13 +1,3 @@
----
-title: "apostrophe-html-widgets (module)"
-layout: reference
-module: true
-namespaces:
-  browser: true
-children:
-  - browser-apostrophe-html-widgets
-  - browser-apostrophe-html-widgets-editor
----
 ## Inherits from: [apostrophe-widgets](../apostrophe-widgets/index.html)
 Provides the "raw HTML widget" (the `apostrophe-html` widget).
 Use of this widget is not recommended if it can be avoided. The

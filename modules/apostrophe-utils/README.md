@@ -1,12 +1,3 @@
----
-title: "apostrophe-utils (module)"
-layout: reference
-module: true
-namespaces:
-  browser: true
-children:
-  - browser-apostrophe-context
----
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 ### `apos.utils`
 Methods here should be of short, of universal utility, and not
