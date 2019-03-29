@@ -85,17 +85,44 @@ module.exports = {
       });
 
       mkdirp('../modules');
-      var file = '../modules/index.md';
+      var file = '../modules/SUMMARY-FRAGMENT.md';
       fs.writeFileSync(file,
-        '---\n' +
-        'title: "Module reference"\n' +
-        'layout: "reference"\n' +
-        'children:\n' +
-        _.map(modules, indentModule).join("\n") +
-        '\n---\n' + fs.readFileSync(__dirname + '/../../../../_tip-ins/modules.md')
+        _.map(modules, function(module) {
+          return `* [${module}](modules/${module})` + summarizeSubtypes(module)
+        }).join('\n')
       );
 
+
       return callback(null);
+
+      function summarizeSubtypes(module) {
+        const byType = {
+          server: {},
+          browser: {}
+        };
+        _.each(types, function(type, name) {
+          if (type.module !== module) {
+            return;
+          }
+          if ((type.name === module) && (type.namespace === 'server')) {
+            return;
+          }
+          byType[type.namespace][name] = type;
+        });
+        let result = '';
+        const server = _.values(byType.server);
+        const browser = _.values(byType.browser);
+        if (server.length) {
+          result += '\n' + server.map(linkSubtype).join("\n");
+        }
+        if (browser.length) {
+          result += '\n' + browser.map(linkSubtype).join("\n");
+        }
+        return result;
+        function linkSubtype(subtype) {
+          return `  * [${subtype.title}](modules/${subtype.module}/${subtype.nameNamespaced})`;
+        }
+      }
 
       function readAllTypes() {
         serverTypes = JSON.parse(fs.readFileSync(self.apos.rootDir + '/data/server-types.json'));

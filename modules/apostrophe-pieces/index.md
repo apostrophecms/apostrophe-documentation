@@ -21,7 +21,7 @@ you'll get a user interface for managing your content for free. Add in the
 for your pieces, and use `apostrophe-pieces-widgets` to allow them to be sprinkled
 into pages all over the site. To learn more, see:
 
-[Reusable content with pieces](../../tutorials/getting-started/reusable-content-with-pieces.html)
+[Reusable content with pieces](../tutorials/getting-started/reusable-content-with-pieces.html)
 
 ## Options
 
@@ -33,7 +33,7 @@ conflicts with the slugs of other piece types.
 
 ## More Options
 
-See [reusable content with pieces](../../tutorials/getting-started/reusable-content-with-pieces.html)
+See [reusable content with pieces](../tutorials/getting-started/reusable-content-with-pieces.html)
 for many additional options.
 
 
@@ -52,10 +52,8 @@ middleware for JSON API routes that expect the ID of
 an existing piece this user is allowed to edit at req.body._id
 ### requireEditor(*req*, *res*, *next*) *[api]*
 User must have some editing privileges for this type
-### list(*req*, *options*, *callback*) *[api]*
-options.filters can contain cursor filters. `options.chooser`, `options.format` and
-`options.manageView` are also implemented. For bc, if `options.filters` does not exist,
-all properties of options are treated as cursor filters.
+### list(*req*, *filters*, *callback*) *[api]*
+
 ### insert(*req*, *piece*, *options*, *callback*) *[api]*
 Insert a piece. Also invokes the `beforeInsert`, `beforeSave`, `afterInsert` and
 `afterSave` methods of this module.
@@ -266,3 +264,4 @@ for things like testing pagination, see the
 ### POST /modules/apostrophe-pieces/rescue
 
 ### POST /modules/apostrophe-pieces/insert-via-upload
+

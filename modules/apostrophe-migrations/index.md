@@ -59,11 +59,6 @@ THIS API IS FOR MIGRATION AND TASK USE ONLY AND HAS NO SECURITY.
 The iterator is passed a document and a callback. If the iterator
 accepts only one parameter, it is assumed to return a promise,
 which is awaited in lieu of a callback.
-
-If it is determined that node is running in an interactive terminal,
-a simple plaintext progress display is shown. If this is not
-desired, the `progressDisplay` option of this module may be
-set to `false`.
 ### eachArea(*criteria*, *limit*, *iterator*, *callback*) *[api]*
 Invoke the iterator function once for each area in each doc in
 the aposDocs collection. The `iterator` function receives

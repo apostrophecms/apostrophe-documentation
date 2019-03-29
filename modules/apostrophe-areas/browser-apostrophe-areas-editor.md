@@ -81,7 +81,7 @@ attributes specific to the area editor. Typically
 called by the widget's editor on save, so it can change
 attributes of the widget element itself
 ### insertItem(*$item*)
-$item whould be a widget wrapper, not just the widget itself
+
 ### addSeparators(*$draggable*)
 This method recreates separators throughout the entire page as appropriate
 to the element being dragged.

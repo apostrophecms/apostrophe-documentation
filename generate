@@ -7,5 +7,4 @@ node _head-meta-generator/app &&
   node app apostrophe:generation &&
   node app documentation:generate
 ) &&
-habit &&
 echo "Done!"
