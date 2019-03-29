@@ -3,7 +3,7 @@ title: HOWTOs
 menu: Documentation
 layout: reference
 children:
-  - notFoundPage
+  - notfoundpage
   - email
   - thumbnails-and-areas-of-child-pages
   - password-reset
