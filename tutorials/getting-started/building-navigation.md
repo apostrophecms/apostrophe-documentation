@@ -1,13 +1,13 @@
 ---
-title: Building Navigation
+title: "Building Navigation"
 layout: tutorial
 ---
 
-# Building Navigation
+## Building Navigation
 
 Apostrophe pages are part of a "tree" in which every page is a child of another page, except for the home page. That makes it very easy to build navigation links for common cases.
 
-## Linking to the home page
+### Linking to the home page
 
 OK, you can probably guess the URL for that! But let's ask Apostrophe:
 
@@ -17,9 +17,9 @@ OK, you can probably guess the URL for that! But let's ask Apostrophe:
 
 There are real advantages to doing it this way. If the site has a `prefix` option, you'll still get the right URL. And the title of the home page can change.
 
-> **"Why** `_url`**?"** The URL isn't a permanent part of the page object that lives in the database. Anything that is dynamically set and not part of the database starts with `_`, so it doesn't get accidentally stored back to mongodb.
+> **"Why `_url`?"** The URL isn't a permanent part of the page object that lives in the database. Anything that is dynamically set and not part of the database starts with `_`, so it doesn't get accidentally stored back to mongodb.
 
-## Linking to the subpages of the home page \("tab" navigation\)
+### Linking to the subpages of the home page ("tab" navigation)
 
 Lots of sites have a row of "tabs" at the top. Want to display those no matter where in the site you are?
 
@@ -31,7 +31,7 @@ Lots of sites have a row of "tabs" at the top. Want to display those no matter w
 </ul>
 ```
 
-Now let's add a CSS class indicating the current tab \(the one that is the current page, or an ancestor of it\):
+Now let's add a CSS class indicating the current tab (the one that is the current page, or an ancestor of it):
 
 ```markup
 <ul class="tabs">
@@ -47,9 +47,9 @@ Now let's add a CSS class indicating the current tab \(the one that is the curre
 </ul>
 ```
 
-## Dropdown menus
+### Dropdown menus
 
-Sometimes you'll want to display dropdown menus. Each menu represents a child of the home page, and each item on each menu represents a child of _that_ page.
+Sometimes you'll want to display dropdown menus. Each menu represents a child of the home page, and each item on each menu represents a child of *that* page.
 
 First, in `app.js`, let's configure `apostrophe-pages` to retrieve two levels of children when fetching ancestors of the current page:
 
@@ -94,7 +94,7 @@ Now we can easily output all the markup we'd need for dropdown menus:
 </ul>
 ```
 
-## Breadcrumb trails
+### Breadcrumb trails
 
 The current page is `data.page`, and by default, `data.page._ancestors` is available:
 
@@ -108,9 +108,9 @@ The current page is `data.page`, and by default, `data.page._ancestors` is avail
 {% endif %}
 ```
 
-> **Always check whether** `data.page` **exists** when using it in a layout template that might also be extended by `login.html`, `notFound.html` and other places where there is no CMS "page."
+> **Always check whether `data.page` exists** when using it in a layout template that might also be extended by `login.html`, `notFound.html` and other places where there is no CMS "page."
 
-## "Accordion" navigation
+### "Accordion" navigation
 
 Want to list the ancestors of the current page along with their subpages? Sure:
 
@@ -132,7 +132,7 @@ Want to list the ancestors of the current page along with their subpages? Sure:
 {% endif %}
 ```
 
-## Children of the current page
+### Children of the current page
 
 That's another easy one:
 
@@ -146,7 +146,6 @@ That's another easy one:
 {% endif %}
 ```
 
-## Custom navigation
+### Custom navigation
 
 "The page tree is very nice, but how do I build a custom navigation menu with hand-picked pages from all over the tree?" That's a good question. To accomplish it we'll create a custom widget in the next tutorial.
-

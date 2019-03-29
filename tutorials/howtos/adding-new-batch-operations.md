@@ -1,9 +1,7 @@
 ---
-title: Adding new batch operations for pieces
+title: "Adding new batch operations for pieces"
 layout: tutorial
 ---
-
-# adding-new-batch-operations
 
 Apostrophe includes several handy batch operations on multiple pieces, such as "trash," "rescue from trash," "publish," "unpublish," "tag" and "remove tag." But sometimes you'll want a batch feature of your own.
 
@@ -34,11 +32,12 @@ module.exports = {
 }
 ```
 
-> The `requiredField` option makes sure the `publish` field hasn't been removed from the schema altogether for this type of piece. It has nothing to do with requiring the user to do something. The `unlessFilter` option removes this batch operation when a particular filter in the manage view has a particular value. Apostrophe's boolean filters can be `true`, `false` or `null` \(not filtering right now\).
+> The `requiredField` option makes sure the `publish` field hasn't been removed from the schema altogether for this type of piece. It has nothing to do with requiring the user to do something.
+> The `unlessFilter` option removes this batch operation when a particular filter in the manage view has a particular value. Apostrophe's boolean filters can be `true`, `false` or `null` (not filtering right now).
 
 ### The `publish` route
 
-Next, add a route with the same name for your pieces module. \(Remember, Apostrophe can already publish things, but we're demonstrating how to create that feature from scratch.\)
+Next, add a route with the same name for your pieces module. (Remember, Apostrophe can already publish things, but we're demonstrating how to create that feature from scratch.)
 
 ```javascript
 module.exports = {
@@ -96,9 +95,9 @@ apos.define('apostrophe-pieces-manager-modal', {
 
 `batchSimple` invokes the `publish` route for you, locks the UI, displays errors, and so on. You shouldn't need to bypass it, but if you really want to, check out the `batchSimple` source code as a starting point.
 
-> By implicitly subclassing `apostrophe-pieces-manager-modal` at the project level, we are adding this feature for _all_ types of pieces. You could also do this work in the folder for a specific subclass of pieces, in which case you would define `your-module-name-manager-modal` instead. If you do that, make sure you also follow all the server-side steps in the specific module you want, not `apostrophe-pieces`.
+> By implicitly subclassing `apostrophe-pieces-manager-modal` at the project level, we are adding this feature for *all* types of pieces. You could also do this work in the folder for a specific subclass of pieces, in which case you would define `your-module-name-manager-modal` instead. If you do that, make sure you also follow all the server-side steps in the specific module you want, not `apostrophe-pieces`.
 
-Boom! That's it: we now have a batch operation for publishing things. \(OK, we already did, but now you know how to do something similar.\)
+Boom! That's it: we now have a batch operation for publishing things. (OK, we already did, but now you know how to do something similar.)
 
 ## Batch operations with forms
 
@@ -130,7 +129,7 @@ Here's how the `tag` batch operation could be implemented, if we didn't already 
 
 Our module also needs a route to implement the operation on the back end:
 
-```text
+```
   // Inside construct, add this route
   self.routes.tag = function(req, res) {
     return self.batchSimpleRoute(req, function(req, piece, data, callback) {

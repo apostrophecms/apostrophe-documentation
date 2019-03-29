@@ -1,2 +1,0 @@
-# apostrophe-i18n
-

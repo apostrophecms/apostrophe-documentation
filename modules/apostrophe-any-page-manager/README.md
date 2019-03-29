@@ -1,2 +1,0 @@
-# apostrophe-any-page-manager
-

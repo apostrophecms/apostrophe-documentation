@@ -1,9 +1,7 @@
 ---
-title: 'Initialization: how Apostrophe starts up'
+title: "Initialization: how Apostrophe starts up"
 layout: tutorial
 ---
-
-# how-apostrophe-starts-up
 
 This tutorial covers how Apostrophe initializes itself. In the process, it provides insight into how you can influence that process and the best times to do things in your own modules.
 
@@ -38,4 +36,3 @@ Like `modulesReady`, `afterInit` may also take a callback if it needs to do asyn
 ### `afterInit` in `app.js`
 
 You may also supply a top-level `afterInit` property in your `app.js` configuration. If provided this function must take a callback. We recommend using `modulesReady` or `afterInit` in a project-level module instead. Cluttering up `app.js` with executable code generally leads to hard-to-understand projects.
-

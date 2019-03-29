@@ -1,9 +1,7 @@
 ---
-title: How can I remove pieces from an index listing?
+title: "How can I remove pieces from an index listing?"
 layout: tutorial
 ---
-
-# trim-index
 
 In Apostrophe, you'll often display a nice single page or paginated list of pieces, using a module that extends `apostrophe-pieces-pages`. That could include official modules such as `apostrophe-blog-pages` as well as custom modules you create. We refer to these special pages as "index pages."
 
@@ -12,7 +10,6 @@ It's common for an index page to have a featured piece, such as a news listing w
 In your module extending `apostrophe-pieces-pages`, extend `indexCursor` with the `super` pattern. You'll need to get the IDs of the pieces you're excluding, dropping them into an array. Then in the final return, use the `.and()` cursor method to add the additional MongoDB filter to only call for pieces that don't share those IDs.
 
 Example:
-
 ```javascript
 construct: function (self, options) {
   var superIndexCursor = self.indexCursor;
@@ -38,4 +35,3 @@ construct: function (self, options) {
   };
 }
 ```
-

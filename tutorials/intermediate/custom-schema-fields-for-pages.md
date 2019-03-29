@@ -1,13 +1,11 @@
 ---
-title: Custom schema fields for pages
-layout: tutorial
+title: "Custom schema fields for pages"
+layout: "tutorial"
 ---
 
-# custom-schema-fields-for-pages
+If you've read [reusable content with pieces](../getting-started/reusable-content-with-pieces.html), then you know about [apostrophe schemas](../getting-started/schema-guide.html). You have already experienced the flexibility of adding new fields to your own piece types. But what about pages?
 
-If you've read [reusable content with pieces](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/tutorials/getting-started/reusable-content-with-pieces.html), then you know about [apostrophe schemas](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/tutorials/getting-started/schema-guide.html). You have already experienced the flexibility of adding new fields to your own piece types. But what about pages?
-
-Here's the good news: you can do the same trick with pages. The right way to do it depends on whether you want to enhance _just one_ page type with extra fields in "Page Settings," or add those fields to _all_ page types.
+Here's the good news: you can do the same trick with pages. The right way to do it depends on whether you want to enhance *just one* page type with extra fields in "Page Settings," or add those fields to *all* page types.
 
 ## Adding custom schema fields to "Page Settings" for one type
 
@@ -45,18 +43,18 @@ Now, in `gallery.html`, we can write:
 You can add other field types too, of course. And you can use `arrangeFields` to group them into tabs in Page Settings, just like you would for pieces.
 
 > "Do I have to add all of my page's areas to the schema? Or is calling `apos.area` in the template enough?" For top-level areas in the document, calling `apos.area` or `apos.singleton` is good enough, unless you are using the [apostrophe-headless](https://npmjs.org/package/apostrophe-headless) module or simply wish to edit that content via tabs in Page Settings.
->
+
 > "What about apostrophe-pieces-pages?" These already have a module! So please don't declare a second, redundant module that will only break the operation of that page type. Instead, just use `addFields` when configuring your module that extends `apostrophe-pieces-pages`.
 
 ## Adding custom schema fields to "Page Settings" for all types
 
-It's possible to add a field to _all_ page types too. This is a very cool trick, especially when you have a need similar to our [apostrophe-seo](https://npmjs.org/package/apostrophe-seo) module... but it doesn't already exist.
+It's possible to add a field to *all* page types too. This is a very cool trick, especially when you have a need similar to our [apostrophe-seo](https://npmjs.org/package/apostrophe-seo) module... but it doesn't already exist.
 
 For this maneuver, we'll need to extend the `apostrophe-custom-pages` module itself. That module serves as the parent class of all "page manager" modules.
 
 > Even "ordinary" page types have a page manager module, which is created implicitly for you. And yes, it extends `apostrophe-custom-pages`.
 
-To do that, just create `lib/modules/apostrophe-custom-pages/index.js` at project level \(do NOT modify `node_modules/apostrophe`\):
+To do that, just create `lib/modules/apostrophe-custom-pages/index.js` at project level (do NOT modify `node_modules/apostrophe`):
 
 ```javascript
 // in lib/modules/apostrophe-custom-pages/index.js
@@ -92,4 +90,3 @@ It is possible to add fields to ALL document types, not just pages. To do that, 
 `apostrophe-doc-type-manager` is the "base class" of both `apostrophe-pieces` and `apostrophe-custom-pages`.
 
 Of course you should use this power carefully. "Opt in" is a good policy. Consider crafting your `beforeConstruct` code to look for an `option` that turns on adding the fields, so they are not attached to things like `apostrophe-users` that almost certainly won't need them.
-

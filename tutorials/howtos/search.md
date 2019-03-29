@@ -3,8 +3,6 @@ title: How do I enable site-wide full text search?
 layout: tutorial
 ---
 
-# search
-
 Apostrophe has full-text search capabilities built in. You just need to enable the `apostrophe-search` module, and create a "parked page" with the type `apostrophe-search` so that there is a place to display search results.
 
 ```javascript
@@ -31,7 +29,7 @@ Apostrophe has full-text search capabilities built in. You just need to enable t
 
 Now you get a search page at /search; it's very bare bones in appearance, so copy the index.html template from the `apostrophe` npm module's `lib/modules/apostrophe-search/views` folder to your own project-level `lib/modules/apostrophe-search/views` folder, and modify the markup as needed.
 
-You can create your own "mini" search forms anywhere on the site. Just make sure they target your search page \(`/search` in this case\) and have the `q` query string variable set to the user's search. It's simple to do with a plain old GET-method form:
+You can create your own "mini" search forms anywhere on the site. Just make sure they target your search page (`/search` in this case) and have the `q` query string variable set to the user's search. It's simple to do with a plain old GET-method form:
 
 ```markup
 <form method="GET" action="/search">
@@ -49,7 +47,7 @@ Everything, basically. Joins and widgets are loaded normally for each result on 
 
 You may notice search results for documents that don't have URLs, or are simply of piece types you don't want to be included. Obviously, this isn't ideal.
 
-The simplest way to limit the results is to set the `types` option to an array containing all of the piece and page types that you _do_ want results for:
+The simplest way to limit the results is to set the `types` option to an array containing all of the piece and page types that you *do* want results for:
 
 ```javascript
 'apostrophe-search': {
@@ -61,9 +59,9 @@ The simplest way to limit the results is to set the `types` option to an array c
 },
 ```
 
-When you do this, _no_ other types will be included in the results. So be sure to extend the list appropriately if you add new page or piece types you would like to see.
+When you do this, *no* other types will be included in the results. So be sure to extend the list appropriately if you add new page or piece types you would like to see.
 
-**For piece types, there must be corresponding pieces-pages** in order for a valid URL to be provided. For instance, you have a `product` type powered by a `products` module that extends `apostrophe-pieces`, and you want to include it in search results, you must also create a `products-pages` module that extends `apostrophe-pieces-pages`, providing `index.html` and `show.html` templates for it, and create at least one such page on the site. For more information, see [reusable content with pieces](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/tutorials/getting-started/reusable-content-with-pieces.html).
+**For piece types, there must be corresponding pieces-pages** in order for a valid URL to be provided. For instance, you have a `product` type powered by a `products` module that extends `apostrophe-pieces`, and you want to include it in search results, you must also create a `products-pages` module that extends `apostrophe-pieces-pages`, providing `index.html` and `show.html` templates for it, and create at least one such page on the site. For more information, see [reusable content with pieces](../getting-started/reusable-content-with-pieces.html).
 
 > The type name must correspond to the `name` option for a pieces module, which is what the `type` property is set to for each individual piece... **not** the name of the module itself. Think singular, not plural.
 
@@ -71,7 +69,7 @@ When you do this, _no_ other types will be included in the results. So be sure t
 
 You can also provide the user with convenient filters, for instance to view only the blog posts, just the events, etc.
 
-To do that, configure the `filters` option. The `name` property must match the
+To do that, configure the `filters` option. The `name` property must match the 
 
 ```javascript
 'apostrophe-search': {

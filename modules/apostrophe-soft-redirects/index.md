@@ -1,24 +1,20 @@
 ---
-title: apostrophe-soft-redirects (module)
+title: "apostrophe-soft-redirects (module)"
 layout: reference
 module: true
-namespaces: null
-children: null
+namespaces:
+
+children:
+
 ---
-
-# index
-
-## Inherits from: [apostrophe-module](https://github.com/apostrophecms/apostrophe-documentation/tree/e71017392b54a258d8d72811456c862139150a96/modules/apostrophe-module/index.html)
+## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 
 ## Methods
+### ensureIndexes(*callback*)
 
-### ensureIndexes\(_callback_\)
+### pageNotFound(*req*, *callback*)
 
-### pageNotFound\(_req_, _callback_\)
+### pageBeforeSend(*req*, *callback*)
 
-### pageBeforeSend\(_req_, _callback_\)
-
-### local\(_url_\)
-
+### local(*url*)
 Remove any protocol, // and host/port/auth from URL
-
