@@ -185,6 +185,8 @@ add `sortify: true`) because `sortify: true` guarantees that
 The migration is a one-time fix for existing data.
 ### addSlugPrefixMigration() *[api]*
 
+### getBatchPermissionsSchema(*req*) *[api]*
+pieces subclass uses this
 ### pushAssets() *[browser]*
 
 ### pushDefineSingleton() *[browser]*

@@ -1,9 +1,10 @@
 #!/bin/bash
 
-node _head-meta-generator/app &&
 (
   cd _api-reference-generator/ &&
   rm -rf ../modules/ &&
+  # Not optional, we need to be documenting the latest published release
+  npm update &&
   node app apostrophe:generation &&
   node app documentation:generate
 ) &&

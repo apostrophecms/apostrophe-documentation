@@ -10,6 +10,7 @@ children:
   - browser-apostrophe-pieces
   - browser-apostrophe-pieces-manager-modal
   - browser-apostrophe-pieces-editor-modal
+  - browser-apostrophe-pieces-batch-permissions-modal
   - browser-apostrophe-pieces-chooser
   - browser-apostrophe-pieces-relationship-editor
 ---
@@ -52,8 +53,10 @@ middleware for JSON API routes that expect the ID of
 an existing piece this user is allowed to edit at req.body._id
 ### requireEditor(*req*, *res*, *next*) *[api]*
 User must have some editing privileges for this type
-### list(*req*, *filters*, *callback*) *[api]*
-
+### list(*req*, *options*, *callback*) *[api]*
+options.filters can contain cursor filters. `options.chooser`, `options.format` and
+`options.manageView` are also implemented. For bc, if `options.filters` does not exist,
+all properties of options are treated as cursor filters.
 ### insert(*req*, *piece*, *options*, *callback*) *[api]*
 Insert a piece. Also invokes the `beforeInsert`, `beforeSave`, `afterInsert` and
 `afterSave` methods of this module.
@@ -251,6 +254,8 @@ for things like testing pagination, see the
 
 ### POST /modules/apostrophe-pieces/untag
 
+### POST /modules/apostrophe-pieces/permissions
+
 ### POST /modules/apostrophe-pieces/manager-modal
 
 ### POST /modules/apostrophe-pieces/chooser-modal
@@ -258,6 +263,8 @@ for things like testing pagination, see the
 ### POST /modules/apostrophe-pieces/editor-modal
 
 ### POST /modules/apostrophe-pieces/create-modal
+
+### POST /modules/apostrophe-pieces/batch-permissions-modal
 
 ### POST /modules/apostrophe-pieces/trash
 

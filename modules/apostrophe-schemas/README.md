@@ -208,6 +208,9 @@ to stderr for bc.
 This method may also prevent errors by automatically supplying
 reasonable values for certain properties, such as the `idField` property
 of a `joinByOne` field, or the `label` property of anything.
+### getPermissionsFieldNames()
+Return all standard field names currently associated with permissions editing,
+for consistency in arrangeFields, batch permissions schemas, etc.
 ## Nunjucks template helpers
 ### toGroups(*fields*)
 

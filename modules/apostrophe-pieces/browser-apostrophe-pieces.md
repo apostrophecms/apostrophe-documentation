@@ -20,3 +20,5 @@ appear anywhere, which is useful for contextual pieces.
 
 ### rescue(*_id*)
 
+### launchBatchPermissionsModal(*data*, *callback*)
+

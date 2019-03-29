@@ -269,7 +269,23 @@ If no extension map is configured for this extension, return it as-is.
 
 ### addDocReferencesMigration() *[api]*
 
+### addRecomputeAllDocReferencesTask() *[api]*
+
+### recomputeAllDocReferences(*callback*) *[api]*
+Recompute the `docIds` and `trashDocIds` arrays
+from scratch. Should only be needed by the
+one-time migration that fixes these for older
+databases, but can be run at any time via the
+`apostrophe-attachments:recompute-doc-references`
+task, just in case the need arises or your site
+was affected by the very brief availability of 2.77.0
+which effectively marked all attachments as
+not in use.
 ### addFixPermissionsMigration() *[api]*
+
+### addResetUploadfsPermissionsTask() *[api]*
+
+### resetUploadfsPermissions(*callback*) *[api]*
 
 ### docAfterSave(*req*, *doc*, *options*, *callback*) *[api]*
 

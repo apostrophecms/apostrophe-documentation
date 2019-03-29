@@ -49,6 +49,8 @@ harm if it has.
 
 ### trash(*$el*, *next*)
 
+### rescue(*$el*, *next*)
+
 ### versions(*$el*)
 
 ### copy(*$el*)

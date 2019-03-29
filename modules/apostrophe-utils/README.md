@@ -242,6 +242,9 @@ substitution strings in mind. See the
 The intention is that `apos.utils.warn` should be
 called for situations less dire than
 `apos.utils.error`.
+### warnDev(*msg*) *[api]*
+Identical to `apos.utils.warn`, except that the warning is
+not displayed if `process.env.NODE_ENV` is `production`.
 ### error(*msg*) *[api]*
 Log an error message. The default implementation
 wraps `console.error` and passes on all arguments,

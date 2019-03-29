@@ -49,7 +49,7 @@ module.exports = {
           return callback(err);
         }
         console.log('in afterListen');
-        return require('child_process').exec('phantomjs ' + __dirname + '/phantomjs-print-definitions.js', function(err, stdout, stderr) {
+        return require('child_process').exec('npx phantomjs ' + __dirname + '/phantomjs-print-definitions.js', function(err, stdout, stderr) {
           if (err) {
             return callback(err);
           }
@@ -85,13 +85,13 @@ module.exports = {
       });
 
       mkdirp('../modules');
-      var file = '../modules/SUMMARY-FRAGMENT.md';
-      fs.writeFileSync(file,
-        _.map(modules, function(module) {
-          return `* [${module}](modules/${module})` + summarizeSubtypes(module)
-        }).join('\n')
-      );
 
+      const fragment = _.map(modules, function(module) {
+        return `* [${module}](modules/${module})` + summarizeSubtypes(module)
+      }).join('\n');
+      let summary = fs.readFileSync('../SUMMARY.md', 'utf8');
+      summary = summary.replace(/\n## Modules[\s\S]*$/, '\n## Modules\n\n' + fragment + '\n[comment]: <> (DO NOT add anything AFTER the ## Modules heading or it will be lost.)');
+      fs.writeFileSync('../SUMMARY.md', summary);
 
       return callback(null);
 
@@ -269,7 +269,7 @@ module.exports = {
         });
         var folder = '../modules/' + module;
         mkdirp(folder);
-        var markdownFile = folder + '/index.md';
+        var markdownFile = folder + '/README.md';
 
         var namespaces = _.uniq(_.map(relatedTypes, 'namespace'));
 
