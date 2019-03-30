@@ -39,7 +39,7 @@ You've met the core modules that ship in the `apostrophe` npm module. But there 
 
 ## Core Server
 
-The core `apos` opbject on the server orchestrates the whole dance. [Learn about the core](other/core-server.md)
+The core `apos` object on the server orchestrates the whole dance. [Learn about the core](other/core-server.md)
 
 ## Core Browser
 
