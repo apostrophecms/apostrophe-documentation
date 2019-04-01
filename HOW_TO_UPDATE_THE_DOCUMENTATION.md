@@ -39,7 +39,12 @@ NOTE: this will `npm update` the version of `apostrophe` being documented first,
 
 Now commit the changes, as you would if you had made them manually.
 
-### 3. Deploying
+### 3. Making edits to non `modules/` docs
+Right now we're making all edits by hand and committing them to master. Currently we are *not* making writes from Gitbook's editor back to the repo. This has resulted in the loss of pages, restructed navigation, etc. Making sure the Gitbook editor plays nicely with our repo's structure needs it's own testing and effort.
 
-[TODO: Stuart, update here re: how this all gets into getbook]
+### 4. Deploying
+
+After generation or manual edits to the documentation, simply commit the changes to `apostrophe-documentation#master` and check http://docs.apostrophecms.org for the changes. Gitbook a minute or so to rebuild the site.
+
+*Note on internal doc links* When creating links in the body of a documentation page that point to another page of documentation, make sure the link is relative and pointing to the `.md` extension. After committing, check the gitbook build to make sure it is correctly linking to the gitbook page and not a file in the `apostrophe-documentation` github repo
 

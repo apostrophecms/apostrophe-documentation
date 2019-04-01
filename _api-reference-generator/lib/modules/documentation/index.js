@@ -120,7 +120,7 @@ module.exports = {
         }
         return result;
         function linkSubtype(subtype) {
-          return `  * [${subtype.title}](modules/${subtype.module}/${subtype.nameNamespaced})`;
+          return `  * [${subtype.title}](modules/${subtype.module}/${subtype.nameNamespaced}.md)`;
         }
       }
 
