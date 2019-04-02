@@ -87,7 +87,7 @@ module.exports = {
       mkdirp('../modules');
 
       const fragment = _.map(modules, function(module) {
-        return `* [${module}](modules/${module})` + summarizeSubtypes(module)
+        return `* [${module}](modules/${module}/README.md)` + summarizeSubtypes(module)
       }).join('\n');
       let summary = fs.readFileSync('../SUMMARY.md', 'utf8');
       summary = summary.replace(/\n## Modules[\s\S]*$/, '\n## Modules\n\n' + fragment + '\n[comment]: <> (DO NOT add anything AFTER the ## Modules heading or it will be lost.)');
