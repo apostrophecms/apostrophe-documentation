@@ -1,7 +1,4 @@
----
-title: "Managing permissions for your site"
-layout: tutorial
----
+# Managing permissions for your site
 
 So far our tutorials have skimmed over the issue of permissions. Let's take a closer look.
 

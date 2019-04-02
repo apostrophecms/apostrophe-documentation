@@ -1,8 +1,3 @@
----
-title: "apostrophe-oembed (browser)"
-layout: reference
-namespace: browser
----
 The browser-side `apos.oembed` singleton. Provides the
 `apos.oembed.query` and `apos.oembed.queryAndPlay` methods.
 

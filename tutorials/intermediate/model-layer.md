@@ -1,7 +1,4 @@
----
-title: "Apostrophe's model layer: working with the database"
-layout: tutorial
----
+# Apostrophe's model layer: working with the database
 
 Apostrophe provides a model layer (database layer) that gives you convenient ways to read and write docs programmatically, taking advantage of the same features that underpin modules like [apostrophe-pieces](../../modules/apostrophe-pieces/index.html). Using these features where possible ensures that permissions are respected, widgets are loaded, joins are fetched, versions are recorded for rollback... so many good things.
 
@@ -89,7 +86,7 @@ Working with the right manager in this way ensures you get the benefit of any ex
 
 ### More about cursors
 
-As you may have noticed, Apostrophe's cursors — the objects returned by `find()` — are pretty great. The next tutorial is [all about cursors](cursors.html) and how you can extend them with new "filters" (i.e. chainable methods).
+As you may have noticed, Apostrophe's cursors — the objects returned by `find()` — are pretty great. The next tutorial is [all about cursors](cursors.html) and how you can extend them with new "filters" (i.e. chainable methods).
 
 ## Working with pages
 
@@ -206,4 +203,5 @@ Here's the magic: *Apostrophe will call `docBeforeSave` for every module that ha
 Note that the callback is optional. If your `docBeforeSave` handler doesn't need to do anything async, it can declare just `req, doc` as parameters.
 
 **Performance warning:** `docBeforeSave` handlers should be as fast as possible. Always begin by asking, "is this doc any of my business?" Usually a peek at `doc.type` tells you. If the answer is no... just invoke the callback and return immediately!
+
 

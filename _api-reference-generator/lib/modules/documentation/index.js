@@ -49,7 +49,7 @@ module.exports = {
           return callback(err);
         }
         console.log('in afterListen');
-        return require('child_process').exec('phantomjs ' + __dirname + '/phantomjs-print-definitions.js', function(err, stdout, stderr) {
+        return require('child_process').exec('npx phantomjs ' + __dirname + '/phantomjs-print-definitions.js', function(err, stdout, stderr) {
           if (err) {
             return callback(err);
           }
@@ -85,17 +85,44 @@ module.exports = {
       });
 
       mkdirp('../modules');
-      var file = '../modules/index.md';
-      fs.writeFileSync(file,
-        '---\n' +
-        'title: "Module reference"\n' +
-        'layout: "reference"\n' +
-        'children:\n' +
-        _.map(modules, indentModule).join("\n") +
-        '\n---\n' + fs.readFileSync(__dirname + '/../../../../_tip-ins/modules.md')
-      );
+
+      const fragment = _.map(modules, function(module) {
+        return `* [${module}](modules/${module})` + summarizeSubtypes(module)
+      }).join('\n');
+      let summary = fs.readFileSync('../SUMMARY.md', 'utf8');
+      summary = summary.replace(/\n## Modules[\s\S]*$/, '\n## Modules\n\n' + fragment + '\n[comment]: <> (DO NOT add anything AFTER the ## Modules heading or it will be lost.)');
+      fs.writeFileSync('../SUMMARY.md', summary);
 
       return callback(null);
+
+      function summarizeSubtypes(module) {
+        const byType = {
+          server: {},
+          browser: {}
+        };
+        _.each(types, function(type, name) {
+          if (type.module !== module) {
+            return;
+          }
+          if ((type.name === module) && (type.namespace === 'server')) {
+            return;
+          }
+          byType[type.namespace][name] = type;
+        });
+        let result = '';
+        const server = _.values(byType.server);
+        const browser = _.values(byType.browser);
+        if (server.length) {
+          result += '\n' + server.map(linkSubtype).join("\n");
+        }
+        if (browser.length) {
+          result += '\n' + browser.map(linkSubtype).join("\n");
+        }
+        return result;
+        function linkSubtype(subtype) {
+          return `  * [${subtype.title}](modules/${subtype.module}/${subtype.nameNamespaced}.md)`;
+        }
+      }
 
       function readAllTypes() {
         serverTypes = JSON.parse(fs.readFileSync(self.apos.rootDir + '/data/server-types.json'));
@@ -227,7 +254,7 @@ module.exports = {
           var method = _.find(type.methods, { name: name });
           if (!method) {
             console.error(type.name);
-            console.error("Helper " + name + " was picked but not found");
+            console.error("helper " + name + " was picked but not found");
           } else {
             type.helpers.push(method);
           }
@@ -242,24 +269,11 @@ module.exports = {
         });
         var folder = '../modules/' + module;
         mkdirp(folder);
-        var markdownFile = folder + '/index.md';
+        var markdownFile = folder + '/README.md';
 
         var namespaces = _.uniq(_.map(relatedTypes, 'namespace'));
 
         fs.writeFileSync(markdownFile,
-          '---\n' +
-          'title: "' + type.title + '"\n' +
-          'layout: reference\n' +
-          'module: true\n' +
-          'namespaces:\n' +
-            _.map(namespaces, function(namespace) {
-              return '  ' + namespace + ': true';
-            }).join("\n") + "\n" +
-          'children:\n' +
-            _.map(relatedTypes, function(relatedType) {
-              return '  - ' + relatedType.nameNamespaced;
-            }).join('\n') + '\n' +
-          '---\n' +
           documentExtend(type) +
           documentAlias(type) +
           documentComments(type.comments) + "\n" +
@@ -272,11 +286,6 @@ module.exports = {
           var namespace = type.namespace;
           var markdownFile = folder + '/' + type.nameNamespaced + '.md';
           fs.writeFileSync(markdownFile,
-            '---\n' +
-            'title: "' + type.title + '"\n' +
-            'layout: reference\n' +
-            'namespace: ' + namespace + '\n' +
-            '---\n' +
             documentExtend(type) +
             documentComments(type.comments) + "\n" +
             documentMethods(type) +

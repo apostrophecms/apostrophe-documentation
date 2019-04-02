@@ -1,7 +1,4 @@
----
-title: "Custom schema fields for pages"
-layout: "tutorial"
----
+# Custom schema fields for pages
 
 If you've read [reusable content with pieces](../getting-started/reusable-content-with-pieces.html), then you know about [apostrophe schemas](../getting-started/schema-guide.html). You have already experienced the flexibility of adding new fields to your own piece types. But what about pages?
 

@@ -1,111 +1,47 @@
-Apostrophe Documentation
-========================
-
-This project contains [the documentation site](http://apostrophecms.org/docs/index.html) for [Apostrophe](http://apostrophecms.org/).
-
-You don't need to read this page just to read the documentation! [Read the actual documentation here.](http://apostrophecms.org/docs/) This page is about *contributing* to the documentation.
-
-Building the docs
------------------
-
-### 1. Setup
-
-The static site generator ([Habit](https://github.com/punkave/habit)) is required to generate the docs.
-
-```sh
-$ npm install -g habit
-```
-
-Clone the repo.
-
-```sh
-$ git clone https://github.com/punkave/apostrophe-documentation.git
-$ cd apostrophe-documentation
-```
-
-Now you can run the build scripts.
-
-### 2. Building
-
-To see your work locally, type:
-
-```sh
-$ ./view
-```
-
-That will compile your site and open it in your browser.
-
-### 3. Deploying
-
-If you have access, you can deploy your work to [apostrophecms.org/docs](http://apostrophecms.org/docs/index.html). You'll need the `sitemap-static` module installed: `npm install -g sitemap-static`.
-
-To deploy, run:
-
-```sh
-$ ./deploy
-```
-
-Make sure you commit and push your work of course.
-
-*BOOM!* :bomb:
-
-How to Contribute
------------------
-
-You can work on the nunjucks layouts in `_layouts`, write actual HOWTOs in the howtos folder (use markdown and a .md file extension), and contribute LESS in the `stylesheets` folder (main.less is what actually gets compiled, everything else should be imported). Any files that aren't markdown or LESS get copied straight to the site, unless they are in a folder starting with `_`.
-
-**Please note:** it's up to you to link to your HOWTOs in the index.md file. We want them in a considered order anyway.
-
-### How to Switch Layouts
-
-You'll notice that every page has a title specified as a YAML property at the top. You can add a `layout` property there too:
-
-```html
 ---
-title: "Amazing HOWTO"
-layout: home
+description: >-
+  ApostropheCMS was created to bring happiness and productivity to web
+  developers and content editors. It is used around the world by companies of
+  all sizes to build and manage mission critical websites
 ---
-```
 
-Note the three dashes, which are required.
+# ApostropheCMS Documentation
 
-Now your page gets rendered with foo.html instead of default.html. I've done this in index.md for instance. Yes, layouts can extend each other and override blocks in the usual Nunjucksian way.
+![ApostropheCMS as an editor](.gitbook/assets/ezgif.com-video-to-gif.gif)
 
-### Making links that don't break
+## Tutorials
 
-For this project if we are hardcoding links in markdown text we go ahead and assume `/` is the home page of the doc site. This won't work with `./view` but it will work if you set up a local server and it will work in production.
+Our tutorials cover everything you need to know to get started as an Apostrophe developer. Everyone should start here. Our tutorials are progressive, so you can learn as you go. [The Getting Started tutorial is a good place to.. get.. started](tutorials/getting-started/setting-up-your-environment.md)
 
-Regenerating the API docs
--------------------------
+## Technical Overviews
 
-The `docs/modules` folder is generated from the Apostrophe source code.
+Our technical overviews are ideal for pros who want to understand our decisions and philosophy.
 
-First set up the doc generator app:
+## Module Reference
 
-```sh
-# Install the dependencies
-$ npm install --prefix ./_api-reference-generator/
+Our module reference provides complete coverage of Apostrophe's modules and their related object types. Each module provides a particular feature, often including both front and back end code.
 
-# Make the data directory
-$ mkdir -p _api-reference-generator/data
-```
+## Promise Events
 
-Next, install [PhantomJS](http://phantomjs.org/).
+Need to hook into the life cycle of Apostrophe's documents and pages? Apostrophe emits "promise events" when documents are saved, when pages are rendered, and more. [Read the Promise Events Reference](other/events.md)
 
-```sh
-# Install PhantomJS (OSX)
-$ brew install phantomjs
+## Nunjucks Filters
 
-# Install PhantomJS (Ubuntu)
-$ sudo apt install phantomjs
-```
+Apostrophe is powered by the Nunjucks template language, which is compatible with Jinja and Twig. In addition to many helper functions, Apostrophe provides additional Nunjucks "filters" to transform data for output. [Read the Nunjucks Reference](other/nunjucks-filters.md)
 
-Now you can regenerate the `docs/modules` folder:
+## Glossary
 
-```sh
-$ ./generate
-```
+Apostrophe is powered by the Nunjucks template language, which is compatible with Jinja and Twig. In addition to many helper functions, Apostrophe provides additional Nunjucks "filters" to transform data for output. [Read the Nunjucks Reference](other/nunjucks-filters.md)
 
-`./generate` ends by running `habit` for you. It takes a few seconds because it's doing some fancy things to get information about all of the moog types.
+## More on Modules
 
-If you need to document a newer version of Apostrophe you will want to `npm update` in the reference generator app folder.
+You've met the core modules that ship in the `apostrophe` npm module. But there are more. And you can create more. [Discover and create Apostrophe modules](other/more-modules.md)
+
+## Core Server
+
+The core `apos` object on the server orchestrates the whole dance. [Learn about the core](other/core-server.md)
+
+## Core Browser
+
+The browser has an `apos` object too. tying it all together. [Learn about the core](other/core-browser.md)
+

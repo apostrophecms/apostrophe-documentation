@@ -1,8 +1,3 @@
----
-title: "apostrophe-cursor (server)"
-layout: reference
-namespace: server
----
 
 ## Methods
 ### areas(*value*)

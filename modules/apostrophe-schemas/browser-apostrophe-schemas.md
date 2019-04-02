@@ -1,8 +1,3 @@
----
-title: "apostrophe-schemas (browser)"
-layout: reference
-namespace: browser
----
 The browser-side singleton corresponding to the [apostrophe-schemas](index.html) module.
 
 

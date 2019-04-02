@@ -1,8 +1,3 @@
----
-title: "apostrophe-pieces-manager-modal (browser)"
-layout: reference
-namespace: browser
----
 ## Inherits from: [apostrophe-modal](../apostrophe-modal/browser-apostrophe-modal.html)
 A "manage" modal for pieces, displaying them list and/or grid views and providing
 filtering and sorting features. The manager modal is also extended on the fly
@@ -55,10 +50,17 @@ user confirmation.
 ### batchUntag()
 Untags all selected items (`self.choices`), after asking for
 user confirmation.
+### batchPermissions()
+
+### getBatchPermissions(*data*, *callback*)
+
 ### batchSimple(*operationName*, *confirmationPrompt*, *options*)
 Carry out a named batch operation, such as `trash`, displaying the
 provided prompt and, if confirmed by the user, invoking the
 corresponding verb in this module's API.
+
+If `confirmationPrompt` is falsy, no prompt is displayed. Often
+appropriate if `options.dataSource` presents another chance to cancel.
 
 `options.dataSource` can be used to specify a function
 to be invoked to gather more input before calling the API.
@@ -74,6 +76,10 @@ succeeds. It receives `(result, callback)` where
 completing its additional operations, even if the user
 chooses to cancel or skip those operations.
 ### enableSorts()
+
+### getNextDirection(*defaultDirection*, *direction*)
+
+### reflectSort()
 
 ### enableChooseViews()
 
@@ -95,6 +101,10 @@ shrink and grow make visual reflectments to accommodate the the new Select Every
 
 ### enableSelectEverything()
 
+### onElOrFilters(*e*, *sel*, *fn*)
+Execute `fn` when the event `e` fires on the delegated selector `sel`.
+If `self.$filters` is contained in `self.$el` the delegation is done
+via `self.$el`, otherwise via `self.$filters`.
 ### addChoice(*id*)
 
 ### addChoiceToState(*id*)
@@ -110,10 +120,15 @@ other data associated with a choice. Unlike get()
 this does not require a callback
 ### clearChoices()
 
+### checkEverythingChoices()
+When the "select everything" checkbox is checked,
+we select all of the content
 ### clearEverythingChoices()
 When the "select everything" checkbox is cleared,
 we go back to selecting just the current page
 of content
+### getVisibleChoiceIds()
+Get the ids of the currently visible choices (not necessarily checked)
 ### refreshSelectEverything()
 
 ### getSelectEverything()

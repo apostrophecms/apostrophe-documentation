@@ -1,8 +1,3 @@
----
-title: "apostrophe-context (browser)"
-layout: reference
-namespace: browser
----
 A base class with convenience methods for modals and other types that
 have an action and optionally a jquery element (self.$el). Your
 subclass is responsible for setting self.$el in its constructor if

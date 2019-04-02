@@ -1,7 +1,4 @@
----
-title: Accessing the database directly
-layout: tutorial
----
+# Accessing the database directly
 
 ## Working with your own collections
 

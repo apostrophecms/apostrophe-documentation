@@ -1,10 +1,6 @@
----
-title: Building a contact form
-layout: tutorial
----
+# Building a contact form
 
 So you want a contact form on your site. A pretty common requirement. Maybe it's not a contact form; maybe you want to accept submissions of stories, or product ideas. The same principles apply.
-
 
 ## Doing it the easy way: using `apostrophe-pieces-submit-widgets`
 

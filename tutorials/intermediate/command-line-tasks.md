@@ -1,7 +1,4 @@
----
-title: Command line tasks
-layout: tutorial
----
+# Command line tasks
 
 Sometimes, you'll want to do something to your Apostrophe site's content
 via the command line. And there are plenty of built-in command line tasks
@@ -145,4 +142,3 @@ when you need to operate quickly on thousands of objects without running
 > **Where can I learn more about using the MongoDB API directly?**
 > See [accessing the database directly](https://apostrophecms.org/docs/tutorials/intermediate/accessing-the-database-directly.html) and, of course,
 > the [MongoDB documentation for NodeJS](http://mongodb.github.io/node-mongodb-native/).
-

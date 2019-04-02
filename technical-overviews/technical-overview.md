@@ -1,7 +1,9 @@
 ---
-title: "Technical overview: 30,000 feet"
+title: 'Technical overview: 30,000 feet'
 layout: tutorial
 ---
+
+# Technical overview: 30,000 feet
 
 > You don't have to read this article to get started with Apostrophe. It's very handy for those who want to know more about the decisions that underpin its design and better grasp how to extend Apostrophe in new and interesting ways.
 
@@ -21,29 +23,29 @@ Express is the most widely used web framework for Node.js. Because it is simple,
 
 In Apostrophe, each document or "doc" is represented by a single document in the `aposDocs` mongodb collection. This keeps queries simple, reduces complexity and improves performance.
 
-Each "doc" might be a *page*, such as the "home" or "about" page of a website, or a *piece*, such as a blog post, event or product. Pages can be arranged in a tree on the site, while pieces are typically managed as a collection. They gain a URL based on the location of "blog pages" or "events pages" on the site. A blog post that shares tags in common with a blog page will appear as part of that "blog," while a blog post with different tags might appear on another.
+Each "doc" might be a _page_, such as the "home" or "about" page of a website, or a _piece_, such as a blog post, event or product. Pages can be arranged in a tree on the site, while pieces are typically managed as a collection. They gain a URL based on the location of "blog pages" or "events pages" on the site. A blog post that shares tags in common with a blog page will appear as part of that "blog," while a blog post with different tags might appear on another.
 
 The "global doc," which is always available to templates as `data.global`, is reserved for content you'll want almost every time you render a page. It is the right place for shared footers and site-wide copyright notices, for instance.
 
-<img src="../images/technical-overview-apostrophe-doc-types.svg" />
+![](../.gitbook/assets/technical-overview-apostrophe-doc-types.svg)
 
-Each doc might contain a variety of content: rich text, images, videos and even "blog widgets" that display blog posts. Each unit of content is called a *widget*. Widgets can stand by themselves, in which case they are called *singletons*. Just as often however, widgets are grouped into *areas* in which the user is free to keep adding new widgets of various types.  Frontend developers decide which widgets are allowed in each area and code their templates accordingly.
+Each doc might contain a variety of content: rich text, images, videos and even "blog widgets" that display blog posts. Each unit of content is called a _widget_. Widgets can stand by themselves, in which case they are called _singletons_. Just as often however, widgets are grouped into _areas_ in which the user is free to keep adding new widgets of various types. Frontend developers decide which widgets are allowed in each area and code their templates accordingly.
 
-<img src="../images/technical-overview-apostrophe-on-the-page.svg" />
+![](../.gitbook/assets/technical-overview-apostrophe-on-the-page.svg)
 
 ## Apostrophe's module architecture
 
 Apostrophe represents each website as an object, the "`apos` object." Developers create an `app.js` file in which they create an `apos` object, passing configuration options to it, most of which are passed on to modules.
 
-99% of Apostrophe's code is found in *modules*. Each module is responsible for a distinct content type or area of responsibility. A few examples include `apostrophe-db`, `apostrophe-docs`, `apostrophe-express`, `apostrophe-pieces` and `apostrophe-users`.
+99% of Apostrophe's code is found in _modules_. Each module is responsible for a distinct content type or area of responsibility. A few examples include `apostrophe-db`, `apostrophe-docs`, `apostrophe-express`, `apostrophe-pieces` and `apostrophe-users`.
 
-Apostrophe initializes each module in turn, starting with those provided in the core, followed by those added at project level as described below. For more information, see [how Apostrophe starts up](how-apostrophe-starts-up.html).
+Apostrophe initializes each module in turn, starting with those provided in the core, followed by those added at project level as described below. For more information, see [how Apostrophe starts up](how-apostrophe-starts-up.md).
 
-Related Apostrophe modules can be bundled together in a single [npm module](https://www.npmjs.com/), usually to distribute them as open source, but also sometimes for convenience in sharing them between your own projects. Good examples are [apostrophe-blog](https://npmjs.org/package/apostrophe-blog), which is a *bundle* containing the `apostrophe-blog`, `apostrophe-blog-widgets` and `apostrophe-blog-pieces` modules, and the `apostrophe` module itself, which contains *all the core modules necessary to create and edit a website.*
+Related Apostrophe modules can be bundled together in a single [npm module](https://www.npmjs.com/), usually to distribute them as open source, but also sometimes for convenience in sharing them between your own projects. Good examples are [apostrophe-blog](https://npmjs.org/package/apostrophe-blog), which is a _bundle_ containing the `apostrophe-blog`, `apostrophe-blog-widgets` and `apostrophe-blog-pieces` modules, and the `apostrophe` module itself, which contains _all the core modules necessary to create and edit a website._
 
 ## Apostrophe's module pattern, inheritance, and moog
 
-Apostrophe's modules are implemented following an object-oriented pattern. We chose to follow the *[self pattern](http://justjs.com/posts/this-considered-harmful)*, in which all methods are directly attached to their objects, inside a *[closure](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)* created by the `construct` function of the module.
+Apostrophe's modules are implemented following an object-oriented pattern. We chose to follow the [_self pattern_](http://justjs.com/posts/this-considered-harmful), in which all methods are directly attached to their objects, inside a [_closure_](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) created by the `construct` function of the module.
 
 We chose this pattern over the ES6 `class` keyword primarily because of its [numerous benefits when working with asynchronous code](http://justjs.com/posts/this-considered-harmful). In addition, our [moog](https://npmjs.org/package/moog) and [moog-require](https://npmjs.org/package/moog-require) modules provide a richer form of inheritance in which Apostrophe can automatically "fill in" subclasses that intuitively should exist, without the need for the programmer to write "boilerplate" code to fill gaps in the inheritance tree. For instance, if your project has a `products` module that extends `apostrophe-pieces`, Apostrophe will guarantee that an `apostrophe-pieces-editor` "moog type" also exists in the browser, even if you don't bother to explicitly provide one because you don't need to override any of its methods.
 
@@ -51,15 +53,15 @@ This greatly simplifies extending "virtual base classes" like the `apostrophe-pi
 
 ### Related types
 
-Apostrophe also provides "autoloading" of *related types*. For instance, modules that extend `apostrophe-pieces` automatically also provide subclasses of `apostrophe-pieces-cursor`, and the `find()` method of the module acts as a *factory method* that returns such a cursor. And if a customized definition for that cursor type is available in `lib/cursor.js`, it is automatically loaded.
+Apostrophe also provides "autoloading" of _related types_. For instance, modules that extend `apostrophe-pieces` automatically also provide subclasses of `apostrophe-pieces-cursor`, and the `find()` method of the module acts as a _factory method_ that returns such a cursor. And if a customized definition for that cursor type is available in `lib/cursor.js`, it is automatically loaded.
 
 ### The self pattern, performance and functional programming
 
-The self pattern does impose a small speed penalty when objects are constructed. To mitigate this, Apostrophe typically uses "plain old objects" to represent individual documents on the website, and creates a smaller number of "manager" and "cursor" objects with methods and full-scale inheritance to work with those documents. Fortunately, this architectural choice also facilitates *functional programming*, in which such separation of code and data is strongly encouraged.
+The self pattern does impose a small speed penalty when objects are constructed. To mitigate this, Apostrophe typically uses "plain old objects" to represent individual documents on the website, and creates a smaller number of "manager" and "cursor" objects with methods and full-scale inheritance to work with those documents. Fortunately, this architectural choice also facilitates _functional programming_, in which such separation of code and data is strongly encouraged.
 
 ### More information about modules
 
-For more information, see [how Apostrophe modules are structured](how-apostrophe-modules-are-structured.html).
+For more information, see [how Apostrophe modules are structured](how-apostrophe-modules-are-structured.md).
 
 ## Project level: overriding and extending Apostrophe in your project
 
@@ -71,13 +73,13 @@ When Apostrophe loads the `apostrophe-login` module, it looks here first:
 
 `node_modules/apostrophe/lib/modules/apostrophe-login/index.js`
 
-Then Apostrophe *also looks here*, at "project level:"
+Then Apostrophe _also looks here_, at "project level:"
 
 `lib/modules/apostrophe-login/index.js`
 
 A `construct` function provided here is invoked after the `construct` function of the original module.
 
-This gives your code a chance to *implicitly subclass* the original `apostrophe-login` module, adding features that only matter for a single project.
+This gives your code a chance to _implicitly subclass_ the original `apostrophe-login` module, adding features that only matter for a single project.
 
 ### Template overrides at project level
 
@@ -89,7 +91,7 @@ In other words, when Apostrophe seeks to render `login.html`, it looks here firs
 
 `lib/modules/apostrophe-login/views/login.html`
 
-*Only if that file does not exist* does Apostrophe look at the original:
+_Only if that file does not exist_ does Apostrophe look at the original:
 
 `node_modules/apostrophe/lib/modules/apostrophe-login/views/login.html`
 
@@ -103,7 +105,7 @@ This holds true for implicit subclasses, such as a `lib/modules/apostrophe-piece
 
 So Apostrophe will send them to the browser in this order, if they exist:
 
-```
+```text
 # Original npm module
 node_modules/apostrophe/lib/modules/apostrophe-pieces/public/js/user.js
 # Project-level implicit subclass of all pieces
@@ -122,7 +124,7 @@ This allows us to easily write browser-side code that extends the styles and/or 
 
 ## How Apostrophe handles web requests
 
-Apostrophe responds to web requests via a combination of [Express middleware](http://expressjs.com/en/guide/using-middleware.html), custom Express routes and a "wildcard" route that maps incoming requests to pages in the CMS. For more information, see [how Apostrophe handles requests](how-apostrophe-handles-requests.html).
+Apostrophe responds to web requests via a combination of [Express middleware](http://expressjs.com/en/guide/using-middleware.html), custom Express routes and a "wildcard" route that maps incoming requests to pages in the CMS. For more information, see [how Apostrophe handles requests](how-apostrophe-handles-requests.md).
 
 ### Separating async logic from templates
 
@@ -130,7 +132,7 @@ Because Apostrophe is built on Node.js, it is asynchronous. However, we have cho
 
 This was done to avoid introducing complex back-end async programming concepts into frontend template code. Code dealing with callbacks belongs in JavaScript, not Nunjucks. Synchronous templates also render faster.
 
-Writing a `apostrophe-pages:beforeSend` promise event handler is your best option to carry out async tasks just before the page is rendered. For more on this technique, see [how Apostrophe handles requests](how-apostrophe-handles-requests.html).
+Writing a `apostrophe-pages:beforeSend` promise event handler is your best option to carry out async tasks just before the page is rendered. For more on this technique, see [how Apostrophe handles requests](how-apostrophe-handles-requests.md).
 
 ## Apostrophe schemas
 
@@ -142,24 +144,25 @@ Any module extending `apostrophe-pieces` or `apostrophe-custom-pages` can easily
 
 Schemas are also used to define the editable fields of a widget That allows new widgets to be created very quickly without the need for custom code.
 
-For more information, see the [schema guide](../tutorials/getting-started/schema-guide.html).
+For more information, see the [schema guide](../tutorials/index/schema-guide.md).
 
 ## Apostrophe joins
 
-Apostrophe also supports robust "joins" between content types. Programmers can define their own relationships between doc types, such as pages or pieces, and even between widgets and pages, or widgets and pieces. Joins are discussed in the [schema guide](../tutorials/getting-started/schema-guide.html).
+Apostrophe also supports robust "joins" between content types. Programmers can define their own relationships between doc types, such as pages or pieces, and even between widgets and pages, or widgets and pieces. Joins are discussed in the [schema guide](../tutorials/index/schema-guide.md).
 
 ## Dynamic properties and the magic `_`
 
 There's one catch with Apostrophe's policy of "simple objects:" it's not immediately clear which properties of an object were dynamically added to it on the fly, such as a joined object or the `._url` property, and which should be stored back to the database when that object is saved. This is important because storing "joined" objects back to the database would take up a tremendous amount of extra space.
 
-Apostrophe solves this with one simple rule: *any property starting with an `_` is left out of the database, except for `_id`.* And this rule holds true no matter how deeply nested the property is. 
+Apostrophe solves this with one simple rule: _any property starting with an_ `_` _is left out of the database, except for_ `_id`_._ And this rule holds true no matter how deeply nested the property is.
 
-The moral of the story: *always use a leading _ when naming a join field*, and *never use a leading _ when naming another type of field* such as a `string` field.
+The moral of the story: _always use a leading \_ when naming a join field_, and _never use a leading \_ when naming another type of field_ such as a `string` field.
 
 ## Apostrophe glossary
 
-To speed your understanding, we also recommend reading through the [Apostrophe glossary](../glossary.html).
+To speed your understanding, we also recommend reading through the [Apostrophe glossary](../more/glossary.md).
 
 ## Did this help?
 
 We know Apostrophe introduces many new concepts. Did this document help you understand it better? Feedback is welcome. Feel free to raise issues on the [Apostrophe documentation project in github](https://github.com/punkave/apostrophe-documentation).
+

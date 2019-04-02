@@ -1,8 +1,3 @@
----
-title: "apostrophe-areas (browser)"
-layout: reference
-namespace: browser
----
 
 ## Methods
 ### setWidgetManager(*name*, *manager*)
