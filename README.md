@@ -1,3 +1,5 @@
+# This branch is now deprecated in favor of the new Gitbook-flavored `master` branch
+
 Apostrophe Documentation
 ========================
 
