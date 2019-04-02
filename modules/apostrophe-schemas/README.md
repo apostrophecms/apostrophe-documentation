@@ -1,13 +1,3 @@
----
-title: "apostrophe-schemas (module)"
-layout: reference
-module: true
-namespaces:
-  browser: true
-children:
-  - browser-apostrophe-schemas
-  - browser-apostrophe-array-editor-modal
----
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 ### `apos.schemas`
 This module provides schemas, a flexible and fast way to create new data types
@@ -208,6 +198,9 @@ to stderr for bc.
 This method may also prevent errors by automatically supplying
 reasonable values for certain properties, such as the `idField` property
 of a `joinByOne` field, or the `label` property of anything.
+### getPermissionsFieldNames()
+Return all standard field names currently associated with permissions editing,
+for consistency in arrangeFields, batch permissions schemas, etc.
 ## Nunjucks template helpers
 ### toGroups(*fields*)
 

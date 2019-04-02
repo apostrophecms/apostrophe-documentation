@@ -1,16 +1,3 @@
----
-title: "apostrophe-any-page-manager (module)"
-layout: reference
-module: true
-namespaces:
-  server: true
-  browser: true
-children:
-  - server-apostrophe-any-page-manager-cursor
-  - browser-apostrophe-any-page-manager-chooser
-  - browser-apostrophe-any-page-manager
-  - browser-apostrophe-any-page-manager-relationship-editor
----
 ## Inherits from: [apostrophe-doc-type-manager](../apostrophe-doc-type-manager/index.html)
 This module provides a special doc type manager for the `apostrophe-page` type, which
 actually refers to any page in the tree, regardless of type. This

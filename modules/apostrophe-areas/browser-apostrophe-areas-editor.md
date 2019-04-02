@@ -1,8 +1,3 @@
----
-title: "apostrophe-areas-editor (browser)"
-layout: reference
-namespace: browser
----
 ## Inherits from: [apostrophe-context](../apostrophe-utils/browser-apostrophe-context.html)
 editor for an area. See enableAreas() method
 in user.js for where this is invoked.

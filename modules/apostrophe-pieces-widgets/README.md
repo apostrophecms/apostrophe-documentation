@@ -1,13 +1,3 @@
----
-title: "apostrophe-pieces-widgets (module)"
-layout: reference
-module: true
-namespaces:
-  browser: true
-children:
-  - browser-apostrophe-pieces-widgets-editor
-  - browser-apostrophe-pieces-widgets
----
 ## Inherits from: [apostrophe-widgets](../apostrophe-widgets/index.html)
 `apostrophe-pieces-widgets` provides widgets that display display pieces of a
 particular type around the site.

@@ -1,18 +1,3 @@
----
-title: "apostrophe-global (module)"
-layout: reference
-module: true
-namespaces:
-  server: true
-  browser: true
-children:
-  - server-apostrophe-global-cursor
-  - browser-apostrophe-global
-  - browser-apostrophe-global-chooser
-  - browser-apostrophe-global-relationship-editor
-  - browser-apostrophe-global-editor-modal
-  - browser-apostrophe-global-manager-modal
----
 ## Inherits from: [apostrophe-pieces](../apostrophe-pieces/index.html)
 ### `apos.global`
 Provides req.data.global, an Apostrophe doc

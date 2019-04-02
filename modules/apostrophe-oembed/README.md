@@ -1,12 +1,3 @@
----
-title: "apostrophe-oembed (module)"
-layout: reference
-module: true
-namespaces:
-  browser: true
-children:
-  - browser-apostrophe-oembed
----
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 ### `apos.oembed`
 The oembed module provides an oembed query service for embedding

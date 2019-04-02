@@ -1,14 +1,3 @@
----
-title: "apostrophe-module (module)"
-layout: reference
-module: true
-namespaces:
-  browser: true
-children:
-  - browser-apostrophe-module
-  - browser-apostrophe-module-manager-modal
-  - browser-apostrophe-module-editor
----
 This "module" is the base class for all other modules. This module
 is never actually configured and used directly. Instead all other modules
 extend it (or a subclass of it) and benefit from its standard features,

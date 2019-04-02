@@ -1,12 +1,3 @@
----
-title: "apostrophe-locks (module)"
-layout: reference
-module: true
-namespaces:
-
-children:
-
----
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 ### `apos.locks`
 

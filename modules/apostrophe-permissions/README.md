@@ -1,12 +1,3 @@
----
-title: "apostrophe-permissions (module)"
-layout: reference
-module: true
-namespaces:
-
-children:
-
----
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 ### `apos.permissions`
 This module manages the permissions of docs in Apostrophe.

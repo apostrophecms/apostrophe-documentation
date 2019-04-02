@@ -1,12 +1,3 @@
----
-title: "apostrophe-express (module)"
-layout: reference
-module: true
-namespaces:
-
-children:
-
----
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 This module initializes the Express framework, which Apostrophe
 uses and extends to implement both API routes and page-serving routes.

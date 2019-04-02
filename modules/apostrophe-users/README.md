@@ -1,18 +1,3 @@
----
-title: "apostrophe-users (module)"
-layout: reference
-module: true
-namespaces:
-  server: true
-  browser: true
-children:
-  - server-apostrophe-users-cursor
-  - browser-apostrophe-users
-  - browser-apostrophe-users-editor-modal
-  - browser-apostrophe-users-chooser
-  - browser-apostrophe-users-relationship-editor
-  - browser-apostrophe-users-manager-modal
----
 ## Inherits from: [apostrophe-pieces](../apostrophe-pieces/index.html)
 ### `apos.users`
 The `apostrophe-users` module provides user accounts. It is **not** intended to

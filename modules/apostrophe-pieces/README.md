@@ -1,18 +1,3 @@
----
-title: "apostrophe-pieces (module)"
-layout: reference
-module: true
-namespaces:
-  server: true
-  browser: true
-children:
-  - server-apostrophe-pieces-cursor
-  - browser-apostrophe-pieces
-  - browser-apostrophe-pieces-manager-modal
-  - browser-apostrophe-pieces-editor-modal
-  - browser-apostrophe-pieces-chooser
-  - browser-apostrophe-pieces-relationship-editor
----
 ## Inherits from: [apostrophe-doc-type-manager](../apostrophe-doc-type-manager/index.html)
 `apostrophe-pieces` provides a "base class" you can extend to create new content
 types for your project. Just use the `addFields` option to create a schema and
@@ -21,7 +6,7 @@ you'll get a user interface for managing your content for free. Add in the
 for your pieces, and use `apostrophe-pieces-widgets` to allow them to be sprinkled
 into pages all over the site. To learn more, see:
 
-[Reusable content with pieces](../../tutorials/getting-started/reusable-content-with-pieces.html)
+[Reusable content with pieces](../tutorials/getting-started/reusable-content-with-pieces.html)
 
 ## Options
 
@@ -33,7 +18,7 @@ conflicts with the slugs of other piece types.
 
 ## More Options
 
-See [reusable content with pieces](../../tutorials/getting-started/reusable-content-with-pieces.html)
+See [reusable content with pieces](../tutorials/getting-started/reusable-content-with-pieces.html)
 for many additional options.
 
 
@@ -253,6 +238,8 @@ for things like testing pagination, see the
 
 ### POST /modules/apostrophe-pieces/untag
 
+### POST /modules/apostrophe-pieces/permissions
+
 ### POST /modules/apostrophe-pieces/manager-modal
 
 ### POST /modules/apostrophe-pieces/chooser-modal
@@ -261,8 +248,11 @@ for things like testing pagination, see the
 
 ### POST /modules/apostrophe-pieces/create-modal
 
+### POST /modules/apostrophe-pieces/batch-permissions-modal
+
 ### POST /modules/apostrophe-pieces/trash
 
 ### POST /modules/apostrophe-pieces/rescue
 
 ### POST /modules/apostrophe-pieces/insert-via-upload
+

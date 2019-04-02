@@ -1,14 +1,3 @@
----
-title: "apostrophe-docs (module)"
-layout: reference
-module: true
-namespaces:
-  server: true
-  browser: true
-children:
-  - server-apostrophe-cursor
-  - browser-apostrophe-docs
----
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 ### `apos.docs`
 This module is responsible for managing all of the documents (apostrophe "docs")
@@ -47,6 +36,17 @@ slugs based on the title as the user types the title of a page or piece.
 If you do not want this feature and would prefer that the user encouter
 a clear error message every time their slug is in conflict, forcing
 them to make a manual choice, explicitly set this option to `false`.
+
+** `advisoryLockTimeout`: Apostrophe locks documents while they are
+being edited so that another user, or another tab for the same user,
+does not inadvertently interfere. These locks are refreshed frequently
+by the browser while they are held. By default, if the browser
+is not heard from for 300 seconds, the lock expires. Note that
+the browser refreshes the lock every 5 seconds. It would not make
+sense to set this option lower than about 60 seconds to allow for
+changing Internet conditions. Setting this option too high leads
+to annoyance if the browser chooses not to deliver an unlock request
+when a page is closed.
 
 
 ## Methods
@@ -436,6 +436,8 @@ for the docs module, this method invokes its callback
 successfully without actually doing anything.
 This is *not recommended* but has valid applications
 in automated testing.
+### getAdvisoryLockExpiration() *[api]*
+
 ### unlock(*req*, *id*, *contextId*, *callback*) *[api]*
 Release a document lock set via `lock` for
 a particular contextId.

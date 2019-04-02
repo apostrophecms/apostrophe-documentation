@@ -1,18 +1,3 @@
----
-title: "apostrophe-pages (module)"
-layout: reference
-module: true
-namespaces:
-  server: true
-  browser: true
-children:
-  - server-apostrophe-pages-cursor
-  - browser-apostrophe-pages
-  - browser-apostrophe-pages-editor
-  - browser-apostrophe-pages-editor-update
-  - browser-apostrophe-pages-editor-copy
-  - browser-apostrophe-pages-reorganize
----
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 ### `apos.pages`
 This module manages the page tree and contains the wildcard

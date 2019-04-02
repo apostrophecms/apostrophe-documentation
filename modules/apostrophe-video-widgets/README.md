@@ -1,13 +1,3 @@
----
-title: "apostrophe-video-widgets (module)"
-layout: reference
-module: true
-namespaces:
-  browser: true
-children:
-  - browser-apostrophe-video-widgets
-  - browser-apostrophe-video-widgets-editor
----
 ## Inherits from: [apostrophe-widgets](../apostrophe-widgets/index.html)
 Provides the `apostrophe-video` widget, which displays videos, powered
 by [apostrophe-video-field](../apostrophe-video-field/index.html) and

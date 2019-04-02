@@ -1,18 +1,3 @@
----
-title: "apostrophe-groups (module)"
-layout: reference
-module: true
-namespaces:
-  server: true
-  browser: true
-children:
-  - server-apostrophe-groups-cursor
-  - browser-apostrophe-groups
-  - browser-apostrophe-groups-chooser
-  - browser-apostrophe-groups-relationship-editor
-  - browser-apostrophe-groups-editor-modal
-  - browser-apostrophe-groups-manager-modal
----
 ## Inherits from: [apostrophe-pieces](../apostrophe-pieces/index.html)
 ### `apos.groups`
 Provide a way to group [apostrophe-users](../apostrophe-users/index.html) together

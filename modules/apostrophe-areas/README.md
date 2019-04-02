@@ -1,13 +1,3 @@
----
-title: "apostrophe-areas (module)"
-layout: reference
-module: true
-namespaces:
-  browser: true
-children:
-  - browser-apostrophe-areas
-  - browser-apostrophe-areas-editor
----
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 ### `apos.areas`
 An area is a series of zero or more widgets, in which users can add

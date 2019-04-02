@@ -1,13 +1,3 @@
----
-title: "apostrophe-widgets (module)"
-layout: reference
-module: true
-namespaces:
-  browser: true
-children:
-  - browser-apostrophe-widgets
-  - browser-apostrophe-widgets-editor
----
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 The base class for all modules that implement a widget, such as
 [apostrophe-rich-text-widgets](../apostrophe-rich-text-widgets/index.html),

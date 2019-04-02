@@ -1,13 +1,3 @@
----
-title: "apostrophe-versions (module)"
-layout: reference
-module: true
-namespaces:
-  browser: true
-children:
-  - browser-apostrophe-versions
-  - browser-apostrophe-versions-editor
----
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 ### `apos.versions`
 Provides versioning for all docs in Apostrophe. Every time a doc

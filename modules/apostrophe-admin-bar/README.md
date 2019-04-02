@@ -1,12 +1,3 @@
----
-title: "apostrophe-admin-bar (module)"
-layout: reference
-module: true
-namespaces:
-  browser: true
-children:
-  - browser-apostrophe-admin-bar
----
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 ### `apos.adminBar`
 The admin bar module implements Apostrophe's admin bar at the top of the screen. Any module

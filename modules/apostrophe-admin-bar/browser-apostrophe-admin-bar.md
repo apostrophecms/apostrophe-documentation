@@ -1,8 +1,3 @@
----
-title: "apostrophe-admin-bar (browser)"
-layout: reference
-namespace: browser
----
 
 ## Methods
 ### link(*name*, *callback*)

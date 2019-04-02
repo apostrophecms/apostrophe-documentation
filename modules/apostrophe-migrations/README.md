@@ -1,12 +1,3 @@
----
-title: "apostrophe-migrations (module)"
-layout: reference
-module: true
-namespaces:
-
-children:
-
----
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 ### `apos.migrations`
 Provide services for database migration. The `apostrophe-migrations:migrate` task
@@ -60,10 +51,36 @@ The iterator is passed a document and a callback. If the iterator
 accepts only one parameter, it is assumed to return a promise,
 which is awaited in lieu of a callback.
 
-If it is determined that node is running in an interactive terminal,
-a simple plaintext progress display is shown. If this is not
-desired, the `progressDisplay` option of this module may be
-set to `false`.
+If it is determined that node is running in an interactive terminal
+and will run for enough time, a simple plaintext progress display
+is shown. If this is not desired, the `progressDisplay` option
+of this module may be set to `false`.
+### progressStart(*options*) *[api]*
+Start CLI progress meter. Takes an `options` object which must
+have a `getTotal` callback function that obtains the
+total number of steps from you. If that function returns a promise,
+its value is awaited, otherwise it must invoke its callback with
+`(null, total)`. This function only gets called if a progress meter
+will actually be displayed. We do it this way to avoid wasting time
+calculating totals in contexts where the progress meter would be
+nested or there is no TTY to display it on.
+
+Returns a meter object with `message`, `step` and `end`
+methods. `message` displays a message, `step` takes an
+optional number of steps to update the progress meter (defaults to 1),
+and `end` terminates the progress meter. You must call `end`.
+
+If there is no TTY (such as in a pipeline deployment script),
+the progress meter object displays nothing. If you create a
+meter while another meter is already active, the nested progress meter
+object displays nothing.
+
+If the operation takes less than a second to complete the
+progress meter is never shown and `getTotal` is never invoked.
+If you have messages that should ALWAYS be output, output
+them yourself.
+### progressAppropriate() *[api]*
+
 ### eachArea(*criteria*, *limit*, *iterator*, *callback*) *[api]*
 Invoke the iterator function once for each area in each doc in
 the aposDocs collection. The `iterator` function receives

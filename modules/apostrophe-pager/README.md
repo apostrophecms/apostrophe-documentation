@@ -1,12 +1,3 @@
----
-title: "apostrophe-pager (module)"
-layout: reference
-module: true
-namespaces:
-
-children:
-
----
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 ### `apos.pager`
 Provides markup, a Nunjucks helper and styles for a simple pager,

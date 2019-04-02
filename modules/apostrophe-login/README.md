@@ -1,12 +1,3 @@
----
-title: "apostrophe-login (module)"
-layout: reference
-module: true
-namespaces:
-
-children:
-
----
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 ### `apos.login`
 Enable users to log in via a login form on the site at `/login`.

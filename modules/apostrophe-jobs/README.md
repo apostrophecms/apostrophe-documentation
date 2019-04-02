@@ -1,13 +1,3 @@
----
-title: "apostrophe-jobs (module)"
-layout: reference
-module: true
-namespaces:
-  browser: true
-children:
-  - browser-apostrophe-jobs
-  - browser-apostrophe-jobs-modal
----
 ## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
 The `apostrophe-jobs` module runs long-running jobs in response
 to user actions. Batch operations on pieces are a good example.
