@@ -82,7 +82,7 @@
 
 ## Modules
 
-* [Module Reference](modules/README.md)
+* [Module Reference](module-reference.md)
 * [apostrophe-admin-bar](modules/apostrophe-admin-bar/README.md)
   * [apostrophe-admin-bar (browser)](modules/apostrophe-admin-bar/browser-apostrophe-admin-bar.md)
 * [apostrophe-any-page-manager](modules/apostrophe-any-page-manager/README.md)
