@@ -1,8 +1,8 @@
-## Modules in Apostrophe
+# Modules in Apostrophe
 
 Every Apostrophe site is made up of modules. You can browse the complete list at left.
 
-### Overview
+## Overview
 
 Each module provides a particular feature, often including both front and back end code, as well as templates and stylesheets. For instance, the [apostrophe-assets](apostrophe-assets/index.html) module provides core services relating to assets like stylesheets.
 
@@ -18,7 +18,7 @@ Others, like [apostrophe-pieces](apostrophe-pieces/index.html) and [apostrophe-w
 
 Modules can also be installed via npm, and multiple Apostrophe modules can be [shipped as a single npm module via moog bundles](../more-modules.html).
 
-### Overriding, configuring and extending modules at "project level"
+## Overriding, configuring and extending modules at "project level"
 
 Any options you provide for a module via the `modules` property in `app.js` override the default configuration for a module, as seen in the [tutorials](../tutorials/index.html). And any configuration provided via the `modules` property in `data/local.js` overrides that, allowing for server-specific settings like API keys.
 
