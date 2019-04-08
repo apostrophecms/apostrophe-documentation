@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
 This module is the base class of `apostrophe-custom-pages`, `apostrophe-pieces`,
 `apostrophe-global` and any other module that serves as the manager for a
 doc type. You can introduce new fields to the schema of *all* docs by

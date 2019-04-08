@@ -1,2 +1,2 @@
-## Inherits from: [apostrophe-widgets-editor](../apostrophe-widgets/browser-apostrophe-widgets-editor.html)
+## Inherits from: [apostrophe-widgets-editor](../apostrophe-widgets/browser-apostrophe-widgets-editor.md)
 

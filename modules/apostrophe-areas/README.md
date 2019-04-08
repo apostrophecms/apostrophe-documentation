@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
 ### `apos.areas`
 An area is a series of zero or more widgets, in which users can add
 and remove widgets and drag them to reorder them. This module implements

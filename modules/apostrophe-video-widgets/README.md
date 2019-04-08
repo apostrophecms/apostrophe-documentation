@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-widgets](../apostrophe-widgets/index.html)
+## Inherits from: [apostrophe-widgets](../apostrophe-widgets/README.md)
 Provides the `apostrophe-video` widget, which displays videos, powered
 by [apostrophe-video-field](../apostrophe-video-field/index.html) and
 [apostrophe-oembed](../apostrophe-oembed/index.html). The video

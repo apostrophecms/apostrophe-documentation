@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-context](../apostrophe-utils/browser-apostrophe-context.html)
+## Inherits from: [apostrophe-context](../apostrophe-utils/browser-apostrophe-context.md)
 
 ## Methods
 ### url(*file*, *options*)

@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-context](../apostrophe-utils/browser-apostrophe-context.html)
+## Inherits from: [apostrophe-context](../apostrophe-utils/browser-apostrophe-context.md)
 `apostrophe-widgets` is a parent class for the browser-side managers of
 widget types. Each manager object is responsible for *all* widgets of that type.
 

@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-custom-pages](../apostrophe-custom-pages/index.html)
+## Inherits from: [apostrophe-custom-pages](../apostrophe-custom-pages/README.md)
 `apostrophe-pieces-pages` implements "index pages" that display pieces of a
 particular type in a paginated, filterable way. It's great for implementing
 blogs, event listings, project listings, staff directories... almost any

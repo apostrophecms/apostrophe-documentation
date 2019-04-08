@@ -534,7 +534,7 @@ module.exports = {
           var extendedType = types[extendNamespaced];
           if ((extendedType.namespace === 'server') && (extendedType.module === extendedType.name)) {
             // It's a module, it has to extend another module
-            return '## Inherits from: [' + extend + '](../' + extend + '/index.html)\n';
+            return '## Inherits from: [' + extend + '](../' + extend + '/README.md)\n';
           } else {
             // The type we're extending could live in another module,
             // figure it out as a relative path
@@ -542,7 +542,7 @@ module.exports = {
             if (!types[extendNamespaced]) {
               console.error('NOT FOUND: ', extendNamespaced);
             }
-            return '## Inherits from: [' + extend + '](../' + extendType.module + '/' + extendNamespaced + '.html)\n';
+            return '## Inherits from: [' + extend + '](../' + extendType.module + '/' + extendNamespaced + '.md)\n';
           }
         }
         return '';

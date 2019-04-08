@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-context](../apostrophe-utils/browser-apostrophe-context.html)
+## Inherits from: [apostrophe-context](../apostrophe-utils/browser-apostrophe-context.md)
 `apostrophe-modal` is a base class for modal dialog boxes. Define a new
 type that extends `apostrophe-modal`, set the `source` option to the
 name of a server-side route that outputs suitable HTML, extend the

@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
 ### `apos.templates`
 Implements template rendering via Nunjucks. **You should use the
 `self.render` and `self.partial` methods of *your own* module**,

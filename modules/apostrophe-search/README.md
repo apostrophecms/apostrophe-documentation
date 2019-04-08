@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-custom-pages](../apostrophe-custom-pages/index.html)
+## Inherits from: [apostrophe-custom-pages](../apostrophe-custom-pages/README.md)
 ### `apos.search`
 Implement sitewide search for Apostrophe. Provides the
 `apostrophe-search` page type for the `/search` page, which

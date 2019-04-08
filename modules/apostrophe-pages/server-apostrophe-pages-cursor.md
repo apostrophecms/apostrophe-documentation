@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-cursor](../apostrophe-docs/server-apostrophe-cursor.html)
+## Inherits from: [apostrophe-cursor](../apostrophe-docs/server-apostrophe-cursor.md)
 
 ## Methods
 ### ancestorPerformanceRestrictions()

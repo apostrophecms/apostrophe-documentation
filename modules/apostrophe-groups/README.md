@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-pieces](../apostrophe-pieces/index.html)
+## Inherits from: [apostrophe-pieces](../apostrophe-pieces/README.md)
 ### `apos.groups`
 Provide a way to group [apostrophe-users](../apostrophe-users/index.html) together
 and assign permissions to them. This module is always active "under the hood," even if

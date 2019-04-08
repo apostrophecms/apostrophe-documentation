@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
 
 ## Methods
 ### connectToMongo(*callback*)
@@ -43,3 +43,5 @@ interval timer. Sets `apos.db.closed` to true,
 allowing detection of the fact that the database
 connection is no longer available by code that
 might still be in progress.
+### trace()
+

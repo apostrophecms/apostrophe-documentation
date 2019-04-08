@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-modal](../apostrophe-modal/browser-apostrophe-modal.html)
+## Inherits from: [apostrophe-modal](../apostrophe-modal/browser-apostrophe-modal.md)
 
 ## Methods
 ### beforeShow(*callback*)

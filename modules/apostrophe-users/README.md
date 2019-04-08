@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-pieces](../apostrophe-pieces/index.html)
+## Inherits from: [apostrophe-pieces](../apostrophe-pieces/README.md)
 ### `apos.users`
 The `apostrophe-users` module provides user accounts. It is **not** intended to
 be extended with new subclass modules. The `apostrophe-login` module only

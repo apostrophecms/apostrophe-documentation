@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-widgets](../apostrophe-widgets/index.html)
+## Inherits from: [apostrophe-widgets](../apostrophe-widgets/README.md)
 `apostrophe-pieces-widgets` provides widgets that display display pieces of a
 particular type around the site.
 

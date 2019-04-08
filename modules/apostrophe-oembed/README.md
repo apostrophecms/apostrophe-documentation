@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
 ### `apos.oembed`
 The oembed module provides an oembed query service for embedding
 third-party website content, such as YouTube videos. The service includes

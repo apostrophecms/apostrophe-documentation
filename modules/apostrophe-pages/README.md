@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
 ### `apos.pages`
 This module manages the page tree and contains the wildcard
 Express route that actually serves pages. That route is installed

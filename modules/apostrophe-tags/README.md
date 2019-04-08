@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-pieces](../apostrophe-pieces/index.html)
+## Inherits from: [apostrophe-pieces](../apostrophe-pieces/README.md)
 ### `apos.tags`
 The `apostrophe-tags` module provides administration tools for managing
 tags on the site. This module subclasses pieces in order to provide a way

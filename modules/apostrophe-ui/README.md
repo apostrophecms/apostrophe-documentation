@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
 Provides the [apos.ui](browser-apostrophe-ui) singleton on the browser side, which
 implements various general purpose UI features for Apostrophe sites, and also
 the [apostrophe-context](browser-apostrophe-context) base class on the browser side,

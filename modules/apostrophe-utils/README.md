@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
 ### `apos.utils`
 Methods here should be of short, of universal utility, and not
 clearly in the domain of any other module. If you don't wish

@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-modal](../apostrophe-modal/browser-apostrophe-modal.html)
+## Inherits from: [apostrophe-modal](../apostrophe-modal/browser-apostrophe-modal.md)
 A "chooser" modal for multiple doc types simultaneously.
 
 Type name is `-manager` so that subclassing doc-type-manager will

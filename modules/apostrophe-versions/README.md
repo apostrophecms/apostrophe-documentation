@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
 ### `apos.versions`
 Provides versioning for all docs in Apostrophe. Every time a doc
 is updated, a new version of it is created in the `aposVersions` collection.

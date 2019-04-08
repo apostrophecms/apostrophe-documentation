@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
 ### `apos.videoFields`
 Implements the ["video" apostrophe schema field type](../../tutorials/getting-started/schema-guide.html).
 

@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
 The base class for all modules that implement a widget, such as
 [apostrophe-rich-text-widgets](../apostrophe-rich-text-widgets/index.html),
 [apostrophe-pieces-widgets](../apostrophe-pieces-widgets/index.html) and

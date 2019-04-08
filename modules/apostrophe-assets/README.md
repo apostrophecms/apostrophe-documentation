@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
 ### `apos.assets`
 This module provides minification and delivery of browser-side assets
 such as stylesheets and javascript.
@@ -194,6 +194,11 @@ the path "from" to the existing, actual folder
 
 If we are creating an asset bundle to deploy
 to production, we'll copy everything instead.
+### ensureNamespace(*folder*)
+Namespaced npm package names look like @foo/bar,
+so we might need to create @foo before we can create bar.
+This method's job is to abstract this detail away from the
+symlink and recursive copy methods.
 ### linkAssetFolderOnWindows(*from*, *to*)
 
 ### removeThenRecursiveCopy(*from*, *to*)
@@ -247,8 +252,9 @@ you get both.
 ### getChain(*name*)
 Fetch an asset chain by name. Note that the
 name of the chain for a project-level override
-of the "foo" module is "my-foo". Otherwise it
-is the name of the module.
+of the "foo" module is "my-foo". If namespaced
+and a project level override, it is "@namespace/my-foo".
+Otherwise it is the name of the module.
 ### pushDefaults()
 
 ### modulesReady()

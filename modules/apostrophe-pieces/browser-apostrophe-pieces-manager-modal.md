@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-modal](../apostrophe-modal/browser-apostrophe-modal.html)
+## Inherits from: [apostrophe-modal](../apostrophe-modal/browser-apostrophe-modal.md)
 A "manage" modal for pieces, displaying them list and/or grid views and providing
 filtering and sorting features. The manager modal is also extended on the fly
 by the chooser for use as a more full-featured chooser when selecting pieces

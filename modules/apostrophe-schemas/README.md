@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
 ### `apos.schemas`
 This module provides schemas, a flexible and fast way to create new data types
 by specifying the fields that should make them up. Schemas power

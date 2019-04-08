@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
 ### `apos.caches`
 A general purpose cache implementation for improved performance in all areas
 where results can be retained and reused temporarily. Any number of distinct cache

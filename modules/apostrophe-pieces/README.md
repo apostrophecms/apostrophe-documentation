@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-doc-type-manager](../apostrophe-doc-type-manager/index.html)
+## Inherits from: [apostrophe-doc-type-manager](../apostrophe-doc-type-manager/README.md)
 `apostrophe-pieces` provides a "base class" you can extend to create new content
 types for your project. Just use the `addFields` option to create a schema and
 you'll get a user interface for managing your content for free. Add in the

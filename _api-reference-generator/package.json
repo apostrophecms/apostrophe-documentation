@@ -9,7 +9,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "apostrophe": "^2.85.0",
+    "apostrophe": "^2.86.0",
     "async": "^2.6.2",
     "boring": "^0.1.0",
     "glob": "^7.0.5",

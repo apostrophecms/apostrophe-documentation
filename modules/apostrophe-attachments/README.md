@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
 ### `apos.attachments`
 This module implements the
 [attachment](../../tutorials/getting-started/schema-guide.html#attachment) schema field type,

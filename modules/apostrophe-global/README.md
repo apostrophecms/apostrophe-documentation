@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-pieces](../apostrophe-pieces/index.html)
+## Inherits from: [apostrophe-pieces](../apostrophe-pieces/README.md)
 ### `apos.global`
 Provides req.data.global, an Apostrophe doc
 for sitewide content such as a footer displayed on all pages. You
@@ -47,7 +47,10 @@ this purpose.
 Fetch the `global` doc object. On success, the callback is invoked
 with `(null, global)`.
 ### modulesReady(*callback*)
-
+We no longer call initGlobal on modulesReady, we do it on the new
+apostrophe:migrate event. But to maximize bc, we still register the event
+handler in modulesReady. This accommodates anyone who has applied
+the super pattern to that method.
 ### initGlobal(*callback*)
 Initialize the `global` doc, if necessary. Invoked late in the
 startup process by `modulesReady`.

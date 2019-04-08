@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-module](../apostrophe-module/index.html)
+## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
 The `apostrophe-jobs` module runs long-running jobs in response
 to user actions. Batch operations on pieces are a good example.
 

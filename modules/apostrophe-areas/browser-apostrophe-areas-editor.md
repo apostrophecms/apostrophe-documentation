@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-context](../apostrophe-utils/browser-apostrophe-context.html)
+## Inherits from: [apostrophe-context](../apostrophe-utils/browser-apostrophe-context.md)
 editor for an area. See enableAreas() method
 in user.js for where this is invoked.
 
