@@ -6,7 +6,7 @@ Every Apostrophe site is made up of modules. You can browse the complete list at
 
 Each module provides a particular feature, often including both front and back end code, as well as templates and stylesheets. For instance, the [apostrophe-assets](apostrophe-assets/README.md) module provides core services relating to assets like stylesheets.
 
-Modules are implemented as [moog types](../glossary.md#moog-type), which provide a simple and clean way to write them in an object-oriented style while keeping async programming convenient and providing easy subclassing and overriding.
+Modules are implemented as [moog types](../other/glossary.md#moog-type), which provide a simple and clean way to write them in an object-oriented style while keeping async programming convenient and providing easy subclassing and overriding.
 
 For convenience, the `apostrophe` npm module contains all of the "core" Apostrophe modules that are necessary for a functioning website.
 
