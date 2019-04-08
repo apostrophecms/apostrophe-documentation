@@ -9,6 +9,15 @@ True whenever the shift key is down.
 
 
 ## Methods
+### prepTooltip()
+Utility that lets you add a tooltip to any HTML element using
+the data-apos-tooltip="YR TOOLTIP MSG" pattern
+If using outside of the current implementation (widget controls and chooser controls)
+you need assign your own event handlers
+### createTooltip(*$el*)
+
+### removeTooltip()
+
 ### enableShift()
 Sets apos.ui.shiftActive whenever the shift key is down.
 ### enableActionable()
@@ -34,7 +43,7 @@ jQuery's AJAX capabilities to prepend that prefix
 to any non-absolute URL. This assists in avoiding the
 need for application code to be specifically prefix-aware
 and allows the prefix to be changed whenever needed.
-See also [apostrophe-express](../apostrophe-express/index.html)
+See also [apostrophe-express](https://docs.apostrophecms.org/apostrophe/modules/apostrophe-express)
 ### enableStyledFileButtons()
 Click the original file upload button if the styled
 proxy for it is clicked. Allows indirect styling of

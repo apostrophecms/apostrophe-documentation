@@ -1,7 +1,7 @@
 ## Inherits from: [apostrophe-modal](../apostrophe-modal/browser-apostrophe-modal.md)
 An editor modal for creating and updating pieces. An instance of this modal is created
 each time you click "Add" or click to edit an existing piece. Relies on
-[apostrophe-schemas](../apostrophe-schemas/index.html) to edit the fields.
+[apostrophe-schemas](https://docs.apostrophecms.org/apostrophe/modules/apostrophe-schemas) to edit the fields.
 
 
 ## Methods

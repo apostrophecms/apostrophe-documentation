@@ -22,7 +22,7 @@ continue to manage it.)
 
 ### Schema options
 The standard schema options, including `addFields`, `removeFields` and `arrangeFields`.
-See the [schema guide](../../tutorials/getting-started/schema-guide.html).
+See the [schema guide](https://docs.apostrophecms.org/apostrophe/tutorials/getting-started/schema-guide).
 
 
 ## Methods

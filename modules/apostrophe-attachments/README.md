@@ -1,9 +1,9 @@
 ## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
 ### `apos.attachments`
 This module implements the
-[attachment](../../tutorials/getting-started/schema-guide.html#attachment) schema field type,
+[attachment](https://docs.apostrophecms.org/apostrophe/tutorials/getting-started/schema-guide#attachment) schema field type,
 which makes it straightforward to allow users to attach uploaded files to docs. See
-the [schema guide](../../tutorials/getting-started/schema-guide.html#attachment) for
+the [schema guide](https://docs.apostrophecms.org/apostrophe/tutorials/getting-started/schema-guide#attachment) for
 more information.
 
 ## Options
