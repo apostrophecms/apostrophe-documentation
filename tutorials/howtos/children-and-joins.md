@@ -3,7 +3,7 @@ title: Accessing the children of pages in a join
 layout: tutorial
 ---
 
-[Joins](../getting-started/schema-guide.html#code-join-by-one-code) are one of Apostrophe's best features:
+[Joins](https://docs.apostrophecms.org/apostrophe/tutorials/getting-started/schema-guide#code-join-by-one-code) are one of Apostrophe's best features:
 
 ```javascript
 addFields: [
