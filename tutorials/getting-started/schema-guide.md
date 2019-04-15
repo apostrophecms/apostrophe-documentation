@@ -89,6 +89,7 @@ In a moment we'll look at all of the schema field types. But first, here are a f
 * `name` is the name of the field, and will be the name of the resulting property on the object.
 * `label` is the label of the field when a form is presented.
 * `help` is help text of the field, and will appear below the field's label when a form is presented.
+* `readOnly: true` prevents the user from actually editing the field.
 * `required`, if true, makes the field mandatory.
 * `type` specifies the field type, as listed below.
 
