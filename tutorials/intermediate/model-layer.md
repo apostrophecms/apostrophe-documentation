@@ -1,12 +1,12 @@
 # Apostrophe's model layer: working with the database
 
-Apostrophe provides a model layer (database layer) that gives you convenient ways to read and write docs programmatically, taking advantage of the same features that underpin modules like [apostrophe-pieces](../../modules/apostrophe-pieces/index.html). Using these features where possible ensures that permissions are respected, widgets are loaded, joins are fetched, versions are recorded for rollback... so many good things.
+Apostrophe provides a model layer (database layer) that gives you convenient ways to read and write docs programmatically, taking advantage of the same features that underpin modules like [apostrophe-pieces](../../modules/apostrophe-pieces/README.md). Using these features where possible ensures that permissions are respected, widgets are loaded, joins are fetched, versions are recorded for rollback... so many good things.
 
-That being said, you can also [access the database directly](accessing-the-database-directly.html) and there's a time and place for that too, most frequently when you must use `$set`, `$inc`, `$unset`, `$push`, `$pull` or `$addToSet` and you are confident you've already determined the user should be allowed to do something. See [accessing the database directly](accessing-the-database-directly.html) for more information.
+That being said, you can also [access the database directly](accessing-the-database-directly.md) and there's a time and place for that too, most frequently when you must use `$set`, `$inc`, `$unset`, `$push`, `$pull` or `$addToSet` and you are confident you've already determined the user should be allowed to do something. See [accessing the database directly](accessing-the-database-directly.md) for more information.
 
 ## Fetching pieces with Apostrophe
 
-Modules that extend [apostrophe-pieces](../../modules/apostrophe-pieces/index.html) have a `find()` method which returns an [Apostrophe cursor](cursors.html) you can use to fetch documents with the benefit of support for Apostrophe's joins and other cursor filters. And **permissions are always taken into account,** so that logged-out users can't see what they shouldn't.
+Modules that extend [apostrophe-pieces](../../modules/apostrophe-pieces/README.md) have a `find()` method which returns an [Apostrophe cursor](cursors.md) you can use to fetch documents with the benefit of support for Apostrophe's joins and other cursor filters. And **permissions are always taken into account,** so that logged-out users can't see what they shouldn't.
 
 For instance, in a subclass of `apostrophe-pieces` you might write:
 
@@ -86,7 +86,7 @@ Working with the right manager in this way ensures you get the benefit of any ex
 
 ### More about cursors
 
-As you may have noticed, Apostrophe's cursors — the objects returned by `find()` — are pretty great. The next tutorial is [all about cursors](cursors.html) and how you can extend them with new "filters" (i.e. chainable methods).
+As you may have noticed, Apostrophe's cursors — the objects returned by `find()` — are pretty great. The next tutorial is [all about cursors](cursors.md) and how you can extend them with new "filters" (i.e. chainable methods).
 
 ## Working with pages
 
@@ -115,7 +115,7 @@ You should fetch the parent of the page first, to pass as `parentPage`.
 
 ## Fetching mixed doc types
 
-Sometimes we're interested in many types of docs, both pieces and pages. We still want Apostrophe's permissions features, but we don't want to be locked down to one type of piece, or to just pages. The [apostrophe-search](../../modules/apostrophe-search/index.html) module is a good example.
+Sometimes we're interested in many types of docs, both pieces and pages. We still want Apostrophe's permissions features, but we don't want to be locked down to one type of piece, or to just pages. The [apostrophe-search](../../modules/apostrophe-search/README.md) module is a good example.
 
 Fetching mixed doc types works like this:
 
@@ -161,7 +161,7 @@ But, consider using the built-in `perPage` and `page` filters, which are simpler
 return self.find(req).perPage(10).page(11).toArray(function(err, pages) { ... })
 ```
 
-*Tip: the [apostrophe-pieces-pages](../../modules/apostrophe-pieces-pages/index.html) module uses all this stuff already, and it's pretty easy to follow. Check out the source code. And consider whether you should just be using it to display your pieces. It's pretty flexible and extensible.*
+*Tip: the [apostrophe-pieces-pages](../../modules/apostrophe-pieces-pages/README.md) module uses all this stuff already, and it's pretty easy to follow. Check out the source code. And consider whether you should just be using it to display your pieces. It's pretty flexible and extensible.*
 
 ## Adding special behavior when a piece is saved
 

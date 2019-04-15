@@ -29,4 +29,4 @@ We do not recommend changing the MongoDB "read preference," and generally speaki
 
 ## Performance improvements
 
-If speed is your concern, replica sets are not the solution to that particular problem. The throughput of MongoDB is quite high, and you will often find that Apostrophe's node processes saturate the CPU before MongoDB does. If so, see the [multiple cores and/or servers](multicore.html) HOWTO.
+If speed is your concern, replica sets are not the solution to that particular problem. The throughput of MongoDB is quite high, and you will often find that Apostrophe's node processes saturate the CPU before MongoDB does. If so, see the [multiple cores and/or servers](multicore.md) HOWTO.

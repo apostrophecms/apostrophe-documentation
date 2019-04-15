@@ -151,7 +151,7 @@ module.exports = {
 
 Here I assume you're using passwords with mongodb, since your `mongodb` server must be set up to allow connections from other servers.
 
-A single instance of mongodb is smart enough to use multiple cores. For reliability, however, you may wish to set up a [mongodb replica set](replica-set.html).
+A single instance of mongodb is smart enough to use multiple cores. For reliability, however, you may wish to set up a [mongodb replica set](replica-set.md).
 
 If you are doing that in order to achieve high availability, great! It will make sure your mongodb database remains available if one of the servers goes down.
 
@@ -178,6 +178,6 @@ By default Apostrophe writes uploaded files to the server's local hard drive. Th
 
 Fortunately Apostrophe uses [uploadfs](https://github.com/punkave/uploadfs), which also supports using Amazon S3 as a back end for file storage.
 
-To do that, [check out our separate HOWTO on using Amazon S3 with apostrophe](storing-images-and-files-in-amazon-s3.html).
+To do that, [check out our separate HOWTO on using Amazon S3 with apostrophe](storing-images-and-files-in-amazon-s3.md).
 
 Alternatively, you could use NFS to make the same filesystem visible to more than one server. Or you could write a custom `uploadfs` back end; see the uploadfs documentation for more information about that strategy.

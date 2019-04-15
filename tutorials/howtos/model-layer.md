@@ -5,7 +5,7 @@ layout: tutorial
 
 Apostrophe provides a model layer (database layer) that gives you convenient ways to read and write docs programmatically, taking advantage of the same features that underpin modules like `apostrophe-pieces`. Using these features where possible ensures that permissions are respected, widgets are loaded, joins are fetched, versions are recorded for rollback... so many good things.
 
-That being said, you can also [access the database directly](../intermediate/accessing-the-database-directly.html) and there's a time and place for that too, most frequently when you must use `$set`, `$inc`, `$unset`, `$push`, `$pull` or `$addToSet` and you are confident you've already determined the user should be allowed to do something. See [accessing the database directly](../intermediate/accessing-the-database-directly.html) for more information.
+That being said, you can also [access the database directly](../intermediate/accessing-the-database-directly.md) and there's a time and place for that too, most frequently when you must use `$set`, `$inc`, `$unset`, `$push`, `$pull` or `$addToSet` and you are confident you've already determined the user should be allowed to do something. See [accessing the database directly](../intermediate/accessing-the-database-directly.md) for more information.
 
 ## Fetching pieces with Apostrophe
 
@@ -83,7 +83,7 @@ Working with the right manager in this way ensures you get the benefit of any ex
 
 ### More about cursors
 
-As you may have noticed, Apostrophe's cursors — the objects returned by `find()` — are pretty great. Check out the [reference documentation](../../modules/apostrophe-docs/server-apostrophe-cursor.html) for more information about cursors. *TODO: give examples of adding a refinment to an existing cursor moog type to add more filters correctly. See the `apostrophe-pieces` source*
+As you may have noticed, Apostrophe's cursors — the objects returned by `find()` — are pretty great. Check out the [reference documentation](../../modules/apostrophe-docs/server-apostrophe-cursor.md) for more information about cursors. *TODO: give examples of adding a refinment to an existing cursor moog type to add more filters correctly. See the `apostrophe-pieces` source*
 
 ## Working with pages
 

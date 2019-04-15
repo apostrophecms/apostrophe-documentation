@@ -1,6 +1,6 @@
 # Working with cursors
 
-Apostrophe users cursors to fetch docs from the database. An [apostrophe-cursor](../../modules/apostrophe-docs/server-apostrophe-cursor.html) object helps us conveniently fetch docs from
+Apostrophe users cursors to fetch docs from the database. An [apostrophe-cursor](../../modules/apostrophe-docs/server-apostrophe-cursor.md) object helps us conveniently fetch docs from
 the `aposDocs` mongodb collection using chainable "filter" methods. Much
 like a MongoDB or Doctrine cursor, but with many filters specific
 to Apostrophe that add a great deal of convenience. And it's possible
@@ -8,7 +8,7 @@ to add your own filters.
 
 ## An illustrated example
 
-Let's say we've created a `profiles` module that [extends apostrophe-pieces](../getting-started/reusable-content-with-pieces.html). Its configuration looks like this:
+Let's say we've created a `profiles` module that [extends apostrophe-pieces](../getting-started/reusable-content-with-pieces.md). Its configuration looks like this:
 
 ```javascript
 {
@@ -48,19 +48,19 @@ return apos.docs.getManager('profile').find(req,
 
 What's going on here?
 
-* The [`getManager` method of `apostrophe-docs`](../../modules/apostrophe-docs/index.html#getManager) is telling us the right module to talk to about docs of type `profile`. That will be our `profiles` module.
-* The [`find` method of `apostrophe-pieces`](../../modules/apostrophe-pieces/index.html#find) creates a cursor that is specific to profiles.
+* The [`getManager` method of `apostrophe-docs`](../../modules/apostrophe-docs/README.md#getManager) is telling us the right module to talk to about docs of type `profile`. That will be our `profiles` module.
+* The [`find` method of `apostrophe-pieces`](../../modules/apostrophe-pieces/README.md#find) creates a cursor that is specific to profiles.
 * That cursor will be able to see only documents the current request is allowed to see, thanks to `req`.
 * Next, the [mongodb query ("criteria") object](https://docs.mongodb.com/manual/modules/method/db.collection.find/) we pass to `find` specifies that we are only interested in profiles with a `reputation` field set to 30 or higher.
-* Then, the [sort filter method of `apostrophe-cursor`](../../modules/apostrophe-docs/server-apostrophe-cursor.html#sort) specifies the sort order, just like the `sort()` filter in MongoDB.
-* Finally, the [`toArray` method of `apostrophe-cursor`](../../modules/apostrophe-docs/server-apostrophe-cursor.html#to-array) actually fetches the docs from the database. If all goes well, our callback function receives `(null, docs)`, and `docs` is an array of profiles.
+* Then, the [sort filter method of `apostrophe-cursor`](../../modules/apostrophe-docs/server-apostrophe-cursor.md#sort) specifies the sort order, just like the `sort()` filter in MongoDB.
+* Finally, the [`toArray` method of `apostrophe-cursor`](../../modules/apostrophe-docs/server-apostrophe-cursor.md#to-array) actually fetches the docs from the database. If all goes well, our callback function receives `(null, docs)`, and `docs` is an array of profiles.
 
 > **"But where can I put this code?"** Context helps! Check out the
 [apostrophe-samples](https://github.com/apostrophecms/apostrophe-samples)
 project, specifically [this commit](https://github.com/apostrophecms/apostrophe-samples/commit/7f0b2b90377be4c4be216c8213ca4783ed2ec656) in which we use cursors and Apostrophe's model-layer APIs to randomly select a relationship between two pieces if the user hasn't entered a value.
 ## Full text search
 
-So far this looks familiar to MongoDB developers. But Apostrophe adds some [filter methods of its own](../../modules/apostrophe-docs/server-apostrophe-cursor.html#methods) that go beyond what you get out of the box with MongoDB.
+So far this looks familiar to MongoDB developers. But Apostrophe adds some [filter methods of its own](../../modules/apostrophe-docs/server-apostrophe-cursor.md#methods) that go beyond what you get out of the box with MongoDB.
 
 Let's search for profiles related to shoes, based on the text of each document:
 
@@ -85,7 +85,7 @@ The `search` filter performs a MongoDB full-text search *and* adjusts the sort o
 
 ## Pieces pages and filters
 
-To make it easier to browse a listing of pieces, the [apostrophe-pieces-pages](../../modules/apostrophe-pieces-pages/index.html) module will *automatically permit filters to be used as query string parameters*, provided they are marked as safe for the public. You can try this with the `search` filter, which is marked as safe, or with any of the filters provided to you automatically for your schema fields, provided you use the `piecesFilters` option as shown below.
+To make it easier to browse a listing of pieces, the [apostrophe-pieces-pages](../../modules/apostrophe-pieces-pages/README.md) module will *automatically permit filters to be used as query string parameters*, provided they are marked as safe for the public. You can try this with the `search` filter, which is marked as safe, or with any of the filters provided to you automatically for your schema fields, provided you use the `piecesFilters` option as shown below.
 
 ## Built-in filters: every schema field gets one!
 
@@ -93,7 +93,7 @@ To make it easier to browse a listing of pieces, the [apostrophe-pieces-pages](.
 
 ## Filtering joins: browsing profiles by market
 
-Let's say our profiles have a [join](../getting-started/schema-guide.html) with another content type, `market`. Each profile is for a salesperson who works in a particular market:
+Let's say our profiles have a [join](../getting-started/schema-guide.md) with another content type, `market`. Each profile is for a salesperson who works in a particular market:
 
 ```javascript
 {
@@ -129,7 +129,7 @@ We'd like to be able to fetch profiles by market. We could do that by writing a 
 
 ## Creating filter UI with `apostrophe-pieces-pages`
 
-If you are working with [apostrophe-pieces-pages](../../modules/apostrophe-pieces-pages/index.html), you'll likely want to display links to each tag, each market, etc. and allow the user to filter the profiles.
+If you are working with [apostrophe-pieces-pages](../../modules/apostrophe-pieces-pages/README.md), you'll likely want to display links to each tag, each market, etc. and allow the user to filter the profiles.
 
 This is easy thanks to the `piecesFilters` option:
 
@@ -272,11 +272,11 @@ module.exports = {
 
 What's happening in this code?
 
-* We placed our code in `lib/modules/profiles/lib/cursor.js`. This is important. Apostrophe will automatically load any code placed here as an [implicit subclass](../../glossary.html#implicit-subclassing) of our cursor type. That means we can modify the cursor in our own `construct` function.
+* We placed our code in `lib/modules/profiles/lib/cursor.js`. This is important. Apostrophe will automatically load any code placed here as an [implicit subclass](../../glossary.md#implicit-subclassing) of our cursor type. That means we can modify the cursor in our own `construct` function.
 * We called `addFilter` and gave the filter the name `market`. This defines a new, chainable `market(id)` method for our cursor type.
 * We set a default value with `def`. By default, we don't want to filter by a particular market.
 * We provided a `launder` function. The `launder` function accepts raw input from the web browser and returns it in a sanitized, "laundered" form. This is indispensable for a filter the public is allowed to use. See the [launder](https://npmjs.org/package/launder) module, always available as `self.apos.launder` inside our cursor code.
-* We set `safeFor` to `public`. With this setting, any subclass of [apostrophe-pieces-pages](../../modules/apostrophe-pieces-pages/index.html) we choose to provide for browsing our profiles will *automatically support* a `market` query string parameter and filter results accordingly. *The "slug" property of each doc is a user-friendly label based on the title, suitable for use in URLs.*
+* We set `safeFor` to `public`. With this setting, any subclass of [apostrophe-pieces-pages](../../modules/apostrophe-pieces-pages/README.md) we choose to provide for browsing our profiles will *automatically support* a `market` query string parameter and filter results accordingly. *The "slug" property of each doc is a user-friendly label based on the title, suitable for use in URLs.*
 * We provide a `finalize` function. `finalize` does the real work of the filter: it reaches out to the `markets` module (using `getManager`), gets a cursor for fetching markets, limits the MongoDB projection to just the IDs for speed, and calls `toObject` to fetch just one result.
 * We call `self.and`. This filter says, "this cursor has all the criteria I already gave it... *and* this additional MongoDB criteria object must match too." Behind the scenes, it creates an `{ $and: [ ... ] }` MongoDB criteria object. But we don't have to fuss with that. This is the most commonly used filter when building other filters.
 * Once we're finished, we invoke the callback successfully and return.
@@ -287,7 +287,7 @@ You can change the behavior of all cursors for pieces. Just put your cursor defi
 
 ## Adding features to all cursors for pages
 
-The [apostrophe-pages-cursor](../../modules/apostrophe-pages/server-apostrophe-pages-cursor.html) type is used to fetch the current page for display on the site. It is also used to fetch its ancestors and children, and defines filters for those purposes. You can configure the filters that are called by default when fetching the current page via the [`filters` option to `apostrophe-pages`](../../modules/apostrophe-pages/index.html#filters).
+The [apostrophe-pages-cursor](../../modules/apostrophe-pages/server-apostrophe-pages-cursor.md) type is used to fetch the current page for display on the site. It is also used to fetch its ancestors and children, and defines filters for those purposes. You can configure the filters that are called by default when fetching the current page via the [`filters` option to `apostrophe-pages`](../../modules/apostrophe-pages/README.md#filters).
 
 But what if we want to add new filters to this type?
 

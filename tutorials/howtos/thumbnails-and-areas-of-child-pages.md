@@ -90,7 +90,7 @@ the children of each ancestor, we tell Apostrophe to
 > object. It then loops through all the properties of the
 > `filters` option and calls those methods on the cursor,
 > passing on any arguments given. For more information
-> see [working with cursors](../intermediate/cursors.html).
+> see [working with cursors](../intermediate/cursors.md).
 
 ## Drop-down menus with pictures: images from second-level pages
 

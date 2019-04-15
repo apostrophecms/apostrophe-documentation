@@ -61,7 +61,7 @@ The simplest way to limit the results is to set the `types` option to an array c
 
 When you do this, *no* other types will be included in the results. So be sure to extend the list appropriately if you add new page or piece types you would like to see.
 
-**For piece types, there must be corresponding pieces-pages** in order for a valid URL to be provided. For instance, you have a `product` type powered by a `products` module that extends `apostrophe-pieces`, and you want to include it in search results, you must also create a `products-pages` module that extends `apostrophe-pieces-pages`, providing `index.html` and `show.html` templates for it, and create at least one such page on the site. For more information, see [reusable content with pieces](../getting-started/reusable-content-with-pieces.html).
+**For piece types, there must be corresponding pieces-pages** in order for a valid URL to be provided. For instance, you have a `product` type powered by a `products` module that extends `apostrophe-pieces`, and you want to include it in search results, you must also create a `products-pages` module that extends `apostrophe-pieces-pages`, providing `index.html` and `show.html` templates for it, and create at least one such page on the site. For more information, see [reusable content with pieces](../getting-started/reusable-content-with-pieces.md).
 
 > The type name must correspond to the `name` option for a pieces module, which is what the `type` property is set to for each individual piece... **not** the name of the module itself. Think singular, not plural.
 

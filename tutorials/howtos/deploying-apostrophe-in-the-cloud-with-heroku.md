@@ -15,7 +15,7 @@ So for this how-to, we'll stick to free services from Heroku and mlab, a MongoDB
 
 ## Before you begin
 
-First, build an Apostrophe site! See the [getting started tutorial](../getting-started/index.html).
+First, build an Apostrophe site! See the [getting started tutorial](../getting-started).
 
 Make sure you commit it to a git repository. git is a big part of how Heroku deploys websites.
 
@@ -41,7 +41,7 @@ Apostrophe requires a `mongodb` database, which Heroku doesn't offer. Fortunatel
 
 When you're finished verifying your account with mlab, click "Create New," then "Single-node" and "Sandbox."
 
-> You can of course pick a replica set cluster and various non-free plans instead if you wish. Do not use sharding, it is not appropriate to our use case. Do not change the default read preference. See [replica sets](replica-set.html) for more information.
+> You can of course pick a replica set cluster and various non-free plans instead if you wish. Do not use sharding, it is not appropriate to our use case. Do not change the default read preference. See [replica sets](replica-set.md) for more information.
 
 If you can, give your database the same name as your app, just for simplicity, but it's not mandatory.
 
