@@ -25,6 +25,8 @@ Modules like [apostrophe-pieces](../../modules/apostrophe-pieces/README.md) pass
 
 `alterFields` should be a function accepting a `schema` array as its sole argument. `alterFields` should _modify_ the `schema` array, rather than returning a value. It is rarely used.
 
+#### arrangeFields: grouping fields together in the interface as tabs
+
 `arrangeFields` groups fields together. The result is typically displayed as tabs. For example, here is the default `arrangeFields` setting for all docs:
 
 ```javascript
