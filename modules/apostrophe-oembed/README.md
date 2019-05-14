@@ -12,8 +12,28 @@ display the result.
 Also see the [oembetter](https://www.npmjs.com/package/oembetter) npm module and
 the [oembed](http://oembed.com/) documentation.
 
+### Whitelisted platforms
 Sites to be embedded need to be whitelisted, to avoid XSS attacks. Many
-widely trusted sites are already whitelisted.
+widely trusted sites are already whitelisted, including:
+
+- blip.tv
+- dailymotion.com
+- dotsub.com
+- facebook.com
+- flickr.com
+- hulu.com
+- instagram.com
+- nfb.ca
+- photobucket.com
+- qik.com
+- revision3.com
+- scribd.com
+- soundcloud.com
+- twitter.com
+- viddler.com
+- vimeo.com
+- yfrog.com
+- youtube.com
 
 Your `whitelist` option is concatenated with `oembetter`'s standard
 whitelist, plus wufoo.com, infogr.am, and slideshare.net.
