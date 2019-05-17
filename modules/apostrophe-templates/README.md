@@ -157,7 +157,7 @@ Or:
 This allows the template to handle either a content area
 refresh or a full page render just by doing this:
 
-`{% extend outerLayout %}`
+`{% extends outerLayout %}`
 
 Note the lack of quotes.
 

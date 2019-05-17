@@ -396,7 +396,7 @@ Next, refactor your `index.html` template so that the actual list of people and 
 
 ```markup
 {# index.html #}
-{% extend "layout.html" %}
+{% extends "layout.html" %}
 <h2>People</h2>
 <div data-apos-ajax-context="people">
   {% include "indexAjax.html" %}
@@ -436,7 +436,7 @@ Here's an example. Here we assume you followed the [cursors tutorial](../interme
 
 ```markup
 {# index.html #}
-{% extend "layout.html" %}
+{% extends "layout.html" %}
 <h2>People</h2>
 <div data-apos-ajax-context="people">
   {% include "indexAjax.html" %}
@@ -628,4 +628,3 @@ Note that this only makes sense if you are using `apostrophe-pieces-pages`.
 Now that we've made this choice, we might want to switch to calling `apos.singleton` in the page for the profile photo as well.
 
 We can also set `contextual: true` on each of the `body` and `thumbnail` [schema](schema-guide.md) fields so that they don't show up in the modal dialog box but are instead only editable on the page. Whether to do that is up to you, but it does help reinforce the idea that you edit this content on the page.
-
