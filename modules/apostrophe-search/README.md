@@ -95,6 +95,3 @@ through apos.utils.sortify to eliminate unwanted characters and case differences
 ### docUnversionedFields(*req*, *doc*, *fields*)
 Invoked by the apostrophe-versions module.
 Identify fields that should never be rolled back
-## API Routes
-### GET /modules/apostrophe-search/suggest
-

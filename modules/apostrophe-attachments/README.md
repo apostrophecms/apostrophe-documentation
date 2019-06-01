@@ -325,6 +325,8 @@ out across all sizes and crops.
 
 ### enableCollection(*callback*)
 
+### ensureIndexes(*callback*)
+
 ### enableHelpers()
 
 ### addPermissions()
@@ -434,23 +436,3 @@ The coordinates are in percentage terms.
 ### isCroppable(*attachment*)
 Returns true if this type of attachment is croppable.
 Available as a template helper.
-## API Routes
-### POST /modules/apostrophe-attachments/upload
-
-### POST /modules/apostrophe-attachments/crop
-Crop a previously uploaded image, based on the `id` POST parameter
-and the `crop` POST parameter. `id` should refer to an existing
-file in /attachments. `crop` should contain top, left, width and height
-properties.
-
-This route uploads a new, cropped version of
-the existing image to uploadfs, named:
-
-/attachments/ID-NAME.top.left.width.height.extension
-
-The `crop` object is appended to the `crops` array property
-of the file object.
-### POST /modules/apostrophe-attachments/crop-editor
-
-### POST /modules/apostrophe-attachments/focal-point-editor
-

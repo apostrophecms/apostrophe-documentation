@@ -84,8 +84,5 @@ If `options.displayingIds` is set, notifications
 whose `_id` properties appear in it are not returned.
 ### ensureCollection(*callback*)
 
-## API Routes
-### POST /modules/apostrophe-notifications/trigger
-Send a new notification for the user.
-### POST /modules/apostrophe-notifications/dismiss
-Dismiss the notification indicated by `req.body._id`.
+### ensureIndexes(*callback*)
+

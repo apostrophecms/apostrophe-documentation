@@ -1,3 +1,4 @@
+## Inherits from: [apostrophe-context](../apostrophe-utils/browser-apostrophe-context.md)
 The browser-side singleton corresponding to the [apostrophe-schemas](https://docs.apostrophecms.org/apostrophe/modules/apostrophe-schemas) module.
 
 

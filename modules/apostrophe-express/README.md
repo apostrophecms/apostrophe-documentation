@@ -156,7 +156,13 @@ csrf: {
   cookie: {
     // Send it only if the request is HTTPS
     secure: true
-  }
+  },
+  // Disable storing a true random CSRF token in sessions for all site visitors.
+  // Some protection is still provided via a well-known token and the Same Origin Policy.
+  // Logged-in users always get a true random CSRF token in their session.
+  // This setting is recommended because otherwise a session must be stored for
+  // 100% of site accesses.
+  disableAnonSession: true
 }
 ```
 

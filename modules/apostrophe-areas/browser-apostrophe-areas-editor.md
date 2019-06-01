@@ -101,10 +101,10 @@ and, optionally, invoke a callback after adding to the DOM.
 
 ### disableDroppables(*$draggable*)
 
-### reRenderWidget(*$wrapper*)
+### reRenderWidget(*$wrapper*, *callback*)
 Get the server to re-render a widget for us, applying the
-options appropriate to its new context at area
-TODO: we should prevent input during this time
+options appropriate to its new area for instance. The callback
+is optional.
 ### serialize()
 Serialize the editor to an array of items, exactly as expected for
 storage in an area.
@@ -137,9 +137,8 @@ by another user, tab or window, a message is displayed to
 the user and the page is refreshed to reflect the current
 content and avoid a cascade of such messages.
 ### changeOwners(*$item*)
-Take an item that might belong to a different
-area and make it ours. Implicitly starts
-autosaving both affected areas
+For bc only. Working version of this logic is inside
+the drop handler.
 ### respectLimit()
 
 ### limitReached()
@@ -182,3 +181,13 @@ also carries out the check for empty areas and can
 be expanded to do more by extending `onInterval`. Note
 that this interval is established for all areas the
 user can edit, not just those that autosave.
+### changedSchemaWidgetControl(*event*)
+
+### updateAllSchemaWidgetControlChoices(*$widget*)
+
+### updateSchemaWidgetControlChoices(*$widget*, *name*, *selected*)
+The dropdown acts as a multiple selector, biased toward
+the more common use case where only one choice is made.
+Until you make a choice it looks like a single-select situation.
+The multiple-select capability can be seen when you pull it
+down again.

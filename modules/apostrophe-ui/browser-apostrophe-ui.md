@@ -79,11 +79,11 @@ handled gracefully.
 ### globalLock()
 Do not call this method yourself. It is called
 by self.globalBusy to display the global spinner.
-Freel free to override this method to change the UI.
+Feel free to override this method to change the UI.
 ### globalUnlock()
 Do not call this method yourself. It is called
 by self.globalBusy to hide the global spinner.
-Freel free to override this method to change the UI.
+Feel free to override this method to change the UI.
 ### busy(*$el*, *state*)
 Simple progress display. Enables a progress display
 inside the given element. If state is true, the

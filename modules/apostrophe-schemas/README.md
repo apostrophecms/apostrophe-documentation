@@ -23,7 +23,7 @@ that requires forms.
 
 ### pushCreateSingleton()
 
-### compose(*options*)
+### compose(*options*, *module*)
 Compose a schema based on addFields, removeFields, orderFields
 and, occasionally, alterFields options. This method is great for
 merging the schema requirements of subclasses with the schema
@@ -31,6 +31,10 @@ requirements of a superclass. See the apostrophe-schemas documentation
 for a thorough explanation of the use of each option. The
 alterFields option should be avoided if your needs can be met
 via another option.
+
+If present, the `module` option is used to resolve method
+names lacking a module name, for instance when a method name
+is given for the `choices` property of a `select` field.
 ### refine(*schema*, *_options*)
 refine is like compose, but it starts with an existing schema array
 and amends it via the same options as compose.

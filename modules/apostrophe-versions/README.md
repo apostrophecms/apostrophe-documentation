@@ -58,10 +58,3 @@ arrays when changed properties are areas or
 schema arrays. version2 is assumed to be the
 newer version. The doc is examined to determine what
 schema to use.
-## API Routes
-### POST /modules/apostrophe-versions/versions-editor
-
-### POST /modules/apostrophe-versions/compare
-
-### POST /modules/apostrophe-versions/revert
-

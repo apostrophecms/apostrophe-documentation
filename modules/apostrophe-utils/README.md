@@ -236,6 +236,14 @@ called for situations less dire than
 ### warnDev(*msg*) *[api]*
 Identical to `apos.utils.warn`, except that the warning is
 not displayed if `process.env.NODE_ENV` is `production`.
+Also see `warnDevOnce` which is less likely to irritate
+the developer until they stop paying attention.
+### warnDevOnce(*name*, *msg*) *[api]*
+Identical to `apos.utils.warnDev`, except that the warning is
+only displayed once per `name` unless the command line
+option `--all-[name]` is present. Nothing appears if
+`process.env.NODE_ENV` is `production`, unless
+`--all-[name]` is present on the command line.
 ### error(*msg*) *[api]*
 Log an error message. The default implementation
 wraps `console.error` and passes on all arguments,

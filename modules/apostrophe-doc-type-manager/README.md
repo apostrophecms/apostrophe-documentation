@@ -183,11 +183,5 @@ if there is an active user
 ### getCreateSingletonOptions(*req*) *[browser]*
 
 ## API Routes
-### POST /modules/apostrophe-doc-type-manager/chooser
-
 ### POST /modules/apostrophe-doc-type-manager/chooser-choices
-
-### POST /modules/apostrophe-doc-type-manager/relationship-editor
-
-### POST /modules/apostrophe-doc-type-manager/autocomplete
 

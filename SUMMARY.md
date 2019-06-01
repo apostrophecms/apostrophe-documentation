@@ -101,6 +101,7 @@
 * [apostrophe-browser-utils](modules/apostrophe-browser-utils/README.md)
   * [apostrophe-browser-utils (browser)](modules/apostrophe-browser-utils/browser-apostrophe-browser-utils.md)
 * [apostrophe-caches](modules/apostrophe-caches/README.md)
+* [apostrophe-csrf](modules/apostrophe-csrf/README.md)
 * [apostrophe-custom-pages](modules/apostrophe-custom-pages/README.md)
   * [apostrophe-custom-pages-cursor (server)](modules/apostrophe-custom-pages/server-apostrophe-custom-pages-cursor.md)
   * [apostrophe-custom-pages (browser)](modules/apostrophe-custom-pages/browser-apostrophe-custom-pages.md)
