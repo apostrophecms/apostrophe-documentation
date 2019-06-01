@@ -728,7 +728,7 @@ You're not restricted to filtering on a single value for a join, or for a `tags`
 
 You'll see people with *either* job.
 
-> If you want to be more restrictive and only display results that have *all* of the specified values, just add `And` to the filter name. As before, you can do this with `_` for `_id`, or without for `slug`. For instance, `_jobsAnd()` expects ids, and `jobsAnd()` expects slugs. However, **keep in mind this usually is very frustrating for users because they will rarely get any matches.** We recommend the default "or" behavior.
+> If you want to be more restrictive and only display results that have *all* of the specified values, just add `And` to the filter name. As before, you can do this with `_` for `_id`, or without for `slug`. For instance, `_jobsAnd` expects ids, while `jobsAnd` expects slugs. However, **keep in mind this usually is very frustrating for users because they will rarely get any matches.** We recommend the default "or" behavior.
 
 Here's how to build query strings that contain arrays in your template:
 
