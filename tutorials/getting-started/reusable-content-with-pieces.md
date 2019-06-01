@@ -800,7 +800,7 @@ But this isn't hard to accommodate. All you have to do is:
 2. Give that element the `data-apos-ajax-append` attribute.
 3. Add `append=1` to the query string of your `Load More` button.
 
-Here's an example. Here we assume you followed the [cursors tutorial](../intermediate/cursors.md) to enable filtering people by tag.
+Here's an example. Here we assume you already set up the `piecesFilters` option as described earlier in this tutorial to enable filtering people by tag.
 
 ```markup
 {# index.html #}
