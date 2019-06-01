@@ -30,7 +30,7 @@ Let's say we've created a `profiles` module that [extends apostrophe-pieces](../
 }
 ```
 
-Now let's we want to fetch the ten most recently updated profiles with a `reputation` value greater than 30 and make sure we have access to that information in every page template:
+Now let's say we want to fetch the ten most recently updated profiles with a `reputation` value greater than 30 and make sure we have access to that information in every page template:
 
 ```javascript
 // in lib/modules/profiles/index.js, or any module
