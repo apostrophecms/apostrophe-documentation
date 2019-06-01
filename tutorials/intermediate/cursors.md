@@ -52,7 +52,7 @@ module.exports = {
 };
 ```
 
-> **"What's going on in this code?"** We've written a [promise event handler](../other/events.html) that listens for the `apostrophe-pages:beforeSend` event, which is sent just before Apostrophe renders the page template. We've given it the method name `fetchProfiles`, to distinguish it from other handlers. And we've supplied an `async` function that fetches the profiles.
+> **"What's going on in this code?"** We've written a [promise event handler](../other/events.md) that listens for the `apostrophe-pages:beforeSend` event, which is sent just before Apostrophe renders the page template. We've given it the method name `fetchProfiles`, to distinguish it from other handlers. And we've supplied an `async` function that fetches the profiles.
 >
 > `apos.docs.getManager('profile')` returns the module that manages the piece type named `profile`. If the module has an `alias` option set to `profiles`, we could also write `apos.profiles`.
 >
