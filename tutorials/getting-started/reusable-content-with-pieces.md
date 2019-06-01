@@ -765,7 +765,7 @@ Next, refactor your `index.html` template so that the actual list of people and 
 
 ```markup
 {# index.html #}
-{% extend "layout.html" %}
+{% extends "layout.html" %}
 <h2>People</h2>
 <div data-apos-ajax-context="people">
   {% include "indexAjax.html" %}
@@ -803,7 +803,7 @@ Here's an example. Here we assume you followed the [cursors tutorial](../interme
 
 ```markup
 {# index.html #}
-{% extend "layout.html" %}
+{% extends "layout.html" %}
 <h2>People</h2>
 <div data-apos-ajax-context="people">
   {% include "indexAjax.html" %}

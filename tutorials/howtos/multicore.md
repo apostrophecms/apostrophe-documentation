@@ -41,7 +41,7 @@ Now we need to configure nginx to balance the load over the two ports.
 
 ## If you are using mechanic
 
-Good for you! This is so much easier with [mechanic](https://npmjs.org/mechanic).
+Good for you! Configuring nginx is so much easier with [mechanic](https://npmjs.org/mechanic).
 
 Let's check our current setup:
 

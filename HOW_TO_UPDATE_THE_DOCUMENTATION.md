@@ -1,9 +1,9 @@
 Apostrophe Documentation
 ========================
 
-This project contains [the documentation site](http://apostrophecms.org/docs/index.html) for [Apostrophe](http://apostrophecms.org/).
+This project contains [the documentation site](https://docs.apostrophecms.org/apostrophe/) for [Apostrophe](http://apostrophecms.org/).
 
-You don't need to read this page just to read the documentation! [Read the actual documentation here.](http://apostrophecms.org/docs/) This page is about *contributing* to the documentation.
+You don't need to read this page just to read the documentation! [Read the actual documentation here.](https://docs.apostrophecms.org/apostrophe) This page is about *contributing* to the documentation.
 
 Building the docs
 -----------------
@@ -44,7 +44,7 @@ Right now we're making all edits by hand and committing them to master. Currentl
 
 ### 4. Deploying
 
-After generation or manual edits to the documentation, simply commit the changes to `apostrophe-documentation#master` and check http://docs.apostrophecms.org for the changes. Gitbook a minute or so to rebuild the site.
+After generation or manual edits to the documentation, simply commit the changes to `apostrophe-documentation#master` and check http://docs.apostrophecms.org for the changes. Give Gitbook a minute or so to rebuild the site.
 
 *Note on internal doc links* When creating links in the body of a documentation page that point to another page of documentation, make sure the link is relative and pointing to the `.md` extension. After committing, check the gitbook build to make sure it is correctly linking to the gitbook page and not a file in the `apostrophe-documentation` github repo
 
