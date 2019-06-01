@@ -532,6 +532,7 @@ Earlier, for performance, we showed how to restrict the projection used to fetch
 
 We can fix this by adding `_job` to the projection:
 
+```javascript
   'people-widgets': {
     extend: 'apostrophe-pieces-widgets',
     filters: {
