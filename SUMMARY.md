@@ -39,6 +39,7 @@
   * [Facebook open graph tags in Apostrophe](tutorials/howtos/facebook.md)
   * ["Next" and "previous" links for pieces](tutorials/howtos/next-and-previous-pieces.md)
   * [Adding fields to all pieces](tutorials/howtos/adding-fields-to-all-pieces.md)
+  * [Lean frontend assets: Apostrophe without jQuery](tutorials/howtos/lean-frontend-assets.md)
   * [Sending user notifications](tutorials/howtos/sending-user-notifications.md)
   * [Adding new batch operations for pieces](tutorials/howtos/adding-new-batch-operations.md)
   * [Extending the pieces editor modal](tutorials/howtos/extending-the-pieces-editor-modal.md)
