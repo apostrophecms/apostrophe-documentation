@@ -634,36 +634,7 @@ Emit controls section of page create modal: the cancel/save buttons, etc.
 ### editControls()
 Emit controls section of page editor modal: the cancel/save buttons, etc.
 ## API Routes
-### POST /modules/apostrophe-pages/editor
-Render the editor for page settings
-### POST /modules/apostrophe-pages/fetch-to-insert
-Fetch data needed to edit and ultimately insert a page
-### POST /modules/apostrophe-pages/insert
-
-### POST /modules/apostrophe-pages/fetch-to-update
-Fetch data needed to edit and ultimately update a page
-### POST /modules/apostrophe-pages/update
-
-### POST /modules/apostrophe-pages/fetch-to-copy
-Fetch data needed to copy a page.
-### POST /modules/apostrophe-pages/copy
-Fetch data needed to insert a copied page. Currently identical to insert
-except that the parent page id is determined differently
-### POST /modules/apostrophe-pages/move
-
-### POST /modules/apostrophe-pages/move-to-trash
-
-### POST /modules/apostrophe-pages/rescue-from-trash
-
-### POST /modules/apostrophe-pages/delete-from-trash
-
-### POST /modules/apostrophe-pages/get-jqtree
-
 ### POST /modules/apostrophe-pages/reorganize
-
-### POST /modules/apostrophe-pages/chooser-modal
-
-### POST /modules/apostrophe-pages/info
 
 ### POST /modules/apostrophe-pages/publish
 Implement the publish route, which can publish

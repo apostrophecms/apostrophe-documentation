@@ -22,7 +22,7 @@ returned by require('nunjucks'). Replacing Nunjucks
 entirely in Apostrophe would be a vast undertaking, but perhaps
 you have a custom version of Nunjucks that is compatible.
 
-### `viewsFolderFallback`: specifies a folder to be checked for templates
+### `viewsFolderFallback`: specifies a folder or an array of folders to be checked for templates
 if they are not found in the module that called `self.render` or `self.partial`
 or those it extends. This is a handy place for project-wide macro files.
 Often set to `__dirname + '/views'` in `app.js`.
@@ -157,7 +157,7 @@ Or:
 This allows the template to handle either a content area
 refresh or a full page render just by doing this:
 
-`{% extends outerLayout %}`
+`{% extend outerLayout %}`
 
 Note the lack of quotes.
 

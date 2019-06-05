@@ -1,10 +1,11 @@
-# Working with cursors
+# Programming with cursors
 
-Apostrophe users cursors to fetch docs from the database. An [apostrophe-cursor](../../modules/apostrophe-docs/server-apostrophe-cursor.md) object helps us conveniently fetch docs from
-the `aposDocs` mongodb collection using chainable "filter" methods. Much
-like a MongoDB or Doctrine cursor, but with many filters specific
-to Apostrophe that add a great deal of convenience. And it's possible
-to add your own filters.
+Apostrophe uses cursors to fetch docs from the database. An [apostrophe-cursor](../../modules/apostrophe-docs/server-apostrophe-cursor.md) object helps us conveniently fetch docs from
+the `aposDocs` mongodb collection using chainable "filter" methods, quite similar to those MongoDB developers are used to. Apostrophe's cursors work much like MongoDB or Doctrine cursors, but with many filter methods specific to Apostrophe that add a great deal of convenience, including methods for every field in your schema. And it's possible to add your own filters.
+
+So when do we need to work with cursors? **When we are writing custom queries in our own server-side JavaScript code.** If you are simply adding filters to a pieces page based on your schema fields, or adding filters to the "Manage" view of your pieces, **you do not have to write any custom JavaScript at all.** See [reusable content with pieces](../getting-started/reusable-content-with-pieces.md) for more information about how to easily configure the `piecesFilters` option, for example.
+
+Still with us? OK, let's talk about programming with cursors.
 
 ## An illustrated example
 
@@ -29,35 +30,36 @@ Let's say we've created a `profiles` module that [extends apostrophe-pieces](../
 }
 ```
 
-Now, from another module, we want to fetch the ten most recently updated profiles by reputation over 30:
+Now let's say we want to fetch the ten most recently updated profiles with a `reputation` value greater than 30 and make sure we have access to that information in every page template:
 
 ```javascript
-return apos.docs.getManager('profile').find(req,
-    {
-      reputation: {
-        $gte: 30
-      }
-    }
-  ).sort({ updatedAt: -1 })
-  .toArray(function(err, profiles) {
-    // We can work with the profiles here
-  });
+// in lib/modules/profiles/index.js, or any module
+module.exports = {
+  construct: function(self, options) {
+    self.on('apostrophe-pages:beforeSend', 'fetchProfiles', async function(req) {
+      req.data.topProfiles = await apos.docs.getManager('profile').find(
+        req,
+        {
+          reputation: {
+            $gte: 30
+          }
+        }
+      )
+      .sort({ updatedAt: -1 })
+      .toArray();
+    });
+  }
+};
 ```
 
-> **You may also use promises.** Apostrophe returns a promise if you do not pass a callback. The promise resolves to the array of profiles (use `then`).
+> **"What's going on in this code?"** We've written a [promise event handler](../other/events.md) that listens for the `apostrophe-pages:beforeSend` event, which is sent just before Apostrophe renders the page template. We've given it the method name `fetchProfiles`, to distinguish it from other handlers. And we've supplied an `async` function that fetches the profiles.
+>
+> `apos.docs.getManager('profile')` returns the module that manages the piece type named `profile`. If the module has an `alias` option set to `profiles`, we could also write `apos.profiles`.
+>
+> The `find(req, ...)` method of that module returns a cursor we can use to fetch profiles. We always pass it `req`, so it knows who is asking and what to include in the results. We also pass a MongoDB-style criteria object.
+>
+> We then chain the `sort` filter method to specify a sort order, then call `toArray()` to return an actual array of profiles. **Note that if we didn't specify `await`, we would just get a promise. Use `await` to get the actual array of profiles.**
 
-What's going on here?
-
-* The [`getManager` method of `apostrophe-docs`](../../modules/apostrophe-docs/README.md#getManager) is telling us the right module to talk to about docs of type `profile`. That will be our `profiles` module.
-* The [`find` method of `apostrophe-pieces`](../../modules/apostrophe-pieces/README.md#find) creates a cursor that is specific to profiles.
-* That cursor will be able to see only documents the current request is allowed to see, thanks to `req`.
-* Next, the [mongodb query ("criteria") object](https://docs.mongodb.com/manual/modules/method/db.collection.find/) we pass to `find` specifies that we are only interested in profiles with a `reputation` field set to 30 or higher.
-* Then, the [sort filter method of `apostrophe-cursor`](../../modules/apostrophe-docs/server-apostrophe-cursor.md#sort) specifies the sort order, just like the `sort()` filter in MongoDB.
-* Finally, the [`toArray` method of `apostrophe-cursor`](../../modules/apostrophe-docs/server-apostrophe-cursor.md#to-array) actually fetches the docs from the database. If all goes well, our callback function receives `(null, docs)`, and `docs` is an array of profiles.
-
-> **"But where can I put this code?"** Context helps! Check out the
-[apostrophe-samples](https://github.com/apostrophecms/apostrophe-samples)
-project, specifically [this commit](https://github.com/apostrophecms/apostrophe-samples/commit/7f0b2b90377be4c4be216c8213ca4783ed2ec656) in which we use cursors and Apostrophe's model-layer APIs to randomly select a relationship between two pieces if the user hasn't entered a value.
 ## Full text search
 
 So far this looks familiar to MongoDB developers. But Apostrophe adds some [filter methods of its own](../../modules/apostrophe-docs/server-apostrophe-cursor.md#methods) that go beyond what you get out of the box with MongoDB.
@@ -65,221 +67,101 @@ So far this looks familiar to MongoDB developers. But Apostrophe adds some [filt
 Let's search for profiles related to shoes, based on the text of each document:
 
 ```javascript
-return apos.docs.getManager('profile').find(req,
-    {
-      reputation: {
-        $gte: 30
-      }
-    }
-  ).search('shoes')
-  .toArray(function(err, profiles) {
-    // We can work with the profiles relevant to shoes here
-  });
+// You can add this code to the previous example
+req.data.shoeProfiles = await apos.docs.getManager('profile')
+  .find(req)
+  .search('shoes')
+  .toArray();
 ```
 
 The `search` filter performs a MongoDB full-text search *and* adjusts the sort order to be based on search quality, unless you explicitly ask for another order. And, Apostrophe has already taken care of ensuring that MongoDB indexes the content of your string schema fields and rich text widgets.
 
 > You can specify `searchable: false` for a schema field if you really don't want it to be considered for search.
 
-> There is also an `autocomplete` filter, which accepts with partial words, autocompletes them based on "high importance" words such as those in titles, and then feeds that back into the `search` filter. Autocomplete is great, but it can't find everything. So if you offer autocomplete, it's also a good idea to offer "full search" as well.
-
-## Pieces pages and filters
-
-To make it easier to browse a listing of pieces, the [apostrophe-pieces-pages](../../modules/apostrophe-pieces-pages/README.md) module will *automatically permit filters to be used as query string parameters*, provided they are marked as safe for the public. You can try this with the `search` filter, which is marked as safe, or with any of the filters provided to you automatically for your schema fields, provided you use the `piecesFilters` option as shown below.
+> There is also an `autocomplete` filter, which accepts with partial words, autocompletes them based on "high importance" words such as those in titles and tags, and then feeds that back into the `search` filter. Autocomplete is great, but it can't find everything. So if you offer autocomplete, it's also a good idea to offer "full search" as well.
 
 ## Built-in filters: every schema field gets one!
 
-**Every cursor object obtained via `find` from a manager automatically has methods with the same name as each field in the schema.** For instance, you can write `.slug('party').toArray(function(err, docs) { ... })` to find all docs with a slug (URL) that contains the word `party`. This works for most schema field types, although there are a few for which filters don't make sense or don't exist yet.
+**Every cursor object obtained via `find` from a manager automatically has methods with the same name as each field in the schema.** For instance, you can write `.slug('party').toArray()` to find all docs with a slug (URL) that exactly matches the word `party`. This works for most schema field types, although there are a few for which filters don't make sense or don't exist yet.
 
-## Filtering joins: browsing profiles by market
+### Joins and filters
 
-Let's say our profiles have a [join](../getting-started/schema-guide.md) with another content type, `market`. Each profile is for a salesperson who works in a particular market:
+When working with joins, there are several ways we can call filter methods.
 
-```javascript
-{
-  modules: {
-    profiles: {
-      extend: 'apostrophe-pieces',
-      name: 'profile',
-      label: 'Profile',
-      addFields: [
-        {
-          type: 'integer',
-          name: 'reputation',
-          label: 'Reputation'
-        },
-        {
-          type: 'joinByOne',
-          idField: 'marketId',
-          withType: 'market',
-          name: '_market',
-          label: 'Market'
-        }
-      ]
-    }
-  }
-}
-```
+Let's say our join is named `_jobs`. In that case, we can write:
 
-We'd like to be able to fetch profiles by market. We could do that by writing a MongoDB criteria object, but if we're doing it often, it would be a lot nicer to call `._market(id)`. Better yet, `.market(slug)`, which would allow us to have user-friendly query strings in the address bar.
+* `._jobs('xyz')` to match docs that are joined to the job whose `_id` is `xyz`.
+* `.jobs('doctor')` to match docs that are joined to the job with the slug `doctor`.
 
-**Good news! You used to have to add these filters yourself; now they are built in.** The `_market` filter expects an id, while the `market` filter expects a slug (underscores are for programmers, plain names are for the public).
+Note the absence of the `_` in the second case.
 
-*For security reasons, these filters don't automatically become available for public use via query strings.* However this *does* happen if you configure them with `piecesFilters` as shown below.
+If you are interested in results for docs joined to any of several jobs, you can pass an array:
 
-## Creating filter UI with `apostrophe-pieces-pages`
+* `._jobs([ 'abc', 'xyz' ])` to match docs that are joined to a job with **either** `_id`.
+* `.jobs([ 'doctor', 'dentist' ])` to match docs that are joined to a job with **either** `slug`.
 
-If you are working with [apostrophe-pieces-pages](../../modules/apostrophe-pieces-pages/README.md), you'll likely want to display links to each tag, each market, etc. and allow the user to filter the profiles.
+You can also match only docs that join with *all* of the `_id` or `slug` values specified:
 
-This is easy thanks to the `piecesFilters` option:
+* `._jobsAnd([ 'abc', 'xyz' ])` to match docs that are joined to *both* jobs, specified by `_id`.
+* `.jobsAnd([ 'doctor', 'dentist' ])` to match docs that are joined to *both* jobs, specified by `slug`.
 
-```javascript
-  'profiles-pages': {
-    extend: 'apostrophe-pieces-pages',
-    piecesFilters: [
-      {
-        name: 'tags'
-      },
-      {
-        name: 'market'
-      }
-    ]
-  }
-```
-
-Here we're asking `apostrophe-pieces-pages` to automatically populate `req.data.piecesFilters.tags` and `req.data.piecesFilters.market` with arrays of choices.
-
-Now we can take advantage of that:
-
-```markup
-{# Somewhere in lib/modules/profiles-pages/index.html #}
-
-{# Link to all the tags, adding a parameter to the query string #}
-<ul class="tag-filters">
-  {% for tag in data.piecesFilters.tags %}
-    <li><a href="{{ data.url | build({ tags: tag.value }) }}">{{ tag.label }}</a></li>
-  {% endfor %}
-</ul>
-
-{# Link to all the markets, adding a parameter to the query string #}
-<ul class="tag-filters">
-  {% for market in data.piecesFilters.market %}
-    <li><a href="{{ data.url | build({ market: market.value }) }}">{{ market.label }}</a></li>
-  {% endfor %}
-</ul>
-```
-
-Notice that even though tags and joins are very different animals, the template code is exactly the same. That's because the choices provided to us are always in a consistent format: the `label` is a label, while the `value` is intended to be the query string parameter for this particular filter. So you can easily write a universal nunjucks macro for filters.
-
-## Displaying counts for tags
-
-If we wish, we can display counts for the choices, so users know how many items are available with a given tag, related document, etc. Bear in mind that this has a performance impact:
-
-```javascript
-  'profiles-pages': {
-    extend: 'apostrophe-pieces-pages',
-    piecesFilters: [
-      {
-        name: 'tags',
-        counts: true
-      }
-    ]
-  }
-```
-
-Now we can show the counts in our template:
-
-```markup
-{# Link to all the tags, adding a parameter to the query string #}
-<ul class="tag-filters">
-  {% for tag in data.piecesFilters.tags %}
-    <li><a href="{{ data.url | build({ tags: tag.value }) }}">{{ tag.label }} ({{ tag.count }})</a></li>
-  {% endfor %}
-</ul>
-```
-
-## Showing the current state of the filter
-
-Usually we want to indicate the tag the user has already chosen. How can we do that?
-
-```markup
-{# Somewhere in lib/modules/profiles-pages/index.html #}
-
-{# Link to all the tags, adding a parameter to the query string #}
-<ul class="tag-filters">
-  {% for tag in data.piecesFilters.tags %}
-    <li><a href="{{ data.url | build({ tags: tag.value }) }}"
-      class="{{ 'current' if data.query.tags == tag.value }}">{{ tag.label }}</a></li>
-  {% endfor %}
-</ul>
-```
-
-Here's the really interesting bit:
-
-```
-class="{{ 'current' if data.query.tags == tag.value }}"
-```
-
-The current query string is automatically unpacked to `data.query` for you as an object. So just compare `data.query.tags` to the value of each of the choices.
-
-*Here we're using the alternate `if` syntax for Nunjucks, for convenience.*
-
-## Filtering on multiple values
-
-You're not restricted to filtering on a single value for a join. If you pass an array to one of the filters for a join, you'll get back results that have *any* of the specified values.
-
-If you want to be more restrictive and only display results that have *all* of the specified values, just add `And` to the filter name. For instance, `_marketAnd()` expects ids, and `marketAnd()` expects slugs.
-
-It's possible to build query strings that contain arrays. It's usually easiest to do that in an actual old-fashioned GET-method form, perhaps with JavaScript code that enhances it with nicer-looking lists of links and sets multiple-select values in the form, triggering submit afterwards.
+> End users usually find "AND" filters to be frustrating because they receive few or no results. We recommend using the "OR" approach.
 
 ## Custom filters
 
-Here's how we would implement the `market` filter from scratch if it **didn't already exist**:
+The standard filter methods for each schema field are quite powerful, but occasionally you'll want to write one of your own. Here's an example of a custom filter.
+
+Let's say the `people` module contains a join field like this:
+
+```javascript
+addFields: [
+  {
+    name: '_jobs',
+    type: 'joinByArray',
+    withType: 'job'
+  }
+]
+```
+
+> See [reusable content with pieces](../getting-started/reusable-content-with-pieces.md) for a more complete discussion of this particular example join.
+
+We can already write `._jobs('xyz')` to match people that are joined with that particular job `_id`. But let's say we want an easy way to match only people who are joined with **more than one job** - people who are "busy." Here's a custom filter that can do that:
 
 ```javascript
 // In lib/modules/profiles/lib/cursor.js
 module.exports = {
   construct: function(self, options) {
-    self.addFilter('market', {
+    self.addFilter('busy', {
       def: false,
       launder: function(value) {
-        return self.apos.launder.string(value);
+        return self.apos.launder.boolean(value);
       },
       safeFor: 'public',
-      finalize: function(callback) {
-        var slug = self.get('market');
-        if (!slug) {
-          return setImmediate(callback);
+      finalize: function() {
+        const popular = self.get('popular');
+        if (popular) {
+          // MongoDB dot notation
+          self.and({ 'jobsIds.1': { $exists: 1 } });
         }
-        // Get the request object to pass to `find`
-        var req = self.get('req');
-        return self.apos.docs.getManager('market').find(req, {
-          slug: slug
-        }, {
-          _id: 1
-        }).toObject(function(err, market) {
-          if (err) {
-            return callback(err);
-          }
-          self.and({ marketId: market._id });
-          return callback(null);
-        });
       }
     });
   }
 };
 ```
 
-What's happening in this code?
+"What's happening in this code?"
 
 * We placed our code in `lib/modules/profiles/lib/cursor.js`. This is important. Apostrophe will automatically load any code placed here as an [implicit subclass](../../glossary.md#implicit-subclassing) of our cursor type. That means we can modify the cursor in our own `construct` function.
-* We called `addFilter` and gave the filter the name `market`. This defines a new, chainable `market(id)` method for our cursor type.
-* We set a default value with `def`. By default, we don't want to filter by a particular market.
-* We provided a `launder` function. The `launder` function accepts raw input from the web browser and returns it in a sanitized, "laundered" form. This is indispensable for a filter the public is allowed to use. See the [launder](https://npmjs.org/package/launder) module, always available as `self.apos.launder` inside our cursor code.
+* We called `addFilter` and gave the filter the name `busy`. This defines a new, chainable `.busy(true)` method for our cursor type.
+* We set a default value with `def`. By default, we don't want to restrict results to "busy" people.
+* We provided a `launder` function. The `launder` function accepts raw input from the web browser and returns it in a sanitized, "laundered" form. This is indispensable for a filter the public is allowed to use, for instance via the query string on a pieces-page. See the [launder](https://npmjs.org/package/launder) module, always available as `self.apos.launder` inside our cursor code.
 * We set `safeFor` to `public`. With this setting, any subclass of [apostrophe-pieces-pages](../../modules/apostrophe-pieces-pages/README.md) we choose to provide for browsing our profiles will *automatically support* a `market` query string parameter and filter results accordingly. *The "slug" property of each doc is a user-friendly label based on the title, suitable for use in URLs.*
-* We provide a `finalize` function. `finalize` does the real work of the filter: it reaches out to the `markets` module (using `getManager`), gets a cursor for fetching markets, limits the MongoDB projection to just the IDs for speed, and calls `toObject` to fetch just one result.
-* We call `self.and`. This filter says, "this cursor has all the criteria I already gave it... *and* this additional MongoDB criteria object must match too." Behind the scenes, it creates an `{ $and: [ ... ] }` MongoDB criteria object. But we don't have to fuss with that. This is the most commonly used filter when building other filters.
-* Once we're finished, we invoke the callback successfully and return.
+* We provide a `finalize` function. `finalize` does the real work of the filter, as described below.
+* We call `self.and`. The `and` filter says, "this cursor has all the criteria I already gave it... *and* this additional MongoDB criteria object must match too." Behind the scenes, it creates an `{ $and: [ ... ] }` MongoDB criteria object. But we don't have to fuss with that. This is the most commonly used filter when building other filters.
+* The parameter to `self.and` is a MongoDB criteria object that uses "dot notation" to check whether the `jobsIds` array has at least two values. Although we don't see it in the field's schema, **a `joinByArray` field named `_jobs` automatically stores the actual `_id`s being joined with in an array property called `jobsIds`**. We can leverage this knowledge to build the filter we want.
+* Cursors for our pieces will still automatically inherit all the usual features, like filter methods for each schema field. Here we are just adding one more.
+
+> Although not shown here, the `finalize` method can also take a `callback`. If it does, then it can do asynchronous work before invoking the callback. This is useful if your filter must make a database query or API call. In this case, we just need to modify the MongoDB criteria for the query that Apostrophe is about to make.
 
 ## Adding features to all cursors for pieces
 
@@ -326,6 +208,3 @@ What's happening in this code?
 * In that module, we called `self.apos.define`, a convenience method that invokes `self.apos.synth.define` to define a new type of object. But *since that type already exists, it creates an implicit subclass*, in which *our version replaces the original but does not discard it*. Instead, our `construct` function is called `after` the regular one. This allows us to add additional filters as we see fit.
 * We used `require` to pull in the actual definition from `pagesCursor.js`, just to keep the code tidy.
 
-## Whoa, that was intense... I mean cool
-
-Cursors are one of the coolest things in Apostrophe. We used to say one of the most intense, before they were created for you automatically in most use cases. But now that they are built-in for most schema fields, it's tough to see them as anything but cool.

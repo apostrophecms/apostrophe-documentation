@@ -174,10 +174,3 @@ Implement the `apostrophe-users:add` command line task.
 Implement the `apostrophe-users:change-password` task.
 ### addNonNullJoinMigration()
 
-## API Routes
-### POST /modules/apostrophe-users/unique-username
-A route which accepts a `username` POST parameter and responds
-with `{ status: 'ok', available: true}` if that username is
-NOT TAKEN, otherwise `{ status: 'ok', available: false }`.
-If `status` is not `ok` then an error occurred. Used to help
-users discover available usernames when creating accounts.

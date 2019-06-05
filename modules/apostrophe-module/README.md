@@ -63,7 +63,7 @@ returned by `emit` resolves, the final callback is invoked. A promise interface
 is not provided here because this method should only be used to migrate away from
 legacy `callAll` invocations. New code should always emit a promise event and
 avoid `callAll`.
-### route(*method*, *path*, *fn*)
+### route(*method*, *path*, *responder*, *fn*)
 Add an Express route to apos.app. The `path` argument is
 appended to the "action" of this module, which is
 `/modules/modulename/`.
@@ -83,6 +83,76 @@ You can also pass middleware in the usual way, after
 the `path` argument. Note that some standardized optional
 middleware is available to pass in this way, i.e.
 `self.apos.middleware.files` for file uploads.
+
+The omittable `responder` argument is a string containing the
+name of a method of this module used to send a response when given
+`(req, err, value)`. It is normally provided for you by a call to
+`self.apiRoute` or `self.htmlRoute`. It is not invoked at all
+unless the route invokes its third argument, `next()`, with
+an error (or null) and an optional value argument. next() cannot be
+used in a route without a responder. (It behaves as normal for Express
+in a middleware function.)
+### apiRoute(*method*, *path*, *fn*)
+Similar to `route`, except that the route function receives
+(req, res, next), and you may pass `next` either an error or
+`(null, result)` where `result` is a JSON-friendly object to be sent
+to the browser; a `status: 'ok'` property is automatically
+added.
+
+An exception: if `result` is an array, it is sent without a
+status property. This loophole is needed because arrays cannot have
+extra properties in JSON and certain legacy APIs send back arrays
+without an enclosing object.
+
+If you do pass an error to `next`, the status code is still `200`
+but the browser receives an object whose `status` property is not `ok`.
+If the error is a string, it is sent as the `status`, otherwise
+the error is logged and the status is simply `error` to avoid
+revealing information that could be used maliciously.
+
+An exception: mongodb errors relating to duplicate keys are sent
+as the status `unique`, which is useful for suggesting to users
+that they may need to use a different username, etc.
+
+If you require additional properties for the JSON object sent
+for an error, you can pass an object containing them as the
+third argument to `next`. This is separate from the success value
+to avoid accidentally disclosing information on errors.
+### htmlRoute(*method*, *path*, *fn*)
+Similar to `route`, except that the route function receives
+(req, res, next), and you may pass `next` either an error or
+`(null, result)` where `result` is an HTML string to be sent
+to the browser; a `200` status is automatically used.
+
+If you do pass an error to `next`, and the error is a string,
+the string is converted to an error code according to
+the following rules: `notfound` => 404, `invalid` => 401,
+`forbidden` => 403, `error` => 500, anything else => 500.
+If the error is not a string, it is converted to a 500 error
+and logged for the developer on the server side only,
+to avoid revealing information that could be used maliciously.
+### renderRoute(*method*, *path*, *fn*)
+Similar to `htmlRoute`, except that the route function receives
+(req, res, next), and you may pass `next` either an error or
+`(null, result)` where `result` is an object with a `template`
+property naming a template in the current module, and optionally
+a `data` property containing an object to be passed to the template.
+The result of template rendering is sent directly to the client, with a
+200 status code.
+
+If you do pass an error to `next`, and the error is a string,
+the string is converted to an error code according to
+the following rules: `notfound` => 404, `invalid` => 401,
+`forbidden` => 403, `error` => 500, anything else => 500.
+If the error is not a string, it is converted to a 500 error
+and logged for the developer on the server side only,
+to avoid revealing information that could be used maliciously.
+### apiResponder(*req*, *err*, *result*, *extraError*)
+See apiRoute for details. You should not call this directly.
+### htmlResponder(*req*, *err*, *result*)
+See htmlRoute for details. You should not call this directly.
+### renderResponder(*req*, *err*, *result*)
+See renderRoute for details. You should not call this directly.
 ### addHelpers(*object *, *or name, value*)
 Add nunjucks template helpers in the namespace for our module. Typically called
 with an object in which each property is a helper name and each value
@@ -132,6 +202,13 @@ If not otherwise specified, `data.user` and
 `data.permissions` are provided for convenience.
 
 The data argument may be omitted.
+### renderAndSend(*req*, *name*, *data*)
+Similar to `render`, but sends the response to the client, ending the
+request. If an exception is thrown by `self.render`, the error is
+properly logged and a 500 error is correctly sent to the client.
+Convenient in routes that simply send the markup for a modal, for instance,
+especially if for legacy reasons they must use self.route rather tha
+self.renderRoute.
 ### partial(*name*, *data*)
 For use in Nunjucks helper functions. Renders a template,
 in the context of the same request that started the
@@ -185,7 +262,7 @@ Or:
 This allows the template to handle either a content area
 refresh or a full page render just by doing this:
 
-`{% extends outerLayout %}`
+`{% extend outerLayout %}`
 
 Note the lack of quotes.
 
@@ -227,7 +304,7 @@ Or:
 This allows the template to handle either a content area
 refresh or a full page render just by doing this:
 
-`{% extends outerLayout %}`
+`{% extend outerLayout %}`
 
 Note the lack of quotes.
 
@@ -356,6 +433,8 @@ If no third argument is given in this situation,
 Also available as a Nunjucks helper; often convenient to invoke
 as `module.getOption`. When calling the helper,
 the `req` argument is implied, just pass the path(s).
+### logError(*req*, *err*)
+Log the given error, with informative context based on the given request.
 ### email(*req*, *templateName*, *data*, *options*, *callback*)
 Send email. Renders an HTML email message using the template
 specified in `templateName`, which receives `data` as its

@@ -45,7 +45,7 @@ this purpose.
 ## Methods
 ### findGlobal(*req*, *callback*)
 Fetch the `global` doc object. On success, the callback is invoked
-with `(null, global)`.
+with `(null, global)`. If no callback is passed a promise is returned.
 ### modulesReady(*callback*)
 We no longer call initGlobal on modulesReady, we do it on the new
 apostrophe:migrate event. But to maximize bc, we still register the event

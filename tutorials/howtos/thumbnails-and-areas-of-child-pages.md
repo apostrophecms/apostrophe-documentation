@@ -85,7 +85,7 @@ the children of each ancestor, we tell Apostrophe to
 > fully load the widgets in that area, fetching the
 > images we need.
 >
-> *"What does `filters` mean here?"* When `apostrophe-pages`
+> *"What does `filters` mean here?"* It's an advanced topic, but when `apostrophe-pages`
 > fetches the current page, it makes an Apostrophe cursor
 > object. It then loops through all the properties of the
 > `filters` option and calls those methods on the cursor,

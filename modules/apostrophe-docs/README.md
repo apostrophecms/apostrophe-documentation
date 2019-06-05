@@ -246,9 +246,9 @@ who ask for a way to empty the trash will often
 ask for a way to un-empty it. There isn't one.
 ### emptyTrash(*req*, *idOrCriteria*, *callback*) *[api]*
 bc wrapper for self.deleteFromTrash
-### walk(*doc*, *callback*, *_dotPath*, *_ancestors*) *[api]*
+### walk(*doc*, *iterator*, *_dotPath*, *_ancestors*) *[api]*
 Recursively visit every property of a doc,
-invoking a callback for each one. Optionally
+invoking an iterator function for each one. Optionally
 deletes properties.
 
 The `_originalWidgets` property and its subproperties
@@ -324,7 +324,7 @@ callback, other implementations MAY
 take a callback and are invoked in series.
 ### ensureSlug(*doc*) *[api]*
 If the doc does not yet have a slug, add one based on the
-title; throw an error if there is no title
+title; throw an error if there is no title or no doc
 ### docFixUniqueError(*req*, *doc*) *[api]*
 Invoked when a MongoDB index uniqueness error
 occurs, such as when the slug property is
@@ -466,17 +466,4 @@ used to implement "projections" for the
 ### pushAssets() *[browser]*
 
 ### pushCreateSingleton() *[browser]*
-
-## API Routes
-### POST /modules/apostrophe-docs/lock
-
-### POST /modules/apostrophe-docs/verify-lock
-
-### POST /modules/apostrophe-docs/unlock
-
-### POST /modules/apostrophe-docs/slug-taken
-Determine if a particular slug is available. Since the slug namespace
-is shared by all doc types, you only need to be a user to access this
-route. No other information about the document with that slug is returned
-### POST /modules/apostrophe-docs/slug-deconflict
 

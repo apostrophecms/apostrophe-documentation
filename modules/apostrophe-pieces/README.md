@@ -105,7 +105,8 @@ Invoked by `self.trash`. Does nothing by default; convenient extension point
 ### afterList(*req*, *results*, *callback*) *[api]*
 
 ### apiResponse(*res*, *err*, *data*) *[api]*
-
+For legacy reasons, pieces have their own apiResponse method which is just a wrapper
+for the newer apiResponder.
 ### insertResponse(*req*, *res*, *err*, *data*) *[api]*
 
 ### updateResponse(*req*, *res*, *err*, *data*) *[api]*

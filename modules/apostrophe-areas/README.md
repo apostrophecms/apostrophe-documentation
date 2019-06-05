@@ -62,6 +62,7 @@ for autosave operations, which continue until the page
 is unloaded, at which time the `save-areas-and-unlock`
 route will be accessed.
 
+
 This method performs sanitization of all properties of
 `areaInfo` before trusting it, so passing `req.body`
 is a safe thing to do.
@@ -141,6 +142,11 @@ to add top-level controls to them, such as the movement arrows
 and the edit pencil. It can be extended to add more controls in
 a context-sensitive way, or configured via the addWidgetControlGroups
 option (see the source, TODO: document the format in detail)
+### addSchemaWidgetControls(*req*, *widget*, *controlGroups*) *[api]*
+Adds any schema fields of the widget marked with widgetControls: true
+as dropdowns amongst the widget's in-context inline controls. Currently
+only supported for "select" and "checkboxes" fields. Here a "checkboxes" field
+is visually represented in a more compact way using a multiple-select dropdown.
 ### isEmpty(*doc*, *name*) *[api]*
 Returns true if the named area in the given `doc` is empty.
 
@@ -288,30 +294,3 @@ all of the widgets in it return true when their
 `isEmpty()` methods are interrogated. For instance,
 if an area only contains a rich text widget and that
 widget. A widget with no `isEmpty()` method is never empty.
-## API Routes
-### POST /modules/apostrophe-areas/save-area
-
-### POST /modules/apostrophe-areas/save-areas-and-unlock
-Similar to `save-area`. This route expects
-an object with an `areas` property, and that
-property is an array of requests in the format
-expected by the `save-area` route. In addition to
-saving all of the posted areas, this route
-releases any locks held by `req.htmlPageId`.
-property. These functions are combined for
-best performance during performance-critical
-`beforeunload` events.
-### POST /modules/apostrophe-areas/edit-virtual-area
-Render an editor for a virtual area with the content
-specified as an array of items by the req.body.content
-property, if any. The area will not attempt to save itself periodically.
-
-Used to implement editing of areas within schemas.
-### POST /modules/apostrophe-areas/render-widget
-Render a view of the widget specified by req.body.data (which contains its
-properties) and req.body.options (treated as if they were passed to it via
-aposSingleton). req.body.type specifies the widget type. It is assumed that
-the widget is editable and should be rendered with contextual editing controls
-if it supports them.
-### POST /modules/apostrophe-areas/editor
-Supplies static DOM templates to the editor on request

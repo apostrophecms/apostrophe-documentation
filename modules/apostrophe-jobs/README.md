@@ -246,10 +246,3 @@ or `stopped` according to which operation is
 actually supported by the job.
 ### pushAssets() *[browser]*
 
-## API Routes
-### POST /modules/apostrophe-jobs/cancel
-
-### POST /modules/apostrophe-jobs/modal
-
-### POST /modules/apostrophe-jobs/progress
-

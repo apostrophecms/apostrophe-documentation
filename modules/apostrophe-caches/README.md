@@ -69,6 +69,8 @@ performance enhancement ONLY and data may DISAPPEAR at any time.
 
 ### getCollection(*callback*)
 
+### ensureIndexes(*callback*)
+
 ### clearCacheTask(*argv*, *callback*)
 
 ### addClearCacheTask()
