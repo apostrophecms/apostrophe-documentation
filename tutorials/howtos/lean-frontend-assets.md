@@ -1,5 +1,5 @@
 ---
-title: Lean frontend assets: Apostrophe without jQuery
+title: "Lean frontend assets: Apostrophe without jQuery"
 layout: tutorial
 ---
 
