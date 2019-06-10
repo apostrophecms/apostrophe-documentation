@@ -34,7 +34,7 @@ given method name will be invoked when the given event
 name is emitted with `emit`. As a shortcut, you may
 optionally pass a function as a third argument. That
 function becomes a method of your module called `methodName`.
-This is exactly the same as defining it the normal way.
+This is exactly the same as defining it the normal way. Arguments passed into the `emit` method after the event name will be passed into `methodName`.
 
 Your method may return a promise. If it does, the next
 event handler method will not begin running until your
@@ -56,6 +56,7 @@ the event name?" Doing so sets you up for an accidental
 collision with other event handlers in subclasses.
 Your method name should describe what your method does
 in response to the event.
+
 ### callAllAndEmit(*callAllName*, *eventName*, *callback*, *argument, ...*) *[events]*
 Invoke a callAll method *and* emit a new-style promise event. `callAll` is invoked first,
 and if its callback does not receive an error, `emit` is invoked. When the promise
