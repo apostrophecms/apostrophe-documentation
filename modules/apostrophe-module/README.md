@@ -154,6 +154,8 @@ See apiRoute for details. You should not call this directly.
 See htmlRoute for details. You should not call this directly.
 ### renderResponder(*req*, *err*, *result*)
 See renderRoute for details. You should not call this directly.
+### addComponent(*name*, *fn*)
+<!-- TODO: Document this method. -->
 ### addHelpers(*object *, *or name, value*)
 Add nunjucks template helpers in the namespace for our module. Typically called
 with an object in which each property is a helper name and each value
