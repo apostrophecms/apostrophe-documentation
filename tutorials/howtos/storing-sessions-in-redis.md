@@ -36,4 +36,4 @@ The `options` object you supply is passed on to the store when it is created. Fo
 
 ## "What about caches?"
 
-You can also remap Apostrophe's cache mechanism to Redis. Check out the optional  [apostrophe-caches-redis](https://npmjs.org/packages/apostrophe-caches-redis) module.
+You can also remap Apostrophe's cache mechanism to Redis. Check out the optional  [apostrophe-caches-redis](https://npmjs.org/package/apostrophe-caches-redis) module.
