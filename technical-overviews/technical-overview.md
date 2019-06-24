@@ -1,5 +1,5 @@
 ---
-title: 'Technical overview: 30,000 feet'
+title: "Technical overview: 30,000 feet"
 layout: tutorial
 ---
 
