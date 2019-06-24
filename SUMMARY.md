@@ -60,7 +60,7 @@
   * [Logging in via Google, Twitter, Facebook and other sites](tutorials/howtos/google-twitter-and-facebook-login.md)
   * [How can I remove pieces from an index listing?](tutorials/howtos/trim-index.md)
   * [How can I disable a pieces index page?](tutorials/howtos/hide-index-page.md)
-  * [What to do when you are locked out of Apostrophe](tutorials/howtos/what-to-do-when-you-are-locked-out-of-apostrophe.md)
+  * [What to do when you are locked out of Apostrophe](tutorials/howtos/what-to-do-when-you-are-locked-out-of-apostrophe.md) 
   * [Internationalization and localization](tutorials/howtos/apostrophe-i18n-config.md)
   * [Nested module folders](tutorials/howtos/nested-module-folders.md)
 
