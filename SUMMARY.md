@@ -67,7 +67,7 @@
 
 ## Technical Overviews
 
-* [Technical overview: 30,000 feet](technical-overviews/index.md)
+* [Technical overview: 30,000 feet](technical-overviews/technical-overview.md)
 * [How Apostrophe starts up](technical-overviews/how-apostrophe-starts-up.md)
 * [How Apostrophe handles requests](technical-overviews/how-apostrophe-handles-requests.md)
 * [How Apostrophe modules are structured](technical-overviews/how-apostrophe-modules-are-structured.md)
