@@ -19,7 +19,7 @@ Then `construct` runs for this module, this time starting with the base class, s
 
 Then `afterConstruct` runs for the module. Ideally `construct` doesn’t do anything but set up methods, so that `afterConstruct` can safely invoke them, knowing that any subclass overrides have already happened.
 
-See the [moog documentation](https://npmjs.org/packages/moog) for more information about `beforeConstruct`, `construct` and `afterConstruct`.
+See the [moog documentation](https://npmjs.org/package/moog) for more information about `beforeConstruct`, `construct` and `afterConstruct`.
 
 ### Running code after all modules are constructed
 
