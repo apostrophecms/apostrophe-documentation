@@ -2,7 +2,15 @@
 
 So you want a contact form on your site. A pretty common requirement. Maybe it's not a contact form; maybe you want to accept submissions of stories, or product ideas. The same principles apply.
 
-## Doing it the easy way: using `apostrophe-pieces-submit-widgets`
+## The easy way: `apostrophe-forms`
+
+The **[Apostrophe Forms module](https://www.npmjs.com/package/apostrophe-forms)** was more recently updated to work with modern Apostrophe projects. This is your simplest way to create forms in your projects. After installing and configuring the module as directed, you and your website users can create and update forms as you would any other piece of content. That form can be placed on any page or pages using the forms widget. This allows for a single form to live many places on a website if needed.
+
+The primary case where this is not desirable is if the website needs only one or two forms and those forms should *never* (or almost never) change. For example, if a form is very tightly coupled to a third-party API, it might be too risky to let website editors change the form. Even this could mostly be avoided by limiting access to forms with [user group permissions](./permissions).
+
+In most every case, this is the recommended way to create forms for Apostrophe projects.
+
+## Doing it the old school way: using `apostrophe-pieces-submit-widgets`
 
 A module is available that allows users to submit any type of piece you wish to permit. You can specify the subset of fields that are appropriate for them, and avoid the work of building your own solution. Then just add the widget to the appropriate pages, and site visitors will see forms.
 
