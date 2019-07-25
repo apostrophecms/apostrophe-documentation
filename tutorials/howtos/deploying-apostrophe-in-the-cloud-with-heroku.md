@@ -157,35 +157,46 @@ The site can work with Heroku at this point, but *performance will be poor becau
 
 Apostrophe generates minified files with the `apostrophe:generation` task. For simple single-server deployments we usually just run `apostrophe:generation` in production, but this doesn't work for Heroku because every "dyno" in Heroku gets its own, temporary local files and we want every dyno to see copies of the same exact assets. You'll encounter the same issue with most other cloud hosting services.
 
-So we'll build an "asset bundle" *on our dev machine*:
+So we'll build an "asset bundle" and store it temporarily in the database, where all dynos will be able to see it.
 
-```bash
-APOS_MINIFY=1 node app apostrophe:generation --create-bundle=prod-bundle
+To do that, first, **you must set `APOS_BUNDLE=1`** in your Heroku environment settings:
+
+```
+heroku config:set 'APOS_BUNDLE=1'
+```
+
+And, you need to turn on minification of assets:
+
+```
+heroku config:set 'APOS_MINIFY=1'
 ```
 
 > IMPORTANT: the APOS_MINIFY environment variable is OVERRIDDEN by any setting
 > you may have made for the `minify` option when configuring
 > the `apostrophe-assets` module. If you want to use the environment
-> variable, DO NOT set the option in your code.
+> variable, DO NOT also set the option in your code.
 
-We're specifying `APOS_MINIFY=1` as an environment variable to override the **default** behavior in a development environment, which is not to minify. As noted, if the option has been set explicitly in your code, the environment variable is ignored. So don't do that.
+Third, you must create a **release tasks script** in your project, and a **Heroku Procfile** telling Heroku to run it.
 
-After a minute or so (especially the first time), you'll have a `prod-bundle` folder in your project.
-
-> VERY IMPORTANT: check your `.gitignore` file. If it it contains `data` on a line by itself, *change this line* to `/data`. Otherwise, you will be unable to commit a complete bundle to git, and Heroku will not deploy it properly. We have fixed this in the latest version of our boilerplate project.
-
-**Commit that folder to git** (after FIRST checking for the `.gitignore` problem mentioned above). Heroku uses git for deployment, so we do want it there!
-
-### Telling Heroku to use the bundle
-
-Let's set two more Heroku variables:
+Here is a sample `Procfile`, which should be in the home directory of your project:
 
 ```
-heroku config:set APOS_MINIFY=1
-heroku config:set APOS_BUNDLE=prod-bundle
+web: node app
+release: ./scripts/heroku-release-tasks
 ```
 
-The first will tell Apostrophe that we're using minified assets. The second tells Apostrophe what the bundle folder is called, so it can copy the assets from it just before starting up.
+And in the `./scripts` subdirectory of your project, here is a sample `heroku-release-tasks` script:
+
+```bash
+#!/bin/bash
+
+node app apostrophe:generation
+node app apostrophe-migrations:migrate
+```
+
+This script will take care of *both* static asset generation and database migrations just before Heroku starts launching dynos with the latest version of your code.
+
+With these things in place, Apostrophe will minify assets and copy them to its database just before it launches dynos. Each dyno will be able to see the asset bundle and copy its contents to its temporary filesystem, so everyone sees the same files.
 
 > "Why does Apostrophe need to unpack assets each time a dyno starts up?" Remember, every dyno in Heroku gets its own completely temporary and separate set of local files. Heroku deploys from git, but we don't want to use minified files all the time in dev. In dev we also benefit from using live symbolic links to the asset folders of modules; but in production we want copies, for speed. The bundle strategy lets us keep the production assets in git without actually cluttering up the dev environment.
 
@@ -223,7 +234,7 @@ Victory!
 
 **If your images don't "stick" between restarts,** you probably skipped the Amazon S3 steps.
 
-**If you get no CSS and JavaScript**, you probably configured the `APOS_MINIFY` and `APOS_BUNDLE` variables but never built the bundle or never committed it to git before pushing to heroku.
+**If you get no CSS and JavaScript**, you probably configured the `APOS_MINIFY` and `APOS_BUNDLE` variables but never created the `Procfile` or the release tasks script. Also check the heroku logs for errors from the release tasks script.
 
 ### Fonts, other assets, and CORS errors in the browser console
 
@@ -241,66 +252,34 @@ Verify the value of `AllowedOrigin`. It should match the heroku url and/or the p
 <AllowedOrigin>https://example.herokuapp.com</AllowedOrigin>
 ```
 
-## Database migrations
-
-One thing is not incorporated in our process so far: running database migrations. This is important since Apostrophe itself, as well as your own code, may add migrations from time to time that need to be executed to update the database structure.
-
-Since `mlab` allows access from anywhere with the right credentials, the simplest way to run a database migration is to execute it from your local dev environment, with an environment variable set to communicate with your remote database:
-
-```
-APOS_MONGODB_URI=mongodb://YOUR-uri-goes-here node app apostrophe:migrate
-```
-
-But naturally you don't want to forget this. And you don't want to forget the bundle-building step either.
-
-So it's best to create your own `./scripts/deploy` command for your project:
-
-```
-#!/bin/bash
-APOS_MINIFY=1 node app apostrophe:generation --create-bundle=prod-bundle &&
-APOS_MONGODB_URI=mongodb://YOUR-uri-goes-here node app apostrophe:migrate &&
-git push heroku &&
-heroku run bash ./deployment/migrate
-```
-
-Be sure to use `chmod u+x ./scripts/deploy` to make that script executable.
-
-Now just type:
-
-```
-./scripts/deploy
-```
-
-Whenever you wish to deploy to Heroku.
-
 ## Efficient asset delivery
 
-In this setup, images are delivered efficiently via S3, but other static assets like CSS and JS are delivered via the node application. This is not the fastest way to deliver those static assets. Let's look at how to deliver the assets via S3 as well.
+In this setup, images are delivered efficiently via S3, and everyone can see all of the assets, but other static assets like CSS and JS are delivered via the node application. This is not the fastest way to deliver those static assets. Let's look at how to deliver the assets via S3 as well in most cases.
 
 > For some, the best option is to set up a simplified CDN like [Cloudflare](https://www.cloudflare.com/lp/ddos-a/?_bt=157293179478&_bk=cloudflare&_bm=e&_bn=g&gclid=CKeuzI3VxtACFZBMDQodZhAMKg) to act as a "frontend reverse proxy" for your site, caching these static assets while leaving the traffic for pages alone so that logins still work normally. Cloudflare makes this easy, and they even offer a free plan, so we suggest giving it a try.
 
 ### Pushing assets to S3
 
-Apostrophe can push your assets to S3 as part of the bundle-creation step:
+Apostrophe can push your assets to S3 as part of your release tasks script:
 
 ```bash
-APOS_MINIFY=1 node app apostrophe:generation --create-bundle=prod-bundle --sync-to-uploadfs
+#!/bin/bash
+
+node app apostrophe:generation --sync-to-uploadfs
+node app apostrophe-migrations:migrate
 ```
 
-When the `--sync-to-uploadfs` option is used, Apostrophe will create the bundle in a folder by that name as usual, and will then upload the bundle's `public/` subdirectory to the `assets/XXXX` "folder" of your S3 bucket, where `XXXX` is a unique identifier for the current generation of assets. **You should still commit and push the `prod-bundle` folder.**
+When the `--sync-to-uploadfs` option is used, Apostrophe will create the bundle as usual, and will then upload the bundle's `public/` subdirectory to the `assets/XXXX` "folder" of your S3 bucket, where `XXXX` is a unique identifier for the current generation of assets.
 
 Your Heroku configuration will look almost the same as before, with one addition:
 
 ```bash
 heroku config:set APOS_MINIFY=1
-heroku config:set APOS_BUNDLE=prod-bundle
+heroku config:set APOS_BUNDLE=1
 heroku config:set APOS_BUNDLE_IN_UPLOADFS=1
 ```
 
 To ensure the contents of the bundle's `data/` subdirectory are still available, and to provide backwards compatibility for any URLs you have hard-coded in your templates that are not aware that the relevant contents of `public/` have been copied to S3, the bundle is still extracted to the application's folder on Heroku. Apostrophe, however, will consistently reference the contents via S3 URLs instead.
 
-> "When do the old assets get cleaned up?" Apostrophe will wait at least 5 minutes, allowing for old dynos to shut down, then start cleaning up assets left over by old deployments.
+> "When do the old assets get cleaned up?" Apostrophe will wait at least an hour, allowing for old dynos to shut down, then start cleaning up assets left over by old deployments.
 
-## Taking advantage of the "release phase"
-
-Now in beta on Heroku is a feature called "release phase" in which you can execute commands on a Heroku "one-off dyno" just before your app goes live in a new release. This solves a chicken and egg problem by allowing you to run your latest code before the website actually goes live with the new code. This is another potential solution for running database migrations which doesn't require a database connection from your dev environment. For more information, see [Release Phase (beta)](https://devcenter.heroku.com/articles/release-phase) on Heroku.
