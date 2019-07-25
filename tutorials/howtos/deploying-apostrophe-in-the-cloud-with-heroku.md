@@ -11,7 +11,7 @@ There are many cloud hosting services, but they all present the same challenges.
 
 [Heroku](http://heroku.com) is a great starting point for cloud hosting because it is simple to set up, but all of the cloud's challenges come into play. What we learn by deploying to Heroku can be applied equally to Amazon EC2, Microsoft Azure and other cloud hosting services.
 
-So for this how-to, we'll stick to free services from Heroku and mlab, a MongoDB cloud hosting service. But keep in mind you can choose paid plans as well with much higher capacity and performance. Everything we've done here is designed to scale smoothly to those paid offerings.
+So for this how-to, we'll stick to free services from Heroku and MongoDB Atlas, a MongoDB cloud hosting service from the creators of MongoDB. But keep in mind you can choose paid plans as well with much higher capacity and performance. Everything we've done here is designed to scale smoothly to those paid offerings.
 
 ## Before you begin
 
@@ -35,45 +35,27 @@ heroku git:remote -a apostrophetest (use YOUR app name)
 
 Now we're almost ready to deploy. But, we need a database.
 
-## Using mlab with Apostrophe and Heroku
+Heroku runs our node app, but it doesn't run MongoDB for us. So let's go to [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) and sign up.
 
-Apostrophe requires a `mongodb` database, which Heroku doesn't offer. Fortunately, mlab (formerly mongolab) has you covered. So [create a database with mlab](https://mlab.com/signup/) to get started.
+After you sign up, click "Build a New Cluster." Pick "AWS" as your cloud provider and the same region you chose for Beanstalk. Do not shard your cluster, sharding is not appropriate for CMS work.
 
-When you're finished verifying your account with mlab, click "Create New," then "Single-node" and "Sandbox."
+We recommend you give your cluster the same name as your project.
 
-> You can of course pick a replica set cluster and various non-free plans instead if you wish. Do not use sharding, it is not appropriate to our use case. Do not change the default read preference. See [replica sets](replica-set.md) for more information.
+You will need to set up an administrative MongoDB user for your cluster. These will be part of your MongoDB database connection credentials. **Be sure to set a secure, separate username and password,** do not use your Atlas login credentials.
 
-If you can, give your database the same name as your app, just for simplicity, but it's not mandatory.
+### IP address whitelisting
 
-After you create the database, click on it to reveal the connection information. You want the MongoDB URI. It will look like this:
+MongoDB Atlas requires us to whitelist the IP addresses that should be allowed to talk to the database. **Yes, it is secured by an encrypted password,** but this still helps cut down on potential DOS attacks.
 
-```
-mongodb://<dbuser>:<dbpassword>@dsxxxxx.mlab.com:xxxxx/YOUR-database-name
-```
+This is a problem with Heroku because it may connect from many IP addresses.
 
-You'll need to create a database user. Click on the "Users" tab, then click "Add database user" and create a user.
+If you are buying a larger Atlas plan you may be able to use the "VPC Peering" option, the details of which are beyond the scope of this HOWTO. Otherwise, just click "Allow Access from Anywhere" or, if you don't see that option, use this IP address range:
 
-> Stick to alphanumeric characters or be careful to escape symbols when creating a user.
+`0.0.0.0/0`
 
-Now you can create the complete URI, by inserting the username and password you just created in place of the `<dbuser>` and `<dbpassword>` fields.
+### Telling Heroku about your database
 
-## Making your app aware of your mlab database
-
-By default, Apostrophe connects to MongoDB on your local machine:
-
-```
-mongodb://localhost:27017/YOUR-SHORTNAME-HERE
-```
-
-This is great for development, but now we need the app to know what the mlab URI is.
-
-The right database name is *server dependent*: it differs between your computer and your production Heroku environment. In Heroku, the right way to pass that kind of information is through *environment variables*.
-
-> This is NOT the same as your mlab account credentials. DO NOT check the read-only box.
-
-### Setting heroku configuration variables
-
-There's a UI for this too, but the command line is much easier to script later:
+You will need to set an environment variable in Heroku so that your dynos understand where the datbase is. There's a UI for this, but the command line is much easier in the long run:
 
 ```
 heroku config:set 'APOS_MONGODB_URI=mongodb://YOUR-uri-goes-here'
@@ -102,7 +84,7 @@ APOS_MONGODB_URI=mongodb://YOUR-uri-goes-here node app
 
 > If you do not `node app` with the environment variable correctly, it'll seem to work because it will connect to your own mongodb. You can shut down your local mongodb server temporarily if you want to be really, really sure.
 
-8. Your database exists now on mlab, but it contains no users, so you won't be able to log in. Let's use the command line to connect again to fix that:
+8. Your database exists now on MongoDB, but it contains no users, so you won't be able to log in. Let's use the command line to connect again to fix that:
 
 ```
 APOS_MONGODB_URI=mongodb://YOUR-uri-goes-here node app apostrophe-users:add admin admin
@@ -110,7 +92,7 @@ APOS_MONGODB_URI=mongodb://YOUR-uri-goes-here node app apostrophe-users:add admi
 
 *This is the same user-creation command you saw in our getting-started tutorial.* We're just talking to a different database.
 
-> You could also create your database locally and then copy it to mlab using the mongodb shell.
+> You could also create your database locally and then copy it to MongoDB using the `mongodump` and `mongorestore` commands.
 
 ## Storing files with Amazon S3
 
@@ -192,6 +174,12 @@ And in the `./scripts` subdirectory of your project, here is a sample `heroku-re
 
 node app apostrophe:generation
 node app apostrophe-migrations:migrate
+```
+
+Be sure to make that script executable before committing it in your project:
+
+```bash
+chmod u+x ./scripts/release-tasks
 ```
 
 This script will take care of *both* static asset generation and database migrations just before Heroku starts launching dynos with the latest version of your code.
