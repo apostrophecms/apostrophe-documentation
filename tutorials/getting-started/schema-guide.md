@@ -254,7 +254,7 @@ Example:
   type: 'boolean',
   name: 'housing',
   label: 'Do you require housing?',
-  mandatory: 'Sorry, you need to have housing!'
+  mandatory: 'Sorry, you need to have housing!',
   choices: [
     {
       value: true,
