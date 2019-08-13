@@ -487,7 +487,7 @@ An `array` field has its own schema, and allows the user to create one or more o
 
 This is useful for collections that clearly belong to a parent object, such as multiple homes for a person or tabs in a widget, and do not have any other relationships to other objects. If the objects in the array are also related to other types of objects, you should be using joins instead.
 
-The `limit` property on array fields will limit the number of items an editor can add to the array. So if you set `limit: 3`, they can only one to three items in that array.
+The `limit` property on array fields will limit the number of items an editor can add to the array. So if you set `limit: 3`, editors can only add up to three items in that array.
 
 If the `titleField` property is set, the editing interface will use the value of that field as a distinguishing label for each entry in the array. You may also use "dot notation" to access a nested property just as you would with MongoDB.
 
