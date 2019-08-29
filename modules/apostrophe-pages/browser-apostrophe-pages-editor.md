@@ -21,6 +21,8 @@ when the content is re-rendered due to a page
 type change, resulting in a new type field element.
 ### open(*callback*)
 
+### afterShow()
+Make sure the field indicated by options.field is initially visible
 ### populate(*data*, *callback*)
 
 ### beforeSave(*callback*)

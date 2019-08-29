@@ -7,6 +7,8 @@ or the editing of the first item. In the latter case the list of items
 is also implicitly loaded after first generating the item titles for the
 list view. This method is invoked for you by `afterShow` and should not be
 invoked again.
+### beforeCancel(*callback*)
+
 ### generateTitle(*item*)
 This method is now a bc placeholder
 ### beforeShow(*callback*)

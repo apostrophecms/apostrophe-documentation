@@ -86,6 +86,8 @@ Into javascript source code like this:
 Suitable to be emitted inside a script tag.
 
 Note that `?` JSON-encodes an argument, while `@` inserts it literally.
+### browserCall(*when*, *pattern *, *, arg1, arg2...*)
+
 ## Nunjucks template helpers
 ### newBrowserCalls()
 Invoke browser-side javascript calls published

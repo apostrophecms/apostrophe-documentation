@@ -7,6 +7,8 @@ each time you click "Add" or click to edit an existing piece. Relies on
 ## Methods
 ### beforeShow(*callback*)
 
+### afterShow()
+Make sure the field indicated by options.field is initially visible
 ### edit(*_id*, *callback*)
 
 ### create(*callback*)

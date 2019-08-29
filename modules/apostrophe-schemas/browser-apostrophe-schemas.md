@@ -75,6 +75,12 @@ code, see self.error() for an easy way to make an error object
 A convenience allowing you to scroll to the first error present,
 if any. convert() will call this if an error is present.
 Also ensures the appropriate tab group is actually visible.
+### removeError(*$fieldset*, *error*)
+Remove an error from the given fieldset. Not often required
+because a fresh "convert" takes care of this completely,
+but there are edge cases such as the "taken" error that
+should be optimistically removed if the user elects to
+use the wrench to edit the conflicting document.
 ### showGroupContaining(*$element*)
 Show the tab group containing the given element, if not already visible,
 by triggering the appropriate tab button.

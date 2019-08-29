@@ -35,6 +35,9 @@ via another option.
 If present, the `module` option is used to resolve method
 names lacking a module name, for instance when a method name
 is given for the `choices` property of a `select` field.
+### setModuleName(*field*, *module*)
+Recursively set moduleName property of the field and any subfields,
+as might be found in array or object fields. `module` is an actual module
 ### refine(*schema*, *_options*)
 refine is like compose, but it starts with an existing schema array
 and amends it via the same options as compose.
