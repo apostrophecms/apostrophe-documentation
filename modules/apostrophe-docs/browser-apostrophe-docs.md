@@ -38,3 +38,20 @@ This is normally a bad thing, but it is appropriate
 in a beforeunload handler.
 
 `callback` is optional.
+### enableFix()
+Watch for clicks on links with a [data-apos-fix-id], and open
+the relevant document for editing, displaying the
+[data-apos-fix-hint] first to explain why the document is being
+opened and ask the user to confirm. This is designed for use cases
+such as editing a document that is "camping" on the slug we want to
+use for another document. The implementation of the hint is currently
+an alert, but this API allows for us to gracefully upgrade that
+at any time.
+
+The data-apos-fix-id, data-apos-fix-type and data-apos-fix-url
+attributes should be populated on your link or button.
+If you know the doc is a piece, not a page, you can skip
+the url attribute.
+
+If data-apos-fix-error is present, the error with the same name
+is removed from the enclosing fieldset when the link is clicked.

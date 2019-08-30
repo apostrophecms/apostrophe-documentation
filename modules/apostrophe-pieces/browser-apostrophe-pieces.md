@@ -9,10 +9,16 @@ appear anywhere, which is useful for contextual pieces.
 
 ### manage()
 
-### edit(*_id*)
-
-### create()
-
+### edit(*_id*, *options*)
+`options` object is merged with the options passed to the editor modal,
+in particular you can pass a `hint` to be displayed
+at the top of the modal to provide context for why the edit operation
+was undertaken
+### create(*options*)
+`options` object is merged with the options passed to the editor modal,
+in particular you can pass a `hint` to be displayed
+at the top of the modal to provide context for why the edit operation
+was undertaken
 ### rescue(*_id*)
 
 ### launchBatchPermissionsModal(*data*, *callback*)

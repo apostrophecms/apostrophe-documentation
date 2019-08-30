@@ -301,6 +301,12 @@ The applyToSubpages choice is actually a one-time action, not a permanently
 remembered setting, so the setting itself is cleared afterwards by this
 method.
 
+If 'appendPermissionsToSubpages' option is selected then the new set of
+permissions is appended to the existing subpage\'s permissions instead of completly overriding them.
+Thus preserving any special permissions given to a subfolder or a subpage, while
+adding the new ones to them. Like 'applytoSubpages' choice, 'appendPermissionsToSubpages'
+is also a one-time action, so the setting itself is cleared afterwards by this method.
+
 This method is called for us by the apostrophe-docs module on update
 operations, so we first make sure it's a page. We also make sure it's
 not a new page (no kids to propagate anything to).

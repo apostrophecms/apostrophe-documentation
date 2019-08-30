@@ -29,11 +29,22 @@ Other assets are pushed by individual core modules that require them.
 
 ### `minify`
 
+Set for you automatically if `APOS_BUNDLE=1` or `APOS_MINIFY=1` in the environment.
+
 If set to true, both stylesheets and scripts are combined into a single file
 and unnecessary whitespace removed to speed delivery. It is strongly recommended
 that you enable this option in production, and also in staging so you can see
-any unexpected effects. If this option is undefined, the APOS_MINIFY
-environment variable is consulted.
+any unexpected effects.
+
+It never makes sense to run with no minified assets in production.
+
+### `lean`
+
+If this option is set to `true`, Apostrophe will *not* push any assets to an anonymous, logged-out site visitor, except for those pushed with `{ when: 'lean' }`. By default this includes only a tiny subset of the `apos.utils` library with necessary services to make widget players possible, with no library dependencies.
+
+Note that this means assets pushed with `{ when: 'always' }` will *not* be received, except by logged-in users.
+
+There are also no widget players, except for modules that allow you to opt in to a lean widget player by passing the `player: true` option when configuring those modules. This is currently supported by `apostrophe-video-widgets`.
 
 ### `static`
 
@@ -64,24 +75,35 @@ for more information.
 
 ### `APOS_BUNDLE`
 
-If set to the name of a static asset bundle, the specified bundle is unpacked
-at startup. See [Deploying Apostrophe in the Cloud with Heroku](https://docs.apostrophecms.org/apostrophe/tutorials/howtos/deploying-apostrophe-in-the-cloud-with-heroku)
-for more information.
+Set APOS_BUNDLE=1 for a simple way to handle copying static assets to the cloud in production.
+
+First run this task in a production environment:
+
+`APOS_BUNDLE=1 node app apostrophe:generation`
+
+Then make sure the variable is also set when running actual production instances of the site:
+
+`APOS_BUNDLE=1 node app`
+
+Alternatively, if you specified an explicit bundle name to `--create-bundle` when using `apostrophe:generation`,
+stored it to git and deployed it, you can specify that bundle name as the value of APOS_BUNDLE. But this is
+more work; we recommend the easy way.
 
 ### `APOS_BUNDLE_IN_UPLOADFS`
 
-If set, static asset URLs are generated to the bundle in uploadfs rather than being
-served locally. Since not every module that utilizes static assets of modules will
-necessarily participate, the bundle is still unpacked locally as well. See
-[Deploying Apostrophe in the Cloud with Heroku](https://docs.apostrophecms.org/apostrophe/tutorials/howtos/deploying-apostrophe-in-the-cloud-with-heroku)
-for more information.
+Legacy. For use when `APOS_BUNDLE` is set to an explicit bundle name but you still wish static asset URLs to be
+generated to reference those files via uploadfs. But this is the hard way; just run `apostrophe:generation` with
+APOS_BUNDLE=1, and also set `APOS_BUNDLE=1` in the environment when launching Apostrophe. That's really all you
+have to do.
+See [Deploying Apostrophe in the Cloud with Heroku](https://docs.apostrophecms.org/apostrophe/tutorials/howtos/deploying-apostrophe-in-the-cloud-with-heroku) for more information.
 
 ### `APOS_BUNDLE_CLEANUP_DELAY`
 
 If set to a number of milliseconds, Apostrophe delays that long before
 cleaning up obsolete static asset bundles in uploadfs. The default
 is 5 minutes. The assumption is that all production servers have received
-the new deployment and finished serving any straggler HTTP requests by this point.
+the new deployment and finished serving any straggler HTTP requests 5 minutes after
+a new version is first launched.
 See [Deploying Apostrophe in the Cloud with Heroku](https://docs.apostrophecms.org/apostrophe/tutorials/howtos/deploying-apostrophe-in-the-cloud-with-heroku)
 for more information.
 
@@ -95,16 +117,33 @@ for more information.
 
 ### setTypeMap()
 
+### determineGenerationFromDb()
+If self.simpleBundle is true, determine the current asset generation via the database and
+set `self.generation` accordingly. If we are running the generation task in that situation,
+set the generation id in the database. In all other cases, determine the generation via legacy methods.
 ### determineGeneration()
+Determine the current asset generation identifier (self.generation) and prep the
+bundle folder, if any is needed.
+### determineDevGeneration()
+Return an asset generation identifier for dev use only.
+By default the pid (which is constant just for the lifetime
+of this process) is used.
+### mkdirp(*path*)
 
 ### enableBundles()
 Initialize services required for asset bundles. Obtains the
 self.generations mongodb collection and extracts a bundle if
 appropriate.
+### extractBundleFromGenerationCollection()
+Extracts the appropriate asset bundle from uploadfs if we are using simple bundles
+and this is not a command line task.
+
+Returns a promise. Called on the modulesReady event.
 ### extractBundleIfAppropriate()
-Extract an asset bundle if appropriate. The default implementation
-looks for an APOS_BUNDLE=XYZ environment variable and, if present, extracts
-a bundle with the name XYZ
+This method supports the less common case where an explicit bundle name
+is in APOS_BUNDLE and it should be extracted from the filesystem. The
+more common case, APOS_BUNDLE=1, is implemented elsewhere. The name of
+this method is kept for bc reasons.
 ### uploadfsBundleCleanup()
 Clean up old asset bundles in uploadfs, if any, after a
 suitably safe interval allowing services such as Heroku to
@@ -249,6 +288,19 @@ rendered by a function).
 If minifiable is true you get back the assets that can be minified;
 if set false you get those that cannot; if it is not specified
 you get both.
+
+If `options: lean` is true, "always" is treated as "user".
+This maintains bc in the logged-in experience without pushing anything
+unnecessary to the lean logged-out experience.
+
+Regardless of the `lean` module-level option, anything pushed as
+"lean" is delivered to both the "anon" and "user" scenes. This
+provides an upgrade path for gradual migration to `lean: true`.
+### pushConfigured()
+Override pushConfigured so that self configured assets are always served,
+unless specified otherwise
+### setWhenIfNotConfigured(*item*, *defaultWhen*)
+If "when" is not specified, specify a default
 ### getChain(*name*)
 Fetch an asset chain by name. Note that the
 name of the chain for a project-level override
@@ -258,8 +310,6 @@ Otherwise it is the name of the module.
 ### pushDefaults()
 
 ### modulesReady()
-
-### pushConfigured()
 
 ### splitWithBless(*filename*, *content*)
 
@@ -280,13 +330,17 @@ Prefix all URLs in CSS with a particular string
 ### assetUrl(*web*)
 Given the site-relative URL an asset would have when hosting assets locally,
 return the asset URL to be used in script or link tags. Often the same, but
-when APOS_S3_BUNDLE is in effect it can point elsewhere
+when APOS_BUNDLE is in effect it can point elsewhere
 ### getCoreAposProperties(*when*)
 
 ### generationTask(*callback*)
 This task is primarily implemented by the logic in afterInit, however
 if we are sending a bundle to uploadfs this is a fine time to do
 that part.
+### getUploadfsBundleTempName()
+
+### getUploadfsBundlePath()
+
 ### stylesheetsHelper(*when*)
 Implementation of stylesheeets helper, as a method for
 easier use of super pattern to extend it. See the
@@ -297,6 +351,11 @@ Implementation of scripts helper, as a method for
 easier use of super pattern to extend it. See the
 documentation for the scripts helper. Name is
 suffixed to avoid a conflict with a property.
+### uploadfs()
+Override point to use a separate uploadfs instance, for
+instance in a multisite project with shared assets
+### pushCreateSingleton()
+
 ## Nunjucks template helpers
 ### stylesheets(*when*)
 apos.assets.stylesheets renders markup to load CSS that

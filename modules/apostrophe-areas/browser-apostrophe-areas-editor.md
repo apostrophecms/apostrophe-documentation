@@ -61,7 +61,12 @@ A newly inserted widget that contains subareas cannot autosave
 correctly as part of the parent unless its doc id and
 dot path are correctly set to show that relationship. But
 render-widget has no way of knowing how to set these for us,
-so we need to fix them up
+plus all the widgets below it now have dotPaths that are off
+by one. Fix the whole mess
+### recalculateDotPathsInArea(*$area*)
+
+### recalculateDotPathsOfAreasInWidget(*$widget*, *docId*, *dotPath*)
+
 ### enhanceWidgetControls(*$widget*)
 
 ### addAreaControls(*$widget*)

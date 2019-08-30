@@ -18,6 +18,9 @@ they are the first character; this preserves existing camelCase names.
 ### cssName(*camel*)
 Convert other name formats such as underscore and camelCase to a hyphenated css-style
 name.
+
+NOTE: this method is not available if `lean: true` is active
+for `apostrophe-assets` and the user is not logged in.
 ### eventName()
 Create an event name from one or more strings. The original strings can be
 CSS names or camelized names, it makes no difference. The end result
@@ -34,26 +37,47 @@ is treated as a word boundary.
 
 This method is often useful both when triggering and when listening.
 No need to remember the correct way to construct an event name.
+
+NOTE: this method is not available if `lean: true` is active
+for `apostrophe-assets` and the user is not logged in.
 ### generateId()
 Widget ids should be valid names for javascript variables, just in case
 we find that useful, so avoid hyphens. Prefixed with a `w` so it can
 always be distinguished from a cuid that came from the server; if we
 start using cuid in the browser we must keep the `w` prefix
-### escapeHtml(*string*)
 
+NOTE: this method is not available if `lean: true` is active
+for `apostrophe-assets` and the user is not logged in.
+### escapeHtml(*string*)
+Escape HTML as plaintext.
+
+NOTE: this method is not available if `lean: true` is active
+for `apostrophe-assets` and the user is not logged in.
 ### globalReplace(*haystack*, *needle*, *replacement*)
 String.replace does NOT do this
 Regexps can but they can't be trusted with unicode ):
 Keep in sync with server side version
-### padInteger(*i*, *places*)
-pad an integer with leading zeroes, creating a string
-### capitalizeFirst(*s*)
 
+NOTE: this method is not available if `lean: true` is active
+for `apostrophe-assets` and the user is not logged in.
+### padInteger(*i*, *places*)
+pad an integer with leading zeroes, creating a string.
+
+NOTE: this method is not available if `lean: true` is active
+for `apostrophe-assets` and the user is not logged in.
+### capitalizeFirst(*s*)
+Capitalize the first letter of a string.
+
+NOTE: this method is not available if `lean: true` is active
+for `apostrophe-assets` and the user is not logged in.
 ### slugify(*s*, *options*)
 Turn the provided string into a string suitable for use as a slug.
 ONE punctuation character normally forbidden in slugs may
 optionally be permitted by specifying it via options.allow.
 The separator may be changed via options.separator.
+
+NOTE: this method is not available if `lean: true` is active
+for `apostrophe-assets` and the user is not logged in.
 ### clonePermanent(*o*, *keepScalars*)
 Clone the given object recursively, discarding all
 properties whose names begin with `_` except
@@ -79,6 +103,9 @@ Arrays are cloned as such only if they are true arrays
 (Array.isArray returns true). Otherwise all objects with
 a length property would be treated as arrays, which is
 an unrealistic restriction on apostrophe doc schemas.
+
+NOTE: this method is not available if `lean: true` is active
+for `apostrophe-assets` and the user is not logged in.
 ### log(*msg*)
 Log a message. The default
 implementation wraps `console.log` and passes on
@@ -87,6 +114,9 @@ all arguments, so substitution strings may be used.
 Overrides should be written with support for
 substitution strings in mind. See the
 `console.log` documentation.
+
+NOTE: this method is not available if `lean: true` is active
+for `apostrophe-assets` and the user is not logged in.
 ### info(*msg*)
 Log an informational message. The default
 implementation invokes
@@ -97,6 +127,9 @@ substitution strings may be used.
 Overrides should be written with support for
 substitution strings in mind. See the
 `console.log` documentation.
+
+NOTE: this method is not available if `lean: true` is active
+for `apostrophe-assets` and the user is not logged in.
 ### error(*msg*)
 Log an error message. The default implementation
 wraps `console.error` and passes on all arguments,
@@ -105,6 +138,9 @@ so substitution strings may be used.
 Overrides should be written with support for
 substitution strings in mind. See the
 `console.log` documentation.
+
+NOTE: this method is not available if `lean: true` is active
+for `apostrophe-assets` and the user is not logged in.
 ### warn(*msg*)
 Log a warning. The default implementation wraps
 `console.warn` and passes on all arguments,
@@ -119,3 +155,6 @@ substitution strings in mind. See the
 The intention is that `apos.utils.warn` should be
 called for situations less dire than
 `apos.utils.error`.
+
+NOTE: this method is not available if `lean: true` is active
+for `apostrophe-assets` and the user is not logged in.

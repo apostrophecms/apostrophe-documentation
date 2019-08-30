@@ -8,7 +8,7 @@ this module provides a simple way to add downloadable PDFs and the like to
 a website, and to manage a library of them for reuse.
 
 Each `apostrophe-image` doc has an `attachment` schema field, implemented
-by the [apostrophe-attachments](https://docs.apostrophecms.org/apostrophe/modules/apostrophe-attachments) module.
+by the [apostrophe-attachments](https://docs.apostrophecms.org/apostrophe/modules/apostrophe-images-widgets) module.
 
 
 ## Methods

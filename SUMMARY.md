@@ -95,6 +95,7 @@
   * [apostrophe-areas (browser)](modules/apostrophe-areas/browser-apostrophe-areas.md)
   * [apostrophe-areas-editor (browser)](modules/apostrophe-areas/browser-apostrophe-areas-editor.md)
 * [apostrophe-assets](modules/apostrophe-assets/README.md)
+  * [apostrophe-assets (browser)](modules/apostrophe-assets/browser-apostrophe-assets.md)
 * [apostrophe-attachments](modules/apostrophe-attachments/README.md)
   * [apostrophe-attachments (browser)](modules/apostrophe-attachments/browser-apostrophe-attachments.md)
   * [apostrophe-attachments-crop-editor (browser)](modules/apostrophe-attachments/browser-apostrophe-attachments-crop-editor.md)
