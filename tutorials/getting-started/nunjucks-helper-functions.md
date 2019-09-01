@@ -116,6 +116,20 @@ here can be called from the template.
 > [promise event handler](../../other/events.md), or a
 > [widget `load` method](../../technical-overviews/how-apostrophe-handles-requests.md#widget-loaders).
 
+## Returning markup from a helper
+
+Normally, the output of helper functions is automatically escaped by Nunjucks. That is, if your function returns `<h1>`, that will become `&lt;h1&gt;`, rendering the characters literally. This is a built-in Nunjucks feature to protect against [CSRF attacks](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF).
+
+If your helper function returns markup, and you know that markup is safe (you have eliminated or escaped any user input that could generate HTML tags), you can return a "safe string" like this:
+
+```javascript
+self.addHelpers({
+  title: function(page) {
+    return self.apos.templates.safe('<h1>' + self.apos.utils.escapeHtml(page.title) + '</h1>');
+  }
+});
+```
+
 ## Passing data as a "helper"
 
 In addition to functions, you can also pass data as helpers. This
