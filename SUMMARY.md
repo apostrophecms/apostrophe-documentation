@@ -13,6 +13,7 @@
   * [Pushing assets to the browser](tutorials/getting-started/pushing-assets.md)
   * [Building Navigation](tutorials/getting-started/building-navigation.md)
   * [Custom widgets](tutorials/getting-started/custom-widgets.md)
+  * [Nunjucks helper functions](tutorials/getting-started/nunjucks-helper-functions.md)
   * [Layout / Nested widgets](tutorials/getting-started/layout-widgets.md)
   * [Reusable content with pieces](tutorials/getting-started/reusable-content-with-pieces.md)
   * [Global Settings](tutorials/getting-started/settings.md)

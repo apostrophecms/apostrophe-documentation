@@ -40,7 +40,10 @@ NOTE: this will `npm update` the version of `apostrophe` being documented first,
 Now commit the changes, as you would if you had made them manually.
 
 ### 3. Making edits to non `modules/` docs
+
 Right now we're making all edits by hand and committing them to master. Currently we are *not* making writes from Gitbook's editor back to the repo. This has resulted in the loss of pages, restructed navigation, etc. Making sure the Gitbook editor plays nicely with our repo's structure needs it's own testing and effort.
+
+**If you add a new tutorial,** you will need to edit `SUMMARY.md` in the root of the project to add it to the tree structure. Otherwise it will not be discoverable in the navigation.
 
 ### 4. Deploying
 

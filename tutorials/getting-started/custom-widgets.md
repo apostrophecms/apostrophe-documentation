@@ -57,7 +57,7 @@ module.exports = {
 };
 ```
 
-> _"What does_ `extend` _mean here?"_ Our module is extending the `apostrophe-widgets` module, which provides almost all the code we need. Yes, `extend` is the correct spelling. Apostrophe uses [moog](https://npmjs.org/packages/moog) to handle extending or "subclassing" other modules.
+> _"What does_ `extend` _mean here?"_ Our module is extending the `apostrophe-widgets` module, which provides almost all the code we need. Yes, `extend` is the correct spelling. Apostrophe uses [moog](https://npmjs.org/package/moog) to handle extending or "subclassing" other modules.
 >
 > _"What other field types can I add?"_ The `apostrophe-schemas` module gives us a powerful way to build forms and structure data with almost no work. We just pass an array of field definitions as the `addFields` option. We'll introduce the details gradually. But if you're in a hurry, check out the [schema guide](schema-guide.md).
 >
