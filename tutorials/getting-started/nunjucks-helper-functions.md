@@ -102,14 +102,14 @@ Next we add a `construct` function. This function runs once when the module
 starts up. *This happens just once, not on every request.*
 
 Inside `construct`, we call `self.addHelpers` to add some helper functions
-that are visible to ounr Nunjucks templates. Any helper functions we add
+that are visible to our Nunjucks templates. Any helper functions we add
 here can be called from the template.
 
 > **You must not call async functions, await promises, wait for
 > callbacks, make network requests or database calls, etc. from
 > inside a helper function.** Helpers must be synchronous, the
 > value they return is the value you'll get.  Any attempt to use
-> asynchronous code here will not work.
+> asynchronous code here, or anywhere in a template, **Will not work**.
 > 
 > If you need to do asynchronous work to get data for your template,
 > you should do it **before** the template runs. Write a
