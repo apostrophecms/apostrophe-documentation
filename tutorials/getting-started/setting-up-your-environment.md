@@ -88,7 +88,7 @@ curl -L https://npmjs.org/install.sh | sh
 
 ### Install git
 
-You'll need git to manage your source code. Macs come with it, but we suggest you get the latest via homebrew:
+You'll need git to manage your source code. Macs come with it, but we suggest you get the latest via Homebrew:
 
 ```bash
 brew install git
@@ -96,7 +96,7 @@ brew install git
 
 ### Install MongoDB
 
-Apostrophe used MongoDB for persistence. You can install it with homebrew. In addition, you can configure `brew services` to launch it automatically for you, so you don't have to fuss with restarting it manually.  First you need to install the "tap" for Mongo DB:
+Apostrophe uses MongoDB as its database. You can install it with Homebrew. In addition, you can configure `brew services` to launch it automatically for you, so you don't have to fuss with restarting it manually.  First you need to install the "tap" for Mongo DB:
 
 ```brew tap mongodb/brew
 ```
