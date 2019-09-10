@@ -7,15 +7,13 @@ layout: tutorial
 
 ## Setting up your environment
 
-We're going to start from the very beginning by installing the software necessary to develop with Apostrophe. In the next tutorial, we'll set up an empty Apostrophe site.
+Let's start from the very beginning by installing the software necessary to develop with Apostrophe. After that, we'll set up an empty Apostrophe site.
 
 ### Install the Software
 
-**These instructions are for MacOS X,** which most developers use to test code that will eventually deploy to Linux. Also see this lovely [HOWTO for Windows](../howtos/windows.md) contributed by Michael Brown. Linux users can get going by installing the same operating system packages required by our [deployment HOWTO](../intermediate/deployment.md).
+**These instructions are for MacOS X v10.9 or later.** MacOS X is the preferred platform for Apostrophe CMS development. Windows users can use this lovely [HOWTO for Windows](../howtos/windows.md) contributed by Michael Brown to get everything setup. Linux users can get going by installing the same operating system packages required by our [deployment HOWTO](../intermediate/deployment.md).
 
-This tutorial will get you set up on a Mac running OSX 10.9 or better.
-
-We're going to install the following software:
+First we'll install the following software:
 
 * XCode \(required for all compilation on Macs\)
 * Homebrew \(for easy installing\)
@@ -30,18 +28,13 @@ Launch the "Terminal" app. From this point on, anything `formatted like this` is
 
 #### XCode Command Line Tools
 
-You will also need the Xcode Command Line Tools, which can be installed by going to Xcode -&gt; Preferences ... -&gt; Downloads.
-
-#### Using the Terminal
-
-This installs the XCode command line tools directly from Apple.
-You *do not* have to install the full XCode user interface.
+You will also need the Xcode Command Line Tools, which can be installed by going to Xcode -&gt; Preferences ... -&gt; Downloads. This installs the XCode command line tools directly from Apple. You *do not* have to install the full XCode user interface.
 
 #### Install Homebrew
 
 [Homebrew](http://brew.sh/) is a convenient software manager that makes it easier to keep track of and update your software packages.
 
-You can install Homebrew by copying and pasting this one-line command to the terminal:
+Install Homebrew by copying and pasting this one-line command to the terminal:
 
 ```bash
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -106,11 +99,18 @@ brew install git
 
 #### Install MongoDB
 
-MongoDB is the database that Apostrophe uses. You can install it with homebrew. Also make sure to use `brew services` to set it up to launch automatically for you, so you don't have to fuss with restarting it manually. The two terminal commands you'll need are:
+Apostrophe used MongoDB for persistence. You can install it with homebrew. In addition, you can configure `brew services` to launch it automatically for you, so you don't have to fuss with restarting it manually.  First you need to install the "tap" for Mongo DB:
 
-```bash
-brew install mongodb
-brew services start mongodb
+```brew tap mongodb/brew
+```
+Then you can install MongoDB:
+
+```brew install mongodb-community
+```
+
+After it is installed, start the MongoDB service:
+
+```brew services start mongodb-community
 ```
 
 Now open a **new terminal window** and try:
@@ -121,7 +121,7 @@ mongo
 
 It should start an interactive mongo prompt. ctrl+c to exit.
 
-> "Hey, I got a connection failed error!" Possibly you didn't run `brew services start mongodb`.
+> "Hey, I got a connection failed error!" Make sure you ran `brew services start mongodb-community`.
 
 #### Install ImageMagick
 
@@ -133,5 +133,5 @@ Now you have the `convert` and `identify` command line tools, which Apostrophe u
 
 ## Build a website!
 
-Now that you have your environment configured it's time to create our first Apostrophe project.
+Now your environment is configured it's time to create our first Apostrophe project.
 
