@@ -3,13 +3,9 @@ title: Setting Up Your Environment
 layout: tutorial
 ---
 
-# Setting up your environment
-
-## Setting up your environment
-
 Let's start from the very beginning by installing the software necessary to develop with Apostrophe. After that, we'll set up an empty Apostrophe site.
 
-### Install the Software
+## Install the Software
 
 **These instructions are for MacOS X v10.9 or later.** MacOS X is the preferred platform for Apostrophe CMS development. Windows users can use this lovely [HOWTO for Windows](../howtos/windows.md) contributed by Michael Brown to get everything setup. Linux users can get going by installing the same operating system packages required by our [deployment HOWTO](../intermediate/deployment.md).
 
@@ -22,15 +18,15 @@ First we'll install the following software:
 * MongoDB
 * Optional: Imagemagick \(for fast image manipulation with animated GIF support\)
 
-#### Install XCode
+### Install XCode
 
 Launch the "Terminal" app. From this point on, anything `formatted like this` is meant to be run at the terminal prompt. Basic familiarity with the terminal is very helpful for node and Apostrophe development.
 
-#### XCode Command Line Tools
+### XCode Command Line Tools
 
 You will also need the Xcode Command Line Tools, which can be installed by going to Xcode -&gt; Preferences ... -&gt; Downloads. This installs the XCode command line tools directly from Apple. You *do not* have to install the full XCode user interface.
 
-#### Install Homebrew
+### Install Homebrew
 
 [Homebrew](http://brew.sh/) is a convenient software manager that makes it easier to keep track of and update your software packages.
 
@@ -42,7 +38,7 @@ Install Homebrew by copying and pasting this one-line command to the terminal:
 
 _Trouble? Visit the_ [_Homebrew site_](http://brew.sh/) _for the latest instructions._
 
-#### Install Node
+### Install Node
 
 One command is all it takes:
 
@@ -50,7 +46,7 @@ One command is all it takes:
 brew install node
 ```
 
-#### Adjust your PATH
+### Adjust your PATH
 
 The terminal prompt finds commands in folders listed in an environment variable called PATH. We'll need to add node's directory to our $PATH in order for it to work its magic.
 
@@ -75,7 +71,7 @@ echo $PATH
 
 It should echo the current PATH setting as a set of colon-separated values, beginning with your additions.
 
-#### Install NPM \(Node Package Manager\)
+### Install NPM \(Node Package Manager\)
 
 NPM may or may not have been installed with Node. Try:
 
@@ -89,7 +85,7 @@ If you get a "not found" error, run this:
 curl -L https://npmjs.org/install.sh | sh
 ```
 
-#### Install git
+### Install git
 
 You'll need git to manage your source code. Macs come with it, but we suggest you get the latest via homebrew:
 
@@ -97,7 +93,7 @@ You'll need git to manage your source code. Macs come with it, but we suggest yo
 brew install git
 ```
 
-#### Install MongoDB
+### Install MongoDB
 
 Apostrophe used MongoDB for persistence. You can install it with homebrew. In addition, you can configure `brew services` to launch it automatically for you, so you don't have to fuss with restarting it manually.  First you need to install the "tap" for Mongo DB:
 
@@ -123,7 +119,7 @@ It should start an interactive mongo prompt. ctrl+c to exit.
 
 > "Hey, I got a connection failed error!" Make sure you ran `brew services start mongodb-community`.
 
-#### Install ImageMagick
+### Install ImageMagick
 
 ```bash
 brew install imagemagick
@@ -131,7 +127,7 @@ brew install imagemagick
 
 Now you have the `convert` and `identify` command line tools, which Apostrophe uses to scale and crop images quickly, with animated GIF support. _If you skip this step, Apostrophe can still handle image uploads more slowly, thanks to_ [_Jimp_](https://npmjs.org/package/jimp)_._
 
-## Build a website!
+# Build a website!
 
 Now your environment is configured it's time to create our first Apostrophe project.
 
