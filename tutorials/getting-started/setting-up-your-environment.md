@@ -8,7 +8,7 @@ Let's start from the very beginning by installing the software necessary to deve
 
 ## Install the Software
 
-**These instructions are for MacOS X v10.9 or later.** MacOS X is the preferred platform for Apostrophe CMS development. Windows users can use this lovely [HOWTO for Windows](../howtos/windows.md) contributed by Michael Brown to get everything setup. Linux users can get going by installing the same operating system packages required by our [deployment HOWTO](../intermediate/deployment.md).
+>**These instructions are for MacOS X v10.9 or later.** MacOS X is the preferred platform for Apostrophe CMS development. Windows users can use this lovely [HOWTO for Windows](../howtos/windows.md) contributed by Michael Brown to get everything setup. Linux users can get going by installing the same operating system packages required by our [deployment HOWTO](../intermediate/deployment.md).
 
 First we'll install the following software:
 

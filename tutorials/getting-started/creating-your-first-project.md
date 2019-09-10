@@ -5,11 +5,11 @@ layout: tutorial
 
 # Creating your first project
 
-Now that you've got all the dependencies for Apostrophe installed, we can get you started creating your first project!
+Now that you have all the dependencies for Apostrophe installed,  you can create your first project!
 
 ## Generating a test project
 
-The first thing you will want to do is grab the `apostrophe-cli` tool, which makes bootstrapping a new project a breeze!
+First grab the `apostrophe-cli` tool, which makes bootstrapping a new project a breeze!
 
 ```bash
 # Install the apostrophe-cli module
@@ -18,7 +18,7 @@ npm install apostrophe-cli -g
 
 > **Did you get a "Permission Denied" error?** On Linux, this would be because global npm packages must be installed as root in a typical setup. Use `sudo npm install` instead. On a Mac, this shouldn't happen if you installed node with Homebrew, because the `/usr/local` folder where Homebrew keeps its files should belong to your personal account. However, if you installed Homebrew with `sudo`, you'll need to be consistent and use `sudo` here too.
 
-Now you can use the Apostrophe CLI to create a new project:
+Now use the Apostrophe CLI to create a new project:
 
 ```bash
 # Create a project
@@ -28,7 +28,7 @@ apostrophe create-project test-project
 apostrophe create-project --boilerplate https://github.com/apostrophecms/apostrophe-open-museum test-project
 ```
 
-**Important: rather than** `test-project`**, use your own project's "short name" containing only letters, digits, hyphens and/or underscores. It will be used by default as a MongoDB database name and a basis for cookie names, etc.** \(Hyphens seem more popular than underscores for such purposes.\)
+**Important: ** `test-project`** is the name for our example. For your project use your own project's "short name" containing only letters, digits, hyphens and/or underscores. It will be used by default as a MongoDB database name and a basis for cookie names, etc.** \(Hyphens seem more popular than underscores for such purposes.\) **We'll continue to use**`test-project` **for the rest of this example**
 
 With the project created, you just need to jump in, install the dependencies, and start the server.
 
@@ -55,11 +55,11 @@ Once logged in, we are redirected to the home page once again, but with two addi
 
 ![Logged in to the boilerplate](../../.gitbook/assets/boilerplate_loggedin.png)
 
-### Let's make it interesting
+### Adding a content area
 
-Now let's make it more interesting! Time to add an editable content area to the page.
+Now let's make it more interesting! Add an editable content area to the page.
 
-Open up `lib/modules/apostrophe-pages/views/pages/home.html` in your text editor and just add an `apos.area` call:
+Open `lib/modules/apostrophe-pages/views/pages/home.html` in your text editor and replace the existing contents with to following code to add an `apos.area` call:
 
 ```markup
 {% extends "layout.html" %}
@@ -105,11 +105,11 @@ Open up `lib/modules/apostrophe-pages/views/pages/home.html` in your text editor
 To avoid manual restarting in the future, you could use [Nodemon](https://nodemon.io) to watch project files.
 
 1. Run `npm install -g nodemon` to install it globally.
-2. Use `nodemon` in your project root folder. Nodemon will run `node app.js` by default.
+2. Run `nodemon` from your project root folder to start your site with watching enabled.
 
-Now, every time you make changes to a file in your project, Nodemon will restart your application.
+> When running `nodemon` from the project root, you don't need to provide any arguments. It will start `app.js` autmoatically by default. The configuration is found in `package.json` and was created when you installed the `apostrophe-cli` tools. You can adjust these settings to your needs.
 
-If you installed Apostrophe using `apostrophe-cli` as described above, a basic Nodemon configuration is provided by the `package.json` file. Feel free to adjust these settings to your needs.
+Now, every time you change a file in your project, Nodemon will restart your application.
 
 ## Working with areas
 
