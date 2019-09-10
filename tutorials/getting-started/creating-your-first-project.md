@@ -59,7 +59,7 @@ Once logged in, we are redirected to the home page once again, but with two addi
 
 Now let's make it more interesting! Add an editable content area to the page.
 
-Open `lib/modules/apostrophe-pages/views/pages/home.html` in your text editor and replace the existing contents with to following code to add an `apos.area` call:
+Open `lib/modules/apostrophe-pages/views/pages/home.html` in your text editor and replace the existing contents with the following code to add an `apos.area` call:
 
 ```markup
 {% extends "layout.html" %}
