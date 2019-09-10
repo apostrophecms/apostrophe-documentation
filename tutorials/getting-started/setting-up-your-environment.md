@@ -2,6 +2,7 @@
 title: Setting Up Your Environment
 layout: tutorial
 ---
+# Setting Up Your Environment
 
 Let's start from the very beginning by installing the software necessary to develop with Apostrophe. After that, we'll set up an empty Apostrophe site.
 

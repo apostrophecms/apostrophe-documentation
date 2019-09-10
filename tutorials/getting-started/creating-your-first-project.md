@@ -5,11 +5,9 @@ layout: tutorial
 
 # Creating your first project
 
-## Creating Your First Project
-
 Now that you've got all the dependencies for Apostrophe installed, we can get you started creating your first project!
 
-### Generating a test project
+## Generating a test project
 
 The first thing you will want to do is grab the `apostrophe-cli` tool, which makes bootstrapping a new project a breeze!
 
@@ -49,7 +47,7 @@ You now have a test project up and running! You should be able to visit `http://
 
 ![The boilerplate homepage](../../.gitbook/assets/boilerplate_loggedout.png)
 
-### Logging in
+## Logging in
 
 We can login through the browser at `http://localhost:3000/login`. **Use the password you chose a moment ago** when you ran the `apostrophe-users:add` task \(see above\) and **username** `admin`.
 
@@ -94,7 +92,7 @@ Open up `lib/modules/apostrophe-pages/views/pages/home.html` in your text editor
 {% endblock %}
 ```
 
-### Restarting your site
+## Restarting your site
 
 **Now restart the site** so you can see the impact of the changes:
 
@@ -113,13 +111,13 @@ Now, every time you make changes to a file in your project, Nodemon will restart
 
 If you installed Apostrophe using `apostrophe-cli` as described above, a basic Nodemon configuration is provided by the `package.json` file. Feel free to adjust these settings to your needs.
 
-### Working with areas
+## Working with areas
 
 Hey, what's this new button about?
 
 ![](../../.gitbook/assets/tutorial-plus-button.png)
 
-#### Adding rich text
+### Adding rich text
 
 Click the "+" sign and pick "rich text." You're presented with a friendly editor:
 
@@ -127,7 +125,7 @@ Click the "+" sign and pick "rich text." You're presented with a friendly editor
 
 Edit as you see fit and try refreshing your page. Notice that your changes have already been saved. _There is no save button because saving is automatic._
 
-#### Adding a slideshow
+### Adding a slideshow
 
 Now let's add a slideshow. Click _outside_ the rich text editor and you'll see two new "+" signs: one above the text and one below it. Click either one and pick "Image\(s\)".
 
@@ -151,7 +149,7 @@ Now click "Save Choices" and boom: slideshow!
 
 ![](../../.gitbook/assets/tutorial-slideshow.gif)
 
-## "Whoa, this is cool! But... what did I just do?"
+# "Whoa, this is cool! But... what did I just do?"
 
 Great question! Now that we've had our "whoa" moment, let's break it all down.
 
