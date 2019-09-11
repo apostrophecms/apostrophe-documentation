@@ -31,7 +31,7 @@ Apostrophe is powered by the Nunjucks template language, which is compatible wit
 
 ## Glossary
 
-Apostrophe is powered by the Nunjucks template language, which is compatible with Jinja and Twig. In addition to many helper functions, Apostrophe provides additional Nunjucks "filters" to transform data for output. [Read the Nunjucks Reference](other/nunjucks-filters.md)
+Working with Apostrophe, there are a lot of a terms and ideas to keep track of. If you need a quick reference or come across an unfamiliar term, check the glossary for a detailed explanation. [Read the Glossary](other/glossary.md)
 
 ## More on Modules
 
