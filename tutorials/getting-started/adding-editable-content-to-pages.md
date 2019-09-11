@@ -9,7 +9,7 @@ Central to Apostrophe is the philosophy that editors can edit their content in c
 
 ## Singletons
 
-Singletons are a slot on a page that allow an editor to add a single "widget" of a specific type. Let's add a rich text singleton to our `home.html` template!
+Singletons are a slot on a page that allow an editor to add a single "widget" of a specific type. Let's add a rich text singleton to our `home.html` template! Open `home.html` and replace the `main` block that you created previously with this: 
 
 ```markup
 {% block main %}
@@ -47,7 +47,7 @@ If we restart our server and refresh our site's home page while logged in, we'll
 
 Oftentimes, we'll want to enable an editor to add several widgets of different types to build out a column of content in a page. For this, we can use the `apos.area` helper.
 
-When we use the area helper a "+" sign appears on the page, allowing the user to add a new widget in a series \(usually a vertical column\), often alternating between images and rich text, for instance.
+When we use the area helper a "+" sign appears on the page, allowing the user to add a new widget in a series \(usually a vertical column\), often alternating between images and rich text. To see this in action, add this to `home.html`  below the text editor inside of the main `div`:
 
 ```markup
 {{ apos.area(data.page, 'body', {
@@ -149,7 +149,7 @@ We'll talk about adding custom image sizes in [`apostrophe-attachments`](../../m
 
 The `apostrophe-files` widget lets you add download links to access various documents, such as PDFs or Word files. If multiple files are added in a single widget, they are presented as a list.
 
-Here's a simple example:
+Add this below the `apos.area` to add a simple `apostrophe-files` widget to the page:
 
 ```markup
   {{ apos.singleton(data.page, 'resume', 'apostrophe-files', {
