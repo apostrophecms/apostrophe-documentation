@@ -5,8 +5,6 @@ layout: tutorial
 
 # Editing page templates
 
-## Editing Page Templates
-
 This tutorial will introduce you to the `apostrophe-pages` and `apostrophe-templates` modules. It will also cover the basics of editing page templates in [Nunjucks](https://mozilla.github.io/nunjucks/), and show you how to add a hero section to the Home page.
 
 But first, two quick questions we should answer... what the heck is an Apostrophe module? And what's this `app.js` file all about?
@@ -35,7 +33,7 @@ Now that we know what a module is, let's take a look in the `apostrophe-pages` m
 
 Let's add a `default` template for new pages.
 
-The first step is to add configuration for the `apostrophe-pages` module in `app.js`:
+The first step is to add configuration for the `apostrophe-pages` module in `app.js`. Add the `apostrophe-pages` block at the top of the `modules` section of the `app.js` file:
 
 ```javascript
     // This configures our default page template
@@ -50,7 +48,7 @@ The first step is to add configuration for the `apostrophe-pages` module in `app
           label: 'Home'
         },
       ]
-    }
+    },
 ```
 
 > If you are not using `nodemon`, you will need to restart the node app when you make most code changes. In the terminal window, press control-C, then type: `node app.js`
@@ -69,7 +67,7 @@ Now let's take a look at how to add content to the page.
 
 With an empty `default.html`, we don't get much; not even a page title. But we can get quite a bit for free just by extending a layout template.
 
-[Nunjucks](https://mozilla.github.io/nunjucks/) allows you to extend another template, with the option of overriding `blocks` to update or change the template. For example:
+[Nunjucks](https://mozilla.github.io/nunjucks/) allows you to extend another template, with the option of overriding `blocks` to update or change the template. Add this to the top of `default.html`:
 
 ```markup
 {% extends "layout.html" %}
