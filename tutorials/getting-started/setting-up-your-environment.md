@@ -98,16 +98,19 @@ brew install git
 
 Apostrophe uses MongoDB as its database. You can install it with Homebrew. In addition, you can configure `brew services` to launch it automatically for you, so you don't have to fuss with restarting it manually.  First you need to install the "tap" for Mongo DB:
 
-```brew tap mongodb/brew
+```bash
+brew tap mongodb/brew
 ```
 Then you can install MongoDB:
 
-```brew install mongodb-community
+```bash
+brew install mongodb-community
 ```
 
 After it is installed, start the MongoDB service:
 
-```brew services start mongodb-community
+```bash
+brew services start mongodb-community
 ```
 
 Now open a **new terminal window** and try:

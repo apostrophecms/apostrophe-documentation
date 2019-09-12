@@ -17,7 +17,7 @@ Let's look at some custom widgets that help provide navigation. We'll start with
 
 ### `link`: the simplest widget
 
-First we'll need a folder for the module:
+First we'll need a folder for the module. In the terminal, from the project root, enter:
 
 ```bash
 mkdir -p lib/modules/link-widgets
@@ -34,7 +34,7 @@ Then we'll include the module in our `app.js` by adding the following to the `mo
   }
 ```
 
-Now we'll write the code for our module in `lib/modules/link-widgets/index.js`:
+Now create an `index.js` in `lib/modules/link-widgets/` and put some code in there:
 
 ```javascript
 module.exports = {
