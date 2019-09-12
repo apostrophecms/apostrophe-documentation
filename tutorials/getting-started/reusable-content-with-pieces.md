@@ -472,7 +472,7 @@ module.exports = {
         toolbar: [ 'Bold', 'Italic', 'Link' ]
       }
     }
-  ]  
+  ]
 };
 ```
 
@@ -500,7 +500,7 @@ module.exports = {
       type: 'joinByOne',
       // SINGULAR, to match the `name` option, not the module name
       withType: 'job'
-    }  
+    }
   ]
 };
 ```
@@ -570,7 +570,7 @@ module.exports = {
       type: 'joinByArray',
       // SINGULAR, to match the `name` option, not the module name
       withType: 'job'
-    }  
+    }
   ]
 };
 ```
@@ -702,7 +702,7 @@ module.exports = {
 > "Why is the filter named `jobs`, even though the field is named `_jobs`?" It works like this: if we specify `_jobs` for the filter, then the value in the query string will be the `_id` property of the job. This works, and it is stable no matter what gets edited later. But it isn't pretty. If we remove the `_` from the filter name, the value in the query string will be the *slug* of the job, which is more user-friendly and good for SEO.
 >
 > However, keep in mind that if you change the slug someone's bookmarked links might break. So it's up to you whether to use `_jobs` (for the `_id`) or `jobs` (for the `slug`).
- 
+
 Now we can filter people by job:
 
 ```markup
@@ -737,7 +737,7 @@ Here's how to build query strings that contain arrays in your template:
 
 <ul class="job-filters">
   {% for job in data.piecesFilters.jobs %}
-    {% if apos.utils.contains(data.query.jobs, job.value %}
+    {% if apos.utils.contains(data.query.jobs, job.value) %}
       <a href="{{ data.url | build({ jobs: { $pull: job.value } }) }}" class="current">
     {% else %}
       <a href="{{ data.url | build({ jobs: { $addToSet: job.value } }) }}">
