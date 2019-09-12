@@ -103,6 +103,8 @@ Let's make another module and its views folder in one step:
 mkdir -p lib/modules/page-link-widgets/views
 ```
 
+>While it's good to get some experience making all the folders and files yourself, the `apostrophe-cli` pacakage that you installed earlier can easily create basic module structures for you from templates. You can learn more in the [`apostrophe-cli` README](https://github.com/apostrophecms/apostrophe-cli/blob/master/README.md).
+
 Now we add this new widget to the `modules` object in our app.js:
 
 ```javascript
@@ -236,7 +238,7 @@ Having access to the entire page object is a neat trick, but it can be very slow
 
 Indeed, all we really care about here is the title and the URL. So let's fetch only that information.
 
-Here's how we can speed up the code:
+Here's how we can rewrite `index.js` to speed up the code:
 
 ```javascript
 module.exports = {
