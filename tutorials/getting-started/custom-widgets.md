@@ -9,9 +9,9 @@ You've seen a lot of the widgets that come "in the box" with Apostrophe. But you
 
 ## Custom navigation
 
-A common case: you want to build your own navigation menu. [Apostrophe's page tree is awesome](building-navigation.md) but sometimes you want to "cherrypick" pages from all over the tree, perhaps for a special footer.
+Here's a common case: you want to build your own navigation menu. [Apostrophe's page tree is awesome](building-navigation.md) but sometimes you want to "cherrypick" pages from all over the tree, perhaps for a special footer.
 
-You could use a rich text widget and just tell users to add links manually. But they'll just break each time a page is moved around the site. And it's easier for users to mess up the formatting that way. We want something more consistent.
+You could use a rich text widget and just tell users to add links manually, but they'll just break each time a page is moved around the site. It's also easier for users to mess up the formatting that way. We want something more consistent.
 
 Let's look at some custom widgets that help provide navigation. We'll start with a simple widget that adds a link in a well-formatted way.
 
