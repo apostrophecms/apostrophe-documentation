@@ -57,7 +57,7 @@ Converts a string to a hyphenated CSS identifier. For instance, `fooBar` becomes
 
 ### `| date(format)`
 
-Turns a JavaScript Date object into a string, as specified by `format`. For formatting options, see the documentation of the `momentjs` npm module.
+Turns a JavaScript Date object into a string, as specified by `format`. For formatting options, see [the documentation of the `momentjs` npm module](https://momentjs.com/docs/#/displaying/format/).
 
 ### `| json`
 
