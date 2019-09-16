@@ -32,7 +32,7 @@ apostrophe create-project --boilerplate https://github.com/apostrophecms/apostro
 ```
 
 {% hint style='info' %}
-**Important: ** `test-project`** is the name for our example. For your project use your own project's "short name" containing only letters, digits, hyphens and/or underscores. It will be used by default as a MongoDB database name and a basis for cookie names, etc.** \(Hyphens seem more popular than underscores for such purposes.\) **We'll continue to use**`test-project` **for the rest of this example**
+**Important: ** `test-project`\ is the name for our example. For your project use your own project's "short name" containing only letters, digits, hyphens and/or underscores. It will be used by default as a MongoDB database name and a basis for cookie names, etc.** \(Hyphens seem more popular than underscores for such purposes.\) **We'll continue to use**`test-project` **for the rest of this example**
 {% endhint %}
 
 With the project created, you just need to jump in, install the dependencies, and start the server.
