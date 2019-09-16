@@ -11,7 +11,7 @@ There are many cloud hosting services, but they all present the same challenges.
 
 [Heroku](http://heroku.com) is a great starting point for cloud hosting because it is simple to set up, but all of the cloud's challenges come into play. What we learn by deploying to Heroku can be applied equally to Amazon EC2, Microsoft Azure and other cloud hosting services.
 
-So for this how-to, we'll stick to free services from Heroku and MongoDB Atlas, a MongoDB cloud hosting service from the creators of MongoDB. But keep in mind you can choose paid plans as well with much higher capacity and performance. Everything we've done here is designed to scale smoothly to those paid offerings.
+So for this how-to, we'll stick to free services from Amazon Web Services, Heroku and MongoDB Atlas, a MongoDB cloud hosting service from the creators of MongoDB. But keep in mind you can choose paid plans as well with much higher capacity and performance. Everything we've done here is designed to scale smoothly to those paid offerings.
 
 ## Before you begin
 
@@ -78,11 +78,11 @@ You can also test it *without* Heroku, on your local machine, by setting the env
 APOS_MONGODB_URI=mongodb://YOUR-uri-goes-here node app
 ```
 
-7. Press Control-C after you successfully test the site. Startup may take an extra moment because of the remote connection to MongoDB.
+Press Control-C after you successfully test the site. Startup may take an extra moment because of the remote connection to MongoDB.
 
 > At a small scale, "the cloud" is always slower than a single-server configuration. When things have to talk to each other, running them farther apart doesn't speed things up. However, after you reach a certain scale, a single server is impractical. And of course a single server is a single point of failure.
 
-> If you do not `node app` with the environment variable correctly, it'll seem to work because it will connect to your own mongodb. You can shut down your local mongodb server temporarily if you want to be really, really sure.
+> If you do not run `node app` with the environment variable set correctly, it'll seem to work because it will connect to your own mongodb. You can shut down your local mongodb server temporarily if you want to be really, really sure.
 
 8. Your database exists now on MongoDB, but it contains no users, so you won't be able to log in. Let's use the command line to connect again to fix that:
 
@@ -96,9 +96,9 @@ APOS_MONGODB_URI=mongodb://YOUR-uri-goes-here node app apostrophe-users:add admi
 
 ## Storing files with Amazon S3
 
-**If you try to deploy now it will seem to work... but don't be fooled!** If you upload images, and then redeploy later, or even just wait a day or so... forget it. They are gone forever. That's because, with Heroku, local files are "written on water."
+**If you try to deploy now it might seem to work... but don't be fooled!** If you upload images, and then redeploy later, or even just wait a day or so... forget it. They are gone forever. That's because, with Heroku, local files are "written on water." What's more, on any given page load you might not even hit the same dyno where the files were uploaded. And similar issues will break your static assets, like CSS and JS.
 
-So we need to use Amazon S3 for persistent storage of uploads.
+So we need to use Amazon S3 for persistent storage of both uploads and static assets.
 
 First, [log into the Amazon Web Services console](https://aws.amazon.com/console/). Create an account if you haven't already. *You may have to provide a credit card but as of this writing, you can complete this how-to using their free service tier.*
 
@@ -172,8 +172,8 @@ And in the `./scripts` subdirectory of your project, here is a sample `heroku-re
 ```bash
 #!/bin/bash
 
-node app apostrophe:generation
-node app apostrophe-migrations:migrate
+node app apostrophe:generation || exit 1
+node app apostrophe-migrations:migrate || exit 1
 ```
 
 Be sure to make that script executable before committing it in your project:
@@ -242,32 +242,7 @@ Verify the value of `AllowedOrigin`. It should match the heroku url and/or the p
 
 ## Efficient asset delivery
 
-In this setup, images are delivered efficiently via S3, and everyone can see all of the assets, but other static assets like CSS and JS are delivered via the node application. This is not the fastest way to deliver those static assets. Let's look at how to deliver the assets via S3 as well in most cases.
+In this setup, images are delivered efficiently via S3, and everyone can see all of the assets. And so are static assets like CSS and JS. Those are copied to S3 during the release task. Old assets are cleaned up one hour after each new deployment, allowing a very generous period of time for any old Heroku dynos to shut down automatically.
 
-> For some, the best option is to set up a simplified CDN like [Cloudflare](https://www.cloudflare.com/lp/ddos-a/?_bt=157293179478&_bk=cloudflare&_bm=e&_bn=g&gclid=CKeuzI3VxtACFZBMDQodZhAMKg) to act as a "frontend reverse proxy" for your site, caching these static assets while leaving the traffic for pages alone so that logins still work normally. Cloudflare makes this easy, and they even offer a free plan, so we suggest giving it a try.
-
-### Pushing assets to S3
-
-Apostrophe can push your assets to S3 as part of your release tasks script:
-
-```bash
-#!/bin/bash
-
-node app apostrophe:generation --sync-to-uploadfs
-node app apostrophe-migrations:migrate
-```
-
-When the `--sync-to-uploadfs` option is used, Apostrophe will create the bundle as usual, and will then upload the bundle's `public/` subdirectory to the `assets/XXXX` "folder" of your S3 bucket, where `XXXX` is a unique identifier for the current generation of assets.
-
-Your Heroku configuration will look almost the same as before, with one addition:
-
-```bash
-heroku config:set APOS_MINIFY=1
-heroku config:set APOS_BUNDLE=1
-heroku config:set APOS_BUNDLE_IN_UPLOADFS=1
-```
-
-To ensure the contents of the bundle's `data/` subdirectory are still available, and to provide backwards compatibility for any URLs you have hard-coded in your templates that are not aware that the relevant contents of `public/` have been copied to S3, the bundle is still extracted to the application's folder on Heroku. Apostrophe, however, will consistently reference the contents via S3 URLs instead.
-
-> "When do the old assets get cleaned up?" Apostrophe will wait at least an hour, allowing for old dynos to shut down, then start cleaning up assets left over by old deployments.
+> To ensure the contents of the bundle's `data/` subdirectory are still available, and to provide backwards compatibility for any URLs you have hard-coded in your templates that are not aware that the relevant contents of `public/` have been copied to S3, the assets are also extracted to the application's folder on Heroku. Apostrophe, however, will consistently reference the contents via S3 URLs instead.
 
