@@ -16,7 +16,10 @@ First grab the `apostrophe-cli` tool, which makes bootstrapping a new project a 
 npm install apostrophe-cli -g
 ```
 
-> **Did you get a "Permission Denied" error?** On Linux, this would be because global npm packages must be installed as root in a typical setup. Use `sudo npm install` instead. On a Mac, this shouldn't happen if you installed node with Homebrew, because the `/usr/local` folder where Homebrew keeps its files should belong to your personal account. However, if you installed Homebrew with `sudo`, you'll need to be consistent and use `sudo` here too.
+{% hint style='tip' %}
+**Did you get a "Permission Denied" error?** On Linux, this would be because global npm packages must be installed as root in a typical setup. Use `sudo npm install` instead. On a Mac, this shouldn't happen if you installed node with Homebrew, because the `/usr/local` folder where Homebrew keeps its files should belong to your personal account. However, if you installed Homebrew with `sudo`, you'll need to be consistent and use `sudo` here too.
+{% endhint %}
+
 
 Now use the Apostrophe CLI to create a new project:
 
@@ -28,7 +31,9 @@ apostrophe create-project test-project
 apostrophe create-project --boilerplate https://github.com/apostrophecms/apostrophe-open-museum test-project
 ```
 
+{% hint style='info' %}
 **Important: ** `test-project`** is the name for our example. For your project use your own project's "short name" containing only letters, digits, hyphens and/or underscores. It will be used by default as a MongoDB database name and a basis for cookie names, etc.** \(Hyphens seem more popular than underscores for such purposes.\) **We'll continue to use**`test-project` **for the rest of this example**
+{% endhint %}
 
 With the project created, you just need to jump in, install the dependencies, and start the server.
 
@@ -61,6 +66,8 @@ Now let's make it more interesting! Add an editable content area to the page.
 
 Open `lib/modules/apostrophe-pages/views/pages/home.html` in your text editor and replace the existing contents with the following code to add an `apos.area` call:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/apostrophe-pages/views/pages/home.html" %}
 ```markup
 {% extends "layout.html" %}
 
@@ -91,6 +98,8 @@ Open `lib/modules/apostrophe-pages/views/pages/home.html` in your text editor an
   </div>
 {% endblock %}
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 ## Restarting your site
 
@@ -102,12 +111,14 @@ Open `lib/modules/apostrophe-pages/views/pages/home.html` in your text editor an
 
 ### Use Nodemon to watch file changes
 
-To avoid manual restarting in the future, you could use [Nodemon](https://nodemon.io) to watch project files.
+To avoid manual restarting in the future, use [Nodemon](https://nodemon.io) to watch project files.
 
 1. Run `npm install -g nodemon` to install it globally.
 2. Run `nodemon` from your project root folder to start your site with watching enabled.
 
-> When running `nodemon` from the project root, you don't need to provide any target or arguments. It will start `app.js` autmoatically by default. The configuration is found in `package.json` which was created when you installed the `apostrophe-cli` tools. You can adjust these settings to your needs.
+{% hint style='info' %}
+When running `nodemon` from the project root, you don't need to provide any target or arguments. It will start `app.js` autmoatically by default. The configuration is found in `package.json` which was created when you installed the `apostrophe-cli` tools. You can adjust these settings to your needs.
+{% endhint %}
 
 Now, every time you change a file in your project, Nodemon will restart your application.
 

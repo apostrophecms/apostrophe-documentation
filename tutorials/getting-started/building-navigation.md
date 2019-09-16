@@ -53,6 +53,8 @@ Sometimes you'll want to display dropdown menus. Each menu represents a child of
 
 First, in `app.js`, let's configure `apostrophe-pages` to retrieve two levels of children when fetching ancestors of the current page:
 
+{% code-tabs %}
+{% code-tabs-item title="app.js" %}
 ```javascript
 modules: {
 
@@ -75,9 +77,13 @@ modules: {
   // ... other configuration ...
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
-Now we can easily output all the markup we'd need for dropdown menus:
+Now we can easily output all the markup we'd need for dropdown menus. Add this code to `home.html`:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/apostrophe-pages/views/home.html" %}
 ```markup
 <ul class="tabs">
   {% for tab in data.home._children %}
@@ -93,11 +99,15 @@ Now we can easily output all the markup we'd need for dropdown menus:
   {% endfor %}
 </ul>
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 ## Breadcrumb trails
 
-The current page is `data.page`, and by default, `data.page._ancestors` is available:
+The current page is `data.page`, and by default, `data.page._ancestors` is available. This will add a breadcrumb link to the page:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/apostrophe-pages/views/home.html" %}
 ```markup
 {% if data.page %}
   <ul class="breadcrumbs">
@@ -107,13 +117,19 @@ The current page is `data.page`, and by default, `data.page._ancestors` is avail
   </ul>
 {% endif %}
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
-> **Always check whether** `data.page` **exists** when using it in a layout template that might also be extended by `login.html`, `notFound.html` and other places where there is no CMS "page."
+{% hint style='info' %}
+**Always check whether** `data.page` **exists** when using it in a layout template that might also be extended by `login.html`, `notFound.html` and other places where there is no CMS "page."
+{% endhint %}
 
 ## "Accordion" navigation
 
-Want to list the ancestors of the current page along with their subpages? Sure:
+Want to list the ancestors of the current page along with their subpages? Sure. You can replace your current navigation with this "accordion" nav:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/apostrophe-pages/views/home.html" %}
 ```markup
 {% if data.page %}
   <ul class="accordion">
@@ -131,11 +147,15 @@ Want to list the ancestors of the current page along with their subpages? Sure:
   </ul>
 {% endif %}
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 ## Children of the current page
 
 That's another easy one:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/apostrophe-pages/views/home.html" %}
 ```markup
 {% if data.page %}
   <ul class="children">
@@ -145,6 +165,8 @@ That's another easy one:
   </ul>
 {% endif %}
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 ## Custom navigation
 
