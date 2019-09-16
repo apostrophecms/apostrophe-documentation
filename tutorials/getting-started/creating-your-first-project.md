@@ -16,7 +16,7 @@ First grab the `apostrophe-cli` tool, which makes bootstrapping a new project a 
 npm install apostrophe-cli -g
 ```
 
-{% hint style='tip' %}
+{% hint style="tip" %}
 **Did you get a "Permission Denied" error?** On Linux, this would be because global npm packages must be installed as root in a typical setup. Use `sudo npm install` instead. On a Mac, this shouldn't happen if you installed node with Homebrew, because the `/usr/local` folder where Homebrew keeps its files should belong to your personal account. However, if you installed Homebrew with `sudo`, you'll need to be consistent and use `sudo` here too.
 {% endhint %}
 

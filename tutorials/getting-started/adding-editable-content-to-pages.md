@@ -102,7 +102,7 @@ _All of these widgets work in areas, too._ We're just using singletons for the e
 
 `Styles`, `Bold`, `Italic`, `Link`, `Unlink`, `Anchor`, `Table`, `BulletedList`, `Blockquote`, `Strike`, `Subscript`, `Superscript`, `Split`
 
-{% hint style='tip' %}
+{% hint style="tip" %}
 For good responsive development you should avoid offering controls for font sizes, colors, etc. Let your design's styles provide those things in a thoughtful way.
 {% endhint %}
 

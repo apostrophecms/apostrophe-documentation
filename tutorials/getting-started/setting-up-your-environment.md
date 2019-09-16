@@ -40,7 +40,7 @@ Install Homebrew by copying and pasting this one-line command to the terminal:
 ```
 
 {% hint style='tip' %}
-_Trouble? Visit the_ [_Homebrew site_](http://brew.sh/) _for the latest instructions._
+Trouble? Visit the [_Homebrew site_](http://brew.sh/) for the latest instructions.
 {% endhint %}
 
 ### Install Node

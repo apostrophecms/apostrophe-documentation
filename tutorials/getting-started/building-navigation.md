@@ -21,8 +21,10 @@ There are real advantages to doing it this way. If the site has a `prefix` optio
 
 ## Linking to the subpages of the home page \("tab" navigation\)
 
-Lots of sites have a row of "tabs" at the top. Want to display those no matter where in the site you are?
+Lots of sites have a row of "tabs" at the top. Want to display those no matter where in the site you are? Add this to your `home.html`:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/apostrophe-pages/views/home.html" %}
 ```markup
 <ul class="tabs">
   {% for tab in data.home._children %}
@@ -30,9 +32,13 @@ Lots of sites have a row of "tabs" at the top. Want to display those no matter w
   {% endfor %}
 </ul>
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 Now let's add a CSS class indicating the current tab \(the one that is the current page, or an ancestor of it\):
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/apostrophe-pages/views/home.html" %}
 ```markup
 <ul class="tabs">
   {% for tab in data.home._children %}
@@ -46,6 +52,8 @@ Now let's add a CSS class indicating the current tab \(the one that is the curre
   {% endfor %}
 </ul>
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 ## Dropdown menus
 

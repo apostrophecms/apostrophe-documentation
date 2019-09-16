@@ -27,15 +27,22 @@ mkdir -p lib/modules/link-widgets
 
 Then we'll include the module in our `app.js` by adding the following to the `modules` object:
 
+
+{% code-tabs %}
+{% code-tabs-item title="app.js" %}
 ```javascript
   modules: {
     // ...,
     'link-widgets': {}
   }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 Now we'll write the code for our module in `lib/modules/link-widgets/index.js`:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/link-widgets/index.js" %}
 ```javascript
 module.exports = {
   extend: 'apostrophe-widgets',
@@ -56,12 +63,14 @@ module.exports = {
   ]
 };
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
-> _"What does_ `extend` _mean here?"_ Our module is extending the `apostrophe-widgets` module, which provides almost all the code we need. Yes, `extend` is the correct spelling. Apostrophe uses [moog](https://npmjs.org/package/moog) to handle extending or "subclassing" other modules.
->
-> _"What other field types can I add?"_ The `apostrophe-schemas` module gives us a powerful way to build forms and structure data with almost no work. We just pass an array of field definitions as the `addFields` option. We'll introduce the details gradually. But if you're in a hurry, check out the [schema guide](schema-guide.md).
->
-> _"What does the_ `name` _property do?"_ Each field needs to be stored in the widget under its own property name. Play around with `aposDocs.find().pretty()` in the mongodb shell to see what it looks like after you save the widget.
+_"What does_ `extend` _mean here?"_ Our module is extending the `apostrophe-widgets` module, which provides almost all the code we need. Yes, `extend` is the correct spelling. Apostrophe uses [moog](https://npmjs.org/package/moog) to handle extending or "subclassing" other modules.
+
+_"What other field types can I add?"_ The `apostrophe-schemas` module gives us a powerful way to build forms and structure data with almost no work. We just pass an array of field definitions as the `addFields` option. We'll introduce the details gradually. But if you're in a hurry, check out the [schema guide](schema-guide.md).
+
+_"What does the_ `name` _property do?"_ Each field needs to be stored in the widget under its own property name. Play around with `aposDocs.find().pretty()` in the mongodb shell to see what it looks like after you save the widget.
 
 Next we'll need a folder to hold our widget's `widget.html` template, which renders it on the page:
 
@@ -69,16 +78,22 @@ Next we'll need a folder to hold our widget's `widget.html` template, which rend
 mkdir -p lib/modules/link-widgets/views
 ```
 
-Now let's create a Nunjucks template in `lib/modules/link-widgets/views/widget.html`:
+Now reate a Nunjucks template in `lib/modules/link-widgets/views/widget.html`:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/link-widgets/views/widget.html" %}
 ```markup
 <h4><a href="{{ data.widget.url }}">{{ data.widget.label }}</a></h4>
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
-> _"Hey, don't we need to escape the label before we output it as HTML?"_ No, Nunjucks does it automatically. If you need to output content that is already valid, safe markup, you must use the `| safe` filter to output it without escaping.
+_"Hey, don't we need to escape the label before we output it as HTML?"_ No, Nunjucks does it automatically. If you need to output content that is already valid, safe markup, you must use the `| safe` filter to output it without escaping.
 
 Now we'll want to add this widget to an area in one of our page templates, like we learned in [adding editable content to pages](adding-editable-content-to-pages.md). Let's add the following to the `main` block of our `lib/modules/apostrophe-pages/views/pages/home.html`:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/apostrophe-pages/views/pages/home.html" %}
 ```markup
 {{
   apos.area(data.page, 'navigation', {
@@ -88,6 +103,8 @@ Now we'll want to add this widget to an area in one of our page templates, like 
   })
 }}
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 We've just created a content area in which only `link` widgets are allowed. Each one has a `url` field and a `label` field, and they are always output in the same style.
 
@@ -105,6 +122,8 @@ mkdir -p lib/modules/page-link-widgets/views
 
 Now we add this new widget to the `modules` object in our app.js:
 
+{% code-tabs %}
+{% code-tabs-item title="app.js" %}
 ```javascript
   modules: {
     /// ...,
@@ -112,6 +131,8 @@ Now we add this new widget to the `modules` object in our app.js:
     'page-link-widgets': {}
   }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 Now let's write `lib/modules/page-link-widgets/index.js`:
 
@@ -136,15 +157,19 @@ module.exports = {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-> _"What do_ `type: 'joinByOne'` _and_ `idField: 'pageId` _do?\`_ We want this widget to remember a connection to another page. To do that, we use the `joinByOne` field type and ask Apostrophe to store the MongoDB `_id` of the other page in a `pageId` property of the widget.
->
-> _"Why does the_ `name` _start with a_ `_`_?" Joins get fetched every time this widget is loaded. The relationship is dynamic_. Properties that are dynamic and should not be stored back to MongoDB as part of this widget must start with a `_` \(underscore\). Apostrophe automatically ignores them when saving the widget in the database.
+_"What do_ `type: 'joinByOne'` _and_ `idField: 'pageId` _do?\`_ We want this widget to remember a connection to another page. To do that, we use the `joinByOne` field type and ask Apostrophe to store the MongoDB `_id` of the other page in a `pageId` property of the widget.
+
+_"Why does the_ `name` _start with a_ `_`_?" Joins get fetched every time this widget is loaded. The relationship is dynamic_. Properties that are dynamic and should not be stored back to MongoDB as part of this widget must start with a `_` \(underscore\). Apostrophe automatically ignores them when saving the widget in the database.
 
 Now we're ready for the Nunjucks template, `lib/modules/page-link-widgets/views/widget.html`:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/page-link-widgets/views/widget.html" %}
 ```markup
 <h4><a href="{{ data.widget._page._url }}">{{ data.widget._page.title }}</a></h4>
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 {% hint style="success" %}
 _Whoa! So I can access the other page in my template?"_ Yep. You can access any property of the other page. You can even make `apos.area` and `apos.singleton` calls with the other page object.
@@ -152,6 +177,8 @@ _Whoa! So I can access the other page in my template?"_ Yep. You can access any 
 
 Actually using the widget in an area is just like using the first one. But this time, let's enable both kinds in our area on `home.html`:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/page-link-widgets/views/home.html" %}
 ```markup
 {{
   apos.area(data.page, 'navigation', {
@@ -162,10 +189,14 @@ Actually using the widget in an area is just like using the first one. But this 
   })
 }}
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 Now our users have a choice between do-it-yourself links that can point anywhere and "page" links that can only point to a page. Both can be useful.
 
-> It is also possible to join with more than one type. And once you check out [pieces](reusable-content-with-pieces.md), the benefit of doing so will be clear. To do that, set `withType` to an array of type names, which may include `apostrophe-pages`. The user is then able to use a tabbed interface to select items of several types for the same join. These "polymorphic joins" are primarily intended for navigation widgets like this one.
+{% hint style='info' %}
+It is also possible to join with more than one type. And once you check out [pieces](reusable-content-with-pieces.md), the benefit of doing so will be clear. To do that, set `withType` to an array of type names, which may include `apostrophe-pages`. The user is then able to use a tabbed interface to select items of several types for the same join. These "polymorphic joins" are primarily intended for navigation widgets like this one.
+{% endhint %}
 
 ### Passing options to widgets
 
