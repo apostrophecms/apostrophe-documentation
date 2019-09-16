@@ -23,7 +23,7 @@ First we'll need a folder for the module:
 mkdir -p lib/modules/link-widgets
 ```
 
-> Just about everything new you create in Apostrophe will be a "module." Project-specific modules live in `lib/modules`. Apostrophe will spot them there if you list them in `app.js`. You can also publish and install modules with `npm`. Apostrophe looks in both places. Your module name **should not start with** `apostrophe`. That's reserved for our official modules. Modules almost always have plural names. The name of a module that provides widgets should end in `-widgets`.
+Just about everything new you create in Apostrophe will be a "module." Project-specific modules live in `lib/modules`. Apostrophe will spot them there if you list them in `app.js`. You can also publish and install modules with `npm`. Apostrophe looks in both places. Your module name **should not start with** `apostrophe`. That's reserved for our official modules. Modules almost always have plural names. The name of a module that provides widgets should end in `-widgets`.
 
 Then we'll include the module in our `app.js` by adding the following to the `modules` object:
 
@@ -204,12 +204,18 @@ You probably noticed that our widgets don't take any options yet. We can use opt
 
 All we have to do is access `data.options` in our `widget.html` template for `page-link-widgets`:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/page-link-widgets/views/widget.html" %}
 ```markup
 <h4 class="{{ 'special' if data.options.special }}"><a href="{{ data.widget._page._url }}">{{ data.widget._page.title }}</a></h4>
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
-And pass the option in our `apos.area` call on `home.html`:
+And pass the option in our `apos.area` call in `home.html`:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/page-link-widgets/views/home.html" %}
 ```markup
 {{
   apos.area(data.page, 'navigation', {
@@ -222,6 +228,8 @@ And pass the option in our `apos.area` call on `home.html`:
   })
 }}
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 Now all the page links in this particular area will get the special class. You can probably think of much fancier uses for this feature.
 
@@ -229,6 +237,8 @@ Now all the page links in this particular area will get the special class. You c
 
 We can also leave the choice up to the user by adding a `boolean` field to the schema for `page-link-widgets` in its `index.js`:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/page-link-widgets/index.js" %}
 ```javascript
 module.exports = {
   extend: 'apostrophe-widgets',
@@ -250,16 +260,25 @@ module.exports = {
   ]
 };
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 The new bit here is the `special` field.
 
 In our template, we just access it via `data.widget` rather than `data.options`:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/page-link-widgets/views/widget.html" %}
+
 ```markup
 <h4 class="{{ 'special' if data.widget.special }}"><a href="{{ data.widget._page._url }}">{{ data.widget._page.title }}</a></h4>
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
-> `data.widget` contains the form fields the user can edit. `data.options` contains the options passed to `apos.area` or `apos.singleton` by the frontend developer.
+{% hint style='info' %}
+`data.widget` contains the form fields the user can edit. `data.options` contains the options passed to `apos.area` or `apos.singleton` by the frontend developer.
+{% endhint %}
 
 ### Performance note: limiting joins
 
@@ -269,6 +288,8 @@ Indeed, all we really care about here is the title and the URL. So let's fetch o
 
 Here's how we can speed up the code:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/page-link-widgets/index.js" %}
 ```javascript
 module.exports = {
   extend: 'apostrophe-widgets',
@@ -291,14 +312,16 @@ module.exports = {
   ]
 };
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 The new bit is the `filters` option. By specifying a `projection` filter, we can limit Apostrophe to loading just the `title` and `_url` properties. Apostrophe needs `_url` to figure out the URL of a page. It's almost always a good idea to limit the projection to the fields you care about.
 
-> `_url`_,_ `slug`_... what's the difference?_ For most sites, nothing. But for sites with a `prefix` option, the `_url` property might have a folder name prepended to it. And there are other ways to transform `_url` to suit your needs. So always remember to use it instead of `slug` when you output page URLs. And use `_url` in your projection to fetch all the properties Apostrophe knows might be involved in calculating the `_url` property of the page.
->
-> **Watch out for reverse joins! If you have** [**reverse joins**](schema-guide.md) **and your widget doesn't need them,** the `projection` filter can't help you avoid loading them, because they are loaded from "the other side" \(the ids are stored with the documents linking _to_ your documents\). Instead, use the `joins` filter, and specify an array of join field names your widget actually needs — if any.
->
-> _What else can I do with_ `filters`_?_ That's an intermediate topic, but you can do anything that [cursor filter methods](../intermediate/cursors.md) can do.
+`_url`_,_ `slug`_... what's the difference?_ For most sites, nothing. But for sites with a `prefix` option, the `_url` property might have a folder name prepended to it. And there are other ways to transform `_url` to suit your needs. So always remember to use it instead of `slug` when you output page URLs. And use `_url` in your projection to fetch all the properties Apostrophe knows might be involved in calculating the `_url` property of the page.
+
+**Watch out for reverse joins! If you have** [**reverse joins**](schema-guide.md) **and your widget doesn't need them,** the `projection` filter can't help you avoid loading them, because they are loaded from "the other side" \(the ids are stored with the documents linking _to_ your documents\). Instead, use the `joins` filter, and specify an array of join field names your widget actually needs — if any.
+
+_What else can I do with_ `filters`_?_ That's an intermediate topic, but you can do anything that [cursor filter methods](../intermediate/cursors.md) can do.
 
 ## Adding a JavaScript widget player on the browser side
 
@@ -310,9 +333,9 @@ Let's say we want to offer some content in a collapsible "drawer." Clicking on t
 
 Our module's `index.js` file looks like this:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/drawer-widget/index.js" %}
 ```javascript
-// in lib/modules/drawer-widgets/index.js
-
 module.exports = {
   extend: 'apostrophe-widgets',
   label: 'Drawer',
@@ -338,16 +361,21 @@ module.exports = {
   ]
 };
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 And our `widget.html` file looks like this:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/drawer-widgets/views/widget.html" %}
 ```javascript
-{# in lib/modules/drawer-widgets/views/widget.html #}
 <h4><a data-drawer-title class="drawer-title" href="#">{{ data.widget.title }}</a></h4>
 <div data-drawer class="drawer-body">
   {{ apos.area(data.widget, 'content', { edit: false }) }}
 </div>
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 Here we use `data.widget` where you would normally expect `data.page`. This allows us to access areas nested inside the widget.
 
@@ -355,8 +383,9 @@ Here we use `data.widget` where you would normally expect `data.page`. This allo
 
 Now, in our default page template, let's create an area that allows a series of drawers to be created:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/apostrophe-pages/views/default.html" %}
 ```markup
-{# in lib/modules/apostrophe-pages/views/default.html #}
 {{
   apos.area(data.page, 'drawers', {
     widgets: {
@@ -365,9 +394,13 @@ Now, in our default page template, let's create an area that allows a series of 
   })
 }}
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 And in `app.js`, don't forget to configure the widget:
 
+{% code-tabs %}
+{% code-tabs-item title="app.js" %}
 ```javascript
 // in app.js
 modules: {
@@ -375,8 +408,10 @@ modules: {
   'drawer-widgets': {}
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
-> Even if our widget doesn't require any options, we must configure it in `app.js` to `instantiate` it. This is how Apostrophe knows that we actually want to use this module directly. In many projects, some modules only exist to be extended by other modules.
+Even if our widget doesn't require any options, we must configure it in `app.js` to `instantiate` it. This is how Apostrophe knows that we actually want to use this module directly. In many projects, some modules only exist to be extended by other modules.
 
 So far, so good. We can create a whole column of drawer widgets and their titles and their content areas appear. But right now the "drawer" part is visible at all times.
 
@@ -384,9 +419,9 @@ First, we'll need to hide the content of the drawer by default. Let's push an `a
 
 In `index.js`, we'll extend the `pushAssets` method, which is already pushing JavaScript for us, to push a stylesheet as well:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/drawer-widgets/index.js" %}
 ```javascript
-// in lib/modules/drawer-widgets/index.js
-
 module.exports = {
   extend: 'apostrophe-widgets',
   addFields: [
@@ -401,6 +436,8 @@ module.exports = {
   }
 };
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 In Apostrophe modules, the `construct` function is called to add methods to the module. Here we are following the "super pattern," making a note of the original method we inherited from [apostrophe-widgets](../../modules/apostrophe-widgets/index.md), creating our own replacement method, invoking the original from within it, and then pushing our own asset to the browser.
 
@@ -408,9 +445,9 @@ The [pushAsset method](../../modules/apostrophe-module/index.md#push-asset) can 
 
 Now we need to supply `always.less` in the right place: the `public/css` subdirectory of our module's directory.
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/drawer-widgets/public/css/always.less" %}
 ```css
-// in lib/modules/drawer-widgets/public/css/always.less
-
 .drawer-title {
   padding: 2em 0;
   text-align: center;
@@ -421,14 +458,16 @@ Now we need to supply `always.less` in the right place: the `public/css` subdire
   display: none;
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 With these changes, our drawers are hidden. But we still need a way to toggle them open when the titles are clicked.
 
 For that, we'll need an `always.js` file, in our `public/js` folder:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/drawer-widgets/public/js/always.js" %}
 ```javascript
-// in lib/modules/drawer-widgets/public/js/always.js
-
 // Example of a widget manager with a play method
 
 apos.define('drawer-widgets', {
@@ -444,6 +483,8 @@ apos.define('drawer-widgets', {
   }
 });
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 What's happening in this code?
 
@@ -454,9 +495,9 @@ What's happening in this code?
 * Apostrophe automatically calls the `play` method for us at appropriate times.
 * Our play function takes advantage of jQuery's [find method](https://api.jquery.com/find/) to locate the title and the drawer _inside the scope of this one widget._
 
-> "Can't I just write some jQuery in a `$(function() { ... })` block and skip all this?" If you do, you forfeit the ability for your player to work for widgets that were just added to the page by the user, without refreshing the page. Requiring users to refresh the page is very 2005. We might even tease you about it.
->
-> Writing widget players that scope all of their jQuery selectors with `$widget.find()` helps you avoid the temptation to write code that will install the same handler twice, fail entirely for newly-added widgets, or become a problem later when you want to publish your module in npm.
+_"Can't I just write some jQuery in a `$(function() { ... })` block and skip all this?"_ If you do, you forfeit the ability for your player to work for widgets that were just added to the page by the user, without refreshing the page. Requiring users to refresh the page is very 2005. We might even tease you about it.
+
+Writing widget players that scope all of their jQuery selectors with `$widget.find()` helps you avoid the temptation to write code that will install the same handler twice, fail entirely for newly-added widgets, or become a problem later when you want to publish your module in npm.
 
 ## What's available in the browser?
 
@@ -471,7 +512,7 @@ Now is a good time to mention highlights of what you can access in the browser b
 
 And as previously mentioned, you can use LESS in your stylesheets.
 
-> _"What if I want to use browserify, gulp, grunt, etc.?"_ Sure, go nuts. Just arrange your gulpfiles to build a file that is pushed as an asset by one of your modules.
->
-> We chose not to incorporate those frontend build tools into Apostrophe's core because the core set of features needed for good CMS-driven sites doesn't usually rise to that level of complexity. But if you need to build complex in-page JavaScript experiences, go for it.
+_"What if I want to use browserify, gulp, grunt, etc.?"_ Sure, go nuts. Just arrange your gulpfiles to build a file that is pushed as an asset by one of your modules.
+
+We chose not to incorporate those frontend build tools into Apostrophe's core because the core set of features needed for good CMS-driven sites doesn't usually rise to that level of complexity. But if you need to build complex in-page JavaScript experiences, go for it.
 
