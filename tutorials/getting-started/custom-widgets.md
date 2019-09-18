@@ -78,7 +78,7 @@ Next we'll need a folder to hold our widget's `widget.html` template, which rend
 mkdir -p lib/modules/link-widgets/views
 ```
 
-Now reate a Nunjucks template in `lib/modules/link-widgets/views/widget.html`:
+Now create a Nunjucks template in `lib/modules/link-widgets/views/widget.html`:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/link-widgets/views/widget.html" %}
