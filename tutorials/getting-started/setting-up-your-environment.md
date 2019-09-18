@@ -8,7 +8,9 @@ Let's start from the very beginning by installing the software necessary to deve
 
 ## Install the Software
 
->MacOS X is the most popular platform for Apostrophe CMS development, but there are plenty of developers using Linux or Windows.  For MacOS 10.9 or newer, continue with the instructions below. Windows users can use this lovely [HOWTO for Windows](../howtos/windows.md) contributed by Michael Brown to get everything set up, and Linux users can get going by installing the same operating system packages required by our [deployment HOWTO](../intermediate/deployment.md).
+{% hint style='info' %}
+MacOS X is the most popular platform for Apostrophe CMS development, but there are plenty of developers using Linux or Windows.  For MacOS 10.9 or newer, continue with the instructions below. Windows users can use this lovely [HOWTO for Windows](../howtos/windows.md) contributed by Michael Brown to get everything set up, and Linux users can get going by installing the same operating system packages required by our [deployment HOWTO](../intermediate/deployment.md).
+{% endhint %}
 
 First we'll install the following software:
 
@@ -37,7 +39,9 @@ Install Homebrew by copying and pasting this one-line command to the terminal:
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-_Trouble? Visit the_ [_Homebrew site_](http://brew.sh/) _for the latest instructions._
+{% hint style='tip' %}
+Trouble? Visit the [_Homebrew site_](http://brew.sh/) for the latest instructions.
+{% endhint %}
 
 ### Install Node
 

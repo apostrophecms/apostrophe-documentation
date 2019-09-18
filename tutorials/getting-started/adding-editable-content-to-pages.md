@@ -11,6 +11,8 @@ Central to Apostrophe is the philosophy that editors can edit their content in c
 
 Singletons are a slot on a page that allow an editor to add a single "widget" of a specific type. Let's add a rich text singleton to our `home.html` template! Open `home.html` and replace the `main` block that you created previously with this: 
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/apostrophe-pages/views/home.html" %}
 ```markup
 {% block main %}
   <div class="main-content">
@@ -20,6 +22,8 @@ Singletons are a slot on a page that allow an editor to add a single "widget" of
   </div>
 {% endblock %}
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 Let's deconstruct the arguments we are passing here.
 
@@ -49,6 +53,8 @@ Oftentimes, we'll want to enable an editor to add several widgets of different t
 
 When we use the area helper a "+" sign appears on the page, allowing the user to add a new widget in a series \(usually a vertical column\), often alternating between images and rich text. To see this in action, add this to `home.html`  below the text editor inside of the main `div`:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/apostrophe-pages/views/home.html" %}
 ```markup
 {{ apos.area(data.page, 'body', {
   widgets: {
@@ -61,10 +67,14 @@ When we use the area helper a "+" sign appears on the page, allowing the user to
   }
 }) }}
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 The first two arguments for this helper work the same way as for `apos.singleton`. The third option is an options object. We can see that that options object supports a `widgets` option, which takes a key-value map of available widget names and their respective options.
 
-> Not sure how to add a second widget? After you're finished editing rich text, click anywhere outside of the rich text widget. Then hover over it and you'll see the "+" signs in each position where you're allowed to add a new widget.
+{% hint style='info' %}
+Not sure how to add a second widget? After you're finished editing rich text, click anywhere outside of the rich text widget. Then hover over it and you'll see the "+" signs in each position where you're allowed to add a new widget.
+{% endhint %}
 
 ## Widget Types
 
@@ -92,7 +102,9 @@ _All of these widgets work in areas, too._ We're just using singletons for the e
 
 `Styles`, `Bold`, `Italic`, `Link`, `Unlink`, `Anchor`, `Table`, `BulletedList`, `Blockquote`, `Strike`, `Subscript`, `Superscript`, `Split`
 
-**For good responsive development you should avoid offering controls for font sizes, colors, etc.** Let your design's styles provide those things in a thoughtful way.
+{% hint style="tip" %}
+For good responsive development you should avoid offering controls for font sizes, colors, etc. Let your design's styles provide those things in a thoughtful way.
+{% endhint %}
 
 #### Using the Split control
 
@@ -151,11 +163,16 @@ The `apostrophe-files` widget lets you add download links to access various docu
 
 Add this below the `apos.area` to add a simple `apostrophe-files` widget to the page:
 
+
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/apostrophe-pages/views/home.html" %}
 ```markup
   {{ apos.singleton(data.page, 'resume', 'apostrophe-files', {
     limit: 1
   }) }}
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 #### `limit`
 
