@@ -9,15 +9,15 @@ You've seen a lot of the widgets that come "in the box" with Apostrophe. But you
 
 ## Custom navigation
 
-A common case: you want to build your own navigation menu. [Apostrophe's page tree is awesome](building-navigation.md) but sometimes you want to "cherrypick" pages from all over the tree, perhaps for a special footer.
+Here's a common case: you want to build your own navigation menu. [Apostrophe's page tree is awesome](building-navigation.md) but sometimes you want to "cherrypick" pages from all over the tree, perhaps for a special footer.
 
-You could use a rich text widget and just tell users to add links manually. But they'll just break each time a page is moved around the site. And it's easier for users to mess up the formatting that way. We want something more consistent.
+You could use a rich text widget and just tell users to add links manually, but they'll just break each time a page is moved around the site. It's also easier for users to mess up the formatting that way. We want something more consistent.
 
 Let's look at some custom widgets that help provide navigation. We'll start with a simple widget that adds a link in a well-formatted way.
 
 ### `link`: the simplest widget
 
-First we'll need a folder for the module:
+First we'll need a folder for the module. In the terminal, from the project root, enter:
 
 ```bash
 mkdir -p lib/modules/link-widgets
@@ -34,7 +34,7 @@ Then we'll include the module in our `app.js` by adding the following to the `mo
   }
 ```
 
-Now we'll write the code for our module in `lib/modules/link-widgets/index.js`:
+Now create an `index.js` in `lib/modules/link-widgets/` and put some code in there:
 
 ```javascript
 module.exports = {
@@ -102,6 +102,8 @@ Let's make another module and its views folder in one step:
 ```bash
 mkdir -p lib/modules/page-link-widgets/views
 ```
+
+> While it's good to get some experience making all the folders and files yourself, the `apostrophe-cli` pacakage that you installed earlier can easily create basic module structures for you from templates. You can learn more in the [`apostrophe-cli` README](https://github.com/apostrophecms/apostrophe-cli/blob/master/README.md).
 
 Now we add this new widget to the `modules` object in our app.js:
 
@@ -236,7 +238,7 @@ Having access to the entire page object is a neat trick, but it can be very slow
 
 Indeed, all we really care about here is the title and the URL. So let's fetch only that information.
 
-Here's how we can speed up the code:
+Here's how we can rewrite `index.js` to speed up the code:
 
 ```javascript
 module.exports = {
