@@ -35,11 +35,12 @@ Starting with XCode 6.1 the Command Line tools are automatically installed, and 
 
 Next, you need to install [Homebrew](http://brew.sh/), a convenient software manager that makes it easier to manage and update your software packages.
 
-1. Launch the "Terminal" app.
-
 {% hint style="tip" %}
-    Anything `formatted like this` is meant to be run at the terminal prompt. Basic familiarity with the terminal is very helpful for node and Apostrophe development.
+Anything `formatted like this` is meant to be run at the terminal prompt. Basic familiarity with the terminal is very helpful for node and Apostrophe development.
 {% endhint %}
+
+
+1. Launch the "Terminal" app.
 
 2. Copy and Paste this one-line command to the terminal to install Homebrew:
 
@@ -47,7 +48,7 @@ Next, you need to install [Homebrew](http://brew.sh/), a convenient software man
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     ```
 
-{% hint style='tip' %}
+{% hint style="tip" %}
 Trouble? Visit the [_Homebrew site_](http://brew.sh/) for the latest instructions.
 {% endhint %}
 
