@@ -23,9 +23,9 @@ Here's what you need to install:
 
 First, you need to install the Xcode Command Line Tools.
 
-1. Open XCode (Download it from the App Store if you don't currently have it installed.)
+(1) Open XCode (Download it from the App Store if you don't currently have it installed.)
 
-2. Go to Xcode &rarr; Preferences &rarr; Locations and set the version for the Command Line Tools Option.
+(2) Go to Xcode &rarr; Preferences &rarr; Locations and set the version for the Command Line Tools Option.
 
 {% hint style='info' %}
 Starting with XCode 6.1 the Command Line tools are automatically installed, and just need to be configured. For older versions of XCode, go to the Downloads tab under Preferences. From there you can select _Install_ for the Command Line Tools options. 
@@ -35,14 +35,13 @@ Starting with XCode 6.1 the Command Line tools are automatically installed, and 
 
 Next, you need to install [Homebrew](http://brew.sh/), a convenient software manager that makes it easier to manage and update your software packages.
 
-1. Launch the "Terminal" app.
+(1) Launch the "Terminal" app.
 
 {% hint style="tip" %}
 Anything `formatted like this` is meant to be run at the terminal prompt. Basic familiarity with the terminal is very helpful for node and Apostrophe development.
 {% endhint %}
 
-{:start="2"}
-2. Copy and Paste this one-line command to the terminal to install Homebrew:
+(2) Copy and Paste this one-line command to the terminal to install Homebrew:
 
 ```bash
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -64,19 +63,19 @@ brew install node
 
 The terminal prompt finds commands in folders listed in an environment variable called PATH. We'll need to add node's directory to our $PATH in order for it to work its magic.
 
-1. Create a plaintext file called `.profile` in your home directory if you don't already have one. You can use the `touch` command from the command line to create a new file:
+(1) Create a plaintext file called `.profile` in your home directory if you don't already have one. You can use the `touch` command from the command line to create a new file:
 
 ```bash
 touch ~/.profile
 ```
 {:start="2"}
-2. Open it with your favorite text editor, or use the following command to open it with the default editor:
+(2) Open it with your favorite text editor, or use the following command to open it with the default editor:
 
 ```bash
 open ~/.profile
 ```
 {:start="3"}
-3. Add these two lines to the file and save it:
+(3) Add these two lines to the file and save it:
  
 {% code-tabs %}
 {% code-tabs-item title="\~/.profile" %}
@@ -121,25 +120,26 @@ brew install git
 
 Apostrophe uses MongoDB as its database. You can install it with Homebrew. In addition, you can configure `brew services` to launch it automatically for you, so you don't have to fuss with restarting it manually. 
 
-1. First you need to install the "tap" for Mongo DB:
+(1) First you need to install the "tap" for Mongo DB:
 
 ```bash
 brew tap mongodb/brew
 ```
 {:start="2"}
-2. Next install MongoDB:
+
+(2) Next install MongoDB:
 
 ```bash
 brew install mongodb-community
 ```
-{:start="3"}
-3. After it is installed, start the MongoDB service:
+
+(3) After it is installed, start the MongoDB service:
 
 ```bash
 brew services start mongodb-community
 ```
-{:start="4"}
-4. Now open a **new terminal window** and try:
+
+(4) Now open a **new terminal window** and try:
 
 ```bash
 mongo
