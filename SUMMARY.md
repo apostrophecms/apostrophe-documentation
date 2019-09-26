@@ -5,10 +5,10 @@
 ## Tutorials
 
 * [Getting Started](tutorials/getting-started/README.md)
-  * [Setting up your environment](tutorials/getting-started/setting-up-your-environment.md)
-  * [Creating your first project](tutorials/getting-started/creating-your-first-project.md)
+  * [Setting up your environment](tutorials/getting-started/01-setting-up-your-environment.md)
+  * [Creating your first project](tutorials/getting-started/02-creating-your-first-project.md)
   * [Editing page templates](tutorials/getting-started/editing-page-templates.md)
-  * [Adding editable content to pages](tutorials/getting-started/adding-editable-content-to-pages.md)
+  * [Adding editable content to pages](tutorials/getting-started/03-adding-editable-content-to-pages.md)
   * [Building Navigation](tutorials/getting-started/building-navigation.md)
   * [Custom widgets](tutorials/getting-started/custom-widgets.md)
   * [The global doc: sharing content across pages](tutorials/getting-started/global.md)
