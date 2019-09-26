@@ -37,9 +37,9 @@ Next, you need to install [Homebrew](http://brew.sh/), a convenient software man
 
 1. Launch the "Terminal" app.
 
-{% hint style="tip" %}
-Anything `formatted like this` is meant to be run at the terminal prompt. Basic familiarity with the terminal is very helpful for node and Apostrophe development.
-{% endhint %}
+    {% hint style="tip" %}
+    Anything `formatted like this` is meant to be run at the terminal prompt. Basic familiarity with the terminal is very helpful for node and Apostrophe development.
+    {% endhint %}
 
 2. Copy and Paste this one-line command to the terminal to install Homebrew:
 
@@ -65,26 +65,26 @@ The terminal prompt finds commands in folders listed in an environment variable 
 
 1. Create a plaintext file called `.profile` in your home directory if you don't already have one. You can use the `touch` command from the command line to create a new file:
 
-```bash
-touch ~/.profile
-```
+    ```bash
+    touch ~/.profile
+    ```
 
 2. Open it with your favorite text editor, or use the following command to open it with the default editor:
 
-```bash
-open ~/.profile
-```
+    ```bash
+    open ~/.profile
+    ```
 
 3. Add these two lines to the file and save it:
-
-{% code-tabs %}
-{% code-tabs-item title="\~/.profile" %}
-```bash
-export NODE_PATH="/usr/local/lib/node"
-export PATH="/usr/local/share/npm/bin:$PATH"
-```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+ 
+    {% code-tabs %}
+    {% code-tabs-item title="\~/.profile" %}
+    ```bash
+    export NODE_PATH="/usr/local/lib/node"
+    export PATH="/usr/local/share/npm/bin:$PATH"
+    ```
+    {% endcode-tabs-item %}
+    {% endcode-tabs %}
 
 Verify that this worked by opening a _new_ Terminal tab and running:
 
