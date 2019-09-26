@@ -1,3 +1,3 @@
 # Getting Started
 
-These tutorials cover everything you need to know to get your Apostrophe site up and running on your computer, including setting up your own project. They also cover the basics of creating and editing page templates and layouts, and how to insert editable content areas into your pages.
+Before you start building beautiful websites, you need to get Apostrophe set up and learn the basics of using Apostrophe. In this set of tutorials, you will set up your environment, create a project with the Apostrophe CLI, create a page template, and add basic content to the page. After you finish that, you'll be ready to dive deeper into Apostrophe in our Core Concepts section.
