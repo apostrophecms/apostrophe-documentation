@@ -25,7 +25,7 @@ First, you need to install the Xcode Command Line Tools.
 
 1. Open XCode (Download it from the App Store if you don't currently have it installed.)
 
-2. Go to Xcode -&gt; Preferences -&gt; Locations and set the version for the Command Line Tools Option.
+2. Go to Xcode &rarr; Preferences -&rarr; Locations and set the version for the Command Line Tools Option.
 
 {% hint style='info' %}
 Starting with XCode 6.1 the Command Line tools are automatically installed, and just need to be configured. For older versions of XCode, go to the Downloads tab under Preferences. From there you can select _Install_ for the Command Line Tools options. 
