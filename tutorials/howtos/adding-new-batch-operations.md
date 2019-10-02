@@ -48,12 +48,12 @@ module.exports = {
 
   construct: function(self, options) {
     // also inside `construct`
-    self.routes.publish = function(req, res) {
-      return self.batchSimpleRoute(req, function(req, piece, data, callback) {
+    self.route('post', 'publish', function(req, res) {
+      return self.batchSimpleRoute(req, 'publish', function(req, piece, data, callback) {
         piece.published = true;
         return self.update(req, piece, callback);
       });
-    };
+    });
   }
 ```
 
@@ -68,7 +68,7 @@ function(req, piece, callback) {
 
 What you do inside that callback is up to you. In this example we publish the piece.
 
-`batchSimpleRoute` takes care of everything else.
+`batchSimpleRoute` takes care of everything else. You can pass the request, the name of the batch operation and the callback.
 
 > Alternatively, you can write your own route from scratch. You'll receive the selected piece IDs via `req.body.ids`. However, keep in mind that if you try to get clever and use MongoDB `{ multi: true }` operations, Apostrophe won't know to call `docBeforeUpdate`, `docAfterSave` or any similar methods.
 
@@ -129,17 +129,17 @@ Here's how the `tag` batch operation could be implemented, if we didn't already 
 
 Our module also needs a route to implement the operation on the back end:
 
-```
+```javascript
   // Inside construct, add this route
-  self.routes.tag = function(req, res) {
-    return self.batchSimpleRoute(req, function(req, piece, data, callback) {
+  self.route('post', 'tag', function(req, res) {
+    return self.batchSimpleRoute(req, 'tag', function(req, piece, data, callback) {
       if (!piece.tags) {
         piece.tags = [];
       }
       piece.tags = _.uniq(piece.tags.concat(data.tags));
       return self.update(req, piece, callback);
     });
-  };
+  });
 ```
 
 On the browser side it's still trivial. Apostrophe's schemas do the hard work of helping the user pick a tag, and `batchSimple` delivers that information to the server for us along with the ids of the pieces.
