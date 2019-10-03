@@ -90,9 +90,9 @@
 * [Redirecting the user after they log in](tutorials/howtos/redirecting-after-login.md)
 
 * Apostrophe Migration Guide
-* [Migrating from Apostrophe 1.5](tutorials/howtos/migration.md)
-* [Migrating from Apostrophe 0.5](tutorials/howtos/migration.md)
-* [Migrating from Wordpress](tutorials/howtos/migration.md)
+ * [Migrating from Apostrophe 1.5](tutorials/howtos/migration.md)
+ * [Migrating from Apostrophe 0.5](tutorials/howtos/migration.md)
+ * [Migrating from Wordpress](tutorials/howtos/migration.md)
 
 ## Other
 
