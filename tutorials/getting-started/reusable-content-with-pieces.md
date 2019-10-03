@@ -11,7 +11,9 @@ We've already learned how to add editable content to pages, and how to create so
 
 Let's say we want to create a directory of people who work for a company. People are "global content": they are useful to display here and there all over the site, they aren't tied down to one page. The `apostrophe-pieces` module provides a great starting point to create many types of global content. We'll extend it to make our own `people` module. You can extend `apostrophe-pieces` many times in the same project.
 
-> **"What about users?"** Yes, you already have a "Users" menu on your admin bar. And yes, users are powered by pieces. But we've found that confusing website editors with the publicly visible staff directory tends to cause problems in the long run. Plus, this way, it's a teachable moment. :\)
+{% hint style="info" %}
+**"What about users?"** Yes, you already have a "Users" menu on your admin bar. And yes, users are powered by pieces. But we've found that confusing website editors with the publicly visible staff directory tends to cause problems in the long run. Plus, this way, it's a teachable moment. :\)
+{% endhint %}
 
 Let's create a `lib/modules/people/index.js` file:
 
@@ -73,7 +75,9 @@ module.exports = {
 };
 ```
 
-> **IMPORTANT: note the** `name` **property. This identifies ONE piece in the database, so it is always singular.** Remember: Modules Are Plural \(MAP\), but the things they manage may not be.
+{% hint style="info" %}
+**IMPORTANT: note the** `name` **property. This identifies ONE piece in the database, so it is always singular.** Remember: Modules Are Plural \(MAP\), but the things they manage may not be.
+{% endhint %}
 
 Now let's turn the module on in `app.js`. _From now on, we'll show_ `modules` _with just the modules we're adding. Of course you will have other modules in your_ `app.js` _file as well._
 
@@ -86,7 +90,9 @@ modules: {
 
 Just like that, you'll see a new "People" menu in the admin bar when you log into the site. Pick "New Person" and you'll find that you can give each person a full name, a first name, a last name and a phone number. Pick "Manage Person" to examine and edit existing people.
 
-> We could have configured the module entirely in `app.js`. But that leads to giant `app.js` files, so we don't recommend it. However, some developers feel it's a good place for high-level properties like `extend` that help give you a quick overview of what the module is and does.
+{% hint style="info" %}
+We could have configured the module entirely in `app.js`. But that leads to giant `app.js` files, so we don't recommend it. However, some developers feel it's a good place for high-level properties like `extend` that help give you a quick overview of what the module is and does.
+{% endhint %}
 
 There are certain additional fields that you get by default with every piece, such as `title` \(the full name of the piece\), `slug` \(used when the piece appears as part of a URL\), and `published` \(which determines whether the public can see the piece, as you'll see below\). But in this case, we re-declared `title` in order to change its label to `Full Name` so that the "New Person" form is not confusing.
 
@@ -131,7 +137,9 @@ module.exports = {
 
 Now the `title` property is set automatically from the first and last name.
 
-> Methods are always added to the module in the `construct` function, which takes the module object, `self`, as its first argument. We attach methods directly to `self`. The use of `self` rather than `this` ensures that methods can make asynchronous calls and be passed as callbacks themselves without any confusion about the value of `this`. For more information about object-oriented functional programming in Apostrophe, check out [moog](https://www.npmjs.com/package/moog) and [moog-require](https://www.npmjs.com/package/moog-require).
+{% hint style="info" %}
+Methods are always added to the module in the `construct` function, which takes the module object, `self`, as its first argument. We attach methods directly to `self`. The use of `self` rather than `this` ensures that methods can make asynchronous calls and be passed as callbacks themselves without any confusion about the value of `this`. For more information about object-oriented functional programming in Apostrophe, check out [moog](https://www.npmjs.com/package/moog) and [moog-require](https://www.npmjs.com/package/moog-require).
+{% endhint %}
 
 You'll notice there is still a separate prompt to enter the full name. Let's get rid of that by adding the `contextual` option to the `title` field, which keeps that field out of the modal:
 
@@ -147,7 +155,9 @@ You'll notice there is still a separate prompt to enter the full name. Let's get
 ]
 ```
 
-> There are many other methods you can override or extend to change the behavior of pieces. See [the apostrophe-pieces API methods](../../modules/apostrophe-pieces/README.md) for more information.
+{% hint style="info" %}
+There are many other methods you can override or extend to change the behavior of pieces. See [the apostrophe-pieces API methods](../../modules/apostrophe-pieces/README.md) for more information.
+{% endhint %}
 
 ### Arranging fields
 
@@ -190,7 +200,9 @@ We don't have a way to display these people here and there around the site yet. 
 // etc.
 ```
 
-> `people-widgets` will automatically figure out that its job is to display the pieces that come from the `people` module, by removing `-widgets` from its name. If you don't want to follow that pattern, you'll have to set the `piecesModuleName` option.
+{% hint style="info" %}
+`people-widgets` will automatically figure out that its job is to display the pieces that come from the `people` module, by removing `-widgets` from its name. If you don't want to follow that pattern, you'll have to set the `piecesModuleName` option.
+{% endhint %}
 
 Already this is enough to let us add the new widget to any `apos.area` call in a page template, like our `home.html` or `default.html` template:
 
@@ -234,7 +246,9 @@ To solve that, you should always add a `projection` filter when configuring a su
 
 This way, only the properties we really need are fetched for the widget. This can greatly speed up your site and prevent mysterious refusals to load any more data if things start joining back to themselves.
 
-> _"Which properties do I need in my projection?"_ Just those you'll use in your `widget.html` template. However, if you try to guess on your own which properties are needed to populate `_url` correctly, you'll have a tough time. Instead, just say `_url: 1` and Apostrophe will include those for you (`slug`, `type` and `tags`, by default).
+{% hint style="info" %}
+_"Which properties do I need in my projection?"_ Just those you'll use in your `widget.html` template. However, if you try to guess on your own which properties are needed to populate `_url` correctly, you'll have a tough time. Instead, just say `_url: 1` and Apostrophe will include those for you (`slug`, `type` and `tags`, by default).
+{% endhint %}
 
 ### Custom templates for widgets
 
@@ -266,11 +280,13 @@ Our widget isn't very satisfying yet. It just displays full names. Let's improve
 {% endfor %}
 ```
 
-> **"Where do those** `piece._url` **links go?"** Nowhere, yet. Read on to learn about `apostrophe-pieces-pages`, which provide a destination for those links.
->
-> The `apostrophe-pieces-widgets` module already has a `widget.html` file. When we extend a widget and provide our own version of an existing template, our version gets rendered instead.
->
-> Notice that we can pass our piece to `apos.singleton` the same way we would pass a page. Both are Apostrophe docs, and both live in the `aposDocs` MongoDB collection. Pages have a `slug` property that starts with a `/`, so they can be viewed at their own URLs. Pieces do not.
+{% hint style="info" %}
+**"Where do those** `piece._url` **links go?"** Nowhere, yet. Read on to learn about `apostrophe-pieces-pages`, which provide a destination for those links.
+
+The `apostrophe-pieces-widgets` module already has a `widget.html` file. When we extend a widget and provide our own version of an existing template, our version gets rendered instead.
+
+Notice that we can pass our piece to `apos.singleton` the same way we would pass a page. Both are Apostrophe docs, and both live in the `aposDocs` MongoDB collection. Pages have a `slug` property that starts with a `/`, so they can be viewed at their own URLs. Pieces do not.
+{% endhint %}
 
 ## Displaying a directory of people on a page with `apostrophe-pieces-pages`
 
@@ -289,7 +305,9 @@ modules: {
 }
 ```
 
-> `people-pages` will automatically figure out that its job is to display the pieces that come from the `people` module, by removing `-pages` from its name. If you don't want to follow that pattern, you'll have to set the `piecesModuleName` option, and possibly also set the `name` option to a sensible name for the page type that displays an index of pieces. We usually just follow the pattern.
+{% hint style="info" %}
+`people-pages` will automatically figure out that its job is to display the pieces that come from the `people` module, by removing `-pages` from its name. If you don't want to follow that pattern, you'll have to set the `piecesModuleName` option, and possibly also set the `name` option to a sensible name for the page type that displays an index of pieces. We usually just follow the pattern.
+{% endhint %}
 
 This module provides a new type of page on the site, `people-page`. This new page type displays an index of pieces. Before it can be used, we need to configure `apostrophe-pages` to add it to the menu of page types that can be given to pages. In `app.js` it might look like this:
 
@@ -317,7 +335,9 @@ modules: {
 }
 ```
 
-> As with other modules, it's a good idea to create `lib/modules/apostrophe-pages/index.js` and move configuration there to reduce clutter.
+{% hint style="info" %}
+As with other modules, it's a good idea to create `lib/modules/apostrophe-pages/index.js` and move configuration there to reduce clutter.
+{% endhint %}
 
 ### Creating custom templates for our index of people
 
@@ -370,15 +390,17 @@ Next, let's dress up the people with their headshots by replacing the existing `
 
 Add a little CSS and you've got a nice directory.
 
-> _We could have used_ `apos.singleton` _to display the thumbnail,_ but sometimes you don't want the extra markup, editing controls, et cetera.
->
-> The `apos.images.first` helper can find an image, also known as an "attachment," anywhere in the object we pass to it. You can pass the entire `piece` object if you want to. But, it's slower than than going straight to the thumbnail.
->
-> You can also use `apos.images.all` to fetch an array of attachments.
->
-> **Never assume the editor remembered to pick a thumbnail.** Always use an `if` statement to check.
->
-> **Always specify the size.** Loading a large version of the image for an index view like this just slows down your site. See [adding editable content to pages](adding-editable-content-to-pages.md) for more information about image sizes.
+{% hint style="info" %}
+_We could have used_ `apos.singleton` _to display the thumbnail,_ but sometimes you don't want the extra markup, editing controls, et cetera.
+
+The `apos.images.first` helper can find an image, also known as an "attachment," anywhere in the object we pass to it. You can pass the entire `piece` object if you want to. But, it's slower than than going straight to the thumbnail.
+
+You can also use `apos.images.all` to fetch an array of attachments.
+
+**Never assume the editor remembered to pick a thumbnail.** Always use an `if` statement to check.
+
+**Always specify the size.** Loading a large version of the image for an index view like this just slows down your site. See [adding editable content to pages](adding-editable-content-to-pages.md) for more information about image sizes.
+{% endhint %}
 
 ### Creating custom templates for individual people
 
@@ -399,8 +421,9 @@ Next we'll want to override the `show.html` template of our subclass of `apostro
 {{ apos.area(data.piece, 'body') }}
 {% endblock %}
 ```
-
-> _We didn't pass an options object to_ `apos.area` _or_ `apos.singleton` _because we already specified the options in the_ [_schema_](schema-guide.md)_,_ as part of `addFields`. If you _do_ pass an options object to `apos.area` or `apos.singleton`, the original options object passed to the [schema](schema-guide.md) is ignored, so be sure to repeat anything that is relevant.
+{% hint style="info" %}
+_We didn't pass an options object to_ `apos.area` _or_ `apos.singleton` _because we already specified the options in the_ [_schema_](schema-guide.md)_,_ as part of `addFields`. If you _do_ pass an options object to `apos.area` or `apos.singleton`, the original options object passed to the [schema](schema-guide.md) is ignored, so be sure to repeat anything that is relevant.
+{% endhint %}
 
 **For SEO reasons, it is almost always important to have a good `show.html` page and provide `_url` links to reach it in your index pages, even if you are displaying most of the information in the index pages as well.**
 
@@ -472,11 +495,13 @@ module.exports = {
         toolbar: [ 'Bold', 'Italic', 'Link' ]
       }
     }
-  ]  
+  ]
 };
 ```
 
-> You can output this lovely `description` rich text with an `apos.singleton` call in `lib/modules/jobs/views/show.html`. See the example of `show.html` earlier in this tutorial.
+{% hint style="info" %}
+You can output this lovely `description` rich text with an `apos.singleton` call in `lib/modules/jobs/views/show.html`. See the example of `show.html` earlier in this tutorial.
+{% endhint %}
 
 ### Relating people to their jobs
 
@@ -500,7 +525,7 @@ module.exports = {
       type: 'joinByOne',
       // SINGULAR, to match the `name` option, not the module name
       withType: 'job'
-    }  
+    }
   ]
 };
 ```
@@ -522,9 +547,11 @@ Here's what that looks like in `lib/modules/people/views/show.html`:
 {% endif %}
 ```
 
-> **"What's going on in this code?"** Once you add a join to the schema, you can access the joined piece like you would any other property. Apostrophe automatically loads the joined jobs after loading the people.
->
-> Notice that we use an `if` statement to make sure the person has a job. **Even if you set a `joinByOne` field `required: true`, it is always possible that someone has moved the job to the trash,** changed its permissions, or made it inaccessible in some other way. Never assume a join still has a value.
+{% hint style="info" %}
+**"What's going on in this code?"** Once you add a join to the schema, you can access the joined piece like you would any other property. Apostrophe automatically loads the joined jobs after loading the people.
+
+Notice that we use an `if` statement to make sure the person has a job. **Even if you set a `joinByOne` field `required: true`, it is always possible that someone has moved the job to the trash,** changed its permissions, or made it inaccessible in some other way. Never assume a join still has a value.
+{% endhint %}
 
 ### Joins in widgets: watch out for projections
 
@@ -548,7 +575,9 @@ We can fix this by adding `_job` to the projection:
 // etc.
 ```
 
-> Just like `_url`, adding `_job: 1` will fetch everything needed to populate `_job`, even though it is not a real database property. Apostrophe takes care of this "under the hood," adding the `jobId` property that contains the actual _id of the job... and you don't have to worry about it.
+{% hint style="info" %}
+Just like `_url`, adding `_job: 1` will fetch everything needed to populate `_job`, even though it is not a real database property. Apostrophe takes care of this "under the hood," adding the `jobId` property that contains the actual _id of the job... and you don't have to worry about it.
+{% endhint %}
 
 ### `joinByArray`: when people have multiple jobs
 
@@ -570,7 +599,7 @@ module.exports = {
       type: 'joinByArray',
       // SINGULAR, to match the `name` option, not the module name
       withType: 'job'
-    }  
+    }
   ]
 };
 ```
@@ -592,7 +621,9 @@ Before long you'll start wanting to filter this list of people, taking advantage
 
 To make it easier to browse a listing of pieces, the [apostrophe-pieces-pages](../../modules/apostrophe-pieces-pages/README.md) module will *automatically permit you to filter by the value of most schema fields when submitted as query string parameters*, provided they are marked for this purpose as you'll see below.
 
-> You can also use `q` or `search` as a query parameter to do a full-text search. *Tip:* often this is all users want.
+{% hint style="info" %}
+You can also use `q` or `search` as a query parameter to do a full-text search. *Tip:* often this is all users want.
+{% endhint %}
 
 In this tutorial we'll explore how to add a filter by tag. Later, we'll look at filtering by a join as well.
 
@@ -625,9 +656,11 @@ Now we can take advantage of that:
 </ul>
 ```
 
-> **"What's going on in this code?"** On a pieces index page, `data.url` always contains the current URL. We want to add a `tags` parameter to the query string. Apostrophe's `build` filter merges new query parameters with the URL. We can also remove a query parameter by passing the empty string as its value.
->
-> Notice that there are separate `value` and `label` properties for each tag, even though they are the same. This pattern is used consistently for all fields we define filters for, including fields like joins or select fields where the value and the label can be quite different. This lets you write a single macro to handle many filters.
+{% hint style="info" %}
+**"What's going on in this code?"** On a pieces index page, `data.url` always contains the current URL. We want to add a `tags` parameter to the query string. Apostrophe's `build` filter merges new query parameters with the URL. We can also remove a query parameter by passing the empty string as its value.
+
+Notice that there are separate `value` and `label` properties for each tag, even though they are the same. This pattern is used consistently for all fields we define filters for, including fields like joins or select fields where the value and the label can be quite different. This lets you write a single macro to handle many filters.
+{% endhint %}
 
 ### Displaying counts for tags
 
@@ -678,9 +711,11 @@ How can we do that? Again, in `index.html`:
 </ul>
 ```
 
-> **"What's going on in this code?"** The current query string is automatically unpacked to `data.query` for you as an object. So just compare `data.query.tags` to the value of each of the choices.
->
-> We add a `current` CSS class to the link to remove the current filter. It's up to you to style that; for instance, you might use an `::after` pseudo-element to add an "x."
+{% hint style="info" %}
+**"What's going on in this code?"** The current query string is automatically unpacked to `data.query` for you as an object. So just compare `data.query.tags` to the value of each of the choices.
+
+We add a `current` CSS class to the link to remove the current filter. It's up to you to style that; for instance, you might use an `::after` pseudo-element to add an "x."
+{% endhint %}
 
 ### Filtering on joins and other schema field types
 
@@ -699,10 +734,12 @@ module.exports = {
 }
 ```
 
-> "Why is the filter named `jobs`, even though the field is named `_jobs`?" It works like this: if we specify `_jobs` for the filter, then the value in the query string will be the `_id` property of the job. This works, and it is stable no matter what gets edited later. But it isn't pretty. If we remove the `_` from the filter name, the value in the query string will be the *slug* of the job, which is more user-friendly and good for SEO.
->
-> However, keep in mind that if you change the slug someone's bookmarked links might break. So it's up to you whether to use `_jobs` (for the `_id`) or `jobs` (for the `slug`).
- 
+{% hint style="info" %}
+"Why is the filter named `jobs`, even though the field is named `_jobs`?" It works like this: if we specify `_jobs` for the filter, then the value in the query string will be the `_id` property of the job. This works, and it is stable no matter what gets edited later. But it isn't pretty. If we remove the `_` from the filter name, the value in the query string will be the *slug* of the job, which is more user-friendly and good for SEO.
+
+However, keep in mind that if you change the slug someone's bookmarked links might break. So it's up to you whether to use `_jobs` (for the `_id`) or `jobs` (for the `slug`).
+{% endhint %}
+
 Now we can filter people by job:
 
 ```markup
@@ -716,7 +753,9 @@ Now we can filter people by job:
 </ul>
 ```
 
-> Notice that this template looks exactly like the one for tags. That's intentional. You could use a single Nunjucks macro for both.
+{% hint style="info" %}
+Notice that this template looks exactly like the one for tags. That's intentional. You could use a single Nunjucks macro for both.
+{% endhint %}
 
 ### Filtering on multiple values
 
@@ -728,7 +767,11 @@ You're not restricted to filtering on a single value for a join, or for a `tags`
 
 You'll see people with *either* job.
 
-> If you want to be more restrictive and only display results that have *all* of the specified values, just add `And` to the filter name. As before, you can do this with `_` for `_id`, or without for `slug`. For instance, `_jobsAnd` expects ids, while `jobsAnd` expects slugs. However, **keep in mind this usually is very frustrating for users because they will rarely get any matches.** We recommend the default "or" behavior.
+{% hint style="info" %}
+If you want to be more restrictive and only display results that have *all* of the specified values, add `And` to the filter name&mdash;in both the `piecesFilters` array (in the module's `index.js`) and the template references. As before, you can do this with `_` for `_id`, or without for `slug`.For instance, `_jobsAnd` expects ids, while `jobsAnd` expects slugs.
+
+However, **keep in mind this usually is very frustrating for users because they will rarely get any matches.** We recommend the default "or" behavior.
+{% endhint %}
 
 Here's how to build query strings that contain arrays in your template:
 
@@ -737,7 +780,7 @@ Here's how to build query strings that contain arrays in your template:
 
 <ul class="job-filters">
   {% for job in data.piecesFilters.jobs %}
-    {% if apos.utils.contains(data.query.jobs, job.value %}
+    {% if apos.utils.contains(data.query.jobs, job.value) %}
       <a href="{{ data.url | build({ jobs: { $pull: job.value } }) }}" class="current">
     {% else %}
       <a href="{{ data.url | build({ jobs: { $addToSet: job.value } }) }}">
@@ -748,7 +791,9 @@ Here's how to build query strings that contain arrays in your template:
 </ul>
 ```
 
-> **"What's going on in this code?"** Like before, we are using the `build` filter to add and remove query parameters. However, this time, we are using the special `$pull` operator to remove a job from the array without removing the others, and using the special `$addToSet` operator to add a job to the array. In this way, we can manage filter URLs like `/people?jobs[]=doctor&jobs[]=technician` with very little effort.
+{% hint style="info" %}
+**"What's going on in this code?"** Like before, we are using the `build` filter to add and remove query parameters. However, this time, we are using the special `$pull` operator to remove a job from the array without removing the others, and using the special `$addToSet` operator to add a job to the array. In this way, we can manage filter URLs like `/people?jobs[]=doctor&jobs[]=technician` with very little effort.
+{% endhint %}
 
 ### Filtering without reloading the page: using AJAX to enhance filters
 
@@ -944,13 +989,9 @@ module.exports = {
   ]
 ```
 
-> Notice that for `sort` you specify an object exactly like what you'd pass to MongoDB's
-`sort()` method, or Apostrophe's `sort()` cursor filter. In particular, the actual property
-you sort on does not have to match the property name displayed in the column. For example,
-when working with people's names you might sort on `{ lastName: 1, firstName: 1 }` rather
-than `title`.
+{% hint style="info" %}
+Notice that for `sort` you specify an object exactly like what you'd pass to MongoDB's `sort()` method, or Apostrophe's `sort()` cursor filter. In particular, the actual property you sort on does not have to match the property name displayed in the column. For example, when working with people's names you might sort on `{ lastName: 1, firstName: 1 }` rather than `title`.
+{% endhint %}
 
 **If you want to change one of the standard columns, override `defaultColumns`** rather
 than setting `addColumns`.
-
-
