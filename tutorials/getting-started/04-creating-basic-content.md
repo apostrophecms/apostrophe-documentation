@@ -90,9 +90,6 @@ Lastly, let's add an area where you can select from the three different options 
 
 ![You can easily add content, images, or other files.](../../.gitbook/assets/add_content_to_page.png)
 
-add_content_to_page
-
-
 ## Getting Started
 
 _Singletons? Areas? What is all this stuff?_ Right now you're just scratching the surface of Apostrophe's capabilities. You've got some of the basics nailed down, but there's so much more to Apostrophe. When you're ready, move on to [Core Concepts](relative-link) to learn more about the tools you need to unleash the full power of Apostrophe.
