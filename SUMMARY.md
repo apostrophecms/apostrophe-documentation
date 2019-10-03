@@ -2,8 +2,7 @@
 
 * [ApostropheCMS Documentation](README.md)
 
-## Tutorials
-
+## Getting Started
 * [Getting Started](tutorials/getting-started/README.md)
   * [Setting up your environment](tutorials/getting-started/01-setting-up-your-environment.md)
   * [Creating your first project](tutorials/getting-started/02-creating-your-first-project.md)
@@ -44,6 +43,8 @@
   * [Apostrophe Search](tutorials/howtos/search.md)
     * [How do I enable site-wide full text search?](tutorials/howtos/search.md)
   * [Guide to schemas](tutorials/getting-started/schema-guide.md)
+
+## Advanced Topics
 * [Advanced Topics](tutorials/intermediate/README.md)
   * [Advanced Pieces Topics](tutorials/intermediate/README.md)
     * [Extending the pieces editor modal](tutorials/howtos/extending-the-pieces-editor-modal.md)
@@ -63,12 +64,12 @@
     * [Custom schema fields for pages](tutorials/intermediate/custom-schema-fields-for-pages.md)
     * [Custom schema field types](tutorials/intermediate/custom-schema-field-types.md)
 
-* HOWTOS
-    * [How do I create a '404 not found' page?](tutorials/howtos/notFoundPage.md)
-    * [Configuring CKEditor in Apostrophe](tutorials/howtos/ckeditor.md)
-    * [Building combined menus and custom buttons with the admin bar](tutorials/howtos/admin-bar.md)
+## HOWTOS
+  * [How do I create a '404 not found' page?](tutorials/howtos/notFoundPage.md)
+  * [Configuring CKEditor in Apostrophe](tutorials/howtos/ckeditor.md)
+  * [Building combined menus and custom buttons with the admin bar](tutorials/howtos/admin-bar.md)
 
-* Apostrophe DevOps: Deployment
+## Apostrophe DevOps: Deployment
   * [Hosting Apostrophe in production](tutorials/intermediate/deployment.md)  
   * [Deploying Apostrophe to a Linode linux server quickly](tutorials/howtos/linode.md)
   * [Deploying Apostrophe in the Cloud with Heroku](tutorials/howtos/deploying-apostrophe-in-the-cloud-with-heroku.md)
@@ -81,7 +82,8 @@
   * [Storing images and files in Google Cloud Storage](tutorials/howtos/storing-images-and-files-in-google-cloud-storage.md)
   
 
-* Apostrophe Configuration and Administration
+## Apostrophe Configuration and Administration
+
   * [Sending email from your Apostrophe project](tutorials/howtos/email.md)
   * [Facebook open graph tags in Apostrophe](tutorials/howtos/facebook.md)
   * [Sending user notifications](tutorials/howtos/sending-user-notifications.md)
@@ -89,12 +91,10 @@
   * [Logging in via Google, Twitter, Facebook and other sites](tutorials/howtos/google-twitter-and-facebook-login.md)
   * [Redirecting the user after they log in](tutorials/howtos/redirecting-after-login.md)
 
-
 * Apostrophe Migration Guide
   * [Migrating from Apostrophe 1.5](tutorials/howtos/migration.md)
   * [Migrating from Apostrophe 0.5](tutorials/howtos/migration.md)
   * [Migrating from Wordpress](tutorials/howtos/migration.md)
-
 
 ## Other
 
