@@ -42,7 +42,6 @@
   * [Responsive images](tutorials/howtos/responsive-images.md)
 * [Apostrophe Search](tutorials/howtos/search.md)
   * [How do I enable site-wide full text search?](tutorials/howtos/search.md)
-* [Guide to schemas](tutorials/getting-started/schema-guide.md)
 
 ## Advanced Topics
 * [Advanced Pieces Topics](tutorials/intermediate/README.md)
