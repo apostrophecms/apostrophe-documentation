@@ -4,7 +4,7 @@ layout: tutorial
 ---
 # Setting Up Your Environment
 
-Before you do anything else, you need to get your environment set up. You may already have some of the tools described below installed and configured, but make sure that you read carefully to make sure that you don't miss anything.
+First you need to get your environment set up. You may already have some of the tools described below installed and configured, but make sure that you read carefully to make sure that you don't miss anything.
 
 {% hint style='info' %}
 MacOS X is the most popular platform for Apostrophe CMS development, but there are plenty of developers using Linux or Windows.  For MacOS 10.9 or newer, continue with the instructions below. Windows users can use this lovely [HOWTO for Windows](../howtos/windows.md) contributed by Michael Brown to get everything set up, and Linux users can get going by installing the same operating system packages required by our [deployment HOWTO](../intermediate/deployment.md).

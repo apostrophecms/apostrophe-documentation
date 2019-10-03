@@ -57,7 +57,7 @@ Based on what you added to `app.js`, Apostrophe is looking for `lib/modules/apos
 
 ![Creating a new page](../../.gitbook/assets/create_new_page.png)
 
-Now let's take a look at how to add content to the page.
+Now let's add content to the page.
 
 With an empty `default.html`, we don't get much; not even a page title. But we can get quite a bit for free just by extending a layout template.
 

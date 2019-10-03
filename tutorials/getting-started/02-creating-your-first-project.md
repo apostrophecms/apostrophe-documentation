@@ -9,7 +9,7 @@ Now that you have all the dependencies for Apostrophe installed, you can create 
 
 ## Generating a test project
 
-Now, install the `apostrophe-cli` tool, which makes bootstrapping a new project a breeze, and create your project.
+Next, install the `apostrophe-cli` tool, which makes bootstrapping a new project a breeze, and create your project.
 
 1. To install the `apostrophe-cli`, run the following command:
 
@@ -37,7 +37,7 @@ Now, install the `apostrophe-cli` tool, which makes bootstrapping a new project 
     node app.js
     ```
 
-You now have a test project up and running! You should be able to visit `http://localhost:3000` and view your site. You'll see a very simple home page... too simple! We'll fix that in a moment by adding more page types and some editable areas.
+You have a test project up and running! Visit `http://localhost:3000` and view your site. You'll see a very simple home page... too simple! We'll fix that in a moment by adding more page types and some editable areas.
 
 ![The boilerplate homepage](../../.gitbook/assets/boilerplate_loggedout.png)
 
@@ -60,7 +60,7 @@ Next, you should sign on to the site:
 
 2. Log in with the credentials you just set up.
     * Username: `admin`
-    * Password: I told you not to forget it, didn't I?
+    * Password: `I told you not to forget it, didn't I?`
 
 Once logged in, we are redirected to the home page once again, but with two additional elements present: an admin bar floating over the top left of the page and a page menu floating over the bottom left.
 
@@ -169,5 +169,5 @@ Let's add some rich text and media to the page.
 
 # "Whoa, this is cool! But... what did I just do?"
 
-Great question! Now that we've had our "whoa" moment, let's break it all down.
+Great question! Now that we've had our "whoa" moment, let's break it all down. You'll work through another example, this time working through each step individually.
 
