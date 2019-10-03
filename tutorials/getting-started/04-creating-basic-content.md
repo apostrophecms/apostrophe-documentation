@@ -72,9 +72,12 @@ Add this below the images widget to add a simple `apostrophe-files` widget to th
 
 ## Make it work together
 
-Lastly, let's add an area where you can select from the three different options to add them to a page. Add this `apos.area` at the top of your main block:
+Lastly, let's add an area where you can select from the three different options to add them to a page.
+
+Add this `apos.area` at the top of your main block:
+
 {% code-tabs %}
-{% code-tabs-item title="lib/modules/apostrophe-pages/views/home.html" %}
+{% code-tabs-item title="lib/modules/apostrophe-pages/views/default.html" %}
 ```markup
 {{ apos.area(data.page, 'body', {
     widgets: {
@@ -88,9 +91,11 @@ Lastly, let's add an area where you can select from the three different options 
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
+Now you can add text, images, and files to a page seamlessly.
+
 ![You can easily add content, images, or other files.](../../.gitbook/assets/add_content_to_page.png)
 
 ## Getting Started
 
-_Singletons? Areas? What is all this stuff?_ Right now you're just scratching the surface of Apostrophe's capabilities. You've got some of the basics nailed down, but there's so much more to Apostrophe. When you're ready, move on to [Core Concepts](relative-link) to learn more about the tools you need to unleash the full power of Apostrophe.
+_Singletons? `apos.area`? What is all this stuff?_ Right now you're just scratching the surface of Apostrophe's capabilities. You've got some of the basics nailed down, but there's so much more to Apostrophe. When you're ready, move on to [Core Concepts](relative-link) to learn more about the tools you need to unleash the full power of Apostrophe.
 
