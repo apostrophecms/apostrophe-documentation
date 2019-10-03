@@ -3,12 +3,12 @@
 * [ApostropheCMS Documentation](README.md)
 
 ## Getting Started
-* [Getting Started](tutorials/getting-started/README.md)
   * [Setting up your environment](tutorials/getting-started/01-setting-up-your-environment.md)
   * [Creating your first project](tutorials/getting-started/02-creating-your-first-project.md)
   * [Editing page templates](tutorials/getting-started/03-editing-page-templates.md)
   * [Adding editable content to pages](tutorials/getting-started/04-creating-basic-content.md)
-* [Core Concepts](tutorials/getting-started/README.md)   
+
+## Core Concepts
   * [Technical overview: 30,000 feet](technical-overviews/technical-overview.md)
   * [Pages & Navigation](technical-overviews/README.md)
     * [Page Templates](tutorials/getting-started/page-templates.md)
@@ -45,7 +45,6 @@
   * [Guide to schemas](tutorials/getting-started/schema-guide.md)
 
 ## Advanced Topics
-* [Advanced Topics](tutorials/intermediate/README.md)
   * [Advanced Pieces Topics](tutorials/intermediate/README.md)
     * [Extending the pieces editor modal](tutorials/howtos/extending-the-pieces-editor-modal.md)
     * [Adding new batch operations for pieces](tutorials/howtos/adding-new-batch-operations.md)
