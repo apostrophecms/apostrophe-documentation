@@ -13,7 +13,7 @@
 * [Pages & Navigation](technical-overviews/README.md)
   * [Page Templates](tutorials/getting-started/page-templates.md)
   * [Widgets, Singletons, and Araes](tutorials/getting-started/widgets-singletons-and-areas.md)
-* [Connecting Pages with Navigation](tutorials/getting-started/building-navigation.md)
+  * [Connecting Pages with Navigation](tutorials/getting-started/building-navigation.md)
 * [Editable Content on the Page: Widgets](technical-overviews/README.md)
   * [Standard widgets](tutorials/getting-started/custom-widgets.md)
   * [Custom widgets](tutorials/getting-started/custom-widgets.md)
