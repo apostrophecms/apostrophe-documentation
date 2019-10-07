@@ -5,7 +5,7 @@ layout: tutorial
 
 # Building Navigation
 
-Apostrophe pages are part of a "tree" in which every page is a child of another page, except for the home page. That makes it very easy to build navigation links for common cases.
+The vikings believed that all of life all connected back to the great world tree, Yggrasil. The "Home" page in Apostrophe is much like Yggrasil: all pages in Apostrophe are part of a "tree" in which every page is a child of another page with all the branches connecting back to the home page which is the root. That makes it very easy to build navigation links for common cases.
 
 ## Linking to the home page
 
