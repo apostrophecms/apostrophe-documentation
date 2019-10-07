@@ -1,4 +1,75 @@
 ---
+title: Activating the "password reset" feature of Apostrophe
+layout: tutorial
+---
+
+Apostrophe includes a "password reset" feature for your users. This feature follows the usual pattern: the user must prove they control the email address associated with their account.
+
+For security reasons, and because most sites don't have the [apostrophe-email](email.md) module configured yet, this option must be turned on for your site:
+
+```javascript
+// in app.js
+modules: {
+  'apostrophe-email': {
+    // See the nodemailer documentation, many
+    // different transports are available, this one
+    // matches how PHP does it on Linux servers
+    nodemailer: {
+      sendmail: true,
+      newline: 'unix',
+      path: '/usr/sbin/sendmail'
+    }
+  },
+  'apostrophe-login': {
+    passwordReset: true,
+    // The default: you have 48 hours to use a password reset link,
+    // once it is sent to you
+    passwordResetHours: 48,
+    email: {
+      from: 'password-reset@example.com'
+    }
+  }
+}
+```
+
+Once you enable the feature, the user will automatically see a "Reset My Password" link at the bottom of the login form at `/login`. If you don't see that link, make sure you haven't previously overridden our `loginBase.html` template.
+
+---
+title: Redirecting the user after they log in
+layout: tutorial
+---
+
+By default, after a user logs in, they are redirected to the homepage.
+
+It is possible to customize this behavior.
+
+You can implement a `loginAfterLogin` method in any module. This method takes `req` and an optional callback.
+
+Setting req.redirect will cause Apostrophe to redirect the user to that location.
+
+```javascript
+// lib/modules/my-module/index.js
+
+module.exports = {
+  construct: function(self, options) {
+    self.loginAfterLogin = function(req) {
+      if (req.user.isSpecialInSomeWay) {
+        req.redirect = '/special';
+      } else {
+        // Just let them go go the home page
+      }
+    };
+  }
+};
+```
+
+*Don't forget to enable your module in `app.js`.*
+
+If you do not set `req.redirect`, the user is redirected to the home page.
+
+For a complete example, check out the [apostrophe-second-chance-login](https://npmjs.org/package/apostrophe-second-chance-login) module, which turns 404's into an opportunity to log in, if a page exists that the user might have the privilege of seeing after logging in.
+
+---
 title: What to do when you are locked out of Apostrophe
 layout: tutorial
 ---
@@ -68,3 +139,4 @@ If you did paste it correctly, it is most likely incompatible with Apostrophe. C
 > 1. Do not use `document.write` in an embed code. This will break any website that loads your markup "on the fly" after the page is first rendered.
 > 
 > 2. Do not install `jQuery` globally (do not overwrite `window.$`). Similarly, do not overwrite `lodash` (`window._`). It is easy to wrap your JavaScript in a closure in which it can still see a convenient `$` variable without breaking other versions of these libraries.
+
