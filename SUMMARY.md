@@ -29,7 +29,7 @@
   * [Nested Module Folders](tutorials/core-concepts/06-modules/02-nested-module-folders.md)
   * [More Modules](tutorials/core-concepts/06-modules/03-more-modules.md)
 * [Front End Assets](tutorials/core-concepts/07-front-end-assets/README.md)
-  * [Pushing assets to the browser](tutorials/core-concepts/getting-started/01-pushing-assets.md)
+  * [Pushing assets to the browser](tutorials/core-concepts/07-front-end-assets/01-pushing-assets.md)
   * [Lean frontend assets: Apostrophe without jQuery](tutorials/core-concepts/07-front-end-assets/02-lean-frontend-assets.md)
 * [Users and Permissions](tutorials/core-concepts/08-users-and-permissions/README.md)
   * [Users and Groups](tutorials/core-concepts/08-users-and-permissions/01-users-and-groups.md)
