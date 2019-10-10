@@ -3,13 +3,13 @@ title: Apostrophe Nunjucks filters
 layout: reference
 ---
 
-# Nunjucks Filters
+# Apostrophe Nunjucks Filters
 
-## Nunjucks has lots of filters built in
+Nunjucks is a designer friendly templating language that Apostrophe uses to provide additional power and responsiveness to HTML templates. You can use a combination of Nunjucks Core Filters, and Apostrophe's custom filters in your projects.
 
-Be sure to check out the [core Nunjucks filters](https://mozilla.github.io/nunjucks/templating.html#builtin-filters). See below for extra filters, added by Apostrophe.
+Here is the list of [core Nunjucks filters](https://mozilla.github.io/nunjucks/templating.html#builtin-filters), and below you can see the Apostrophe specific filters.
 
-## Apostrophe also adds helper functions
+## Apostrophe Nunjucks Helper Functions
 
 Filters are just a small part of what Apostrophe provides to Nunjucks templates.
 

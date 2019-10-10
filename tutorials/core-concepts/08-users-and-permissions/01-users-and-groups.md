@@ -1,6 +1,11 @@
-# Managing permissions for your site
+---
+title: Users and Groups
+layout: tutorial
+---
 
-So far our tutorials have skimmed over the issue of permissions. Let's take a closer look.
+# Users and Groups
+
+One of the biggest questions you need to answer in your design is, "Who's going to be doing what?" And separating concerns so that each user only has access to what they need is vital from a security perspective.
 
 ## Really basic permissions
 
@@ -28,7 +33,7 @@ In the getting started tutorials, we saw this in `app.js`:
 
 This is Apostrophe's "simplified permissions model." Rather than asking the end user who owns the site to manage groups of people and grant permissions to them, we configure two groups as "standard equipment" for this site, and a simple dropdown menu appears in the settings for each user. Everyone is either a "guest" or an "admin."
 
-A guest can view pages that are marked as "Login required" via "Page Settings," because they have the `guest` permission.
+A guest can view pages that aren't marked as "Login required" via "Page Settings," because they have the `guest` permission.
 
 And an admin can do... well, everything.
 
@@ -90,9 +95,7 @@ You don't have to use the `groups` option of `apostrophe-users` at all, not even
 node app apostrophe-groups:add admin admin
 ```
 
-This will create a group called `admin` (the first argument), with the `admin` permission (the second argument). You may list as many permissions as you wish, separated by spaces.
-
-> If a group has the `admin` permission, all other permissions are implied, so don't bother to give them out separately.
+This will create a group called `admin` (the first argument), with the `admin` permission (the second argument). You may list as many permissions as you wish, separated by spaces. If a group has the `admin` permission, all other permissions are implied, so don't bother to give them out separately.
 
 ## Checking permissions in your own code
 

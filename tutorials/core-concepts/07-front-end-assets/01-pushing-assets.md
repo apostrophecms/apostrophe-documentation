@@ -3,13 +3,15 @@ title: Pushing assets to the browser
 layout: tutorial
 ---
 
-# Pushing assets to the browser
+# Styling Your Content
 
-"Hang on, this site is _really_ bare bones and I need to add some styles just to see what's going on."
+The first thing most website visitors see isn't the content or how well the navigation is organized, it's how the website looks. Is it a modern, visually consistent, and readable, or does it look like it hasn't been updated since it was originally hosted by Geocities in 1995?
+
+If all you have are some basic templates in the default boilerplate project, you probably need some styling to get your site ready for the 21st century. In this section, you'll learn to create stylesheets and to push CSS and JavaScript files to your project and provide the visual structure and styling that you need.
 
 ## Configuring stylesheets
 
-OK! Take a peek at your `lib/modules/apostrophe-assets/index.js` file and you'll spot some really simple configuration that is already pushing a `site.less` file, as well as a `site.js` file.
+ Take a peek at your project's `lib/modules/apostrophe-assets/index.js` file and you'll spot some really simple configuration that is already pushing a `site.less` file, as well as a `site.js` file.
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/apostrophe-assets/index.js" %}

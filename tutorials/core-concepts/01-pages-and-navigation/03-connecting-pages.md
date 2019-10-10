@@ -5,11 +5,15 @@ layout: tutorial
 
 # Building Navigation
 
-The vikings believed that all of life all connected back to the great world tree, Yggrasil. The "Home" page in Apostrophe is much like Yggrasil: all pages in Apostrophe are part of a "tree" in which every page is a child of another page with all the branches connecting back to the home page which is the root. That makes it very easy to build navigation links for common cases.
+The Vikings believed that all of life all connected back to the world tree Yggrasil. Much like Viking mythology, all pages in Apostrophe are part of a "tree" in which every page is a child of another page and all the branches connect back to the Home page. The connection between pages with Home at the root is what makes visualizing and building navigation in Apostrophe work.
+
+Below you can find examples for several core navigation components. To test them out, add them to the `home.html` template of an existing Apostrophe project.
 
 ## Linking to the home page
 
-OK, you can probably guess the URL for that! But let's ask Apostrophe:
+The first and most important link you need is the home page. Most of the time, you'll have a pretty good guess at what your home URL is, however, you want to ask Apostrophe rather than hardcode the actual URL.
+
+You can use this code retreive the home URL from any page in Apostrophe:
 
 ```markup
 <h2><a href="{{ data.home._url }}">{{ data.home.title }}</a></h2>
@@ -17,11 +21,11 @@ OK, you can probably guess the URL for that! But let's ask Apostrophe:
 
 There are real advantages to doing it this way. If the site has a `prefix` option, you'll still get the right URL. And the title of the home page can change.
 
-> **"Why** `_url`**?"** The URL isn't a permanent part of the page object that lives in the database. Anything that is dynamically set and not part of the database starts with `_`, so it doesn't get accidentally stored back to mongodb.
+**"Why** `_url`**?"** The URL isn't a permanent part of the page object that lives in the database. Anything that is dynamically set and not part of the database starts with `_`, so it doesn't get accidentally stored back to mongodb.
 
 ## Linking to the subpages of the home page \("tab" navigation\)
 
-Lots of sites have a row of "tabs" at the top. Want to display those no matter where in the site you are? Add this to your `home.html`:
+A common navigation design is to have a row of "tabs" at the top. Want to display those no matter where in the site you are? Add this to your `home.html`:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/apostrophe-pages/views/home.html" %}
@@ -178,5 +182,5 @@ That's another easy one:
 
 ## Custom navigation
 
-"The page tree is very nice, but how do I build a custom navigation menu with hand-picked pages from all over the tree?" That's a good question. To accomplish it we'll create a custom widget in the next tutorial.
+For further navigation examples, you can see the [Custom Widgets](internal-link) article, or continue reading to learn more about Widgets in general first.
 
