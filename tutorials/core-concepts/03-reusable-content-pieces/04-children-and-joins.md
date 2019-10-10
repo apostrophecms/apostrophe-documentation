@@ -1,5 +1,5 @@
 ---
-title: Joins: Connecting Piece Types to One Another
+title: Connecting Piece Types to One Another
 layout: tutorial
 ---
 
