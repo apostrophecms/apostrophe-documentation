@@ -1,4 +1,3 @@
-
 ---
 title: Apostrophe Widgets
 layout: tutorial
@@ -13,9 +12,9 @@ Apostrophe comes with a number of widgets built in to help you build out content
 Apostrophe offers a range of widgets, and you can easily create your own. Here are some of the most popular widgets. Later on we'll also talk about "pieces" and how they allow you to create and reuse the same content around the site via pages and widgets.
 
 
-#### `'apostrophe-rich-text'`
+### `'apostrophe-rich-text'`
 
-The widget type we want to allow in the singleton. In this case, we are using the standard rich text widget. 
+The rich text widget provides a space for to enter text, with various options for formatting that text in a WYSIWYG editor based on CKEditor.
 
 ```markup
         {{ apos.singleton(data.page, 'textBlock', 'apostrophe-rich-text', {
