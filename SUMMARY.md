@@ -40,8 +40,8 @@
   * [Nunjucks Helper Functions](tutorials/core-concepts/09-working-with-templates/02-nunjucks-helper-functions.md) 
   * [Accessing images inside related pages](tutorials/core-concepts/09-working-with-templates/03-thumbnails-and-areas-of-child-pages.md)
   * [Responsive Images](tutorials/core-concepts/09-working-with-templates/04-responsive-images.md)
-* [Apostrophe Search](tutorials/core-concepts/10-search/README.md)
-  * [Enabling Search](tutorials/core-concepts/10-search/search.md)
+* [Apostrophe Search](tutorials/core-concepts/10-apostrophe-search/README.md)
+  * [Enabling Search](tutorials/core-concepts/10-apostrophe-search/search.md)
 
 ## Advanced Topics
 * [Advanced Pieces Topics](tutorials/intermediate/README.md)
