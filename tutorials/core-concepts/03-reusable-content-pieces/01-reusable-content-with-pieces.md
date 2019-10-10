@@ -5,7 +5,7 @@ layout: tutorial
 
 # Reusable content with pieces
 
-We've already learned how to add editable content to pages, and how to create some new types of editable content. But sometimes we want to reuse the same content all over the site. For a job like that, widgets in pages aren't the right answer, because a page lives in one place on the site.
+When you create content with the rich text editor, or images widget, that content display is limited to the where it is created. That will work for some cases, but often you need more powerful tools to create different types of content that can be reused in different ways across your site.
 
 ## A directory of people: working with pieces
 

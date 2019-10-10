@@ -1,4 +1,13 @@
-## Displaying pieces with widgets
+---
+title: Displaying Pieces With Widgets
+layout: tutorial
+---
+
+# Displaying Pieces with Widgets
+
+In the previous example, we looked at how to create pieces. Now we'll see how to use display those pieces using widgets.
+
+## Displaying Pieces
 
 We don't have a way to display these people here and there around the site yet. For that we'll need to add a second module in `app.js`, this time a widget:
 
