@@ -15,7 +15,7 @@
 * [Editable Content on the Page: Widgets](tutorials/core-concepts/02-editable-content-on-pages/README.md)
   * [Standard widgets](tutorials/core-concepts/02-editable-content-on-pages/01-standard-widgets.md)
   * [Custom widgets](tutorials/core-concepts/02-editable-content-on-pages/02-custom-widgets.md)
-  * [Layout / Nested widgets](tutorials/core-concepts/02-editable-content-on-pages/03layout-widgets.md)
+  * [Layout / Nested widgets](tutorials/core-concepts/02-editable-content-on-pages/03-layout-widgets.md)
 * [Reusable content with pieces](tutorials/core-concepts/03-reusable-content-with-pieces/README.md)  
   * [Reusable content with pieces](tutorials/core-concepts/03-reusable-content-with-pieces/01-reusable-content-with-pieces.md)
   * [Displaying Pieces With Widgets](tutorials/core-concepts/03-reusable-content-with-pieces/02-displaying-pieces-with-widgets.md)
