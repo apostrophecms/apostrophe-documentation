@@ -3,6 +3,8 @@ title: Activating the "password reset" feature of Apostrophe
 layout: tutorial
 ---
 
+## Password Reset
+
 Apostrophe includes a "password reset" feature for your users. This feature follows the usual pattern: the user must prove they control the email address associated with their account.
 
 For security reasons, and because most sites don't have the [apostrophe-email](email.md) module configured yet, this option must be turned on for your site:
@@ -34,10 +36,7 @@ modules: {
 
 Once you enable the feature, the user will automatically see a "Reset My Password" link at the bottom of the login form at `/login`. If you don't see that link, make sure you haven't previously overridden our `loginBase.html` template.
 
----
-title: Redirecting the user after they log in
-layout: tutorial
----
+## User Redirects on Login
 
 By default, after a user logs in, they are redirected to the homepage.
 
@@ -76,7 +75,7 @@ layout: tutorial
 
 Apostrophe is a user-friendly system. But every now and then, you may find a way to "lock yourself out" of Apostrophe. Chicken and egg problems can be frustrating, but don't worry! Here's how to resolve these situations.
 
-## 1. You forgot the password for your account
+### 1. You forgot the password for your account
 
 If your site has the "forgot password" feature enabled, you can go to `/login` and click the "forgot password" link. After completing the form be patient and be sure to check your spam folder.
 
@@ -84,7 +83,7 @@ If this feature is not enabled for your site or does not work for you, reach out
 
 > If this option does not work for you, it is possible for you (or your developer) to change your password or add a new admin account via the command line. See #2 below.
 
-## 2. Your only `admin` account is in the trash
+### 2. Your only `admin` account is in the trash
 
 Maybe you accidentally moved it to the trash, maybe another admin user did. Oops! Now how do you log in?
 
@@ -112,7 +111,7 @@ The first argument is the group name, the second is the permission we wish to gi
 
 > If you're reading this and you do not have access to the command line or recognize it, make sure no one else you work with has access to a working admin account first. Then reach out to the developer responsible for your site.
 
-## 3. You pasted a bad embed code into an HTML widget
+### 3. You pasted a bad embed code into an HTML widget
 
 Apostrophe offers a raw HTML widget. It's handy for embed codes, but also risky because many websites offer poor quality embed codes that don't "play nicely with others." Some of these can break Apostrophe's version of the `jQuery` library, which wrecks the editing experience on that page. That is especially serious if it is the home page.
 
