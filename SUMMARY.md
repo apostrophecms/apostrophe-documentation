@@ -11,7 +11,7 @@
 * [Pages & Navigation](tutorials/core-concepts/01-pages-and-navigation/README.md)
   * [Page Templates](tutorials/core-concepts/01-pages-and-navigation/01-page-templates.md)
   * [Widgets, Singletons, and Areas](tutorials/core-concepts/01-pages-and-navigation/02-widgets-singletons-and-areas.md)
-  * [Connecting Pages with Navigation](tutorials/core-concepts/01-pages-and-navigation/03-building-navigation.md)
+  * [Connecting Pages with Navigation](tutorials/core-concepts/01-pages-and-navigation/03-connecting-pages.md)
 * [Editable Content on the Page: Widgets](tutorials/core-concepts/02-editable-content-on-pages/README.md)
   * [Standard widgets](tutorials/core-concepts/02-editable-content-on-pages/01-standard-widgets.md)
   * [Custom widgets](tutorials/core-concepts/02-editable-content-on-pages/02-custom-widgets.md)

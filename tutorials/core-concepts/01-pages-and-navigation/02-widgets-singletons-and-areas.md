@@ -1,4 +1,3 @@
-
 ---
 title: Widgets, Singletons, and Areas
 layout: tutorial
@@ -6,11 +5,7 @@ layout: tutorial
 
 # Widgets, Singletons, and Areas
 
-Central to Apostrophe is the philosophy that editors can edit their content in context. In order for you to enable this functionality in your templates, Apostrophe provides `singleton` and `area` helpers that you can use in your templates.
-
-## Widgets
-
-
+Central to Apostrophe is the philosophy that editors can edit their content in context. In order for you to enable this functionality in your templates, Apostrophe provides `singleton` and `area` helpers that you can use in your templates. Within those singletons and areas, the objects that you add to a page are called `widgets`.
 
 ## Singletons
 
