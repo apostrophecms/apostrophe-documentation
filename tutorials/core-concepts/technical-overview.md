@@ -27,11 +27,11 @@ Each "doc" might be a _page_, such as the "home" or "about" page of a website, o
 
 The "global doc," which is always available to templates as `data.global`, is reserved for content you'll want almost every time you render a page. It is the right place for shared footers and site-wide copyright notices, for instance.
 
-![](../../.gitbook/assets/technical-overview-apostrophe-doc-types.png)
+![](/.gitbook/assets/technical-overview-apostrophe-doc-types.png)
 
 Each doc might contain a variety of content: rich text, images, videos and even "blog widgets" that display blog posts. Each unit of content is called a _widget_. Widgets can stand by themselves, in which case they are called _singletons_. Just as often however, widgets are grouped into _areas_ in which the user is free to keep adding new widgets of various types. Frontend developers decide which widgets are allowed in each area and code their templates accordingly.
 
-![](../../.gitbook/assets/technical-overview-apostrophe-on-the-page.png)
+![](/.gitbook/assets/technical-overview-apostrophe-on-the-page.png)
 
 ## Apostrophe's module architecture
 
