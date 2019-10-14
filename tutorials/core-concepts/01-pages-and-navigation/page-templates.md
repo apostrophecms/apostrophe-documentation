@@ -133,7 +133,7 @@ Remember, all you're doing here is registering a template. New pages are created
 
 4. Enter a Title, a friendly URL, and select your new template under Type.
 
-![Creating a new page](../../.gitbook/assets/create_new_page2.png)
+![Creating a new page](/.gitbook/assets/create_new_page2.png)
 
 
 Nice work! You created a new page template, and now you can create as many pages as you like from that template. Next we'll talk about using Widgets, Singletons, and Areas to add content to your page.
