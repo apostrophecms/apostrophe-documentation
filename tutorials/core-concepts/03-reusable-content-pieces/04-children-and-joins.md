@@ -13,8 +13,9 @@ Let's say you have 100 employees, working at 10 different jobs. Many employees m
 
 So we create a second pieces module, `jobs`. Here's how to set that up in `app.js`. We'll set up a `pieces-pages` module too, to let the public browse the jobs on the site:
 
+{% code-tabs %}
+{% code-tabs-item title="app.js" %}
 ```javascript
-// in app.js
 modules: {
   'jobs': {
     extend: 'apostrophe-pieces'
@@ -38,9 +39,14 @@ modules: {
   }
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
 
 To keep `app.js` tidy, we'll put the rest of the configuration for `jobs` in `lib/modules/jobs/index.js`:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/jobs/index.js" %}
 ```javascript
 module.exports = {
   name: 'job',
@@ -56,6 +62,9 @@ module.exports = {
   ]
 };
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
 
 {% hint style="info" %}
 You can output this lovely `description` rich text with an `apos.singleton` call in `lib/modules/jobs/views/show.html`. See the example of `show.html` earlier in this tutorial.
@@ -67,8 +76,9 @@ Great, now we have jobs. But there is no relationship between pieces and jobs ye
 
 Let's add a `joinByOne` schema field to the `people` module, relating it to our new `job` pieces:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/people/index.js" %}
 ```javascript
-// in lib/modules/people/index.js
 module.exports = {
   extend: 'apostrophe-pieces',
   name: 'person',
@@ -87,6 +97,8 @@ module.exports = {
   ]
 };
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 Now, when we edit a person, we'll see a new `Job` field in the dialog box. In that field, we can start typing the name of a job already in the system and select it. Or, we can click the "Browse" button to select a job or even create a brand new one on the fly.
 
@@ -96,6 +108,8 @@ Now we have a join between each person and their job. But how do we display the 
 
 Here's what that looks like in `lib/modules/people/views/show.html`:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/people/views/show.html" %}
 ```markup
 {# As in the earlier example, then... #}
 {% if data.person._job %}
@@ -104,6 +118,8 @@ Here's what that looks like in `lib/modules/people/views/show.html`:
   </h4>
 {% endif %}
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 {% hint style="info" %}
 **"What's going on in this code?"** Once you add a join to the schema, you can access the joined piece like you would any other property. Apostrophe automatically loads the joined jobs after loading the people.
@@ -141,8 +157,9 @@ Just like `_url`, adding `_job: 1` will fetch everything needed to populate `_jo
 
 Turns out our employees can have more than one job! Oops. How do we express that?
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/people/index.js" %}
 ```javascript
-// in lib/modules/people/index.js
 module.exports = {
   extend: 'apostrophe-pieces',
   name: 'person',
@@ -161,6 +178,9 @@ module.exports = {
   ]
 };
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
 
 Once again we can choose jobs when we edit a person; we are now allowed to pick more than one.
 
@@ -187,6 +207,8 @@ In this tutorial we'll explore how to add a filter by tag. Later, we'll look at 
 
 Add this code to `lib/modules/people-pages/index.js`. Note that earlier in this tutorial we already added this module to `app.js`, extending `apostrophe-pieces-pages`. Now we need to add some custom configuration:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/people-pages/index.js" %}
 ```javascript
 module.exports = {
   // We already set the "extend" option in app.js, or we'd need it here
@@ -198,14 +220,16 @@ module.exports = {
   ]
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 Here we're asking `apostrophe-pieces-pages` to automatically populate `req.data.piecesFilters.tags` with an array of choices. And, we're also asking that `tags` be accepted via the query string in the URL (for example, `/people?tags=doctors`).
 
 Now we can take advantage of that:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/people-pages/index.html" %}
 ```markup
-{# Inside lib/modules/people-pages/index.html #}
-
 {# Link to all the tags, adding a parameter to the query string #}
 <ul class="tag-filters">
   {% for tag in data.piecesFilters.tags %}
@@ -213,6 +237,9 @@ Now we can take advantage of that:
   {% endfor %}
 </ul>
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
 
 {% hint style="info" %}
 **"What's going on in this code?"** On a pieces index page, `data.url` always contains the current URL. We want to add a `tags` parameter to the query string. Apostrophe's `build` filter merges new query parameters with the URL. We can also remove a query parameter by passing the empty string as its value.
@@ -224,8 +251,9 @@ Notice that there are separate `value` and `label` properties for each tag, even
 
 If we wish, we can display counts for the choices, so users know how many items are available with a given tag:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/people-pages/index.js" %}
 ```javascript
-// in lib/modules/people-pages/index.js
 module.exports = {
   piecesFilters: [
     {
@@ -235,9 +263,13 @@ module.exports = {
   ]
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 Now we can show the tag counts in our `index.html` template:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/people-pages/index.html" %}
 ```markup
 <ul class="tag-filters">
   {% for tag in data.piecesFilters.tags %}
@@ -245,6 +277,9 @@ Now we can show the tag counts in our `index.html` template:
   {% endfor %}
 </ul>
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
 
 ### Showing the current state of the filter
 
@@ -252,6 +287,8 @@ Usually we want to indicate the tag the user has already chosen. And, we'd like 
 
 How can we do that? Again, in `index.html`:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/people-pages/index.html" %}
 ```markup
 {# Link to all the tags, adding a parameter to the query string #}
 <ul class="tag-filters">
@@ -268,6 +305,8 @@ How can we do that? Again, in `index.html`:
   {% endfor %}
 </ul>
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 {% hint style="info" %}
 **"What's going on in this code?"** The current query string is automatically unpacked to `data.query` for you as an object. So just compare `data.query.tags` to the value of each of the choices.
@@ -281,8 +320,9 @@ Tags are the simplest example, but we can filter on most schema field types, not
 
 Let's add a filter on the `_jobs` schema field we saw earlier:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/people-pages/index.js" %}
 ```javascript
-// in lib/modules/people-pages/index.js
 module.exports = {
   piecesFilters: [
     {
@@ -291,6 +331,8 @@ module.exports = {
   ]
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 {% hint style="info" %}
 "Why is the filter named `jobs`, even though the field is named `_jobs`?" It works like this: if we specify `_jobs` for the filter, then the value in the query string will be the `_id` property of the job. This works, and it is stable no matter what gets edited later. But it isn't pretty. If we remove the `_` from the filter name, the value in the query string will be the *slug* of the job, which is more user-friendly and good for SEO.
@@ -300,9 +342,9 @@ However, keep in mind that if you change the slug someone's bookmarked links mig
 
 Now we can filter people by job:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/people-pages/index.html" %}
 ```markup
-{# Inside lib/modules/people-pages/index.html #}
-
 {# Link to all the tags, adding a parameter to the query string #}
 <ul class="job-filters">
   {% for job in data.piecesFilters.jobs %}
@@ -310,6 +352,8 @@ Now we can filter people by job:
   {% endfor %}
 </ul>
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 {% hint style="info" %}
 Notice that this template looks exactly like the one for tags. That's intentional. You could use a single Nunjucks macro for both.
@@ -333,9 +377,9 @@ However, **keep in mind this usually is very frustrating for users because they 
 
 Here's how to build query strings that contain arrays in your template:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/people-pages/index.html" %}
 ```markup
-{# Inside lib/modules/people-pages/index.html #}
-
 <ul class="job-filters">
   {% for job in data.piecesFilters.jobs %}
     {% if apos.utils.contains(data.query.jobs, job.value) %}
@@ -348,6 +392,8 @@ Here's how to build query strings that contain arrays in your template:
   {% endfor %}
 </ul>
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 {% hint style="info" %}
 **"What's going on in this code?"** Like before, we are using the `build` filter to add and remove query parameters. However, this time, we are using the special `$pull` operator to remove a job from the array without removing the others, and using the special `$addToSet` operator to add a job to the array. In this way, we can manage filter URLs like `/people?jobs[]=doctor&jobs[]=technician` with very little effort.
@@ -367,17 +413,21 @@ _The value of the attribute must be unique on the page._
 
 Next, refactor your `index.html` template so that the actual list of people and any filters are in an `indexAjax.html` template, which is included at the appropriate point, wrapped in a div that has the `data-apos-ajax-context` attribute:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/people-pages/index.html" %}
 ```markup
-{# index.html #}
 {% extends "layout.html" %}
 <h2>People</h2>
 <div data-apos-ajax-context="people">
   {% include "indexAjax.html" %}
 </div>
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/people-pages/indexAjax.html" %}
 ```markup
-{# indexAjax.html, which does NOT extend anything #}
 {% for piece in data.pieces %}
   <h4>
     {% set image = apos.images.first(piece.thumbnail) %}
@@ -388,6 +438,9 @@ Next, refactor your `index.html` template so that the actual list of people and 
   </h4>
 {% endfor %}
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
 
 That's it! Really. And it automatically works with the filters that we saw earlier.
 
@@ -405,18 +458,21 @@ But this isn't hard to accommodate. All you have to do is:
 
 Here's an example. Here we assume you already set up the `piecesFilters` option as described earlier in this tutorial to enable filtering people by tag.
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/people-pages/index.html" %}
 ```markup
-{# index.html #}
 {% extends "layout.html" %}
 <h2>People</h2>
 <div data-apos-ajax-context="people">
   {% include "indexAjax.html" %}
 </div>
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/people-pages/indexAjax.html" %}
 ```markup
-{# indexAjax.html #}
-
 {# Filter by tag. Note this is OUTSIDE data-apos-ajax-append, so it gets REFRESHED #}
 <ul class="tag-filters">
   {% for tag in data.piecesFilters.tags %}
@@ -443,6 +499,8 @@ Here's an example. Here we assume you already set up the `piecesFilters` option 
   <a href="{{ data.url | build({ page: data.currentPage + 1, append: 1 }) }}">Load More...</a>
 {% endif %}
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 #### Infinite scroll with AJAX
 
@@ -473,8 +531,9 @@ That's it! Apostrophe will detect the button, hide it, and convert it to a scrol
 
 In the "manage" modal, enabling a "tags" filter for admins is often handy:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/people/index.js" %}
 ```javascript
-// in lib/modules/people/index.js
 module.exports = {
   // Other configuration options, then...
   addFilters: [
@@ -485,11 +544,14 @@ module.exports = {
   ]
 };
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 You can also allow multiple tags to be selected, in which case pieces with at least one of those tags are displayed:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/people/index.js" %}
 ```javascript
-// in lib/modules/people/index.js
 module.exports = {
   // Other configuration options, then...
   addFilters: [
@@ -501,6 +563,8 @@ module.exports = {
   ]
 };
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 The same approach works for most types of schema fields, including joins. We do not recommend using it if the number of items in the dropdown will be very large. However, adding options to support filters that employ typeahead and avoid sending a large list of options to the browser is on our roadmap for the future.
 
@@ -510,8 +574,9 @@ By default, the "manage" modal displays just a few columns: "title," "last updat
 
 You can extend this list and even specify your own sortable columns. Here's how to do that:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/people/index.js" %}
 ```javascript
-// in lib/modules/people/index.js
 module.exports = {
   // Other configuration options, then...
   addColumns: [
@@ -546,6 +611,8 @@ module.exports = {
     }
   ]
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 {% hint style="info" %}
 Notice that for `sort` you specify an object exactly like what you'd pass to MongoDB's `sort()` method, or Apostrophe's `sort()` cursor filter. In particular, the actual property you sort on does not have to match the property name displayed in the column. For example, when working with people's names you might sort on `{ lastName: 1, firstName: 1 }` rather than `title`.
@@ -613,7 +680,9 @@ addFields: [
 ]
 ```
 
-> If we pass an object to `children`, its properties are invoked as cursor filters when fetching the children. The same trick works with `ancestors`.
+{% hint style='info' %}
+If we pass an object to `children`, its properties are invoked as cursor filters when fetching the children. The same trick works with `ancestors`.
+{% endhint %}
 
 ## Projections and children
 
