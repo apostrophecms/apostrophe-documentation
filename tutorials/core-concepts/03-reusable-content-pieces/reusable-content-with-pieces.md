@@ -112,24 +112,6 @@ You can even add a profile photo, via the `thumbnail` field. This field has the 
 
 And, there's a "biography" section. This is a full-blown content area in which the editor can add rich text and images. _There's nothing to stop us from allowing more controls and widgets here. Limiting the choices just helps keep things from getting out of hand._
 
-### Fine-grained permissions for pieces
-
-In our [Permissions section](../08-users-permissions/README.md), you can learn more about managing permissions for pages with options like "Login Required," or to "Certain People", and so on. This feature is also available for pieces. By default, it is disabled because it is not used as often.
-
-To enable it for your module, just set `permissionsFields: true` in `lib/modules/people/index.js`:
-
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/people/index.js" %}
-```javascript
-module.exports = {
-  extend: 'apostrophe-pieces',
-  permissionsFields: true,
-  // ... other settings ...
-};
-```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
-
 ### Customizing the model layer: setting the `title` automatically
 
 Right now, the `title` property \(which is always the full name of the piece\) is independent of `firstName` and `lastName`. In this example, it makes more sense for the `title` to be generated automatically from `firstName` and `lastName`.
