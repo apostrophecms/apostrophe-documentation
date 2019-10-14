@@ -181,7 +181,7 @@ Next you want to override the `show.html` template of your subclass of `apostrop
 {% endcode-tabs %}
 
 {% hint style="info" %}
-_We didn't pass an options object to_ `apos.area` _or_ `apos.singleton` _because you already specified the options in the_ [_schema_](schema-guide.md)_,_ as part of `addFields`. If you _do_ pass an options object to `apos.area` or `apos.singleton`, the original options object passed to the [schema](schema-guide.md) is ignored, so be sure to repeat anything that is relevant.
+_We didn't pass an options object to_ `apos.area` _or_ `apos.singleton` _because you already specified the options in the_ [_schema_](../../schema-guide/schema-guide.md)_,_ as part of `addFields`. If you _do_ pass an options object to `apos.area` or `apos.singleton`, the original options object passed to the schema is ignored, so be sure to repeat anything that is relevant.
 {% endhint %}
 
 **For SEO reasons, it is almost always important to have a good `show.html` page and provide `_url` links to reach it in your index pages, even if you are displaying most of the information in the index pages as well.**
@@ -210,7 +210,7 @@ Note that this only makes sense if you are using `apostrophe-pieces-pages`.
 
 Now that you've made this choice, you might want to switch to calling `apos.singleton` in the page for the profile photo as well.
 
-You can also set `contextual: true` on each of the `body` and `thumbnail` [schema](schema-guide.md) fields so that they don't show up in the modal dialog box but are instead only editable on the page. Whether to do that is up to you, but it does help reinforce the idea that you edit this content on the page.
+You can also set `contextual: true` on each of the `body` and `thumbnail` [schema](../../schema-guide/schema-guide.md) fields so that they don't show up in the modal dialog box but are instead only editable on the page. Whether to do that is up to you, but it does help reinforce the idea that you edit this content on the page.
 
 ## Disabling a Pieces Index Page
 
@@ -220,7 +220,7 @@ Even if you don't create an `index.html` in your piece's pages module, one will 
 
 For example, let's say you have a `cats` piece type. In my `cats-pages` module (extending `apostrophe-pieces-pages`), my `views` directory has a single `show.html` template file for the cat profile pages. So Oscar the cat can have his page at `example.com/cats/oscar`. If someone decides to try visiting `example.com/cats` you don't want that page to exist, but it will be there, listing cats, probably not looking that great.
 
-The solution is pretty simple! To get `example.com/cats` to return a 404 error (effectively no longer existing), make a small addition to the [`beforeIndex`](../../modules/apostrophe-pieces-pages/README.md#beforeindex-req-callback) method.
+The solution is pretty simple! To get `example.com/cats` to return a 404 error (effectively no longer existing), make a small addition to the [`beforeIndex`](/modules/apostrophe-pieces-pages/README.md#beforeindex-req-callback) method.
 
 In `lib/modules/cats-pages/index.js`, add the following to your `construct` method:
 
@@ -241,7 +241,7 @@ construct: function (self, options) {
 
 See what we did there? Since `beforeIndex` runs before the index page is loaded, and by setting the request's `notFound` property to `true`, it'll return a 404 error rather than loading the page. This is the case even for site admins, so make sure the `apostrophe-pages` configuration doesn't give admins an option to create those pieces index pages.
 
-You might want to allow site admins to create and access those index pages, though. In that case, do [include it as an option in `apostrophe-pages` configuration](../../modules/apostrophe-pages/README.md), and make an adjustment to the `beforeIndex` method:
+You might want to allow site admins to create and access those index pages, though. In that case, do [include it as an option in `apostrophe-pages` configuration](/modules/apostrophe-pages/README.md), and make an adjustment to the `beforeIndex` method:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/apostrophe-pages/index.js" %}

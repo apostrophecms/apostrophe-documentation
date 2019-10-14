@@ -150,7 +150,7 @@ You can fix this by adding `_job` to the projection:
 ```
 
 {% hint style="info" %}
-Just like `_url`, adding `_job: 1` will fetch everything needed to populate `_job`, even though it is not a real database property. Apostrophe takes care of this "under the hood," adding the `jobId` property that contains the actual _id of the job... and you don't have to worry about it.
+Just like `_url`, adding `_job: 1` will fetch everything needed to populate `_job`, even though it is not a real database property. Apostrophe takes care of this "under the hood," adding the `jobId` property that contains the actual \_id of the job... and you don't have to worry about it.
 {% endhint %}
 
 ### `joinByArray`: when people have multiple jobs
@@ -197,7 +197,7 @@ And in our templates, we can access the array of jobs like this:
 
 Before long you'll start wanting to filter this list of people, taking advantage of joins, tags and other field types. Here's how to do that on the public-facing site. Later in this tutorial we'll also talk about how to do it in the "Manage" view.
 
-To make it easier to browse a listing of pieces, the [apostrophe-pieces-pages](../../modules/apostrophe-pieces-pages/README.md) module will *automatically permit you to filter by the value of most schema fields when submitted as query string parameters*, provided they are marked for this purpose as you'll see below.
+To make it easier to browse a listing of pieces, the [apostrophe-pieces-pages](/modules/apostrophe-pieces-pages/README.md) module will *automatically permit you to filter by the value of most schema fields when submitted as query string parameters*, provided they are marked for this purpose as you'll see below.
 
 {% hint style="info" %}
 You can also use `q` or `search` as a query parameter to do a full-text search. *Tip:* often this is all users want.
@@ -319,7 +319,7 @@ We add a `current` CSS class to the link to remove the current filter. It's up t
 
 ### Filtering on joins and other schema field types
 
-Tags are the simplest example, but you can filter on most schema field types, notably including [`select`](schema-guide.md#select) fields and [`joinByOne`](schema-guide.md#joinByOne) or [`joinByArray`](schema-guide.md#joinByArray) fields.
+Tags are the simplest example, but you can filter on most schema field types, notably including [`select`](../../schema-guide/schema-guide.md#select) fields and [`joinByOne`](../../schema-guide/schema-guide.md#joinByOne) or [`joinByArray`](../../schema-guide/schema-guide.md#joinByArray) fields.
 
 Add a filter on the `_jobs` schema field we saw earlier:
 
@@ -625,7 +625,7 @@ Notice that for `sort` you specify an object exactly like what you'd pass to Mon
 than setting `addColumns`.
 
 
-[Joins](../getting-started/schema-guide.md#joinbyone) are one of Apostrophe's best features:
+[Joins](../../schema-guide/schema-guide.md#joinbyone) are one of Apostrophe's best features:
 
 ```javascript
 addFields: [

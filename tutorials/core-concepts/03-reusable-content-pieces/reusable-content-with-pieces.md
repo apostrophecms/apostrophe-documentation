@@ -108,13 +108,13 @@ You could have configured the module entirely in `app.js`. But that leads to gia
 
 There are certain additional fields that you get by default with every piece, such as `title` \(the full name of the piece\), `slug` \(used when the piece appears as part of a URL\), and `published` \(which determines whether the public can see the piece, as you'll see below\). But in this case, you re-declared `title` in order to change its label to `Full Name` so that the "New Person" form is not confusing.
 
-You can even add a profile photo, via the `thumbnail` field. This field has the `singleton` type, which allows you to include a widget in the [schema](schema-guide.md) for this type of piece, exactly as if you were calling `apos.singleton` in a template. You just need to specify the `widgetType` and pass any desired options to the widget via the `options` property. You can also add fields of the `area` type.
+You can even add a profile photo, via the `thumbnail` field. This field has the `singleton` type, which allows you to include a widget in the [schema](../../schema-guide/schema-guide.md) for this type of piece, exactly as if you were calling `apos.singleton` in a template. You just need to specify the `widgetType` and pass any desired options to the widget via the `options` property. You can also add fields of the `area` type.
 
 And, there's a "biography" section. This is a full-blown content area in which the editor can add rich text and images. _There's nothing to stop us from allowing more controls and widgets here. Limiting the choices just helps keep things from getting out of hand._
 
 ### Fine-grained permissions for pieces
 
-In our [Permissions section](permission-link), you can learn more about managing permissions for pages with options like "Login Required," or to "Certain People", and so on. This feature is also available for pieces. By default, it is disabled because it is not used as often.
+In our [Permissions section](../08-users-permissions/README.md), you can learn more about managing permissions for pages with options like "Login Required," or to "Certain People", and so on. This feature is also available for pieces. By default, it is disabled because it is not used as often.
 
 To enable it for your module, just set `permissionsFields: true` in `lib/modules/people/index.js`:
 
@@ -180,12 +180,12 @@ When you do this, there is still a separate prompt to enter the full name. Remov
 {% endcode-tabs %}
 
 {% hint style="info" %}
-There are many other methods you can override or extend to change the behavior of pieces. See [the apostrophe-pieces API methods](../../modules/apostrophe-pieces/README.md) for more information.
+There are many other methods you can override or extend to change the behavior of pieces. See [the apostrophe-pieces API methods](/modules/apostrophe-pieces/README.md) for more information.
 {% endhint %}
 
 ### Arranging fields
 
-As you create increasingly complex [schemas](schema-guide.md) for pieces and widgets, you want to arrange the fields in the modal in a way that supports a logical workflow for editors.
+As you create increasingly complex [schemas](../../schema-guide/schema-guide.md) for pieces and widgets, you want to arrange the fields in the modal in a way that supports a logical workflow for editors.
 
 You can use `arrangeFields` to break the schema into multiple tabs in the editor modal. This can be achieved by passing an array of objects, each containing a name, label, and array of fields, to `arrangeFields`:
 
