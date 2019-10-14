@@ -15,9 +15,9 @@ Generally, you need a dedicated widget to create layout. The Apostrophe team som
 
 1. Use the [`apostrophe-cli`](https://github.com/punkave/apostrophe-cli) to quickly build a widget.
 
-```bash
-apostrophe create-widget two-column
-```
+    ```bash
+    apostrophe create-widget two-column
+    ```
 
 2. Include the layout widget in our `app.js` by adding the following to the `modules` object:
 
