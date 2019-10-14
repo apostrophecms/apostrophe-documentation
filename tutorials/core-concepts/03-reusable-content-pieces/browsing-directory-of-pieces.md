@@ -154,7 +154,7 @@ You can also use `apos.images.all` to fetch an array of attachments.
 
 **Never assume the editor remembered to pick a thumbnail.** Always use an `if` statement to check.
 
-**Always specify the size.** Loading a large version of the image for an index view like this just slows down your site. See [adding editable content to pages](adding-editable-content-to-pages.md) for more information about image sizes.
+**Always specify the size.** Loading a large version of the image for an index view like this just slows down your site. See [adding editable content to pages](../02-editable-content-on-pages/standard-widgets.md) for more information about image sizes.
 {% endhint %}
 
 ### Creating custom templates for individual people

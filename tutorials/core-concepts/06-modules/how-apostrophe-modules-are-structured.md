@@ -17,7 +17,7 @@ We've already seen two modules that are extended in your test project's `lib/mod
 
 Next, you learn how Apostrophe modules are typically structured. Following these naming conventions will improve your own code.
 
-Some of this material will reference advanced Apostrophe concepts. You may want to read the [Apostrophe glossary](../more/glossary.md) first and complete the basic and intermediate tutorials.
+Some of this material will reference advanced Apostrophe concepts. You may want to read the [Apostrophe glossary](../../other/glossary.md) first and complete the basic and intermediate tutorials.
 
 ## index.js
 
@@ -47,7 +47,7 @@ By convention all of the additional server-side `.js` files for a module live in
 
 `browser.js` is where, by convention, we keep code concerned with pushing assets to the browser, overriding the options passed to the singleton that represents this module in the browser, etc. It is not code executed in the browser. It is code that pushes or otherwise aids and abets browser-side code.
 
-```helper.js`` contains nunjucks helpers. It is typically a big ol’ call to `addHelpers`. These become visible in nunjucks as `apos.moduleAlias.whatever`.
+`helper.js` contains nunjucks helpers. It is typically a big ol’ call to `addHelpers`. These become visible in nunjucks as `apos.moduleAlias.whatever`.
 
 `routes.js` contains Express routes. That is, it contains calls to `self.route`, such as:
 

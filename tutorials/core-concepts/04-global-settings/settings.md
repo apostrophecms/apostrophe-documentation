@@ -88,7 +88,7 @@ Sometimes you need a few editable settings just for the site administrator that 
 
 A Google Analytics property ID is a great example. It's subject to change, and you don't want to change the source code every time. You want it to be a global setting.
 
-[Pieces](reusable-content-with-pieces.md) are great for articles, events and other content that might be reused around the site. And you've seen how to extend the schema of a piece type to contain new fields.
+[Pieces](../03-reusable-content-pieces/README.md) are great for articles, events and other content that might be reused around the site. And you've seen how to extend the schema of a piece type to contain new fields.
 
 You can use the same technique to extend the `apostrophe-global` module: a special module with just one piece that gets loaded on every request.
 
@@ -145,7 +145,7 @@ As seen above, we use the `json` filter to make sure it comes out quoted correct
 
 ## Getting carried away
 
-"Hey, I can do lots of things with the `global` schema. I can even put [joins](schema-guide.md) and [pieces-widgets](reusable-content-with-pieces.md) in there. What if I built my whole site in `global`?"
+"Hey, I can do lots of things with the `global` schema. I can even put [joins](../../schema-guide/schema-guide.md) and [pieces-widgets](../03-reusable-content-pieces/README.md) in there. What if I built my whole site in `global`?"
 
 Don't do that. Remember, the server must fetch `global` and everything joined to it on **every single page request, whether you really need that content on that particular page or not.**
 

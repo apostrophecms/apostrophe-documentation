@@ -7,7 +7,7 @@ layout: tutorial
 
 Apostrophe includes a "password reset" feature for your users. This feature follows the usual pattern: the user must prove they control the email address associated with their account.
 
-For security reasons, and because most sites don't have the [apostrophe-email](email.md) module configured yet, this option must be turned on for your site:
+For security reasons, and because most sites don't have the [apostrophe-email](../../devops/email.md) module configured yet, this option must be turned on for your site:
 
 {% code-tabs %}
 {% code-tabs-item title="app.js" %}

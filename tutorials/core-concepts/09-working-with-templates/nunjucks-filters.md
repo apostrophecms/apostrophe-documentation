@@ -45,7 +45,7 @@ The blessing mechanism avoids the need for Apostrophe to sanitize developer-supp
 
 Given a URL and one or more objects, this filter adds query string parameters for each of the properties in the objects. If objects affect the same parameter, the last object wins. If a parameter is set to `null` or the empty string it is removed from the URL altogether. This is very useful for adding filters to the current URL, respecting other filters already present, without complicated logic.
 
-The `build` filter has additional features which you can read about in the [build method documentation](../modules/apostrophe-urls/README.html#build-url-path-data).
+The `build` filter has additional features which you can read about in the [build method documentation](/modules/apostrophe-urls/README.html#build-url-path-data).
 
 ### `| clonePermanent`
 
