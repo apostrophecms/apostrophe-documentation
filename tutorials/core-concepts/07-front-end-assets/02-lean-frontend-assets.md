@@ -40,7 +40,7 @@ module.exports = {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-We will follow this convention in future when adding new lean widget players.
+Follow this convention in future when adding new lean widget players.
 
 **Adopting the lean frontend is a good step toward Apostrophe 3.x in your projects.** Apostrophe 3.x will use the lean frontend exclusively.
 
@@ -102,7 +102,7 @@ apos.utils.widgetPlayers['apostrophe-video'] = function(el, data, options) {
 };
 ```
 
-Note that we register the widget's type name, i.e. `apostrophe-video`, NOT the module name.
+Note that you register the widget's type name, i.e. `apostrophe-video`, NOT the module name.
 
 For a complete example, see `lib/modules/apostrophe-video-widgets/public/js/lean.js`.
 

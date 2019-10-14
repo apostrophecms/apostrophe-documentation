@@ -43,7 +43,7 @@ modules: {
 {% endcode-tabs %}
 
 
-To keep `app.js` tidy, we'll put the rest of the configuration for `jobs` in `lib/modules/jobs/index.js`:
+To keep `app.js` tidy, put the rest of the configuration for `jobs` in `lib/modules/jobs/index.js`:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/jobs/index.js" %}
@@ -72,9 +72,9 @@ You can output this lovely `description` rich text with an `apos.singleton` call
 
 ### Relating people to their jobs
 
-Great, now we have jobs. But there is no relationship between pieces and jobs yet. How do we create one?
+Great, now you have jobs. But there is no relationship between pieces and jobs yet. How do you create one?
 
-Let's add a `joinByOne` schema field to the `people` module, relating it to our new `job` pieces:
+Let's add a `joinByOne` schema field to the `people` module, relating it to the new `job` pieces:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/people/index.js" %}
@@ -100,11 +100,11 @@ module.exports = {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-Now, when we edit a person, we'll see a new `Job` field in the dialog box. In that field, we can start typing the name of a job already in the system and select it. Or, we can click the "Browse" button to select a job or even create a brand new one on the fly.
+Now, when you edit a person, you see a new `Job` field in the dialog box. In that field, you can start typing the name of a job already in the system and select it. Or, you can click the "Browse" button to select a job or even create a brand new one on the fly.
 
 ### Displaying joined pieces
 
-Now we have a join between each person and their job. But how do we display the job?
+Now you have a join between each person and their job. But how do you display the job?
 
 Here's what that looks like in `lib/modules/people/views/show.html`:
 
@@ -131,7 +131,7 @@ Notice that we use an `if` statement to make sure the person has a job. **Even i
 
 Earlier, for performance, we showed how to restrict the projection used to fetch people from the database for widgets. This is good, but if you try to access `piece._job` in that template now, you'll be disappointed.
 
-We can fix this by adding `_job` to the projection:
+You can fix this by adding `_job` to the projection:
 
 ```javascript
   'people-widgets': {
@@ -155,7 +155,7 @@ Just like `_url`, adding `_job: 1` will fetch everything needed to populate `_jo
 
 ### `joinByArray`: when people have multiple jobs
 
-Turns out our employees can have more than one job! Oops. How do we express that?
+Turns out your employees can have more than one job! Oops. How do we express that?
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/people/index.js" %}
@@ -182,7 +182,7 @@ module.exports = {
 {% endcode-tabs %}
 
 
-Once again we can choose jobs when we edit a person; we are now allowed to pick more than one.
+Now when editing a person, you can select more than one job.
 
 And in our templates, we can access the array of jobs like this:
 
@@ -203,9 +203,9 @@ To make it easier to browse a listing of pieces, the [apostrophe-pieces-pages](.
 You can also use `q` or `search` as a query parameter to do a full-text search. *Tip:* often this is all users want.
 {% endhint %}
 
-In this tutorial we'll explore how to add a filter by tag. Later, we'll look at filtering by a join as well.
+Next we'll explore how to add a filter by tag. Later, we'll look at filtering by a join as well.
 
-Add this code to `lib/modules/people-pages/index.js`. Note that earlier in this tutorial we already added this module to `app.js`, extending `apostrophe-pieces-pages`. Now we need to add some custom configuration:
+Add this code to `lib/modules/people-pages/index.js`. Note that earlier you added this module to `app.js`, extending `apostrophe-pieces-pages`. Now you need to add some custom configuration:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/people-pages/index.js" %}
@@ -223,9 +223,9 @@ module.exports = {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-Here we're asking `apostrophe-pieces-pages` to automatically populate `req.data.piecesFilters.tags` with an array of choices. And, we're also asking that `tags` be accepted via the query string in the URL (for example, `/people?tags=doctors`).
+Here you're asking `apostrophe-pieces-pages` to automatically populate `req.data.piecesFilters.tags` with an array of choices. And, you're also asking that `tags` be accepted via the query string in the URL (for example, `/people?tags=doctors`).
 
-Now we can take advantage of that:
+Now you can take advantage of that:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/people-pages/index.html" %}
@@ -249,7 +249,12 @@ Notice that there are separate `value` and `label` properties for each tag, even
 
 ### Displaying counts for tags
 
-If we wish, we can display counts for the choices, so users know how many items are available with a given tag:
+You can display counts for the choices, so users know how many items are available with a given tag. 
+
+1. Add the `counts: true;` property to the `piecesFilters` in `index.js`
+
+2. Add `({{ tag.count }})` inside of the `href` tag in `index.html`.
+
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/people-pages/index.js" %}
@@ -266,8 +271,6 @@ module.exports = {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-Now we can show the tag counts in our `index.html` template:
-
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/people-pages/index.html" %}
 ```markup
@@ -283,7 +286,7 @@ Now we can show the tag counts in our `index.html` template:
 
 ### Showing the current state of the filter
 
-Usually we want to indicate the tag the user has already chosen. And, we'd like a way to remove the filter and go back to seeing all of the people.
+Usually you want to indicate the tag the user has already chosen. And, you want a way to remove the filter and to see the full results.
 
 How can we do that? Again, in `index.html`:
 
@@ -316,9 +319,9 @@ We add a `current` CSS class to the link to remove the current filter. It's up t
 
 ### Filtering on joins and other schema field types
 
-Tags are the simplest example, but we can filter on most schema field types, notably including [`select`](schema-guide.md#select) fields and [`joinByOne`](schema-guide.md#joinByOne) or [`joinByArray`](schema-guide.md#joinByArray) fields.
+Tags are the simplest example, but you can filter on most schema field types, notably including [`select`](schema-guide.md#select) fields and [`joinByOne`](schema-guide.md#joinByOne) or [`joinByArray`](schema-guide.md#joinByArray) fields.
 
-Let's add a filter on the `_jobs` schema field we saw earlier:
+Add a filter on the `_jobs` schema field we saw earlier:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/people-pages/index.js" %}
@@ -340,7 +343,7 @@ module.exports = {
 However, keep in mind that if you change the slug someone's bookmarked links might break. So it's up to you whether to use `_jobs` (for the `_id`) or `jobs` (for the `slug`).
 {% endhint %}
 
-Now we can filter people by job:
+Now you can filter people by job:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/people-pages/index.html" %}
@@ -407,7 +410,7 @@ Apostrophe offers an general-purpose, extremely easy solution for AJAX refreshes
 
 Here's how you do it:
 
-Just add a `data-apos-ajax-context="name"` attribute to the outer div that should be refreshed when any link or form submission inside it takes place and has a URL that points back to the same page.
+Add a `data-apos-ajax-context="name"` attribute to the outer div that should be refreshed when any link or form submission inside it takes place and has a URL that points back to the same page.
 
 _The value of the attribute must be unique on the page._
 
@@ -444,7 +447,7 @@ Next, refactor your `index.html` template so that the actual list of people and 
 
 That's it! Really. And it automatically works with the filters that we saw earlier.
 
-**Tip:** you'll want to include your filter links and forms in `indexAjax.html` so that they too can be refreshed automatically, narrowing down the choices based on the other filters already in use. Any input elements or textareas that currently have the focus will not be refreshed, so if you are using form elements, you can even implement typeahead by triggering a submit of the form via JavaScript as the user types. (Keep in mind the accessibility consequences.)
+**Tip:** you want to include your filter links and forms in `indexAjax.html` so that they too can be refreshed automatically, narrowing down the choices based on the other filters already in use. Any input elements or textareas that currently have the focus will not be refreshed, so if you are using form elements, you can even implement typeahead by triggering a submit of the form via JavaScript as the user types. (Keep in mind the accessibility consequences.)
 
 #### Combining a "Load More..." button with AJAX
 

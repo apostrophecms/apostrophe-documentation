@@ -84,15 +84,15 @@ Actually setting environment variables when launching the Apostrophe node app is
 
 ## User-editable global settings
 
-Sometimes we need a few editable settings just for the site administrator that are relevant to *every* page, in much the way that a [shared footer](global.md) is relevant to every page.
+Sometimes you need a few editable settings just for the site administrator that are relevant to *every* page, in much the way that a [shared footer](global.md) is relevant to every page.
 
 A Google Analytics property ID is a great example. It's subject to change, and you don't want to change the source code every time. You want it to be a global setting.
 
-[Pieces](reusable-content-with-pieces.md) are great for articles, events and other content that might be reused around the site. And we've seen how to extend the schema of a piece type to contain new fields.
+[Pieces](reusable-content-with-pieces.md) are great for articles, events and other content that might be reused around the site. And you've seen how to extend the schema of a piece type to contain new fields.
 
-We can use the same technique to extend the `apostrophe-global` module: a special module with just one piece that gets loaded on every request.
+You can use the same technique to extend the `apostrophe-global` module: a special module with just one piece that gets loaded on every request.
 
-To pull off that trick, we just extend the schema of the `apostrophe-global` module with a few new fields, like this:
+To pull off that trick, you just extend the schema of the `apostrophe-global` module with a few new fields, like this:
 
 ```javascript
 // in the lib/module/apostrophe-global/index.js file
@@ -135,7 +135,7 @@ Now, let's take advantage of it in our `layout.html` file:
 {% endblock %}
 ```
 
-Notice that we use Apostrophe's `json` Nunjucks filter when we output the Analytics property code:
+Notice that you use Apostrophe's `json` Nunjucks filter when you output the Analytics property code:
 
 ```markup
 {{ data.global.analytics | json }}

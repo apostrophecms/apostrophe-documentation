@@ -37,7 +37,7 @@ modules: {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-Once you enable the feature, the user will automatically see a "Reset My Password" link at the bottom of the login form at `/login`. If you don't see that link, make sure you haven't previously overridden our `loginBase.html` template.
+Once you enable the feature, the user will automatically see a "Reset My Password" link at the bottom of the login form at `/login`. If you don't see that link, make sure you haven't previously overridden your `loginBase.html` template.
 
 ## User Redirects on Login
 
@@ -109,7 +109,7 @@ node app apostrophe-users:change-password admin
 node app apostrophe-groups:add admin admin
 ```
 
-The first argument is the group name, the second is the permission we wish to give the group. The `admin` permission grants full access to everything.
+The first argument is the group name, the second is the permission you wish to give the group. The `admin` permission grants full access to everything.
 
 {% hint style='info' %}
 If you're reading this and you do not have access to the command line or recognize it, make sure no one else you work with has access to a working admin account first. Then reach out to the developer responsible for your site.

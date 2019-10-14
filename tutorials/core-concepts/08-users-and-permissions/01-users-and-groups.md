@@ -9,7 +9,7 @@ One of the biggest questions you need to answer in your design is, "Who's going 
 
 ## Really basic permissions
 
-In the getting started tutorials, we saw this in `app.js`:
+In the getting started tutorials, you saw this in `app.js`:
 
 {% code-tabs %}
 {% code-tabs-item title="app.js" %}
@@ -79,9 +79,9 @@ There are also separate `edit` permissions for individual pieces: `edit-blog-pos
 
 And you can give a group `admin` rights over one specific kind of piece too, by using the `admin-` prefix instead.
 
-However, since groups in the dropdown menu are mutually exclusive, we need a more flexible way to manage groups and their permissions.
+However, since groups in the dropdown menu are mutually exclusive, you need a more flexible way to manage groups and their permissions.
 
-Here's how we do it: just remove the `groups` property!
+Here's how to do it: just remove the `groups` property!
 
 {% code-tabs %}
 {% code-tabs-item title="app.js" %}
@@ -93,9 +93,9 @@ Here's how we do it: just remove the `groups` property!
 
 *Well, that was easy.*
 
-Once we do this, the `apostrophe-groups` module, which has been politely working in the background until now, appears in its own right on the admin bar.
+Once you do this, the `apostrophe-groups` module, which has been politely working in the background until now, appears in its own right on the admin bar.
 
-Now we can create groups, just like any other kind of piece (although we must be an `admin` already to do so). We can check off boxes to add permissions to those groups. And we can add people to those groups, by editing the user and typing the names of groups — it's exactly like adding individual pieces to a pieces widget.
+Now you can create groups, just like any other kind of piece (although you must be an `admin` already to do so). You can check off boxes to add permissions to those groups. And you can add people to those groups, by editing the user and typing the names of groups — it's exactly like adding individual pieces to a pieces widget.
 
 ## Creating a site with custom groups from the very beginning
 

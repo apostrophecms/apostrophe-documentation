@@ -25,8 +25,8 @@ require('apostrophe')({
 {% endcode-tabs %}
 
 
-Now you can nest modules in subdirectories, like this. We'll start with a `modules.js`
-file in the parent `lib/modules/products` folder. Here we'll activate all of the
+Now you can nest modules in subdirectories, like this. Start with a `modules.js`
+file in the parent `lib/modules/products` folder. Here you can activate all of the
 modules that relate to products, making `app.js` shorter:
 
 {% code-tabs %}
@@ -42,7 +42,7 @@ module.exports = {
 {% endcode-tabs %}
 
 
-And then we can implement those modules in their own sub-subdirectories:
+And then you can implement those modules in their own sub-subdirectories:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/products/products/index.js" %}

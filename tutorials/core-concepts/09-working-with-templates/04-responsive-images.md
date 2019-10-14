@@ -9,9 +9,9 @@ However, this dynamic behavior comes at the expense of not rendering images as `
 
 ## An image widget that supports `srcset`
 
-The `srcset` attribute was introduced to give developers a way to declaratively specify which sizes of an image are available on the server. It is coupled with the `sizes` attribute that lets us specify how much space the image if supposed to take up in the browser. Eric Portis has an excellent [explanation](https://ericportis.com/posts/2014/srcset-sizes/) on his blog.
+The `srcset` attribute was introduced to give developers a way to declaratively specify which sizes of an image are available on the server. It is coupled with the `sizes` attribute that lets you specify how much space the image if supposed to take up in the browser. Eric Portis has an excellent [explanation](https://ericportis.com/posts/2014/srcset-sizes/) on his blog.
 
-Apostrophe lets use make use of this browser feature through the `apos.images.srcset` template helper. In the following example, we'll write a simple custom widget that renders an image with both a `srcset` and a `sizes` attribute.
+Apostrophe lets use make use of this browser feature through the `apos.images.srcset` template helper. In the following example, you'll write a simple custom widget that renders an image with both a `srcset` and a `sizes` attribute.
 
 {% hint style='info' %}
 This example assumes that you know how to load and work with custom widgets. If you're unsure about that, please refer to the [custom widgets tutorial](../getting-started/custom-widgets.md).
@@ -98,7 +98,7 @@ Rather than scaling all of the images to have the same height while displaying a
 ```
 
 {% hint style='info' %}
-Normally, Apostrophe ensures that all images in a single widget, i.e. a single slideshow, are displayed at the same height and allows their widths to vary. This is done to prevent the rest of the page from "jumping" every time the slideshow advances to a slide with a different aspect ratio. This is great until what we really want is responsive CSS cropping. The `noHeight` option disables this behavior, making us responsible for achieving a consistent height via our CSS.
+Normally, Apostrophe ensures that all images in a single widget, i.e. a single slideshow, are displayed at the same height and allows their widths to vary. This is done to prevent the rest of the page from "jumping" every time the slideshow advances to a slide with a different aspect ratio. This is great until what you really want is responsive CSS cropping. The `noHeight` option disables this behavior, making you responsible for achieving a consistent height via your CSS.
 {% endhint %}
 
 ## Everything was great until the boss lost his head

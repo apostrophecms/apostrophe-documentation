@@ -15,7 +15,7 @@ We've already seen two modules that are extended in your test project's `lib/mod
 
 # How Apostrophe modules are structured
 
-In this HOWTO, we'll talk about how Apostrophe modules are typically structured. Following these naming conventions will improve your own code.
+Next, you learn how Apostrophe modules are typically structured. Following these naming conventions will improve your own code.
 
 Some of this material will reference advanced Apostrophe concepts. You may want to read the [Apostrophe glossary](../more/glossary.md) first and complete the basic and intermediate tutorials.
 
@@ -65,7 +65,7 @@ This dovetails nicely with `self.api` and `self.html` on the browser side, which
 You can also work directly with `self.apos.app`, which is the Express app object, in order to invoke `self.apos.app.get` and create a route with a more public-friendly URL.
 {% endhint %}
 
-`api.js`, by convention, usually contains all of the other methods we’re adding to the module. This is a bit underwhelming because some methods are likely to get called by project-level developers and/or other modules, and some are obviously implementation details, called for us automagically, etc.
+`api.js`, by convention, usually contains all of the other methods we’re adding to the module. This is a bit underwhelming because some methods are likely to get called by project-level developers and/or other modules, and some are obviously implementation details, called automagically, etc.
 
 `implementation.js` attempts to improve the readability of `api.js` by limiting itself to methods in the "implementation detail" category. This doesn't mean these methods can't be overridden, and indeed when extending a module it is quite common to want to change these details. Not all of our core modules currently have an `implementation.js` file.
 

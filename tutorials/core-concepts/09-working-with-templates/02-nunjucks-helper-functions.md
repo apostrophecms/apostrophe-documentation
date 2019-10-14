@@ -5,15 +5,15 @@ layout: tutorial
 
 # Nunjucks helper functions: calling JavaScript functions from templates
 
-In the ["Building Navigation" tutorial](building-navigation.md) we called `apos.pages.isAncestorOf` from our template code.
+In the ["Building Navigation" tutorial](building-navigation.md) you called `apos.pages.isAncestorOf` from your template code.
 
 `isAncestorOf` is a "helper function," made available to templates by the `apostrophe-pages` module.
 
-That's great, but what if we need to add our own helper function?
+That's great, but what if you need to add your own helper function?
 
-Let's take another look at the [link-widgets module we just created in the previous tutorial](custom-widgets.md).
+Let's take another look at the [link-widgets module you just created in the previous tutorial](custom-widgets.md).
 
-Let's say we want to make the label optional, and use the URL as a label if no label is provided:
+Let's say you want to make the label optional, and use the URL as a label if no label is provided:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/link-widgets/index.js" %}
@@ -40,12 +40,11 @@ module.exports = {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-Now, in `views/widget.html`, we write:
+Now, in `views/widget.html`, write:
 
 {% code-tabs %}
 {% code-tabs-item title="views/widget.html" %}
 ```markup
-{# lib/modules/link-widgets/views/widget.html, in our project #}
 <h4>
   <a href="{{ data.widget.url }}">
     {{ data.widget.label or data.widget.url }}
@@ -59,7 +58,7 @@ Now, in `views/widget.html`, we write:
 
 But there's a problem: the URL is a bit clumsy-looking as a label, especially if there are links all over the page. No one needs to see `https://` over and over.
 
-We could do string replacement in Nunjucks, but as a general rule, **the more logic you write in templates, the harder they are to maintain.** We should instead move that code up to a JavaScript "helper function" in our `link-widgets` module:
+You could do string replacement in Nunjucks, but as a general rule, **the more logic you write in templates, the harder they are to maintain.** You should instead move that code up to a JavaScript "helper function" in your `link-widgets` module:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/link-widgets/index.js" %}
@@ -94,12 +93,11 @@ module.exports = {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-Now, in `widget.html`, we can write:
+Now, in `widget.html`, write:
 
 {% code-tabs %}
 {% code-tabs-item title="views/widget.html" %}
 ```markup
-{# lib/modules/link-widgets/views/widget.html, in our project #}
 <h4>
   <a href="{{ data.widget.url }}">
     {{ data.widget.label or apos.link.stripHttp(data.widget.url) }}
@@ -113,7 +111,7 @@ Now, in `widget.html`, we can write:
 
 Next we add a `construct` function. This function runs once when the module starts up. *This happens just once, not on every request.*
 
-Inside `construct`, we call `self.addHelpers` to add some helper functions that are visible to our Nunjucks templates. Any helper functions we add here can be called from the template.
+Inside `construct`, we call `self.addHelpers` to add some helper functions that are visible to your Nunjucks templates. Any helper functions we add here can be called from the template.
 
 {% hint style='info' %}
 **You must not call async functions, await promises, wait for callbacks, make network requests or database calls, etc. from inside a helper function.** Helpers must be synchronous, the value they return is the value you'll get.  Any attempt to use asynchronous code here, or anywhere in a template, **Will not work**.
@@ -159,7 +157,7 @@ module.exports = {
 
 
 ```markup
-{# In any template we can now write: #}
+{# In any template you can now write: #}
 {{ apos.singleton(data.page, 'footer', 'apostrophe-rich-text',
   {
     toolbar: apos.helpers.toolbar
@@ -177,7 +175,7 @@ Helper functions are handy, but Nunjucks also has a "filter" syntax. For example
 
 You can find a [reference guide to ApostropheCMS nunjucks filters here](https://docs.apostrophecms.org/apostrophe/other/nunjucks-filters), and you can [learn about the standard Nunjucks filters here](https://mozilla.github.io/nunjucks/templating.html#builtin-filters). Both require no extra code on your part.
 
-We can also add our own Nunjucks filters. Here's another version of our `index.js`:
+You can also add your own Nunjucks filters. Here's another version of `index.js`:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/link-widgets/index.js" %}
@@ -212,7 +210,7 @@ module.exports = {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-Now, in `widget.html`, we can use the new filter:
+Now, in `widget.html`, use the new filter:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/link-widgets/views/widget.html" %}
