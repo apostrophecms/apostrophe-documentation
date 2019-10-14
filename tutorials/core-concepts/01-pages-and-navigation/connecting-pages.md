@@ -182,5 +182,5 @@ That's another easy one:
 
 ## Custom navigation
 
-For further navigation examples, you can see the [Custom Widgets](internal-link) article, or continue reading to learn more about Widgets in general first.
+For further navigation examples, you can see the [Custom Widgets](../02-editable-content-on-pages/custom-widgets.md) article, or continue reading to learn more about Widgets in general first.
 
