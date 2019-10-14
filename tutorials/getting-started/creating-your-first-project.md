@@ -169,5 +169,5 @@ Let's add some rich text and media to the page.
 
 # "Whoa, this is cool! But... what did I just do?"
 
-Great question! Now that you've gotten a glimpse of Apostrophe, let's slow down and take it step by step in [Core Concepts](../core-concept/README.md).
+Great question! Now that you've gotten a glimpse of Apostrophe, let's slow down and take it step by step in [Core Concepts](../core-concepts/README.md).
 
