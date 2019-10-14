@@ -48,10 +48,6 @@ Anything `formatted like this` is meant to be run at the terminal prompt. Basic 
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     ```
 
-{% hint style="tip" %}
-Trouble? Visit the [_Homebrew site_](http://brew.sh/) for the latest instructions.
-{% endhint %}
-
 ## Install Node
 
 Now that you have Homebrew installed it only takes one command to install Node:
