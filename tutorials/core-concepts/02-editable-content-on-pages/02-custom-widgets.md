@@ -11,13 +11,13 @@ You've seen a lot of the widgets that come "in the box" with Apostrophe. But you
 
 Here's a common case: you want to build your own navigation menu. [Apostrophe's page tree is awesome](building-navigation.md) but sometimes you want to "cherrypick" pages from all over the tree, perhaps for a special footer.
 
-You could use a rich text widget and just tell users to add links manually, but they'll just break each time a page is moved around the site. It's also easier for users to mess up the formatting that way. We want something more consistent.
+You could use a rich text widget and just tell users to add links manually, but they'll just break each time a page is moved around the site. It's also easier for users to mess up the formatting that way. You want something more consistent.
 
-Let's look at some custom widgets that help provide navigation. We'll start with a simple widget that adds a link in a well-formatted way.
+Let's look at some custom widgets that help provide navigation. you'll start with a simple widget that adds a link in a well-formatted way.
 
 ### `link`: the simplest widget
 
-First we'll need a folder for the module. In the terminal, from the project root, enter:
+First you'll need a folder for the module. In the terminal, from the project root, enter:
 
 ```bash
 mkdir -p lib/modules/link-widgets
@@ -25,7 +25,7 @@ mkdir -p lib/modules/link-widgets
 
 Just about everything new you create in Apostrophe will be a "module." Project-specific modules live in `lib/modules`. Apostrophe will spot them there if you list them in `app.js`. You can also publish and install modules with `npm`. Apostrophe looks in both places. Your module name **should not start with** `apostrophe`. That's reserved for our official modules. Modules almost always have plural names. The name of a module that provides widgets should end in `-widgets`.
 
-Then we'll include the module in our `app.js` by adding the following to the `modules` object:
+Then you'll include the module in our `app.js` by adding the following to the `modules` object:
 
 
 {% code-tabs %}
@@ -66,19 +66,21 @@ module.exports = {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-_"What does_ `extend` _mean here?"_ Our module is extending the `apostrophe-widgets` module, which provides almost all the code we need. Yes, `extend` is the correct spelling. Apostrophe uses [moog](https://npmjs.org/package/moog) to handle extending or "subclassing" other modules.
+_"What does_ `extend` _mean here?"_ Our module is extending the `apostrophe-widgets` module, which provides almost all the code you need. Yes, `extend` is the correct spelling. Apostrophe uses [moog](https://npmjs.org/package/moog) to handle extending or "subclassing" other modules.
 
-_"What other field types can I add?"_ The `apostrophe-schemas` module gives us a powerful way to build forms and structure data with almost no work. We just pass an array of field definitions as the `addFields` option. We'll introduce the details gradually. But if you're in a hurry, check out the [schema guide](schema-guide.md).
+_"What other field types can I add?"_ The `apostrophe-schemas` module provides a powerful way to build forms and structure data with almost no work. You just pass an array of field definitions as the `addFields` option. You'll introduce the details gradually. But if you're in a hurry, check out the [schema guide](schema-guide.md).
 
 _"What does the_ `name` _property do?"_ Each field needs to be stored in the widget under its own property name. Play around with `aposDocs.find().pretty()` in the mongodb shell to see what it looks like after you save the widget.
 
-Next we'll need a folder to hold our widget's `widget.html` template, which renders it on the page:
+Next you'll need a folder to hold our widget's `widget.html` template, which renders it on the page.
 
-```bash
-mkdir -p lib/modules/link-widgets/views
-```
+1. Create a new folder:
 
-Now create a Nunjucks template in `lib/modules/link-widgets/views/widget.html`:
+    ```bash
+    mkdir -p lib/modules/link-widgets/views
+    ```
+
+2. Now create a Nunjucks template in `lib/modules/link-widgets/views/widget.html`:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/link-widgets/views/widget.html" %}
@@ -88,9 +90,9 @@ Now create a Nunjucks template in `lib/modules/link-widgets/views/widget.html`:
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-_"Hey, don't we need to escape the label before we output it as HTML?"_ No, Nunjucks does it automatically. If you need to output content that is already valid, safe markup, you must use the `| safe` filter to output it without escaping.
+_"Hey, don't You need to escape the label before you output it as HTML?"_ No, Nunjucks does it automatically. If you need to output content that is already valid, safe markup, you must use the `| safe` filter to output it without escaping.
 
-Now we'll want to add this widget to an area in one of our page templates, like we learned in [adding editable content to pages](adding-editable-content-to-pages.md). Let's add the following to the `main` block of our `lib/modules/apostrophe-pages/views/pages/home.html`:
+Now you'll want to add this widget to an area in one of our page templates, like you learned in [adding editable content to pages](adding-editable-content-to-pages.md). Let's add the following to the `main` block of our `lib/modules/apostrophe-pages/views/pages/home.html`:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/apostrophe-pages/views/pages/home.html" %}
@@ -106,13 +108,13 @@ Now we'll want to add this widget to an area in one of our page templates, like 
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-We've just created a content area in which only `link` widgets are allowed. Each one has a `url` field and a `label` field, and they are always output in the same style.
+You've just created a content area in which only `link` widgets are allowed. Each one has a `url` field and a `label` field, and they are always output in the same style.
 
 ### `page-link`: using joins in widgets
 
 The `link` widget is cool, but if the URL of a page changes, the link breaks. And if the title changes, that is not reflected in the widget.
 
-Let's solve the problem by allowing the user to pick a page on the site instead. Then we can access information about that page programmatically.
+Let's solve the problem by allowing the user to pick a page on the site instead. Then you can access information about that page programmatically.
 
 Let's make another module and its views folder in one step:
 
@@ -120,9 +122,11 @@ Let's make another module and its views folder in one step:
 mkdir -p lib/modules/page-link-widgets/views
 ```
 
-> While it's good to get some experience making all the folders and files yourself, the `apostrophe-cli` pacakage that you installed earlier can easily create basic module structures for you from templates. You can learn more in the [`apostrophe-cli` README](https://github.com/apostrophecms/apostrophe-cli/blob/master/README.md).
+{% hint style='info' %}
+While it's good to get some experience making all the folders and files yourself, the `apostrophe-cli` pacakage that you installed earlier can easily create basic module structures for you from templates. You can learn more in the [`apostrophe-cli` README](https://github.com/apostrophecms/apostrophe-cli/blob/master/README.md).
+{% endhint %}
 
-Now we add this new widget to the `modules` object in our app.js:
+\1. Now you this new widget to the `modules` object in our app.js:
 
 {% code-tabs %}
 {% code-tabs-item title="app.js" %}
@@ -136,7 +140,7 @@ Now we add this new widget to the `modules` object in our app.js:
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-Now let's write `lib/modules/page-link-widgets/index.js`:
+\2. And then write `lib/modules/page-link-widgets/index.js`:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/page-link-widgets/index.js" %}
@@ -159,11 +163,11 @@ module.exports = {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-_"What do_ `type: 'joinByOne'` _and_ `idField: 'pageId` _do?\`_ We want this widget to remember a connection to another page. To do that, we use the `joinByOne` field type and ask Apostrophe to store the MongoDB `_id` of the other page in a `pageId` property of the widget.
+_"What do_ `type: 'joinByOne'` _and_ `idField: 'pageId` _do?\`_ you want this widget to remember a connection to another page. To do that, you use the `joinByOne` field type and ask Apostrophe to store the MongoDB `_id` of the other page in a `pageId` property of the widget.
 
 _"Why does the_ `name` _start with a_ `_`_?" Joins get fetched every time this widget is loaded. The relationship is dynamic_. Properties that are dynamic and should not be stored back to MongoDB as part of this widget must start with a `_` \(underscore\). Apostrophe automatically ignores them when saving the widget in the database.
 
-Now we're ready for the Nunjucks template, `lib/modules/page-link-widgets/views/widget.html`:
+Now you're ready for the Nunjucks template, `lib/modules/page-link-widgets/views/widget.html`:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/page-link-widgets/views/widget.html" %}
@@ -202,9 +206,12 @@ It is also possible to join with more than one type. And once you check out [pie
 
 ### Passing options to widgets
 
-You probably noticed that our widgets don't take any options yet. We can use options to do cool things in our templates. Let's add a simple one to choose between two presentation styles.
+You probably noticed that our widgets don't take any options yet. You can use options to do cool things in our templates. Let's add a simple one to choose between two presentation styles.
 
-All we have to do is access `data.options` in our `widget.html` template for `page-link-widgets`:
+All you have to do is access `data.options` in your `widget.html` template for `page-link-widgets` and pass the option in the `apos.area` call and `home.html`:
+
+
+\1. Add `data.options` in `widget.html`:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/page-link-widgets/views/widget.html" %}
@@ -214,7 +221,7 @@ All we have to do is access `data.options` in our `widget.html` template for `pa
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-And pass the option in our `apos.area` call in `home.html`:
+\2. Then pass the option  call in `home.html`:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/page-link-widgets/views/home.html" %}
@@ -237,7 +244,7 @@ Now all the page links in this particular area will get the special class. You c
 
 ### Giving choices to the user
 
-We can also leave the choice up to the user by adding a `boolean` field to the schema for `page-link-widgets` in its `index.js`:
+You can also leave the choice up to the user by adding a `boolean` field to the schema for `page-link-widgets` in its `index.js`:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/page-link-widgets/index.js" %}
@@ -267,7 +274,7 @@ module.exports = {
 
 The new bit here is the `special` field.
 
-In our template, we just access it via `data.widget` rather than `data.options`:
+In your template, access it via `data.widget` rather than `data.options`:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/page-link-widgets/views/widget.html" %}
@@ -284,11 +291,11 @@ In our template, we just access it via `data.widget` rather than `data.options`:
 
 ### Performance note: limiting joins
 
-Having access to the entire page object is a neat trick, but it can be very slow. That page might have its own widgets which load a lot of information we don't care about in this situation. Multiply that by 20 links and it starts to impact performance.
+Having access to the entire page object is a neat trick, but it can be very slow. That page might have its own widgets which load a lot of information you don't care about in this situation. Multiply that by 20 links and it starts to impact performance.
 
-Indeed, all we really care about here is the title and the URL. So let's fetch only that information.
+Indeed, all you really care about here is the title and the URL. So let's fetch only that information.
 
-Here's how we can rewrite `index.js` to speed up the code:
+You can rewrite `index.js` to speed up the code:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/page-link-widgets/index.js" %}
@@ -317,7 +324,7 @@ module.exports = {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-The new bit is the `filters` option. By specifying a `projection` filter, we can limit Apostrophe to loading just the `title` and `_url` properties. Apostrophe needs `_url` to figure out the URL of a page. It's almost always a good idea to limit the projection to the fields you care about.
+The new bit is the `filters` option. By specifying a `projection` filter, you can limit Apostrophe to loading just the `title` and `_url` properties. Apostrophe needs `_url` to figure out the URL of a page. It's almost always a good idea to limit the projection to the fields you care about.
 
 `_url`_,_ `slug`_... what's the difference?_ For most sites, nothing. But for sites with a `prefix` option, the `_url` property might have a folder name prepended to it. And there are other ways to transform `_url` to suit your needs. So always remember to use it instead of `slug` when you output page URLs. And use `_url` in your projection to fetch all the properties Apostrophe knows might be involved in calculating the `_url` property of the page.
 
@@ -327,13 +334,13 @@ _What else can I do with_ `filters`_?_ That's an intermediate topic, but you can
 
 ## Adding a JavaScript widget player on the browser side
 
-So far we've built our widgets entirely with server-side code. But sometimes we'll want to enhance them with JavaScript on the browser side.
+So far you've built your widgets entirely with server-side code. But sometimes you'll want to enhance them with JavaScript on the browser side.
 
-Sure, we could just select elements in our widget markup with jQuery, but that's no good for a widget that was just added to an existing page. There's a better way. We'll create a widget player.
+Sure, you could just select elements in your widget markup with jQuery, but that's no good for a widget that was just added to an existing page. There's a better way. you'll create a widget player.
 
-Let's say we want to offer some content in a collapsible "drawer." Clicking on the title of the drawer reveals an Apostrophe area with more information.
+Let's say you want to offer some content in a collapsible "drawer." Clicking on the title of the drawer reveals an Apostrophe area with more information.
 
-Our module's `index.js` file looks like this:
+Your module's `index.js` file looks like this:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/drawer-widget/index.js" %}
@@ -366,7 +373,7 @@ module.exports = {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-And our `widget.html` file looks like this:
+And your `widget.html` file looks like this:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/drawer-widgets/views/widget.html" %}
@@ -379,11 +386,11 @@ And our `widget.html` file looks like this:
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-Here we use `data.widget` where you would normally expect `data.page`. This allows us to access areas nested inside the widget.
+Here you use `data.widget` where you would normally expect `data.page`. This allows access to areas nested inside the widget.
 
 > Notice that nesting areas and singletons inside the templates of other widgets is allowed. You can use this feature to create widgets that give users flexible control over page layout, for instance a "two column" widget with two `apos.area` calls.
 
-Now, in our default page template, let's create an area that allows a series of drawers to be created:
+Now, in your default page template, let's create an area that allows a series of drawers to be created:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/apostrophe-pages/views/default.html" %}
@@ -413,13 +420,13 @@ modules: {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-Even if our widget doesn't require any options, we must configure it in `app.js` to `instantiate` it. This is how Apostrophe knows that we actually want to use this module directly. In many projects, some modules only exist to be extended by other modules.
+Even if your widget doesn't require any options, you must configure it in `app.js` to `instantiate` it. This is how Apostrophe knows that you actually want to use this module directly. In many projects, some modules only exist to be extended by other modules.
 
-So far, so good. We can create a whole column of drawer widgets and their titles and their content areas appear. But right now the "drawer" part is visible at all times.
+So far, so good. you can create a whole column of drawer widgets and their titles and their content areas appear. But right now the "drawer" part is visible at all times.
 
-First, we'll need to hide the content of the drawer by default. Let's push an `always.less` stylesheet specifically for this module.
+First, you'll need to hide the content of the drawer by default. Let's push an `always.less` stylesheet specifically for this module.
 
-In `index.js`, we'll extend the `pushAssets` method, which is already pushing JavaScript for us, to push a stylesheet as well:
+In `index.js`, you'll extend the `pushAssets` method, which is already pushing JavaScript, to push a stylesheet as well:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/drawer-widgets/index.js" %}
@@ -441,11 +448,11 @@ module.exports = {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-In Apostrophe modules, the `construct` function is called to add methods to the module. Here we are following the "super pattern," making a note of the original method we inherited from [apostrophe-widgets](../../modules/apostrophe-widgets/index.md), creating our own replacement method, invoking the original from within it, and then pushing our own asset to the browser.
+In Apostrophe modules, the `construct` function is called to add methods to the module. Here you are following the "super pattern," making a note of the original method you inherited from [apostrophe-widgets](../../modules/apostrophe-widgets/index.md), creating your own replacement method, invoking the original from within it, and then pushing your own asset to the browser.
 
-The [pushAsset method](../../modules/apostrophe-module/index.md#push-asset) can push both stylesheets and scripts. The name `always` is a convention meaning "everyone sees this stylesheet, whether logged in or not." And we make sure of that by setting the `when` option to `always`.
+The [pushAsset method](../../modules/apostrophe-module/index.md#push-asset) can push both stylesheets and scripts. The name `always` is a convention meaning "everyone sees this stylesheet, whether logged in or not." And you make sure of that by setting the `when` option to `always`.
 
-Now we need to supply `always.less` in the right place: the `public/css` subdirectory of our module's directory.
+Now you need to supply `always.less` in the right place: the `public/css` subdirectory of your module's directory.
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/drawer-widgets/public/css/always.less" %}
@@ -463,9 +470,9 @@ Now we need to supply `always.less` in the right place: the `public/css` subdire
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-With these changes, our drawers are hidden. But we still need a way to toggle them open when the titles are clicked.
+With these changes, your drawers are hidden. But you still need a way to toggle them open when the titles are clicked.
 
-For that, we'll need an `always.js` file, in our `public/js` folder:
+For that, you'll need an `always.js` file, in your `public/js` folder:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/drawer-widgets/public/js/always.js" %}
@@ -490,14 +497,14 @@ apos.define('drawer-widgets', {
 
 What's happening in this code?
 
-* We called `apos.define` to define a [moog type](../../other/glossary.md#moog-type) for our "widget manager." A widget manager is an object that is responsible for directing everything related to widgets of that type in the browser. Think of it as the browser's half of our module.
-* The first argument to `apos.define` is the name of our new type, which is the same as the name of our module. The second argument is an object that defines the type. Just like our `index.js` file on the server, it contains a `construct` function. That's because Apostrophe uses [moog](../../other/glossary.md#moog-type) to manage object-oriented programming in both places. The only difference is that on the server, Apostrophe figures out what type is being defined automatically based on the module's name. Here in browser-land, it's up to us to call `apos.define`.
-* The `extend` property indicates that we want to extend \("subclass" or "inherit from"\) the `apostrophe-widgets` type, which provides most of the plumbing for managing our widget. All we need to do is supply a `play` method.
-* Inside `construct`, we attach a `play` method to the widget manager. Our `play` method accepts `$widget` \(a jQuery object referring to the widget's `div` element\), `data` \(an object containing the properties of our widget, like `title`\), and `options` \(an object containing options that were passed to the widget when `apos.area` or `apos.singleton` was called\).
-* Apostrophe automatically calls the `play` method for us at appropriate times.
-* Our play function takes advantage of jQuery's [find method](https://api.jquery.com/find/) to locate the title and the drawer _inside the scope of this one widget._
+* You called `apos.define` to define a [moog type](../../other/glossary.md#moog-type) for your "widget manager." A widget manager is an object that is responsible for directing everything related to widgets of that type in the browser. Think of it as the browser's half of your module.
+* The first argument to `apos.define` is the name of your new type, which is the same as the name of your module. The second argument is an object that defines the type. Just like your `index.js` file on the server, it contains a `construct` function. That's because Apostrophe uses [moog](../../other/glossary.md#moog-type) to manage object-oriented programming in both places. The only difference is that on the server, Apostrophe figures out what type is being defined automatically based on the module's name. Here in browser-land, it's up to you to call `apos.define`.
+* The `extend` property indicates that you want to extend \("subclass" or "inherit from"\) the `apostrophe-widgets` type, which provides most of the plumbing for managing your widget. All you need to do is supply a `play` method.
+* Inside `construct`, you attach a `play` method to the widget manager. Your `play` method accepts `$widget` \(a jQuery object referring to the widget's `div` element\), `data` \(an object containing the properties of your widget, like `title`\), and `options` \(an object containing options that were passed to the widget when `apos.area` or `apos.singleton` was called\).
+* Apostrophe automatically calls the `play` method at appropriate times.
+* The play function takes advantage of jQuery's [find method](https://api.jquery.com/find/) to locate the title and the drawer _inside the scope of this one widget._
 
-_"Can't I just write some jQuery in a `$(function() { ... })` block and skip all this?"_ If you do, you forfeit the ability for your player to work for widgets that were just added to the page by the user, without refreshing the page. Requiring users to refresh the page is very 2005. We might even tease you about it.
+_"Can't I just write some jQuery in a `$(function() { ... })` block and skip all this?"_ If you do, you forfeit the ability for your player to work for widgets that were just added to the page by the user, without refreshing the page. Requiring users to refresh the page is very 2005. You might even tease you about it.
 
 Writing widget players that scope all of their jQuery selectors with `$widget.find()` helps you avoid the temptation to write code that will install the same handler twice, fail entirely for newly-added widgets, or become a problem later when you want to publish your module in npm.
 

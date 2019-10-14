@@ -7,8 +7,9 @@ By default, Apostrophe 2.x always pushes `jQuery`, `lodash`, `async` and several
 
 To activate the new lean frontend, configure `apostrophe-assets` like this:
 
+{% code-tabs %}
+{% code-tabs-item title="app.js" %}
 ```javascript
-// in app.js
 module.exports = {
   modules: {
     'apostrophe-assets': {
@@ -17,11 +18,14 @@ module.exports = {
   }
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 With the lean frontend, **none of Apostrophe's widget players are available by default.** However, a simple video player is available if you choose to turn it on:
 
+{% code-tabs %}
+{% code-tabs-item title="app.js" %}
 ```javascript
-// in app.js
 module.exports = {
   modules: {
     'apostrophe-assets': {
@@ -33,6 +37,8 @@ module.exports = {
   }
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 We will follow this convention in future when adding new lean widget players.
 
@@ -117,7 +123,9 @@ module.exports = {
 
 This just works. This module pushes js and css assets specified in your `apostrophe-assets` configuration as if `when: 'lean'` is set for them, so that these assets are available to everyone, unless `when` is explicitly set to a different value. Note that for legacy reasons, `when: 'always'` *does not* push assets to everyone in the presence of this module.
 
-> Important: if your `site.less` refers to LESS variables that come from Apostrophe, i.e. those with an `@apos` prefix, your LESS will not compile successfully since these will not be present. If you see errors of this kind, stop using `@apos` variables in your LESS code.
+{% hint style='info' %}
+**Important:** if your `site.less` refers to LESS variables that come from Apostrophe, i.e. those with an `@apos` prefix, your LESS will not compile successfully since these will not be present. If you see errors of this kind, stop using `@apos` variables in your LESS code.
+{% endhint %}
 
 ### Tips
 

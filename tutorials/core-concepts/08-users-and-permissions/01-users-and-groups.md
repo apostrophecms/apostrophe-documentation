@@ -11,8 +11,9 @@ One of the biggest questions you need to answer in your design is, "Who's going 
 
 In the getting started tutorials, we saw this in `app.js`:
 
+{% code-tabs %}
+{% code-tabs-item title="app.js" %}
 ```javascript
-// in app.js
   modules: {
     // This configures the apostrophe-users module to add an admin-level
     // group by default
@@ -30,6 +31,8 @@ In the getting started tutorials, we saw this in `app.js`:
     }
   }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 This is Apostrophe's "simplified permissions model." Rather than asking the end user who owns the site to manage groups of people and grant permissions to them, we configure two groups as "standard equipment" for this site, and a simple dropdown menu appears in the settings for each user. Everyone is either a "guest" or an "admin."
 
@@ -43,6 +46,8 @@ For a surprising number of projects this is all you need.
 
 When things get a little more complicated, you'll want to add an `editor` group that has the `edit` permission:
 
+{% code-tabs %}
+{% code-tabs-item title="app.js" %}
 ```javascript
       groups: [
         {
@@ -59,6 +64,8 @@ When things get a little more complicated, you'll want to add an `editor` group 
         }
       ]
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 Now members of the editor group are allowed to:
 
@@ -76,10 +83,13 @@ However, since groups in the dropdown menu are mutually exclusive, we need a mor
 
 Here's how we do it: just remove the `groups` property!
 
+{% code-tabs %}
+{% code-tabs-item title="app.js" %}
 ```javascript
-// in app.js
 `apostrophe-users': {}
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 *Well, that was easy.*
 
@@ -91,7 +101,7 @@ Now we can create groups, just like any other kind of piece (although we must be
 
 You don't have to use the `groups` option of `apostrophe-users` at all, not even when you first create your site. If you choose not to use that option, you can "bootstrap" your first group with this command:
 
-```
+```bash
 node app apostrophe-groups:add admin admin
 ```
 

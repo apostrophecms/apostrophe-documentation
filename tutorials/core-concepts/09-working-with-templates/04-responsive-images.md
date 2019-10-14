@@ -13,7 +13,9 @@ The `srcset` attribute was introduced to give developers a way to declaratively 
 
 Apostrophe lets use make use of this browser feature through the `apos.images.srcset` template helper. In the following example, we'll write a simple custom widget that renders an image with both a `srcset` and a `sizes` attribute.
 
-> This example assumes that you know how to load and work with custom widgets. If you're unsure about that, please refer to the [custom widgets tutorial](../getting-started/custom-widgets.md).
+{% hint style='info' %}
+This example assumes that you know how to load and work with custom widgets. If you're unsure about that, please refer to the [custom widgets tutorial](../getting-started/custom-widgets.md).
+{% endhint %}
 
 With this example widget, it's up to the developer to specify the `sizesAttr` option (which is what we use for the `sizes` attribute on the image). So when you load the widget into an area or singleton, follow this example:
 
@@ -29,9 +31,9 @@ With this example widget, it's up to the developer to specify the `sizesAttr` op
 
 Now for the actual widget code:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/image-widgets/index.js" %}
 ```javascript
-// lib/modules/image-widgets/index.js
-
 module.exports = {
   extend: 'apostrophe-widgets',
   label: 'Image',
@@ -54,12 +56,17 @@ module.exports = {
   ]
 };
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/image-widgets/views/widget.html" %}
 ```markup
-<!-- lib/modules/image-widgets/views/widget.html -->
-
 <img src="{{ apos.attachments.url(data.widget._image.attachment, { size: data.options.size or 'full' }) }}" srcset="{{ apos.images.srcset(data.widget._image.attachment) }}" sizes="{{ data.options.sizesAttr or '100vw' }}" alt="{{ data.widget._image.description or data.widget._image.title }}">
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
 
 ## Responsive images can meet mobile design needs
 
@@ -90,7 +97,9 @@ Rather than scaling all of the images to have the same height while displaying a
 </div>
 ```
 
-> Normally, Apostrophe ensures that all images in a single widget, i.e. a single slideshow, are displayed at the same height and allows their widths to vary. This is done to prevent the rest of the page from "jumping" every time the slideshow advances to a slide with a different aspect ratio. This is great until what we really want is responsive CSS cropping. The `noHeight` option disables this behavior, making us responsible for achieving a consistent height via our CSS.
+{% hint style='info' %}
+Normally, Apostrophe ensures that all images in a single widget, i.e. a single slideshow, are displayed at the same height and allows their widths to vary. This is done to prevent the rest of the page from "jumping" every time the slideshow advances to a slide with a different aspect ratio. This is great until what we really want is responsive CSS cropping. The `noHeight` option disables this behavior, making us responsible for achieving a consistent height via our CSS.
+{% endhint %}
 
 ## Everything was great until the boss lost his head
 
@@ -120,7 +129,9 @@ Users will now see an "eyeball" icon in the list of images they have selected fo
 
 The focal point, which is stored as a percentage on the X and Y axes, is output as a `background-position` CSS property. Note that this only makes a difference in practice if `background-size: contain` is not in effect and the `noHeight` option has been passed to the widget.
 
-> If you have overridden `widget.html` for the `apostrophe-images` widget, take a look at the latest version of `widgetBase.html` to see how this can be applied in your override.
+{% hint style='info' %}
+If you have overridden `widget.html` for the `apostrophe-images` widget, take a look at the latest version of `widgetBase.html` to see how this can be applied in your override.
+{% endhint %}
 
 ## Other ways to use the focal point data
 

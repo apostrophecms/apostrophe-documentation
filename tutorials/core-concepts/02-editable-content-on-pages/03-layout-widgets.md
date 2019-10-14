@@ -13,50 +13,55 @@ You want a widget that creates a layout of inner widgets.
 
 Generally, you need a dedicated widget to create layout. The Apostrophe team sometimes refers to these as ‘layout widgets’ that give form and structure to ‘content widgets’ \(widgets whose sole job is to display content\). **In this example we'll make a simple two column layout.**
 
-We'll use the [`apostrophe-cli`](https://github.com/punkave/apostrophe-cli) to quickly build a widget.
+1. Use the [`apostrophe-cli`](https://github.com/punkave/apostrophe-cli) to quickly build a widget.
 
 ```bash
 apostrophe create-widget two-column
 ```
 
-We'll include the layout widget in our `app.js` by adding the following to the `modules` object:
+2. Include the layout widget in our `app.js` by adding the following to the `modules` object:
 
-```javascript
-  modules: {
-    // ...,
-    'two-column-widgets': {}
-  }
-```
+    ```javascript
+      modules: {
+        // ...,
+        'two-column-widgets': {}
+      }
+    ```
 
-Now we'll define what can be in a `two-column` widget by defining it in `lib/modules/two-column-widgets/index.js`:
+3. Define what can be in a `two-column` widget by defining it in `lib/modules/two-column-widgets/index.js`:
 
-```javascript
-module.exports = {
-  extend: 'apostrophe-widgets',
-  label: 'Two Column Layout',
-  contextualOnly: true,
-  addFields: [
-    {
-      name: 'areaLeft',
-      type: 'area',
-      label: 'Left Area',
-    },
-    {
-      name: 'areaRight',
-      type: 'area',
-      label: 'Right Area',
-    }
-  ]
-};
-```
+
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/two-column-widgets/index.js" %}
+    ```javascript
+    module.exports = {
+      extend: 'apostrophe-widgets',
+      label: 'Two Column Layout',
+      contextualOnly: true,
+      addFields: [
+        {
+          name: 'areaLeft',
+          type: 'area',
+          label: 'Left Area',
+        },
+        {
+          name: 'areaRight',
+          type: 'area',
+          label: 'Right Area',
+        }
+      ]
+    };
+    ```
+{% endcode-tabs-item %}
+{% endcode-tabs 
 
 ### Conveniences for layout widgets \(contextualOnly and skipInitialModal\)
 
-> **contextualOnly: true** If your widget contains _only_ other areas and singletons that you want to edit contextually on the page then you don't need the typical manager modal UI popping up when you create the widget. Nor do you need an Edit button UI to edit non-existing configuration. `contextualOnly` will shortcut these and instantly plop your empty widget on the page.
+**contextualOnly: true** If your widget contains _only_ other areas and singletons that you want to edit contextually on the page then you don't need the typical manager modal UI popping up when you create the widget. Nor do you need an Edit button UI to edit non-existing configuration. `contextualOnly` will shortcut these and instantly plop your empty widget on the page.
 
 ![](../../.gitbook/assets/ezgif.com-video-to-gif-1.gif)
 
-> **skipInitialModal: true** An alternative to `contextualOnly`, `skipInitialModal` lets you skip the widget manager modal when the widget is created \(like `contextualOnly`\) but preserves the Edit UI for later use. This is useful for widgets that have secondary configuration, like setting a background color.
+**skipInitialModal: true** An alternative to `contextualOnly`, `skipInitialModal` lets you skip the widget manager modal when the widget is created \(like `contextualOnly`\) but preserves the Edit UI for later use. This is useful for widgets that have secondary configuration, like setting a background color.
 
 ## Putting it in the page
 
@@ -64,24 +69,31 @@ Now, like any other widget, you need to have a `widget.html` template. In this c
 
 In `lib/modules/two-column-widgets/views/widget.html`
 
-```markup
-<div class="two-column">
-    <div class="column-left">
-        {{ apos.area(data.widget, 'areaLeft', {
-            widgets: {
-                'apostrophe-images': {}
-            }
-        }) }}
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/two-column-widgets/views/widget.html" %}
+   ```markup
+    <div class="two-column">
+        <div class="column-left">
+            {{ apos.area(data.widget, 'areaLeft', {
+                widgets: {
+                    'apostrophe-images': {}
+                }
+            }) }}
+        </div>
+        <div class="column-right">
+            {{ apos.area(data.widget, 'areaRight', {
+                widgets: {
+                    'apostrophe-images': {}
+                }
+            }) }}
+        </div>
     </div>
-    <div class="column-right">
-        {{ apos.area(data.widget, 'areaRight', {
-            widgets: {
-                'apostrophe-images': {}
-            }
-        }) }}
-    </div>
-</div>
-```
+    ```
+{% endcode-tabs-item %}
+{% endcode-tabs 
 
-> "Why are the two columns stacked on top of each other?" You need to write your own CSS to position the `column-left` and `column-right` divs. However, you can find a [complete, working example with CSS here in the apostrophe-samples project](https://github.com/apostrophecms/apostrophe-samples).
+{% hint style='info' %}
+"Why are the two columns stacked on top of each other?" You need to write your own CSS to position the `column-left` and `column-right` divs. However, you can find a [complete, working example with CSS here in the apostrophe-samples project](https://github.com/apostrophecms/apostrophe-samples).
+{% endhint %}
+
 

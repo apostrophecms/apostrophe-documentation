@@ -92,7 +92,7 @@ modules: {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-Now we can easily output all the markup we'd need for dropdown menus. Add this code to `home.html`:
+Now you can easily output all the markup you'd need for dropdown menus. Add this code to `home.html`:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/apostrophe-pages/views/home.html" %}

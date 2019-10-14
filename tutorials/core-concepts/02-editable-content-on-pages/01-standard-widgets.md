@@ -9,7 +9,7 @@ Apostrophe comes with a number of widgets built in to help you build out content
 
 ## Widget Types
 
-Apostrophe offers a range of widgets, and you can easily create your own. Here are some of the most popular widgets. Later on we'll also talk about "pieces" and how they allow you to create and reuse the same content around the site via pages and widgets.
+Apostrophe offers a range of widgets, and you can easily create your own. Here are some of the most popular widgets. Later on you'll also talk about "pieces" and how they allow you to create and reuse the same content around the site via pages and widgets.
 
 
 ### `'apostrophe-rich-text'`
@@ -77,7 +77,7 @@ Here is an example with the popular options:
 
 If you don't specify a size, the `full` size is displayed.
 
-We'll talk about adding custom image sizes in [`apostrophe-attachments`](../../modules/apostrophe-attachments/README.md#addimagesizes) in a later tutorial.
+You'll talk about adding custom image sizes in [`apostrophe-attachments`](../../modules/apostrophe-attachments/README.md#addimagesizes) in a later tutorial.
 
 ### `apostrophe-files`
 

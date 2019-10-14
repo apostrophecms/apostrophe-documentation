@@ -9,8 +9,9 @@ Apostrophe includes a "password reset" feature for your users. This feature foll
 
 For security reasons, and because most sites don't have the [apostrophe-email](email.md) module configured yet, this option must be turned on for your site:
 
+{% code-tabs %}
+{% code-tabs-item title="app.js" %}
 ```javascript
-// in app.js
 modules: {
   'apostrophe-email': {
     // See the nodemailer documentation, many
@@ -33,6 +34,8 @@ modules: {
   }
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 Once you enable the feature, the user will automatically see a "Reset My Password" link at the bottom of the login form at `/login`. If you don't see that link, make sure you haven't previously overridden our `loginBase.html` template.
 
@@ -46,9 +49,9 @@ You can implement a `loginAfterLogin` method in any module. This method takes `r
 
 Setting req.redirect will cause Apostrophe to redirect the user to that location.
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/my-module/index.js" %}
 ```javascript
-// lib/modules/my-module/index.js
-
 module.exports = {
   construct: function(self, options) {
     self.loginAfterLogin = function(req) {
@@ -61,6 +64,8 @@ module.exports = {
   }
 };
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 *Don't forget to enable your module in `app.js`.*
 
@@ -68,10 +73,7 @@ If you do not set `req.redirect`, the user is redirected to the home page.
 
 For a complete example, check out the [apostrophe-second-chance-login](https://npmjs.org/package/apostrophe-second-chance-login) module, which turns 404's into an opportunity to log in, if a page exists that the user might have the privilege of seeing after logging in.
 
----
-title: What to do when you are locked out of Apostrophe
-layout: tutorial
----
+## What to do when you are locked out of Apostrophe
 
 Apostrophe is a user-friendly system. But every now and then, you may find a way to "lock yourself out" of Apostrophe. Chicken and egg problems can be frustrating, but don't worry! Here's how to resolve these situations.
 
@@ -89,7 +91,7 @@ Maybe you accidentally moved it to the trash, maybe another admin user did. Oops
 
 If you are the developer of the site, or you are in communication with them, you can create a new admin account at the command line:
 
-```
+``` bash
 node app apostrophe-users:add admin admin
 ```
 
@@ -97,19 +99,21 @@ The first argument is the username, the second argument is the group name.
 
 **If you get a duplicate key error,** an admin user may still exist after all. Running this command will prompt you for a new password for the `admin` user:
 
-```
+``` bash
 node app apostrophe-users:change-password admin
 ```
 
 **If you get an error saying there is no `admin` group,** it is possible that you do not have a group by that name. Maybe the group was moved to the trash too. You can create a new `admin` group:
 
-```
+``` bash
 node app apostrophe-groups:add admin admin
 ```
 
 The first argument is the group name, the second is the permission we wish to give the group. The `admin` permission grants full access to everything.
 
-> If you're reading this and you do not have access to the command line or recognize it, make sure no one else you work with has access to a working admin account first. Then reach out to the developer responsible for your site.
+{% hint style='info' %}
+If you're reading this and you do not have access to the command line or recognize it, make sure no one else you work with has access to a working admin account first. Then reach out to the developer responsible for your site.
+{% endhint %}
 
 ### 3. You pasted a bad embed code into an HTML widget
 
@@ -119,13 +123,13 @@ Fortunately, Apostrophe has a built-in workaround to disable raw HTML widgets on
 
 If you are currently looking at this URL (just an example):
 
-```
+```url 
 https://www.example.com/
 ```
 
 And the editing interface does not respond, try this URL:
 
-```
+```url
 https://www.example.com/?safemode=1
 ```
 
@@ -133,9 +137,11 @@ Once you gain editing access, look for the HTML widget on the page. It will be e
 
 If you did paste it correctly, it is most likely incompatible with Apostrophe. Click the icon to delete the widget, or edit it and erase the markup it contains. Then find a better embed code, or work with the provider of the embed code to fix its "antisocial" characteristics.
 
-> The following are common problems that embed code developers need to be aware of:
-> 
-> 1. Do not use `document.write` in an embed code. This will break any website that loads your markup "on the fly" after the page is first rendered.
-> 
-> 2. Do not install `jQuery` globally (do not overwrite `window.$`). Similarly, do not overwrite `lodash` (`window._`). It is easy to wrap your JavaScript in a closure in which it can still see a convenient `$` variable without breaking other versions of these libraries.
+{% hint style='info' %}
+The following are common problems that embed code developers need to be aware of:
+ 
+1. Do not use `document.write` in an embed code. This will break any website that loads your markup "on the fly" after the page is first rendered.
+ 
+2. Do not install `jQuery` globally (do not overwrite `window.$`). Similarly, do not overwrite `lodash` (`window._`). It is easy to wrap your JavaScript in a closure in which it can still see a convenient `$` variable without breaking other versions of these libraries.
+{% endhint %}
 
