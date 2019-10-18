@@ -58,7 +58,7 @@
   * [Building combined menus and custom buttons with the admin bar](tutorials/howtos/admin-bar.md)
 * [How Apostrophe handles requests](tutorials/advanced-development/how-apostrophe-handles-requests.md)
 * [How Apostrophe modules are structured](tutorials/advanced-development/how-apostrophe-modules-are-structured.md)
-* [Promise Events](tutorials/advanced-development/03-promise-events/promise-events.md)
+* [Custom Server-side Event Handlers with Promise Events](tutorials/advanced-development/03-promise-events/promise-events.md)
 * [Command line tasks](tutorials/advanced-development/04-apostrophe-cli/command-line-tasks.md)
 * [Internationalization and localization](tutorials/advanced-development/05-internationalization-localization/apostrophe-i18n-config.md)
 * [The Database](tutorials/advanced-development/06-database/README.md)

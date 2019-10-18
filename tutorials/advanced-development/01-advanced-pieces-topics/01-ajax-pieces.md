@@ -5,7 +5,7 @@ layout: tutorial
 
 # AJAX Features: Enhanced Browsing for Pieces
 
-Asynchronous JavaScript and XML, commonly known as [AJAX](https://api.jquery.com/jquery.ajax/), provides techniques for more dynamic and responsive websites. You can use AJAX with Pieces to refresh and display content without fully refreshing the page. To demonstrate this, we'll work off of the `people-pages` example from the [Reusable Content with Pieces](../../core-concepts/03-reusable-content-pieces/README.md) section, but you should be able to easily adapt this example to your own project.
+Asynchronous JavaScript and XML, commonly known as [AJAX](https://api.jquery.com/jquery.ajax/), provides techniques for more dynamic and responsive websites. You can use AJAX with Pieces to refresh and display content without fully refreshing the page. To demonstrate this, we'll work off of the `people-pages` example from the [Reusable Content with Pieces](../../core-concepts/03-reusable-content-pieces/reusable-content-with-pieces.md) which uses `piece-pages` to create a user directory, but you should be able to easily adapt this example to your own project.
 
 ## Filtering without reloading the page: using AJAX to enhance filters
 
@@ -48,7 +48,7 @@ Next, refactor your `index.html` template so that the actual list of people and 
 {% endcode-tabs %}
 
 
-That's it! Really. And it automatically works with the filters that we saw earlier.
+That's it! Really. And it automatically works with the filters from the [Connecting Piece Types example](../../core-concepts/03-reusable-content-pieces/children-and-joins.md).
 
 **Tip:** you want to include your filter links and forms in `indexAjax.html` so that they too can be refreshed automatically, narrowing down the choices based on the other filters already in use. Any input elements or textareas that currently have the focus will not be refreshed, so if you are using form elements, you can even implement typeahead by triggering a submit of the form via JavaScript as the user types. (Keep in mind the accessibility consequences.)
 

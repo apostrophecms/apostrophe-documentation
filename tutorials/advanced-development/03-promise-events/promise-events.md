@@ -1,9 +1,9 @@
 ---
-title: Apostrophe Events
+title: Apostrophe Events Handlers
 layout: reference
 ---
 
-# Promise Events
+# Apostrophe Event Handlers
 
 ## Apostrophe Promise Events: responding to events on the server side
 
