@@ -30,6 +30,7 @@
   * [Hosting Apostrophe in production](tutorials/intermediate/deployment.md)
 * HOWTOs
   * [How do I create a '404 not found' page?](tutorials/howtos/notFoundPage.md)
+  * [How do I add an intranet to my site?](tutorials/howtos/intranet.md)
   * [Sending email from your Apostrophe project](tutorials/howtos/email.md)
   * [Accessing images inside related pages](tutorials/howtos/thumbnails-and-areas-of-child-pages.md)
   * [Activating the "password reset" feature of Apostrophe](tutorials/howtos/password-reset.md)
