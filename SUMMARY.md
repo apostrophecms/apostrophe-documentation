@@ -55,7 +55,7 @@
   * [Extending the Pieces Editor Modal](tutorials/advanced-development/01-advanced-pieces-topics/extending-the-pieces-editor-modal.md)
 * [Advanced Pages Topics](tutorials/advanced-development/02-advanced-pages-topics/README.md)
   * [Custom Schemas for Pages](tutorials/advanced-development/02-advanced-pages-topics/custom-schema-fields-for-pages.md)
-  * [Building combined menus and custom buttons with the admin bar](tutorials/howtos/admin-bar.md)
+  * [Building combined menus and custom buttons with the admin bar](tutorials/02-advanced-pages-topics/admin-bar.md)
 * [How Apostrophe Handles Requests](tutorials/advanced-development/how-apostrophe-handles-requests.md)
 * [How Apostrophe Starts Up](tutorials/advanced-development/how-apostrophe-starts-up.md)
 * [Custom Server-side Event Handlers with Promise Events](tutorials/advanced-development/03-promise-events/README.md)
