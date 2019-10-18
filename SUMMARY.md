@@ -71,14 +71,11 @@
 
 ## HOWTOS
 * [Apostrophe HOWTOs](tutorials/howtos/README.md)
-* [How do I create a '404 not found' page?](tutorials/howtos/notFoundPage.md)
+* [How do I create a '404 not found' page?](tutorials/howtos/how-do-i-create-a-404-not-found-page.md)
 * [Configuring CKEditor in Apostrophe](tutorials/howtos/ckeditor.md)
-* [Sending email from your Apostrophe project](tutorials/howtos/email.md)
 * [Facebook open graph tags in Apostrophe](tutorials/howtos/facebook.md)
 * [Sending user notifications](tutorials/howtos/sending-user-notifications.md)
-* [Storing sessions in Redis and other session stores](tutorials/howtos/storing-sessions-in-redis.md)
 * [Logging in via Google, Twitter, Facebook and other sites](tutorials/howtos/google-twitter-and-facebook-login.md)
-* [Redirecting the user after they log in](tutorials/howtos/redirecting-after-login.md)
 
 ## Apostrophe DevOps
 * [Hosting Apostrophe in production](tutorials/intermediate/deployment.md)  
