@@ -5,9 +5,9 @@ layout: tutorial
 
 # The global doc: sharing content across pages
 
-This is nice, but a static copyright notice isn't going to cut it. Your users will want to edit their own global footer.
+In the [previous global settings section](settings.md) you explored different ways of using global content. But what if your users need more control over their footer?
 
-Here's how to let them do that:
+You can use `data.global` to reference the same doc from anywhere on the site. It looks like this:
 
 ```markup
 {% block main %}
