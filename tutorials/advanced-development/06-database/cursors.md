@@ -3,13 +3,13 @@
 Apostrophe uses cursors to fetch docs from the database. An [apostrophe-cursor](../../modules/apostrophe-docs/server-apostrophe-cursor.md) object helps us conveniently fetch docs from
 the `aposDocs` mongodb collection using chainable "filter" methods, quite similar to those MongoDB developers are used to. Apostrophe's cursors work much like MongoDB or Doctrine cursors, but with many filter methods specific to Apostrophe that add a great deal of convenience, including methods for every field in your schema. And it's possible to add your own filters.
 
-So when do we need to work with cursors? **When we are writing custom queries in our own server-side JavaScript code.** If you are simply adding filters to a pieces page based on your schema fields, or adding filters to the "Manage" view of your pieces, **you do not have to write any custom JavaScript at all.** See [reusable content with pieces](../getting-started/reusable-content-with-pieces.md) for more information about how to easily configure the `piecesFilters` option, for example.
+So when do we need to work with cursors? **When we are writing custom queries in our own server-side JavaScript code.** If you are simply adding filters to a pieces page based on your schema fields, or adding filters to the "Manage" view of your pieces, **you do not have to write any custom JavaScript at all.** See [reusable content with pieces](../core-concepts/reusable-content-with-pieces.md) for more information about how to easily configure the `piecesFilters` option, for example.
 
 Still with us? OK, let's talk about programming with cursors.
 
 ## An illustrated example
 
-Let's say we've created a `profiles` module that [extends apostrophe-pieces](../getting-started/reusable-content-with-pieces.md). Its configuration looks like this:
+Let's say we've created a `profiles` module that [extends apostrophe-pieces](../core-concepts/reusable-content-with-pieces.md). Its configuration looks like this:
 
 ```javascript
 {
@@ -32,8 +32,9 @@ Let's say we've created a `profiles` module that [extends apostrophe-pieces](../
 
 Now let's say we want to fetch the ten most recently updated profiles with a `reputation` value greater than 30 and make sure we have access to that information in every page template:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/profiles/index.js" %}
 ```javascript
-// in lib/modules/profiles/index.js, or any module
 module.exports = {
   construct: function(self, options) {
     self.on('apostrophe-pages:beforeSend', 'fetchProfiles', async function(req) {
@@ -51,6 +52,8 @@ module.exports = {
   }
 };
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 > **"What's going on in this code?"** We've written a [promise event handler](../other/events.md) that listens for the `apostrophe-pages:beforeSend` event, which is sent just before Apostrophe renders the page template. We've given it the method name `fetchProfiles`, to distinguish it from other handlers. And we've supplied an `async` function that fetches the profiles.
 >
@@ -123,12 +126,13 @@ addFields: [
 ]
 ```
 
-> See [reusable content with pieces](../getting-started/reusable-content-with-pieces.md) for a more complete discussion of this particular example join.
+> See [reusable content with pieces](../core-concepts/reusable-content-with-pieces.md) for a more complete discussion of this particular example join.
 
 We can already write `._jobs('xyz')` to match people that are joined with that particular job `_id`. But let's say we want an easy way to match only people who are joined with **more than one job** - people who are "busy." Here's a custom filter that can do that:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/profiles/lib/cursor.js" %}
 ```javascript
-// In lib/modules/profiles/lib/cursor.js
 module.exports = {
   construct: function(self, options) {
     self.addFilter('busy', {
@@ -148,6 +152,8 @@ module.exports = {
   }
 };
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 "What's happening in this code?"
 
@@ -177,30 +183,39 @@ For this trick, you'll need to get slightly more comfortable with Apostrophe's u
 
 But it's still pretty easy:
 
+{% code-tabs %}
+{% code-tabs-item title="app.js" %}
 ```javascript
-// in app.js
 modules: {
   'extend-page-cursors': {}
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/extend-page-cursors/index.js" %}
 ```javascript
-// in lib/modules/extend-page-cursors/index.js
 module.exports = {
   construct: function(self, options) {
     self.apos.define('apostrophe-pages-cursor', require('./lib/pagesCursor.js'));
   }
 };
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/extend-page-cursors/lib/pagesCursor.js" %}
 ```javascript
-// in lib/modules/extend-page-cursors/lib/pagesCursor.js'
 module.exports = {
   construct: function(self, options) {
     self.addFilter('yourFilterNameHere', { ... definition ... });
   }
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 What's happening in this code?
 

@@ -27,8 +27,9 @@ Now, when you start the application, you will see files in the `locales` subdire
 
 Any modules you pass to the `apostrophe-i18n` module are automatically passed on to `i18n`.
 
+{% code-tabs %}
+{% code-tabs-item title="app.js" %}
 ```javascript
-//app.js
     ...
     modules:{
         'apostrophe-i18n':{
@@ -36,6 +37,8 @@ Any modules you pass to the `apostrophe-i18n` module are automatically passed on
         }
     }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 Here is a guide to the available options:
 
@@ -67,8 +70,9 @@ Here is a guide to the available options:
 
 ## Simple configuration
 
+{% code-tabs %}
+{% code-tabs-item title="app.js" %}
 ```javascript
-//app.js
     ...
     modules:{
         ...
@@ -82,5 +86,7 @@ Here is a guide to the available options:
     }
     ...
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 There are many more options, which you can read about in the [i18n npm module documentation](https://www.npmjs.com/package/i18n).

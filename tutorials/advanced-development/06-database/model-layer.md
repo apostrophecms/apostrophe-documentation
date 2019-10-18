@@ -5,13 +5,14 @@ layout: tutorial
 
 Apostrophe provides a model layer (database layer) that gives you convenient ways to read and write docs programmatically, taking advantage of the same features that underpin modules like `apostrophe-pieces`. Using these features where possible ensures that permissions are respected, widgets are loaded, joins are fetched, versions are recorded for rollback... so many good things.
 
-That being said, you can also [access the database directly](../intermediate/accessing-the-database-directly.md) and there's a time and place for that too, most frequently when you must use `$set`, `$inc`, `$unset`, `$push`, `$pull` or `$addToSet` and you are confident you've already determined the user should be allowed to do something. See [accessing the database directly](../intermediate/accessing-the-database-directly.md) for more information.
+That being said, you can also [access the database directly](../advanced-development/accessing-the-database-directly.md) and there's a time and place for that too, most frequently when you must use `$set`, `$inc`, `$unset`, `$push`, `$pull` or `$addToSet` and you are confident you've already determined the user should be allowed to do something. See [accessing the database directly](../advanced-development/accessing-the-database-directly.md) for more information.
 
 ## Fetching pieces with Apostrophe
 
 Most of the time, you don't need to work with Apostrophe's collections directly. Modules that subclass `apostrophe-pieces` have a `find()` method which returns an Apostrophe cursor you can use to fetch documents with the benefit of support for Apostrophe's joins and other cursor filters. And permissions are taken into account, so that logged-out users can't see what they shouldn't.
 
 For instance, in a subclass of `apostrophe-pieces` you might write:
+
 
 ```javascript
 return self.find(req, { age: { $gte: 50 }})

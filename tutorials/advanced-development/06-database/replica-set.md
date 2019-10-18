@@ -7,8 +7,9 @@ layout: tutorial
 
 Once you have [created a MongoDB replica set](https://docs.mongodb.com/manual/replication/), you can connect to it by configuring Apostrophe to use the replica set's URI:
 
-```
-// in app.js, configuring your modules
+{% code-tabs %}
+{% code-tabs-item title="app.js" %}
+```javascript
 modules: {
   // Other modules, then...
   'apostrophe-db': {
@@ -16,6 +17,8 @@ modules: {
   }
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 `host1`, `host2` and `host3` are the hosts that make up your replica set. You should substitute the correct hostnames. This is just an example. If necessary you can specify nonstandard ports as well. See the MongoDB URI documentation.
 

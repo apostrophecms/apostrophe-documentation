@@ -37,10 +37,11 @@ Another problem is that we wind up with "Pieces" on the admin bar. If we configu
 
 So instead, we'll write a `beforeConstruct` function in `lib/modules/apostrophe-pieces/index.js`. The great thing about `beforeConstruct` is that it is *called for the subclasses first*. That means that by the time it is called for us, *all the fields for the subclass are already in `addFields`*. We can simply prepend our own:
 
+
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/apostrophe-pieces/index.js" %}
 ```javascript
 // THIS WILL WORK!
-
-// lib/modules/apostrophe-pieces/index.js in your project
 
 module.exports = {
 
@@ -55,6 +56,8 @@ module.exports = {
   }
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 ### Making exceptions
 

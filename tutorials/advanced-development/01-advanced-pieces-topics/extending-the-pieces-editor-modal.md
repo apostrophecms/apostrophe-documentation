@@ -9,9 +9,9 @@ Let's look at adding a custom button for use when editing a particular subclass 
 
 For starters, you'll want to override `editorModal.html` for your module.
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/mymodulename/views/editorModal.html" %}
 ```markup
-{# in lib/modules/mymodulename/views/editorModal.html #}
-
 {% extends "editorBase.html" %}
 {% import 'apostrophe-ui:components/buttons.html' as buttons with context %}
 
@@ -22,6 +22,8 @@ For starters, you'll want to override `editorModal.html` for your module.
   {{ buttons.major('My Label', { action: 'mything' }) }}
 {%- endblock -%}
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 *You will want to do exactly the same thing for `createModal.html` if your button also makes sense when creating new pieces.*
 
@@ -33,9 +35,9 @@ You can extend this by creating your own `editor-modal.js` file in your own modu
 
 To extend beforeShow at project level you'll want to follow the "super pattern":
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/mymodule/public/js/editor-modal.js" %}
 ```javascript
-// lib/modules/mymodule/public/js/editor-modal.js
-
 apos.define('mymodule-editor-modal', {
   extend: 'apostrophe-pieces-editor-modal',
   construct: function(self, options) {
@@ -50,6 +52,8 @@ apos.define('mymodule-editor-modal', {
   }
 });
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 If you want to talk to an API route provided by the same module you can call:
 
@@ -63,9 +67,9 @@ self.api will invoke the URL `/modules/modulename/apiname` as a POST and submit 
 
 On the server side, you'll need to extend your module to implement the API:
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/mymodulename/index.js" %}
 ```javascript
-// In lib/modules/mymodulename/index.js
-
 module.exports = {
   construct: function(self, options) {
     self.route('apiname', function(req, res) {
@@ -78,5 +82,7 @@ module.exports = {
   }
 };
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 Calling `self.route('apiname'...)` is similar to calling `self.apos.app.post('/modules/mymodulename/apiname', ...)`, but it's a lot less work, and you can call again with the same apiname to override it, which you can't do with `app.post`.

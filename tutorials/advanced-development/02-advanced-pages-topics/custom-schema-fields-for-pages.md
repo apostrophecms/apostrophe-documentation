@@ -2,7 +2,7 @@
 
 # Custom schema fields for pages
 
-If you've read [reusable content with pieces](../../core-concepts/02-reusable-content-with-pieces/README.md), then you know about [apostrophe schemas](../getting-started/schema-guide.md). You have already experienced the flexibility of adding new fields to your own piece types. But what about pages?
+If you've read [reusable content with pieces](../../core-concepts/02-reusable-content-with-pieces/README.md), then you know about [apostrophe schemas](../schema-guide/schema-guide.md). You have already experienced the flexibility of adding new fields to your own piece types. But what about pages?
 
 Here's the good news: you can do the same trick with pages. The right way to do it depends on whether you want to enhance *just one* page type with extra fields in "Page Settings," or add those fields to *all* page types.
 
@@ -12,8 +12,9 @@ Let's say our site has a `gallery` page type. We want to add a `vendor` field to
 
 Here's how we do that:
 
+{% code-tabs %}
+{% code-tabs-item title="app.js" %}
 ```javascript
-// in app.js
 modules: {
   'gallery-pages': {
     extend: 'apostrophe-custom-pages',
@@ -30,6 +31,8 @@ modules: {
   }
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 > The field becomes available in `Page Settings`. If you don't spot it right away, look in the `Info` tab.
 
@@ -55,8 +58,9 @@ For this maneuver, we'll need to extend the `apostrophe-custom-pages` module its
 
 To do that, just create `lib/modules/apostrophe-custom-pages/index.js` at project level (do NOT modify `node_modules/apostrophe`):
 
+{% code-tabs %}
+{% code-tabs-item title="lib/modules/apostrophe-custom-pages/index.js" %}
 ```javascript
-// in lib/modules/apostrophe-custom-pages/index.js
 module.exports = {
   beforeConstruct: function(self, options) {
     options.addFields = [
@@ -69,6 +73,8 @@ module.exports = {
   }
 };
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 > You should **not** declare `apostrophe-custom-pages` in `app.js`. That would attempt to make an instance of it, and it is just a "virtual base class" for real page types, something they can extend to get the features they need.
 
