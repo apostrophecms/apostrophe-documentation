@@ -16,7 +16,7 @@
   * [Standard widgets](tutorials/core-concepts/02-editable-content-on-pages/standard-widgets.md)
   * [Custom widgets](tutorials/core-concepts/02-editable-content-on-pages/custom-widgets.md)
   * [Layout / Nested widgets](tutorials/core-concepts/02-editable-content-on-pages/layout-widgets.md)
-* [Reusable content with pieces](tutorials/core-concepts/03-reusable-content-with-pieces/README.md)  
+* [Reusable content with pieces](tutorials/core-concepts/03-reusable-content-pieces/README.md)  
   * [Reusable content with pieces](tutorials/core-concepts/03-reusable-content-pieces/reusable-content-with-pieces.md)
   * [Displaying Pieces With Widgets](tutorials/core-concepts/03-reusable-content-pieces/displaying-pieces-with-widgets.md)
   * [Browsing a Directory of Pieces](tutorials/core-concepts/03-reusable-content-pieces/browsing-directory-of-pieces.md)
@@ -55,6 +55,7 @@
   * [Extending the Pieces Editor Modal](tutorials/advanced-development/01-advanced-pieces-topics/09-extending-the-pieces-editor-modal.md)
 * [Advanced Pages Topics](tutorials/advanced-development/02-advanced-pages-topics/README.md)
   * [Custom Schemas for Pages](tutorials/advanced-development/02-advanced-pages-topics/customer-schemas-for-pages.md)
+  * [Building combined menus and custom buttons with the admin bar](tutorials/howtos/admin-bar.md)
 * [How Apostrophe handles requests](tutorials/advanced-development/how-apostrophe-handles-requests.md)
 * [How Apostrophe modules are structured](tutorials/advanced-development/how-apostrophe-modules-are-structured.md)
 * [Promise Events](tutorials/advanced-development/03-promise-events/promise-events.md)
@@ -65,16 +66,21 @@
   * [Working with cursors](tutorials/advanced-development/06-database/02-cursors.md)
   * [Accessing the database directly](tutorials/advanced-development/06-database/03-accessing-the-database-directly.md)
   * [Using MongoDB replica sets with Apostrophe](tutorials/advanced-development/04-database/replica-set.md)
-* [Guide to schemas](tutorials/advanced-development/07-schemas/schema-guide/README.md)
-  * [Custom schema fields for pages](tutorials/schema-guide/schema-guide.md)
+* [Schemas](tutorials/schema-guide/README.md)
   * [Custom schema field types](tutorials/schema-guide/custom-schema-field-types.md)
+  * [Guide to schemas](tutorials/schema-guide/schema-guide/README.md)
 
 ## HOWTOS
 * [How do I create a '404 not found' page?](tutorials/howtos/notFoundPage.md)
 * [Configuring CKEditor in Apostrophe](tutorials/howtos/ckeditor.md)
-* [Building combined menus and custom buttons with the admin bar](tutorials/howtos/admin-bar.md)
+* [Sending email from your Apostrophe project](tutorials/howtos/email.md)
+* [Facebook open graph tags in Apostrophe](tutorials/howtos/facebook.md)
+* [Sending user notifications](tutorials/howtos/sending-user-notifications.md)
+* [Storing sessions in Redis and other session stores](tutorials/howtos/storing-sessions-in-redis.md)
+* [Logging in via Google, Twitter, Facebook and other sites](tutorials/howtos/google-twitter-and-facebook-login.md)
+* [Redirecting the user after they log in](tutorials/howtos/redirecting-after-login.md)
 
-## Apostrophe DevOps: Deployment
+## Apostrophe DevOps
 * [Hosting Apostrophe in production](tutorials/intermediate/deployment.md)  
 * [Deploying Apostrophe to a Linode linux server quickly](tutorials/howtos/linode.md)
 * [Deploying Apostrophe in the Cloud with Heroku](tutorials/howtos/deploying-apostrophe-in-the-cloud-with-heroku.md)
@@ -85,16 +91,6 @@
 * [Storing images and files in Amazon S3](tutorials/howtos/storing-images-and-files-in-amazon-s3.md)
 * [Storing images and files in Azure Blob Storage](tutorials/howtos/storing-images-and-files-in-azure-blob-storage.md)
 * [Storing images and files in Google Cloud Storage](tutorials/howtos/storing-images-and-files-in-google-cloud-storage.md)
-
-
-## Apostrophe Configuration and Administration
-
-* [Sending email from your Apostrophe project](tutorials/howtos/email.md)
-* [Facebook open graph tags in Apostrophe](tutorials/howtos/facebook.md)
-* [Sending user notifications](tutorials/howtos/sending-user-notifications.md)
-* [Storing sessions in Redis and other session stores](tutorials/howtos/storing-sessions-in-redis.md)
-* [Logging in via Google, Twitter, Facebook and other sites](tutorials/howtos/google-twitter-and-facebook-login.md)
-* [Redirecting the user after they log in](tutorials/howtos/redirecting-after-login.md)
 
 * Apostrophe Migration Guide
  * [Migrating from Apostrophe 1.5](tutorials/howtos/migration.md)
