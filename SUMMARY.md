@@ -68,6 +68,23 @@
   * [Using MongoDB replica sets with Apostrophe](tutorials/advanced-development/04-database/replica-set.md)
 * [Schema Guide](tutorials/schema-guide/schema-guide.md)
 
+## Apostrophe DevOps
+* [Hosting Apostrophe in production](tutorials/devops/deployment.md)  
+* [Deploying Apostrophe to a Linode linux server quickly](tutorials/devops/linode.md)
+* [Deploying Apostrophe in the Cloud with Heroku](tutorials/devops/deploying-apostrophe-in-the-cloud-with-heroku.md)
+* [Deploying Apostrophe with AWS and Elastic Beanstalk](tutorials/devops/deploying-apostrophe-in-the-cloud-with-aws.md)
+* [Running Apostrophe on multiple cores and/or servers](tutorials/devops/multicore.md)
+* [Running Apostrophe on Windows](tutorials/devops/windows.md)
+* [Building Docker images for Apostrophe projects](tutorials/devops/docker.md)
+* [Storing images and files in Amazon S3](tutorials/devops/storing-images-and-files-in-amazon-s3.md)
+* [Storing images and files in Azure Blob Storage](tutorials/devops/storing-images-and-files-in-azure-blob-storage.md)
+* [Storing images and files in Google Cloud Storage](tutorials/devops/storing-images-and-files-in-google-cloud-storage.md)
+
+* Apostrophe Migration Guide
+ * [Migrating from Apostrophe 1.5](tutorials/devops/migration.md)
+ * [Migrating from Apostrophe 0.5](tutorials/devopcs/migration.md)
+ * [Migrating from Wordpress](tutorials/devops/migration.md)
+
 
 ## HOWTOS
 * [Apostrophe HOWTOs](tutorials/howtos/README.md)
@@ -76,23 +93,6 @@
 * [Facebook open graph tags in Apostrophe](tutorials/howtos/facebook.md)
 * [Sending user notifications](tutorials/howtos/sending-user-notifications.md)
 * [Logging in via Google, Twitter, Facebook and other sites](tutorials/howtos/google-twitter-and-facebook-login.md)
-
-## Apostrophe DevOps
-* [Hosting Apostrophe in production](tutorials/intermediate/deployment.md)  
-* [Deploying Apostrophe to a Linode linux server quickly](tutorials/howtos/linode.md)
-* [Deploying Apostrophe in the Cloud with Heroku](tutorials/howtos/deploying-apostrophe-in-the-cloud-with-heroku.md)
-* [Deploying Apostrophe with AWS and Elastic Beanstalk](tutorials/howtos/deploying-apostrophe-in-the-cloud-with-aws.md)
-* [Running Apostrophe on multiple cores and/or servers](tutorials/howtos/multicore.md)
-* [Running Apostrophe on Windows](tutorials/howtos/windows.md)
-* [Building Docker images for Apostrophe projects](tutorials/howtos/docker.md)
-* [Storing images and files in Amazon S3](tutorials/howtos/storing-images-and-files-in-amazon-s3.md)
-* [Storing images and files in Azure Blob Storage](tutorials/howtos/storing-images-and-files-in-azure-blob-storage.md)
-* [Storing images and files in Google Cloud Storage](tutorials/howtos/storing-images-and-files-in-google-cloud-storage.md)
-
-* Apostrophe Migration Guide
- * [Migrating from Apostrophe 1.5](tutorials/howtos/migration.md)
- * [Migrating from Apostrophe 0.5](tutorials/howtos/migration.md)
- * [Migrating from Wordpress](tutorials/howtos/migration.md)
 
 ## Other
 
