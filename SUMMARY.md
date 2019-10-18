@@ -81,11 +81,7 @@
 * [Running Apostrophe on multiple cores and/or servers](tutorials/devops/multicore.md)
 * [Running Apostrophe on Windows](tutorials/devops/windows.md)
 * [Building Docker images for Apostrophe projects](tutorials/devops/docker.md)
-* Apostrophe Migration Guide
- * [Migrating from Apostrophe 1.5](tutorials/devops/migration.md)
- * [Migrating from Apostrophe 0.5](tutorials/devopcs/migration.md)
- * [Migrating from Wordpress](tutorials/devops/migration.md)
-
+* [Apostrophe Migration Guide](tutorials/devops/migration.md)
 
 ## HOWTOS
 * [Apostrophe HOWTOs](tutorials/howtos/README.md)
@@ -98,7 +94,6 @@
 ## Other
 
 * [Glossary](other/glossary.md)
-* [More on Modules](other/more-modules.md)
 * [Core Browser](other/core-browser.md)
 * [Core Server](other/core-server.md)
 
