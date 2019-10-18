@@ -49,7 +49,7 @@ You may use the "copy these permissions to subpages now" option to copy that set
 
 By default, users who attempt to visit `/intranet` without logging in first will see a "404 Not Found" error. This is a security feature. ApostropheCMS *shares as little information as possible about things users are not supposed to know about.* Some would consider revealing the existence of the Intranet to be a security issue.
 
-However, you can loosen this rule if you want to. Just install and configure the [second chance login module](redirecting-after-login.md). When you do that, ApostropheCMS will offer a login prompt to the user when they try to access a locked-down page without logging in. After logging in, they will immediately see the page they wanted. If the user still does not have the right permissions after logging in, then they will see the "Page Not Found" message.
+However, you can loosen this rule if you want to. Just install and configure the [second chance login module](https://www.npmjs.com/package/apostrophe-second-chance-login). When you do that, ApostropheCMS will offer a login prompt to the user when they try to access a locked-down page without logging in. After logging in, they will immediately see the page they wanted. If the user still does not have the right permissions after logging in, then they will see the "Page Not Found" message.
 
 ## How can we suppress the admin bar for "guest" users?
 
