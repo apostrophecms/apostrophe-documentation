@@ -69,18 +69,18 @@
 * [Schema Guide](tutorials/schema-guide/schema-guide.md)
 
 ## Apostrophe DevOps
-* [Hosting Apostrophe in production](tutorials/devops/deployment.md)  
-* [Deploying Apostrophe to a Linode linux server quickly](tutorials/devops/linode.md)
-* [Deploying Apostrophe in the Cloud with Heroku](tutorials/devops/deploying-apostrophe-in-the-cloud-with-heroku.md)
-* [Deploying Apostrophe with AWS and Elastic Beanstalk](tutorials/devops/deploying-apostrophe-in-the-cloud-with-aws.md)
-* [Running Apostrophe on multiple cores and/or servers](tutorials/devops/multicore.md)
-* [Running Apostrophe on Windows](tutorials/devops/windows.md)
-* [Building Docker images for Apostrophe projects](tutorials/devops/docker.md)
+* [Hosting Apostrophe in production](tutorials/devops/deployment/deployment/.md)  
+  * [Hosting Apostrophe in production](tutorials/devops/deployment/deployment.md)  
+  * [Deploying Apostrophe to a Linode linux server quickly](tutorials/devops/deployment/linode.md)
+  * [Deploying Apostrophe in the Cloud with Heroku](tutorials/devops/deployment/deploying-apostrophe-in-the-cloud-with-heroku.md)
+  * [Deploying Apostrophe with AWS and Elastic Beanstalk](tutorials/devops/deployment/deploying-apostrophe-in-the-cloud-with-aws.md)
 * [Storing Images and Files in the Cloud](tutorials/devops/cloud/README.md)
   * [Storing images and files in Amazon S3](tutorials/devops/cloud/storing-images-and-files-in-amazon-s3.md)
   * [Storing images and files in Azure Blob Storage](tutorials/devops/cloud/storing-images-and-files-in-azure-blob-storage.md)
   * [Storing images and files in Google Cloud Storage](tutorials/devops/cloud/storing-images-and-files-in-google-cloud-storage.md)
-
+* [Running Apostrophe on multiple cores and/or servers](tutorials/devops/multicore.md)
+* [Running Apostrophe on Windows](tutorials/devops/windows.md)
+* [Building Docker images for Apostrophe projects](tutorials/devops/docker.md)
 * Apostrophe Migration Guide
  * [Migrating from Apostrophe 1.5](tutorials/devops/migration.md)
  * [Migrating from Apostrophe 0.5](tutorials/devopcs/migration.md)
