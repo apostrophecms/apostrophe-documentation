@@ -6,7 +6,6 @@
 * [Setting up your environment](tutorials/getting-started/setting-up-your-environment.md)
 * [Creating your first project](tutorials/getting-started/creating-your-first-project.md)
 
-<<<<<<< HEAD
 ## Core Concepts
 * [Technical overview: 30,000 feet](tutorials/core-concepts/technical-overview.md)
 * [Pages & Navigation](tutorials/core-concepts/01-pages-and-navigation/README.md)
@@ -55,7 +54,7 @@
   * [Extending the Pieces Editor Modal](tutorials/advanced-development/01-advanced-pieces-topics/extending-the-pieces-editor-modal.md)
 * [Advanced Pages Topics](tutorials/advanced-development/02-advanced-pages-topics/README.md)
   * [Custom Schemas for Pages](tutorials/advanced-development/02-advanced-pages-topics/custom-schema-fields-for-pages.md)
-  * [Building combined menus and custom buttons with the admin bar](tutorials/02-advanced-pages-topics/admin-bar.md)
+  * [Building combined menus and custom buttons with the admin bar](tutorials/advanced-development/02-advanced-pages-topics/admin-bar.md)
 * [How Apostrophe Handles Requests](tutorials/advanced-development/how-apostrophe-handles-requests.md)
 * [How Apostrophe Starts Up](tutorials/advanced-development/how-apostrophe-starts-up.md)
 * [Custom Server-side Event Handlers with Promise Events](tutorials/advanced-development/03-promise-events/README.md)
@@ -70,7 +69,7 @@
 * [Schema Guide](tutorials/schema-guide/schema-guide.md)
 
 ## Apostrophe DevOps
-* [Hosting Apostrophe in production](tutorials/devops/deployment/deployment/README.md)  
+* [Hosting Apostrophe in production](tutorials/devops/deployment/README.md)  
   * [Hosting Apostrophe in production](tutorials/devops/deployment/deployment.md)  
   * [Deploying Apostrophe to a Linode linux server quickly](tutorials/devops/deployment/linode.md)
   * [Deploying Apostrophe in the Cloud with Heroku](tutorials/devops/deployment/deploying-apostrophe-in-the-cloud-with-heroku.md)
