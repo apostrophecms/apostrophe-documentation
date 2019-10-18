@@ -55,7 +55,7 @@ However, you can loosen this rule if you want to. Just install and configure the
 
 The admin bar contains the "Logout" button, and users must have a way to log out. So by default, Apostrophe gives them a way to access that. However, you can provide your own logout link and remove the admin bar by following this technique:
 
-1. In your layout, provide your own link to log out.
+* In your layout, provide your own link to log out.
 
 ```
 {% if data.user %}
@@ -63,7 +63,7 @@ The admin bar contains the "Logout" button, and users must have a way to log out
 {% endif %}
 ```
 
-2. In `lib/modules/apostrophe-login/index.js`, at **project level** (NEVER alter `node_modules/apostrophe`, that is NOT necessary), override the single method that adds the logout button to the admin bar. Do NOT copy and paste the entire file:
+* In `lib/modules/apostrophe-login/index.js`, at **project level** (NEVER alter `node_modules/apostrophe`, that is NOT necessary), override the single method that adds the logout button to the admin bar. Do NOT copy and paste the entire file:
 
 ```javascript
 // in lib/modules/apostrophe-login/index.js
