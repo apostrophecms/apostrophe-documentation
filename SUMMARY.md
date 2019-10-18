@@ -70,6 +70,7 @@
 
 
 ## HOWTOS
+* [Apostrophe HOWTOs](tutorials/howtos/README.md)
 * [How do I create a '404 not found' page?](tutorials/howtos/notFoundPage.md)
 * [Configuring CKEditor in Apostrophe](tutorials/howtos/ckeditor.md)
 * [Sending email from your Apostrophe project](tutorials/howtos/email.md)
