@@ -20,7 +20,7 @@
   * [Reusable content with pieces](tutorials/core-concepts/03-reusable-content-pieces/reusable-content-with-pieces.md)
   * [Displaying Pieces With Widgets](tutorials/core-concepts/03-reusable-content-pieces/displaying-pieces-with-widgets.md)
   * [Browsing a Directory of Pieces](tutorials/core-concepts/03-reusable-content-pieces/browsing-directory-of-pieces.md)
-  * [Joins: Connecting Piece Types to One Another](tutorials/core-concepts/reusable-content-pieces/children-and-joins.md)
+  * [Joins: Connecting Piece Types to One Another](tutorials/core-concepts/03-reusable-content-pieces/children-and-joins.md)
 * [Global Settings](tutorials/core-concepts/04-global-settings/README.md)
   * [The global doc: sharing content across pages](tutorials/core-concepts/04-global-settings/global.md)
   * [Global Settings](tutorials/core-concepts/04-global-settings/settings.md)

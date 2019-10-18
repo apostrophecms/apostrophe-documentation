@@ -9,7 +9,7 @@ In the previous example, you learned how to create pieces. Now you'll see how to
 
 ## Displaying Pieces
 
-You don't have a way to display these people here and there around the site yet. For that you'll need to add a second module in `app.js`, this time a widget:
+So you created pieces, but you don't have a way to display them on your site yet. For that you'll need to add a second module in `app.js`, this time a widget:
 
 {% code-tabs %}
 {% code-tabs-item title="app.js" %}
@@ -83,7 +83,7 @@ _"Which properties do I need in my projection?"_ Just those you'll use in your `
 
 ### Custom templates for widgets
 
-Your widget isn't very satisfying yet. It just displays full names. Let's improve it by creating your own `lib/modules/people-widgets/views/widget.html` file:
+Your widget isn't very satisfying yet. It just displays full names. Let's improve it by creating your own `lib/modules/people-widgets/views/widget.html` file to provide a more detailed display:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/apostrophe-pages/views/widget.html" %}
