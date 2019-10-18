@@ -53,7 +53,7 @@
   * [Adding new batch operations for pieces](tutorials/advanced-development/01-advanced-pieces-topics/08-adding-new-batch-operations.md)
   * [Extending the Pieces Editor Modal](tutorials/advanced-development/01-advanced-pieces-topics/09-extending-the-pieces-editor-modal.md)
 * [Advanced Pages Topics](tutorials/advanced-development/02-advanced-pages-topics/README.md)
-  * [Custom Schemas for Pages](tutorials/advanced-development/02-advanced-pages-topics/custom-schemas-for-pages.md)
+  * [Custom Schemas for Pages](tutorials/advanced-development/02-advanced-pages-topics/custom-schema-fields-for-pages.md)
   * [Building combined menus and custom buttons with the admin bar](tutorials/howtos/admin-bar.md)
 * [How Apostrophe handles requests](tutorials/advanced-development/how-apostrophe-handles-requests.md)
 * [How Apostrophe modules are structured](tutorials/advanced-development/how-apostrophe-modules-are-structured.md)
