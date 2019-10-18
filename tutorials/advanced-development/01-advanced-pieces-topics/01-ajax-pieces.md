@@ -1,5 +1,5 @@
 ---
-title: AJAX Features: Enhanced Browsing for Pieces
+title: AJAX Features - Enhanced Browsing for Pieces
 layout: tutorial
 ---
 
