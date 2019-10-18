@@ -66,9 +66,8 @@
   * [Working with cursors](tutorials/advanced-development/06-database/02-cursors.md)
   * [Accessing the database directly](tutorials/advanced-development/06-database/03-accessing-the-database-directly.md)
   * [Using MongoDB replica sets with Apostrophe](tutorials/advanced-development/04-database/replica-set.md)
-* [Schemas](tutorials/schema-guide/README.md)
-  * [Custom schema field types](tutorials/schema-guide/custom-schema-field-types.md)
-  * [Guide to schemas](tutorials/schema-guide/schema-guide/README.md)
+* [Schema Guide](tutorials/schema-guide/schema-guide.md)
+
 
 ## HOWTOS
 * [How do I create a '404 not found' page?](tutorials/howtos/notFoundPage.md)
