@@ -1,3 +1,29 @@
-# Getting Started
-
-Before you start building beautiful websites, you need to get Apostrophe set up and learn the basics. In this set of tutorials, you will set up your environment, create a project with the Apostrophe CLI, create a page template, and add basic content to the page. After you finish that, you'll be ready to dive deeper into Apostrophe in our Core Concepts section.
+---
+title: "Core Concepts"
+layout: reference
+children:
+  - connecting-pages
+  - page-templates
+  - widgets-singletons-and-areas
+  - stanrdard-widgets
+  - custom-widgets
+  - layout-widgets
+  - reusable-content-with-pieces
+  - displaying-pieces-with-widgets
+  - browsing-directory-of-pieces
+  - children-and-joins  
+  - search
+  - nunjucks-filters
+  - nunjucks-helper-functions
+  - responsive-images
+  - thumbnails-and-areas-of-child-pages
+  - settings
+  - global
+  - how-apostrophe-modules-are-structured
+  - nested-module-folders
+  - more-modules
+  - lean-frontend-assets
+  - pushing-assets
+  - users-and-groups
+  - user-login-and-password  
+---
