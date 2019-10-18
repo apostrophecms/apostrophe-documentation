@@ -76,9 +76,10 @@
 * [Running Apostrophe on multiple cores and/or servers](tutorials/devops/multicore.md)
 * [Running Apostrophe on Windows](tutorials/devops/windows.md)
 * [Building Docker images for Apostrophe projects](tutorials/devops/docker.md)
-* [Storing images and files in Amazon S3](tutorials/devops/storing-images-and-files-in-amazon-s3.md)
-* [Storing images and files in Azure Blob Storage](tutorials/devops/storing-images-and-files-in-azure-blob-storage.md)
-* [Storing images and files in Google Cloud Storage](tutorials/devops/storing-images-and-files-in-google-cloud-storage.md)
+* [Storing Images and Files in the Cloud](tutorials/devops/cloud/README.md)
+  * [Storing images and files in Amazon S3](tutorials/devops/cloud/storing-images-and-files-in-amazon-s3.md)
+  * [Storing images and files in Azure Blob Storage](tutorials/devops/cloud/storing-images-and-files-in-azure-blob-storage.md)
+  * [Storing images and files in Google Cloud Storage](tutorials/devops/cloud/storing-images-and-files-in-google-cloud-storage.md)
 
 * Apostrophe Migration Guide
  * [Migrating from Apostrophe 1.5](tutorials/devops/migration.md)
