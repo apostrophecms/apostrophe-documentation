@@ -6,6 +6,7 @@
 * [Setting up your environment](tutorials/getting-started/setting-up-your-environment.md)
 * [Creating your first project](tutorials/getting-started/creating-your-first-project.md)
 
+<<<<<<< HEAD
 ## Core Concepts
 * [Technical overview: 30,000 feet](tutorials/core-concepts/technical-overview.md)
 * [Pages & Navigation](tutorials/core-concepts/01-pages-and-navigation/README.md)
@@ -86,6 +87,7 @@
 ## HOWTOS
 * [Apostrophe HOWTOs](tutorials/howtos/README.md)
 * [How do I create a '404 not found' page?](tutorials/howtos/how-do-i-create-a-404-not-found-page.md)
+* [How do I add an Intranet to My Site?](tutorials/howtos/intranet.md)
 * [Configuring CKEditor in Apostrophe](tutorials/howtos/ckeditor.md)
 * [Facebook open graph tags in Apostrophe](tutorials/howtos/facebook.md)
 * [Sending user notifications](tutorials/howtos/sending-user-notifications.md)
