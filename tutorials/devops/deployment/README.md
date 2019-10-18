@@ -1,5 +1,5 @@
 ---
-title: "Deploying Apostrophe"
+title: "Deploying Apostrophe for Production"
 layout: reference
 children:
   - deployment
@@ -10,6 +10,7 @@ children:
 
 There are a number of different options for deploying Apostrophe, whether hosting on your own system or using various hosting providers. This section provides instructions on getting set up with some popular options.
 
-* [Storing images and files in Amazon S3](tutorials/devops/cloud/storing-images-and-files-in-amazon-s3.md)
-* [Storing images and files in Azure Blob Storage](tutorials/devops/cloud/storing-images-and-files-in-azure-blob-storage.md)
-* [Storing images and files in Google Cloud Storage](tutorials/devops/cloud/storing-images-and-files-in-google-cloud-storage.md)
+* [Hosting Apostrophe in Production](tutorials/devops/deployment/deployment.md)  
+* [Deploying Apostrophe to a Linode Linux Server Quickly](tutorials/devops/deployment/linode.md)
+* [Deploying Apostrophe in the Cloud with Heroku](tutorials/devops/deployment/deploying-apostrophe-in-the-cloud-with-heroku.md)
+* [Deploying Apostrophe with AWS and Elastic Beanstalk](tutorials/devops/deployment/deploying-apostrophe-in-the-cloud-with-aws.md)

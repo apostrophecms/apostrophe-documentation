@@ -69,7 +69,7 @@
 * [Schema Guide](tutorials/schema-guide/schema-guide.md)
 
 ## Apostrophe DevOps
-* [Hosting Apostrophe in production](tutorials/devops/deployment/deployment/.md)  
+* [Hosting Apostrophe in production](tutorials/devops/deployment/deployment/README.md)  
   * [Hosting Apostrophe in production](tutorials/devops/deployment/deployment.md)  
   * [Deploying Apostrophe to a Linode linux server quickly](tutorials/devops/deployment/linode.md)
   * [Deploying Apostrophe in the Cloud with Heroku](tutorials/devops/deployment/deploying-apostrophe-in-the-cloud-with-heroku.md)
