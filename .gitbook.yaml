@@ -1,5 +1,5 @@
 redirects:
-  tutorials/getting-started/editing-page-templates : tutorials/core-concepts/page-templates
+  getting-started/editing-page-templates : core-concepts/page-templates
   tutorials/getting-started/adding-editable-content-to-pages : tutorials/core-concepts/widgets-singletons-and-areas
   tutorials/getting-started/building-navigation : tutorials/core-concepts/connecting-pages
   tutorials/getting-started/custom-widgets : tutorials/core-concepts/custom-widgets
