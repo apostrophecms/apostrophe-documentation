@@ -15,29 +15,29 @@ Our tutorials cover everything you need to know to get started as an Apostrophe 
 
 ### Getting Started
 
-[The "getting started" tutorials](getting-started) are written for developers who are new to Apostrophe. They will walk you through the process of getting your environment set up and creating a basic website.
+[The "getting started" tutorials](tutorials/getting-started/setting-up-your-environment.md) are written for developers who are new to Apostrophe. They will walk you through the process of getting your environment set up and creating a basic website.
 
 Practical examples of these concepts are illustrated in the [Open Musuem project, a fully featured Apostrophe site](https://github.com/apostrophecms/apostrophe-open-museum). [You can access the code](https://github.com/apostrophecms/apostrophe-open-museum) or [try a live demo](http://demo.apostrophecms.org).
 
 ### Core Concepts
 
-[The Core Concepts tutorials](core-concepts) go through each piece of Apostrophe that you need to understand to build a webite.  They will help you get more comfortable with Apostrophe and node.js.
+[The Core Concepts tutorials](tutorials/core-concepts/README.md) go through each piece of Apostrophe that you need to understand to build a webite.  They will help you get more comfortable with Apostrophe and node.js.
 
 ### Advanced Development
 
-[Advanced Development](advanced-developments) dives deepers into the features of Apostrophe and the concepts behind it to provide the knowledge and tools you need to build dynamic, responsive sites.
+[Advanced Development](tutorials/advanced-development/README.md) dives deepers into the features of Apostrophe and the concepts behind it to provide the knowledge and tools you need to build dynamic, responsive sites.
 
 ## DevOps
 
-[DevOps](devops) covers all you need to know to depploy and configure Apostrophe for a production environment.
+[DevOps](tutorials/devops/README.md) covers all you need to know to depploy and configure Apostrophe for a production environment.
 
 ### HOWTOs
 
-[The HOWTOs](howtos) cover miscellaneous topics including development. configuration, and customization.
+[The HOWTOs](tutorials/howtos/README.md) cover miscellaneous topics including development. configuration, and customization.
 
 ### What's the right level for me?
 
-If you're brand new to Apostrophe, go to [Getting Started](getting-started) first to learn how to deploy Apostrophe locally for development and testing, and how to create a project. Once you have Apostrophe set up, [Core Concepts](core-concepts) will help you get a good grasp on Apostrophe's tools. After that, you can dig deeper with [Advanced Development](advanced-development) or get ready for production with [DevOps](devops).
+If you're brand new to Apostrophe, go to [Getting Started](tutorials/getting-started/setting-up-your-environment.md) first to learn how to deploy Apostrophe locally for development and testing, and how to create a project. Once you have Apostrophe set up, [Core Concepts](tutorials/core-concepts/README.md) will help you get a good grasp on Apostrophe's tools. After that, you can dig deeper with [Advanced Development](tutorials/advanced-development/README.md) or get ready for production with [DevOps](tutorials/devops/README.md).
 
 ## Additional Topics
 
