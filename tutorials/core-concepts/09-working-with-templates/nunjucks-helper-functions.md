@@ -121,7 +121,7 @@ If you need to do asynchronous work to get data for your template, you should do
 
 ## Returning markup from a helper
 
-Normally, the output of helper functions is automatically escaped by Nunjucks. That is, if your function returns `<h1>`, that will become `&lt;h1&gt;`, rendering the characters literally. This is a built-in Nunjucks feature to protect against [CSRF attacks](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)).
+Normally, the output of helper functions is automatically escaped by Nunjucks. That is, if your function returns `<h1>`, that will become `&lt;h1&gt;`, rendering the characters literally. This is a built-in Nunjucks feature to protect against [CSRF attacks](https://www.owasp.org/index.php/Cross-Site_Request_Forgery).
 
 If your helper function returns markup, and you know that markup is safe (you have eliminated or escaped any user input that could generate HTML tags), you can return a "safe string" like this:
 
