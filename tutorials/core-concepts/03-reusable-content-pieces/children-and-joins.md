@@ -318,7 +318,7 @@ We add a `current` CSS class to the link to remove the current filter. It's up t
 
 ### Filtering on joins and other schema field types
 
-Tags are the simplest example, but you can filter on most schema field types, notably including [`select`](../../schema-guide/schema-guide.md#select) fields and [`joinByOne`](../../schema-guide/schema-guide.md#joinByOne) or [`joinByArray`](../../schema-guide/schema-guide.md#joinByArray) fields.
+Tags are the simplest example, but you can filter on most schema field types, notably including [`select`](../../schema-guide/schema-guide.md#select) fields and [`joinByOne`](/tutorials/schema-guide/schema-guide.md#joinByOne) or [`joinByArray`](/tutorials/schema-guide/schema-guide.md#joinByArray) fields.
 
 Add a filter on the `_jobs` schema field we saw earlier:
 
@@ -401,4 +401,4 @@ Here's how to build query strings that contain arrays in your template:
 **"What's going on in this code?"** Like before, we are using the `build` filter to add and remove query parameters. However, this time, we are using the special `$pull` operator to remove a job from the array without removing the others, and using the special `$addToSet` operator to add a job to the array. In this way, we can manage filter URLs like `/people?jobs[]=doctor&jobs[]=technician` with very little effort.
 {% endhint %}
 
-Pieces are very powerful and have a lot of depth, for more pieces topics and code samples, see the [Advanced Pieces section](tutorials/advanced-development/01-advanced-pieces-topics/README.md).
+Pieces are very powerful and have a lot of depth, for more pieces topics and code samples, see the [Advanced Pieces section](/tutorials/advanced-development/01-advanced-pieces-topics/README.md).
