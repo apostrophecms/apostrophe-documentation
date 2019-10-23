@@ -39,7 +39,7 @@ Apostrophe represents each website as an object, the "`apos` object." Developers
 
 99% of Apostrophe's code is found in _modules_. Each module is responsible for a distinct content type or area of responsibility. A few examples include `apostrophe-db`, `apostrophe-docs`, `apostrophe-express`, `apostrophe-pieces` and `apostrophe-users`.
 
-Apostrophe initializes each module in turn, starting with those provided in the core, followed by those added at project level as described below. For more information, see [how Apostrophe starts up](tutorials/advanced-development/how-apostrophe-starts-up.md).
+Apostrophe initializes each module in turn, starting with those provided in the core, followed by those added at project level as described below. For more information, see [how Apostrophe starts up](/tutorials/advanced-development/how-apostrophe-starts-up.md).
 
 Related Apostrophe modules can be bundled together in a single [npm module](https://www.npmjs.com/), usually to distribute them as open source, but also sometimes for convenience in sharing them between your own projects. Good examples are [apostrophe-blog](https://npmjs.org/package/apostrophe-blog), which is a _bundle_ containing the `apostrophe-blog`, `apostrophe-blog-widgets` and `apostrophe-blog-pieces` modules, and the `apostrophe` module itself, which contains _all the core modules necessary to create and edit a website._
 
@@ -61,7 +61,7 @@ The self pattern does impose a small speed penalty when objects are constructed.
 
 ### More information about modules
 
-For more information, see [how Apostrophe modules are structured](../advanced-development/how-apostrophe-modules-are-structured.md).
+For more information, see [how Apostrophe modules are structured](/tutorials/advanced-development/how-apostrophe-modules-are-structured.md).
 
 ## Project level: overriding and extending Apostrophe in your project
 
@@ -132,7 +132,7 @@ Because Apostrophe is built on Node.js, it is asynchronous. However, we have cho
 
 This was done to avoid introducing complex back-end async programming concepts into frontend template code. Code dealing with callbacks belongs in JavaScript, not Nunjucks. Synchronous templates also render faster.
 
-Writing a `apostrophe-pages:beforeSend` promise event handler is your best option to carry out async tasks just before the page is rendered. For more on this technique, see [how Apostrophe handles requests](../advanced-development/how-apostrophe-handles-requests.md).
+Writing a `apostrophe-pages:beforeSend` promise event handler is your best option to carry out async tasks just before the page is rendered. For more on this technique, see [how Apostrophe handles requests](/tutorials/advanced-development/how-apostrophe-handles-requests.md).
 
 ## Apostrophe schemas
 
@@ -144,11 +144,11 @@ Any module extending `apostrophe-pieces` or `apostrophe-custom-pages` can easily
 
 Schemas are also used to define the editable fields of a widget That allows new widgets to be created very quickly without the need for custom code.
 
-For more information, see the [schema guide](../schema-guide/schema-guide.md).
+For more information, see the [schema guide](/tutorials/schema-guide/schema-guide.md).
 
 ## Apostrophe joins
 
-Apostrophe also supports robust "joins" between content types. Programmers can define their own relationships between doc types, such as pages or pieces, and even between widgets and pages, or widgets and pieces. Joins are discussed in the [schema guide](../schema-guide/schema-guide.md).
+Apostrophe also supports robust "joins" between content types. Programmers can define their own relationships between doc types, such as pages or pieces, and even between widgets and pages, or widgets and pieces. Joins are discussed in the [schema guide](/tutorials/schema-guide/schema-guide.md).
 
 ## Dynamic properties and the magic `_`
 
@@ -160,7 +160,7 @@ The moral of the story: _always use a leading \_ when naming a join field_, and 
 
 ## Apostrophe glossary
 
-To speed your understanding, we also recommend reading through the [Apostrophe glossary](../../other/glossary.md).
+To speed your understanding, we also recommend reading through the [Apostrophe glossary](/other/glossary.md).
 
 ## Did this help?
 
