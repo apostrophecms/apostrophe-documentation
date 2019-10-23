@@ -3,13 +3,13 @@
 Apostrophe uses cursors to fetch docs from the database. An [apostrophe-cursor](/modules/apostrophe-docs/server-apostrophe-cursor.md) object helps us conveniently fetch docs from
 the `aposDocs` mongodb collection using chainable "filter" methods, quite similar to those MongoDB developers are used to. Apostrophe's cursors work much like MongoDB or Doctrine cursors, but with many filter methods specific to Apostrophe that add a great deal of convenience, including methods for every field in your schema. And it's possible to add your own filters.
 
-So when do we need to work with cursors? **When we are writing custom queries in our own server-side JavaScript code.** If you are simply adding filters to a pieces page based on your schema fields, or adding filters to the "Manage" view of your pieces, **you do not have to write any custom JavaScript at all.** See [reusable content with pieces](/tutorials//core-concepts/reusable-content-with-pieces.md) for more information about how to easily configure the `piecesFilters` option, for example.
+So when do we need to work with cursors? **When we are writing custom queries in our own server-side JavaScript code.** If you are simply adding filters to a pieces page based on your schema fields, or adding filters to the "Manage" view of your pieces, **you do not have to write any custom JavaScript at all.** See [reusable content with pieces](/tutorials/core-concepts/03-reusable-content-pieces/reusable-content-with-pieces.md) for more information about how to easily configure the `piecesFilters` option, for example.
 
 Still with us? OK, let's talk about programming with cursors.
 
 ## An illustrated example
 
-Let's say we've created a `profiles` module that [extends apostrophe-pieces](/tutorials/core-concepts/reusable-content-with-pieces.md). Its configuration looks like this:
+Let's say we've created a `profiles` module that [extends apostrophe-pieces](/tutorials/core-concepts/03-reusable-content-pieces/reusable-content-with-pieces.md). Its configuration looks like this:
 
 ```javascript
 {
@@ -65,7 +65,7 @@ module.exports = {
 
 ## Full text search
 
-So far this looks familiar to MongoDB developers. But Apostrophe adds some [filter methods of its own](/tutorials/core-concepts/06-modules/apostrophe-docs/server-apostrophe-cursor.md#methods) that go beyond what you get out of the box with MongoDB.
+So far this looks familiar to MongoDB developers. But Apostrophe adds some [filter methods of its own](/modules/apostrophe-docs/server-apostrophe-cursor.md#methods) that go beyond what you get out of the box with MongoDB.
 
 Let's search for profiles related to shoes, based on the text of each document:
 
@@ -157,7 +157,7 @@ module.exports = {
 
 "What's happening in this code?"
 
-* We placed our code in `lib/modules/profiles/lib/cursor.js`. This is important. Apostrophe will automatically load any code placed here as an [implicit subclass](/glossary.md#implicit-subclassing) of our cursor type. That means we can modify the cursor in our own `construct` function.
+* We placed our code in `lib/modules/profiles/lib/cursor.js`. This is important. Apostrophe will automatically load any code placed here as an [implicit subclass](/other/glossary.md#implicit-subclassing) of our cursor type. That means we can modify the cursor in our own `construct` function.
 * We called `addFilter` and gave the filter the name `busy`. This defines a new, chainable `.busy(true)` method for our cursor type.
 * We set a default value with `def`. By default, we don't want to restrict results to "busy" people.
 * We provided a `launder` function. The `launder` function accepts raw input from the web browser and returns it in a sanitized, "laundered" form. This is indispensable for a filter the public is allowed to use, for instance via the query string on a pieces-page. See the [launder](https://npmjs.org/package/launder) module, always available as `self.apos.launder` inside our cursor code.
