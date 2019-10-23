@@ -39,7 +39,7 @@ Apostrophe represents each website as an object, the "`apos` object." Developers
 
 99% of Apostrophe's code is found in _modules_. Each module is responsible for a distinct content type or area of responsibility. A few examples include `apostrophe-db`, `apostrophe-docs`, `apostrophe-express`, `apostrophe-pieces` and `apostrophe-users`.
 
-Apostrophe initializes each module in turn, starting with those provided in the core, followed by those added at project level as described below. For more information, see [how Apostrophe starts up](../advanced-development/how-apostrophe-starts-up.md).
+Apostrophe initializes each module in turn, starting with those provided in the core, followed by those added at project level as described below. For more information, see [how Apostrophe starts up](tutorials/advanced-development/how-apostrophe-starts-up.md).
 
 Related Apostrophe modules can be bundled together in a single [npm module](https://www.npmjs.com/), usually to distribute them as open source, but also sometimes for convenience in sharing them between your own projects. Good examples are [apostrophe-blog](https://npmjs.org/package/apostrophe-blog), which is a _bundle_ containing the `apostrophe-blog`, `apostrophe-blog-widgets` and `apostrophe-blog-pieces` modules, and the `apostrophe` module itself, which contains _all the core modules necessary to create and edit a website._
 
