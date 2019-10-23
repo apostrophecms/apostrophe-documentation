@@ -149,7 +149,7 @@ In a template.
 
 In 0.5, making a new type of widget was a pain. So we created `apostrophe-schema-widgets`, which allowed you to whip up a bunch of custom widgets... but you could only take it so far.
 
-In 2.x, [every widget is powered by a module that extends `apostrophe-widgets`](modules/apostrophe-widgets/README.md). You can do that too. And all widgets support schemas "out of the box."
+In 2.x, [every widget is powered by a module that extends `apostrophe-widgets`](/modules/apostrophe-widgets/README.md). You can do that too. And all widgets support schemas "out of the box."
 
 See the [custom widget tutorial](/tutorials/core-concepts/02-editable-content-on-pages/custom-widgets.md) for an example.
 

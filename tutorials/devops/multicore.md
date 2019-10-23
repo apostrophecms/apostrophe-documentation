@@ -178,6 +178,6 @@ By default Apostrophe writes uploaded files to the server's local hard drive. Th
 
 Fortunately Apostrophe uses [uploadfs](https://github.com/punkave/uploadfs), which also supports using Amazon S3 as a back end for file storage.
 
-To do that, [check out our separate HOWTO on using Amazon S3 with apostrophe](storing-images-and-files-in-amazon-s3.md).
+To do that, [check out our separate HOWTO on using Amazon S3 with apostrophe](cloud/storing-images-and-files-in-amazon-s3.md).
 
 Alternatively, you could use NFS to make the same filesystem visible to more than one server. Or you could write a custom `uploadfs` back end; see the uploadfs documentation for more information about that strategy.
