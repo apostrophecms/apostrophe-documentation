@@ -5,13 +5,13 @@ layout: tutorial
 
 # Nunjucks helper functions: calling JavaScript functions from templates
 
-In the ["Building Navigation" tutorial](../01-pages-and-navigation/connecting-pages.md) you called `apos.pages.isAncestorOf` from your template code.
+In the ["Building Navigation" tutorial](/tutorials/core-concepts/01-pages-and-navigation/connecting-pages.md) you called `apos.pages.isAncestorOf` from your template code.
 
 `isAncestorOf` is a "helper function," made available to templates by the `apostrophe-pages` module.
 
 That's great, but what if you need to add your own helper function?
 
-Let's take another look at the [link-widgets module you just created in the previous tutorial](../02-editable-content-on-pages/custom-widgets.md).
+Let's take another look at the [link-widgets module you just created in the previous tutorial](/tutorials/core-concepts/02-editable-content-on-pages/custom-widgets.md).
 
 Let's say you want to make the label optional, and use the URL as a label if no label is provided:
 
@@ -116,7 +116,7 @@ Inside `construct`, we call `self.addHelpers` to add some helper functions that 
 {% hint style='info' %}
 **You must not call async functions, await promises, wait for callbacks, make network requests or database calls, etc. from inside a helper function.** Helpers must be synchronous, the value they return is the value you'll get.  Any attempt to use asynchronous code here, or anywhere in a template, **Will not work**.
 
-If you need to do asynchronous work to get data for your template, you should do it **before** the template runs. Write a [promise event handler](../../advanced-development/03-promise-events/promise-events.md), or a [widget `load` method](../../advanced-development/how-apostrophe-handles-requests.md#widget-loaders).
+If you need to do asynchronous work to get data for your template, you should do it **before** the template runs. Write a [promise event handler](/tutorials/advanced-development/03-promise-events/promise-events.md), or a [widget `load` method](/tutorials/advanced-development/how-apostrophe-handles-requests.md#widget-loaders).
 {% endhint %}
 
 ## Returning markup from a helper

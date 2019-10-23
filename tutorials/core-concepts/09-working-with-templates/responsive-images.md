@@ -14,7 +14,7 @@ The `srcset` attribute was introduced to give developers a way to declaratively 
 Apostrophe lets use make use of this browser feature through the `apos.images.srcset` template helper. In the following example, you'll write a simple custom widget that renders an image with both a `srcset` and a `sizes` attribute.
 
 {% hint style='info' %}
-This example assumes that you know how to load and work with custom widgets. If you're unsure about that, please refer to the [custom widgets tutorial](../02-editable-content-on-pages/custom-widgets.md).
+This example assumes that you know how to load and work with custom widgets. If you're unsure about that, please refer to the [custom widgets tutorial](/tutorials/core-concepts/02-editable-content-on-pages/custom-widgets.md).
 {% endhint %}
 
 With this example widget, it's up to the developer to specify the `sizesAttr` option (which is what we use for the `sizes` attribute on the image). So when you load the widget into an area or singleton, follow this example:
