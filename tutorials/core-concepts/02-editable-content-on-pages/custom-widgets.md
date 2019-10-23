@@ -448,9 +448,9 @@ module.exports = {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-In Apostrophe modules, the `construct` function is called to add methods to the module. Here you are following the "super pattern," making a note of the original method you inherited from [apostrophe-widgets](/modules/apostrophe-widgets/index.md), creating your own replacement method, invoking the original from within it, and then pushing your own asset to the browser.
+In Apostrophe modules, the `construct` function is called to add methods to the module. Here you are following the "super pattern," making a note of the original method you inherited from [apostrophe-widgets](/modules/apostrophe-widgets/README.md), creating your own replacement method, invoking the original from within it, and then pushing your own asset to the browser.
 
-The [pushAsset method](/modules/apostrophe-module/index.md#push-asset) can push both stylesheets and scripts. The name `always` is a convention meaning "everyone sees this stylesheet, whether logged in or not." And you make sure of that by setting the `when` option to `always`.
+The [pushAsset method](/modules/apostrophe-module/README.md#push-asset) can push both stylesheets and scripts. The name `always` is a convention meaning "everyone sees this stylesheet, whether logged in or not." And you make sure of that by setting the `when` option to `always`.
 
 Now you need to supply `always.less` in the right place: the `public/css` subdirectory of your module's directory.
 
