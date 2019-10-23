@@ -5,7 +5,7 @@ layout: tutorial
 
 There are many cloud hosting services, but they all present the same challenges. Separate servers often don't share a single filesystem. The database usually needs its own scalable cloud hosting. And performing tasks like minifying assets is often best done in your development environment, minimizing what has to be done in production.
 
-> "The cloud" isn't always the easiest solution to your problem. Take a look at our [Linode HOWTO](linode.html) for a quicker way that is suitable for all but the highest-traffic sites.
+> "The cloud" isn't always the easiest solution to your problem. Take a look at our [Linode HOWTO](/tutorials/devops/deployment/linode.md) for a quicker way that is suitable for all but the highest-traffic sites.
 
 ## Deploying Apostrophe to Heroku
 
