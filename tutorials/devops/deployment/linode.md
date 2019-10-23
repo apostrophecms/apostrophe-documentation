@@ -5,7 +5,7 @@ layout: tutorial
 
 [Linode](https://www.linode.com) is a popular provider of Linux VPSes (Virtual Private Servers). A VPS is a great fit for most Apostrophe sites because it can easily accommodate MongoDB, Apostrophe and your content at a fixed, low monthly price. Setting it up is usually much simpler than using a "cloud provider" like AWS or Heroku, unless you have a true need to operate at a very large scale.
 
-You can [follow our deployment tutorial on Linode](../intermediate/deployment.md) — in fact, we tested it on Linode, although it works fine with any Linux server. And we recommend skimming that tutorial first to get the general idea. But, you can skip most of the steps by using our Linode "Stackscript."
+You can [follow our deployment tutorial on Linode](/tutorials/devops/deployment/deployment.md) — in fact, we tested it on Linode, although it works fine with any Linux server. And we recommend skimming that tutorial first to get the general idea. But, you can skip most of the steps by using our Linode "Stackscript."
 
 To do that, just follow along:
 

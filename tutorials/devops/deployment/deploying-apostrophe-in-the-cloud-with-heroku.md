@@ -15,7 +15,7 @@ So for this how-to, we'll stick to free services from Amazon Web Services, Herok
 
 ## Before you begin
 
-First, build an Apostrophe site! See the [getting started tutorial](../getting-started).
+First, build an Apostrophe site! See the [getting started tutorial](/tutorials/getting-started/setting-up-your-environment.md).
 
 Make sure you commit it to a git repository. git is a big part of how Heroku deploys websites.
 
