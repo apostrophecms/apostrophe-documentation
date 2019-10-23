@@ -2,7 +2,7 @@
 
 # Custom schema fields for pages
 
-If you've read [reusable content with pieces](/tutorials/core-concepts/02-reusable-content-with-pieces/README.md), then you know about [apostrophe schemas](/schema-guide/schema-guide.md). You have already experienced the flexibility of adding new fields to your own piece types. But what about pages?
+If you've read [reusable content with pieces](/tutorials/core-concepts/03-reusable-content-with-pieces/README.md), then you know about [apostrophe schemas](/tutorials/schema-guide/schema-guide.md). You have already experienced the flexibility of adding new fields to your own piece types. But what about pages?
 
 Here's the good news: you can do the same trick with pages. The right way to do it depends on whether you want to enhance *just one* page type with extra fields in "Page Settings," or add those fields to *all* page types.
 
