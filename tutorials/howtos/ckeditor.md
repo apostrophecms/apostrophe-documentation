@@ -9,7 +9,7 @@ You've [seen how to add a rich text widget to a page and configure styles and to
 
 ## Global CKeditor configuration
 
-The [apostrophe-areas](/modules/apostrophe-areas/README.md) module is responsible for initially loading CKEditor. On the browser side, the [enableCkeditor method](/modules/apostrophe-areas/browser-apostrophe-areas.me#enableckeditor) is responsible for setting global CKEditor properties like `disableAutoinline` and calling `CKEditor.plugins.addExternal` to add our `split` plugin, which allows a toolbar control for splitting a rich text widget into two rich text widgets.
+The [apostrophe-areas](/modules/apostrophe-areas/README.md) module is responsible for initially loading CKEditor. On the browser side, the [enableCkeditor method](/modules/apostrophe-areas/browser-apostrophe-areas.md#enableckeditor) is responsible for setting global CKEditor properties like `disableAutoinline` and calling `CKEditor.plugins.addExternal` to add our `split` plugin, which allows a toolbar control for splitting a rich text widget into two rich text widgets.
 
 So extending that method at the project level is a sensible place to do more global configuration like this:
 

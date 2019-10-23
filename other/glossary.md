@@ -7,13 +7,13 @@ layout: reference
 
 # Glossary
 
-First, check out the [tutorials](../tutorials/README.md) if you haven't already. They explain all of these concepts in greater depth.
+First, check out the [tutorials](/README.md) if you haven't already. They explain all of these concepts in greater depth.
 
 ## Module
 
-Apostrophe sites are powered by Apostrophe modules. Each module is responsible for providing one feature, such as a type of widget, a type of customized page, or a service like pushing assets to the browser. Apostrophe has many [standard modules](../modules/README.md) which provide its core features.
+Apostrophe sites are powered by Apostrophe modules. Each module is responsible for providing one feature, such as a type of widget, a type of customized page, or a service like pushing assets to the browser. Apostrophe has many [standard modules](/modules/README.md) which provide its core features.
 
-A module can extend \("subclass"\) another module, and most of the modules you create at "project level" will. All modules implicitly extend [apostrophe-module](../modules/apostrophe-module/README.md), which provides a rich set of core conveniences, like rendering templates or pushing assets relative to your module's folder.
+A module can extend \("subclass"\) another module, and most of the modules you create at "project level" will. All modules implicitly extend [apostrophe-module](/modules/apostrophe-module/README.md), which provides a rich set of core conveniences, like rendering templates or pushing assets relative to your module's folder.
 
 Modules created at "project level" live in subdirectories of `/lib/modules`. Code and configuration for a module lives in `/lib/modules/MODULE-NAME/index.js` and can be overridden in `app.js` via the `modules` property of the main Apostrophe configuration object. It is also common to override a few settings on a per-server basis via `data/local.js`, which is merged with that object if it exists.
 
@@ -206,7 +206,7 @@ A cursor is always an instance of [apostrophe-cursor](../modules/apostrophe-docs
 
 **Every cursor object obtained in this way automatically has methods with the same name as each field in the schema.** For instance, you can write `.slug('party').toArray(function(err, docs) { ... })` to find all docs with a slug \(URL\) that contains the word `party`.
 
-See [working with cursors](../tutorials/intermediate/cursors.md) for more information.
+See [working with cursors](/tutorials/advanced-development/06-database/cursors.md) for more information.
 
 ## `req.data` and the `data` object in Nunjucks
 

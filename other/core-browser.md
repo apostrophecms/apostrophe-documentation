@@ -10,9 +10,9 @@ Apostrophe always creates an `apos` object and attaches it to the `window` objec
 
 Most of Apostrophe's browser-side functionality is implemented by its individual modules, many of which can be accessed through aliases on the `apos` object, such as `apos.utils` or `apos.ui`.
 
-This article is a reference guide to the options and methods of the browser-side `apos` object itself. Most of the time you'll be more interested in Apostrophe's [modules](../modules/README.md).
+This article is a reference guide to the options and methods of the browser-side `apos` object itself. Most of the time you'll be more interested in Apostrophe's [modules](/modules/README.md).
 
-This article is not the right place to start learning Apostrophe. For that, see the [getting started tutorial](../tutorials/getting-started/README.md).
+This article is not the right place to start learning Apostrophe. For that, see the [tutorials](/README.md).
 
 Since Apostrophe is responsible for generating the webpage, there will only be one `apos` object in the browser.
 
@@ -111,13 +111,13 @@ Removes the specified event handler from the list of event handlers for the name
 
 ### `pageReady($el)`
 
-The [apostrophe-templates](../modules/apostrophe-templates/README.md) module will push a call to this method automatically, via the `pageReadyWhenCalm` method, when loading a new page or refreshing `data-apos-refreshable`. This method emits the `ready` and `enhance` events.
+The [apostrophe-templates](/modules/apostrophe-templates/README.md) module will push a call to this method automatically, via the `pageReadyWhenCalm` method, when loading a new page or refreshing `data-apos-refreshable`. This method emits the `ready` and `enhance` events.
 
 ### `pageReadyWhenCalm($el)`
 
-Invokes `pageReady` after first waiting for jQuery's DOMready event and then waiting for "next tick" via `setImmediate`. This allows time for code in your own JavaScript files to run first and potentially patch or replace core functionality. A call to this method is pushed automatically by the [apostrophe-templates](../modules/apostrophe-templates/README.md) module.
+Invokes `pageReady` after first waiting for jQuery's DOMready event and then waiting for "next tick" via `setImmediate`. This allows time for code in your own JavaScript files to run first and potentially patch or replace core functionality. A call to this method is pushed automatically by the [apostrophe-templates](/modules/apostrophe-templates/README.md) module.
 
 ### `redefine(typeName, definitionObject)`
 
-Redefines a [moog type](../glossary.md#moog-type) on the browser side, throwing out any previous definition rather than implicitly subclassing as a second call to `apos.define` would do.
+Redefines a [moog type](glossary.md#moog-type) on the browser side, throwing out any previous definition rather than implicitly subclassing as a second call to `apos.define` would do.
 
