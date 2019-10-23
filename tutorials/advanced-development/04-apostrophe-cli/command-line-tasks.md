@@ -49,12 +49,12 @@ self.addTask('list', 'Lists public, published products and their URLs', (apos, a
 This task returns a promise. You can also write tasks that
 accept a callback, as seen in the next example. It's up to you.
 
-This code uses [Apostrophe cursors](cursors.md) to fetch information like
+This code uses [Apostrophe cursors](/tutorials/advanced-development/06-database/cursors.md) to fetch information like
 a member of the public would. It doesn't see anything unpublished
 or in the trash, and it can see the `_url` property of each product,
 which is set for us dynamically when we fetch products with a cursor.
 
-For more information, see [Apostrophe cursors](cursors.md) and [Apostrophe's model layer: working with the database](model-layer.md).
+For more information, see [Apostrophe cursors](/tutorials/advanced-development/06-database/cursors.md) and [Apostrophe's model layer: working with the database](/tutorials/advanced-development/06-database/model-layer.md).
 
 ### Running our task
 
@@ -140,5 +140,5 @@ when you need to operate quickly on thousands of objects without running
 > So the best choice depends on your use case.
 >
 > **Where can I learn more about using the MongoDB API directly?**
-> See [accessing the database directly](accessing-the-database-directly.md) and, of course,
+> See [accessing the database directly](/tutorials/advanced-development/06-database/accessing-the-database-directly.md) and, of course,
 > the [MongoDB documentation for NodeJS](http://mongodb.github.io/node-mongodb-native/).

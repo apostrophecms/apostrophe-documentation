@@ -135,5 +135,3 @@ construct: function (self, options) {
   };
 }
 ```
-
-
