@@ -33,7 +33,7 @@ Practical examples of these concepts are illustrated in the [Open Musuem project
 
 ### HOWTOs
 
-[The HOWTOs](tutorials/howtos/README.md) cover miscellaneous topics including development. configuration, and customization.
+[The HOWTOs](tutorials/howtos/README.md) cover miscellaneous topics including development, configuration, and customization.
 
 ### What's the right level for me?
 
