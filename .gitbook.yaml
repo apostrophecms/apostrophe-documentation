@@ -5,6 +5,7 @@ structure:
   summary: SUMMARY.md
 
 redirects:
+  workspace/v/docs-new-outline/getting-started/editing-page-templates : /tutorials/core-concepts/01-pages-and-navigation/page-templates
   /getting-started/editing-page-templates : /tutorials/core-concepts/01-pages-and-navigation/page-templates
   /tutorials/getting-started/adding-editable-content-to-pages : tutorials/core-concepts/01-pages-and-navigation/widgets-singletons-and-areas
   getting-started/building-navigation : tutorials/core-concepts/01-pages-and-navigation/connecting-pages
