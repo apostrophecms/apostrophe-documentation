@@ -1,9 +1,9 @@
 redirects:
-  getting-started/editing-page-templates : ./tutorials/core-concepts/01-pages-and-navigation/page-templates
-  tutorials/getting-started/adding-editable-content-to-pages : tutorials/core-concepts/01-pages-and-navigation/widgets-singletons-and-areas
-  tutorials/getting-started/building-navigation : tutorials/core-concepts/01-pages-and-navigation/connecting-pages
-  tutorials/getting-started/custom-widgets : tutorials/core-concepts/02-editable-content-on-pagescustom-widgets
-  tutorials/getting-started/global : tutorials/core-concepts/global
+  /getting-started/editing-page-templates : /tutorials/core-concepts/01-pages-and-navigation/page-templates
+  /tutorials/getting-started/adding-editable-content-to-pages : tutorials/core-concepts/01-pages-and-navigation/widgets-singletons-and-areas
+  getting-started/building-navigation : tutorials/core-concepts/01-pages-and-navigation/connecting-pages
+  ./tutorials/getting-started/custom-widgets : tutorials/core-concepts/02-editable-content-on-pagescustom-widgets
+  ./getting-started/global : tutorials/core-concepts/global
   tutorials/getting-started/pushing-assets : tutorials/core-concepts/pushing-assets
   tutorials/getting-started/nunjucks-helper-functions : tutorials/core-concepts/nunjucks-helper-functions
   tutorials/getting-started/layout-widgets : tutorials/core-concepts/layout-widgets
