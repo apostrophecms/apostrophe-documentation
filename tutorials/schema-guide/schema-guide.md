@@ -447,7 +447,7 @@ Example:
 }
 ```
 
-The date picker UI can be configured by using the `pikadayOptions` configuration. We use [pikaday](https://github.com/dbushell/Pikaday#usage) and most configurations should work witout problems.
+The date picker UI can be configured by using the `pikadayOptions` configuration. We use [pikaday](https://github.com/dbushell/Pikaday#usage) and most configurations should work without problems.
 
 Example with configuration of date picker:
 
