@@ -16,7 +16,7 @@ Others, like [apostrophe-pieces](apostrophe-pieces/README.md) and [apostrophe-wi
 
 [apostrophe-module](apostrophe-module/README.md) is the base class of **all** modules; it provides features that are convenient in almost any module, like [rendering a template from its `views` folder](apostrophe-module/README.md#render), or [pushing assets from its `public` folder](apostrophe-module/README.md#push-asset).
 
-Modules can also be installed via npm, and multiple Apostrophe modules can be [shipped as a single npm module via moog bundles](/tutorials/getting-started/core-concepts/06-modules/more-modules.md).
+Modules can also be installed via npm, and multiple Apostrophe modules can be [shipped as a single npm module via moog bundles](/tutorials/getting-started/core-concepts/modules/more-modules.md).
 
 ## Overriding, configuring and extending modules at "project level"
 

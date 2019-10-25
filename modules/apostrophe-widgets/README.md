@@ -8,7 +8,7 @@ All widgets have a [schema](/tutorials/schema-guide/schema-guide.md).
 Many project-specific modules that extend this module consist entirely of an
 `addFields` option and a `views/widget.html` file.
 
-For more information see the [custom widgets tutorial](/tutorials/core-concepts/02-editable-content-on-pages/custom-widgets.md).
+For more information see the [custom widgets tutorial](/tutorials/core-concepts/editable-content-on-pages/custom-widgets.md).
 
 ## Options
 

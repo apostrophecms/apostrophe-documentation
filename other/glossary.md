@@ -206,7 +206,7 @@ A cursor is always an instance of [apostrophe-cursor](../modules/apostrophe-docs
 
 **Every cursor object obtained in this way automatically has methods with the same name as each field in the schema.** For instance, you can write `.slug('party').toArray(function(err, docs) { ... })` to find all docs with a slug \(URL\) that contains the word `party`.
 
-See [working with cursors](/tutorials/advanced-development/06-database/cursors.md) for more information.
+See [working with cursors](/tutorials/advanced-development/database/cursors.md) for more information.
 
 ## `req.data` and the `data` object in Nunjucks
 
