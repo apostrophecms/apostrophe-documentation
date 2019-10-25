@@ -126,7 +126,7 @@ mkdir -p lib/modules/page-link-widgets/views
 While it's good to get some experience making all the folders and files yourself, the `apostrophe-cli` pacakage that you installed earlier can easily create basic module structures for you from templates. You can learn more in the [`apostrophe-cli` README](https://github.com/apostrophecms/apostrophe-cli/blob/master/README.md).
 {% endhint %}
 
-\1. Now you this new widget to the `modules` object in our app.js:
+1\. Now you this new widget to the `modules` object in our app.js:
 
 {% code-tabs %}
 {% code-tabs-item title="app.js" %}
@@ -140,7 +140,7 @@ While it's good to get some experience making all the folders and files yourself
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-\2. And then write `lib/modules/page-link-widgets/index.js`:
+2\. And then write `lib/modules/page-link-widgets/index.js`:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/page-link-widgets/index.js" %}
@@ -211,7 +211,7 @@ You probably noticed that our widgets don't take any options yet. You can use op
 All you have to do is access `data.options` in your `widget.html` template for `page-link-widgets` and pass the option in the `apos.area` call and `home.html`:
 
 
-\1. Add `data.options` in `widget.html`:
+1\. Add `data.options` in `widget.html`:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/page-link-widgets/views/widget.html" %}
@@ -221,7 +221,7 @@ All you have to do is access `data.options` in your `widget.html` template for `
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-\2. Then pass the option  call in `home.html`:
+2\. Then pass the option  call in `home.html`:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/page-link-widgets/views/home.html" %}

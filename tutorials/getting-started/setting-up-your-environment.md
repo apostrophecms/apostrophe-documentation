@@ -36,7 +36,7 @@ Starting with XCode 6.1 the Command Line tools are automatically installed, and 
 Next, you need to install [Homebrew](http://brew.sh/), a convenient software manager that makes it easier to manage and update your software packages.
 
 {% hint style="tip" %}
-Anything `formatted like this` is meant to be run at the terminal prompt. Basic familiarity with the terminal is very helpful for node and Apostrophe development.
+**Note:** Throughout the tutorials, anything `formatted like this` is meant to be run at the terminal prompt. Basic familiarity with the terminal is very helpful for node and Apostrophe development.
 {% endhint %}
 
 

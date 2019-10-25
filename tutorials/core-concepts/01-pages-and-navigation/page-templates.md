@@ -5,7 +5,7 @@ layout: tutorial
 
 # Page Templates
 
-The first thing you need to do is create a page. You can create the most amazing content in history, but if it doesn't have a page to by displayed on, then no one will ever know.
+The first thing you need to do is create a page. You can create the most amazing content in history, but if it doesn't have a page to be displayed on, then no one will ever know.
 
 There are three main steps for creating a new page:
 
@@ -90,7 +90,7 @@ Even `layout.html` extends another file. For a typical page load, it extends `ou
 
 Some modules are always a part of Apostrophe whether you configure them or not, and you can create your own modules to meet the needs of your project. To learn more abuou modules, visit the [Modules section](/tutorials/core-concepts/06-modules/README.md).
 
-In order for any new page template to load, you must add it to `app.js`. When you add a new page template to `app.js`, remember, you're not creating a new page. You're registering a page template that can be used to create new pages.
+In order for any new page template to load, you must add it to `app.js`. When you add a new page template to `app.js`, remember, you're not creating a new page: you're registering a page template that can be used to create new pages.
 
  
 ### Example: Adding a Page Template to `app.js`
@@ -124,6 +124,8 @@ In order for any new page template to load, you must add it to `app.js`. When yo
 Remember, all you're doing here is registering a template. New pages are created in context on your Apostrophe instance.
 
 ### Example: Create a Page from the New Template
+
+Now that you created the template, use it to create a new page.
 
 1. Log on to Apostrophe.
 

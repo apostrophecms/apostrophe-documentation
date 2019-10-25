@@ -5,7 +5,7 @@ layout: tutorial
 
 # Reusable content with pieces
 
-When you create content with the rich text editor, or images widget, that content is displayable on the page where it is created. That will work for some cases, but often you need more powerful tools to create different types of content that can be reused in different ways across your site.
+When you create content with the rich text editor, or images widget, that content is only displayable on the page where it is created. That will work for some cases, but often you need more powerful tools to create different types of content that can be reused in different ways across your site.
 
 ## A directory of people: working with pieces
 
@@ -15,7 +15,7 @@ Let's say you want to create a directory of people who work for a company. Peopl
 **"What about users?"** Yes, you already have a "Users" menu on your admin bar. And yes, users are powered by pieces. But we've found that confusing website editors with the publicly visible staff directory tends to cause problems in the long run. Plus, this way, it's a teachable moment. :\)
 {% endhint %}
 
-\1. Create a `lib/modules/people/index.js` file:
+1\. Create a `lib/modules/people/index.js` file:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/people/index.js" %}
@@ -83,7 +83,7 @@ module.exports = {
 **IMPORTANT: note the** `name` **property. This identifies ONE piece in the database, so it is always singular.** Remember: Modules Are Plural \(MAP\), but the things they manage may not be.
 {% endhint %}
 
-\2. Now turn the module on in `app.js`.
+2\. Now turn the module on in `app.js`.
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/people/index.js" %}

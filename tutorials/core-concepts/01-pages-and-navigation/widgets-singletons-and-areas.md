@@ -5,11 +5,11 @@ layout: tutorial
 
 # Widgets, Singletons, and Areas
 
-Central to Apostrophe is the philosophy that editors can edit their content in context. In order for you to enable this functionality in your templates, Apostrophe provides `singleton` and `area` helpers that you can use in your templates. Within those singletons and areas, the objects that you add to a page are called `widgets`.
+Central to Apostrophe is the philosophy that editors can edit their content in context. In order for you to enable this functionality in your templates, Apostrophe provides `singleton` and `area` helpers. Within those singletons and areas, the objects that you add to a page are called `widgets`.
 
 ## Singletons
 
-A Singleton is a slot on a page that allows an editor to add a single "widget" of a specific type.
+A Singleton is a space on a page that allows an editor to add a single "widget" of a specific type.
 
 ### Example: Creating a Rich Text Editor as a Singleton
 
@@ -57,7 +57,7 @@ If we restart our server and refresh our site's home page while logged in, we'll
 
 ## Areas
 
-An Area, is like a Singleton, a slot on the page where an editor can add a widget. Unlike a Singleton, you can add any number of widgets inside of an area, and you can define multiple types of widgets that can be added within a single area. When we use the area helper a "+" sign appears on the page, allowing the user to add a new widget in a series \(usually a vertical column\), often alternating between images and rich text.
+An Area, is like a Singleton, a space on the page where an editor can add a widget. Unlike a Singleton, you can add any number of widgets inside of an area, and you can define multiple types of widgets that can be added within a single area. When we use the area helper a "+" sign appears on the page, allowing the user to add a new widget in a series \(usually a vertical column\), often alternating between images and rich text.
 
 ### Example: Creating an Area with Multiple Widgets
 
@@ -90,4 +90,4 @@ The first two arguments for this helper work the same way as for `apos.singleton
 Not sure how to add a second widget? After you're finished editing rich text, click anywhere outside of the rich text widget. Then hover over it and you'll see the "+" signs in each position where you're allowed to add a new widget.
 {% endhint %}
 
-With this, you've learned how to copmlete two of the most important tasks in any CMS: creating new pages and adding content to those pages. Next you'll learn how to connect pages with Navigation.
+With this, you've learned how to complete two of the most important tasks in any CMS: creating new pages and adding content to those pages. Next you'll learn how to connect pages with Navigation.

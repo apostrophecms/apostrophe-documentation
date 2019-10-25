@@ -11,17 +11,18 @@ description: >-
 
 ## Tutorials
 
-Our tutorials cover everything you need to know to get started as an Apostrophe developer. Everyone should start here. Our tutorials are progressive, so you can learn as you go. [The Getting Started tutorial is a good place to get started](tutorials/getting-started/setting-up-your-environment.md)
+Our tutorials cover everything you need to know to get started as an Apostrophe developer. Everyone should start here. Our tutorials are progressive, so you can learn as you go. [The Getting Started tutorial](tutorials/getting-started/setting-up-your-environment.md) is a good place to get started.
 
 ### Getting Started
 
 [The "getting started" tutorials](tutorials/getting-started/setting-up-your-environment.md) are written for developers who are new to Apostrophe. They will walk you through the process of getting your environment set up and creating a basic website.
 
-Practical examples of these concepts are illustrated in the [Open Musuem project, a fully featured Apostrophe site](https://github.com/apostrophecms/apostrophe-open-museum). [You can access the code](https://github.com/apostrophecms/apostrophe-open-museum) or [try a live demo](http://demo.apostrophecms.org).
-
 ### Core Concepts
 
-[The Core Concepts tutorials](tutorials/core-concepts/README.md) go through each piece of Apostrophe that you need to understand to build a webite.  They will help you get more comfortable with Apostrophe and node.js.
+[The Core Concepts tutorials](tutorials/core-concepts/README.md) go through each feature of Apostrophe that you need to understand to build a webite.  They will help you get more comfortable with Apostrophe and node.js.
+
+Practical examples of these concepts are illustrated in the [Open Musuem project, a fully featured Apostrophe site](https://github.com/apostrophecms/apostrophe-open-museum). [You can access the code](https://github.com/apostrophecms/apostrophe-open-museum) or [try a live demo](http://demo.apostrophecms.org).
+
 
 ### Advanced Development
 

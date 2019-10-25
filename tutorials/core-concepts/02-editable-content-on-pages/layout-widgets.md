@@ -5,7 +5,7 @@ layout: tutorial
 
 # Layout / Nested widgets
 
-You’ve built a couple of custom widgets, you’ve got a powerful `area` running down the main column of your template, awesome. Now you want start pairing widgets up, creating complex layouts of widgets. `singletons` let you enforce particular widgets in particular pieces of layout, but you want the editor to decide where it's appropriate to create these complex arrangements and be able to mix them with simpler widgets.
+You’ve built a couple of custom widgets, you’ve got a powerful `area` running down the main column of your template. Awesome! Now you want start pairing widgets up, creating complex layouts of widgets. `singletons` let you enforce particular widgets in particular pieces of layout, but you want the editor to decide where it's appropriate to create these complex arrangements and be able to mix them with simpler widgets.
 
 You want a widget that creates a layout of inner widgets.
 
@@ -90,7 +90,7 @@ In `lib/modules/two-column-widgets/views/widget.html`
     </div>
     ```
 {% endcode-tabs-item %}
-{% endcode-tabs 
+{% endcode-tabs %}
 
 {% hint style='info' %}
 "Why are the two columns stacked on top of each other?" You need to write your own CSS to position the `column-left` and `column-right` divs. However, you can find a [complete, working example with CSS here in the apostrophe-samples project](https://github.com/apostrophecms/apostrophe-samples).
