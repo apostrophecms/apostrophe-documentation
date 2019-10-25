@@ -18,53 +18,53 @@ redirects:
   tutorials/getting-started/settings : ./tutorials/core-concepts/global/settings.md
   tutorials/getting-started/schema-guide : ./tutorials/schema-guide/schema-guide.md
   
-  tutorials/intermediate/README : ./tutorials/advanced-development/README
-  tutorials/intermediate/permissions : ./tutorials/core-concepts/users-and-groups
-  tutorials/intermediate/custom-schema-fields-for-pages : ./tutorials/advanced-development/custom-schema-fields-for-pages
-  tutorials/intermediate/model-layer : ./tutorials/advanced-development/model-layer
-  tutorials/intermediate/cursors : ./tutorials/advanced-development/cursors
-  tutorials/intermediate/forms : ./tutorials/core-concepts/reusable-content-with-pieces
-  tutorials/intermediate/command-line-tasks : ./tutorials/advanced-development/command-line-tasks
-  tutorials/intermediate/accessing-the-database-directly : ./tutorials/advanced-development/accessing-the-database-directly
-  tutorials/intermediate/custom-schema-field-types : ./tutorials/advanced-development/custom-schema-field-types
-  tutorials/intermediate/deployment : 
+  tutorials/intermediate/README : ./tutorials/advanced-development/README.md
+  tutorials/intermediate/permissions : ./tutorials/core-concepts/users-and-groups/permissions.md
+  tutorials/intermediate/custom-schema-fields-for-pages : ./tutorials/advanced-development/advanced-pages-topics/custom-schema-fields-for-pages.md
+  tutorials/intermediate/model-layer : ./tutorials/advanced-development/database/model-layer.md
+  tutorials/intermediate/cursors : ./tutorials/advanced-development/database/cursors.md
+  tutorials/intermediate/forms : ./tutorials/core-concepts/reusable-content-with-pieces/README.md
+  tutorials/intermediate/command-line-tasks : ./tutorials/advanced-development/apostrophe-cli/command-line-tasks.md
+  tutorials/intermediate/accessing-the-database-directly : ./tutorials/advanced-development/database/accessing-the-database-directly.md
+  tutorials/intermediate/custom-schema-field-types : ./tutorials/advanced-development/advanced-pages-topics/custom-schema-field-types
+  tutorials/intermediate/deployment : ./tutorials/devops/deployment/README.md
 
-  tutorials/howtos/thumbnails-and-areas-of-child-pages : ./tutorials/core-concepts/pushing-assets
-  tutorials/howtos/password-reset : ./tutorials/core-concepts/user-login-and-password
-  tutorials/howtos/search : ./tutorials/core-concepts/search
-  tutorials/howtos/admin-bar : ./tutorials/advanced-development/admin-bar
-  tutorials/howtos/children-and-joins : ./tutorials/core-concepts/children-and-joins
-  tutorials/howtos/redirecting-after-login : ./tutorials/core-concepts/redirecting-after-login
+  tutorials/howtos/thumbnails-and-areas-of-child-pages : ./tutorials/core-concepts/working-with-templates/thumbnails-and-areas-of-child-pages.md
+  tutorials/howtos/password-reset : ./tutorials/core-concepts/users-and-permissions/user-login-and-password.md
+  tutorials/howtos/search : ./tutorials/core-concepts/apostrophe-search/README.md
+  tutorials/howtos/admin-bar : ./tutorials/advanced-development/advanced-pages-topics/admin-bar.md
+  tutorials/howtos/children-and-joins : ./tutorials/core-concepts/reusable-content-pieces/children-and-joins
+  tutorials/howtos/redirecting-after-login : ./tutorials/core-concepts//users-and-permissions/user-login-and-password.md
   
-  tutorials/howtos/next-and-previous-pieces : ./tutorials/core-concepts/browsing-directory-of-pieces
-  tutorials/howtos/adding-fields-to-all-pieces : ./tutorials/advanced-development/adding-fields-to-all-pieces
-  tutorials/howtos/lean-frontend-assets : ./tutorials/core-concepts/lean-frontend-assets
-  tutorials/howtos/adding-new-batch-operations : ./tutorials/advanced-development/adding-new-batch-operations
-  tutorials/howtos/extending-the-pieces-editor-modal : ./tutorials/advanced-development/extending-the-pieces-editor-modal
-  tutorials/howtos/responsive-images : ./tutorials/core-concepts/pushing-assets
+  tutorials/howtos/next-and-previous-pieces : ./tutorials/core-concepts/reusable-content-pieces/browsing-directory-of-pieces.md
+  tutorials/howtos/adding-fields-to-all-pieces : ./tutorials/advanced-development/advanced-pieces-topics/adding-fields-to-all-pieces.md
+  tutorials/howtos/lean-frontend-assets : ./tutorials/core-concepts/front-end-assets/lean-frontend-assets.md
+  tutorials/howtos/adding-new-batch-operations : ./tutorials/advanced-development/advanced-pieces-topics/adding-new-batch-operations
+  tutorials/howtos/extending-the-pieces-editor-modal : ./tutorials/advanced-development/advanced-pieces-topics/extending-the-pieces-editor-modal.md
+  tutorials/howtos/responsive-images : ./tutorials/core-concepts/front-end-assets/pushing-assets.md
   
-  tutorials/howtos/storing-images-and-files-in-amazon-s3 : ./tutorials/devops/storing-images-and-files-in-amazon-s3
-  tutorials/howtos/storing-images-and-files-in-azure-blob-storage : ./tutorials/devops/storing-images-and-files-in-azure-blob-storage
-  tutorials/howtos/storing-images-and-files-in-google-cloud-storage : ./tutorials/devops/storing-images-and-files-in-google-cloud-storage
-  tutorials/howtos/migration : ./tutorials/devops/migration
-  tutorials/howtos/linode : ./tutorials/devops/linode
-  tutorials/howtos/deploying-apostrophe-in-the-cloud-with-heroku : ./tutorials/devops/deploying-apostrophe-in-the-cloud-with-heroku
-  tutorials/howtos/deploying-apostrophe-in-the-cloud-with-aws : ./tutorials/devops/deploying-apostrophe-in-the-cloud-with-aws
-  tutorials/howtos/multicore : ./tutorials/devops/multicore
-  tutorials/howtos/windows : ./tutorials/devops/windows
-  tutorials/howtos/docker :  ./tutorials/devops/docker
-  tutorials/howtos/replica-set : ./tutorials/advanced-development/replica-set
-  tutorials/howtos/storing-sessions-in-redis : ./tutorials/devops/storing-sessions-in-redis
+  tutorials/howtos/storing-images-and-files-in-amazon-s3 : ./tutorials/devops/cloud/storing-images-and-files-in-amazon-s3.md
+  tutorials/howtos/storing-images-and-files-in-azure-blob-storage : ./tutorials/devops/cloud/storing-images-and-files-in-azure-blob-storage.md
+  tutorials/howtos/storing-images-and-files-in-google-cloud-storage : ./tutorials/devops/cloud/storing-images-and-files-in-google-cloud-storage.md
+  tutorials/howtos/migration : ./tutorials/devops/migration.md
+  tutorials/howtos/linode : ./tutorials/devops/deployment/linode.md
+  tutorials/howtos/deploying-apostrophe-in-the-cloud-with-heroku : ./tutorials/devops/deployment/deploying-apostrophe-in-the-cloud-with-heroku.md
+  tutorials/howtos/deploying-apostrophe-in-the-cloud-with-aws : ./tutorials/devops/deployment/deploying-apostrophe-in-the-cloud-with-aws.md
+  tutorials/howtos/multicore : ./tutorials/devops/multicore.md
+  tutorials/howtos/windows : ./tutorials/devops/windows.md
+  tutorials/howtos/docker :  ./tutorials/devops/docker.md
+  tutorials/howtos/replica-set : ./tutorials/advanced-development/database/replica-set.md
+  tutorials/howtos/storing-sessions-in-redis : ./tutorials/devops/storing-sessions-in-redis.md
   
-  tutorials/howtos/trim-index : ./tutorials/advanced-development/next-previous-links
-  tutorials/howtos/hide-index-page : ./tutorials/core-concepts/next-previous-links
-  tutorials/howtos/what-to-do-when-you-are-locked-out-of-apostrophe : ./tutorials/core-concepts/user-login-and-password
-  tutorials/howtos/apostrophe-i18n-config : ./tutorials/advanced-development/apostrophe-i18n-config
-  tutorials/howtos/nested-module-folders : ./tutorials/advanced-development/nested-module-folders
-  technical-overviews/technical-overview : ./tutorials/core-concepts/technical-overview
-  technical-overviews/how-apostrophe-starts-up : ./tutorials/advanced-development/how-apostrophe-starts-up
-  technical-overviews/how-apostrophe-handles-requests : ./tutorials/advanced-development/how-apostrophe-handles-requests
-  technical-overviews/how-apostrophe-modules-are-structured : ./tutorials/advanced-development/how-apostrophe-modules-are-structured
-  other/events : ./tutorials/advanced-development/promise-events
-  other/nunjucks-filters : ./tutorials/core-concepts/nunjucks-filters
+  tutorials/howtos/trim-index : ./tutorials/advanced-development/advanced-pieces-topics/next-previous-links.md
+  tutorials/howtos/hide-index-page : ./tutorials/advanced-development/advanced-pieces-topics/next-previous-links.md
+  tutorials/howtos/what-to-do-when-you-are-locked-out-of-apostrophe : ./tutorials/core-concepts/user-permissions/user-login-and-password.md
+  tutorials/howtos/apostrophe-i18n-config : ./tutorials/advanced-development/internationalization-localization/apostrophe-i18n-config.md
+  tutorials/howtos/nested-module-folders : ./tutorials/core-concepts/modules/nested-module-folders.md
+  technical-overviews/technical-overview : ./tutorials/core-concepts/technical-overview.md
+  technical-overviews/how-apostrophe-starts-up : ./tutorials/advanced-development/how-apostrophe-starts-up.md
+  technical-overviews/how-apostrophe-handles-requests : ./tutorials/advanced-development/how-apostrophe-handles-requests.md
+  technical-overviews/how-apostrophe-modules-are-structured : ./tutorials/core-concepts/modules/how-apostrophe-modules-are-structured.md
+  other/events : ./tutorials/advanced-development/promise-events/promise-events.md
+  other/nunjucks-filters : ./tutorials/core-concepts/working-with-templates/nunjucks-filters.md
 
