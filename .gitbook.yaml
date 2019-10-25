@@ -5,8 +5,7 @@ structure:
   summary: SUMMARY.md
 
 redirects:
-  tutorials/getting-started/editing-page-templates : /tutorials/core-concepts/page-templates
-  tutorials/getting-started/editing-page-templates : /tutorials/core-concepts/page-templates
+  tutorials/getting-started/editing-page-templates.md : /tutorials/core-concepts/01-pages-and-navigation/page-templates.md
   tutorials/getting-started/adding-editable-content-to-pages : tutorials/core-concepts/01-pages-and-navigation/widgets-singletons-and-areas
   tutorials/getting-started/building-navigation : tutorials/core-concepts/01-pages-and-navigation/connecting-pages
   tutorials/getting-started/custom-widgets : tutorials/core-concepts/02-editable-content-on-pagescustom-widgets
