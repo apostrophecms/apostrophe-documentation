@@ -26,7 +26,7 @@ Practical examples of these concepts are illustrated in the [Open Musuem project
 
 ## DevOps
 
-[DevOps](devops) covers all you need to know to depploy and configure Apostrophe for a production environment.
+[DevOps](devops) covers all you need to know to deploy and configure Apostrophe for a production environment.
 
 
 ## HOWTOs

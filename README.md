@@ -30,7 +30,7 @@ Practical examples of these concepts are illustrated in the [Open Musuem project
 
 ## DevOps
 
-[DevOps](/tutorials/devops/README.md) covers all you need to know to depploy and configure Apostrophe for a production environment.
+[DevOps](/tutorials/devops/README.md) covers all you need to know to deploy and configure Apostrophe for a production environment.
 
 ### HOWTOs
 
