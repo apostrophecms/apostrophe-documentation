@@ -1,14 +1,14 @@
 ## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
 The base class for all modules that implement a widget, such as
-[apostrophe-rich-text-widgets](../apostrophe-rich-text-widgets/index.html),
-[apostrophe-pieces-widgets](../apostrophe-pieces-widgets/index.html) and
-[apostrophe-video-widgets](../apostrophe-video-widgets/index.html).
+[apostrophe-rich-text-widgets](../apostrophe-rich-text-widgets/README.md),
+[apostrophe-pieces-widgets](../apostrophe-pieces-widgets/README.md) and
+[apostrophe-video-widgets](../apostrophe-video-widgets/README.md).
 
-All widgets have a [schema](../../tutorials/getting-started/schema-guide.html).
+All widgets have a [schema](/tutorials/schema-guide/schema-guide.md).
 Many project-specific modules that extend this module consist entirely of an
 `addFields` option and a `views/widget.html` file.
 
-For more information see the [custom widgets tutorial](../../tutorials/getting-started/custom-widgets.html).
+For more information see the [custom widgets tutorial](/tutorials/core-concepts/editable-content-on-pages/custom-widgets.md).
 
 ## Options
 
@@ -59,7 +59,7 @@ subclass of `apostrophe-custom-pages` or `apostrophe-pieces-pages`, as well.
 
 ### `addFields`, `removeFields`, `arrangeFields`, etc.
 
-The standard options for building [schemas](../../tutorials/getting-started/schema-guide.html)
+The standard options for building [schemas](/tutorials/schema-guide/schema-guide.md)
 are accepted. The widget will present a modal dialog box allowing the user to edit
 these fields. They are then available inside `widget.html` as properties of
 `data.widget`.
@@ -103,7 +103,7 @@ the appropriate div, the `data` for the widget, and the `options` that
 were passed to the widget.
 
 For example, here is the `public/js/always.js` file for the
-[apostrophe-video-widgets](../apostrophe-video-widgets/index.html) module:
+[apostrophe-video-widgets](../apostrophe-video-widgets/README.md) module:
 
 ```javascript
 apos.define('apostrophe-video-widgets', {

@@ -4,15 +4,13 @@ layout: tutorial
 ---
 # Setting Up Your Environment
 
-Let's start from the very beginning by installing the software necessary to develop with Apostrophe. After that, we'll set up an empty Apostrophe site.
-
-## Install the Software
+First you need to get your environment set up. You may already have some of the tools described below installed and configured, but make sure that you read carefully to make sure that you don't miss anything.
 
 {% hint style='info' %}
-MacOS X is the most popular platform for Apostrophe CMS development, but there are plenty of developers using Linux or Windows.  For MacOS 10.9 or newer, continue with the instructions below. Windows users can use this lovely [HOWTO for Windows](../howtos/windows.md) contributed by Michael Brown to get everything set up, and Linux users can get going by installing the same operating system packages required by our [deployment HOWTO](../intermediate/deployment.md).
+MacOS X is the most popular platform for Apostrophe CMS development, but there are plenty of developers using Linux or Windows.  For MacOS 10.9 or newer, continue with the instructions below. Windows users can use this lovely [HOWTO for Windows](/tutorials/devops/windows.md) contributed by Michael Brown to get everything set up, and Linux users can get going by installing the same operating system packages required by our [deployment HOWTO](/tutorials/devops/deployment/README.md).
 {% endhint %}
 
-First we'll install the following software:
+Here's what you need to install:
 
 * XCode \(required for all compilation on Macs\)
 * Homebrew \(for easy installing\)
@@ -21,62 +19,78 @@ First we'll install the following software:
 * MongoDB
 * Optional: Imagemagick \(for fast image manipulation with animated GIF support\)
 
-### Install XCode
+## Install XCode and Command Line Tools
 
-Launch the "Terminal" app. From this point on, anything `formatted like this` is meant to be run at the terminal prompt. Basic familiarity with the terminal is very helpful for node and Apostrophe development.
+First, you need to install the Xcode Command Line Tools.
 
-### XCode Command Line Tools
+1. Open XCode (Download it from the App Store if you don't currently have it installed.)
 
-You will also need the Xcode Command Line Tools, which can be installed by going to Xcode -&gt; Preferences ... -&gt; Downloads. This installs the XCode command line tools directly from Apple. You *do not* have to install the full XCode user interface.
+2. Go to Xcode &rarr; Preferences &rarr; Locations and set the version for the Command Line Tools Option.
 
-### Install Homebrew
-
-[Homebrew](http://brew.sh/) is a convenient software manager that makes it easier to keep track of and update your software packages.
-
-Install Homebrew by copying and pasting this one-line command to the terminal:
-
-```bash
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
-
-{% hint style='tip' %}
-Trouble? Visit the [_Homebrew site_](http://brew.sh/) for the latest instructions.
+{% hint style='info' %}
+Starting with XCode 6.1 the Command Line tools are automatically installed, and just need to be configured. For older versions of XCode, go to the Downloads tab under Preferences. From there you can select _Install_ for the Command Line Tools options. 
 {% endhint %}
 
-### Install Node
+## Install Homebrew
 
-One command is all it takes:
+Next, you need to install [Homebrew](http://brew.sh/), a convenient software manager that makes it easier to manage and update your software packages.
+
+{% hint style="tip" %}
+**Note:** Throughout the tutorials, anything `formatted like this` is meant to be run at the terminal prompt. Basic familiarity with the terminal is very helpful for node and Apostrophe development.
+{% endhint %}
+
+
+1. Launch the "Terminal" app.
+
+2. Copy and Paste this one-line command to the terminal to install Homebrew:
+
+    ```bash
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    ```
+
+## Install Node
+
+Now that you have Homebrew installed it only takes one command to install Node:
 
 ```bash
 brew install node
 ```
 
-### Adjust your PATH
+## Adjust your PATH
 
 The terminal prompt finds commands in folders listed in an environment variable called PATH. We'll need to add node's directory to our $PATH in order for it to work its magic.
 
-Create a plaintext file called `.profile` in your home directory if you don't already have one and open it with your text editor \(which will default to TextEdit on a Mac, which is fine\):
+1. Create a plaintext file called `.profile` in your home directory if you don't already have one. You can use the `touch` command from the command line to create a new file:
 
-```bash
-touch ~/.profile && open ~/.profile
-```
+    ```bash
+    touch ~/.profile
+    ```
+2. Open it with your favorite text editor, or use the following command to open it with the default editor:
 
-In this new file, add these two lines:
+    ```bash
+    open ~/.profile
+    ```
 
-```bash
-export NODE_PATH="/usr/local/lib/node"
-export PATH="/usr/local/share/npm/bin:$PATH"
-```
+3. Add these two lines to the file and save it:
+ 
+{% code-tabs %}
+{% code-tabs-item title="\~/.profile" %}
+    ```bash
+    export NODE_PATH="/usr/local/lib/node"
+    export PATH="/usr/local/share/npm/bin:$PATH"
+    ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
-You should verify that this worked by opening a _new_ Terminal tab and running:
+Verify that this worked by opening a _new_ Terminal tab and running:
 
 ```bash
 echo $PATH
 ```
 
-It should echo the current PATH setting as a set of colon-separated values, beginning with your additions.
+If it worked, it will echo the current PATH setting as a set of colon-separated values, beginning with your additions.
 
-### Install NPM \(Node Package Manager\)
+## Install NPM \(Node Package Manager\)
 
 NPM may or may not have been installed with Node. Try:
 
@@ -90,52 +104,59 @@ If you get a "not found" error, run this:
 curl -L https://npmjs.org/install.sh | sh
 ```
 
-### Install git
+## Install git
 
-You'll need git to manage your source code. Macs come with it, but we suggest you get the latest via Homebrew:
+You'll need git to manage your source code. Macs come with it, but we suggest you get the latest via Homebrew. From the command line:
 
 ```bash
 brew install git
 ```
 
-### Install MongoDB
+## Install MongoDB
 
-Apostrophe uses MongoDB as its database. You can install it with Homebrew. In addition, you can configure `brew services` to launch it automatically for you, so you don't have to fuss with restarting it manually.  First you need to install the "tap" for Mongo DB:
+Apostrophe uses MongoDB as its database. You can install it with Homebrew. In addition, you can configure `brew services` to launch it automatically for you, so you don't have to fuss with restarting it manually. 
 
-```bash
-brew tap mongodb/brew
-```
-Then you can install MongoDB:
+1. First you need to install the "tap" for Mongo DB:
 
-```bash
-brew install mongodb-community
-```
+    ```bash
+    brew tap mongodb/brew
+    ```
 
-After it is installed, start the MongoDB service:
+2. Next install MongoDB:
 
-```bash
-brew services start mongodb-community
-```
+    ```bash
+    brew install mongodb-community
+    ```
 
-Now open a **new terminal window** and try:
+3. After it is installed, start the MongoDB service:
 
-```bash
-mongo
-```
+    ```bash
+    brew services start mongodb-community
+    ```
 
-It should start an interactive mongo prompt. ctrl+c to exit.
+4. Now open a **new terminal window** and try:
 
-> "Hey, I got a connection failed error!" Make sure you ran `brew services start mongodb-community`.
+    ```bash
+    mongo
+    ```
 
-### Install ImageMagick
+An interactive mongo prompt will start. Press `control+c` to exit.
+
+{% hint style="working" %}
+"Hey, I got a connection failed error!" Make sure you ran `brew services start mongodb-community`.
+{% endhint %}
+
+## Install ImageMagick
+
+Like most of what you've done so far, installing ImageMagick is just a matter of one command:
 
 ```bash
 brew install imagemagick
 ```
 
-Now you have the `convert` and `identify` command line tools, which Apostrophe uses to scale and crop images quickly, with animated GIF support. _If you skip this step, Apostrophe can still handle image uploads more slowly, thanks to_ [_Jimp_](https://npmjs.org/package/jimp)_._
+This provides the `convert` and `identify` command line tools, which Apostrophe uses to scale and crop images quickly, with animated GIF support. _If you skip this step, Apostrophe can still handle image uploads more slowly, thanks to_ [_Jimp_](https://npmjs.org/package/jimp)_._
 
 # Build a website!
 
-Now your environment is configured it's time to create our first Apostrophe project.
+Now your environment is configured you're ready to create your first Apostrophe project.
 
