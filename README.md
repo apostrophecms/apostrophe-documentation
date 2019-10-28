@@ -11,34 +11,34 @@ description: >-
 
 ## Tutorials
 
-Our tutorials cover everything you need to know to get started as an Apostrophe developer. Everyone should start here. Our tutorials are progressive, so you can learn as you go. [The Getting Started tutorial](tutorials/getting-started/setting-up-your-environment.md) is a good place to get started.
+Our tutorials cover everything you need to know to get started as an Apostrophe developer. Everyone should start here. Our tutorials are progressive, so you can learn as you go. [The Getting Started tutorial](/tutorials/getting-started/setting-up-your-environment.md) is a good place to get started.
 
 ### Getting Started
 
-[The "getting started" tutorials](tutorials/getting-started/setting-up-your-environment.md) are written for developers who are new to Apostrophe. They will walk you through the process of getting your environment set up and creating a basic website.
+[The "getting started" tutorials](/tutorials/getting-started/setting-up-your-environment.md) are written for developers who are new to Apostrophe. They will walk you through the process of getting your environment set up and creating a basic website.
 
 ### Core Concepts
 
-[The Core Concepts tutorials](tutorials/core-concepts/README.md) go through each feature of Apostrophe that you need to understand to build a webite.  They will help you get more comfortable with Apostrophe and node.js.
+[The Core Concepts tutorials](/tutorials/core-concepts/technical-overview.md) go through each feature of Apostrophe that you need to understand to build a webite.  They will help you get more comfortable with Apostrophe and node.js.
 
 Practical examples of these concepts are illustrated in the [Open Musuem project, a fully featured Apostrophe site](https://github.com/apostrophecms/apostrophe-open-museum). [You can access the code](https://github.com/apostrophecms/apostrophe-open-museum) or [try a live demo](http://demo.apostrophecms.org).
 
 
 ### Advanced Development
 
-[Advanced Development](tutorials/advanced-development/README.md) dives deepers into the features of Apostrophe and the concepts behind it to provide the knowledge and tools you need to build dynamic, responsive sites.
+[Advanced Development](/tutorials/advanced-development/README.md) dives deepers into the features of Apostrophe and the concepts behind it to provide the knowledge and tools you need to build dynamic, responsive sites.
 
 ## DevOps
 
-[DevOps](tutorials/devops/README.md) covers all you need to know to depploy and configure Apostrophe for a production environment.
+[DevOps](/tutorials/devops/README.md) covers all you need to know to depploy and configure Apostrophe for a production environment.
 
 ### HOWTOs
 
-[The HOWTOs](tutorials/howtos/README.md) cover miscellaneous topics including development, configuration, and customization.
+[The HOWTOs](/tutorials/howtos/README.md) cover miscellaneous topics including development, configuration, and customization.
 
 ### What's the right level for me?
 
-If you're brand new to Apostrophe, go to [Getting Started](tutorials/getting-started/setting-up-your-environment.md) first to learn how to deploy Apostrophe locally for development and testing, and how to create a project. Once you have Apostrophe set up, [Core Concepts](tutorials/core-concepts/README.md) will help you get a good grasp on Apostrophe's tools. After that, you can dig deeper with [Advanced Development](tutorials/advanced-development/README.md) or get ready for production with [DevOps](tutorials/devops/README.md).
+If you're brand new to Apostrophe, go to [Getting Started](/tutorials/getting-started/setting-up-your-environment.md) first to learn how to deploy Apostrophe locally for development and testing, and how to create a project. Once you have Apostrophe set up, [Core Concepts](/tutorials/core-concepts/README.md) will help you get a good grasp on Apostrophe's tools. After that, you can dig deeper with [Advanced Development](/tutorials/advanced-development/README.md) or get ready for production with [DevOps](tutorials/devops/README.md).
 
 ## Additional Topics
 
@@ -50,13 +50,13 @@ Our module reference provides complete coverage of Apostrophe's modules and thei
 
 ### Glossary
 
-Working with Apostrophe, there are a lot of a terms and ideas to keep track of. If you need a quick reference or come across an unfamiliar term, check the glossary for a detailed explanation. [Read the Glossary](other/glossary.md)
+Working with Apostrophe, there are a lot of a terms and ideas to keep track of. If you need a quick reference or come across an unfamiliar term, check the glossary for a detailed explanation. [Read the Glossary](/other/glossary.md)
 
 ## Core Server
 
-The core `apos` object on the server orchestrates the whole dance. [Learn about the core](other/core-server.md)
+The core `apos` object on the server orchestrates the whole dance. [Learn about the core](/other/core-server.md)
 
 ## Core Browser
 
-The browser has an `apos` object too. tying it all together. [Learn about the core](other/core-browser.md)
+The browser has an `apos` object too. tying it all together. [Learn about the core](/other/core-browser.md)
 
