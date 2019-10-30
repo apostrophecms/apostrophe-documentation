@@ -405,7 +405,7 @@ Example:
 
 ### `float`
 
-`integer` adds an editable floating point numeric field to the schema. You may set minimum and maximum values using the `min` and `max` options.
+`float` adds an editable floating point numeric field to the schema. You may set minimum and maximum values using the `min` and `max` options.
 
 Example:
 
