@@ -62,7 +62,7 @@ As a rule, you should extend the `layout.html` or create your own templates usin
 
 To create a page template:
 
-1. Create new HTML file in `lib/modules/apostrophe-pages/views/` named `default.html`.
+1. Create new HTML file in `lib/modules/apostrophe-pages/views/pages/` named `default.html`.
 
 2. At the top of the file, extend `layout.html`
     ```markup
