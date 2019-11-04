@@ -55,7 +55,6 @@
   * [Extending the Pieces Editor Modal](tutorials/advanced-development/advanced-pieces-topics/extending-the-pieces-editor-modal.md)
 * [Advanced Pages Topics](tutorials/advanced-development/advanced-pages-topics/README.md)
   * [Custom Schemas for Pages](tutorials/advanced-development/advanced-pages-topics/custom-schema-fields-for-pages.md)
-  * [Building combined menus and custom buttons with the admin bar](tutorials/advanced-development/advanced-pages-topics/admin-bar.md)
 * [How Apostrophe Handles Requests](tutorials/advanced-development/how-apostrophe-handles-requests.md)
 * [How Apostrophe Starts Up](tutorials/advanced-development/how-apostrophe-starts-up.md)
 * [Custom Server-side Event Handlers with Promise Events](tutorials/advanced-development/promise-events/README.md)
@@ -86,6 +85,8 @@
 
 ## HOWTOS
 * [Apostrophe HOWTOs](tutorials/howtos/README.md)
+* [Building a contact form in Apostrophe](tutorials/howtos/forms.md)
+* [Building combined menus and custom buttons with the admin bar](tutorials/howtos/admin-bar.md)
 * [How do I create a '404 not found' page?](tutorials/howtos/how-do-i-create-a-404-not-found-page.md)
 * [How do I add an Intranet to My Site?](tutorials/howtos/intranet.md)
 * [Configuring CKEditor in Apostrophe](tutorials/howtos/ckeditor.md)

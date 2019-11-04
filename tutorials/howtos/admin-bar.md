@@ -1,5 +1,5 @@
 ---
-title: Building combined menus and custom buttons with the admin bar
+title: HOWTO Build combined menus and custom buttons with the admin bar
 layout: tutorial
 ---
 
