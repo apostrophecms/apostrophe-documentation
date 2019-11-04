@@ -23,7 +23,7 @@ redirects:
   tutorials/intermediate/custom-schema-fields-for-pages : ./tutorials/advanced-development/advanced-pages-topics/custom-schema-fields-for-pages.md
   tutorials/intermediate/model-layer : ./tutorials/advanced-development/database/model-layer.md
   tutorials/intermediate/cursors : ./tutorials/advanced-development/database/cursors.md
-  tutorials/intermediate/forms : ./tutorials/core-concepts/reusable-content-with-pieces/README.md
+  tutorials/intermediate/forms : ./tutorials/advanced-development/forms.md
   tutorials/intermediate/command-line-tasks : ./tutorials/advanced-development/apostrophe-cli/command-line-tasks.md
   tutorials/intermediate/accessing-the-database-directly : ./tutorials/advanced-development/database/accessing-the-database-directly.md
   tutorials/intermediate/custom-schema-field-types : ./tutorials/advanced-development/advanced-pages-topics/custom-schema-field-types
