@@ -47,6 +47,7 @@ redirects:
   tutorials/howtos/storing-images-and-files-in-google-cloud-storage : ./tutorials/devops/cloud/storing-images-and-files-in-google-cloud-storage.md
   tutorials/howtos/migration : ./tutorials/devops/migration.md
   tutorials/howtos/linode : ./tutorials/devops/deployment/linode.md
+  tutorials/howtos/email  : ./tutorials/howtos/email.md
   tutorials/howtos/deploying-apostrophe-in-the-cloud-with-heroku : ./tutorials/devops/deployment/deploying-apostrophe-in-the-cloud-with-heroku.md
   tutorials/howtos/deploying-apostrophe-in-the-cloud-with-aws : ./tutorials/devops/deployment/deploying-apostrophe-in-the-cloud-with-aws.md
   tutorials/howtos/multicore : ./tutorials/devops/multicore.md
