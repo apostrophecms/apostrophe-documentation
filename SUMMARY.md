@@ -88,6 +88,7 @@
 * [Building a contact form in Apostrophe](tutorials/howtos/forms.md)
 * [Building combined menus and custom buttons with the admin bar](tutorials/howtos/admin-bar.md)
 * [How do I create a '404 not found' page?](tutorials/howtos/how-do-i-create-a-404-not-found-page.md)
+* [Sending email from your Apostrophe project](tutorials/howtos/email.md)
 * [How do I add an Intranet to My Site?](tutorials/howtos/intranet.md)
 * [Configuring CKEditor in Apostrophe](tutorials/howtos/ckeditor.md)
 * [Facebook open graph tags in Apostrophe](tutorials/howtos/facebook.md)
