@@ -155,9 +155,9 @@ To change Apostrophe's behavior when a particular type of piece is saved, just o
 
 ```javascript
 var superBeforeSave = self.beforeSave;
-self.beforeSave = function(req, piece, callback) {
+self.beforeSave = function(req, piece, options, callback) {
   piece.title = piece.firstName + ' ' + piece.lastName;
-  return superBeforeSave(req, piece, callback);
+  return superBeforeSave(req, piece, options, callback);
 };
 ```
 
