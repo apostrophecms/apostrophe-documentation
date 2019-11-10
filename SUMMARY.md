@@ -53,6 +53,7 @@
   * [Adding Fields to All Pieces](tutorials/advanced-development/advanced-pieces-topics/adding-fields-to-all-pieces.md)
   * [Adding new batch operations for pieces](tutorials/advanced-development/advanced-pieces-topics/adding-new-batch-operations.md)
   * [Extending the Pieces Editor Modal](tutorials/advanced-development/advanced-pieces-topics/extending-the-pieces-editor-modal.md)
+  * [Understanding and Overriding Piece URLs](tutorials/advanced-development/advanced-pieces-topics/overriding-piece-urls.md)
 * [Advanced Pages Topics](tutorials/advanced-development/advanced-pages-topics/README.md)
   * [Custom Schemas for Pages](tutorials/advanced-development/advanced-pages-topics/custom-schema-fields-for-pages.md)
 * [How Apostrophe Handles Requests](tutorials/advanced-development/how-apostrophe-handles-requests.md)

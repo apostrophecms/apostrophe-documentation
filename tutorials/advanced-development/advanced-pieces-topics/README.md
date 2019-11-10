@@ -10,6 +10,7 @@ children:
   - extending-the-pieces-editor-modal
   - next-previous-links
   - permissions-for-pieces
+  - overriding-piece-urls
 ---
 
 In the main pieces section, you covered the basics of creating and displaying pieces, as well as some concepts like filters and joins. This section contains more information on how to use pieces to build dynamic, responsive sites.
@@ -22,4 +23,5 @@ In the main pieces section, you covered the basics of creating and displaying pi
 * [Suppressing Pieces from a Listing](/tutorials/advanced-development/advanced-pieces-topics/suppressing-pieces)
 * [Adding Fields to All Pieces](/tutorials/advanced-development/advanced-pieces-topics/adding-fields-to-all-pieces.md)
 * [Adding new batch operations for pieces](/tutorials/advanced-development/advanced-pieces-topics/adding-new-batch-operations.md)
-* [Extending the Pieces Editor Modal](/tutorials/advanced-development/advanced-pieces-topics/09-extending-the-pieces-editor-modal.md)
+* [Extending the Pieces Editor Modal](/tutorials/advanced-development/advanced-pieces-topics/extending-the-pieces-editor-modal.md)
+* [Overriding the URLs of pieces](/tutorials/advanced-development/advanced-pieces-topics/overriding-piece-urls.md)
