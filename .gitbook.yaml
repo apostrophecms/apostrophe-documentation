@@ -28,7 +28,7 @@ redirects:
   tutorials/intermediate/accessing-the-database-directly : ./tutorials/advanced-development/database/accessing-the-database-directly.md
   tutorials/intermediate/custom-schema-field-types : ./tutorials/advanced-development/advanced-pages-topics/custom-schema-field-types
   tutorials/intermediate/deployment : ./tutorials/devops/deployment/README.md
-
+  tutorials/howtos/email : ./tutorials/devops/email.md
   tutorials/howtos/thumbnails-and-areas-of-child-pages : ./tutorials/core-concepts/working-with-templates/thumbnails-and-areas-of-child-pages.md
   tutorials/howtos/password-reset : ./tutorials/core-concepts/users-and-permissions/user-login-and-password.md
   tutorials/howtos/search : ./tutorials/core-concepts/apostrophe-search/README.md
