@@ -60,8 +60,8 @@ module.exports = {
       for (const piece of pieces) {
         piece._url = `https://external-site.com/products/$piece.slug`;
       }
+      return callback(null);
     };
-    return callback(null);
   }
 };
 ```
