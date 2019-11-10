@@ -1,13 +1,13 @@
 ---
-title: More modules
+title: More npm modules for ApostropheCMS
 layout: reference
 ---
 
-# More on Modules
+# More Modules: 
 
 _This page is about optional modules for Apostrophe. For the standard modules, see the_ [_reference_](/modules/README.md)_._
 
-## More official modules for Apostrophe
+## More official npm modules for ApostropheCMS
 
 [**Check out our official list of optional modules from the Apostrophe team.**](https://apostrophecms.org/extend) The modules available cover everything: workflow, internationalization, localization, single sign-on \(SSO\), Twitter feeds, redirects, Redis caching, headless APIs for your native, React, Vue and Angular applications, sitemaps and a great deal more.
 
@@ -15,7 +15,7 @@ _This page is about optional modules for Apostrophe. For the standard modules, s
 
 Please do! It's easy. A few things to know:
 
-* You can take any Apostrophe module \(`lib/modules/my-module`\), move that to the root of its own repository and package it up as an npm module and it will Just Work, as long as all of your dependencies are part of the module. For instance, don't rely on including templates that are in a module you're not publishing.
+* You can take any Apostrophe module \(`lib/modules/my-module`\), move that to the root of its own repository and package it up as an npm module and it will just work, as long as all of your dependencies are part of the module. For instance, don't rely on including templates that are in a module you're not publishing.
 * **Do not use the** `apostrophe-` **prefix for your module, or the** `apos-` **prefix for your styles** without consulting us first. These are reserved for the official P'unk Avenue Apostrophe modules \(which you are welcome to collaborate on\). To avoid confusion, you can pick your own prefix. It's polite to use a prefix so that you don't conflict with project-level modules.
 * You should take advantage of the `afterConstruct: function(self) { ... }` function in your `index.js` and invoke any methods that need to be called at startup there, rather than actually _doing things_ in your `construct: function(self, options) { ... }` function. This allows project-level developers to extend your module and override your methods before `afterConstruct` runs and it's too late.
 * Speaking of which, `afterConstruct` can optionally take a callback if you need to do async stuff there.
