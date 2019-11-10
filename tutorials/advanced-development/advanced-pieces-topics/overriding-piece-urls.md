@@ -68,4 +68,4 @@ module.exports = {
 
 > Since this method takes a callback, we can invoke APIs to figure out the `_url` if
 we really need to. Notice that we add URLs to many pieces at once, so we must iterate
-over the array, not just set one.
+over the array and handle all of them.
