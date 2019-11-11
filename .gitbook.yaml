@@ -35,7 +35,6 @@ redirects:
   tutorials/howtos/password-reset : ./core-concepts/users-and-permissions/user-login-and-password.md
   tutorials/howtos/search : ./core-concepts/apostrophe-search/README.md
   tutorials/howtos/redirecting-after-login : ./core-concepts//users-and-permissions/user-login-and-password.md
-  
   tutorials/howtos/next-and-previous-pieces : ./core-concepts/reusable-content-pieces/browsing-directory-of-pieces.md
   tutorials/howtos/adding-fields-to-all-pieces : ./tutorials/advanced-development/advanced-pieces-topics/adding-fields-to-all-pieces.md
   tutorials/howtos/lean-frontend-assets : ./core-concepts/front-end-assets/lean-frontend-assets.md
@@ -43,7 +42,6 @@ redirects:
   tutorials/howtos/extending-the-pieces-editor-modal : ./tutorials/advanced-development/advanced-pieces-topics/extending-the-pieces-editor-modal
   tutorials/howtos/children-and-joins : ./tutorials/advanced-development/advanced-pages-topics/children-and-joins
   tutorials/howtos/responsive-images : ./core-concepts/front-end-assets/pushing-assets.md
-  
   tutorials/howtos/storing-images-and-files-in-amazon-s3 : ./tutorials/devops/cloud/storing-images-and-files-in-amazon-s3.md
   tutorials/howtos/storing-images-and-files-in-azure-blob-storage : ./tutorials/devops/cloud/storing-images-and-files-in-azure-blob-storage.md
   tutorials/howtos/storing-images-and-files-in-google-cloud-storage : ./tutorials/devops/cloud/storing-images-and-files-in-google-cloud-storage.md
@@ -56,7 +54,6 @@ redirects:
   tutorials/howtos/docker :  ./tutorials/devops/docker.md
   tutorials/howtos/replica-set : ./tutorials/advanced-development/database/replica-set.md
   tutorials/howtos/storing-sessions-in-redis : ./tutorials/devops/storing-sessions-in-redis.md
-  
   tutorials/howtos/trim-index : ./tutorials/advanced-development/advanced-pieces-topics/next-previous-links.md
   tutorials/howtos/hide-index-page : ./tutorials/advanced-development/advanced-pieces-topics/next-previous-links.md
   tutorials/howtos/what-to-do-when-you-are-locked-out-of-apostrophe : ./core-concepts/users-and-permissions/user-login-and-password#what-to-do-when-you-are-locked-out-of-apostrophe
@@ -69,4 +66,3 @@ redirects:
   other/events : ./tutorials/advanced-development/promise-events/promise-events.md
   other/nunjucks-filters : ./core-concepts/working-with-templates/nunjucks-filters.md
   other/more-modules : ./core-concepts/modules/more-modules.md
-  
