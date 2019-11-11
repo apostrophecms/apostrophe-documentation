@@ -18,3 +18,15 @@ redirects:
   technical-overviews/how-apostrophe-handles-requests : ./tutorials/advanced-development/how-apostrophe-handles-requests.md
   technical-overviews/how-apostrophe-modules-are-structured : ./core-concepts/modules/how-apostrophe-modules-are-structured.md
   core-concepts/reusable-content-pieces/children-joins : ./core-concepts/reusable-content-pieces/joins.md
+  tutorials/howtos/storing-images-and-files-in-amazon-s3 : ./tutorials/devops/cloud/storing-images-and-files-in-amazon-s3.md
+  tutorials/howtos/storing-images-and-files-in-azure-blob-storage : ./tutorials/devops/cloud/storing-images-and-files-in-azure-blob-storage.md
+  tutorials/howtos/storing-images-and-files-in-google-cloud-storage : ./tutorials/devops/cloud/storing-images-and-files-in-google-cloud-storage.md
+  tutorials/howtos/migration : ./tutorials/devops/migration.md
+  tutorials/howtos/linode : ./tutorials/devops/deployment/linode.md
+  tutorials/howtos/deploying-apostrophe-in-the-cloud-with-heroku : ./tutorials/devops/deployment/deploying-apostrophe-in-the-cloud-with-heroku.md
+  tutorials/howtos/deploying-apostrophe-in-the-cloud-with-aws : ./tutorials/devops/deployment/deploying-apostrophe-in-the-cloud-with-aws.md
+  tutorials/howtos/multicore : ./tutorials/devops/multicore.md
+  tutorials/howtos/windows : ./tutorials/devops/windows.md
+  tutorials/howtos/docker :  ./tutorials/devops/docker.md
+  tutorials/howtos/replica-set : ./tutorials/advanced-development/database/replica-set.md
+  tutorials/howtos/storing-sessions-in-redis : ./tutorials/devops/storing-sessions-in-redis.md
