@@ -8,4 +8,13 @@ redirects:
   other/events: ./tutorials/advanced-development/promise-events/promise-events.md
   other/more-modules: ./tutorials/core-concepts/modules/more-modules.md
   other/nunjucks-filters: ./tutorials/core-concepts/working-with-templates/nunjucks-filters.md
-  
+  tutorials/howtos/trim-index : ./tutorials/advanced-development/advanced-pieces-topics/next-previous-links.md
+  tutorials/howtos/hide-index-page : ./tutorials/advanced-development/advanced-pieces-topics/next-previous-links.md
+  tutorials/howtos/what-to-do-when-you-are-locked-out-of-apostrophe : ./core-concepts/users-and-permissions/user-login-and-password#what-to-do-when-you-are-locked-out-of-apostrophe
+  tutorials/howtos/apostrophe-i18n-config : ./tutorials/advanced-development/internationalization-localization/apostrophe-i18n-config.md
+  tutorials/howtos/nested-module-folders : ./core-concepts/modules/nested-module-folders.md
+  technical-overviews/technical-overview : ./core-concepts/technical-overview.md
+  technical-overviews/how-apostrophe-starts-up : ./tutorials/advanced-development/how-apostrophe-starts-up.md
+  technical-overviews/how-apostrophe-handles-requests : ./tutorials/advanced-development/how-apostrophe-handles-requests.md
+  technical-overviews/how-apostrophe-modules-are-structured : ./core-concepts/modules/how-apostrophe-modules-are-structured.md
+  core-concepts/reusable-content-pieces/children-joins : ./core-concepts/reusable-content-pieces/joins.md
