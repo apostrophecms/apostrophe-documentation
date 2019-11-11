@@ -51,7 +51,7 @@ redirects:
   tutorials/howtos/deploying-apostrophe-in-the-cloud-with-aws : ./tutorials/devops/deployment/deploying-apostrophe-in-the-cloud-with-aws.md
   tutorials/howtos/multicore : ./tutorials/devops/multicore.md
   tutorials/howtos/windows : ./tutorials/devops/windows.md
-  tutorials/howtos/docker :  ./tutorials/devops/docker.md
+  tutorials/howtos/docker : ./tutorials/devops/docker.md
   tutorials/howtos/replica-set : ./tutorials/advanced-development/database/replica-set.md
   tutorials/howtos/storing-sessions-in-redis : ./tutorials/devops/storing-sessions-in-redis.md
   tutorials/howtos/trim-index : ./tutorials/advanced-development/advanced-pieces-topics/next-previous-links.md
