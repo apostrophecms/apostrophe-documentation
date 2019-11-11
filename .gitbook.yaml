@@ -69,4 +69,4 @@ redirects:
   other/events : ./tutorials/advanced-development/promise-events/promise-events.md
   other/nunjucks-filters : ./core-concepts/working-with-templates/nunjucks-filters.md
   other/more-modules : ./core-concepts/modules/more-modules.md
-  core-concepts/reusable-content-pieces/children-joins : ./core-concepts/reusable-content-pieces/joins.md
+  
