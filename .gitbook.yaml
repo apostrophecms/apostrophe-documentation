@@ -10,9 +10,7 @@ redirects:
   other/nunjucks-filters : ./tutorials/core-concepts/working-with-templates/nunjucks-filters.md
   tutorials/howtos/trim-index : ./tutorials/advanced-development/advanced-pieces-topics/next-previous-links.md
   tutorials/howtos/hide-index-page : ./tutorials/advanced-development/advanced-pieces-topics/next-previous-links.md
-  
   tutorials/howtos/what-to-do-when-you-are-locked-out-of-apostrophe : ./tutorials/core-concepts/users-and-permissions/user-login-and-password.md#what-to-do-when-you-are-locked-out-of-apostrophe
-  
   tutorials/howtos/apostrophe-i18n-config : ./tutorials/advanced-development/internationalization-localization/apostrophe-i18n-config.md
   tutorials/howtos/nested-module-folders : ./core-concepts/modules/nested-module-folders.md
   technical-overviews/technical-overview : ./core-concepts/technical-overview.md
