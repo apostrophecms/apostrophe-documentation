@@ -65,3 +65,56 @@ redirects:
   tutorials/intermediate/accessing-the-database-directly : ./tutorials/advanced-development/database/accessing-the-database-directly.md
   tutorials/intermediate/custom-schema-field-types : ./tutorials/advanced-development/database/custom-schema-field-types.md
   tutorials/intermediate/deployment : ./tutorials/devops/deployment/README.md
+
+  /howtos/trim-index : ./tutorials/advanced-development/advanced-pieces-topics/next-previous-links.md
+  /howtos/hide-index-page : ./tutorials/advanced-development/advanced-pieces-topics/next-previous-links.md
+  /howtos/what-to-do-when-you-are-locked-out-of-apostrophe : ./tutorials/core-concepts/users-and-permissions/user-login-and-password.md
+  /howtos/apostrophe-i18n-config : ./tutorials/advanced-development/internationalization-localization/apostrophe-i18n-config.md
+  /howtos/nested-module-folders : ./tutorials/core-concepts/modules/nested-module-folders.md
+  /howtos/storing-images-and-files-in-amazon-s3 : ./tutorials/devops/cloud/storing-images-and-files-in-amazon-s3.md
+  /howtos/storing-images-and-files-in-azure-blob-storage : ./tutorials/devops/cloud/storing-images-and-files-in-azure-blob-storage.md
+  /howtos/storing-images-and-files-in-google-cloud-storage : ./tutorials/devops/cloud/storing-images-and-files-in-google-cloud-storage.md
+  /howtos/migration : ./tutorials/devops/migration.md
+  /howtos/linode : ./tutorials/devops/deployment/linode.md
+  /howtos/deploying-apostrophe-in-the-cloud-with-heroku : ./tutorials/devops/deployment/deploying-apostrophe-in-the-cloud-with-heroku.md
+  /howtos/deploying-apostrophe-in-the-cloud-with-aws : ./tutorials/devops/deployment/deploying-apostrophe-in-the-cloud-with-aws.md
+  /howtos/multicore : ./tutorials/devops/multicore.md
+  /howtos/windows : ./tutorials/devops/windows.md
+  /howtos/docker :  ./tutorials/devops/docker.md
+  /howtos/replica-set : ./tutorials/advanced-development/database/replica-set.md
+  /howtos/storing-sessions-in-redis : ./tutorials/devops/storing-sessions-in-redis.md
+  /howtos/next-and-previous-pieces : ./tutorials/core-concepts/reusable-content-pieces/browsing-directory-of-pieces.md
+  /howtos/adding-fields-to-all-pieces : ./tutorials/advanced-development/advanced-pieces-topics/adding-fields-to-all-pieces.md
+  /howtos/lean-frontend-assets : ./tutorials/core-concepts/front-end-assets/lean-frontend-assets.md
+  /howtos/adding-new-batch-operations : ./tutorials/advanced-development/advanced-pieces-topics/adding-new-batch-operations.md
+  /howtos/extending-the-pieces-editor-modal : ./tutorials/advanced-development/advanced-pieces-topics/extending-the-pieces-editor-modal.md
+  /howtos/children-and-joins : ./tutorials/advanced-development/advanced-pages-topics/children-and-joins.md
+  /howtos/responsive-images : ./tutorials/core-concepts/front-end-assets/pushing-assets.md
+  /howtos/email : ./tutorials/devops/email.md
+  /howtos/thumbnails-and-areas-of-child-pages : ./tutorials/core-concepts/working-with-templates/thumbnails-and-areas-of-child-pages.md
+  /howtos/password-reset : ./tutorials/core-concepts/users-and-permissions/user-login-and-password.md
+  /howtos/search : ./tutorials/core-concepts/apostrophe-search/README.md
+  /howtos/redirecting-after-login : ./tutorials/core-concepts/users-and-permissions/user-login-and-password.md
+  /howtos/notfoundpage : ./tutorials/howtos/how-do-i-create-a-404-not-found-page.md
+  /howtos/model-layer : ./tutorials/advanced-development/database/model-layer.md
+  /getting-started/page-templates : ./tutorials/core-concepts/pages-and-navigation/page-templates.md
+  /getting-started/editing-page-templates : ./tutorials/core-concepts/pages-and-navigation/page-templates.md
+  /getting-started/adding-editable-content-to-pages : ./tutorials/core-concepts/pages-and-navigation/widgets-singletons-and-areas.md
+  /getting-started/building-navigation : ./tutorials/core-concepts/pages-and-navigation/connecting-pages.md
+  /getting-started/custom-widgets : ./tutorials/core-concepts/editable-content-on-pages/custom-widgets.md
+  /getting-started/global : ./core-concepts/global-settings/global.md
+  /getting-started/layout-widgets : ./core-concepts/editable-content-on-pages/layout-widgets.md
+  /getting-started/nunjucks-helper-functions : ./core-concepts/working-with-templates/nunjucks-helper-functions.md
+  /getting-started/pushing-assets : ./core-concepts/front-end-assets/pushing-assets.md
+  /getting-started/reusable-content-with-pieces : ./core-concepts/reusable-content-pieces/reusable-content-with-pieces.md
+  /getting-started/schema-guide : ./tutorials/schema-guide/schema-guide.md
+  /getting-started/settings : ./core-concepts/global-settings/settings.md
+  /intermediate/README : ./tutorials/advanced-development/README.md
+  /intermediate/permissions : ./tutorials/core-concepts/users-and-permissions/users-and-groups.md
+  /intermediate/custom-schema-fields-for-pages : ./tutorials/advanced-development/advanced-pages-topics/custom-schema-fields-for-pages.md
+  /intermediate/cursors : ./tutorials/advanced-development/database/cursors.md
+  /intermediate/forms : ./tutorials/howtos/forms.md
+  /intermediate/command-line-tasks : ./tutorials/advanced-development/apostrophe-cli/command-line-tasks.md
+  /intermediate/accessing-the-database-directly : ./tutorials/advanced-development/database/accessing-the-database-directly.md
+  /intermediate/custom-schema-field-types : ./tutorials/advanced-development/database/custom-schema-field-types.md
+  /intermediate/deployment : ./tutorials/devops/deployment/README.md
