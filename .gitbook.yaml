@@ -49,12 +49,6 @@ redirects:
   tutorials/getting-started/adding-editable-content-to-pages : ./tutorials/core-concepts/pages-and-navigation/widgets-singletons-and-areas.md
   tutorials/getting-started/building-navigation : ./tutorials/core-concepts/pages-and-navigation/connecting-pages.md
   tutorials/getting-started/custom-widgets : ./tutorials/core-concepts/editable-content-on-pages/custom-widgets.md
-  tutorials/getting-started/global : ./core-concepts/global-settings/global.md
-  tutorials/getting-started/layout-widgets : ./core-concepts/editable-content-on-pages/layout-widgets.md
-  tutorials/getting-started/nunjucks-helper-functions : ./core-concepts/working-with-templates/nunjucks-helper-functions.md
-  tutorials/getting-started/page-templates : ./core-concepts/pages-and-navigation/page-templates.md
-  tutorials/getting-started/pushing-assets : ./core-concepts/front-end-assets/pushing-assets.md
-  tutorials/getting-started/reusable-content-with-pieces : ./core-concepts/reusable-content-pieces/reusable-content-with-pieces.md
   tutorials/getting-started/schema-guide : ./tutorials/schema-guide/schema-guide.md
   tutorials/getting-started/settings : ./core-concepts/global-settings/settings.md
   tutorials/intermediate/README : ./tutorials/advanced-development/README.md
@@ -66,4 +60,3 @@ redirects:
   tutorials/intermediate/accessing-the-database-directly : ./tutorials/advanced-development/database/accessing-the-database-directly.md
   tutorials/intermediate/custom-schema-field-types : ./tutorials/advanced-development/database/custom-schema-field-types.md
   tutorials/intermediate/deployment : ./tutorials/devops/deployment/README.md
-  
