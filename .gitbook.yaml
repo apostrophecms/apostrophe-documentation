@@ -21,4 +21,20 @@ redirects:
   tutorials/howtos/storing-images-and-files-in-amazon-s3 : ./tutorials/devops/cloud/storing-images-and-files-in-amazon-s3.md
   tutorials/howtos/storing-images-and-files-in-azure-blob-storage : ./tutorials/devops/cloud/storing-images-and-files-in-azure-blob-storage.md
   tutorials/howtos/storing-images-and-files-in-google-cloud-storage : ./tutorials/devops/cloud/storing-images-and-files-in-google-cloud-storage.md
+  tutorials/howtos/migration : ./tutorials/devops/migration.md
+  tutorials/howtos/linode : ./tutorials/devops/deployment/linode.md
+  tutorials/howtos/deploying-apostrophe-in-the-cloud-with-heroku : ./tutorials/devops/deployment/deploying-apostrophe-in-the-cloud-with-heroku.md
+  tutorials/howtos/deploying-apostrophe-in-the-cloud-with-aws : ./tutorials/devops/deployment/deploying-apostrophe-in-the-cloud-with-aws.md
+  tutorials/howtos/multicore : ./tutorials/devops/multicore.md
+  tutorials/howtos/windows : ./tutorials/devops/windows.md
+  tutorials/howtos/docker :  ./tutorials/devops/docker.md
+  tutorials/howtos/replica-set : ./tutorials/advanced-development/database/replica-set.md
+  tutorials/howtos/storing-sessions-in-redis : ./tutorials/devops/storing-sessions-in-redis.md
+  tutorials/howtos/next-and-previous-pieces : ./tutorials/core-concepts/reusable-content-pieces/browsing-directory-of-pieces.md
+  tutorials/howtos/adding-fields-to-all-pieces : ./tutorials/advanced-development/advanced-pieces-topics/adding-fields-to-all-pieces.md
+  tutorials/howtos/lean-frontend-assets : ./tutorials/core-concepts/front-end-assets/lean-frontend-assets.md
+  tutorials/howtos/adding-new-batch-operations : ./tutorials/advanced-development/advanced-pieces-topics/adding-new-batch-operations
+  tutorials/howtos/extending-the-pieces-editor-modal : ./tutorials/advanced-development/advanced-pieces-topics/extending-the-pieces-editor-modal
+  tutorials/howtos/children-and-joins : ./tutorials/advanced-development/advanced-pages-topics/children-and-joins
+  tutorials/howtos/responsive-images : ./tutorials/core-concepts/front-end-assets/pushing-assets.md
   
