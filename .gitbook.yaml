@@ -20,4 +20,5 @@ redirects:
   core-concepts/reusable-content-pieces/children-joins : ./tutorials/core-concepts/reusable-content-pieces/joins.md
   tutorials/howtos/storing-images-and-files-in-amazon-s3 : ./tutorials/devops/cloud/storing-images-and-files-in-amazon-s3.md
   tutorials/howtos/storing-images-and-files-in-azure-blob-storage : ./tutorials/devops/cloud/storing-images-and-files-in-azure-blob-storage.md
+  tutorials/howtos/storing-images-and-files-in-google-cloud-storage : ./tutorials/devops/cloud/storing-images-and-files-in-google-cloud-storage.md
   
