@@ -58,4 +58,4 @@ redirects:
   tutorials/howtos/thumbnails-and-areas-of-child-pages : ./tutorials/core-concepts/working-with-templates/thumbnails-and-areas-of-child-pages.md
   tutorials/howtos/password-reset : ./tutorials/core-concepts/users-and-permissions/user-login-and-password.md
   tutorials/howtos/search : ./tutorials/core-concepts/apostrophe-search/README.md
-  tutorials/howtos/redirecting-after-login : ./tutorials/core-concepts//users-and-permissions/user-login-and-password.md
+  tutorials/howtos/redirecting-after-login : ./tutorials/core-concepts/users-and-permissions/user-login-and-password.md
