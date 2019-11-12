@@ -12,3 +12,5 @@ redirects:
   tutorials/howtos/hide-index-page : ./tutorials/advanced-development/advanced-pieces-topics/next-previous-links.md
   tutorials/howtos/what-to-do-when-you-are-locked-out-of-apostrophe : ./tutorials/core-concepts/users-and-permissions/user-login-and-password.md
   tutorials/howtos/apostrophe-i18n-config : ./tutorials/advanced-development/internationalization-localization/apostrophe-i18n-config.md
+  tutorials/howtos/nested-module-folders : ./tutorials/core-concepts/modules/nested-module-folders.md
+  
