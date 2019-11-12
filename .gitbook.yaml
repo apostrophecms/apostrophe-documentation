@@ -56,7 +56,7 @@ redirects:
   tutorials/getting-started/reusable-content-with-pieces : ./core-concepts/reusable-content-pieces/reusable-content-with-pieces.md
   tutorials/getting-started/schema-guide : ./tutorials/schema-guide/schema-guide.md
   tutorials/getting-started/settings : ./core-concepts/global-settings/settings.md
-  tutorials/intermediate/README : ./tutorials/advanced-development/README.md
+  tutorials/intermediate/README : ./tutorials/advanced-development/advanced-pieces-topics/README.md
   tutorials/intermediate/permissions : ./tutorials/core-concepts/users-and-permissions/users-and-groups.md
   tutorials/intermediate/custom-schema-fields-for-pages : ./tutorials/advanced-development/advanced-pages-topics/custom-schema-fields-for-pages.md
   tutorials/intermediate/cursors : ./tutorials/advanced-development/database/cursors.md
