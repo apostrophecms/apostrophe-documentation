@@ -14,4 +14,5 @@ redirects:
   tutorials/howtos/apostrophe-i18n-config : ./tutorials/advanced-development/internationalization-localization/apostrophe-i18n-config.md
   tutorials/howtos/nested-module-folders : ./tutorials/core-concepts/modules/nested-module-folders.md
   technical-overviews/technical-overview : ./tutorials/core-concepts/technical-overview.md
+  technical-overviews/how-apostrophe-starts-up : ./tutorials/advanced-development/how-apostrophe-starts-up.md
   
