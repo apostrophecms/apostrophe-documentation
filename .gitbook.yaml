@@ -18,4 +18,5 @@ redirects:
   technical-overviews/how-apostrophe-handles-requests : ./tutorials/advanced-development/how-apostrophe-handles-requests.md
   technical-overviews/how-apostrophe-modules-are-structured : ./tutorials/core-concepts/modules/how-apostrophe-modules-are-structured.md
   core-concepts/reusable-content-pieces/children-joins : ./tutorials/core-concepts/reusable-content-pieces/joins.md
+  tutorials/howtos/storing-images-and-files-in-amazon-s3 : ./tutorials/devops/cloud/storing-images-and-files-in-amazon-s3.md
   
