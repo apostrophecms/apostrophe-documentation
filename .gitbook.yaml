@@ -65,7 +65,6 @@ redirects:
   tutorials/intermediate/accessing-the-database-directly : ./tutorials/advanced-development/database/accessing-the-database-directly.md
   tutorials/intermediate/custom-schema-field-types : ./tutorials/advanced-development/database/custom-schema-field-types.md
   tutorials/intermediate/deployment : ./tutorials/devops/deployment/README.md
-
   /howtos/trim-index : ./tutorials/advanced-development/advanced-pieces-topics/next-previous-links.md
   /howtos/hide-index-page : ./tutorials/advanced-development/advanced-pieces-topics/next-previous-links.md
   /howtos/what-to-do-when-you-are-locked-out-of-apostrophe : ./tutorials/core-concepts/users-and-permissions/user-login-and-password.md
