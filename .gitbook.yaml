@@ -33,8 +33,8 @@ redirects:
   tutorials/howtos/next-and-previous-pieces : ./tutorials/core-concepts/reusable-content-pieces/browsing-directory-of-pieces.md
   tutorials/howtos/adding-fields-to-all-pieces : ./tutorials/advanced-development/advanced-pieces-topics/adding-fields-to-all-pieces.md
   tutorials/howtos/lean-frontend-assets : ./tutorials/core-concepts/front-end-assets/lean-frontend-assets.md
-  tutorials/howtos/adding-new-batch-operations : ./tutorials/advanced-development/advanced-pieces-topics/adding-new-batch-operations
-  tutorials/howtos/extending-the-pieces-editor-modal : ./tutorials/advanced-development/advanced-pieces-topics/extending-the-pieces-editor-modal
-  tutorials/howtos/children-and-joins : ./tutorials/advanced-development/advanced-pages-topics/children-and-joins
+  tutorials/howtos/adding-new-batch-operations : ./tutorials/advanced-development/advanced-pieces-topics/adding-new-batch-operations.md
+  tutorials/howtos/extending-the-pieces-editor-modal : ./tutorials/advanced-development/advanced-pieces-topics/extending-the-pieces-editor-modal.md
+  tutorials/howtos/children-and-joins : ./tutorials/advanced-development/advanced-pages-topics/children-and-joins.md
   tutorials/howtos/responsive-images : ./tutorials/core-concepts/front-end-assets/pushing-assets.md
   
