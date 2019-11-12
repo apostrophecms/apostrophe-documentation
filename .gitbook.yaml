@@ -17,5 +17,5 @@ redirects:
   technical-overviews/how-apostrophe-starts-up : ./tutorials/advanced-development/how-apostrophe-starts-up.md
   technical-overviews/how-apostrophe-handles-requests : ./tutorials/advanced-development/how-apostrophe-handles-requests.md
   technical-overviews/how-apostrophe-modules-are-structured : ./tutorials/core-concepts/modules/how-apostrophe-modules-are-structured.md
-  core-concepts/reusable-content-pieces/children-joins : ./tutorials/core-concepts/reusable-content-pieces/children-and-joins.md
+  core-concepts/reusable-content-pieces/children-joins : ./tutorials/core-concepts/reusable-content-pieces/joins.md
   
