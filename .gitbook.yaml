@@ -16,4 +16,4 @@ redirects:
   technical-overviews/technical-overview : ./tutorials/core-concepts/technical-overview.md
   technical-overviews/how-apostrophe-starts-up : ./tutorials/advanced-development/how-apostrophe-starts-up.md
   technical-overviews/how-apostrophe-handles-requests : ./tutorials/advanced-development/how-apostrophe-handles-requests.md
-  
+  technical-overviews/how-apostrophe-modules-are-structured : ./tutorials/core-concepts/modules/how-apostrophe-modules-are-structured.md
