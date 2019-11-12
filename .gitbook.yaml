@@ -37,4 +37,34 @@ redirects:
   tutorials/howtos/extending-the-pieces-editor-modal : ./tutorials/advanced-development/advanced-pieces-topics/extending-the-pieces-editor-modal.md
   tutorials/howtos/children-and-joins : ./tutorials/advanced-development/advanced-pages-topics/children-and-joins.md
   tutorials/howtos/responsive-images : ./tutorials/core-concepts/front-end-assets/pushing-assets.md
+  tutorials/getting-started/page-templates : ./tutorials/core-concepts/pages-and-navigation/page-templates.md
+  tutorials/getting-started/editing-page-templates : ./tutorials/core-concepts/pages-and-navigation/page-templates.md
+  tutorials/getting-started/adding-editable-content-to-pages : ./tutorials/core-concepts/pages-and-navigation/widgets-singletons-and-areas.md
+  tutorials/getting-started/building-navigation : ./tutorials/core-concepts/pages-and-navigation/connecting-pages.md
+  tutorials/getting-started/custom-widgets : ./tutorials/core-concepts/editable-content-on-pages/custom-widgets.md
+  tutorials/getting-started/global : ./tutorials/core-concepts/global/README.md
+  tutorials/getting-started/pushing-assets : ./tutorials/core-concepts/front-end-assets/pushing-assets.md
+  tutorials/getting-started/nunjucks-helper-functions : ./tutorials/core-concepts/working-with-templates/nunjucks-helper-functions.md
+  tutorials/getting-started/layout-widgets : ./tutorials/core-concepts/editable-content-on-pages/layout-widgets.md
+  tutorials/getting-started/reusable-content-with-pieces : ./tutorials/core-concepts/reusable-content-pieces/reusable-content-with-pieces.md
+  tutorials/getting-started/settings : ./tutorials/core-concepts/global-settings/settings.md
+  tutorials/getting-started/global : ./tutorials/core-concepts/global-settings/global.md
+  tutorials/getting-started/schema-guide : ./tutorials/schema-guide/schema-guide.md
+  tutorials/intermediate/README : ./tutorials/advanced-development/README.md
+  tutorials/intermediate/permissions : ./tutorials/core-concepts/users-and-permissions/users-and-groups.md
+  tutorials/intermediate/custom-schema-fields-for-pages : ./tutorials/advanced-development/advanced-pages-topics/custom-schema-fields-for-pages.md
+  tutorials/howtos/model-layer : ./tutorials/advanced-development/database/model-layer.md
+  tutorials/intermediate/cursors : ./tutorials/advanced-development/database/cursors.md
+  tutorials/intermediate/forms : ./tutorials/howtos/forms.md
+  tutorials/howtos/notFoundPage : ./tutorials/howtos/how-do-i-create-a-404-not-found-page.md
+  tutorials/howtos/notfoundpage : ./tutorials/howtos/how-do-i-create-a-404-not-found-page.md
+  tutorials/intermediate/command-line-tasks : ./tutorials/advanced-development/apostrophe-cli/command-line-tasks.md
+  tutorials/intermediate/accessing-the-database-directly : ./tutorials/advanced-development/database/accessing-the-database-directly.md
+  tutorials/intermediate/custom-schema-field-types : ./tutorials/intermediate/custom-schema-field-types.md
+  tutorials/intermediate/deployment : ./tutorials/devops/deployment/README.md
+  tutorials/howtos/email : ./tutorials/devops/email.md
+  tutorials/howtos/thumbnails-and-areas-of-child-pages : ./tutorials/core-concepts/working-with-templates/thumbnails-and-areas-of-child-pages.md
+  tutorials/howtos/password-reset : ./tutorials/core-concepts/users-and-permissions/user-login-and-password.md
+  tutorials/howtos/search : ./tutorials/core-concepts/apostrophe-search/README.md
+  tutorials/howtos/redirecting-after-login : ./tutorials/core-concepts//users-and-permissions/user-login-and-password.md
   
