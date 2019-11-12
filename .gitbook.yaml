@@ -52,7 +52,7 @@ redirects:
   tutorials/howtos/notfoundpage : ./tutorials/howtos/how-do-i-create-a-404-not-found-page.md
   tutorials/intermediate/command-line-tasks : ./tutorials/advanced-development/apostrophe-cli/command-line-tasks.md
   tutorials/intermediate/accessing-the-database-directly : ./tutorials/advanced-development/database/accessing-the-database-directly.md
-  tutorials/intermediate/custom-schema-field-types : ./tutorials/advanced-development/advanced-pages-topics/custom-schema-fields-for-pages.md
+  tutorials/intermediate/custom-schema-field-types : ./tutorials/advanced-development/database/custom-schema-field-types.md
   tutorials/intermediate/deployment : ./tutorials/devops/deployment/README.md
   tutorials/howtos/email : ./tutorials/devops/email.md
   tutorials/howtos/thumbnails-and-areas-of-child-pages : ./tutorials/core-concepts/working-with-templates/thumbnails-and-areas-of-child-pages.md
