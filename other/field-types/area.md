@@ -4,7 +4,6 @@
 |---|---|---|---|
 | searchable | boolean | true | If false, content from the area will not appear in search results. |
 | limit | int | | Sets the number of widgets that can be added to an area |  
-|---|---|---|---|
 
 The `area` field type defines an editable content area that allows users to add a series of widgets. It is exactly like calling `apos.area` in a page template.
 

@@ -4,7 +4,6 @@
 |------------|--------|---|---|
 | textArea | boolean | false | If true, create a larger text areas |
 | searchable | boolean | true | If false, content from the area will not appear in search results. |
-|------------|---------|------|---|
 
 `string` adds an editable text string field to the schema. Setting `textarea: true` presents an interface that allows multiple lines. You may set minimum and maximum numbers of characters using the `min` and `max` options.
 

@@ -3,7 +3,6 @@
 |  Property | Type   | Default | Description | 
 |---|---|---|---|
 | page | boolean | false | If true, then the slug field is descriing a page |  
-|---|---|---|---|
 
 `slug` adds a slug field to the schema. Usually there is only one, named `slug`, and it is already part of your schema when extending pieces or custom pages.
 
