@@ -6,6 +6,7 @@
 * [Setting up your environment](tutorials/getting-started/setting-up-your-environment.md)
 * [Creating your first project](tutorials/getting-started/creating-your-first-project.md)
 
+## Tutorials
 * [Core Concepts](tutorials/core-concepts/README.md)
   * [Technical overview: 30,000 feet](tutorials/core-concepts/technical-overview.md)
   * [Pages & Navigation](tutorials/core-concepts/pages-and-navigation/README.md)
@@ -86,6 +87,8 @@
   * [Running Apostrophe on Windows](tutorials/devops/windows.md)
   * [Building Docker images for Apostrophe projects](tutorials/devops/docker.md)
   * [Apostrophe Migration Guide](tutorials/devops/migration.md)
+
+## HOWTOs
 
 * [Apostrophe HOWTOs](tutorials/howtos/README.md)
   * [Building a contact form in Apostrophe](tutorials/howtos/forms.md)
