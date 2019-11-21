@@ -100,7 +100,7 @@
   * [Sending user notifications](tutorials/howtos/sending-user-notifications.md)
   * [Logging in via Google, Twitter, Facebook and other sites](tutorials/howtos/google-twitter-and-facebook-login.md)
 
-## Other
+## Reference
 
 * [Glossary](other/glossary.md)
 * [Core Browser](other/core-browser.md)
