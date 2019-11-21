@@ -103,6 +103,7 @@
 ## Reference
 
 * [Glossary](other/glossary.md)
+* [Field Type Reference](other/schema-reference.md)
 * [Core Browser](other/core-browser.md)
 * [Core Server](other/core-server.md)
 * [Module Reference](modules/README.md)
