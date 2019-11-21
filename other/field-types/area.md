@@ -24,7 +24,7 @@ Example:
 ```
 
 |  Property | Type   | Default | Description | 
-|---|---|---|---|---|
+|---|---|---|---|
 | options | array | | an array of options which can be set on a field |  
-| searchable | boolean | true | If false, content from the area will not appear in search results.
-|---|---|---|---|---|
+| searchable | boolean | true | If false, content from the area will not appear in search results. |
+|---|---|---|---|
