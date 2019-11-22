@@ -104,8 +104,8 @@ Other properties vary by type.
 
 Here are all of the standard schema field types. _You can also add more field types to the system; check out the source code of the_ `apostrophe-attachments` _module for a good example._
 
-| Field | Description | Properties |
-|-------|-------------|------------|
+| Field | Description |
+|-------|-------------|
 |[area](/other/field-types/area.md) | An editable content area |
 |[singleton](/other/field-types/singleton.md) | A single widget |
 |[string](/other/field-types/string.md) | accepts text entry from a user |
