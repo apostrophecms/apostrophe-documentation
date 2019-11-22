@@ -1,15 +1,8 @@
 # `float`
 
-|  Property | Type   | Default | Description | 
-|---|---|---|---|
-| name | `string` | | Sets the name of the field in the database |
-| label | `string` | | Sets the label of the field that the user sees |
-| min | `float` |  | The minimum acceptable value for the field |
-| max | `float` |  | The maximum acceptable value for the field |
-
 `float` adds an editable floating point numeric field to the schema. You may set minimum and maximum values using the `min` and `max` options.
 
-Example:
+## Example
 
 ```javascript
 {
@@ -20,3 +13,12 @@ Example:
   max: 4.0
 }
 ```
+
+## Settings
+
+|  Property | Type   | Default | Description | 
+|---|---|---|---|
+| name | `string` | | Sets the name of the field in the database |
+| label | `string` | | Sets the label of the field that the user sees |
+| min | `float` |  | The minimum acceptable value for the field |
+| max | `float` |  | The maximum acceptable value for the field |

@@ -1,14 +1,5 @@
 # `joinByArray`
 
-|  Property | Type   | Default | Description | 
-|---|---|---|---|
-| name | `string` | | Sets the name of the field to join with (must begin with `_`) |
-| withType | `string` | | The name of the related type, if it differs from the name of the join |
-| idField | `string` | | Sets the name of the property in which to store the id |
-| ifOnlyOne | `boolean` | false | If true, it will not carry out the join if you are working with more than one document |
-| label | `string` | | Sets the label of the field that the user sees |
-| filters | `object` | | Provide a list of cursor filters to limit acceptable options for the join |
-
 A `joinByArray` field expresses a one-to-many relationship between this type of object and another type of object. After Apostrophe loads the original object, it will fetch the "joined" object and attaching it to the original via the specified `name` property.
 
 For instance, if `product` pieces have a `joinByArray` field called `_fabrics` that relates them to `fabric` pieces, then the related `fabric` objects will be available as the `._fabrics` array property of each product.
@@ -27,7 +18,7 @@ By default, if the related type has joins of its own, they are **not** carried o
 
 **For performance, it is strongly recommended that you set a projection filter** via the `filters` option, limiting the amount of information fetched about each related doc. You may also call other [cursor filters](../../modules/apostrophe-docs/server-apostrophe-cursor.md) by setting subproperties of the `filters` property. This is a useful way to limit the acceptable choices for the join.
 
-Example:
+## Example 1
 
 ```javascript
 {
@@ -49,7 +40,7 @@ Example:
 }
 ```
 
-#### Relationship properties and `joinByArray`
+## Relationship properties and `joinByArray`
 
 Sometimes, the relationship between the two objects has properties of its own. For example, the relationship between a person and a department might have a `jobTitle` property. Yes, a person can have more than one job title!
 
@@ -57,7 +48,7 @@ You can express these relationships by using the `relationship` property, which 
 
 When you specify the `relationship` property, you **may** also specify `relationshipsField`, a property name to store the relationships in. If you do not specify this property, it is set automatically. For instance, if the join is named `_departments`, the relationships will be stored in `departmentsRelationships`.
 
-Example:
+### Example 2
 
 ```javascript
 {
@@ -95,6 +86,8 @@ Sometimes, expecting users to click a special button to access a separate modal 
 
 You can do this with the `inline: true` flag \(since 2.6.0\):
 
+### Example 3
+
 ```javascript
 relationship: [
   {
@@ -107,3 +100,14 @@ relationship: [
 ```
 
 If you have a mix of inline and regular fields, you'll still get the option of opening the modal, but for data integrity reasons fields are presented only in one place or the other.
+
+## Settings
+
+|  Property | Type   | Default | Description | 
+|---|---|---|---|
+| name | `string` | | Sets the name of the field to join with (must begin with `_`) |
+| withType | `string` | | The name of the related type, if it differs from the name of the join |
+| idField | `string` | | Sets the name of the property in which to store the id |
+| ifOnlyOne | `boolean` | false | If true, it will not carry out the join if you are working with more than one document |
+| label | `string` | | Sets the label of the field that the user sees |
+| filters | `object` | | Provide a list of cursor filters to limit acceptable options for the join |

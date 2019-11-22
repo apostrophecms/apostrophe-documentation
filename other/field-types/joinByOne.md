@@ -1,14 +1,5 @@
 # `joinByOne`
 
-|  Property | Type   | Default | Description | 
-|---|---|---|---|
-| name | `string` | | Sets the name of the field to join with (must begin with `_`) |
-| withType | `string` | | The name of the related type, if it differs from the name of the join |
-| idField | `string` | | Sets the name of the property in which to store the id |
-| ifOnlyOne | `boolean` | false | If true, it will not carry out the join if you are working with more than one document |
-| label | `string` | | Sets the label of the field that the user sees |
-| filters | `object` | | Provide a list of cursor filters to limit acceptable options for the join |
-
 A `joinByOne` field expresses a one-to-one relationship between this type of object and another type of object. After Apostrophe loads the original object, it will fetch the "joined" object and attaching it to the original via the specified `name` property.
 
 For instance, if `product` pieces have a `joinByOne` field called `_fabric` that relates them to `fabric` pieces, then the related `fabric` object will be available as the `._fabric` property of each product.
@@ -25,7 +16,7 @@ By default, if the related type has joins of its own, they are **not** carried o
 
 **For performance, it is strongly recommended that you set a projection filter** via the `filters` option, limiting the amount of information fetched about each related doc. You may also call other [cursor filters](../../modules/apostrophe-docs/server-apostrophe-cursor.md) by setting subproperties of the `filters` property. This is a useful way to limit the acceptable choices for the join. _You must have_ `title`_,_ `slug`_,_ `type`_, and_ `tags` _set in the projection to get the_ `_url` _property._
 
-Example:
+## Example
 
 ```javascript
 {
@@ -48,3 +39,14 @@ Example:
 ```
 
 **Always remember that the** `_fabric` **property of the product may be null at any time.** Perhaps the fabric was moved to the trash, or unpublished. Your code must allow for this possibility.
+
+## Settings
+
+|  Property | Type   | Default | Description | 
+|---|---|---|---|
+| name | `string` | | Sets the name of the field to join with (must begin with `_`) |
+| withType | `string` | | The name of the related type, if it differs from the name of the join |
+| idField | `string` | | Sets the name of the property in which to store the id |
+| ifOnlyOne | `boolean` | false | If true, it will not carry out the join if you are working with more than one document |
+| label | `string` | | Sets the label of the field that the user sees |
+| filters | `object` | | Provide a list of cursor filters to limit acceptable options for the join |

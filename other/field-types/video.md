@@ -1,10 +1,5 @@
 # `video`
 
-|  Property | Type   | Default | Description | 
-|---|---|---|---|
-| name | `string` | | Sets the name of the field in the database |
-| label | `string` | | Sets the label of the field that the user sees |
-
 A `video` field allows the user to embed video hosted by any [oembed](http://oembed.com/)—compatible video hosting site, or any site for which you have provided an [oembetter](https://github.com/punkave/oembetter) filter via the [apostrophe-oembed](../../modules/apostrophe-oembed/README.md) module.
 
 The user pastes a URL and sees an immediate preview.
@@ -13,7 +8,7 @@ The value of the property on the object will have `url`, `title` and `thumbnail`
 
 [apostrophe-oembed](../../modules/apostrophe-oembed/README.md) provides browser-side methods to display the video. See the [apostrophe-video-widgets](../../modules/apostrophe-video-widgets/README.md) source code for an example of using these methods to play a video in a `div` element.
 
-Example:
+## Example
 
 ```text
 {
@@ -22,3 +17,10 @@ Example:
   label: 'Video'
 }
 ```
+
+## Settings
+
+|  Property | Type   | Default | Description | 
+|---|---|---|---|
+| name | `string` | | Sets the name of the field in the database |
+| label | `string` | | Sets the label of the field that the user sees |
