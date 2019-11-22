@@ -4,9 +4,9 @@
 |---|---|---|---|
 | name | `string` | | Sets the name of the field in the database |
 | label | `string` | | Sets the label of the field that the user sees |
-| limit | int |  | The maximum number of entries in the array |
+| limit | `int` |  | The maximum number of entries in the array |
 | schema | `schema` | | The set of fields present for each object |
-| titleField | string |  | Value used for array entry labels |
+| titleField | `string` |  | Value used for array entry labels |
 | listItemTemplate | template name |  | Enter the name of an available template to use for each list item |
 
 An `array` field has its own schema, and allows the user to create one or more objects that have the fields in that schema. These objects are stored as an array.

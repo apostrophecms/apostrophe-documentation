@@ -4,9 +4,9 @@
 |---|---|---|---|
 | name | `string` | | Sets the name of the field in the database |
 | label | `string` | | Sets the label of the field that the user sees |
-| widgetType | string | | The name of the widget type to be displayed |
-| options | array | | An array of options which can be set on a field |  
-| searchable | boolean | true | If false, content from the area will not appear in search results. |
+| widgetType | `string` | | The name of the widget type to be displayed |
+| options | `object` | | An object containing options which can be set on a field |  
+| searchable | `boolean` | true | If false, content from the area will not appear in search results. |
 
 The `singleton` field type adds a single widget to your schema. It is exactly like calling `apos.singleton` in a page template.
 

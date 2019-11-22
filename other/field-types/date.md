@@ -4,7 +4,7 @@
 |---|---|---|---|
 | name | `string` | | Sets the name of the field in the database |
 | label | `string` | | Sets the label of the field that the user sees |
-| pikadayOptions | float |  | Allows configuration of the date format |
+| pikadayOptions | `float` |  | Allows configuration of the date format |
 
 
 `date` adds an editable date field to the schema. A friendly date picker UI is presented when the field is clicked. Dates are stored as strings in `YYYY-MM-DD` format, which is good for sorting and comparing purposes.
