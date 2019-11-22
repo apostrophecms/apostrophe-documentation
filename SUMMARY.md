@@ -103,7 +103,7 @@
 ## Reference
 
 * [Glossary](other/glossary.md)
-* [Schema Field Property Reference](other/property-reference.md)
+* [Schema Field Types](other/schema-reference.md)
   * [area](other/field-types/area.md)
   * [singleton](other/field-types/singleton.md)
   * [string](other/field-types/string.md)
@@ -125,6 +125,7 @@
   * [video](other/field-types/video.md)
   * [color](other/field-types/color.md)
   * [range](other/field-types/range.md)
+* [Schema Field Properties](other/property-reference.md)
 * [Core Browser](other/core-browser.md)
 * [Core Server](other/core-server.md)
 * [Module Reference](modules/README.md)
