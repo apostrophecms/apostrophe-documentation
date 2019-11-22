@@ -31,8 +31,6 @@ When the "On Campus" choice is selected, the schema fields named `accessible` an
 
 **A cursor filter method is added automatically for all fields of type** `select`**.** This means joins to pieces containing a `select` type field can be filtered by the field's value;
 
-## Example 2
-
 ```javascript
 {
   name: '_post',
