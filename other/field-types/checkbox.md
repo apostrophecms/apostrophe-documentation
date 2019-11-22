@@ -4,7 +4,6 @@
 |---|---|---|---|
 | choices | array |  | An array of choices that the user can select from. Each must be an object with value and label properties. |  
 | showFields | boolean | false | If true, additional fields can be displated when the user selects an answer. |
-|---|---|---|---|
 
 A `checkboxes` field presents an array of checkboxes. Its value is an array containing the values of the selected checkboxes.
 

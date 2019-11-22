@@ -4,7 +4,6 @@
 |---|---|---|---|
 | mandatory | string |  | If set, the string is displayed if the user does not complete the field |  
 | showFields | boolean | false | If true, additional fields can be displated when the user selects an answer. |
-|---|---|---|---|
 
 A `boolean` field is a simple "Yes or No" choice. The value stored in the database will be either `true` or `false`.
 
