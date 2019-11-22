@@ -1,7 +1,10 @@
 # `object`
 
+|  Property | Type   | Default | Description | 
+|---|---|---|---|
 | name | `string` | | Sets the name of the field in the database |
 | label | `string` | | Sets the label of the field that the user sees |
+| schema | `schema` | | The set of fields present for configuring the object | 
 
 An `object` field has its own schema, and is very similar to an `array` field as described above. However there is always exactly one object, represented as an object property of the doc in the database \(a sub-object\).
 
