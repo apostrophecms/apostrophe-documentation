@@ -1,7 +1,9 @@
 # `string`
 
 |  Property | Type   | Default | Description | 
-|------------|--------|---|---|
+|---|---|---|---|
+| name | `string` | | Sets the name of the field in the database |
+| label | `string` | | Sets the label of the field that the user sees |
 | textArea | boolean | false | If true, create a larger text areas |
 | searchable | boolean | true | If false, content from the area will not appear in search results. |
 

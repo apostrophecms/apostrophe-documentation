@@ -103,7 +103,7 @@
 ## Reference
 
 * [Glossary](other/glossary.md)
-* [Field Type Reference](other/schema-reference.md)
+* [Schema Field Property Reference](other/property-reference.md)
   * [area](other/field-types/area.md)
   * [singleton](other/field-types/singleton.md)
   * [string](other/field-types/string.md)

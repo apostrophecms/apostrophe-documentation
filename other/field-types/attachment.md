@@ -2,6 +2,9 @@
 
 |  Property | Type   | Default | Description | 
 |---|---|---|---|
+| type | `string` | | Specifies the field type |
+| name | `string` | | Sets the name of the field in the database |
+| label | `string` | | Sets the label of the field that the user sees |
 | group | string |  | Can be set to "image" or "office" to limit the file types that can be uploaded |
 
 An `attachment` field allows the user to upload a file to the server. The user may also choose to replace the file later when editing the field, or leave it in place.

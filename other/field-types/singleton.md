@@ -1,7 +1,9 @@
 # `singleton`
 
 |  Property | Type   | Default | Description | 
-|------------|--------|---|---|
+|---|---|---|---|
+| name | `string` | | Sets the name of the field in the database |
+| label | `string` | | Sets the label of the field that the user sees |
 | widgetType | string | | The name of the widget type to be displayed |
 | options | array | | An array of options which can be set on a field |  
 | searchable | boolean | true | If false, content from the area will not appear in search results. |

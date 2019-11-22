@@ -2,6 +2,8 @@
 
 |  Property | Type   | Default | Description | 
 |---|---|---|---|
+| name | `string` | | Sets the name of the field in the database |
+| label | `string` | | Sets the label of the field that the user sees |
 | userTimeFormat |  |  | Allows configuration of the time format |
 
 `time` adds an editable time field to the schema. No special time picker is presented, however Apostrophe is very tolerant of different time formats users may enter, such as "6p" or "6:37pm" or "17:45".

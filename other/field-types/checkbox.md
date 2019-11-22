@@ -2,8 +2,11 @@
 
 |  Property | Type   | Default | Description | 
 |---|---|---|---|
+| type | `string` | | Specifies the field type |
+| name | `string` | | Sets the name of the field in the database |
+| label | `string` | | Sets the label of the field that the user sees |
 | choices | array |  | An array of choices that the user can select from. Each must be an object with value and label properties. |  
-| showFields | boolean | false | If true, additional fields can be displated when the user selects an answer. |
+| showFields | boolean | false | A sub-property of choices, which allows additional fields to be displayed on selection |
 
 A `checkboxes` field presents an array of checkboxes. Its value is an array containing the values of the selected checkboxes.
 

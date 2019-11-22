@@ -1,5 +1,10 @@
 # `video`
 
+|  Property | Type   | Default | Description | 
+|---|---|---|---|
+| name | `string` | | Sets the name of the field in the database |
+| label | `string` | | Sets the label of the field that the user sees |
+
 A `video` field allows the user to embed video hosted by any [oembed](http://oembed.com/)—compatible video hosting site, or any site for which you have provided an [oembetter](https://github.com/punkave/oembetter) filter via the [apostrophe-oembed](../../modules/apostrophe-oembed/README.md) module.
 
 The user pastes a URL and sees an immediate preview.

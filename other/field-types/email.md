@@ -1,5 +1,11 @@
 # `email`
 
+|  Property | Type   | Default | Description | 
+|---|---|---|---|
+| name | `string` | | Sets the name of the field in the database |
+| label | `string` | | Sets the label of the field that the user sees |
+
+
 `email` fields operate similarly to `string` fields, but will only accept a valid email address. If they are not `required`, then they will also accept an empty string.
 
 Example:

@@ -2,8 +2,11 @@
 
 |  Property | Type   | Default | Description | 
 |---|---|---|---|
-| searchable | boolean | true | If false, content from the area will not appear in search results. |
-| limit | int | | Sets the number of widgets that can be added to an area |  
+| name | `string` | | Sets the name of the field to join with (must begin with `_`) |
+| label | `string` | | Sets the label of the field that the user sees |
+| withType | `string` | | The name of the related type, if it differs from the name of the join |
+| reverseOf | `string` | | Set to the name of the join you are reversing (optional) |
+| ifOnlyOne | `boolean` | false | If true, it will not carry out the join if you are working with more than one document |
 
 A `joinByArrayReverse` field allows us to access the other side of a [joinByArray](schema-guide.md#joinByArray) relationship. Since this is the "other end" of the relationship, there is no editing interface. It is just a convenience allowing us to "see" the related objects from the other point of view.
 

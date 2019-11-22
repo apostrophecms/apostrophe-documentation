@@ -2,6 +2,8 @@
 
 |  Property | Type   | Default | Description | 
 |---|---|---|---|
+| name | `string` | | Sets the name of the field in the database |
+| label | `string` | | Sets the label of the field that the user sees |
 | limit | int |  | The maximum number of entries in the array |  
 | titleField | string |  | Value used for array entry labels |
 | listItemTemplate | template name |  | Enter the name of an available template to use for each list item |

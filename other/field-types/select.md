@@ -2,6 +2,8 @@
 
 |  Property | Type   | Default | Description | 
 |---|---|---|---|
+| name | `string` | | Sets the name of the field in the database |
+| label | `string` | | Sets the label of the field that the user sees |
 | choice | array |  | Provides the list of choices available for selection |
 
 A single-select dropdown menu. The `choices` array should be an array of objects with `label` and `value` properties. `value` is what winds up in the database, `label` is what the user sees.

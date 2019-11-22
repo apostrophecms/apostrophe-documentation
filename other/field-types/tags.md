@@ -2,6 +2,8 @@
 
 |  Property | Type   | Default | Description | 
 |---|---|---|---|
+| name | `string` | | Sets the name of the field in the database |
+| label | `string` | | Sets the label of the field that the user sees |
 | limit | int | | Sets the number of tags that can be deinfed in a given field |  
 | lock | boolean | false | If true, users cannot create their own tags. |
 

@@ -2,8 +2,12 @@
 
 |  Property | Type   | Default | Description | 
 |---|---|---|---|
-| mandatory | string |  | If set, the string is displayed if the user does not complete the field |  
-| showFields | boolean | false | If true, additional fields can be displated when the user selects an answer. |
+| type | `string` | | Specifies the field type |
+| name | `string` | | Sets the name of the field in the database |
+| label | `string` | | Sets the label of the field that the user sees |
+| mandatory | string |  | If set, the string is displayed if the user does not complete the field |
+| choices | array |  | An array of choices that the user can select from. Each must be an object with value and label properties. |    
+| showFields | boolean | false | A sub-property, which allows additional fields to be displayed on selection. |
 
 A `boolean` field is a simple "Yes or No" choice. The value stored in the database will be either `true` or `false`.
 

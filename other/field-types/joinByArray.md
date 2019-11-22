@@ -2,8 +2,12 @@
 
 |  Property | Type   | Default | Description | 
 |---|---|---|---|
-| searchable | boolean | true | If false, content from the area will not appear in search results. |
-| limit | int | | Sets the number of widgets that can be added to an area |  
+| name | `string` | | Sets the name of the field to join with (must begin with `_`) |
+| withType | `string` | | The name of the related type, if it differs from the name of the join |
+| idField | `string` | | Sets the name of the property in which to store the id |
+| ifOnlyOne | `boolean` | false | If true, it will not carry out the join if you are working with more than one document |
+| label | `string` | | Sets the label of the field that the user sees |
+| filters | `object` | | Provide a list of cursor filters to limit acceptable options for the join |
 
 A `joinByArray` field expresses a one-to-many relationship between this type of object and another type of object. After Apostrophe loads the original object, it will fetch the "joined" object and attaching it to the original via the specified `name` property.
 
