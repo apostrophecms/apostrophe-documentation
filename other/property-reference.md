@@ -18,6 +18,7 @@ Each [Schema Field](/tutorials/advanced-development/schema-guide.md#guide-to-sch
 |searchable | `boolean` | true | If false a field will not inform sitewide search | [string](field-types/string.md), [area](field-types/area.md), [singleton](field-types/singleton.md) |
 |limit | `int` | | sets the max number of tags in a tag field, the max number of widgets in an area, and the max number of entries in an array  | [tags](field-types/tags.md), [area](field-types/area.md), [array](field-types/array.md)  |
 |options | `object` | | An object which contains options that can be set in the field | [area](field-types/area.md), [singleton](field-types/singleton.md) |
+|sortify | `boolean` | | An object which contains options that can be set in the field | [area](field-types/area.md), [singleton](field-types/singleton.md) |
 |choices | `array` | | An array of values that the user can select from with each being an object with value and label properties | [select](field-types/select.md), [checkboxes](field-types/checkboxes.md) |
 |*showFields* | `boolean` | | A sub-property of choices, which allows additional fields to be displayed on selection | [select](field-types/select.md), [checkboxes](field-types/checkboxes.md), [boolean](field-types/boolean.md) |
 |*label* | `string` | | A sub-property of choices, which specifices the label for each item | [select](field-types/select.md), [checkboxes](field-types/checkboxes.md), [boolean](field-types/boolean.md) |

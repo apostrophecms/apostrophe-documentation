@@ -2,7 +2,7 @@
 
 The `area` field type defines an editable content area that allows users to add a series of widgets. It is exactly like calling `apos.area` in a page template.
 
-The `options` property passed to the field is passed on as the `options` object of the area.
+The properties configued in `options` are passed to the field inside of the `option` object.
 
 ## Example
 
@@ -28,6 +28,6 @@ The `options` property passed to the field is passed on as the `options` object 
 |---|---|---|---|
 | name | `string` | | Sets the name of the field in the database |
 | label | `string` | | Sets the label of the field that the user sees |
-| searchable | `boolean` | true | If false, content from the area will not appear in search results. |
+| searchable | `boolean` | true | If false, content from the area will not appear in search results |
 | limit | `int` | | Sets the number of widgets that can be added to an area |  
-| options | `object` | | A list of options that can be set |
+| options | `object` | | An object containing options which can be set on a field |

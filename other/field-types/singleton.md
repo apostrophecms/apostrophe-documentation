@@ -28,4 +28,4 @@ The widget type is set by the `widgetType` property. The `options` property is p
 | label | `string` | | Sets the label of the field that the user sees |
 | widgetType | `string` | | The name of the widget type to be displayed |
 | options | `object` | | An object containing options which can be set on a field |  
-| searchable | `boolean` | true | If false, content from the area will not appear in search results. |
+| searchable | `boolean` | true | If false, content from the area will not appear in search results |

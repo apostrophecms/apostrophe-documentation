@@ -29,7 +29,9 @@ If this field is part of a doc type, such as a piece or page type, you may also 
 
 For instance, if your field's `name` is `lastName` and you set `sortify: true`, `lastNameSortified` will automatically be created and used when sorting on the `lastName` field. This provides case-insensitive sorting that also ignores punctuation differences.
 
-Note that if you add `sortify: true` to an existing field, existing objects will get the sortified version of the field the next time you run the `apostrophe-migrations:migrate` command line task. Migrations like this only need to be run once because on future updates or inserts of a document the sortified property is automatically set.
+{% hint style='info' %}
+Note: If you add `sortify: true` to an existing field, existing objects will get the sortified version of the field the next time you run the `apostrophe-migrations:migrate` command line task. Migrations like this only need to be run once because on future updates or inserts of a document the sortified property is automatically set.
+{% endhint %}
 
 ## Settings
 
@@ -39,3 +41,4 @@ Note that if you add `sortify: true` to an existing field, existing objects will
 | label | `string` | | Sets the label of the field that the user sees |
 | textArea | `boolean` | false | If true, create a larger text areas |
 | searchable | `boolean` | true | If false, content from the area will not appear in search results. |
+| sortify | `boolean` | false | If true, creates "sortified" fields |
