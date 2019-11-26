@@ -2,7 +2,7 @@
 
 The `area` field type defines an editable content area that allows users to add a series of widgets. It is exactly like calling `apos.area` in a page template.
 
-The properties configued in `options` are passed to the field inside of the `option` object.
+The properties configured in `options` are passed to the field inside of the `option` object.
 
 ## Example
 

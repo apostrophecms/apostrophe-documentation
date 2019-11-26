@@ -31,9 +31,11 @@ If the objects in the array are also related to other types of objects, you shou
 
 If `titleField` is not enough for your purposes, you can completely customize the output of the titles by setting `gr` to the name of a custom Nunjucks template. All your template has to do is output whatever it wants, based on the `item` variable provided to it.
 
-This template will be loaded from the `apostrophe-schemas` module, at project level \(`lib/modules/apostrophe/schemas/views/your-template-name.html` at project level\). **If you would rather it came from your own module, use "cross-module include" syntax,** like in the example below:
+This template will be loaded from the `apostrophe-schemas` module, at project level \(`lib/modules/apostrophe/schemas/views/your-template-name.html` at project level\).
 
-## Example 2
+## Example 2: Cross module includes
+
+If you would rather the template came from your own module, use "cross-module include" syntax, like this:
 
 ```javascript
 // app.js

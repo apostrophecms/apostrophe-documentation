@@ -68,9 +68,9 @@ When you specify the `relationship` property, you **may** also specify `relation
 }
 ```
 
-**Since there is a relationship, the** `_departments` **property will be an array of objects with** `item` **and** `relationship` **properties.** The `item` property will be the actual department, and the `relationship` property will contain the relationship fields, which are unique to this person.
+Since there is a relationship, the `_departments` property will be an array of objects with `item` and `relationship` properties. The `item` property will be the actual department, and the `relationship` property will contain the relationship fields, which are unique to this person.
 
-**Inline relationship fields**
+###Inline relationship fields
 
 Sometimes, expecting users to click a special button to access a separate modal dialog box to edit relationship fields isn't worth it. Users just don't find it, or the fields are few enough that it would make more sense to add the form field directly to the chooser.
 
@@ -102,6 +102,7 @@ If you have a mix of inline and regular fields, you'll still get the option of o
 | withJoins | `array` |  | If you need to carry out nested joins, set to an array containing those join field names. You may also use "dot notation" in these names to indicate that you want to follow a series of joins between related types.
 | label | `string` | | Sets the label of the field that the user sees |
 | filters | `object` | | Provide a list of cursor filters to limit acceptable options for the join |
+| inline | `boolean` | false | If true, adds the form field directly to the chooser |
 
 {% hint style='info' %}
 Beginning with Apostrophe 2.58.0, you may also set `withType` to an **array** of type names. When you do so, the chooser allows you to pick items of several types via a tabbed interface and create a combined list. These "polymorphic joins" are primarily intended for navigation widgets. They currently do not support pieces filters or `joinByArrayReverse`.

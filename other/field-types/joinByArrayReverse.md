@@ -31,7 +31,8 @@ If desired, we can specify `relationship` and `relationshipsField` just as we wo
 |---|---|---|---|
 | name | `string` | | Sets the name of the field to join with (must begin with `_`) |
 | label | `string` | | Sets the label of the field that the user sees |
-| withType | `string` | | The name of the related type, if it differs from the name of the join. If you do not set `withType`, then the name of the join must match the name of the related type, with a leading `_` added.  || reverseOf | `string` | | Set to the name of the join you are reversing (optional) |
+| withType | `string` | | The name of the related type, if it differs from the name of the join. If you do not set `withType`, then the name of the join must match the name of the related type, with a leading `_` added.  |
+| reverseOf | `string` | | Set to the name of the join you are reversing (optional) |
 | ifOnlyOne | `boolean` | false | If true, it will not carry out the join if you are working with more than one document |
 
 {% hint style='info' %}
