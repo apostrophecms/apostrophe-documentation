@@ -2,11 +2,6 @@
 
 A `checkboxes` field presents an array of checkboxes. Its value is an array containing the values of the selected checkboxes.
 
-
-## Fields and widgets: editing the field "in context" on the page
-
-You may also want to set `contextual: true` so the field does not *also* appear in the dialog box for the widget. But, you don't have to.
-
 ## Settings
 
 |  Property | Type   | Default | Description | 

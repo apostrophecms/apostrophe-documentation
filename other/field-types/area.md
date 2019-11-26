@@ -31,3 +31,5 @@ The properties configued in `options` are passed to the field inside of the `opt
 | searchable | `boolean` | true | If false, content from the area will not appear in search results |
 | limit | `int` | | Sets the number of widgets that can be added to an area |  
 | options | `object` | | An object containing options which can be set on a field |
+| widgets | `object` | | Contains the list of widgets displayed in the area |
+
