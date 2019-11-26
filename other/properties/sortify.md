@@ -11,13 +11,3 @@ For instance, if your field's `name` is `lastName` and you set `sortify: true`, 
 {% hint style='info' %}
 Note: If you add `sortify: true` to an existing field, existing objects will get the sortified version of the field the next time you run the `apostrophe-migrations:migrate` command line task. Migrations like this only need to be run once because on future updates or inserts of a document the sortified property is automatically set.
 {% endhint %}
-
-## Settings
-
-|  Property | Type   | Default | Description | 
-|---|---|---|---|
-| name | `string` | | Sets the name of the field in the database |
-| label | `string` | | Sets the label of the field that the user sees |
-| textArea | `boolean` | false | If true, create a larger text areas |
-| searchable | `boolean` | true | If false, content from the area will not appear in search results. |
-| sortify | `boolean` | false | If true, creates "sortified" fields |
