@@ -1,6 +1,6 @@
 # `boolean`
 
-A `boolean` field is a simple "True/False" choice. The value stored in the database will be either `true` or `false`.
+A `boolean` field is a simple "True/False" choice. The value stored in the database will be either `true` or `false`. To customize the displayed values, use the [`choices`](../properties/choices.md) property and its sub-properties.
 
 ## Settings
 

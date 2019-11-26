@@ -1,6 +1,6 @@
 # `checkboxes`
 
-A `checkboxes` field presents an array of checkboxes. Its value is an array containing the values of the selected checkboxes.
+A `checkboxes` field presents an array of checkboxes. The values of the checkbox entries are set using the [`choices`](../properties/choices.md) property and its sub-properties.
 
 ## Settings
 
