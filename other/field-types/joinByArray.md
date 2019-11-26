@@ -4,19 +4,9 @@ A `joinByArray` field expresses a one-to-many relationship between this type of 
 
 For instance, if `product` pieces have a `joinByArray` field called `_fabrics` that relates them to `fabric` pieces, then the related `fabric` objects will be available as the `._fabrics` array property of each product.
 
-The `name` option **must begin with** `_` to signify that this is temporary information that also lives elsewhere in the database. The `name` option should be plural to signify that this is a one-to-many relationship.
-
-The `withType` option **may** be set to the name of the related type. If you do not set `withType`, then the name of the join must match the name of the related type, with a leading `_` added and an optional `s` following.
-
-> Beginning with Apostrophe 2.58.0, you may also set `withType` to an **array** of type names. When you do so, the chooser allows you to pick items of several types via a tabbed interface and create a combined list. These "polymorphic joins" are primarily intended for navigation widgets. They currently do not support pieces filters or `joinByArrayReverse`.
-
-The `idsField` option **may** be set to the name of a property in which to store the ids of the related objects. **If you don't set it yourself, it will be set automatically for you.** For instance, if your join is named `_fabrics`, then `idsField` will automatically be set to `fabricsIds`.
-
-The `ifOnlyOne` option **may** be set to `true` to avoid carrying out the join when you are working with more than one document. This is a handy way to avoid a heavy performance impact except in a `show.html` template or other context where there is just one "main" document in play, so the number of joined documents will be manageable.
-
-By default, if the related type has joins of its own, they are **not** carried out. To carry out "nested" joins, set the `withJoins` option to an array containing those join field names. You may also use "dot notation" in these names to indicate that you want to follow a series of joins between related types.
-
+{% hint style='info' %}
 **For performance, it is strongly recommended that you set a projection filter** via the `filters` option, limiting the amount of information fetched about each related doc. You may also call other [cursor filters](../../modules/apostrophe-docs/server-apostrophe-cursor.md) by setting subproperties of the `filters` property. This is a useful way to limit the acceptable choices for the join.
+{% endhint %}
 
 ## Example 1
 
@@ -106,8 +96,13 @@ If you have a mix of inline and regular fields, you'll still get the option of o
 |  Property | Type   | Default | Description | 
 |---|---|---|---|
 | name | `string` | | Sets the name of the field to join with (must begin with `_`) |
-| withType | `string` | | The name of the related type, if it differs from the name of the join |
-| idField | `string` | | Sets the name of the property in which to store the id |
+| withType | `string` | | The name of the related type, if it differs from the name of the join. If you do not set `withType`, then the name of the join must match the name of the related type, with a leading `_` added.  |
+| idsField | `string` | | Sets the name of the property in which to store the id. The id is set automatically otherwise. |
 | ifOnlyOne | `boolean` | false | If true, it will not carry out the join if you are working with more than one document |
+| withJoins | `array` |  | If you need to carry out nested joins, set to an array containing those join field names. You may also use "dot notation" in these names to indicate that you want to follow a series of joins between related types.
 | label | `string` | | Sets the label of the field that the user sees |
 | filters | `object` | | Provide a list of cursor filters to limit acceptable options for the join |
+
+{% hint style='info' %}
+Beginning with Apostrophe 2.58.0, you may also set `withType` to an **array** of type names. When you do so, the chooser allows you to pick items of several types via a tabbed interface and create a combined list. These "polymorphic joins" are primarily intended for navigation widgets. They currently do not support pieces filters or `joinByArrayReverse`.
+{% endhint %}

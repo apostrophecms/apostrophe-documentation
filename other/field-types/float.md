@@ -1,6 +1,6 @@
 # `float`
 
-`float` adds an editable floating point numeric field to the schema. You may set minimum and maximum values using the `min` and `max` options.
+`float` adds an editable numeric field which supports decimal input to the schema. You may set minimum and maximum values using the `min` and `max` options.
 
 ## Example
 

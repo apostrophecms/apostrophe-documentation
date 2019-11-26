@@ -1,6 +1,10 @@
 # `url`
 
-`url` adds an editable URL field to the schema. Apostrophe will detect common mistakes, like leaving off `http://`, and add those things. Common XSS attack vectors are laundered and discarded. Only "safe" URL schemes, e.g. `http`, `https`, `ftp` and `mailto`, are permitted.
+`url` adds an editable URL field to the schema.
+
+{% hint style="info" %}
+Apostrophe will detect common mistakes, like leaving off `http://`, and add them. Common XSS attack vectors are laundered and discarded. Only "safe" URL schemes, e.g. `http`, `https`, `ftp` and `mailto`, are permitted.
+{% endhint %}
 
 ## Example
 

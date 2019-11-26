@@ -23,13 +23,10 @@
 }
 ```
 
-## Case-insensitive, intuitive sorting
-
-Email fields can be sortified, just like [`string` field](string.md#case-insensitive-intuitive-sorting).
-
 ## Settings
 
 |  Property | Type   | Default | Description | 
 |---|---|---|---|
 | name | `string` | | Sets the name of the field in the database |
 | label | `string` | | Sets the label of the field that the user sees |
+| [sortify](../properties/sortify.md) | `boolean` | false | If true, creates "sortified" fields |

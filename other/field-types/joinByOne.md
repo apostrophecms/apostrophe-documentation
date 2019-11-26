@@ -4,17 +4,9 @@ A `joinByOne` field expresses a one-to-one relationship between this type of obj
 
 For instance, if `product` pieces have a `joinByOne` field called `_fabric` that relates them to `fabric` pieces, then the related `fabric` object will be available as the `._fabric` property of each product.
 
-The `name` option **must begin with** `_` to signify that this is temporary information that also lives elsewhere in the database.
-
-The `withType` option **may** be set to the name of the related type. If you do not set `withType`, then the name of the join must match the name of the related type, with a leading `_` added.
-
-The `idField` option **may** be set to the name of a property in which to store the id. **If you don't set it yourself, it will be set automatically for you.** For instance, if your join is named `_fabric`, then `idField` will automatically be set to `fabricId`.
-
-The `ifOnlyOne` option **may** be set to `true` to avoid carrying out the join when you are working with more than one document. This is a handy way to avoid a heavy performance impact except in a `show.html` template or other context where there is just one "main" document in play, so the number of joined documents will be manageable.
-
-By default, if the related type has joins of its own, they are **not** carried out. To carry out "nested" joins, set the `withJoins` option to an array containing those join field names. You may also use "dot notation" in these names to indicate that you want to follow a series of joins between related types.
-
+{% hint style='info' %}
 **For performance, it is strongly recommended that you set a projection filter** via the `filters` option, limiting the amount of information fetched about each related doc. You may also call other [cursor filters](../../modules/apostrophe-docs/server-apostrophe-cursor.md) by setting subproperties of the `filters` property. This is a useful way to limit the acceptable choices for the join. _You must have_ `title`_,_ `slug`_,_ `type`_, and_ `tags` _set in the projection to get the_ `_url` _property._
+{% endhint %}
 
 ## Example
 
@@ -45,8 +37,13 @@ By default, if the related type has joins of its own, they are **not** carried o
 |  Property | Type   | Default | Description | 
 |---|---|---|---|
 | name | `string` | | Sets the name of the field to join with (must begin with `_`) |
-| withType | `string` | | The name of the related type, if it differs from the name of the join |
-| idField | `string` | | Sets the name of the property in which to store the id |
+| withType | `string` | | The name of the related type, if it differs from the name of the join. If you do not set `withType`, then the name of the join must match the name of the related type, with a leading `_` added.  |
+| idField | `string` | | Sets the name of the property in which to store the id. The id is set automatically otherwise. |
 | ifOnlyOne | `boolean` | false | If true, it will not carry out the join if you are working with more than one document |
+| withJoins | `array` |  | If you need to carry out nested joins, set to an array containing those join field names. You may also use "dot notation" in these names to indicate that you want to follow a series of joins between related types.
 | label | `string` | | Sets the label of the field that the user sees |
 | filters | `object` | | Provide a list of cursor filters to limit acceptable options for the join |
+
+{% hint style='info' %}
+In documents with many joins in play, the `ifOnlyOne` option will avoid running through all the possible joins, and can be used to avoid a heavy performance impact in complex documents.
+{% endhint %}

@@ -130,6 +130,8 @@
   * [joinByOneReverse](other/field-types/joinByOneReverse.md)
   * [joinByArrayReverse](other/field-types/joinByArrayReverse.md)
 * [Schema Field Properties](other/property-reference.md)
+  * [area](other/properties/choices.md)
+  * [singleton](other/properties/sortify.md)
 * [Core Browser](other/core-browser.md)
 * [Core Server](other/core-server.md)
 * [Module Reference](modules/README.md)
