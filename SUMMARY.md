@@ -33,6 +33,7 @@
   * [Lean frontend assets: Apostrophe without jQuery](tutorials/core-concepts/front-end-assets/lean-frontend-assets.md)
 * [Users and Permissions](tutorials/core-concepts/users-and-permissions/README.md)
   * [Users and Groups](tutorials/core-concepts/users-and-permissions/users-and-groups.md)
+  * [Managing Access Control](tutorials/core-concepts/users-and-permissions/managing-access-control.md)
   * [User Login and Password Help](tutorials/core-concepts/users-and-permissions/user-login-and-password.md)
 * [Working With Templates](tutorials/core-concepts/working-with-templates/README.md)
   * [Nunjucks Filters](tutorials/core-concepts/working-with-templates/nunjucks-filters.md)
