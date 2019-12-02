@@ -3,6 +3,10 @@ title: Activating the "password reset" feature of Apostrophe
 layout: tutorial
 ---
 
+# User Login and Password Help
+
+There are three things that are inevitable in life, death, taxes, and that someone will forget their password. While Apostrophe can't help you with the first two, it does provide features to help when a user forgets their password or is locked out of their account.
+
 ## Password Reset
 
 Apostrophe includes a "password reset" feature for your users. This feature follows the usual pattern: the user must prove they control the email address associated with their account.
@@ -38,40 +42,6 @@ modules: {
 {% endcode-tabs %}
 
 Once you enable the feature, the user will automatically see a "Reset My Password" link at the bottom of the login form at `/login`. If you don't see that link, make sure you haven't previously overridden your `loginBase.html` template.
-
-## User Redirects on Login
-
-By default, after a user logs in, they are redirected to the homepage.
-
-It is possible to customize this behavior.
-
-You can implement a `loginAfterLogin` method in any module. This method takes `req` and an optional callback.
-
-Setting req.redirect will cause Apostrophe to redirect the user to that location.
-
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/my-module/index.js" %}
-```javascript
-module.exports = {
-  construct: function(self, options) {
-    self.loginAfterLogin = function(req) {
-      if (req.user.isSpecialInSomeWay) {
-        req.redirect = '/special';
-      } else {
-        // Just let them go go the home page
-      }
-    };
-  }
-};
-```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
-
-*Don't forget to enable your module in `app.js`.*
-
-If you do not set `req.redirect`, the user is redirected to the home page.
-
-For a complete example, check out the [apostrophe-second-chance-login](https://npmjs.org/package/apostrophe-second-chance-login) module, which turns 404's into an opportunity to log in, if a page exists that the user might have the privilege of seeing after logging in.
 
 ## What to do when you are locked out of Apostrophe
 
@@ -144,4 +114,3 @@ The following are common problems that embed code developers need to be aware of
  
 2. Do not install `jQuery` globally (do not overwrite `window.$`). Similarly, do not overwrite `lodash` (`window._`). It is easy to wrap your JavaScript in a closure in which it can still see a convenient `$` variable without breaking other versions of these libraries.
 {% endhint %}
-
