@@ -4,7 +4,7 @@ An `array` field has its own schema, and allows the user to create one or more o
 
 This is useful for collections that clearly belong to a parent object, such as multiple homes for a person or tabs in a widget, and do not have any other relationships to other objects.
 
-If the objects in the array are also related to other types of objects, you should be using [joins](joins.md) instead.
+If the objects in the array are also related to other doc types, such as pieces or pages, you should be using [joins](joinByOne.md) instead.
 
 ## Example 1
 
@@ -88,7 +88,9 @@ module.exports = {
 
 {% hint style='info' %}
 Notes on `titlefield`:
-* If there is no `titleField` setting, the items are numbered. Setting `titleField` is recommended.
+* If there is no `titleField` setting, the items are numbered.
+
+* Setting `titleField` is recommended to improve clarity for content editors.
 
 * `titleField` can access joins beginning with Apostrophe 2.50.0, which is especially useful with dot notation.
 {% endhint %}
