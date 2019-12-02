@@ -35,6 +35,7 @@
   * [Users and Groups](tutorials/core-concepts/users-and-permissions/users-and-groups.md)
   * [Managing Access Control](tutorials/core-concepts/users-and-permissions/managing-accesss-control.md)
   * [User Login and Password Help](tutorials/core-concepts/users-and-permissions/user-login-and-password.md)
+  * [OpenAuth with Apostrophe Passport](tutorials/core-concepts/users-and-permissions/oauth-passport.md)
 * [Working With Templates](tutorials/core-concepts/working-with-templates/README.md)
   * [Nunjucks Filters](tutorials/core-concepts/working-with-templates/nunjucks-filters.md)
   * [Nunjucks Helper Functions](tutorials/core-concepts/working-with-templates/nunjucks-helper-functions.md) 
@@ -98,7 +99,7 @@
 * [Configuring CKEditor in Apostrophe](tutorials/howtos/ckeditor.md)
 * [Facebook open graph tags in Apostrophe](tutorials/howtos/facebook.md)
 * [Sending user notifications](tutorials/howtos/sending-user-notifications.md)
-* [Logging in via Google, Twitter, Facebook and other sites](tutorials/howtos/google-twitter-and-facebook-login.md)
+* [How do I Redirect a User on Login?](tutorials/howtos/user-redirect.md)
 
 ## Other
 

@@ -10,5 +10,3 @@ Apostrophe uses Passport to provide single sign-on capabilities. The `apostrophe
 ## Using Apostrophe Passport
 
 Apostrophe Passport is not included with the standard Apostrophe distribution and can be installed via npm. For complete details on how to install and configure Passport, see the [official documentation on npmjs,org](https://npmjs.org/package/apostrophe-passport).
-
-

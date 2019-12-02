@@ -1,4 +1,4 @@
-# How to Redirect a User on Login
+# How do I Redirect a User on Login?
 
 By default, after a user logs in, they are redirected to the homepage.
 
