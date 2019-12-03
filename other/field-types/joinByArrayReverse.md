@@ -38,7 +38,7 @@ If desired, we can specify `relationship` and `relationshipsField` just as we wo
 |htmlHelp | `string` | | Help text with support for HTML markup |
 |withType | `string` | | The name of the related type, if it differs from the name of the join. If you do not set `withType`, then the name of the join must match the name of the related type, with a leading `_` added.  |
 |reverseOf | `string` | | Set to the name of the join you are reversing (optional) |
-|ifOnlyOne | `boolean` | false | If true, it will not carry out the join if you are working with more than one document |
+|ifOnlyOne | `boolean` | false | If true, it will only carry out the join if the query that returned the original document returned only one document. This is useful if the joined information is only to be displayed on the `show.html` page of a piece, for instance, and you don't want the performance impact of loading it on the `index.html` page. |
 
 {% hint style='info' %}
 In documents with many joins in play, the `ifOnlyOne` option will avoid running through all the possible joins, and can be used to avoid a heavy performance impact in complex documents.

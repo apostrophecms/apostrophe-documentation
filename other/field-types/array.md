@@ -29,7 +29,7 @@ If the objects in the array are also related to other doc types, such as pieces 
 }
 ```
 
-If `titleField` is not enough for your purposes, you can completely customize the output of the titles by setting `gr` to the name of a custom Nunjucks template. All your template has to do is output whatever it wants, based on the `item` variable provided to it.
+If `titleField` is not enough for your purposes, you can completely customize the output of the titles by setting `titleField` to the name of a custom Nunjucks template. All your template has to do is output whatever it wants, based on the `item` variable provided to it.
 
 This template will be loaded from the `apostrophe-schemas` module, at project level \(`lib/modules/apostrophe/schemas/views/your-template-name.html` at project level\).
 

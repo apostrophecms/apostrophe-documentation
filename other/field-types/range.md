@@ -1,6 +1,6 @@
 # `range`
 
-A `range` field provides a [range input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range) interface for tuning integers. Values are stored as floats.
+A `range` field provides [range input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range) for selecting a numeric value, often represented in the browser as a slider. The step option may be used along with min and max, if desired, to effectively limit the results to integers.
 
 ## Example
 

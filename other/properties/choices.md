@@ -4,7 +4,7 @@ Use `choices` in conjunction with the `boolean`, `checkbox`, and `select` fields
 
 ## `showFields`
 
-The `showFields` option can be used to show and hide other fields based on the choice that was made. This is a very powerful way to make forms more user-friendly.
+The `showFields` sub-option can be used to show and hide other fields based on the choice that was made. This is a very powerful way to make forms more user-friendly.
 
 ### `boolean` Example
 
@@ -27,7 +27,7 @@ The `showFields` option can be used to show and hide other fields based on the c
 
 When "Yes" is selected, the `value` becomes `true`, and the fields named `dormPreference` and `vegetarian` will be visible. At all other times they will not be.
 
-### `checkbox` Example
+### `checkboxes` Example
 
 ```javascript
 {

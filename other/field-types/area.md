@@ -2,7 +2,7 @@
 
 The `area` field type defines an editable content area that allows users to add a series of widgets. It is exactly like calling `apos.area` in a page template.
 
-The properties configured in `options` are passed to the field inside of the `option` object.
+The properties configured in `options` specify the allowed widget types and the configuration for those widgets. You can learn more about widget configuration in templates in [Nunjucks Helper Functions](/tutorials/core-concepts/working-with-templates/nunjucks-helper-functions.md).
 
 ## Example
 
@@ -24,16 +24,15 @@ The properties configured in `options` are passed to the field inside of the `op
 ```
 ## Settings
 
-|  Property | Type   | Default | Description | 
+|  Property | Type   | Default | Description | Sub-properties
 |---|---|---|---|
-|name | `string` | | Sets the name of the field in the database |
-|label | `string` | | Sets the label of the field that the user sees |
-|required | `boolean` | false | If true, the field is mandatory |
-|type | `string` | | Specifies the field type | 
-|readOnly | `boolean` | false | If true, prevents the user from editing the field | 
-|help | `string` | | Help text for the field that will appear with the field's label |
-|htmlHelp | `string` | | Help text with support for HTML markup | universal |
-|limit | `int` | | Sets the number of widgets that can be added to an area |  
-|options | `object` | | An object containing options which can be set on a field |
-|widgets | `object` | | Contains the list of widgets displayed in the area |
+|name | `string` | | Sets the name of the field in the database | |
+|label | `string` | | Sets the label of the field that the user sees | |
+|required | `boolean` | false | If true, the field is mandatory | |
+|type | `string` | | Specifies the field type | |
+|readOnly | `boolean` | false | If true, prevents the user from editing the field | |
+|help | `string` | | Help text for the field that will appear with the field's label | |
+|htmlHelp | `string` | | Help text with support for HTML markup | universal | |
+|limit | `int` | | Sets the number of widgets that can be added to an area |  |
+|[options](../properties/options.md)| `object` | | An object containing options to be passed to `apos.area` | [`widgets`](../properties/options.md#widgets) |
 

@@ -2,7 +2,7 @@
 
 `slug` adds a slug field to the schema for specifying the contextual location of content in your site. Usually there is only one, named `slug`, and it is already part of your schema when extending pieces or custom pages.
 
-By default slugs are sanitized by the [sluggo](https://github.com/punkave/sluggo) module. This can be changed by overriding the `apos.utils.slugify` method.
+By default slugs are sanitized.
 
 ## Settings
 

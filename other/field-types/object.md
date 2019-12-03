@@ -2,7 +2,7 @@
 
 An `object` field has its own schema, and is very similar to an [`array`](array.md) field. However there is always exactly one object, represented as an object property of the doc in the database \(a sub-object\).
 
-Using `object` instead of `array` when only dealing with a single object prevents unnecessary prefixing of field names and nesting does in the form.
+Using `object` instead of `array` when only dealing with a single object prevents unnecessary prefixing of field names and nesting docs in the form.
 
 ## Settings
 

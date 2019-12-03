@@ -37,4 +37,7 @@ This is often appropriate for resumes, job applications and other attachments re
 |help | `string` | | Help text for the field that will appear with the field's label |
 |htmlHelp | `string` | | Help text with support for HTML markup | universal |
 |group | `string` |  | Can be set to "image" or "office" to limit the file types that can be uploaded. Other groups can be configured via the `fileGroups` option of the [apostrophe-attachments](../../modules/apostrophe-attachments/README.md) module. |
+|crop | boolean | false | If true, the user may crop the attachment. Only suitable if group is images. |
+|aspectRatio | array | | if set to an array like \[ 2, 1 \], the image must have that aspect ratio and will be autocropped if the user does not manually crop. Only suitable if group is images. |
+|minSize | array | | if set to an array like \[ 640, 480 \], the image must have at least the specified minimum width and height. Only suitable if group is images. |
 
