@@ -5,9 +5,7 @@ layout: tutorial
 
 # Managing Access Control
 
-Next you'll learn about several models for using permissions in Apostrophe with three different levels of complexity.
-
-In most cases, you'll have essentially three levels of permissions: the administrator, the editor, and the guest ––– sometimes you might even skip the editor. However, if that isn't enough, you have have the option to create custom permissions schemes with more control over exactly who has access to what.
+In most cases, you'll have essentially three levels of permissions: the administrator, who can do anything; the editor or writer, who can create content, but doesn't have access to configuration or management of the site; and the guest, who can look at all the cool stuff that everyone else makes  ––– sometimes you might even skip the editor. However, if that isn't enough, you have have the option to create custom permissions schemes with more control over exactly who has access to what.
 
 ## Standard Permissions
 
