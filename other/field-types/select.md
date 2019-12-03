@@ -1,6 +1,6 @@
 # `select`
 
-A single-select dropdown menu. The contents of the menu are set using the [`choices`](../properties/choices.md) property and its sub-properties.
+A single-select input field. The contents of the menu are set using the [`choices`](../properties/choices.md) property and its sub-properties.
 
 ## Settings
 

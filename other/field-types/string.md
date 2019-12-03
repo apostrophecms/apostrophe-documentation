@@ -1,6 +1,6 @@
 # `string`
 
-`string` adds an editable text string field to the schema.
+`string` adds an editable text field to the schema.
 
 ## Example
 

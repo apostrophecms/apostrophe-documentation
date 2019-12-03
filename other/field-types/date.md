@@ -40,4 +40,4 @@ If you do not set `def: null` or `required: true`, the date defaults to the curr
 |---|---|---|---|
 | name | `string` | | Sets the name of the field in the database |
 | label | `string` | | Sets the label of the field that the user sees |
-| pikadayOptions | |  | Allows configuration of the date format |
+| pikadayOptions | `object` |  | Allows configuration of the date format |
