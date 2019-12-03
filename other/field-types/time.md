@@ -14,10 +14,15 @@ Note: while "moment" supports many time formats, in Apostophe you must use a sta
 
 |  Property | Type   | Default | Description | 
 |---|---|---|---|
-| name | `string` | | Sets the name of the field in the database |
-| label | `string` | | Sets the label of the field that the user sees |
-| userTimeFormat |  |  | Allows configuration of the time format |
-| def | | | Sets the default time that is displayed |
+|name | `string` | | Sets the name of the field in the database |
+|label | `string` | | Sets the label of the field that the user sees |
+|required | `boolean` | false | If true, the field is mandatory |
+|type | `string` | | Specifies the field type |
+|readOnly | `boolean` | false | If true, prevents the user from editing the field |
+|help | `string` | | Help text for the field that will appear with the field's label |
+|htmlHelp | `string` | | Help text with support for HTML markup |
+|userTimeFormat |  |  | Allows configuration of the time format |
+|def | | | Sets the default time that is displayed |
 
 {% hint style='info' %}
 If you do not set `def: null` or `required: true`, the time defaults to the current time.

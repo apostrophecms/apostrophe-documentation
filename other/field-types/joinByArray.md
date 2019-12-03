@@ -95,14 +95,19 @@ If you have a mix of inline and regular fields, you'll still get the option of o
 
 |  Property | Type   | Default | Description | 
 |---|---|---|---|
-| name | `string` | | Sets the name of the field to join with (must begin with `_`) |
-| withType | `string` | | The name of the related type, if it differs from the name of the join. If you do not set `withType`, then the name of the join must match the name of the related type, with a leading `_` added.  |
-| idsField | `string` | | Sets the name of the property in which to store the id. The id is set automatically otherwise. |
-| ifOnlyOne | `boolean` | false | If true, it will not carry out the join if you are working with more than one document |
-| withJoins | `array` |  | If you need to carry out nested joins, set to an array containing those join field names. You may also use "dot notation" in these names to indicate that you want to follow a series of joins between related types.
-| label | `string` | | Sets the label of the field that the user sees |
-| filters | `object` | | Provide a list of cursor filters to limit acceptable options for the join |
-| inline | `boolean` | false | If true, adds the form field directly to the chooser |
+|name | `string` | | Sets the name of the field in the database |
+|label | `string` | | Sets the label of the field that the user sees |
+|required | `boolean` | false | If true, the field is mandatory |
+|type | `string` | | Specifies the field type |
+|readOnly | `boolean` | false | If true, prevents the user from editing the field |
+|help | `string` | | Help text for the field that will appear with the field's label |
+|htmlHelp | `string` | | Help text with support for HTML markup |
+|withType | `string` | | The name of the related type, if it differs from the name of the join. If you do not set `withType`, then the name of the join must match the name of the related type, with a leading `_` added.  |
+|idsField | `string` | | Sets the name of the property in which to store the id. The id is set automatically otherwise. |
+|ifOnlyOne | `boolean` | false | If true, it will not carry out the join if you are working with more than one document |
+|withJoins | `array` |  | If you need to carry out nested joins, set to an array containing those join field names. You may also use "dot notation" in these names to indicate that you want to follow a series of joins between related types.
+|filters | `object` | | Provide a list of cursor filters to limit acceptable options for the join |
+|inline | `boolean` | false | If true, adds the form field directly to the chooser |
 
 {% hint style='info' %}
 Beginning with Apostrophe 2.58.0, you may also set `withType` to an **array** of type names. When you do so, the chooser allows you to pick items of several types via a tabbed interface and create a combined list. These "polymorphic joins" are primarily intended for navigation widgets. They currently do not support pieces filters or `joinByArrayReverse`.

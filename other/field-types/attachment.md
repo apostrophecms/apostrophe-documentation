@@ -29,8 +29,12 @@ This is often appropriate for resumes, job applications and other attachments re
 
 |  Property | Type   | Default | Description | 
 |---|---|---|---|
-| type | `string` | | Specifies the field type |
-| name | `string` | | Sets the name of the field in the database |
-| label | `string` | | Sets the label of the field that the user sees |
-| group | `string` |  | Can be set to "image" or "office" to limit the file types that can be uploaded. Other groups can be configured via the `fileGroups` option of the [apostrophe-attachments](../../modules/apostrophe-attachments/README.md) module. |
+|name | `string` | | Sets the name of the field in the database |
+|label | `string` | | Sets the label of the field that the user sees |
+|required | `boolean` | false | If true, the field is mandatory |
+|type | `string` | | Specifies the field type | 
+|readOnly | `boolean` | false | If true, prevents the user from editing the field | 
+|help | `string` | | Help text for the field that will appear with the field's label |
+|htmlHelp | `string` | | Help text with support for HTML markup | universal |
+|group | `string` |  | Can be set to "image" or "office" to limit the file types that can be uploaded. Other groups can be configured via the `fileGroups` option of the [apostrophe-attachments](../../modules/apostrophe-attachments/README.md) module. |
 

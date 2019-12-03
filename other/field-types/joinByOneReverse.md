@@ -30,10 +30,15 @@ We can now see `_product` as a property of each `fabric` object that is related 
 
 |  Property | Type   | Default | Description | 
 |---|---|---|---|
-| name | `string` | | Sets the name of the field to join with (must begin with `_`) |
-| label | `string` | | Sets the label of the field that the user sees |
-| withType | `string` | | The name of the related type, if it differs from the name of the join. If you do not set `withType`, then the name of the join must match the name of the related type, with a leading `_` added.  || reverseOf | `string` | | Set to the name of the join you are reversing (optional) |
-| ifOnlyOne | `boolean` | false | If true, it will not carry out the join if you are working with more than one document |
+|name | `string` | | Sets the name of the field in the database |
+|label | `string` | | Sets the label of the field that the user sees |
+|required | `boolean` | false | If true, the field is mandatory |
+|type | `string` | | Specifies the field type |
+|readOnly | `boolean` | false | If true, prevents the user from editing the field |
+|help | `string` | | Help text for the field that will appear with the field's label |
+|htmlHelp | `string` | | Help text with support for HTML markup |
+|withType | `string` | | The name of the related type, if it differs from the name of the join. If you do not set `withType`, then the name of the join must match the name of the related type, with a leading `_` added.  || reverseOf | `string` | | Set to the name of the join you are reversing (optional) |
+|ifOnlyOne | `boolean` | false | If true, it will not carry out the join if you are working with more than one document |
 
 {% hint style='info' %}
 In documents with many joins in play, the `ifOnlyOne` option will avoid running through all the possible joins, and can be used to avoid a heavy performance impact in complex documents.

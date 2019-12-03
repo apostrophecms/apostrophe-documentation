@@ -12,7 +12,7 @@ Each [Schema Field](/tutorials/advanced-development/schema-guide.md#guide-to-sch
 |required | `boolean` | false | If true, the field is mandatory | universal |
 |type | `string` | | Specifies the field type | universal |
 |readOnly | `boolean` | false | If true, prevents the user from editing the field | universal |
-|help | `string` | | Help text for te field that will appear with the field's label | universal |
+|help | `string` | | Help text for the field that will appear with the field's label | universal |
 |htmlHelp | `string` | | Help text with support for HTML markup | universal |
 |def | depends on field type | | The default value for the field | most fields, excluding areas, singletons, objects, and arrays |
 |searchable | `boolean` | true | If false a field will not inform sitewide search | [string](field-types/string.md), [area](field-types/area.md), [singleton](field-types/singleton.md) |
