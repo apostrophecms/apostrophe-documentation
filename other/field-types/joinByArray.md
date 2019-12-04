@@ -108,7 +108,7 @@ If you have a mix of inline and regular fields, you'll still get the option of o
 |ifOnlyOne | `boolean` | false | If true, it will only carry out the join if the query that returned the original document returned only one document. This is useful if the joined information is only to be displayed on the `show.html` page of a piece, for instance, and you don't want the performance impact of loading it on the `index.html` page. | |
 |withJoins | `array` |  | If you need to carry out nested joins, set to an array containing those join field names. You may also use "dot notation" in these names to indicate that you want to follow a series of joins between related types.
 |filters | `object` | | Provide a list of cursor filters to limit acceptable options for the join | |
-|relationship | `array` | | Contains a `name`, `value`, and `type` to define the relationship, and an optional `inline` boolean to add the form field directly to the chooser | `name`, `value`, `type`, `inline` | |
+|relationship | `schema` | | In the presence of relationship, the content of a join is loaded differently. If the join is called \_departments then \_departments[0] will be an object with item and relationship properties, in which `item` is the department and `relationship` contains the relationship properties, rather than a flat array of departments. | `name`, `value`, `type`, `inline` | |
 
 {% hint style='info' %}
 Beginning with Apostrophe 2.58.0, you may also set `withType` to an **array** of type names. When you do so, the chooser allows you to pick items of several types via a tabbed interface and create a combined list. These "polymorphic joins" are primarily intended for navigation widgets. They currently do not support pieces filters or `joinByArrayReverse`.
