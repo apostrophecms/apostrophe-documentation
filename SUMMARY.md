@@ -190,6 +190,7 @@
 * [apostrophe-launder](modules/apostrophe-launder/README.md)
 * [apostrophe-locks](modules/apostrophe-locks/README.md)
 * [apostrophe-login](modules/apostrophe-login/README.md)
+  * [apostrophe-login (browser)](modules/apostrophe-login/browser-apostrophe-login.md)
 * [apostrophe-migrations](modules/apostrophe-migrations/README.md)
 * [apostrophe-modal](modules/apostrophe-modal/README.md)
   * [apostrophe-modal (browser)](modules/apostrophe-modal/browser-apostrophe-modal.md)

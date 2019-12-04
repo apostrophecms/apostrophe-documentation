@@ -7,7 +7,7 @@
 
 ### beforeShow(*callback*)
 
-### afterShow(*callback*)
+### afterShow()
 Wait for afterShow to do things that might pop more modals
 ### getData()
 
