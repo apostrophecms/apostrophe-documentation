@@ -53,7 +53,7 @@ Generally, you need a dedicated widget to create layout. The Apostrophe team som
     };
     ```
 {% endcode-tabs-item %}
-{% endcode-tabs 
+{% endcode-tabs %}
 
 ### Conveniences for layout widgets \(contextualOnly and skipInitialModal\)
 
