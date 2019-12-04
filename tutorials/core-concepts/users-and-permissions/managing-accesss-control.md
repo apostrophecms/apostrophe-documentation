@@ -5,31 +5,30 @@ layout: tutorial
 
 # Managing Access Control
 
-In most cases, you'll have essentially three levels of permissions: the administrator, who can do anything; the editor or writer, who can create content, but doesn't have access to configuration or management of the site; and the guest, who can look at all the cool stuff that everyone else makes  ––– sometimes you might even skip the editor. However, if that isn't enough, you have have the option to create custom permissions schemes with more control over exactly who has access to what.
+In most cases, you essentially have three levels of permissions:
+
+* The administrator (`admin`), who can do anything
+
+* The editor or writer (`edit`), who can create content, but doesn't have access to configuration or management of the site
+
+* The guest (`guest`), who can look at all the cool stuff that everyone else makes
+
+Apostrophe makes it easy to set this up with minimal configuration, but if that isn't enough, you have have the option to create custom permissions schemes with more control over exactly who has access to what.
 
 ## Standard Permissions
 
-Out of the box, you have two user groups: guest and admin. For some deployments, with a small team working on a simple site, this might be all you need, but usually you're going to want at least one more role in between. For these cases, you can use the `edit` permission.
-
-To review, before we create a new group, these are the three permissions you have out of the box:
-
-**`guest`** the user can sign into the site, but has no editing or management ability.
-
-**`edit`** gives a group the ability to create all types of pieces, edit any content they create, and they can be assigned as page editors for specific pages by an admin.
-
-**`admin`** gives a group the ability to manage all aspects of the site that can be managed through the UI.
-
-{% hint style='info' %}
-An admin can lock any piece type as `adminOnly` which will remove the ability of users with the `edit` permission (or otherwise customized permissions) to create or edit pieces of that type.
-{% endhint %}
-
-Now, let's add an editor role in `app.js`.
+Apostrophe ships with two user groups enabled: `admin` and `guest`. These are configured in the `index.js` for `apostrophe-user`. For some deployments, this might be all you need, but if you need just a little bit more, you can easily add `edit`. To add it, create a new configuration in `app.js` that overrides the default.
 
 ### Example: Creating Group Permissions
 
-Groups are defined in `app.js` inside of the `apostrophe-users` module. To demonstrate this, we'll define three groups: `guest`, with no permissions; `editor`, with the `edit` permission; and `admin` with the `admin` permission.
+Since you're overriding an existing configuration, create the configuration for all three groups:
 
-Note that we're duplicating the two existing groups because we're extending the current configuration of `apostrophe-user`. If you only defined the editor group here, then you would only have an editor group available .
+* `guest`, with no permissions
+
+* `editor`, with the `edit` permission
+
+* `admin` with the `admin` permission.
+
 
 1. Open `app.js`
 
@@ -64,11 +63,22 @@ Note that we're duplicating the two existing groups because we're extending the 
 
 ![](/.gitbook/assets/user-add-editor.png)
 
-Now you can create new users in the *editor* group, which will have the ability to create new content and mange the content they create, but will lack the great power --- and subsequent responsibility --- of the admin role.
+Now you can create new users in the *editor* group, which will have the ability to create new content and manage the content they create, but will lack the great power -- and great responsibility -- of the admin role.
+
+{% hint style='info' %}
+An admin can lock any piece type as `adminOnly` which will remove the ability of users with the `edit` permission (or otherwise customized permissions) to create or edit pieces of that type.
+{% endhint %}
+
 
 ## Advanced permissions: creating custom groups, assigning permissions for pieces
 
-So far we've covered two cases: the very basic situation where you really only need admins and guests, and the only slightly less simple situation where you need to add an universal editor group as well. Next, you'll see how to create more specific groups with more granular permissions. 
+So far we've covered two cases:
+
+* The very basic situation where you really only need administrators and guests
+
+* The only slightly less simple situation where you need to add an universal editor group as well.
+
+Next, you'll learn how to create more specific groups with more granular permissions. 
 
 In addition to the default groups, Apostrophe has a convention for permissions that supplies prefixes like `edit-` and `admin-` for modules. Using these you can create "editors" and "administrators" for specific modules and tools without providing any privileges for anything else..
 
@@ -84,7 +94,7 @@ To manage these permissions, you'll use the *Groups* menu which is currently hid
 
 3. Open `app.js`
 
-4. Remove the `groups [ ]` section from `apostrophe-users`.
+4. Remove the `groups [ ]` section from `apostrophe-users` (if it exists).
 
 Now the graphical group management interface is available, and you can create groups, just like any other kind of piece (although you must be an `admin` already to do so). To test this out, let's create the group for HR that we described above:
 
@@ -116,7 +126,7 @@ You don't have to use the `groups` option of `apostrophe-users` at all, not even
 node app apostrophe-groups:add admin admin
 ```
 
-This will create a group called `admin` (the first argument), with the `admin` permission (the second argument). You may list as many permissions as you wish, separated by spaces. If a group has the `admin` permission, all other permissions are implied, so don't bother to give them out separately.
+This will create a group called `admin` (the first argument), with the `admin` permission (the second argument). You may list as many permissions as you wish, separated by spaces. If a group has the `admin` permission, all other permissions are implied, so don't bother declaring them separately.
 {% endhint %}
 
 ## Checking permissions in your own code

@@ -5,11 +5,11 @@ layout: tutorial
 
 # User Login and Password Help
 
-There are three things that are inevitable in life, death, taxes, and that someone will forget their password. While Apostrophe can't help you with the first two, it does provide features to help when a user forgets their password or is locked out of their account.
+There are three things that are inevitable in life, death, taxes, and that someone will forget their password. While Apostrophe can't help you with the first two, it does provide features to help when a user forgets their password or has been locked out of their account.
 
 ## Password Reset
 
-Apostrophe includes a "password reset" feature for your users. This feature follows the usual pattern: the user must prove they control the email address associated with their account.
+Apostrophe includes a "password reset" feature for your users. This feature follows a familiar pattern: the user must prove they control the email address associated with their account.
 
 For security reasons, and because most sites don't have the [apostrophe-email](/tutorials/devops/email.md) module configured yet, this option must be turned on for your site:
 
@@ -45,21 +45,31 @@ Once you enable the feature, the user will automatically see a "Reset My Passwor
 
 ## What to do when you are locked out of Apostrophe
 
-Apostrophe is a user-friendly system. But every now and then, you may find a way to "lock yourself out" of Apostrophe. Chicken and egg problems can be frustrating, but don't worry! Here's how to resolve these situations.
+As hard as we work to make Apostrophe intuitive and user friendly, you may find a way to "lock yourself out". Sometimes this creates a "chicken and egg" problem where you need to log in to fix the reason that you're locked out, but don't worry! We have solutions!
 
 ### 1. You forgot the password for your account
 
-If your site has the "forgot password" feature enabled, you can go to `/login` and click the "forgot password" link. After completing the form be patient and be sure to check your spam folder.
+If your site has the "forgot password" feature enabled, 
+
+1. Go to `/login` and click the "forgot password" link. 
+
+2. Complete the form to receive an email with the password recovery instructions.
+
+3. Follow the instructions in the email to recover your password.
+
+{% hint style='info' %}
+Note: If it doesn't come right away be sure to check your spam folder.
+{% endhint %}
 
 If this feature is not enabled for your site or does not work for you, reach out to a coworker whose account is still functioning. If they have the `admin` permission, they will be able to edit your user via the "Users" dropdown and set a new password. 
 
-> If this option does not work for you, it is possible for you (or your developer) to change your password or add a new admin account via the command line. See #2 below.
+If this option does not work for you, it is possible for you (or your developer) to change your password or add a new admin account via the command line. See #2 below.
 
 ### 2. Your only `admin` account is in the trash
 
 Maybe you accidentally moved it to the trash, maybe another admin user did. Oops! Now how do you log in?
 
-If you are the developer of the site, or you are in communication with them, you can create a new admin account at the command line:
+If you have terminal access to Apostrophe you can create a new admin account at the command line:
 
 ``` bash
 node app apostrophe-users:add admin admin
@@ -79,11 +89,7 @@ node app apostrophe-users:change-password admin
 node app apostrophe-groups:add admin admin
 ```
 
-The first argument is the group name, the second is the permission you wish to give the group. The `admin` permission grants full access to everything.
-
-{% hint style='info' %}
-If you're reading this and you do not have access to the command line or recognize it, make sure no one else you work with has access to a working admin account first. Then reach out to the developer responsible for your site.
-{% endhint %}
+The first argument is the group name, the second is the permission you wish to give the group.
 
 ### 3. You pasted a bad embed code into an HTML widget
 
