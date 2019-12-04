@@ -1,0 +1,6 @@
+
+## Methods
+### resetKnownPassword()
+
+### enableResetKnownPassword()
+
