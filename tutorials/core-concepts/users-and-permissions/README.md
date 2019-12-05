@@ -10,7 +10,7 @@ Once you have the design and content for your site mapped out, you need to defin
 
 This section also contains information on setting up Apostrophe Passport for single sign-on capabilities, and information about Apostrophe's password recovery and account lockout features.
 
-* [Users and Groups](tutorials/core-concepts/users-and-permissions/users-and-groups.md)
-* [Managing Access Control](tutorials/core-concepts/users-and-permissions/managing-accesss-control.md)
-* [OpenAuth with Apostrophe Passport](tutorials/core-concepts/users-and-permissions/oauth-passport.md)
-* [User Login and Password Help](tutorials/core-concepts/users-and-permissions/user-login-and-password.md)
+* [Users and Groups](users-and-groups.md)
+* [Managing Access Control](managing-accesss-control.md)
+* [OpenAuth with Apostrophe Passport](oauth-passport.md)
+* [User Login and Password Help](user-login-and-password.md)
