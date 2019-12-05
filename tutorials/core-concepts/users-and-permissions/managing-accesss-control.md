@@ -84,6 +84,12 @@ In addition to the default groups, Apostrophe has a convention for permissions t
 
 So, for example, if you have an HR coordinator who needs access to upload important documents to an employee portal, but doesn't need any further access, you could provide the `edit-` and `submit-` permission for files to a group with no other permissions.
 
+{% hint style='info' %}
+
+[`apostrophe-worklow`](https://github.com/apostrophecms/apostrophe-workflow) is an optional module which adds workflow features to your site. In order to provide these features, the module modifies aspects of the existing groups, and adds more options for configuring groups. You can learn more about permissions in the [Workflow with permissions section](https://github.com/apostrophecms/apostrophe-workflow#user-content-workflow-with-permissions-limiting-who-can-do-what).
+
+{% endhint %}
+
 ### Configuring advanced permissions
 
 To manage these permissions, you'll use the *Groups* menu which is currently hidden from the admin bar. To make the menu option visible, you need to disable `groups` in the `apostrophe-users` module in both `app.js` and in `index.js` for `apostrophe-users`.
