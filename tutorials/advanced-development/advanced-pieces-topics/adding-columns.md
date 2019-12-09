@@ -1,4 +1,4 @@
-# Customizing the Site Management: Filters and Columns
+# Customizing Content Management: Filters and Columns
 
 The same principles that you used to [filter pieces](adding-filters.md) displayed in your main content can be used to filter how pieces are displayed behind the scenes in the administrative section of your site.
 
