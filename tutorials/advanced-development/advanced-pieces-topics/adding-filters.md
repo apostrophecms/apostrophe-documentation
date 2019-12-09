@@ -1,5 +1,5 @@
 
-# Filtering Pieces
+# Filtering Pieces: Enhanced Browsing for Pieces
 
 The connections you create between content using [joins](/tutorials/core-concepts/reusable-content-pieces/joins.md) can be used, among other things, to filter content based on those connections. Continuing the [`people` piece example](/tutorials/core-concepts/reusable-content-pieces/README.md) we'll create filters for the list of people, taking advantage of joins, tags and other field types for the public facing site.
 
@@ -57,7 +57,7 @@ Notice that there are separate `value` and `label` properties for each tag, even
 
 You can display counts for the choices, so users know how many items are available with a given tag. 
 
-1. Add the `counts: true;` property to the `piecesFilters` in `index.js`
+1. Add the `counts: true` property to the `piecesFilters` in `index.js`
 
 2. Add `({{ tag.count }})` inside of the `href` tag in `index.html`.
 
@@ -145,7 +145,7 @@ module.exports = {
 {% hint style="info" %}
 "Why is the filter named `jobs`, even though the field is named `_jobs`?" It works like this: if we specify `_jobs` for the filter, then the value in the query string will be the `_id` property of the job. This works, and it is stable no matter what gets edited later. But it isn't pretty. If we remove the `_` from the filter name, the value in the query string will be the *slug* of the job, which is more user-friendly and good for SEO.
 
-However, keep in mind that if you change the slug someone's bookmarked links might break. So it's up to you whether to use `_jobs` (for the `_id`) or `jobs` (for the `slug`).
+Because Apostrophe records past URLs used to access each page and issues 'soft redirects,' broken links will be rare even if slugs change. So we recommend using `jobs` rather than `_jobs`.
 {% endhint %}
 
 Now you can filter people by job:
@@ -209,4 +209,4 @@ Here's how to build query strings that contain arrays in your template:
 
 ## Next Steps
 
-If you want to try out some other uses of filters, you can see how to [integrate them with Apostrophe's site management interface](adding-columns.md), or you can continue on to learn how to use AJAX to add dynamic behavior to your site.
+If you want to try out some other uses of filters, you can see how to [integrate them with Apostrophe's site management interface](adding-columns.md), or you can continue on to learn how to use AJAX to avoid full page refreshes when filters are used.
