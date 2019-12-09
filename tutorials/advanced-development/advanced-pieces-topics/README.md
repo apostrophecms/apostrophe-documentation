@@ -13,12 +13,12 @@ children:
   - overriding-piece-urls
 ---
 
-In the main pieces section, you covered the basics of creating and displaying pieces, as well as some concepts like filters and joins. This section contains more information on how to use pieces to build dynamic, responsive sites.
+In the [Reusable Content with Pieces](/tutorials/core-concepts/reusaable-content-pieces/README.md) section, we covered the basics of creating and displaying pieces using an example `people` piece type and a then demonstrated joins using `jobs`. This section builds off of the concepts and code from there, so if you haven't already worked through those, you may want to familiarize yourself with it before continuing on to learn how to use pieces to build dynamic, responsive sites.
 
+* [Filtering Pieces](/tutorials/advanced-development/advanced-pieces-topics/adding-filters.md)
 * [AJAX Features: Enhanced Browsing for Pieces](/tutorials/advanced-development/advanced-pieces-topics/ajax-pieces.md)
 * [Fine-grained Permissions for Pieces](/tutorials/advanced-development/advanced-pieces-topics/permissions-for-pieces.md)
-* [Adding Filters](/tutorials/advanced-development/advanced-pieces-topics/adding-filters.md)
-* [Adding Columns](/tutorials/advanced-development/advanced-pieces-topics/adding-columns.md)
+* [Customizing Content Management: Filters and Columns](/tutorials/advanced-development/advanced-pieces-topics/adding-columns.md)
 * [Next and Previous Links](/tutorials/advanced-development/advanced-pieces-topics/next-previous-links.md)
 * [Suppressing Pieces from a Listing](/tutorials/advanced-development/advanced-pieces-topics/suppressing-pieces)
 * [Adding Fields to All Pieces](/tutorials/advanced-development/advanced-pieces-topics/adding-fields-to-all-pieces.md)
