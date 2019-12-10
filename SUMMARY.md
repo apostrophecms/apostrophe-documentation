@@ -34,6 +34,8 @@
     * [Lean frontend assets: Apostrophe without jQuery](tutorials/core-concepts/front-end-assets/lean-frontend-assets.md)
   * [Users and Permissions](tutorials/core-concepts/users-and-permissions/README.md)
     * [Users and Groups](tutorials/core-concepts/users-and-permissions/users-and-groups.md)
+    * [Managing Access Control](tutorials/core-concepts/users-and-permissions/managing-accesss-control.md)
+    * [OpenAuth with Apostrophe Passport](tutorials/core-concepts/users-and-permissions/oauth-passport.md)
     * [User Login and Password Help](tutorials/core-concepts/users-and-permissions/user-login-and-password.md)
   * [Working With Templates](tutorials/core-concepts/working-with-templates/README.md)
     * [Nunjucks Filters](tutorials/core-concepts/working-with-templates/nunjucks-filters.md)
@@ -41,8 +43,8 @@
     * [Accessing images inside related pages](tutorials/core-concepts/working-with-templates/thumbnails-and-areas-of-child-pages.md)
     * [Responsive Images](tutorials/core-concepts/working-with-templates/responsive-images.md)
   * [Apostrophe Search](tutorials/core-concepts/apostrophe-search/README.md)
-    * [Enabling Search](tutorials/core-concepts/apostrophe-search/search.md)
-
+    * [Enabling Search](tutorals/core-concepts/apostrophe-search/search.md)
+---
 * [Advanced Topics](tutorials/advanced-development/README.md)
   * [Advanced Pieces Topics](tutorials/advanced-development/advanced-pieces-topics/README.md)
     * [AJAX Features: Enhanced Browsing for Pieces](tutorials/advanced-development/advanced-pieces-topics/ajax-pieces.md)
@@ -70,7 +72,7 @@
     * [Accessing the database directly](tutorials/advanced-development/database/accessing-the-database-directly.md)
     * [Using MongoDB replica sets with Apostrophe](tutorials/advanced-development/database/replica-set.md)
   * [Schema Guide](tutorials/schema-guide/schema-guide.md)
-
+---
 * [Apostrophe DevOps](tutorials/devops/README.md)
   * [Hosting Apostrophe in production](tutorials/devops/deployment/README.md)  
     * [Hosting Apostrophe in production](tutorials/devops/deployment/deployment.md)  
@@ -91,14 +93,14 @@
 ## HOWTOs
 
 * [Apostrophe HOWTOs](tutorials/howtos/README.md)
-  * [Building a contact form in Apostrophe](tutorials/howtos/forms.md)
-  * [Building combined menus and custom buttons with the admin bar](tutorials/howtos/admin-bar.md)
-  * [How do I create a '404 not found' page?](tutorials/howtos/how-do-i-create-a-404-not-found-page.md)
-  * [How do I add an Intranet to My Site?](tutorials/howtos/intranet.md)
-  * [Configuring CKEditor in Apostrophe](tutorials/howtos/ckeditor.md)
-  * [Facebook open graph tags in Apostrophe](tutorials/howtos/facebook.md)
-  * [Sending user notifications](tutorials/howtos/sending-user-notifications.md)
-  * [Logging in via Google, Twitter, Facebook and other sites](tutorials/howtos/google-twitter-and-facebook-login.md)
+* [Building a contact form in Apostrophe](tutorials/howtos/forms.md)
+* [Building combined menus and custom buttons with the admin bar](tutorials/howtos/admin-bar.md)
+* [How do I create a '404 not found' page?](tutorials/howtos/how-do-i-create-a-404-not-found-page.md)
+* [How do I add an Intranet to My Site?](tutorials/howtos/intranet.md)
+* [Configuring CKEditor in Apostrophe](tutorials/howtos/ckeditor.md)
+* [Facebook open graph tags in Apostrophe](tutorials/howtos/facebook.md)
+* [Sending user notifications](tutorials/howtos/sending-user-notifications.md)
+* [How do I Redirect a User on Login?](tutorials/howtos/user-redirect.md)
 
 ## Reference
 
