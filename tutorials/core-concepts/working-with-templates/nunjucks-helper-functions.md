@@ -199,7 +199,7 @@ module.exports = {
     }
   ],
   construct: function(self, options) {
-    self.apos.templates.addFilters({
+    self.apos.templates.addFilter({
       stripHttp: function (s) {
         return s.replace(/^(https?:|)\/\//, '');
       }
