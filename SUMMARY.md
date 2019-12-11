@@ -44,10 +44,10 @@
 
 ## Advanced Topics
 * [Advanced Pieces Topics](tutorials/advanced-development/advanced-pieces-topics/README.md)
-  * [AJAX Features: Enhanced Browsing for Pieces](tutorials/advanced-development/advanced-pieces-topics/ajax-pieces.md)
+  * [Filtering Pieces: Enhanced Browsing for Pieces](tutorials/advanced-development/advanced-pieces-topics/adding-filters.md)
+  * [AJAX Features: Enhanced Browsing Without Page Refresh](tutorials/advanced-development/advanced-pieces-topics/ajax-pieces.md)
   * [Fine-grained Permissions for Pieces](tutorials/advanced-development/advanced-pieces-topics/permissions-for-pieces.md)
-  * [Adding Filters](tutorials/advanced-development/advanced-pieces-topics/adding-filters.md)
-  * [Adding Columns](tutorials/advanced-development/advanced-pieces-topics/adding-columns.md)
+  * [Customizing Content Management: Filters and Columns](tutorials/advanced-development/advanced-pieces-topics/adding-columns.md)
   * [Next and Previous Links](tutorials/advanced-development/advanced-pieces-topics/next-previous-links.md)
   * [Suppressing Pieces from a Listing](/tutorials/advanced-development/advanced-pieces-topics/suppressing-pieces)
   * [Adding Fields to All Pieces](tutorials/advanced-development/advanced-pieces-topics/adding-fields-to-all-pieces.md)
