@@ -7,7 +7,7 @@ You can store your images and files in Amazon S3 if you wish. You don't have to 
 
 This is essential to host an Apostrophe site on Heroku, or an Amazon EC2 instance without persistent storage.
 
-Just take advantage of the [uploadfs](https://github.com/punkave/uploadfs) module, which is built into Apostrophe.
+Just take advantage of the [uploadfs](https://github.com/apostrophecms/uploadfs) module, which is built into Apostrophe.
 
 First sign up for [Amazon Web Services](http://aws.amazon.com/s3/) and create an S3 bucket in which to store your files. **Do not use the us-east region** for reasons explained below.
 
