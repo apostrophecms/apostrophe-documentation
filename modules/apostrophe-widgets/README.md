@@ -4,11 +4,11 @@ The base class for all modules that implement a widget, such as
 [apostrophe-pieces-widgets](/modules/apostrophe-pieces-widgets/) and
 [apostrophe-video-widgets](/modules/apostrophe-video-widgets/).
 
-All widgets have a [schema](/tutorials/schema-guide/schema-guide).
+All widgets have a [schema](/tutorials/schema-guide/schema-guide.md).
 Many project-specific modules that extend this module consist entirely of an
 `addFields` option and a `views/widget.html` file.
 
-For more information see the [custom widgets tutorial](/tutorials/core-concepts/editable-content-on-pages/custom-widgets).
+For more information see the [custom widgets tutorial](/tutorials/core-concepts/editable-content-on-pages/custom-widgets.md).
 
 ## Options
 

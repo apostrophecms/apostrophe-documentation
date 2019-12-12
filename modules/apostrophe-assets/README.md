@@ -68,7 +68,7 @@ Example:
 
 If explicitly set to `false`, the mechanism that otherwise removes stale
 uploadfs static asset bundles five minutes after launch is disabled.
-See [Deploying Apostrophe in the Cloud with Heroku](/tutorials/devops/deployment/deploying-apostrophe-in-the-cloud-with-heroku)
+See [Deploying Apostrophe in the Cloud with Heroku](/tutorials/devops/deployment/deploying-apostrophe-in-the-cloud-with-heroku.md)
 for more information.
 
 ## Additional Environment Variables
