@@ -9,7 +9,7 @@ that extend `apostrophe-pieces`.
 
 To learn more and see complete examples, see:
 
-[Reusable content with pieces](https://docs.apostrophecms.org/apostrophe/tutorials/getting-started/reusable-content-with-pieces)
+[Reusable content with pieces](/tutorials/core-concepts/reusable-content-pieces)
 
 ## Options
 
@@ -59,7 +59,7 @@ the index view via `indexPage`; if the URL has an additional component,
 e.g. `/blog/good-article`, it is assumed to be the slug of the
 article and `showPage` is invoked. You can override this method,
 for instance to also accept `/:year/:month/:day/:slug` as a way of
-invoking `self.showPage`. See [apostrophe-custom-pages](https://docs.apostrophecms.org/apostrophe/modules/apostrophe-custom-pages)
+invoking `self.showPage`. See [apostrophe-custom-pages](/modules/apostrophe-custom-pages)
 for more about what you can do with dispatch routes.
 ### chooseParentPage(*pages*, *piece*)
 Given an array containing all of the index pages of this type that
@@ -89,7 +89,7 @@ in the browser
 Adds the `._url` property to all of the provided pieces,
 which are assumed to be of the appropriate type for this module.
 Aliased as the `addUrls` method of [apostrophe-pieces](https://docs.apostrophecms.org/apostrophe/modules/apostrophe-pieces), which
-is invoked by the `addUrls` filter of [apostrophe-cursor](https://docs.apostrophecms.org/apostrophe/modules/apostrophe-docs/server-apostrophe-cursor).
+is invoked by the `addUrls` filter of [apostrophe-cursor](/modules/apostrophe-docs/server-apostrophe-cursor).
 ### findForAddUrlsToPieces(*req*)
 Returns a cursor suitable for finding pieces-pages for the
 purposes of assigning URLs to pieces based on the best match.
