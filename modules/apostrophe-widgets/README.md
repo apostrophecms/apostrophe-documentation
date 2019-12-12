@@ -59,7 +59,7 @@ subclass of `apostrophe-custom-pages` or `apostrophe-pieces-pages`, as well.
 
 ### `addFields`, `removeFields`, `arrangeFields`, etc.
 
-The standard options for building [schemas](/tutorials/advanced-topics/schema-guide)
+The standard options for building [schemas](/tutorials/schema-guide/schema-guide.md)
 are accepted. The widget will present a modal dialog box allowing the user to edit
 these fields. They are then available inside `widget.html` as properties of
 `data.widget`.
