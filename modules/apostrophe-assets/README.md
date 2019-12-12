@@ -95,7 +95,7 @@ Legacy. For use when `APOS_BUNDLE` is set to an explicit bundle name but you sti
 generated to reference those files via uploadfs. But this is the hard way; just run `apostrophe:generation` with
 APOS_BUNDLE=1, and also set `APOS_BUNDLE=1` in the environment when launching Apostrophe. That's really all you
 have to do.
-See [Deploying Apostrophe in the Cloud with Heroku](/tutorials/devops/deployment/howtos/deploying-apostrophe-in-the-cloud-with-heroku) for more information.
+See [Deploying Apostrophe in the Cloud with Heroku](/tutorials/devops/deployment/deploying-apostrophe-in-the-cloud-with-heroku.md) for more information.
 
 ### `APOS_BUNDLE_CLEANUP_DELAY`
 
@@ -104,7 +104,7 @@ cleaning up obsolete static asset bundles in uploadfs. The default
 is 5 minutes. The assumption is that all production servers have received
 the new deployment and finished serving any straggler HTTP requests 5 minutes after
 a new version is first launched.
-See [Deploying Apostrophe in the Cloud with Heroku](/tutorials/devops/deployment/deploying-apostrophe-in-the-cloud-with-heroku)
+See [Deploying Apostrophe in the Cloud with Heroku](/tutorials/devops/deployment/deploying-apostrophe-in-the-cloud-with-heroku.md)
 for more information.
 
 

@@ -22,7 +22,7 @@ continue to manage it.)
 
 ### Schema options
 The standard schema options, including `addFields`, `removeFields` and `arrangeFields`.
-See the [schema guide](/tutorials/schema-guide/schema-guide).
+See the [schema guide](/tutorials/schema-guide/schema-guide.md).
 
 
 ## Methods

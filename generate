@@ -4,7 +4,7 @@
   cd _api-reference-generator/ &&
   rm -rf ../modules/ &&
   # Not optional, we need to be documenting the latest published release
-  npm update &&
+  # npm update &&
   node app apostrophe:generation &&
   node app documentation:generate &&
   cat ../_tip-ins/modules.md > ../modules/README.md 
