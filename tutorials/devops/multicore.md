@@ -7,7 +7,7 @@ Although Apostrophe runs very well as a single process, and you can deploy produ
 
 ## Requirements
 
-I'll assume you are deploying your site with [stagecoach](https://github.com/punkave/stagecoach). It's a solid deployment system, and the Apostrophe sandbox comes with ready-to-use recipes for it in the `deployment` folder.
+I'll assume you are deploying your site with [stagecoach](https://github.com/apostrophecms/stagecoach). It's a solid deployment system, and the Apostrophe sandbox comes with ready-to-use recipes for it in the `deployment` folder.
 
 I'll also assume you are using `nginx` as your reverse proxy server. If you're not, you should be. It's simple, effective, reliable and has built-in load balancing and fault tolerance.
 
@@ -176,7 +176,7 @@ modules: {
 
 By default Apostrophe writes uploaded files to the server's local hard drive. This is no good if you are load balancing across multiple servers.
 
-Fortunately Apostrophe uses [uploadfs](https://github.com/punkave/uploadfs), which also supports using Amazon S3 as a back end for file storage.
+Fortunately Apostrophe uses [uploadfs](https://github.com/apostrophecms/uploadfs), which also supports using Amazon S3 as a back end for file storage.
 
 To do that, [check out our separate HOWTO on using Amazon S3 with apostrophe](cloud/storing-images-and-files-in-amazon-s3.md).
 

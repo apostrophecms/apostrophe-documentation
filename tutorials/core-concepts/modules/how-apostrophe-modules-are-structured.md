@@ -5,7 +5,7 @@ layout: tutorial
 
 ## `lib/modules`: modules in Apostrophze
 
-Apostrophe is a modular content management system. Each meaningful component is broken into its own module, which can then be interacted with or subclassed \(extended\) by other modules in the system. Under the hood, modules are powered by [moog](https://github.com/punkave/moog) and [moog-require](https://github.com/punkave/moog-require), but you don't have to understand that right away to build a great website.
+Apostrophe is a modular content management system. Each meaningful component is broken into its own module, which can then be interacted with or subclassed \(extended\) by other modules in the system. Under the hood, modules are powered by [moog](https://github.com/apostrophecms/moog) and [moog-require](https://github.com/apostrophecms/moog-require), but you don't have to understand that right away to build a great website.
 
 The `lib/modules` folder of your project is where modules created for your own project live. And it is also where you can "implicitly subclass" \(i.e. configure or improve upon\) Apostrophe's own modules, whether part of the apostrophe npm module's core or packaged in separate npm modules.
 
@@ -75,7 +75,7 @@ You can also work directly with `self.apos.app`, which is the Express app object
 
 ```javascript
 $(function() {
-  // You should wait at least for the DOM to be ready, like this  
+  // You should wait at least for the DOM to be ready, like this
 });
 ```
 
@@ -84,7 +84,7 @@ Or a few Apostrophe event handlers:
 ```javascript
 apos.on('ready', function() {
   // The page has been loaded for the first time,
-  // or has just been refreshed after a piece was saved  
+  // or has just been refreshed after a piece was saved
 });
 ```
 
