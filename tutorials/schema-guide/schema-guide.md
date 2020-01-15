@@ -102,6 +102,7 @@ Other properties vary by type.
 
 ### Guide to schema field types
 
+<<<<<<< HEAD
 Here are all of the standard schema field types. _You can also add more field types to the system; check out the source code of the_ `apostrophe-attachments` _module for a good example._
 
 ### `area`
@@ -856,3 +857,6 @@ We can now see `_products` as a property of each `fabric` object that is related
 
 If desired, we can specify `relationship` and `relationshipsField` just as we would for `joinByArray`. Currently these are not automatic in a reverse join and must be fully specified if relationship properties are to be accessed. Most array joins do not have relationship properties and thus do not require reverse access to them.
 
+=======
+You can find a list of all Schema Field Types and a detailed reference for each of them in the [Schema Field Type Reference](/other/schema-reference.md). _You can also add more field types to the system; check out the source code of the_ [`apostrophe-attachments`](https://github.com/apostrophecms/apostrophe/tree/master/lib/modules/apostrophe-attachments) _module for a good example._
+>>>>>>> 9f3ea3a20709bb42134ca100e853031178b50c64
