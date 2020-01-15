@@ -138,6 +138,9 @@
   * [sortify](other/properties/sortify.md)
 * [Core Browser](other/core-browser.md)
 * [Core Server](other/core-server.md)
+
+## Apostrophe Module Reference
+
 * [Module Reference](modules/README.md)
 * [apostrophe-admin-bar](modules/apostrophe-admin-bar/README.md)
   * [apostrophe-admin-bar (browser)](modules/apostrophe-admin-bar/browser-apostrophe-admin-bar.md)
