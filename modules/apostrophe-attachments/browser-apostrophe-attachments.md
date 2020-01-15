@@ -31,8 +31,6 @@ is up to you.
 
 ### convert(*data*, *name*, *$field*, *$el*, *field*, *callback*)
 
-### autocrop(*field*, *attachment*, *callback*)
-
 ### addHandlers()
 
 ### updateExisting(*$fieldset*, *info*, *field*)

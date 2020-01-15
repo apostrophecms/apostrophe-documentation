@@ -23,13 +23,7 @@ Make sure the field indicated by options.field is initially visible
 
 ### saveContent(*callback*)
 
-### displayError(*result*)
-Calls getErrorMessage with result.status and passes the
-returned string to apos.notify. This method is a good
-candidate for overrides because it has access to the
-entire result object. Invoked when result.status
-is not `ok`.
-### getErrorMessage(*err*, *result*)
+### getErrorMessage(*err*)
 
 ### beforeConvert(*piece*, *callback*)
 

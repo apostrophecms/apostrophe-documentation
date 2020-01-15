@@ -175,8 +175,6 @@ If the field type has a `copy` method it is used.
 Otherwise, custom logic handles `join` fields, and
 the rest are copied by simple assignment to the
 named field.
-### editVirtualArea(*req*, *items*, *options*, *callback*) *[routes]*
-Implementation detail of the `edit-virtual-area` and `edit-virtual-areas` routes.
 ### pageBeforeSend(*req*) *[browser]*
 
 ### getCreateSingletonOptions(*req*) *[browser]*
@@ -295,5 +293,4 @@ An area is empty if it has no widgets in it, or when
 all of the widgets in it return true when their
 `isEmpty()` methods are interrogated. For instance,
 if an area only contains a rich text widget and that
-widget contains no markup or text, this function will
-return true. A widget with no `isEmpty()` method is never empty.
+widget. A widget with no `isEmpty()` method is never empty.

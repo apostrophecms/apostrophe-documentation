@@ -39,7 +39,7 @@ To do that, just follow along:
 
 * In the `deployment` folder, also copy `settings.production.example` to `settings.production`. Change `USER=myuser` to `USER=nodeapps`. Change `SERVER=myserver.com` to `SERVER=a.b.c.d`, where `a.b.c.d` is the IP address of your new VPS (check the "Remote Access" tab in Linode).
 
-* [`git clone` stagecoach on your own computer](https://github.com/apostrophecms/stagecoach) if you haven't already. [Make sure its `bin` folder becomes part of your `PATH` in your MacOS or Linux terminal window.](https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux-unix)
+* [`git clone` stagecoach on your own computer](https://github.com/punkave/stagecoach) if you haven't already. [Make sure its `bin` folder becomes part of your `PATH` in your MacOS or Linux terminal window.](https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux-unix)
 
 > Windows users: stagecoach can be run under the [Linux subsystem for Windows.](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 

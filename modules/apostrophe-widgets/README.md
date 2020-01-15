@@ -1,8 +1,8 @@
 ## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
 The base class for all modules that implement a widget, such as
-[apostrophe-rich-text-widgets](/modules/apostrophe-rich-text-widgets/),
-[apostrophe-pieces-widgets](/modules/apostrophe-pieces-widgets/) and
-[apostrophe-video-widgets](/modules/apostrophe-video-widgets/).
+[apostrophe-rich-text-widgets](../apostrophe-rich-text-widgets/README.md),
+[apostrophe-pieces-widgets](../apostrophe-pieces-widgets/README.md) and
+[apostrophe-video-widgets](../apostrophe-video-widgets/README.md).
 
 All widgets have a [schema](/tutorials/schema-guide/schema-guide.md).
 Many project-specific modules that extend this module consist entirely of an
@@ -103,7 +103,7 @@ the appropriate div, the `data` for the widget, and the `options` that
 were passed to the widget.
 
 For example, here is the `public/js/always.js` file for the
-[apostrophe-video-widgets](https://github.com/apostrophecms/apostrophe/blob/master/lib/modules/apostrophe-video-widgets/public/js/always.js) module:
+[apostrophe-video-widgets](../apostrophe-video-widgets/README.md) module:
 
 ```javascript
 apos.define('apostrophe-video-widgets', {
@@ -186,9 +186,9 @@ array, only the named permanent properties are supplied. If `playerData is `true
 (the default), all of the permanent properties are supplied.
 ### filterOptionsForDataAttribute(*options*)
 Filter options passed from the template to the widget before stuffing
-them into JSON for use by widget players and the widget editor. Again,
-by default we discard all properties that are the results of joins or
-otherwise dynamic (arrays or objects named with a leading `_`).
+them into JSON for use by the widget editor. Again, we discard all
+properties that are the results of joins or otherwise dynamic
+(arrays or objects named with a leading `_`).
 
 If we don't do a good job here we get 1MB+ of markup. So if you override
 this, play nice. And think about fetching the data you need only when
