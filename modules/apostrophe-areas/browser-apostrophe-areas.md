@@ -46,14 +46,6 @@ and reveals only the controls on the directly hovered widget, not the parent wra
 ### enableAll(*sel*)
 Enable the areas in the specified selector or jQuery object to be edited.
 If sel is falsy all areas currently in the body are made editable
-### register(*docId*, *dotPath*, *editor*)
-
-### remapDotPaths()
-
-### recalculateDotPathsInArea(*$area*)
-
-### recalculateDotPathsOfAreasInWidget(*$widget*, *docId*, *dotPath*)
-
 ### enableShift()
 
 ### getWidgetOptions(*$widget*)

@@ -5,7 +5,7 @@ The Express `app` object is made available as `apos.app`, and
 the `express` object itself as `apos.express`. You can add
 Express routes directly in your modules via `apos.app.get`,
 `apos.app.post`, etc., however be sure to also check
-out the [route method](/modules/apostrophe-module#route-method-path-fn) available
+out the [route method](https://docs.apostrophecms.org/apostrophe/modules/apostrophe-module#route-method-path-fn) available
 in all modules for a cleaner way to implement API routes. Adding
 routes directly to the Express app object is still sometimes useful when
 the URLs will be public.
@@ -185,7 +185,7 @@ to the `apos.middleware` object for your use where appropriate:
 This middleware function accepts file uploads and makes them
 available via `req.files`. See the
 [connect-multiparty](https://npmjs.org/package/connect-multiparty) npm module.
-This middleware is used by [apostrophe-attachments](/modules/apostrophe-attachments).
+This middleware is used by [apostrophe-attachments](https://docs.apostrophecms.org/apostrophe/modules/apostrophe-attachments).
 
 ## Module-specific middleware
 
@@ -199,13 +199,6 @@ If `expressMiddleware` is a non-array object, it must have a `middleware`
 property containing a function or an array of functions, and it may also have a
 `before` property containing the name of another module. The function(s) in the
 `middleware` property will be run before those for the named module.
-
-If you need to run the middleware very early, the object may also have a
-`when` property, which may be set to `beforeRequired` (the absolute
-beginning, before even req.body is available), `afterRequired` (after all
-middleware shipped with apostrophe-express but before all middleware passed
-to it as options), or `afterConfigured` (the default, with other module
-middleware).
 
 
 ## Methods

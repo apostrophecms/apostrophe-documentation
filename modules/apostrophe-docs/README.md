@@ -6,9 +6,9 @@ in the `aposDocs` mongodb collection.
 The `getManager` method should be used to obtain a reference to the module
 that manages a particular doc type, so that you can benefit from behavior
 specific to that module. One method of this module that you may sometimes use directly
-is `apos.docs.find()`, which returns a [cursor](/modules/apostrophe-docs/server-apostrophe-cursor/README.md) for
+is `apos.docs.find()`, which returns a [cursor](https://docs.apostrophecms.org/apostrophe/modules/apostrophe-docs/server-apostrophe-cursor) for
 fetching documents of all types. This is useful when implementing something
-like the [apostrophe-search](/modules/apostrophe-search/README.md) module.
+like the [apostrophe-search](https://docs.apostrophecms.org/apostrophe/modules/apostrophe-search) module.
 
 ## Options
 

@@ -5,9 +5,6 @@ appear anywhere, which is useful for contextual pieces.
 
 
 ## Methods
-### globalLink(*action*, *fn*)
-Globally link up clicks on data-apos-${action} where the piece
-type name is made properly attribute-name-friendly
 ### clickHandlers()
 
 ### manage()

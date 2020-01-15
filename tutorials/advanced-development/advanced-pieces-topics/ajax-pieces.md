@@ -1,9 +1,13 @@
 ---
+<<<<<<< HEAD
 title: "AJAX Features: Enhanced Browsing Without Page Refresh"
+=======
+title: AJAX Features - Enhanced Browsing for Pieces
+>>>>>>> 4becbf80721e5b08efe0630d4ef9eba4d1467378
 layout: tutorial
 ---
 
-# AJAX Features: Enhanced Browsing Without Page Refresh
+# AJAX Features: Enhanced Browsing for Pieces
 
 Asynchronous JavaScript and XML, commonly known as [AJAX](https://api.jquery.com/jquery.ajax/), provides techniques for more dynamic and responsive websites. You can use AJAX with Pieces to refresh and display content without fully refreshing the page. To demonstrate this, we'll work off of the `people-pages` example from the [Reusable Content with Pieces](/tutorials/core-concepts/reusable-content-pieces/reusable-content-with-pieces.md) which uses `piece-pages` to create a user directory, but you should be able to easily adapt this example to your own project.
 

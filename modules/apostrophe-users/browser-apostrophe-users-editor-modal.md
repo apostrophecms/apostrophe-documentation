@@ -19,7 +19,5 @@ when creating a new user.
 
 ### updateUsernameViaTitleAttempt(*username*)
 
-### displayError(*result*)
-
 ### getErrorMessage(*err*)
 
