@@ -1,5 +1,5 @@
 ---
-title: AJAX Features: Enhanced Browsing Without Page Refresh
+title: "AJAX Features: Enhanced Browsing Without Page Refresh"
 layout: tutorial
 ---
 
