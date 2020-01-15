@@ -13,7 +13,7 @@ Building the docs
 Clone the repo.
 
 ```sh
-$ git clone https://github.com/punkave/apostrophe-documentation.git
+$ git clone https://github.com/apostrophecms/apostrophe-documentation.git
 $ cd apostrophe-documentation
 ```
 

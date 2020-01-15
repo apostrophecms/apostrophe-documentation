@@ -48,9 +48,9 @@ for autosave and similar operations.
 
 ### error(*field*, *type*)
 Create a valid error object to be reported from a converter.
-You can also report a string in which case self.convert creates
-one of these for you. The object is nice if you want to extend it
-with extra properties
+You can also report a string as an error in which case self.convert
+creates one of these for you. The object is nice if you want to
+extend it with extra properties
 ### enableGroupTabs(*$el*)
 Add click handlers for group tabs
 ### contextualConvertArea(*data*, *name*, *$el*, *field*)
@@ -62,6 +62,10 @@ Returns true if an editor is actually active for the given area
 
 ### enableArea(*$el*, *name*, *area*, *options*, *callback*)
 options argument may be skipped
+### scheduleEvaQueue()
+
+### runEvaQueue()
+
 ### getSingleton(*$el*, *name*)
 
 ### getArea(*$el*, *name*)

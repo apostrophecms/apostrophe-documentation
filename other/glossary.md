@@ -17,7 +17,7 @@ A module can extend \("subclass"\) another module, and most of the modules you c
 
 Modules created at "project level" live in subdirectories of `/lib/modules`. Code and configuration for a module lives in `/lib/modules/MODULE-NAME/index.js` and can be overridden in `app.js` via the `modules` property of the main Apostrophe configuration object. It is also common to override a few settings on a per-server basis via `data/local.js`, which is merged with that object if it exists.
 
-Apostrophe modules can also be distributed as npm modules, whether by themselves or as [moog bundles](https://github.com/punkave/moog-require). Bundling allows you to distribute several related Apostrophe modules as one npm module. The `apostrophe` npm module itself is a bundle.
+Apostrophe modules can also be distributed as npm modules, whether by themselves or as [moog bundles](https://github.com/apostrophecms/moog-require). Bundling allows you to distribute several related Apostrophe modules as one npm module. The `apostrophe` npm module itself is a bundle.
 
 Each module may have its own `views` folder and easily render templates from it or push CSS and JS assets from `public/css` and `public/js` folders.
 
@@ -140,7 +140,7 @@ See the [apostrophe-schemas](../modules/apostrophe-schemas/README.md) module doc
 
 "Moog types" \(think "classes" in other systems\) provide a clean way to implement object-oriented code when asynchronous callbacks are in play, as they nearly always are in both server-side and browser-side JavaScript. With Moog, all methods are written inside a single closure where `self` always means the right thing, even in callbacks. This allows methods to be passed freely as callbacks and reduces "cognitive load" for async developers.
 
-[moog](https://github.com/punkave/moog) is an implementation of **object-oriented functional programming** used throughout Apostrophe. In server-side code, Apostrophe depends on the [moog-require](https://github.com/punkave/moog-require) module.
+[moog](https://github.com/apostrophecms/moog) is an implementation of **object-oriented functional programming** used throughout Apostrophe. In server-side code, Apostrophe depends on the [moog-require](https://github.com/apostrophecms/moog-require) module.
 
 Moog provides separate `beforeConstruct`, `construct` and `afterConstruct` stages for each object.
 

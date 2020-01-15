@@ -7,7 +7,7 @@ that extend `apostrophe-pieces`.
 
 To learn more and see complete examples, see:
 
-[Reusable content with pieces](https://docs.apostrophecms.org/apostrophe/tutorials/getting-started/reusable-content-with-pieces)
+[Reusable content with pieces](/tutorials/core-concepts/reusable-content-pieces)
 
 ## options
 

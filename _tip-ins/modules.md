@@ -10,7 +10,7 @@ Modules are implemented as [moog types](../other/glossary.md#moog-type), which p
 
 For convenience, the `apostrophe` npm module contains all of the "core" Apostrophe modules that are necessary for a functioning website.
 
-Some of these, like [apostrophe-docs](apostrophe-docs/README.md), are initialized every time Apostrophe starts up; you can [see that list on github](https://github.com/punkave/apostrophe/blob/master/defaults.js). Those modules are initialized first, followed by those you configure in `app.js`, in the order you configure them.
+Some of these, like [apostrophe-docs](apostrophe-docs/README.md), are initialized every time Apostrophe starts up; you can [see that list on github](https://github.com/apostrophecms/apostrophe/blob/master/defaults.js). Those modules are initialized first, followed by those you configure in `app.js`, in the order you configure them.
 
 Others, like [apostrophe-pieces](apostrophe-pieces/README.md) and [apostrophe-widgets](apostrophe-widgets/README.md), are "abstract base classes" you can extend to create new modules that provide content types.
 

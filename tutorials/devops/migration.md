@@ -307,4 +307,4 @@ The `data/local.js` file, which is traditionally excluded from deployment, is st
 
 ### The source code is pretty
 
-[Take a look.](https://github.com/punkave/apostrophe) It's a whole lot prettier than 0.5!
+[Take a look.](https://github.com/apostrophecms/apostrophe) It's a whole lot prettier than 0.5!
