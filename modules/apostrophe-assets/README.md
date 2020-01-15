@@ -68,7 +68,7 @@ Example:
 
 If explicitly set to `false`, the mechanism that otherwise removes stale
 uploadfs static asset bundles five minutes after launch is disabled.
-See [Deploying Apostrophe in the Cloud with Heroku](/tutorials/devops/deployment/deploying-apostrophe-in-the-cloud-with-heroku.md)
+See [Deploying Apostrophe in the Cloud with Heroku](https://docs.apostrophecms.org/apostrophe/tutorials/howtos/deploying-apostrophe-in-the-cloud-with-heroku)
 for more information.
 
 ## Additional Environment Variables
@@ -95,7 +95,7 @@ Legacy. For use when `APOS_BUNDLE` is set to an explicit bundle name but you sti
 generated to reference those files via uploadfs. But this is the hard way; just run `apostrophe:generation` with
 APOS_BUNDLE=1, and also set `APOS_BUNDLE=1` in the environment when launching Apostrophe. That's really all you
 have to do.
-See [Deploying Apostrophe in the Cloud with Heroku](/tutorials/devops/deployment/deploying-apostrophe-in-the-cloud-with-heroku.md) for more information.
+See [Deploying Apostrophe in the Cloud with Heroku](https://docs.apostrophecms.org/apostrophe/tutorials/howtos/deploying-apostrophe-in-the-cloud-with-heroku) for more information.
 
 ### `APOS_BUNDLE_CLEANUP_DELAY`
 
@@ -104,7 +104,7 @@ cleaning up obsolete static asset bundles in uploadfs. The default
 is 5 minutes. The assumption is that all production servers have received
 the new deployment and finished serving any straggler HTTP requests 5 minutes after
 a new version is first launched.
-See [Deploying Apostrophe in the Cloud with Heroku](/tutorials/devops/deployment/deploying-apostrophe-in-the-cloud-with-heroku.md)
+See [Deploying Apostrophe in the Cloud with Heroku](https://docs.apostrophecms.org/apostrophe/tutorials/howtos/deploying-apostrophe-in-the-cloud-with-heroku)
 for more information.
 
 
@@ -261,8 +261,6 @@ return an array of copies that must be performed, with `from`
 and `to` properties
 ### buildLessMasters(*callback*)
 
-### getStylesheetsMasterBase()
-
 ### minify(*callback*)
 
 ### outputAndBless(*callback*)
@@ -358,16 +356,6 @@ Override point to use a separate uploadfs instance, for
 instance in a multisite project with shared assets
 ### pushCreateSingleton()
 
-### getGenerationPath()
-
-### getThemedGeneration()
-
-### getThemed(*s*)
-
-### getThemeName()
-Can be overridden by modules like apostrophe-multisite
-to namespace minified asset bundles and LESS masters.
-Env var option is for unit testing only
 ## Nunjucks template helpers
 ### stylesheets(*when*)
 apos.assets.stylesheets renders markup to load CSS that

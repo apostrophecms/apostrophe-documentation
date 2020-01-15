@@ -12,50 +12,10 @@ This usually makes sense only in the presence of an alternative such as
 the `apostrophe-passport` module, which adds support for login via
 Google, Twitter, gitlab, etc.
 
-`passwordMinLength`
-
-The minimum length for passwords. You should set this, as there
-is no default for bc reasons (effectively the default is `1`).
-
-`passwordRules`
-
-An optional array of password rule names, as strings. The standard rules
-available are `noSlashes`, `noSpaces`, `mixedCase`, `digits`, and
-`noTripleRepeats`. The `noTripleRepeats` rule forbids repeating a
-character three times in a row. By default no rules are in effect.
-
-When this option is set, the rules are consulted when a password
-is set or reset. Existing passwords that do not follow the rules
-are tolerated. If you wish to enforce them for existing passwords
-as well, see below.
-
-`resetLegacyPassword`
-
-By default, password rules are enforced only when a password is
-being set or reset. If you wish, you can set `resetLegacyPassword: true`
-to require users to reset their password on the spot if it is
-correct but does not meet the current rules. However if you are able
-to enable the email-based `passwordReset: true` option that
-is slightly more secure because it requires proof of ownership of the
-email address as well as the old password. You can combine that with
-`passwordRulesAtLoginTime`, below.
-
-`passwordRulesAtLoginTime`
-
-By default, password rules are enforced only when a password is
-being set or reset. Setting this option to `true` will apply
-the rules at login time, so that even an existing password will
-not work unless it passes the rules. This can be useful if you don't
-mind a few irritated users and you have enabled
-the email-based `passwordReset: true`. However this requires
-email delivery to work (see below), so you may be more comfortable
-with `resetLegacyPassword: true` (above).
-
 `passwordReset`
 
 If set to `true`, the user is given the option to reset their password,
 provided they can receive a confirmation email. Not available if `localLogin` is `false`.
-Email delivery must work, which requires more configuration; see [sending email with ApostropheCMS](/tutorials/devops/email.md).
 
 `passwordResetHours`
 
@@ -63,14 +23,6 @@ When `passwordReset` is `true`, this option controls how many hours
 a password reset request remains valid. If the confirmation email is not
 acted upon in time, the user must request a password reset again.
 The default is `48`.
-
-`resetKnownPassword`
-
-This option allows the user to change their password, provided they know
-their current password. This is helpful, but it does not help uers who have
-forgotten their passwords. For that, you should enable `passwordReset`
-(see above for concerns). You should bear in mind that this option is not as
-secure as requiring confirmation via email with `passwordReset.
 
 ## Notable properties of apos.modules['apostrophe-login']
 
@@ -91,14 +43,10 @@ is invoked with `req` and may also optionally take a callback.
 ### enableSerializeUsers()
 Set the `serializeUser` method of `passport` to serialize the
 user by storing their user ID in the session.
-### randomKey(*len*)
-
-### getRandomInt(*min*, *max*)
-
 ### enableDeserializeUsers()
 Set the `deserializeUser` method of `passport` to
 deserialize the user by locating the appropriate
-user via the [apostrophe-users](/modules/apostrophe-users)
+user via the [apostrophe-users](https://docs.apostrophecms.org/apostrophe/modules/apostrophe-users)
 module. Then invokes the `loginDeserialize` method of
 every module that has one, passing the `user` object. These
 methods may optionally take a callback.
@@ -134,13 +82,11 @@ types that are not restricted to admins only.
 ### enableLocalStrategy()
 Adds the "local strategy" (username/email and password login)
 to Passport. Users are found via the `find` method of the
-[apostrophe-users](/modules/apostrophe-users) module.
+[apostrophe-users](https://docs.apostrophecms.org/apostrophe/modules/apostrophe-users) module.
 Users with the `disabled` property set to true may not log in.
 Passwords are verified via the `verifyPassword` method of
-[apostrophe-users](/modules/apostrophe-users), which is
+[apostrophe-users](https://docs.apostrophecms.org/apostrophe/modules/apostrophe-users), which is
 powered by the [credential](https://npmjs.org/package/credential) module.
-### enableTotp()
-
 ### verifyLogin(*username*, *password*, *callback*)
 Verify a login attempt. `username` can be either
 the username or the email address (both are unique).
@@ -161,16 +107,11 @@ argument. You MUST check the second argument.
 
 The convention is set this way for compatibility
 with `passport`.
-### verifyTotp(*user*, *done*)
-
 ### enableMiddleware()
 Add Passport's initialize and session middleware.
 Also add middleware to add the `req.data.user` property.
 Now works via the expressMiddleware property, allowing
 control of timing relative to other modules.
-### requireTotp(*req*, *res*, *next*)
-If the user is logged in, require that they also have
-totp, otherwise kick them over to get it
 ### addRoutes()
 Add the `/login` route, both GET (show the form) and POST (submit the form).
 Also add the `/logout` route.
@@ -190,26 +131,10 @@ Add the `user` property to `req.data` when a user is logged in.
 Push the login stylesheet.
 ### addAdminBarItems()
 Add the logout admin bar item.
-### addAdminBarItems()
-
 ### afterLogin(*req*, *res*)
 Invoked by passport after an authentication strategy succeeds
 and the user has been logged in. Invokes `loginAfterLogin` on
 any modules that have one and redirects to `req.redirect` or,
 if it is not set, to `/`.
-### checkPasswordRules(*req*, *password*)
-Returns an array of error messages, which will be
-empty if there are no errors. The error messages
-will be internationalized for you.
-### addPasswordRule(*name*, *test*, *message*)
-Register a password validation rule. Does not
-activate it, see the passwordRules option.
-`name` is a unique name to be included in the
-`passwordRules` option array, `test` is a function
-that accepts the password and returns `true` only
-if the password passes the rule, and `message`
-is a short message to be shown to the user in the
-event the rule fails, which will automatically be
-internationalized for you.
 ### modulesReady()
 

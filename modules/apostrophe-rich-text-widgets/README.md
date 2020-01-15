@@ -23,7 +23,3 @@ represent it as a data attribute.
 
 ### pushAssets()
 
-### getWidgetClasses(*widget*)
-
-### getWidgetWrapperClasses(*widget*)
-

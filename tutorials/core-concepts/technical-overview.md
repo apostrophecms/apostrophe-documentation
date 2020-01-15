@@ -164,5 +164,5 @@ To speed your understanding, we also recommend reading through the [Apostrophe g
 
 ## Did this help?
 
-We know Apostrophe introduces many new concepts. Did this document help you understand it better? Feedback is welcome. Feel free to raise issues on the [Apostrophe documentation project in github](https://github.com/apostrophecms/apostrophe-documentation).
+We know Apostrophe introduces many new concepts. Did this document help you understand it better? Feedback is welcome. Feel free to raise issues on the [Apostrophe documentation project in github](https://github.com/punkave/apostrophe-documentation).
 

@@ -223,7 +223,7 @@ Note that if you add `sortify: true` to an existing field, existing objects will
 
 If the `page` property is `true`, slashes are allowed and a leading slash is always supplied if missing. Otherwise slashes are not allowed.
 
-By default slugs are sanitized by the [sluggo](https://github.com/apostrophecms/sluggo) module. This can be changed by overriding the `apos.utils.slugify` method.
+By default slugs are sanitized by the [sluggo](https://github.com/punkave/sluggo) module. This can be changed by overriding the `apos.utils.slugify` method.
 
 ### `tags`
 
@@ -597,7 +597,7 @@ Example:
 
 ### `video`
 
-A `video` field allows the user to embed video hosted by any [oembed](http://oembed.com/)—compatible video hosting site, or any site for which you have provided an [oembetter](https://github.com/apostrophecms/oembetter) filter via the [apostrophe-oembed](../../modules/apostrophe-oembed/README.md) module.
+A `video` field allows the user to embed video hosted by any [oembed](http://oembed.com/)—compatible video hosting site, or any site for which you have provided an [oembetter](https://github.com/punkave/oembetter) filter via the [apostrophe-oembed](../../modules/apostrophe-oembed/README.md) module.
 
 The user pastes a URL and sees an immediate preview.
 

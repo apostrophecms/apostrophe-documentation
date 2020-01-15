@@ -15,7 +15,7 @@ This can be quite a bit to take in for a first-time user, so patience is key. Th
 
 # Apostrophe project setup
 
-Here we will add Docker configuration to an Apostrophe project. We'll be using [apostrophe-sandbox](https://github.com/apostrophecms/apostrophe-sandbox) as an example, but you can apply these steps to your own projects, too.
+Here we will add Docker configuration to an Apostrophe project. We'll be using [apostrophe-sandbox](https://github.com/punkave/apostrophe-sandbox) as an example, but you can apply these steps to your own projects, too.
 
 ## Make a Dockerfile
 
@@ -36,7 +36,7 @@ RUN npm install
 VOLUME /app/data
 VOLUME /app/public/uploads
 
-# Add the environment variable
+# Add the environment variable 
 # to copy files rather than use symlinks
 ENV APOS_ALWAYS_COPY_ASSETS=1
 
@@ -70,7 +70,7 @@ services:
       - 'mongo:/data/db'
     ports:
       - '127.0.0.1:27017:27017'
-    restart: always
+    restart: always  
 
   aposcms:
     image: "aposDockerImageFileName:latest"
@@ -149,7 +149,7 @@ $ docker run -d --link=apostrophe-sandbox-db:mongodb -p 3000:3000 myname/apostro
 ## Run as a Docker Compose service
 
 ### Start services
-From the folder that contains your docker-compose.yaml file run the following to start both MongoDB and Apostrophe
+From the folder that contains your docker-compose.yaml file run the following to start both MongoDB and Apostrophe 
 ```
 docker-compose up
 

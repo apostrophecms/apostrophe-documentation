@@ -55,7 +55,7 @@ Pieces widgets are great, but they are powered by joins, and joins can cause tro
 To solve that, you should always add a `projection` filter when configuring a subclass of `apostrophe-pieces-widgets`:
 
 {% code-tabs %}
-{% code-tabs-item title="app.js" %}
+{% code-tabs-item title="lib/modules/apostrophe-pages/views/default.html" %}
 ```javascript
   'people-widgets': {
     extend: 'apostrophe-pieces-widgets',
@@ -86,7 +86,7 @@ _"Which properties do I need in my projection?"_ Just those you'll use in your `
 Your widget isn't very satisfying yet. It just displays full names. Let's improve it by creating your own `lib/modules/people-widgets/views/widget.html` file to provide a more detailed display:
 
 {% code-tabs %}
-{% code-tabs-item title="lib/modules/people-widgets/views/widget.html" %}
+{% code-tabs-item title="lib/modules/apostrophe-pages/views/widget.html" %}
 ```markup
 {% for piece in data.widget._pieces %}
   <h4>
@@ -122,3 +122,4 @@ The `apostrophe-pieces-widgets` module already has a `widget.html` file, but whe
 
 Notice that you can pass your piece to `apos.singleton` the same way you would pass a page. Both are Apostrophe docs, and both live in the `aposDocs` MongoDB collection. However, pages have a `slug` property that starts with a `/`, so they can be viewed at their own URLs. Pieces do not.
 {% endhint %}
+

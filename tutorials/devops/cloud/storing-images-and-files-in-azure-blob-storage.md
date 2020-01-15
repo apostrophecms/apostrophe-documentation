@@ -7,7 +7,7 @@ You can store your images and files in Azure Blob Storage if you wish. You don't
 
 If you host your servers on Azure virtual machines, this is essential to host your Apostrophe site in a multiserver configuration where the Node processes don't share the same filesystem (hint: they are separate virtual computers).
 
-Just take advantage of the [uploadfs](https://github.com/apostrophecms/uploadfs) module, which is built into Apostrophe.
+Just take advantage of the [uploadfs](https://github.com/punkave/uploadfs) module, which is built into Apostrophe.
 
 First sign up for [Azure Blob Storage](https://azure.microsoft.com/en-us/services/storage/blobs/) and create a blob storage container. Also obtain an API key.
 
