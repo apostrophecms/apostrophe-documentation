@@ -78,7 +78,6 @@
 ## Apostrophe DevOps
 
 * [Apostrophe DevOps](tutorials/devops/README.md)
-<<<<<<< HEAD
   * [Hosting Apostrophe in production](tutorials/devops/deployment/README.md)  
     * [Hosting Apostrophe in production](tutorials/devops/deployment/deployment.md)  
     * [Deploying Apostrophe to a Linode linux server quickly](tutorials/devops/deployment/linode.md)
@@ -97,7 +96,7 @@
 
 ## HOWTOs
 
-=======
+* [Apostrophe HOWTOs](tutorials/howtos/README.md)
 * [Hosting Apostrophe in production](tutorials/devops/deployment/README.md)
   * [Hosting Apostrophe in production](tutorials/devops/deployment/deployment.md)
   * [Deploying Apostrophe to a Linode linux server quickly](tutorials/devops/deployment/linode.md)
@@ -113,11 +112,6 @@
 * [Running Apostrophe on Windows](tutorials/devops/windows.md)
 * [Building Docker images for Apostrophe projects](tutorials/devops/docker.md)
 * [Apostrophe Migration Guide](tutorials/devops/migration.md)
-
-## HOWTOS
-
->>>>>>> 4becbf80721e5b08efe0630d4ef9eba4d1467378
-* [Apostrophe HOWTOs](tutorials/howtos/README.md)
 * [Building a contact form in Apostrophe](tutorials/howtos/forms.md)
 * [Building combined menus and custom buttons with the admin bar](tutorials/howtos/admin-bar.md)
 * [How do I create a '404 not found' page?](tutorials/howtos/how-do-i-create-a-404-not-found-page.md)

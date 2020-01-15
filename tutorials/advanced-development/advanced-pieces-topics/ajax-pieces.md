@@ -1,9 +1,5 @@
 ---
-<<<<<<< HEAD
 title: "AJAX Features: Enhanced Browsing Without Page Refresh"
-=======
-title: AJAX Features - Enhanced Browsing for Pieces
->>>>>>> 4becbf80721e5b08efe0630d4ef9eba4d1467378
 layout: tutorial
 ---
 
