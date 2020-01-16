@@ -91,7 +91,7 @@ In `afterConstruct` we invoke `addFieldType`, `pushAssets` and `pushCreateSingle
 
 > We don't have to delay the "real work" until `afterConstruct` like this, but doing so allows anyone extending our module a chance to override first.
 
-`addFieldType` calls the [addFieldType method of the `apostrophe-schemas` module](/modules/apostrophe-schemas/README.md#add-field-type) to add a new schema field type to Apostrophe.
+`addFieldType` calls the [addFieldType method of the `apostrophe-schemas` module](/modules/apostrophe-schemas/README.md#addfieldtype-type) to add a new schema field type to Apostrophe.
 
 The `converters` property covers two cases: CSV import and ordinary form submissions.
 
@@ -122,7 +122,7 @@ When we're done, we copy the cleaned-up value into `object[name]` and invoke the
 
 We also supply a `fieldTypePartial` method and configure the `partial` property of the new field type to use it. This method is responsible for rendering the markup for the field.
 
-> The [self.partial](/modules/apostrophe-module/README.md#partial) method renders a Nunjucks template in the `views/` folder of this module with the data we pass to it, as *part of* a larger response that is already being generated, such as a complete modal for editing a piece. Since a response is already in progress for a specific request, we don't pass `req` to this method. This is different from [self.render](/modules/apostrophe-module/README.md#render), which is used when you want to generate and send an HTML fragment directly in response to an AJAX request.
+> The [self.partial](/modules/apostrophe-module/README.md#partial-name-data) method renders a Nunjucks template in the `views/` folder of this module with the data we pass to it, as *part of* a larger response that is already being generated, such as a complete modal for editing a piece. Since a response is already in progress for a specific request, we don't pass `req` to this method. This is different from [self.render](/modules/apostrophe-module/README.md#render-req-name-data), which is used when you want to generate and send an HTML fragment directly in response to an AJAX request.
 
 Here's the template file we need:
 
@@ -268,7 +268,7 @@ We use `apos.schemas.findFieldset` to locate the `fieldset` element that contain
 
 Displaying the current color is easy: we know it's already a CSS-friendly color string, so we just set the `background-color` CSS attribute of our preview element.
 
-Choosing colors is a little tricker. We create a simple grid of 4x4 boxes, offering a choice of 512 colors. (No, they aren't great colors. Hey, it's just an example.) And we use an HTML5 (canvas)[https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial] element to render those colors without creating hundreds of spans or divs.
+Choosing colors is a little tricker. We create a simple grid of 4x4 boxes, offering a choice of 512 colors. (No, they aren't great colors. Hey, it's just an example.) And we use an [HTML5 canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial) element to render those colors without creating hundreds of spans or divs.
 
 When a click takes place on the canvas, we turn the process around. We grab the location of the click in the document, subtract the offset of the canvas, and scale the numbers to get back to a range between 0 and 255 for each channel: red, green and blue.
 
