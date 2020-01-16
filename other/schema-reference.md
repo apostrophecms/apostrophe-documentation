@@ -30,3 +30,7 @@ Below you can find each of the schema field types available in Apostrophe with l
 |[url](/other/field-types/url.md) | provides an editable URL field | 
 |[video](/other/field-types/video.md) | allows the user to embed a video with an oembed compatible link |
 
+{% hint style='info' %}
+You can also add more field types to the system; check out the source code of the [`apostrophe-attachments`](https://github.com/apostrophecms/apostrophe/tree/master/lib/modules/apostrophe-attachments) module for a good example.
+{% endhint %}
+
