@@ -1,6 +1,6 @@
 # Schema Field Type Reference
 
-Below you can find each of the schema field types available in Apostrophe with links to a complete description of its function, properties, and refence code to help you use them in your project. For more general information on using schemas in Apostrophe, see the [Schema Guide](/tutorials/schema-guide/schema-guide.md).
+Below you can find each of the schema field types available in Apostrophe with links to a complete description of its function, properties, and refence code to help you use them in your project. For more general information on using schemas in Apostrophe, see the [Schema Guide](/tutorials/schema-guide/schema-guide.md). For more information on the usage of specific properties, see the [Schema Field Properties reference](property-reference.md).
 
 | Field | Description |
 |-------|-------------|
