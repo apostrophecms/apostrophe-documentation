@@ -98,6 +98,7 @@ redirects:
   howtos/redirecting-after-login : ./tutorials/core-concepts/users-and-permissions/user-login-and-password.md
   howtos/notfoundpage : ./tutorials/howtos/how-do-i-create-a-404-not-found-page.md
   howtos/model-layer : ./tutorials/advanced-development/database/model-layer.md
+  howtos/google-twitter-and-facebook-login : ./tutorials/core-concepts/users-and-permissions/oauth-passport.md
   getting-started/page-templates : ./tutorials/core-concepts/pages-and-navigation/page-templates.md
   getting-started/editing-page-templates : ./tutorials/core-concepts/pages-and-navigation/page-templates.md
   getting-started/adding-editable-content-to-pages : ./tutorials/core-concepts/pages-and-navigation/widgets-singletons-and-areas.md
