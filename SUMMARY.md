@@ -106,6 +106,7 @@
   * [Storing images and files in Amazon S3](tutorials/devops/cloud/storing-images-and-files-in-amazon-s3.md)
   * [Storing images and files in Azure Blob Storage](tutorials/devops/cloud/storing-images-and-files-in-azure-blob-storage.md)
   * [Storing images and files in Google Cloud Storage](tutorials/devops/cloud/storing-images-and-files-in-google-cloud-storage.md)
+* [How Do I Create a Custom Schema Field Type?](tutorials/howtos/custom-schema-field-types.md)
 * [Sending email from your ApostropheCMS site](tutorials/devops/email.md)
 * [Storing Sessions in Redis](tutorials/devops/storing-sessions-in-redis.md)
 * [Running Apostrophe on multiple cores and/or servers](tutorials/devops/multicore.md)
