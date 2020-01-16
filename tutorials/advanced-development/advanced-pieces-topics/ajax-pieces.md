@@ -48,7 +48,7 @@ Next, refactor your `index.html` template so that the actual list of people and 
 {% endcode-tabs %}
 
 
-That's it! Really. And it automatically works with the filters from the [Connecting Piece Types example](/tutorials/core-concepts/reusable-content-pieces/children-and-joins.md).
+That's it! Really. And it automatically works with the filters from the [Connecting Piece Types example](/tutorials/core-concepts/reusable-content-pieces/joins.md).
 
 **Tip:** you want to include your filter links and forms in `indexAjax.html` so that they too can be refreshed automatically, narrowing down the choices based on the other filters already in use. Any input elements or textareas that currently have the focus will not be refreshed, so if you are using form elements, you can even implement typeahead by triggering a submit of the form via JavaScript as the user types. (Keep in mind the accessibility consequences.)
 
