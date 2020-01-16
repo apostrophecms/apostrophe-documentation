@@ -124,7 +124,7 @@
 ## Reference
 
 * [Glossary](other/glossary.md)
-* [Schema Field Types](other/schema-reference.md)
+* [Schema Field Types](other/field-types.md)
   * [area](other/field-types/area.md)
   * [array](other/field-types/array.md)
   * [attachment](other/field-types/attachment.md)
@@ -150,7 +150,7 @@
   * [time](other/field-types/time.md)
   * [url](other/field-types/url.md)  
   * [video](other/field-types/video.md)  
-* [Schema Field Properties](other/property-reference.md)
+* [Schema Field Properties](other/field-properties.md)
   * [choices](other/properties/choices.md)
   * [options](other/properties/options.md)
   * [sortify](other/properties/sortify.md)
