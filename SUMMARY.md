@@ -48,6 +48,7 @@
 
 ## Advanced Topics
 
+* [Schema Guide](tutorials/schema-guide/schema-guide.md)
 * [Advanced Pieces Topics](tutorials/advanced-development/advanced-pieces-topics/README.md)
   * [AJAX Features: Enhanced Browsing for Pieces](tutorials/advanced-development/advanced-pieces-topics/ajax-pieces.md)
   * [Fine-grained Permissions for Pieces](tutorials/advanced-development/advanced-pieces-topics/permissions-for-pieces.md)
@@ -73,7 +74,6 @@
   * [Working with cursors](tutorials/advanced-development/database/cursors.md)
   * [Accessing the database directly](tutorials/advanced-development/database/accessing-the-database-directly.md)
   * [Using MongoDB replica sets with Apostrophe](tutorials/advanced-development/database/replica-set.md)
-* [Schema Guide](tutorials/schema-guide/schema-guide.md)
 
 ## Apostrophe DevOps
 
