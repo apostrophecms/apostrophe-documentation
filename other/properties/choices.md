@@ -89,9 +89,6 @@ A cursor filter method is added automatically for all fields of type `select`. T
   type: 'joinByOne',
   filters: {
     postType: 'event',
-    projection: [
-      ...
-    ]
   }
 }
 ```

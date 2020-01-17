@@ -69,7 +69,7 @@ When you specify the `relationship` property, you **may** also specify `relation
 }
 ```
 
-Since there is a relationship, the `_departments` property will be an array of objects with `item` and `relationship` properties. The `item` property will be the actual department, and the `relationship` property will contain the relationship fields, which are unique to this pairing.
+Since there is a relationship, when the join is actually fetched and attached to an object the `_departments` property will be an array of objects with `item` and `relationship` properties. The `item` property will be the actual department, and the `relationship` property will contain the relationship fields, which are unique to this pairing.
 
 ###Inline relationship fields
 
@@ -104,7 +104,7 @@ If you have a mix of inline and regular fields, you'll still get the option of o
 |help | `string` | | Help text for the field that will appear with the field's label | |
 |htmlHelp | `string` | | Help text with support for HTML markup | |
 |withType | `string` | | The name of the related type, if it differs from the name of the join. If you do not set `withType`, then the name of the join must match the name of the related type, with a leading `_` added.  | |
-|idsField | `string` | | Sets the name of the property in which to store the id. The id is set automatically otherwise. | |
+|idsField | `string` | | Sets the name of the property in which to store the ids. The name of the property is chosen automatically otherwise. | |
 |ifOnlyOne | `boolean` | false | If true, it will only carry out the join if the query that returned the original document returned only one document. This is useful if the joined information is only to be displayed on the `show.html` page of a piece, for instance, and you don't want the performance impact of loading it on the `index.html` page. | |
 |withJoins | `array` |  | If you need to carry out nested joins, set to an array containing those join field names. You may also use "dot notation" in these names to indicate that you want to follow a series of joins between related types.
 |filters | `object` | | Provide a list of cursor filters to limit acceptable options for the join | |

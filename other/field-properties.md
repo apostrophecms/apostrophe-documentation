@@ -1,7 +1,7 @@
 
 # Schema Field Property Reference
 
-Each [Schema Field](/tutorials/advanced-development/schema-guide.md#guide-to-schema-field-types) in Apostrophe can take a number of different properties for configuration and display settings. Below is a reference of the most commonly used properties. You can also view the reference for each individual field for a complete list of properties used by that field and an explanation of what it does.
+Each [Schema Field Type](/tutorials/advanced-development/schema-guide.md#guide-to-schema-field-types) in Apostrophe can take a number of different properties for configuration and display settings. Below is a reference of the most commonly used properties. You can also view the reference for each individual field for a complete list of properties used by that field and an explanation of what it does.
 
 ## Commonly Used Properties
 
@@ -18,5 +18,5 @@ Each [Schema Field](/tutorials/advanced-development/schema-guide.md#guide-to-sch
 |searchable | `boolean` | true | If false a field will not inform sitewide search | [string](field-types/string.md), [area](field-types/area.md), [singleton](field-types/singleton.md) | |
 |limit | `int` | | sets the max number of tags in a tag field, the max number of widgets in an area, and the max number of entries in an array  |[tags](field-types/tags.md), [area](field-types/area.md), [array](field-types/array.md)  | |
 |options | `object` | | Passed on to apos.area or apos.singleton as appropriate, specifying options for the allowable widgets and so on | [area](field-types/area.md), [singleton](field-types/singleton.md) | `widgets` |
-|[sortify](properties/sortify.md) | `boolean` | false | If true, creates a parallel Sortified version of the field that is more intuitive for sorting  | [string](field-types/string.md), [email](field-types/email.md) | |
+|[sortify](properties/sortify.md) | `boolean` | false | If true, make sort() operations on the field case-insensitive and more intuitive  | [string](field-types/string.md), [email](field-types/email.md) | |
 |[choices](properties/choices.md) | `array` | | An array of values that the user can select from with each being an object with value and label properties | [boolean](field-types/boolean.md) [select](field-types/select.md), [checkboxes](field-types/checkboxes.md) | `label`, `value`, `showFields` |

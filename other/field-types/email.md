@@ -34,4 +34,4 @@
 |readOnly | `boolean` | false | If true, prevents the user from editing the field |
 |help | `string` | | Help text for the field that will appear with the field's label |
 |htmlHelp | `string` | | Help text with support for HTML markup |
-|[sortify](../properties/sortify.md) | `boolean` | false | If true, creates "sortified" fields |
+|[sortify](../properties/sortify.md) | `boolean` | false | If true, make sort() operations on the field case insensitive and otherwise more intuitive |

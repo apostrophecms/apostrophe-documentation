@@ -12,5 +12,5 @@ This section also contains information on setting up Apostrophe Passport for sin
 
 * [Users and Groups](users-and-groups.md)
 * [Managing Access Control](managing-accesss-control.md)
-* [OpenAuth with Apostrophe Passport](oauth-passport.md)
+* [Single Sign-On with Apostrophe Passport](oauth-passport.md)
 * [User Login and Password Help](user-login-and-password.md)

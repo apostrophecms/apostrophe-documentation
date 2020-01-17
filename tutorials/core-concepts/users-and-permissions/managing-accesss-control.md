@@ -9,7 +9,7 @@ In most cases, you essentially have three levels of permissions:
 
 * The administrator (`admin`), who can do anything
 
-* The editor or writer (`edit`), who can create content, but doesn't have access to configuration or management of the site
+* The editor or writer (`edit`), who can create content of all piece types (other than users and groups) and edit pages where specifically granted permission to do so
 
 * The guest (`guest`), who can look at all the cool stuff that everyone else makes
 
@@ -17,7 +17,7 @@ Apostrophe makes it easy to set this up with minimal configuration, but if that 
 
 ## Standard Permissions
 
-Apostrophe ships with two user groups enabled: `admin` and `guest`. These are configured in the `index.js` for `apostrophe-user`. For some deployments, this might be all you need, but if you need just a little bit more, you can easily add `edit`. To add it, create a new configuration in `app.js` that overrides the default.
+`apostrophe-boilerplate`, which is the basis for projects created with the CLI, ships with two user groups enabled: `admin` and `guest`. These are configured in the `index.js` for `apostrophe-user`. For some deployments, this might be all you need, but if you need just a little bit more, you can easily add `edit`. To add it, create a new configuration in `app.js` that overrides the default.
 
 ### Example: Creating Group Permissions
 
@@ -30,31 +30,30 @@ Since you're overriding an existing configuration, create the configuration for 
 * `admin` with the `admin` permission.
 
 
-1. Open `app.js`
+1. Open `index.js`
 
-2. Find the `modules` section and add an `apostrophe-users` block like the one below:
+2. Find the `modules` section and add an the `editor` group to the groups block like the one below:
 
 {% code-tabs %}
-{% code-tabs-item title="app.js" %}
+{% code-tabs-item title="index.js" %}
 ```javascript
-  modules: {
+  module.exports: {
   	...
-    'apostrophe-users': {
       groups: [
         {
           title: 'guest',
           permissions: [ ]
         },
         {
-          title: 'editor',
-          permissions: [ 'edit' ]
-        },
-        {
           title: 'admin',
           permissions: [ 'admin' ]
+        },
+        //Add this section for the editor group
+        {
+          title: 'editor',
+          permissions: [ 'edit' ]
         }
       ]
-    }
     ...
   }
 ```
@@ -80,7 +79,7 @@ So far we've covered two cases:
 
 Next, you'll learn how to create more specific groups with more granular permissions. 
 
-In addition to the default groups, Apostrophe has a convention for permissions that supplies prefixes like `edit-` and `admin-` for modules. Using these you can create "editors" and "administrators" for specific modules and tools without providing any privileges for anything else..
+In addition to the default groups, Apostrophe has a convention for permissions that supplies prefixes like `edit-` and `admin-` for modules. Using these you can create "editors" and "administrators" for specific modules and tools without providing any privileges for anything else.
 
 So, for example, if you have an HR coordinator who needs access to upload important documents to an employee portal, but doesn't need any further access, you could provide the `edit-` and `submit-` permission for files to a group with no other permissions.
 
@@ -92,15 +91,11 @@ So, for example, if you have an HR coordinator who needs access to upload import
 
 ### Configuring advanced permissions
 
-To manage these permissions, you'll use the *Groups* menu which is currently hidden from the admin bar. To make the menu option visible, you need to disable `groups` in the `apostrophe-users` module in both `app.js` and in `index.js` for `apostrophe-users`.
+To manage these permissions, you'll use the *Groups* menu which is currently hidden from the admin bar. To make the menu option visible, you need to disable `groups` in the `apostrophe-users` module.
 
 1. Open `lib/modules/apostrophe-users/index.js`
 
 2. Remove the `groups [ ]` section.
-
-3. Open `app.js`
-
-4. Remove the `groups [ ]` section from `apostrophe-users` (if it exists).
 
 Now the graphical group management interface is available, and you can create groups, just like any other kind of piece (although you must be an `admin` already to do so). To test this out, let's create the group for HR that we described above:
 
@@ -116,7 +111,7 @@ Now the graphical group management interface is available, and you can create gr
 
 4. Select the "Permissions" tab on the left.
 
-5. Scroll down and check the boxes for *Edit: File* and *Submit: File*
+5. Scroll down and check the box for *Upload: Attachment*
 
     ![](/.gitbook/assets/user-group-permissions.png)
 
