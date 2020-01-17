@@ -65,7 +65,7 @@ Since you're overriding an existing configuration, create the configuration for 
 Now you can create new users in the *editor* group, which will have the ability to create new content and manage the content they create, but will lack the great power -- and great responsibility -- of the admin role.
 
 {% hint style='info' %}
-An admin can lock any piece type as `adminOnly` which will remove the ability of users with the `edit` permission (or otherwise customized permissions) to create or edit pieces of that type.
+An admin can lock any piece type as `adminOnly` which will remove the ability of users with the `edit` permission (or otherwise customized permissions) to create or edit pieces of that type. Users and Groups are automatically locked so that they are only editable by admins.
 {% endhint %}
 
 
