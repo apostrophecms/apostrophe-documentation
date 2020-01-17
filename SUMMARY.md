@@ -36,7 +36,7 @@
 * [Users and Permissions](tutorials/core-concepts/users-and-permissions/README.md)
   * [Users and Groups](tutorials/core-concepts/users-and-permissions/users-and-groups.md)
   * [Managing Access Control](tutorials/core-concepts/users-and-permissions/managing-accesss-control.md)
-  * [Single Sign-On with Apostrophe Passport](tutorials/core-concepts/users-and-permissions/oauth-passport.md)
+  * [Single Sign-On with Apostrophe Passport](tutorials/core-concepts/users-and-permissions/apostrophe-passport.md)
   * [User Login and Password Help](tutorials/core-concepts/users-and-permissions/user-login-and-password.md)
 * [Working With Templates](tutorials/core-concepts/working-with-templates/README.md)
   * [Nunjucks Filters](tutorials/core-concepts/working-with-templates/nunjucks-filters.md)
