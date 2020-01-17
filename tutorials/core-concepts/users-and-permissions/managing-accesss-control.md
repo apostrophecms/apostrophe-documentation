@@ -111,7 +111,7 @@ Now the graphical group management interface is available, and you can create gr
 
 4. Select the "Permissions" tab on the left.
 
-5. Scroll down and check the box for *Upload: Attachment*
+5. Scroll down and check the box for *Upload and Crop*
 
     ![](/.gitbook/assets/user-group-permissions.png)
 
