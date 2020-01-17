@@ -81,7 +81,7 @@ Next, you'll learn how to create more specific groups with more granular permiss
 
 In addition to the default groups, Apostrophe has a convention for permissions that supplies prefixes like `edit-` and `admin-` for modules. Using these you can create "editors" and "administrators" for specific modules and tools without providing any privileges for anything else.
 
-So, for example, if you have an HR coordinator who needs access to upload important documents to an employee portal, but doesn't need any further access, you could provide the `edit-` and `submit-` permission for files to a group with no other permissions.
+So, for example, if you have an HR coordinator who needs access to upload important documents to an employee portal, but doesn't need any further access, you could provide the "Upload & Crop" permission (which is `edit-attachment` under the hood) to give them permission to upload files.
 
 {% hint style='info' %}
 
