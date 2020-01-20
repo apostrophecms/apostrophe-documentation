@@ -20,3 +20,5 @@ Each [Schema Field Type](/tutorials/advanced-development/schema-guide.md#guide-t
 |[options](properties/options.md) | `object` | | Passed on to apos.area or apos.singleton as appropriate, specifying options for the allowable widgets and so on | [area](field-types/area.md), [singleton](field-types/singleton.md) | `widgets` |
 |[sortify](properties/sortify.md) | `boolean` | false | If true, make sort() operations on the field case-insensitive and more intuitive  | [string](field-types/string.md), [email](field-types/email.md) | |
 |[choices](properties/choices.md) | `array` | | An array of values that the user can select from with each being an object with value and label properties | [boolean](field-types/boolean.md) [select](field-types/select.md), [checkboxes](field-types/checkboxes.md) | `label`, `value`, `showFields` |
+|contextual | `boolean` | false | If true, will prevent the field from appearing in the dialog box for a widget | [select](field-types/select.md), [checkboxes](field-types/checkboxes.md) | |
+
