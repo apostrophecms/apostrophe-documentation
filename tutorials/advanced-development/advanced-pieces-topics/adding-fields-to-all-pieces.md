@@ -61,5 +61,4 @@ module.exports = {
 
 ### Making exceptions
 
-If one of your subclasses of pieces doesn't need the `author` field, just use the `removeFields` option in that module.
-
+If one of your subclasses of pieces doesn't need the `author` field, just use the `removeFields` option in that module. Required fields, including `title` and `slug` (for pieces), cannot be removed, though their [field properties](/other/field-properties.md) can be changed.
