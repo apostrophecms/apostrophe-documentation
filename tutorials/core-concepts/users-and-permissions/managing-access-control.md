@@ -17,18 +17,9 @@ Apostrophe makes it easy to set this up with minimal configuration, but if that 
 
 ## Standard Permissions
 
-`apostrophe-boilerplate`, which is the basis for projects created with the CLI, ships with two user groups enabled: `admin` and `guest`. These are configured in the `index.js` for `apostrophe-user`. For some deployments, this might be all you need, but if you need just a little bit more, you can easily add `edit`. To add it, create a new configuration in `app.js` that overrides the default.
+`apostrophe-boilerplate`, which is the basis for projects created with the CLI, ships with two user groups enabled: `admin` and `guest`. These are configured in the `index.js` for `apostrophe-user`. For some deployments, this might be all you need, but if you need just a little bit more, you can easily add `edit`. To add it, create a new configuration in `index.js` for `apostrophe-users` that overrides the default.
 
 ### Example: Creating Group Permissions
-
-Since you're overriding an existing configuration, create the configuration for all three groups:
-
-* `guest`, with no permissions
-
-* `editor`, with the `edit` permission
-
-* `admin` with the `admin` permission.
-
 
 1. Open `index.js`
 
