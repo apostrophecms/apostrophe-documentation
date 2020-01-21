@@ -21,3 +21,5 @@ By default, tags are converted to lowercase and leading and trailing whitespace 
 |help | `string` | | Help text for the field that will appear with the field's label |
 |htmlHelp | `string` | | Help text with support for HTML markup |
 |limit | `int` | | Sets the number of tags that can be defined in a given field |  
+|[sortify](../properties/sortify.md) | `boolean` | false | If true, creates "sortified" fields |
+

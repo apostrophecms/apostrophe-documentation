@@ -17,3 +17,4 @@ By default slugs are sanitized.
 |help | `string` | | Help text for the field that will appear with the field's label |
 |htmlHelp | `string` | | Help text with support for HTML markup |
 |page | `boolean` | false | If true, then the slug field is describing a page and slashes are allowed |  
+|[sortify](../properties/sortify.md) | `boolean` | false | If true, creates "sortified" fields |
