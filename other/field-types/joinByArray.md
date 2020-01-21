@@ -71,7 +71,7 @@ When you specify the `relationship` property, you **may** also specify `relation
 
 Since there is a relationship, when the join is actually fetched and attached to an object the `_departments` property will be an array of objects with `item` and `relationship` properties. The `item` property will be the actual department, and the `relationship` property will contain the relationship fields, which are unique to this pairing.
 
-###Inline relationship fields
+### Inline relationship fields
 
 Sometimes, expecting users to click a special button to access a separate modal dialog box to edit relationship fields isn't worth it. Users just don't find it, or the fields are few enough that it would make more sense to add the form field directly to the chooser.
 
