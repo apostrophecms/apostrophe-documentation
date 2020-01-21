@@ -24,7 +24,7 @@ The properties configured in `options` specify the allowed widget types and the 
 ```
 ## Settings
 
-|  Property | Type   | Default | Description | Sub-properties
+|  Property | Type   | Default | Description | Sub-properties |
 |---|---|---|---|
 |name | `string` | | Sets the name of the field in the database | |
 |label | `string` | | Sets the label of the field that the user sees | |
