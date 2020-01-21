@@ -95,7 +95,7 @@ If you have a mix of inline and regular fields, you'll still get the option of o
 ## Settings
 
 |  Property | Type   | Default | Description | Sub-property |
-|---|---|---|---|
+|---|---|---|---|---|
 |name | `string` | | Sets the name of the field in the database | |
 |label | `string` | | Sets the label of the field that the user sees | |
 |required | `boolean` | false | If true, the field is mandatory | |
