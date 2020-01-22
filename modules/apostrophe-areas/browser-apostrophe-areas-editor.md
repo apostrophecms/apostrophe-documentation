@@ -47,6 +47,8 @@ Disable area controls interactions while certain menus are open
 
 ### dismissContextContentMenu()
 
+### dismissContextContentMenuKeyEvent(*e*)
+
 ### linkWidgetsToAreaEditor()
 
 ### removeInitialContent(*$el*, *entireItem*)

@@ -127,6 +127,9 @@ Very handy for imports of all kinds: convert plaintext to an area with
 one `apostrophe-rich-text` widget if it is not blank, otherwise an empty area. null and
 undefined are tolerated and converted to empty areas.
 Takes an option `el` if you wish to specify a wrapper element. Ex: `fromPlaintext(text, { el: 'p' })`.
+### fromRichText(*html*) *[api]*
+Convert HTML to an area with one 'apostrophe-rich-text' widget, otherwise
+an empty area. null and undefined are tolerated and converted to empty areas.
 ### modulesReady() *[api]*
 When all modules are ready and all widget managers therefore should have been
 added, determine the list of rich text widgets for purposes of the
