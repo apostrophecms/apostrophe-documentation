@@ -92,7 +92,7 @@ module.exports = {
 
       fragment = `* [Module Reference](modules/README.md)\n` + fragment
       // console.log(fragment);
-      
+
       let summary = fs.readFileSync('../SUMMARY.md', 'utf8');
       summary = summary.replace(/\n## Modules[\s\S]*$/, '\n## Modules\n\n' + fragment + '\n[comment]: <> (DO NOT add anything AFTER the ## Modules heading or it will be lost.)');
       fs.writeFileSync('../SUMMARY.md', summary);
@@ -413,7 +413,7 @@ module.exports = {
         }
 
         // Make sure it's not commented out
-        var methodRegex = /\n +self\.(\w+)\s*=\s*function\((.*?)\)/g;
+        var methodRegex = /\n +self\.(\w+)\s*=\s*function\s*\((.*?)\)/g;
         while ((matches = methodRegex.exec(code)) !== null) {
           methods.push(processMethod(module, subcategory, file, matches, code, info));
         }
