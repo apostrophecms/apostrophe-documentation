@@ -4,7 +4,7 @@ The base class for all modules that implement a widget, such as
 [apostrophe-pieces-widgets](/modules/apostrophe-pieces-widgets/) and
 [apostrophe-video-widgets](/modules/apostrophe-video-widgets/).
 
-All widgets have a [schema](../../tutorials/getting-started/schema-guide.html).
+All widgets have a [schema](/tutorials/schema-guide/schema-guide.md).
 Many project-specific modules that extend this module consist entirely of an
 `addFields` option and a `views/widget.html` file.
 
@@ -103,7 +103,7 @@ the appropriate div, the `data` for the widget, and the `options` that
 were passed to the widget.
 
 For example, here is the `public/js/always.js` file for the
-[apostrophe-video-widgets](../apostrophe-video-widgets/index.html) module:
+[apostrophe-video-widgets](../apostrophe-video-widgets/README.md) module:
 
 ```javascript
 apos.define('apostrophe-video-widgets', {
