@@ -71,7 +71,7 @@ When you specify the `relationship` property, you **may** also specify `relation
 
 Since there is a relationship, when the join is actually fetched and attached to an object the `_departments` property will be an array of objects with `item` and `relationship` properties. The `item` property will be the actual department, and the `relationship` property will contain the relationship fields, which are unique to this pairing.
 
-###Inline relationship fields
+### Inline relationship fields
 
 Sometimes, expecting users to click a special button to access a separate modal dialog box to edit relationship fields isn't worth it. Users just don't find it, or the fields are few enough that it would make more sense to add the form field directly to the chooser.
 
@@ -95,10 +95,11 @@ If you have a mix of inline and regular fields, you'll still get the option of o
 ## Settings
 
 |  Property | Type   | Default | Description | Sub-property |
-|---|---|---|---|
+|---|---|---|---|---|
 |name | `string` | | Sets the name of the field in the database | |
 |label | `string` | | Sets the label of the field that the user sees | |
 |required | `boolean` | false | If true, the field is mandatory | |
+|contextual | `boolean` | false | If true, it will prevent the field from appearing in a dialog box | |
 |type | `string` | | Specifies the field type | |
 |readOnly | `boolean` | false | If true, prevents the user from editing the field | |
 |help | `string` | | Help text for the field that will appear with the field's label | |

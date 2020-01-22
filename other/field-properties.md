@@ -14,9 +14,10 @@ Each [Schema Field Type](/tutorials/advanced-development/schema-guide.md#guide-t
 |readOnly | `boolean` | false | If true, prevents the user from editing the field | universal | |
 |help | `string` | | Help text for the field that will appear with the field's label | universal | |
 |htmlHelp | `string` | | Help text with support for HTML markup | universal | |
+|contextual | `boolean` | false | If true, it will prevent the field from appearing in the dialog box for a widget | universal | |
 |def | depends on field type | | The default value for the field | most fields, excluding areas, singletons, objects, and arrays | |
+|[sortify](properties/sortify.md) | `boolean` | false | If true, make sort() operations on the field case-insensitive and more intuitive  | [string](field-types/string.md), [email](field-types/email.md), [slug](field-types/slug.md), [tag](field-types/tag.md), [select](field-types/select.md) | |
 |searchable | `boolean` | true | If false a field will not inform sitewide search | [string](field-types/string.md), [area](field-types/area.md), [singleton](field-types/singleton.md) | |
 |limit | `int` | | sets the max number of tags in a tag field, the max number of widgets in an area, and the max number of entries in an array  |[tags](field-types/tags.md), [area](field-types/area.md), [array](field-types/array.md)  | |
-|options | `object` | | Passed on to apos.area or apos.singleton as appropriate, specifying options for the allowable widgets and so on | [area](field-types/area.md), [singleton](field-types/singleton.md) | `widgets` |
-|[sortify](properties/sortify.md) | `boolean` | false | If true, make sort() operations on the field case-insensitive and more intuitive  | [string](field-types/string.md), [email](field-types/email.md) | |
+|[options](properties/options.md) | `object` | | Passed on to apos.area or apos.singleton as appropriate, specifying options for the allowable widgets and so on | [area](field-types/area.md), [singleton](field-types/singleton.md) | `widgets` |
 |[choices](properties/choices.md) | `array` | | An array of values that the user can select from with each being an object with value and label properties | [boolean](field-types/boolean.md) [select](field-types/select.md), [checkboxes](field-types/checkboxes.md) | `label`, `value`, `showFields` |
