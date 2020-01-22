@@ -13,10 +13,15 @@ Groups are managed by the `apostrophe-groups` module.
 There is also a simplified permissions model in which you just specify
 an array of `groups` as an option to `apostrophe-users`, and a single-select
 dropdown menu allows you to pick one and only one of those groups for each user.
-The properties of each group in the array are `name`, `label` and
-`permissions`, which is an array of permission names such as `guest`, `edit` and
-`admin`. If you specify the `groups` option when configuring
-`apostrophe-users`, the admin interface for `apostrophe-groups` will hide itself.
+The recommended properties of each group in the array are `title`,
+`slug`, and `permissions`, which is an array of permission names such as
+`guest`, `edit` and `admin`. If you specify the `groups` option when
+configuring `apostrophe-users`, the admin interface for
+`apostrophe-groups` will hide itself. Specifying `slug` is optional,
+however if your site has many documents there will be a startup time
+penalty when specifying only `title` due to the lack of indexing
+on that property. For most larger sites we recommend not using the
+`groups` option at all; just manage groups via the admin bar.
 
 ### Public "staff directories" vs. users
 
@@ -71,6 +76,9 @@ can find groups in a consistent way.
 For security, on **ANY** insert of a doc, we check to see if it is
 an `apostrophe-user` and, if so, hash the password, remove it from the doc
 and store the hash in the safe instead.
+
+This method also checks password rules if they are in force
+and local logins are enabled.
 ### docBeforeUpdate(*req*, *doc*, *options*, *callback*)
 For security, on **ANY** update of a doc, we check to see if it is
 an `apostrophe-user` and, if so, hash the password, remove it from the doc

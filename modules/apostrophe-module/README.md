@@ -118,6 +118,12 @@ If you require additional properties for the JSON object sent
 for an error, you can pass an object containing them as the
 third argument to `next`. This is separate from the success value
 to avoid accidentally disclosing information on errors.
+
+In addition, if `req.errorMessages` is set, it is
+passed as the `messages` property of the JSON object.
+This is a helpful way to accommodate percolating detailed
+error messages up from a nested function call through a
+stack that otherwise only accommodates simple string errors.
 ### htmlRoute(*method*, *path*, *fn*)
 Similar to `route`, except that the route function receives
 (req, res, next), and you may pass `next` either an error or
