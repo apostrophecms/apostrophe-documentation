@@ -189,7 +189,7 @@ And in our templates, we can access the array of jobs like this:
 ```markup
 {% for job in data.piece._jobs %}
   <h4>
-    Position: <a href="{{ job._url">{{ job.title }}</a>
+    Position: <a href="{{ job._url }}">{{ job.title }}</a>
   </h4>
 ```
 
@@ -249,7 +249,7 @@ Notice that there are separate `value` and `label` properties for each tag, even
 
 ### Displaying counts for tags
 
-You can display counts for the choices, so users know how many items are available with a given tag. 
+You can display counts for the choices, so users know how many items are available with a given tag.
 
 1. Add the `counts: true;` property to the `piecesFilters` in `index.js`
 
