@@ -13,7 +13,7 @@ Apostrophe's response to any request begins with [Express middleware](https://ex
 
 When an HTTP request is made, the standard middleware added by the `apostrophe-express` module runs first, followed by the middleware supplied via the `expressMiddleware` property of individual modules. Middleware is added in the order the modules are initialized. `expressMiddleware` can be either a single function or an array of functions.
 
-`expressMiddleware` can also be an object with a `before` property indicating the name of another module. In this case the `middleware` property is run _before_ any middleware added by that other module. The `middleware` property can be a single function or an array of functions.
+`expressMiddleware` can also be an object with a `before` property indicating the name of another module. In this case the `middleware` property is run _before_ any middleware added by that other module. The `middleware` property can be a single function or an array of functions. In addition, the `when` property may be set to `beforeRequired` to run the middleware before *any* standard ApostropheCMS middleware, including the body parser middleware. Keep in mind *`req.body` will not exist* at this point.
 
 ## Express Routes
 
