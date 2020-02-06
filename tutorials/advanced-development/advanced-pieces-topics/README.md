@@ -20,7 +20,7 @@ In the main pieces section, you covered the basics of creating and displaying pi
 * [Adding Filters](/tutorials/advanced-development/advanced-pieces-topics/adding-filters.md)
 * [Adding Columns](/tutorials/advanced-development/advanced-pieces-topics/adding-columns.md)
 * [Next and Previous Links](/tutorials/advanced-development/advanced-pieces-topics/next-previous-links.md)
-* [Suppressing Pieces from a Listing](/tutorials/advanced-development/advanced-pieces-topics/suppressing-pieces)
+* [Suppressing Pieces from a Listing](/tutorials/advanced-development/advanced-pieces-topics/suppressing-pieces-from-a-listing.md)
 * [Adding Fields to All Pieces](/tutorials/advanced-development/advanced-pieces-topics/adding-fields-to-all-pieces.md)
 * [Adding new batch operations for pieces](/tutorials/advanced-development/advanced-pieces-topics/adding-new-batch-operations.md)
 * [Extending the Pieces Editor Modal](/tutorials/advanced-development/advanced-pieces-topics/extending-the-pieces-editor-modal.md)
