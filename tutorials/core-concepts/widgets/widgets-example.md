@@ -116,15 +116,15 @@ Go to a page that uses the `default.html` template (or create a new one), and yo
 
 If you click on that, you can define the label and url for the link.
 
-![](/.gitbook/assets/widgets-define-link.png) 
+![](/.gitbook/assets/widgets-set-link.png) 
 
 You can add any number of links here.
 
-![](/.gitbook/assets/widgets-links-on-page.png) 
+![](/.gitbook/assets/widgets-display-link.png) 
 
 Now, go to the footer, and set a link there.
 
-![](/.gitbook/assets/widgets-footer-link1.png) 
+![](/.gitbook/assets/widgets-footer-link.png) 
 
 Note that this link will remain unstyled since the footer does not have any styles associated with it at this time. Feel free to add your own, or reference the [Front End Assets](link) section for more information on adding your own stylesheets.
 
@@ -132,8 +132,4 @@ Note that this link will remain unstyled since the footer does not have any styl
 
 ## Next Steps
 
-Now that you know the basics of creating widgets with Apostrophe, you can check out some more advanced options, and learn all about how to unlock the full power of widgets. Or you can move on to learn more about [Pieces]() one of the most powerful content tools you have in Apostrophe.
-
-How do I create a [Layout/Nested Widget](layout-widgets.md)?
-
-How do I create [more complex widgets?](custom-widgets.md)?
+Now that you know the basics of creating widgets with Apostrophe, you can check out some more advanced widget options in [More Navigation Widgets](custom-widgets.md) and [Layout/Nested Widget](layout-widgets.md), and learn all about how to unlock the full power of widgets. Or you can move on to learn more about [Pieces](/tutorials/core-concepts/pieces) one of the most powerful content tools you have in Apostrophe.
