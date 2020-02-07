@@ -1,0 +1,1 @@
+<h4><a href="{{ data.widget.url }}">{{ data.widget.label }}</a></h4>

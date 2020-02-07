@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block title %}{{ data.piece.title }}{% endblock %}
+
+{% block main %}
+<div class="main-content">
+<h4> {{ data.piece.title }}
+${{ data.piece.price }}
+{{ apos.singleton( data.piece, 'image', 'apostrophe-images',
+	{ edit: false }
+)}}
+</div>
+{% endblock %}

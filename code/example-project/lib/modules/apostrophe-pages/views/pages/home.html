@@ -1,0 +1,17 @@
+{#
+  This is an example home page template. It inherits and extends a layout template
+  that lives in the top-level views/ folder for convenience
+#}
+
+{% extends "layout.html" %}
+
+{% block main %}
+  <div class="main-content">
+      {{ apos.area(data.page, 'body', {
+      widgets: {
+      'foods': {}
+      } 
+    }
+     )}}
+  </div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{#
+  This is an example home page template. It inherits and extends a layout template
+  that lives in the top-level views/ folder for convenience
+#}
+
+{% extends "layout.html" %}
+
+{% block beforeMain %}
+<ul class="tabs">
+  {% for tab in data.home._children %}
+    <li class="
+      {% if data.page and
+        (apos.pages.isAncestorOf(tab, data.page) or tab._id == data.page._id)
+      %}
+        current
+      {% endif %}
+    "><a href="{{ tab._url }}">{{ tab.title }}</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}
+
+{% block main %}
+  <div class="main-content">
+    {{
+    apos.area(data.page, 'main', {
+        widgets: {
+            link: {}
+        }
+    })
+}}
+  </div>
+{% endblock %}
+
+{% block afterMain %}
+{{ apos.singleton(data.page, 'footer', 'link', {
+    limit: 1
+}) }}
+{% endblock %}
