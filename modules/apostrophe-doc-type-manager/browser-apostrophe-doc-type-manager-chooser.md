@@ -28,6 +28,8 @@ label and value properties at a minimum
 
 ### enableAutocomplete()
 
+### enableSortable()
+
 ### getBrowserType()
 
 ### launchBrowser()

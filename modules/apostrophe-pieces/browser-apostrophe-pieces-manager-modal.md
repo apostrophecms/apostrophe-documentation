@@ -95,6 +95,11 @@ own implementation.
 shrink and grow make visual reflectments to accommodate the the new Select Everything element
 ### growGrid()
 
+### reflectSelectEverything()
+reflect the modal's layout and size in response to
+whether the select everything box should appear
+at this time. Also reflect the state of the select
+everything checkbox based on what is actually selected
 ### reflectSelectEverythingCheckbox()
 
 ### getSelectAll()

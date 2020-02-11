@@ -6,7 +6,7 @@ you'll get a user interface for managing your content for free. Add in the
 for your pieces, and use `apostrophe-pieces-widgets` to allow them to be sprinkled
 into pages all over the site. To learn more, see:
 
-[Reusable content with pieces](https://docs.apostrophecms.org/apostrophe/tutorials/getting-started/reusable-content-with-pieces)
+[Reusable content with pieces](/tutorials/core-concepts/reusable-content-pieces/)
 
 ## Options
 
@@ -18,7 +18,7 @@ conflicts with the slugs of other piece types.
 
 ## More Options
 
-See [reusable content with pieces](https://docs.apostrophecms.org/apostrophe/tutorials/getting-started/reusable-content-with-pieces)
+See [reusable content with pieces](/tutorials/core-concepts/reusable-content-pieces/)
 for many additional options.
 
 

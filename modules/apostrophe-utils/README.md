@@ -160,6 +160,19 @@ ON A LATER AJAX REQUEST TO THE render-widget ROUTE
 
 This way we know this set of options was legitimately part of a recent page rendering
 and therefore is safe to reuse to re-render a widget that is being edited.
+### reinforceBlessing(*req*, *hash*) *[api]*
+Implementation detail of `apos.utils.bless`, do not call directly.
+Sessions have race conditions, which can cause information to
+be lost occasionally, breaking regression tests and sometimes
+irritating real users too. Reinforces the blessing by storing it
+with mongodb's $addToSet when the request ends.
+### reinforceBlessings(*req*) *[api]*
+Implementation detail: determines whether it is worth fetching
+blessings from the database to absolutely guarantee none are
+lost to race conditions with sessions. This takes an extra database
+call, and usually logged in users are the only people editing anyway,
+so we only do it for logged in users by default. Even without this
+blessings are not lost by session race conditions often.
 ### isBlessed(*req*, *options *, *, arg2, arg3...*) *[api]*
 See apos.utils.bless. Checks whether the given set of arguments
 (everything after `req`) has been blessed in the current session.

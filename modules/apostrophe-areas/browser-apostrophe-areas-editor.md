@@ -47,6 +47,8 @@ Disable area controls interactions while certain menus are open
 
 ### dismissContextContentMenu()
 
+### dismissContextContentMenuKeyEvent(*e*)
+
 ### linkWidgetsToAreaEditor()
 
 ### removeInitialContent(*$el*, *entireItem*)
@@ -57,16 +59,7 @@ Disable area controls interactions while certain menus are open
 Implementation detail of `addItem`, should not be called directly.
 Adds the given widget wrapper to the DOM, respecting the limit.
 ### fixInsertedWidgetDotPaths(*$widget*)
-A newly inserted widget that contains subareas cannot autosave
-correctly as part of the parent unless its doc id and
-dot path are correctly set to show that relationship. But
-render-widget has no way of knowing how to set these for us,
-plus all the widgets below it now have dotPaths that are off
-by one. Fix the whole mess
-### recalculateDotPathsInArea(*$area*)
-
-### recalculateDotPathsOfAreasInWidget(*$widget*, *docId*, *dotPath*)
-
+Legacy, kept for bc, we now call remapDotPaths at a better time
 ### enhanceWidgetControls(*$widget*)
 
 ### addAreaControls(*$widget*)
