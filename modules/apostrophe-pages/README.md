@@ -639,6 +639,8 @@ other routes are not blocked
 Emit controls section of page create modal: the cancel/save buttons, etc.
 ### editControls()
 Emit controls section of page editor modal: the cancel/save buttons, etc.
+### isPage(*page*)
+
 ## API Routes
 ### POST /modules/apostrophe-pages/reorganize
 

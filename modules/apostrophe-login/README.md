@@ -4,6 +4,10 @@ Enable users to log in via a login form on the site at `/login`.
 
 ## Options
 
+`loginUrl`
+
+alternative login url, if this is not present, the login route is `/login`
+
 `localLogin`
 
 If explicitly set to `false`, the `/login` route does not exist,
@@ -163,6 +167,10 @@ The convention is set this way for compatibility
 with `passport`.
 ### verifyTotp(*user*, *done*)
 
+### disableIfInactive(*user*)
+
+### checkIfActive(*user*, *callback*)
+
 ### enableMiddleware()
 Add Passport's initialize and session middleware.
 Also add middleware to add the `req.data.user` property.
@@ -171,6 +179,8 @@ control of timing relative to other modules.
 ### requireTotp(*req*, *res*, *next*)
 If the user is logged in, require that they also have
 totp, otherwise kick them over to get it
+### getLoginUrl()
+return the loginUrl option
 ### addRoutes()
 Add the `/login` route, both GET (show the form) and POST (submit the form).
 Also add the `/logout` route.

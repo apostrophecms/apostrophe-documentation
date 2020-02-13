@@ -103,7 +103,7 @@ the appropriate div, the `data` for the widget, and the `options` that
 were passed to the widget.
 
 For example, here is the `public/js/always.js` file for the
-[apostrophe-video-widgets](../apostrophe-video-widgets/README.md) module:
+[apostrophe-video-widgets](/modules/apostrophe-video-widgets) module:
 
 ```javascript
 apos.define('apostrophe-video-widgets', {

@@ -51,6 +51,17 @@ You may also call `apos.users.addSecret('name')` to add a new
 secret property. This is convenient when implementing a module
 such as `apostrophe-signup`.
 
+### `disableInactiveAccounts` option
+
+If set to true, users from the "admin" group are whitelisted
+and the inactivity period is 90 days. Default values can be changed:
+- `neverDisabledGroups` must be an array of group names that should NOT be disabled due to
+not having logged in recently, like `[ 'admin' ]`.
+- `inactivityDuration` must be an integer number of days.
+Users who have not logged in in more than `inactivityDuration` days will not be permitted to
+log in again until an admin clears the `disabled` flag via
+"Manage Users."
+
 
 ## Methods
 ### addOurTrashPrefixFields()
