@@ -47,6 +47,8 @@ Disable area controls interactions while certain menus are open
 
 ### dismissContextContentMenu()
 
+### dismissContextContentMenuKeyEvent(*e*)
+
 ### linkWidgetsToAreaEditor()
 
 ### removeInitialContent(*$el*, *entireItem*)
@@ -57,16 +59,7 @@ Disable area controls interactions while certain menus are open
 Implementation detail of `addItem`, should not be called directly.
 Adds the given widget wrapper to the DOM, respecting the limit.
 ### fixInsertedWidgetDotPaths(*$widget*)
-A newly inserted widget that contains subareas cannot autosave
-correctly as part of the parent unless its doc id and
-dot path are correctly set to show that relationship. But
-render-widget has no way of knowing how to set these for us,
-plus all the widgets below it now have dotPaths that are off
-by one. Fix the whole mess
-### recalculateDotPathsInArea(*$area*)
-
-### recalculateDotPathsOfAreasInWidget(*$widget*, *docId*, *dotPath*)
-
+Legacy, kept for bc, we now call remapDotPaths at a better time
 ### enhanceWidgetControls(*$widget*)
 
 ### addAreaControls(*$widget*)
@@ -116,7 +109,7 @@ storage in an area.
 ### onInterval()
 Called every 5 seconds. Default version checks for empty areas
 and autosaves if needed in appropriate cases.
-### prepareAutosaveRequest()
+### prepareAutosaveRequest(*options*)
 Returns a JSON-friendly object ready for
 submission to the `save-area` route, if
 the area is autosaving, has modifications
@@ -127,12 +120,14 @@ set `self.previousData` to the `items` property
 of the returned object, if and only if it succeeds
 in actually saving the data. This ensures that
 retries are made automatically in the event
-of network errors.
+of network errors. `self.previousData` is
+updated as the basis of comparison next time,
+unless `options.updatePreviousData` is explicitly `false`.
+`options` may be entirely omitted.
 ### saveIfNeeded(*sync*, *callback*)
 If the area editor believes its content has changed, send it to the
 save-area route. If `sync` is true, make a synchronous AJAX call
-(for bc only; we now use the saveAllIfNeededAndUnlock method of
-the areas module singleton for faster synchronous saves on page unload).
+(supported for bc only, we use a beforeUnload warning now).
 
 `callback` is optional and is invoked when the work is complete,
 or immediately if there is no work to do.

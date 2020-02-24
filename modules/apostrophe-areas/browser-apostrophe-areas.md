@@ -46,6 +46,14 @@ and reveals only the controls on the directly hovered widget, not the parent wra
 ### enableAll(*sel*)
 Enable the areas in the specified selector or jQuery object to be edited.
 If sel is falsy all areas currently in the body are made editable
+### register(*docId*, *dotPath*, *editor*)
+
+### remapDotPaths()
+
+### recalculateDotPathsInArea(*$area*)
+
+### recalculateDotPathsOfAreasInWidget(*$widget*, *docId*, *dotPath*)
+
 ### enableShift()
 
 ### getWidgetOptions(*$widget*)
@@ -68,12 +76,18 @@ if they need to, before invoking the callback.
 
 Both the sync flag and the callback may be
 omitted entirely. The default is asynchronous.
+The sync flag is supported for bc only, we use
+a beforeUnload warning now.
 
 This method is ideal in situations where
 you wish to be sure everything has been saved
 before transitioning to a UI such as a commit dialog box
 that displays what has changed, etc.
 ### saveAllIfNeededAndUnlock()
+For bc only, we use an onBeforeUnload warning now as
+most browsers now refuse to do sync API calls in
+onBeforeUnload.
+
 Similar to `saveAllIfNeeded`, this method is
 invoked on a `beforeunload` event, when the user
 navigates away or closes the tab. However this method
@@ -83,4 +97,8 @@ the chances of success when called during the
 `beforeunload` event, and also unlocks any docs locked
 by the current html page as part of that one API call.
 ### enableUnload()
+
+### markUnsaved()
+
+### markSavedIfReady()
 

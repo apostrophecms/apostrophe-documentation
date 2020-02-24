@@ -8,7 +8,7 @@ that manages a particular doc type, so that you can benefit from behavior
 specific to that module. One method of this module that you may sometimes use directly
 is `apos.docs.find()`, which returns a [cursor](https://docs.apostrophecms.org/apostrophe/modules/apostrophe-docs/server-apostrophe-cursor) for
 fetching documents of all types. This is useful when implementing something
-like the [apostrophe-search](https://docs.apostrophecms.org/apostrophe/modules/apostrophe-search) module.
+like the [apostrophe-search](/modules/apostrophe-search) module.
 
 ## Options
 
@@ -41,12 +41,10 @@ them to make a manual choice, explicitly set this option to `false`.
 being edited so that another user, or another tab for the same user,
 does not inadvertently interfere. These locks are refreshed frequently
 by the browser while they are held. By default, if the browser
-is not heard from for 300 seconds, the lock expires. Note that
-the browser refreshes the lock every 5 seconds. It would not make
-sense to set this option lower than about 60 seconds to allow for
-changing Internet conditions. Setting this option too high leads
-to annoyance if the browser chooses not to deliver an unlock request
-when a page is closed.
+is not heard from for 30 seconds, the lock expires. Note that
+the browser refreshes the lock every 5 seconds. This timeout should
+be quite short as there is no longer any reliable way to force a browser
+to unlock the document when leaving the page.
 
 
 ## Methods

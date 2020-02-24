@@ -198,3 +198,4 @@ You can use `arrangeFields` to break the schema into multiple tabs in the editor
 {% endcode-tabs %}
 
 Any non-`contextual` fields excluded from this configuration will be placed in an additional tab.
+

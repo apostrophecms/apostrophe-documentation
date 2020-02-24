@@ -2,7 +2,7 @@
 ### `apos.templates`
 Implements template rendering via Nunjucks. **You should use the
 `self.render` and `self.partial` methods of *your own* module**,
-which exist courtesy of [apostrophe-module](https://docs.apostrophecms.org/apostrophe/modules/apostrophe-module)
+which exist courtesy of [apostrophe-module](/modules/apostrophe-module)
 and invoke methods of this module more conveniently for you.
 
 You may have occasion to call `self.apos.templates.safe` when
@@ -103,6 +103,13 @@ better than the behavior of JSON.stringify (which returns
 ### renderBody(*req*, *type*, *s*, *data*, *module*)
 Implements `render` and `renderString`. See their
 documentation.
+### i18n(*req*, *operation*, *key *, *, additional arguments*)
+Takes `req`, `operation` which will be '__', '__mf' or another
+standard helper name provided by the i18n module, and the
+arguments intended for that helper, beginning always with `key`.
+Invokes the specified operation of the i18n module. This
+method exists as an override and extension point for
+Apostrophe's static text internationalization features.
 ### getEnv(*module*)
 Fetch a nunjucks environment in which `include`,
 `extends`, etc. search the views directories of the
@@ -245,9 +252,16 @@ Invokes all of the `append` helper functions registered for the given
 location and returns the resulting markup as a Nunjucks "safe" string
 (HTML tags are allowed). Available as the `apos.templates.appended`
 helper, and invoked as such by `outerLayoutBase.html`.
+### showContextMenu(*req*)
+Determines whether the aposContextMenu block, which contains
+the "Page Settings" and "Published" UIs in the lower left corner
+in addition to further UI pushed by modules like workflow, should
+appear or not. Override to add additional nuances to this decision.
 ### enableHelpers()
 
 ## Nunjucks template helpers
+### showContextMenu()
+
 ### prepended(*location*)
 Invokes all of the `prepend` helper functions registered for the given
 location and returns the resulting markup as a Nunjucks "safe" string

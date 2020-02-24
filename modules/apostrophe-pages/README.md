@@ -122,7 +122,7 @@ publishMenu: [
 Again, you can override it by setting `req.publishMenu`.
 
 If you are looking for the schema fields common to all pages in the tree,
-check out the [apostrophe-custom-pages](https://docs.apostrophecms.org/apostrophe/modules/apostrophe-custom-pages)
+check out the [apostrophe-custom-pages](/modules/apostrophe-custom-pages)
 module, which all page types extend, including "ordinary" pages.
 
 ### `park`
@@ -206,7 +206,7 @@ and an `_ancestors` property:
 };
 ```
 
-See the [apostrophe-pages-cursor](https://docs.apostrophecms.org/apostrophe/modules/apostrophe-pages/server-apostrophe-pages-cursor) type for additional
+See the [apostrophe-pages-cursor](/modules/apostrophe-pages/server-apostrophe-pages-cursor) type for additional
 cursor filters and options you might wish to configure, such as adding
 a `depth` option to `children`.
 
@@ -310,7 +310,7 @@ is also a one-time action, so the setting itself is cleared afterwards by this m
 This method is called for us by the apostrophe-docs module on update
 operations, so we first make sure it's a page. We also make sure it's
 not a new page (no kids to propagate anything to).
-### newChild(*parentPage*) *[api]*
+### newChild(*parentPage*, *type*) *[api]*
 This method creates a new object suitable to be inserted
 as a child of the specified parent via insert(). It DOES NOT
 insert it at this time. If the parent page is locked down
@@ -639,6 +639,8 @@ other routes are not blocked
 Emit controls section of page create modal: the cancel/save buttons, etc.
 ### editControls()
 Emit controls section of page editor modal: the cancel/save buttons, etc.
+### isPage(*page*)
+
 ## API Routes
 ### POST /modules/apostrophe-pages/reorganize
 
