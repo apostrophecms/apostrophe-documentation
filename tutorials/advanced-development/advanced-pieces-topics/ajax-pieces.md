@@ -52,6 +52,20 @@ That's it! Really. And it automatically works with the filters from the [Connect
 
 **Tip:** you want to include your filter links and forms in `indexAjax.html` so that they too can be refreshed automatically, narrowing down the choices based on the other filters already in use. Any input elements or textareas that currently have the focus will not be refreshed, so if you are using form elements, you can even implement typeahead by triggering a submit of the form via JavaScript as the user types. (Keep in mind the accessibility consequences.)
 
+#### Preserving the values of certain elements during replacement
+
+Any text input or textarea fields, and any other elements with a distinct `data-apos-ajax-preserve`
+attribute, are NOT refreshed; their ancestors are also not refreshed, although the rest of the ancestors' content will be. This prevents loss of
+focus if you have connected a submit handler to keyboard input, when typing which is a very difficult cross-browser problem otherwise.
+
+After the replacement takes place, the `enhance` and `ajax` Apostrophe events
+are emitted, in that order, with a jQuery object containing the ajax context div
+as the argument.
+
+Note that your event handlers for these should watch out for preserved elements and
+their ancestors, and not do things twice. You can address this by checking for
+`data-apos-ajax-preserve` and `data-apos-ajax-preserved` attributes.
+
 #### Combining a "Load More..." button with AJAX
 
 There's one catch with the ajax solution above: it doesn't yet account for a "Load More" button that appends to, rather than replacing, the current page's worth of content.
