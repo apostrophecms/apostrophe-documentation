@@ -123,7 +123,7 @@ To avoid manual restarting in the future, you can use [Nodemon](https://nodemon.
 2. Run `nodemon` from your project root folder to start your site with watching enabled.
 
 {% hint style='info' %}
-When running `nodemon` from the project root, you don't need to provide any target or arguments. It will start `app.js` autmoatically by default. The configuration is found in `package.json` which was created when you installed the `apostrophe-cli` tools. You can adjust these settings to your needs.
+When running `nodemon` from the project root, you don't need to provide any target or arguments. It will start `app.js` automatically by default. The configuration is found in `package.json` which was created when you installed the `apostrophe-cli` tools. You can adjust these settings to your needs.
 {% endhint %}
 
 Now, every time you change a file in your project, Nodemon will restart your application.
