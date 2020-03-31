@@ -25,7 +25,7 @@ See the [moog documentation](https://npmjs.org/package/moog) for more informatio
 
 After all of the modules are initialized, Apostrophe invokes the `modulesReady` methods of any modules that have one, in the order those modules were initialized. This is a good time to do work that requires other modules initialized after yours.
 
-Node that your `modulesReady` method may optionally take a callback.
+Note that your `modulesReady` method may optionally take a callback.
 
 If you are extending another module, be sure to check whether it already has a `modulesReady` method and invoke it via the super pattern if so.
 
