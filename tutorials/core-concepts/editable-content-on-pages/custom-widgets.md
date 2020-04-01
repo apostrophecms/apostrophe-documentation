@@ -512,7 +512,7 @@ Writing widget players that scope all of their jQuery selectors with `$widget.fi
 
 Now is a good time to mention highlights of what you can access in the browser by default when working with Apostrophe:
 
-* jQuery
+* jQuery \(See below\)
 * lodash \(version 3.x\)
 * async \(version 1.x\)
 * moment
@@ -521,7 +521,21 @@ Now is a good time to mention highlights of what you can access in the browser b
 
 And as previously mentioned, you can use LESS in your stylesheets.
 
-_"What if I want to use browserify, gulp, grunt, etc.?"_ Sure, go nuts. Just arrange your gulpfiles to build a file that is pushed as an asset by one of your modules.
+### jQuery versions
+
+The default version of jQuery that Apostrophe loads is v1.11.3 for the sake of backward compatibility for older sites. This is an older version that does carry some documented vulnerabilities. For this reason, you can set an option in `apostrophe-assets` to use jQuery v3 instead. This setting is already in place in the `apostrophe-boilerplate` repository for newer projects to use.
+
+If your project isn't already using this, set the `jQuery: 3` option in `apostrophe-assets` in `lib/modules/apostrophe-assets/index.js` or `app.js`.
+
+```javascript
+// lib/modules/apostrophe-assets/index.js
+module.exports = {
+  jQuery: 3,
+  // stylesheets, scripts, and other asset configuration
+  // ...
+};
+```
+
+_"What if I want to use browserify, gulp, webpack, etc.?"_ Sure, go nuts. Just configure your build to output a file that is pushed as an asset by one of your modules.
 
 We chose not to incorporate those frontend build tools into Apostrophe's core because the core set of features needed for good CMS-driven sites doesn't usually rise to that level of complexity. But if you need to build complex in-page JavaScript experiences, go for it.
-
