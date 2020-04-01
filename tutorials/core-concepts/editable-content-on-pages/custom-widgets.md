@@ -527,7 +527,7 @@ The default version of jQuery that Apostrophe loads is v1.11.3 for the sake of b
 
 If your project isn't already using this, set the `jQuery: 3` option in `apostrophe-assets` in `lib/modules/apostrophe-assets/index.js` or wherever you are configuring assets.
 
-```jquery
+```javascript
 // lib/modules/apostrophe-assets/index.js
 module.exports = {
   jQuery: 3,
