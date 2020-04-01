@@ -523,9 +523,9 @@ And as previously mentioned, you can use LESS in your stylesheets.
 
 ### jQuery versions
 
-The default version of jQuery that Apostrophe loads is v1.11.3 for the sake of backward compatibility for older sites. This is and older version that does carry some documented vulnerabilities. For this reason, you can set an option in `apostrophe-assets` to use jQuery v3 instead. This setting is already in place in the `apostrophe-boilerplate` repository for newer projects to use.
+The default version of jQuery that Apostrophe loads is v1.11.3 for the sake of backward compatibility for older sites. This is an older version that does carry some documented vulnerabilities. For this reason, you can set an option in `apostrophe-assets` to use jQuery v3 instead. This setting is already in place in the `apostrophe-boilerplate` repository for newer projects to use.
 
-If your project isn't already using this, set the `jQuery: 3` option in `apostrophe-assets` in `lib/modules/apostrophe-assets/index.js` or wherever you are configuring assets.
+If your project isn't already using this, set the `jQuery: 3` option in `apostrophe-assets` in `lib/modules/apostrophe-assets/index.js` or `app.js`.
 
 ```javascript
 // lib/modules/apostrophe-assets/index.js
@@ -536,7 +536,6 @@ module.exports = {
 };
 ```
 
-_"What if I want to use browserify, gulp, grunt, etc.?"_ Sure, go nuts. Just arrange your gulpfiles to build a file that is pushed as an asset by one of your modules.
+_"What if I want to use browserify, gulp, webpack, etc.?"_ Sure, go nuts. Just configure your build to output a file that is pushed as an asset by one of your modules.
 
 We chose not to incorporate those frontend build tools into Apostrophe's core because the core set of features needed for good CMS-driven sites doesn't usually rise to that level of complexity. But if you need to build complex in-page JavaScript experiences, go for it.
-
