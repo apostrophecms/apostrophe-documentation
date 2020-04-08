@@ -48,7 +48,10 @@ dimensional schema, broken up by groups
 Return a new schema containing only the fields named in the
 `fields` array, while maintaining existing group relationships.
 Any empty groups are dropped. Do NOT include group names
-in `fields`.
+in `fields`. If `fields` contains a property that is not a
+field name but does match the `idField` or `idsField` property
+of a field, that also includes the field in the subset. This is
+convenient when basing this call on the keys in `req.body`.
 ### newInstance(*schema*)
 Return a new object with all default settings
 defined in the schema

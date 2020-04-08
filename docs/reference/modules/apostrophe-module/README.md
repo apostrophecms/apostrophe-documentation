@@ -468,7 +468,7 @@ module by setting the `from` property of the `email` option
 to this module.
 
 If you need to localize `options.subject`, you can call
-`self.apos.i18n.__(subject)`.
+`req.__ns('apostrophe', subject)`.
 
 The callback receives `(err, info)`, per the Nodemailer documentation.
 With most transports, lack of an `err` indicates the message was

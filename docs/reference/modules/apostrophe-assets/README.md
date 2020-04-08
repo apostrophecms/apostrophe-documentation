@@ -85,6 +85,12 @@ Then make sure the variable is also set when running actual production instances
 
 `APOS_BUNDLE=1 node app`
 
+If in your environment the bundle has already been extracted and the
+root directory is now read-only, you can use this additional environment
+variable to avoid an error from `tar`:
+
+`APOS_BUNDLE=1 APOS_EXTRACT_BUNDLE=0 node app`
+
 Alternatively, if you specified an explicit bundle name to `--create-bundle` when using `apostrophe:generation`,
 stored it to git and deployed it, you can specify that bundle name as the value of APOS_BUNDLE. But this is
 more work; we recommend the easy way.
@@ -139,6 +145,10 @@ Extracts the appropriate asset bundle from uploadfs if we are using simple bundl
 and this is not a command line task.
 
 Returns a promise. Called on the modulesReady event.
+
+If the APOS_EXTRACT_BUNDLE environment variable is set to the string "0" this
+does not take place. That is useful when the bundle has already been extracted
+by other means and the filesystem is no longer writable (for instance, platform.sh).
 ### extractBundleIfAppropriate()
 This method supports the less common case where an explicit bundle name
 is in APOS_BUNDLE and it should be extracted from the filesystem. The

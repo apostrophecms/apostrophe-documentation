@@ -84,7 +84,7 @@ module.exports = {
         documentModule(module);
       });
 
-      mkdirp('../modules');
+      mkdirp('../docs/reference/modules');
 
       let fragment = _.map(modules, function(module) {
         return `* [${module}](modules/${module}/README.md)` + summarizeSubtypes(module)
@@ -271,7 +271,7 @@ module.exports = {
         var relatedTypes = _.filter(types, function(type, name) {
           return (type.module === module) && ((type.name !== module) || (type.namespace !== 'server'));
         });
-        var folder = '../modules/' + module;
+        var folder = '../docs/reference/modules/' + module;
         mkdirp(folder);
         var markdownFile = folder + '/README.md';
 

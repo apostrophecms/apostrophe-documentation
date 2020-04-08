@@ -76,7 +76,8 @@ Rescue a piece from the trash by id. If `callback` is omitted,
 a promise is returned.
 ### convert(*req*, *piece*, *callback*) *[api]*
 Convert the data supplied in `req.body` via the schema and
-update the piece object accordingly.
+update the piece object accordingly. If `req.convertOnlyTheseFields`
+is present, touch only the fields present in that array.
 ### afterConvert(*req*, *piece*, *callback*) *[api]*
 Invoked after apos.schemas.convert by the `insert` and
 `update` routes

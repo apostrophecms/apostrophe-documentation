@@ -72,7 +72,7 @@ If each is not otherwise specified, Apostrophe enables these defaults:
 
 ```javascript
 {
-  // Do not save sesions until something is stored in them.
+  // Do not save sessions until something is stored in them.
   // Greatly reduces aposSessions collection size
   saveUninitialized: false,
   // The mongo store uses TTL which means we do need
@@ -220,7 +220,7 @@ Standard middleware. Creates the `req.data` object, so that all
 code wishing to eventually add properties to the `data` object
 seen in Nunjucks templates may assume it already exists
 ### sessions()
-Establish Express sesions. See [options](#options)
+Establish Express sessions. See [options](#options)
 ### requiredMiddleware()
 Install all standard middleware:
 

@@ -103,7 +103,7 @@ better than the behavior of JSON.stringify (which returns
 ### renderBody(*req*, *type*, *s*, *data*, *module*)
 Implements `render` and `renderString`. See their
 documentation.
-### i18n(*req*, *operation*, *key *, *, additional arguments*)
+### i18n(*req*, *operation *, *, additional arguments*)
 Takes `req`, `operation` which will be '__', '__mf' or another
 standard helper name provided by the i18n module, and the
 arguments intended for that helper, beginning always with `key`.
