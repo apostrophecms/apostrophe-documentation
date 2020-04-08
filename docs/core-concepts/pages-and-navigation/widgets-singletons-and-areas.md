@@ -17,7 +17,7 @@ If you're following along, you created a `default.html` template in the previous
 
 1. Open `default.html`.
 
-2. Replace the `main` block with this: 
+2. Replace the `main` block with this:
 
 {% code-tabs %}
 {% code-tabs-item title="lib/modules/apostrophe-pages/views/default.html" %}
@@ -53,7 +53,7 @@ An "options" object that allows us to pass type-specific options to the widget. 
 
 If we restart our server and refresh our site's home page while logged in, we'll see a gray block with a button prompting us to add rich text. Once you start adding text, your edits save automatically. **There is no "save" button because you don't need one.** All edits are saved in the background.
 
-![](/.gitbook/assets/boilerplate_singleton.png)
+![](/images/assets/boilerplate_singleton.png)
 
 ## Areas
 

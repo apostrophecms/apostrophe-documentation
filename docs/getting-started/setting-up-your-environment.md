@@ -1,7 +1,3 @@
----
-title: Setting Up Your Environment
-layout: tutorial
----
 # Setting Up Your Environment
 
 First you need to get your environment set up. You may already have some of the tools described below installed and configured, but make sure that you read carefully to make sure that you don't miss anything.
@@ -28,7 +24,7 @@ First, you need to install the Xcode Command Line Tools.
 2. Go to Xcode &rarr; Preferences &rarr; Locations and set the version for the Command Line Tools Option.
 
 {% hint style='info' %}
-Starting with XCode 6.1 the Command Line tools are automatically installed, and just need to be configured. For older versions of XCode, go to the Downloads tab under Preferences. From there you can select _Install_ for the Command Line Tools options. 
+Starting with XCode 6.1 the Command Line tools are automatically installed, and just need to be configured. For older versions of XCode, go to the Downloads tab under Preferences. From there you can select _Install_ for the Command Line Tools options.
 {% endhint %}
 
 ## Install Homebrew
@@ -72,7 +68,7 @@ The terminal prompt finds commands in folders listed in an environment variable 
     ```
 
 3. Add these two lines to the file and save it:
- 
+
 {% code-tabs %}
 {% code-tabs-item title="\~/.profile" %}
     ```bash
@@ -114,7 +110,7 @@ brew install git
 
 ## Install MongoDB
 
-Apostrophe uses MongoDB as its database. You can install it with Homebrew. In addition, you can configure `brew services` to launch it automatically for you, so you don't have to fuss with restarting it manually. 
+Apostrophe uses MongoDB as its database. You can install it with Homebrew. In addition, you can configure `brew services` to launch it automatically for you, so you don't have to fuss with restarting it manually.
 
 1. First you need to install the "tap" for Mongo DB:
 

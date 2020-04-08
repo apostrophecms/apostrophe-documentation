@@ -1,13 +1,6 @@
----
-description: >-
-  ApostropheCMS was created to bring happiness and productivity to web
-  developers and content editors. It is used around the world by companies of
-  all sizes to build and manage mission critical websites
----
-
 # ApostropheCMS Documentation
 
-![ApostropheCMS as an editor](.gitbook/assets/ezgif.com-video-to-gif.gif)
+![ApostropheCMS as an editor](../images/assets/ezgif.com-video-to-gif.gif)
 
 ## Tutorials
 
@@ -59,4 +52,3 @@ The core `apos` object on the server orchestrates the whole dance. [Learn about 
 ## Core Browser
 
 The browser has an `apos` object too. tying it all together. [Learn about the core](/other/core-browser.md)
-

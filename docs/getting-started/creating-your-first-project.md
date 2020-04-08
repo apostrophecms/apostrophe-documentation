@@ -1,8 +1,3 @@
----
-title: Creating Your First Project
-layout: tutorial
----
-
 # Creating your first project
 
 Now that you have all the dependencies for Apostrophe installed, you can create your first project!
@@ -39,7 +34,7 @@ Next, install the `apostrophe-cli` tool, which makes bootstrapping a new project
 
 You have a test project up and running! Visit `http://localhost:3000` and view your site. You'll see a very simple home page... too simple! We'll fix that in a moment by adding more page types and some editable areas.
 
-![The boilerplate homepage](/.gitbook/assets/boilerplate_loggedout.png)
+![The boilerplate homepage](/images/assets/boilerplate_loggedout.png)
 
 {% hint style="working" %}
 **Did you get a "Permission Denied" error?** On Linux, this would be because global npm packages must be installed as root in a typical setup. Use `sudo npm install` instead. On a Mac, this shouldn't happen if you installed node with Homebrew, because the `/usr/local` folder where Homebrew keeps its files should belong to your personal account. However, if you installed Homebrew with `sudo`, you'll need to be consistent and use `sudo` here too.
@@ -64,7 +59,7 @@ Next, you should sign on to the site:
 
 Once logged in, we are redirected to the home page once again, but with two additional elements present: an admin bar floating over the top left of the page and a page menu floating over the bottom left.
 
-![Logged in to the boilerplate](/.gitbook/assets/boilerplate_loggedin.png)
+![Logged in to the boilerplate](/images/assets/boilerplate_loggedin.png)
 
 ### Adding a content area
 
@@ -132,12 +127,12 @@ Now, every time you change a file in your project, Nodemon will restart your app
 
 Hey, what's this new button about?
 
-![](/.gitbook/assets/tutorial-plus-button.png)
+![](/images/assets/tutorial-plus-button.png)
 
 Let's add some rich text and media to the page.
 
 1.  Click the "+" sign and pick "rich text." You're presented with a friendly editor:
-    ![](/.gitbook/assets/tutorial-rich-text-editor.png)
+    ![](/images/assets/tutorial-rich-text-editor.png)
 
 2.  Edit as you see fit and refresh your page. Notice that your changes have already been saved. _There is no save button because saving is automatic._
 
@@ -145,27 +140,27 @@ Let's add some rich text and media to the page.
 
 4.  Click either one and pick "Image\(s\)", and you'll see the image library, which is initially empty:
 
-    ![](/.gitbook/assets/tutorial-images-library.png)
+    ![](/images/assets/tutorial-images-library.png)
 
 5.  Click the "New Image" button at upper right and you'll see:
 
-    ![](/.gitbook/assets/tutorial-new-image.png)
+    ![](/images/assets/tutorial-new-image.png)
 
 6.  Click "Upload File" to pick a GIF, JPEG or PNG file to upload from your computer.
 
 7.  Fill out the title field, and click "Save Image."
 
-8.  Click "New Image" again and upload a second file, fill out the title field, and save. 
+8.  Click "New Image" again and upload a second file, fill out the title field, and save.
 
 9.  Next check the box next to each of them:
 
-    ![](/.gitbook/assets/tutorial-select-images.png)
+    ![](/images/assets/tutorial-select-images.png)
 
     \(As you check them off you'll see them appear at left in the "chosen items" area.\)
 
 10. Now click "Save Choices" and boom: slideshow!
 
-![](/.gitbook/assets/tutorial-slideshow.gif)
+![](/images/assets/tutorial-slideshow.gif)
 
 # "Whoa, this is cool! But... what did I just do?"
 

@@ -5,7 +5,7 @@ layout: tutorial
 
 # Users and Groups
 
-One of the biggest questions you need to answer in your design is, "Who is going to be doing what?" From there you want to separate concerns for site management and content governance so that each user only has access to what they need is vital from a security perspective. Apostrophe has several options available to help you achieve this. 
+One of the biggest questions you need to answer in your design is, "Who is going to be doing what?" From there you want to separate concerns for site management and content governance so that each user only has access to what they need is vital from a security perspective. Apostrophe has several options available to help you achieve this.
 
 ## Users
 
@@ -23,13 +23,13 @@ New users are created and assigned to groups through the the admin bar in Apostr
 
 2. Click on *Users* in the admin bar.
 
-    ![](/.gitbook/assets/user-menu.png)
+    ![](/images/assets/user-menu.png)
 
 3. Next, click *Add User* and fill in the user's information.
 
 4. To define the users permissions, select the group from the select menu.
 
-    ![](/.gitbook/assets/user-select-group.png)
+    ![](/images/assets/user-select-group.png)
 
 5. Click *Save User* to add the user to the system.
 

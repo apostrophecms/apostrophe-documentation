@@ -58,7 +58,7 @@ Two blocks to take note of are `title` and `main`. You can extend the `title` bl
 
 As a rule, you should extend the `layout.html` or create your own templates using a similar pattern in `views/` to extend, rather than creating all of your templates.
 
-### Example: Creating a New Page Template 
+### Example: Creating a New Page Template
 
 To create a page template:
 
@@ -84,7 +84,7 @@ Now that you have a `default.html` file, you need to register it in `app.js` to 
 Even `layout.html` extends another file. For a typical page load, it extends `outerLayout.html`, which lives in the `lib/modules/apostrophe-templates/views` folder. That file extends the `outerLayoutBase.html` file that ships with Apostrophe. Most of the time you won't need to look there, but it does contain additional blocks you can override, notably `extraHead` which is perfect for adding `link` elements to the `head` element and so on.
 {% endhint %}
 
-## Configuring Apostrophe with `app.js` 
+## Configuring Apostrophe with `app.js`
 
 `app.js` is Apostrophe's main configuration file. This is the file that fires up Apostrophe with a given configuration, and is where you can specify what modules you want to be present in your project. As you add them, you also configure them by providing options via an object.
 
@@ -92,7 +92,7 @@ Some modules are always a part of Apostrophe whether you configure them or not, 
 
 In order for any new page template to load, you must add it to `app.js`. When you add a new page template to `app.js`, remember, you're not creating a new page: you're registering a page template that can be used to create new pages.
 
- 
+
 ### Example: Adding a Page Template to `app.js`
 
 1. Open `app.js` in your favorite text editor.
@@ -135,7 +135,7 @@ Now that you created the template, use it to create a new page.
 
 4. Enter a Title, a friendly URL, and select your new template under Type.
 
-![Creating a new page](/.gitbook/assets/create_new_page2.png)
+![Creating a new page](/images/assets/create_new_page2.png)
 
 
 Nice work! You created a new page template, and now you can create as many pages as you like from that template. Next we'll talk about using Widgets, Singletons, and Areas to add content to your page.

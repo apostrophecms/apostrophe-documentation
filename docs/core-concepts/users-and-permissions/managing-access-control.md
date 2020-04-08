@@ -51,7 +51,7 @@ Apostrophe makes it easy to set this up with minimal configuration, but if that 
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-![](/.gitbook/assets/user-add-editor.png)
+![](/images/assets/user-add-editor.png)
 
 Now you can create new users in the *editor* group, which will have the ability to create new content and manage the content they create, but will lack the great power -- and great responsibility -- of the admin role.
 
@@ -68,7 +68,7 @@ So far we've covered two cases:
 
 * The only slightly less simple situation where you need to add an universal editor group as well.
 
-Next, you'll learn how to create more specific groups with more granular permissions. 
+Next, you'll learn how to create more specific groups with more granular permissions.
 
 In addition to the default groups, Apostrophe has a convention for permissions that supplies prefixes like `edit-` and `admin-` for modules. Using these you can create "editors" and "administrators" for specific modules and tools without providing any privileges for anything else.
 
@@ -94,7 +94,7 @@ Now the graphical group management interface is available, and you can create gr
 
 1. Click the new *Groups* option on the admin bar.
 
-    ![](/.gitbook/assets/user-group-bar.png)
+    ![](/images/assets/user-group-bar.png)
 
 2. Click *Add Group*.
 
@@ -104,7 +104,7 @@ Now the graphical group management interface is available, and you can create gr
 
 5. Scroll down and check the box for *Upload and Crop*
 
-    ![](/.gitbook/assets/user-group-permissions.png)
+    ![](/images/assets/user-group-permissions.png)
 
 6. Click *Save Group*.
 
