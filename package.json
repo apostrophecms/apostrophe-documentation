@@ -1,0 +1,16 @@
+{
+  "name": "apostrophe-documentation",
+  "version": "2.0.0-alpha",
+  "description": "",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "author": "Apostrophe Technologies, Inc.",
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.4.0"
+  }
+}
