@@ -1,10 +1,10 @@
 root: ./
 
-structure: 
+structure:
   readme: README.md
   summary: SUMMARY.md
-
-redirects: 
+# TODO: Move to vuepress redirect system.
+redirects:
   other/events : ./tutorials/advanced-development/promise-events/promise-events.md
   other/more-modules : ./tutorials/core-concepts/modules/more-modules.md
   other/nunjucks-filters : ./tutorials/core-concepts/working-with-templates/nunjucks-filters.md
