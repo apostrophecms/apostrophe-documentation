@@ -29,7 +29,6 @@ With this example widget, it's up to the developer to specify the `sizesAttr` op
 Now for the actual widget code:
 
 
-{% code-tabs-item title="lib/modules/image-widgets/index.js" %}
 ```javascript
 module.exports = {
   extend: 'apostrophe-widgets',
@@ -53,16 +52,11 @@ module.exports = {
   ]
 };
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 
-{% code-tabs-item title="lib/modules/image-widgets/views/widget.html" %}
 ```markup
 <img src="{{ apos.attachments.url(data.widget._image.attachment, { size: data.options.size or 'full' }) }}" srcset="{{ apos.images.srcset(data.widget._image.attachment) }}" sizes="{{ data.options.sizesAttr or '100vw' }}" alt="{{ data.widget._image.description or data.widget._image.title }}">
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 
 ## Responsive images can meet mobile design needs

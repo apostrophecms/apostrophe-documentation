@@ -87,14 +87,11 @@ Add this below the `apos.area` to add a simple `apostrophe-files` widget to the 
 
 
 
-{% code-tabs-item title="lib/modules/apostrophe-pages/views/home.html" %}
 ```markup
   {{ apos.singleton(data.page, 'resume', 'apostrophe-files', {
     limit: 1
   }) }}
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 #### `limit`
 

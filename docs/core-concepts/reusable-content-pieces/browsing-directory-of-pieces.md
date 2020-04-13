@@ -14,7 +14,6 @@ For a really useful directory, you want to create a page that offers a paginated
 Let's add this new module to your `app.js`. Your new module extends the `apostrophe-pieces-pages` module:
 
 
-{% code-tabs-item title="app.js" %}
 ```javascript
 modules: {
   // ... other modules ...,
@@ -23,8 +22,6 @@ modules: {
   }
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 {% hint style="info" %}
 `people-pages` will automatically figure out that its job is to display the pieces that come from the `people` module, by removing `-pages` from its name. If you don't want to follow that pattern, you'll have to set the `piecesModuleName` option, and possibly also set the `name` option to a sensible name for the page type that displays an index of pieces. We usually just follow the pattern.
@@ -33,7 +30,6 @@ modules: {
 This module provides a new type of page on the site, `people-page`. This new page type displays an index of pieces. Before it can be used, you need to configure `apostrophe-pages` to add it to the menu of page types that can be given to pages. In `app.js` it might look like this:
 
 
-{% code-tabs-item title="app.js" %}
 ```javascript
 modules: {
   // ... other modules ...,
@@ -57,8 +53,6 @@ modules: {
   }
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 {% hint style="info" %}
 As with other modules, it's a good idea to create `lib/modules/apostrophe-pages/index.js` and move configuration there to reduce clutter.
@@ -116,7 +110,6 @@ If you add a `People` page now, you'll see a plain-vanilla list of people; click
 Your final result should look like this:
 
 
-{% code-tabs-item title="lib/modules/people-pages/views/index.html" %}
 ```markup
 {% extends "your-project/layout.html" %}
 {% block title %}{{ data.page.title }}{% endblock %}
@@ -139,8 +132,6 @@ Your final result should look like this:
   {{ pager.render({ page: data.currentPage, total: data.totalPages }, data.url) }}
 {% endblock %}
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 
 Add a little CSS and you've got a nice directory.
@@ -164,7 +155,6 @@ Next you want to override the `show.html` template of your subclass of `apostrop
 `show.html` is the template that displays just one profile in detail:
 
 
-{% code-tabs-item title="lib/modules/people-pages/views/show.html" %}
 ```markup
 {% extends "layout.html" %}
 {% block title %}{{ data.piece.title }}{% endblock %}
@@ -177,8 +167,6 @@ Next you want to override the `show.html` template of your subclass of `apostrop
 {{ apos.area(data.piece, 'body') }}
 {% endblock %}
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 {% hint style="info" %}
 _We didn't pass an options object to_ `apos.area` _or_ `apos.singleton` _because you already specified the options in the_ [_schema_](../../schema-guide/schema-guide.md)_,_ as part of `addFields`. If you _do_ pass an options object to `apos.area` or `apos.singleton`, the original options object passed to the schema is ignored, so be sure to repeat anything that is relevant.
@@ -194,15 +182,12 @@ You can make this more intuitive by setting the `contextual` flag for your piece
 
 
 
-{% code-tabs-item title="lib/modules/people/index.js" %}
 ```javascript
 module.exports = {
   // Other options, then...
   contextual: true
 };
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 When you do this, _the user is automatically redirected to the_ `show.html` _page for each person as soon as they create and save it._
 
@@ -225,7 +210,6 @@ The solution is pretty simple! To get `example.com/cats` to return a 404 error (
 In `lib/modules/cats-pages/index.js`, add the following to your `construct` method:
 
 
-{% code-tabs-item title="lib/modules/cats-pages/index.js" %}
 ```javascript
 construct: function (self, options) {
   self.beforeIndex = function (req, callback) {
@@ -235,8 +219,6 @@ construct: function (self, options) {
   };
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 
 See what we did there? Since `beforeIndex` runs before the index page is loaded, and by setting the request's `notFound` property to `true`, it'll return a 404 error rather than loading the page. This is the case even for site admins, so make sure the `apostrophe-pages` configuration doesn't give admins an option to create those pieces index pages.
@@ -244,7 +226,6 @@ See what we did there? Since `beforeIndex` runs before the index page is loaded,
 You might want to allow site admins to create and access those index pages, though. In that case, do [include it as an option in `apostrophe-pages` configuration](/modules/apostrophe-pages/README.md), and make an adjustment to the `beforeIndex` method:
 
 
-{% code-tabs-item title="lib/modules/apostrophe-pages/index.js" %}
 ```javascript
 construct: function (self, options) {
   self.beforeIndex = function (req, callback) {
@@ -256,7 +237,5 @@ construct: function (self, options) {
   };
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 With the `!req.data.page._edit` conditional you're allowing people with edit permissions to access the pages.

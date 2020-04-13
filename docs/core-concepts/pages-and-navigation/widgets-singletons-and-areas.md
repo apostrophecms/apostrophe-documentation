@@ -20,7 +20,6 @@ If you're following along, you created a `default.html` template in the previous
 2. Replace the `main` block with this:
 
 
-{% code-tabs-item title="lib/modules/apostrophe-pages/views/default.html" %}
     ```markup
     {% block main %}
       <div class="main-content">
@@ -30,8 +29,6 @@ If you're following along, you created a `default.html` template in the previous
       </div>
     {% endblock %}
     ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 Let's deconstruct the arguments we are passing here.
 
@@ -68,7 +65,6 @@ To see this in action, add an `apos.area` to a page template.
 2. Add this to `default.html` below the Singleton you just added inside the main `div`:
 
 
-{% code-tabs-item title="lib/modules/apostrophe-pages/views/default.html" %}
     ```markup
     {{ apos.area(data.page, 'body', {
       widgets: {
@@ -81,8 +77,6 @@ To see this in action, add an `apos.area` to a page template.
       }
     }) }}
     ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 The first two arguments for this helper work the same way as for `apos.singleton`. The third option is an options object. We can see that that options object supports a `widgets` option, which takes a key-value map of available widget names and their respective options.
 

@@ -28,21 +28,15 @@ Just about everything new you create in Apostrophe will be a "module." Project-s
 Then you'll include the module in our `app.js` by adding the following to the `modules` object:
 
 
-{% code-tabs %}
-{% code-tabs-item title="app.js" %}
 ```javascript
   modules: {
     // ...,
     'link-widgets': {}
   }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 Now create an `index.js` in `lib/modules/link-widgets/` and put some code in there:
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/link-widgets/index.js" %}
 ```javascript
 module.exports = {
   extend: 'apostrophe-widgets',
@@ -63,8 +57,6 @@ module.exports = {
   ]
 };
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 _"What does_ `extend` _mean here?"_ Our module is extending the `apostrophe-widgets` module, which provides almost all the code you need. Yes, `extend` is the correct spelling. Apostrophe uses [moog](https://npmjs.org/package/moog) to handle extending or "subclassing" other modules.
 
@@ -82,20 +74,14 @@ Next you'll need a folder to hold our widget's `widget.html` template, which ren
 
 2. Now create a Nunjucks template in `lib/modules/link-widgets/views/widget.html`:
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/link-widgets/views/widget.html" %}
 ```markup
 <h4><a href="{{ data.widget.url }}">{{ data.widget.label }}</a></h4>
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 _"Hey, don't You need to escape the label before you output it as HTML?"_ No, Nunjucks does it automatically. If you need to output content that is already valid, safe markup, you must use the `| safe` filter to output it without escaping.
 
 Now you'll want to add this widget to an area in one of our page templates, like you learned in [widgets, areas, and singletons](/tutorials/core-concepts/pages-and-navigation/widgets-singletons-and-areas.md). Let's add the following to the `main` block of our `lib/modules/apostrophe-pages/views/pages/home.html`:
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/apostrophe-pages/views/pages/home.html" %}
 ```markup
 {{
   apos.area(data.page, 'navigation', {
@@ -105,8 +91,6 @@ Now you'll want to add this widget to an area in one of our page templates, like
   })
 }}
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 You've just created a content area in which only `link` widgets are allowed. Each one has a `url` field and a `label` field, and they are always output in the same style.
 
@@ -128,8 +112,6 @@ While it's good to get some experience making all the folders and files yourself
 
 1\. Now you this new widget to the `modules` object in our app.js:
 
-{% code-tabs %}
-{% code-tabs-item title="app.js" %}
 ```javascript
   modules: {
     /// ...,
@@ -137,13 +119,9 @@ While it's good to get some experience making all the folders and files yourself
     'page-link-widgets': {}
   }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 2\. And then write `lib/modules/page-link-widgets/index.js`:
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/page-link-widgets/index.js" %}
 ```javascript
 module.exports = {
   extend: 'apostrophe-widgets',
@@ -160,8 +138,6 @@ module.exports = {
   ]
 };
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 _"What do_ `type: 'joinByOne'` _and_ `idField: 'pageId` _do?\`_ you want this widget to remember a connection to another page. To do that, you use the `joinByOne` field type and ask Apostrophe to store the MongoDB `_id` of the other page in a `pageId` property of the widget.
 
@@ -169,13 +145,9 @@ _"Why does the_ `name` _start with a_ `_`_?" Joins get fetched every time this w
 
 Now you're ready for the Nunjucks template, `lib/modules/page-link-widgets/views/widget.html`:
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/page-link-widgets/views/widget.html" %}
 ```markup
 <h4><a href="{{ data.widget._page._url }}">{{ data.widget._page.title }}</a></h4>
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 {% hint style="success" %}
 _Whoa! So I can access the other page in my template?"_ Yep. You can access any property of the other page. You can even make `apos.area` and `apos.singleton` calls with the other page object.
@@ -183,8 +155,6 @@ _Whoa! So I can access the other page in my template?"_ Yep. You can access any 
 
 Actually using the widget in an area is just like using the first one. But this time, let's enable both kinds in our area on `home.html`:
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/page-link-widgets/views/home.html" %}
 ```markup
 {{
   apos.area(data.page, 'navigation', {
@@ -195,8 +165,6 @@ Actually using the widget in an area is just like using the first one. But this 
   })
 }}
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 Now our users have a choice between do-it-yourself links that can point anywhere and "page" links that can only point to a page. Both can be useful.
 
@@ -213,18 +181,12 @@ All you have to do is access `data.options` in your `widget.html` template for `
 
 1\. Add `data.options` in `widget.html`:
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/page-link-widgets/views/widget.html" %}
 ```markup
 <h4 class="{{ 'special' if data.options.special }}"><a href="{{ data.widget._page._url }}">{{ data.widget._page.title }}</a></h4>
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 2\. Then pass the option  call in `home.html`:
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/page-link-widgets/views/home.html" %}
 ```markup
 {{
   apos.area(data.page, 'navigation', {
@@ -237,8 +199,6 @@ All you have to do is access `data.options` in your `widget.html` template for `
   })
 }}
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 Now all the page links in this particular area will get the special class. You can probably think of much fancier uses for this feature.
 
@@ -246,8 +206,6 @@ Now all the page links in this particular area will get the special class. You c
 
 You can also leave the choice up to the user by adding a `boolean` field to the schema for `page-link-widgets` in its `index.js`:
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/page-link-widgets/index.js" %}
 ```javascript
 module.exports = {
   extend: 'apostrophe-widgets',
@@ -269,21 +227,15 @@ module.exports = {
   ]
 };
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 The new bit here is the `special` field.
 
 In your template, access it via `data.widget` rather than `data.options`:
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/page-link-widgets/views/widget.html" %}
 
 ```markup
 <h4 class="{{ 'special' if data.widget.special }}"><a href="{{ data.widget._page._url }}">{{ data.widget._page.title }}</a></h4>
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 {% hint style='info' %}
 `data.widget` contains the form fields the user can edit. `data.options` contains the options passed to `apos.area` or `apos.singleton` by the frontend developer.
@@ -297,8 +249,6 @@ Indeed, all you really care about here is the title and the URL. So let's fetch 
 
 You can rewrite `index.js` to speed up the code:
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/page-link-widgets/index.js" %}
 ```javascript
 module.exports = {
   extend: 'apostrophe-widgets',
@@ -321,8 +271,6 @@ module.exports = {
   ]
 };
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 The new bit is the `filters` option. By specifying a `projection` filter, you can limit Apostrophe to loading just the `title` and `_url` properties. Apostrophe needs `_url` to figure out the URL of a page. It's almost always a good idea to limit the projection to the fields you care about.
 
@@ -342,8 +290,6 @@ Let's say you want to offer some content in a collapsible "drawer." Clicking on 
 
 Your module's `index.js` file looks like this:
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/drawer-widget/index.js" %}
 ```javascript
 module.exports = {
   extend: 'apostrophe-widgets',
@@ -370,21 +316,15 @@ module.exports = {
   ]
 };
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 And your `widget.html` file looks like this:
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/drawer-widgets/views/widget.html" %}
 ```javascript
 <h4><a data-drawer-title class="drawer-title" href="#">{{ data.widget.title }}</a></h4>
 <div data-drawer class="drawer-body">
   {{ apos.area(data.widget, 'content', { edit: false }) }}
 </div>
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 Here you use `data.widget` where you would normally expect `data.page`. This allows access to areas nested inside the widget.
 
@@ -392,8 +332,6 @@ Here you use `data.widget` where you would normally expect `data.page`. This all
 
 Now, in your default page template, let's create an area that allows a series of drawers to be created:
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/apostrophe-pages/views/default.html" %}
 ```markup
 {{
   apos.area(data.page, 'drawers', {
@@ -403,13 +341,9 @@ Now, in your default page template, let's create an area that allows a series of
   })
 }}
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 And in `app.js`, don't forget to configure the widget:
 
-{% code-tabs %}
-{% code-tabs-item title="app.js" %}
 ```javascript
 // in app.js
 modules: {
@@ -417,8 +351,6 @@ modules: {
   'drawer-widgets': {}
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 Even if your widget doesn't require any options, you must configure it in `app.js` to `instantiate` it. This is how Apostrophe knows that you actually want to use this module directly. In many projects, some modules only exist to be extended by other modules.
 
@@ -428,8 +360,6 @@ First, you'll need to hide the content of the drawer by default. Let's push an `
 
 In `index.js`, you'll extend the `pushAssets` method, which is already pushing JavaScript, to push a stylesheet as well:
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/drawer-widgets/index.js" %}
 ```javascript
 module.exports = {
   extend: 'apostrophe-widgets',
@@ -445,8 +375,6 @@ module.exports = {
   }
 };
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 In Apostrophe modules, the `construct` function is called to add methods to the module. Here you are following the "super pattern," making a note of the original method you inherited from [apostrophe-widgets](/modules/apostrophe-widgets/README.md), creating your own replacement method, invoking the original from within it, and then pushing your own asset to the browser.
 
@@ -454,8 +382,6 @@ The [pushAsset method](/modules/apostrophe-module/README.md#push-asset) can push
 
 Now you need to supply `always.less` in the right place: the `public/css` subdirectory of your module's directory.
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/drawer-widgets/public/css/always.less" %}
 ```css
 .drawer-title {
   padding: 2em 0;
@@ -467,15 +393,11 @@ Now you need to supply `always.less` in the right place: the `public/css` subdir
   display: none;
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 With these changes, your drawers are hidden. But you still need a way to toggle them open when the titles are clicked.
 
 For that, you'll need an `always.js` file, in your `public/js` folder:
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/drawer-widgets/public/js/always.js" %}
 ```javascript
 // Example of a widget manager with a play method
 
@@ -492,8 +414,6 @@ apos.define('drawer-widgets', {
   }
 });
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 What's happening in this code?
 

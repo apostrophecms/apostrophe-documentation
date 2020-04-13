@@ -16,7 +16,6 @@ Let's take another look at the [link-widgets module you just created in the prev
 Let's say you want to make the label optional, and use the URL as a label if no label is provided:
 
 
-{% code-tabs-item title="lib/modules/link-widgets/index.js" %}
 ```javascript
 module.exports = {
   extend: 'apostrophe-widgets',
@@ -37,13 +36,10 @@ module.exports = {
   ]
 };
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 Now, in `views/widget.html`, write:
 
 
-{% code-tabs-item title="views/widget.html" %}
 ```markup
 <h4>
   <a href="{{ data.widget.url }}">
@@ -51,8 +47,6 @@ Now, in `views/widget.html`, write:
   </a>
 </h4>
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 **In Nunjucks templates, `and` and `or` are used, not `&&` and `||`.**
 
@@ -61,7 +55,6 @@ But there's a problem: the URL is a bit clumsy-looking as a label, especially if
 You could do string replacement in Nunjucks, but as a general rule, **the more logic you write in templates, the harder they are to maintain.** You should instead move that code up to a JavaScript "helper function" in your `link-widgets` module:
 
 
-{% code-tabs-item title="lib/modules/link-widgets/index.js" %}
 ```javascript
 module.exports = {
   extend: 'apostrophe-widgets',
@@ -90,13 +83,10 @@ module.exports = {
   }
 };
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 Now, in `widget.html`, write:
 
 
-{% code-tabs-item title="views/widget.html" %}
 ```markup
 <h4>
   <a href="{{ data.widget.url }}">
@@ -104,8 +94,6 @@ Now, in `widget.html`, write:
   </a>
 </h4>
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 **"What's going on in this code?"** In the JavaScript code for the module, we start by adding an `alias` and set it to `link`. Without an alias, it is clumsy to access the module's helpers from Nunjucks.
 
@@ -140,7 +128,6 @@ In addition to functions, you can also pass data as helpers. This can be helpful
 For example, in your module you might create a `helpers` module just for sharing helpers like this:
 
 
-{% code-tabs-item title="lib/modules/helpers/index.js" %}
 ```javascript
 // (Don't forget to enable this new module in `app.js`)
 module.exports = {
@@ -152,8 +139,6 @@ module.exports = {
   }
 };
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 
 ```markup
@@ -178,7 +163,6 @@ You can find a [reference guide to ApostropheCMS nunjucks filters here](https://
 You can also add your own Nunjucks filters. Here's another version of `index.js`:
 
 
-{% code-tabs-item title="lib/modules/link-widgets/index.js" %}
 ```javascript
 module.exports = {
   extend: 'apostrophe-widgets',
@@ -207,13 +191,10 @@ module.exports = {
   }
 };
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 Now, in `widget.html`, use the new filter:
 
 
-{% code-tabs-item title="lib/modules/link-widgets/views/widget.html" %}
 ```markup
 <h4>
   <a href="{{ data.widget.url }}">
@@ -221,8 +202,6 @@ Now, in `widget.html`, use the new filter:
   </a>
 </h4>
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 Which technique should you use? If it's up to you. If your function is used a lot in your templates and takes just one argument, the `|` syntax can be convenient.
 

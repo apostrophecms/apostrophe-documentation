@@ -26,7 +26,6 @@ If you have an existing Apostrophe project, take a look at the `apostrophe-pages
 In addition to the `home.html` template in `lib/modules/apostrophe-pages`, projects created with our CLI from the `apostrophe-boilerplate` project ship with a simple `layout.html` file in the top-level `views/` folder. Templates  that are not from a specific module are found in `views/`. If you peek inside `layout.html`, you'll find several examples of "blocks":
 
 
-{% code-tabs-item title="views/layout.html" %}
 ```markup
 {% block beforeMain %}
   {#
@@ -49,8 +48,6 @@ In addition to the `home.html` template in `lib/modules/apostrophe-pages`, proje
   #}
 {% endblock %}
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 Blocks are a great Nunjucks feature; they are defined in files, and when you extend that file, you can override them in your page template by using the `block`keyword. So using these blocks on your pages means everything output by your page template will be inserted into the layout in the appropriate spot.
 
@@ -100,7 +97,6 @@ In order for any new page template to load, you must add it to `app.js`. When yo
 2. Add the registration for your new page template to `app.js`:
 
 
-{% code-tabs-item title="app.js" %}
     ```javascript
         // This configures our default page template
         'apostrophe-pages': {
@@ -118,8 +114,6 @@ In order for any new page template to load, you must add it to `app.js`. When yo
           ]
         },
     ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 Remember, all you're doing here is registering a template. New pages are created in context on your Apostrophe instance.
 

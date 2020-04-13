@@ -5,7 +5,6 @@ By default, Apostrophe 2.x always pushes `jQuery`, `lodash`, `async` and several
 To activate the new lean frontend, configure `apostrophe-assets` like this:
 
 
-{% code-tabs-item title="app.js" %}
 ```javascript
 module.exports = {
   modules: {
@@ -15,13 +14,10 @@ module.exports = {
   }
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 With the lean frontend, **none of Apostrophe's widget players are available by default.** However, a simple video player is available if you choose to turn it on:
 
 
-{% code-tabs-item title="app.js" %}
 ```javascript
 module.exports = {
   modules: {
@@ -34,8 +30,6 @@ module.exports = {
   }
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 Follow this convention in future when adding new lean widget players.
 

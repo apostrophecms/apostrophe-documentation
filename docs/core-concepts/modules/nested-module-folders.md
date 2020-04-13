@@ -6,7 +6,6 @@ inside `lib/modules`.
 You must set the `nestedModuleSubdirs` option to `true` in `app.js`, like this:
 
 
-{% code-tabs-item title="app.js" %}
 ```javascript
 require('apostrophe')({
   shortName: 'my-project',
@@ -18,8 +17,6 @@ require('apostrophe')({
   }
 });
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 
 Now you can nest modules in subdirectories, like this. Start with a `modules.js`
@@ -27,7 +24,6 @@ file in the parent `lib/modules/products` folder. Here you can activate all of t
 modules that relate to products, making `app.js` shorter:
 
 
-{% code-tabs-item title="lib/modules/products/modules.js" %}
 ```javascript
 module.exports = {
   'products': {},
@@ -35,44 +31,33 @@ module.exports = {
   'products-widgets': {}
 };
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 
 And then you can implement those modules in their own sub-subdirectories:
 
 
-{% code-tabs-item title="lib/modules/products/products/index.js" %}
 ```javascript
 module.exports = {
   extend: 'apostrophe-pieces',
   name: 'product'
 };
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 
-{% code-tabs-item title="lib/modules/products/products-pages/index.js" %}
 ```javascript
 module.exports = {
   extend: 'apostrophe-pieces-pages',
   label: 'Products Page'
 };
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 
-{% code-tabs-item title="lib/modules/products/products-widgets/index.js" %}
 ```javascript
 module.exports = {
   extend: 'apostrophe-pieces-widgets',
   label: 'Products'
 };
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 The resulting directory tree looks like this:
 

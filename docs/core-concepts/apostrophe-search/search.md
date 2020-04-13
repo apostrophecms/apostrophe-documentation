@@ -2,8 +2,6 @@
 
 Apostrophe has full-text search capabilities built in. You just need to enable the `apostrophe-search` module, and create a "parked page" with the type `apostrophe-search` so that there is a place to display search results.
 
-{% code-tabs %}
-{% code-tabs-item title="app.js" %}
 ```javascript
 // ... other code, then ...
 
@@ -23,8 +21,6 @@ Apostrophe has full-text search capabilities built in. You just need to enable t
     }
   }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 Now you get a search page at /search; it's very bare bones in appearance, so copy the index.html template from the `apostrophe` npm module's `lib/modules/apostrophe-search/views` folder to your own project-level `lib/modules/apostrophe-search/views` folder, and modify the markup as needed.
 
@@ -51,8 +47,6 @@ You may notice search results for documents that don't have URLs, or are simply 
 
 The simplest way to limit the results is to set the `types` option to an array containing all of the piece and page types that you *do* want results for:
 
-{% code-tabs %}
-{% code-tabs-item title="app.js" %}
 ```javascript
 'apostrophe-search': {
   types: [
@@ -62,22 +56,16 @@ The simplest way to limit the results is to set the `types` option to an array c
   ]
 },
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 When you do this, *no* other types will be included in the results. So be sure to extend the list appropriately if you add new page or piece types you would like to see.
 
 **Alternatively**, you can set a `searchable` property to `false` on piece or page types that you want to exclude from search. Core piece types such as `apostrophe-users` that are not necessarily meant to be public have this set by default.
 
-{% code-tabs %}
-{% code-tabs-item title="app.js" %}
 ```javascript
 'my-piece': {
   searchable: false
 },
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 
 **For piece types, there must be corresponding pieces-pages** in order for a valid URL to be provided. For instance, you have a `product` type powered by a `products` module that extends `apostrophe-pieces`, and you want to include it in search results, you must also create a `products-pages` module that extends `apostrophe-pieces-pages`, providing `index.html` and `show.html` templates for it, and create at least one such page on the site. For more information, see [reusable content with pieces](/tutorials/core-concepts/03-reusable-content-with-pieces/README.md).
@@ -92,8 +80,6 @@ You can also provide the user with convenient filters, for instance to view only
 
 To do that, configure the `filters` option. The `name` property must match the
 
-{% code-tabs %}
-{% code-tabs-item title="app.js" %}
 ```javascript
 'apostrophe-search': {
   filters: [
@@ -108,15 +94,11 @@ To do that, configure the `filters` option. The `name` property must match the
   ]
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 **When you do this, Apostrophe automatically adds one more choice labeled "Everything Else."** This makes sense because many page types and piece types may come up occasionally but aren't interesting enough to deserve their own filter.
 
 However, you can change the label of that extra filter choice by configuring one with the special name `__else`:
 
-{% code-tabs %}
-{% code-tabs-item title="app.js" %}
 ```javascript
 'apostrophe-search': {
   filters: [
@@ -135,5 +117,3 @@ However, you can change the label of that extra filter choice by configuring one
   ]
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}

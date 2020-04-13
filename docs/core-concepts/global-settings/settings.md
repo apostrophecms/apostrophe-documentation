@@ -9,8 +9,6 @@ Sometimes you just want to pass some settings from your `app.js` file, or a serv
 
 First, pass in the settings you want as options to a relevant module. If there is no specifically relevant module, we suggest creating a `settings` module in your project, like this:
 
-{% code-tabs %}
-{% code-tabs-item title="app.js" %}
 ```javascript
 
 modules: {
@@ -23,8 +21,6 @@ modules: {
   // ... other modules, etc.
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 Now, in any template, you can access them like so:
 

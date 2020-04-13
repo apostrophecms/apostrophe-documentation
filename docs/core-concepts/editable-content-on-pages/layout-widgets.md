@@ -31,8 +31,6 @@ Generally, you need a dedicated widget to create layout. The Apostrophe team som
 3. Define what can be in a `two-column` widget by defining it in `lib/modules/two-column-widgets/index.js`:
 
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/two-column-widgets/index.js" %}
     ```javascript
     module.exports = {
       extend: 'apostrophe-widgets',
@@ -52,8 +50,6 @@ Generally, you need a dedicated widget to create layout. The Apostrophe team som
       ]
     };
     ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 ### Conveniences for layout widgets \(contextualOnly and skipInitialModal\)
 
@@ -69,8 +65,6 @@ Now, like any other widget, you need to have a `widget.html` template. In this c
 
 In `lib/modules/two-column-widgets/views/widget.html`
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/two-column-widgets/views/widget.html" %}
    ```markup
     <div class="two-column">
         <div class="column-left">
@@ -89,8 +83,6 @@ In `lib/modules/two-column-widgets/views/widget.html`
         </div>
     </div>
     ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 {% hint style='info' %}
 "Why are the two columns stacked on top of each other?" You need to write your own CSS to position the `column-left` and `column-right` divs. However, you can find a [complete, working example with CSS here in the apostrophe-samples project](https://github.com/apostrophecms/apostrophe-samples).

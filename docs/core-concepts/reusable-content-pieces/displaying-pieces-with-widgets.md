@@ -12,7 +12,6 @@ In the previous example, you learned how to create pieces. Now you'll see how to
 So you created pieces, but you don't have a way to display them on your site yet. For that you'll need to add a second module in `app.js`, this time a widget:
 
 
-{% code-tabs-item title="app.js" %}
 ```javascript
 // other modules, then...
   'people-widgets': {
@@ -20,8 +19,6 @@ So you created pieces, but you don't have a way to display them on your site yet
   }
 // etc.
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 {% hint style="info" %}
 `people-widgets` will automatically figure out that its job is to display the pieces that come from the `people` module, by removing `-widgets` from its name. If you don't want to follow that pattern, you'll have to set the `piecesModuleName` option.
@@ -30,7 +27,6 @@ So you created pieces, but you don't have a way to display them on your site yet
 Already this is enough to let us add the new widget to any `apos.area` call in a page template, like your `home.html` or `default.html` template:
 
 
-{% code-tabs-item title="lib/modules/apostrophe-pages/views/default.html" %}
 ```markup
 apos.area(data.page, 'body', {
     widgets: {
@@ -41,8 +37,6 @@ apos.area(data.page, 'body', {
   }
 )
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 Right off the bat, you can click the `+` anywhere in this area to add a people widget, and then decide whether to display all people or just hand-pick a few by entering their names. There's an autocomplete feature to complete names quickly.
 
@@ -55,7 +49,6 @@ Pieces widgets are great, but they are powered by joins, and joins can cause tro
 To solve that, you should always add a `projection` filter when configuring a subclass of `apostrophe-pieces-widgets`:
 
 
-{% code-tabs-item title="lib/modules/apostrophe-pages/views/default.html" %}
 ```javascript
   'people-widgets': {
     extend: 'apostrophe-pieces-widgets',
@@ -72,8 +65,6 @@ To solve that, you should always add a `projection` filter when configuring a su
   }
 // etc.
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 This way, only the properties you really need are fetched for the widget. This can greatly speed up your site and prevent mysterious refusals to load any more data if things start joining back to themselves.
 
@@ -86,7 +77,6 @@ _"Which properties do I need in my projection?"_ Just those you'll use in your `
 Your widget isn't very satisfying yet. It just displays full names. Let's improve it by creating your own `lib/modules/people-widgets/views/widget.html` file to provide a more detailed display:
 
 
-{% code-tabs-item title="lib/modules/apostrophe-pages/views/widget.html" %}
 ```markup
 {% for piece in data.widget._pieces %}
   <h4>
@@ -112,8 +102,6 @@ Your widget isn't very satisfying yet. It just displays full names. Let's improv
   </h4>
 {% endfor %}
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 {% hint style="info" %}
 **"Where do those** `piece._url` **links go?"** Nowhere, yet. Read on to learn about `apostrophe-pieces-pages`, which provide a destination for those links.

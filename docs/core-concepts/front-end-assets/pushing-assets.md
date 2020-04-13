@@ -9,7 +9,6 @@ If all you have are some basic templates in the default boilerplate project, you
  Take a peek at your project's `lib/modules/apostrophe-assets/index.js` file and you'll spot some really simple configuration that is already pushing a `site.less` file, as well as a `site.js` file.
 
 
-{% code-tabs-item title="lib/modules/apostrophe-assets/index.js" %}
 ```javascript
 // This configures the apostrophe-assets module to push a 'site.less'
 // stylesheet by default:
@@ -27,15 +26,12 @@ module.exports = {
   ]
 };
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 We could have put this configuration inside `app.js`, but that leads to a cluttered `app.js` file. Apostrophe will also automatically look for a `lib/modules/MODULE-N AME-HERE/index.js` file for each module and load that too if it exists.
 
 Your LESS file might look like:
 
 
-{% code-tabs-item title="lib/modules/apostrophe-assets/public/css/site.less" %}
 ```css
 @import "utils/reset.less";
 
@@ -62,8 +58,6 @@ body
   }
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 We use `@import` here because in LESS, `@import` is compiled just once on the server, so there is no performance hit. You can use it to bring in additional LESS files, so it's common to only configure one in `app.js`.
 
@@ -78,7 +72,6 @@ You can push the output file to Apostrophe just like any other asset, following 
 You can work around this by using import flags:
 
 
-{% code-tabs-item title="lib/modules/apostrophe-assets/index.js" %}
 ```javascript
 module.exports = {
   stylesheets: [
@@ -91,8 +84,6 @@ module.exports = {
   ]
 };
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 When you use the `inline` import flag, the LESS compiler will import your file as-is, without attempting to interpret it as LESS.
 
@@ -141,15 +132,12 @@ In your `my-theme` module, you'll include your assets in `lib/modules/my-theme/p
 As an example, with `karla.woff` in `lib/modules/my-theme/public/fonts` the @font-face definition could be as simple as:
 
 
-{% code-tabs-item title="lib/modules/my-theme/public/fonts" %}
 ```css
 @font-face {
     font-family: 'Karla';
     src: url('/modules/my-theme/fonts/karla.woff') format('woff');
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 {% hint style="working" %}
 Not working for you yet? Please check out the [complete, working example of a `theme` module in the apostrophe-samples project](https://github.com/apostrophecms/apostrophe-samples). This project is a great place to start if you need more examples of where to put your code "in context" so that everything works!

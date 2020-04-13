@@ -17,8 +17,6 @@ Let's say you want to create a directory of people who work for a company. Peopl
 
 1\. Create a `lib/modules/people/index.js` file:
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/people/index.js" %}
 ```javascript
 module.exports = {
   extend: 'apostrophe-pieces',
@@ -76,8 +74,6 @@ module.exports = {
   ]
 };
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 {% hint style="info" %}
 **IMPORTANT: note the** `name` **property. This identifies ONE piece in the database, so it is always singular.** Remember: Modules Are Plural \(MAP\), but the things they manage may not be.
@@ -85,16 +81,12 @@ module.exports = {
 
 2\. Now turn the module on in `app.js`.
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/people/index.js" %}
 ```javascript
 modules: {
   // ... other modules ...,
   'people': {}
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 {% hint style="info" %}
 **Note:** When code examples show sections like the `modules` section in `app.js` we're only going to show you the relevant portion that you're currently working on. In many cases you'll have a lot more in those sections, but we don't need to replicate that every time.
@@ -118,8 +110,6 @@ Right now, the `title` property \(which is always the full name of the piece\) i
 
 To do this, add this `beforeSave` method in `lib/modules/people/index.js`:
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/people/index.js" %}
 ```javascript
 module.exports = {
   // Same configuration as before, then...
@@ -132,8 +122,6 @@ module.exports = {
   }
 };
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 Now the `title` property is set automatically from the first and last name.
 
@@ -145,8 +133,6 @@ Methods are always added to the module in the `construct` function, which takes 
 
 When you do this, there is still a separate prompt to enter the full name. Remove that by adding the `contextual` option to the `title` field, which keeps that field out of the modal:
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/people/index.js" %}
 ```javascript
   // In `addFields`
   {
@@ -158,8 +144,6 @@ When you do this, there is still a separate prompt to enter the full name. Remov
   }
 ]
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 {% hint style="info" %}
 There are many other methods you can override or extend to change the behavior of pieces. See [the apostrophe-pieces API methods](/modules/apostrophe-pieces/README.md) for more information.
@@ -172,8 +156,6 @@ As you create increasingly complex [schemas](/tutorials/schema-guide/schema-guid
 You can use `arrangeFields` to break the schema into multiple tabs in the editor modal. This can be achieved by passing an array of objects, each containing a name, label, and array of fields, to `arrangeFields`:
 
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/people/index.js" %}
 ```javascript
   addFields: [ ... ],
   arrangeFields: [
@@ -194,8 +176,6 @@ You can use `arrangeFields` to break the schema into multiple tabs in the editor
     }
   ],
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 Any non-`contextual` fields excluded from this configuration will be placed in an additional tab.
 

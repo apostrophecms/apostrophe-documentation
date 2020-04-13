@@ -14,7 +14,6 @@ Apostrophe includes a "password reset" feature for your users. This feature foll
 For security reasons, and because most sites don't have the [apostrophe-email](/tutorials/devops/email.md) module configured yet, this option must be turned on for your site:
 
 
-{% code-tabs-item title="app.js" %}
 ```javascript
 modules: {
   'apostrophe-email': {
@@ -38,8 +37,6 @@ modules: {
   }
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 Once you enable the feature, the user will automatically see a "Reset My Password" link at the bottom of the login form at `/login`. If you don't see that link, make sure you haven't previously overridden your `loginBase.html` template.
 
