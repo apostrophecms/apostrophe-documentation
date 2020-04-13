@@ -5,8 +5,10 @@
   "private": true,
   "main": "index.js",
   "scripts": {
+    "dev": "npm run docs:dev",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "test": "npx eslint ."
   },
   "author": "Apostrophe Technologies, Inc.",
   "license": "MIT",

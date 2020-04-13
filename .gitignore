@@ -1,6 +1,5 @@
 # ignore vim swapfiles
 *.swp
-_site
 *.DS_Store
 npm-debug.log
 node_modules
