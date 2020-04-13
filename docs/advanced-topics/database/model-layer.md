@@ -1,7 +1,4 @@
----
-title: "Apostrophe's model layer: working with the database"
-layout: tutorial
----
+# Apostrophe's model layer: working with the database
 
 Apostrophe provides a model layer (database layer) that gives you convenient ways to read and write docs programmatically, taking advantage of the same features that underpin modules like `apostrophe-pieces`. Using these features where possible ensures that permissions are respected, widgets are loaded, joins are fetched, versions are recorded for rollback... so many good things.
 

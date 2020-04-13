@@ -1,7 +1,4 @@
----
-title: Accessing the children of pages via joins
-layout: tutorial
----
+# Accessing the children of pages via joins
 
 [Joins](../schema-guide/schema-guide.md#joinbyone) are one of Apostrophe's best features:
 

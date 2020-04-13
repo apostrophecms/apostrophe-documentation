@@ -1,8 +1,3 @@
----
-title: "AJAX Features: Enhanced Browsing Without Page Refresh"
-layout: tutorial
----
-
 # AJAX Features: Enhanced Browsing for Pieces
 
 Asynchronous JavaScript and XML, commonly known as [AJAX](https://api.jquery.com/jquery.ajax/), provides techniques for more dynamic and responsive websites. You can use AJAX with Pieces to refresh and display content without fully refreshing the page. To demonstrate this, we'll work off of the `people-pages` example from the [Reusable Content with Pieces](/tutorials/core-concepts/reusable-content-pieces/reusable-content-with-pieces.md) which uses `piece-pages` to create a user directory, but you should be able to easily adapt this example to your own project.
@@ -19,8 +14,6 @@ _The value of the attribute must be unique on the page._
 
 Next, refactor your `index.html` template so that the actual list of people and any filters are in an `indexAjax.html` template, which is included at the appropriate point, wrapped in a div that has the `data-apos-ajax-context` attribute:
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/people-pages/index.html" %}
 ```markup
 {% extends "layout.html" %}
 <h2>People</h2>
@@ -28,11 +21,7 @@ Next, refactor your `index.html` template so that the actual list of people and 
   {% include "indexAjax.html" %}
 </div>
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/people-pages/indexAjax.html" %}
 ```markup
 {% for piece in data.pieces %}
   <h4>
@@ -44,8 +33,6 @@ Next, refactor your `index.html` template so that the actual list of people and 
   </h4>
 {% endfor %}
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 
 That's it! Really. And it automatically works with the filters from the [Connecting Piece Types example](/tutorials/core-concepts/reusable-content-pieces/joins.md).
@@ -78,8 +65,6 @@ But this isn't hard to accommodate. All you have to do is:
 
 Here's an example. Here we assume you already set up the `piecesFilters` option as described earlier in this tutorial to enable filtering people by tag.
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/people-pages/index.html" %}
 ```markup
 {% extends "layout.html" %}
 <h2>People</h2>
@@ -87,11 +72,7 @@ Here's an example. Here we assume you already set up the `piecesFilters` option 
   {% include "indexAjax.html" %}
 </div>
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/people-pages/indexAjax.html" %}
 ```markup
 {# Filter by tag. Note this is OUTSIDE data-apos-ajax-append, so it gets REFRESHED #}
 <ul class="tag-filters">
@@ -119,8 +100,6 @@ Here's an example. Here we assume you already set up the `piecesFilters` option 
   <a href="{{ data.url | build({ page: data.currentPage + 1, append: 1 }) }}">Load More...</a>
 {% endif %}
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 #### Infinite scroll with AJAX
 

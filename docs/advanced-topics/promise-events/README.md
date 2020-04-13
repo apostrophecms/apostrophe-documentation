@@ -1,9 +1,4 @@
----
-title: "Custom Server-side Event Handlers with Promise Events"
-layout: reference
-children:
-  - promise-events
----
+# Custom Server-side Event Handlers with Promise Events
 
 Promise Events are how Apostrophe enables you to create custom events and add more dynamic elements to your site.
 

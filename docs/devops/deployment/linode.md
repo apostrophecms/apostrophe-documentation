@@ -1,7 +1,4 @@
----
-title: Deploying Apostrophe to a Linode linux server quickly
-layout: tutorial
----
+# Deploying Apostrophe to a Linode linux server quickly
 
 [Linode](https://www.linode.com) is a popular provider of Linux VPSes (Virtual Private Servers). A VPS is a great fit for most Apostrophe sites because it can easily accommodate MongoDB, Apostrophe and your content at a fixed, low monthly price. Setting it up is usually much simpler than using a "cloud provider" like AWS or Heroku, unless you have a true need to operate at a very large scale.
 

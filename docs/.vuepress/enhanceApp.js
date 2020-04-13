@@ -1,3 +1,5 @@
 export default ({ router }) => {
-  router.addRoutes([]);
+  router.addRoutes([
+    // '/apostrophe-devops/devops/*' to '/apostrophe-devops/*'
+  ]);
 };

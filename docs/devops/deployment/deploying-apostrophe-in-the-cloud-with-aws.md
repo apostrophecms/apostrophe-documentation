@@ -1,7 +1,4 @@
----
-title: "Deploying Apostrophe with AWS and Elastic Beanstalk"
-layout: tutorial
----
+# Deploying Apostrophe with AWS and Elastic Beanstalk
 
 Amazon AWS is hands down and far away the most popular cloud hosting solution, and for good reason. They have the best understanding of the problem and the largest infrastructure. But it can be confusing. Fortunately, Amazon offers Elastic Beanstalk, which provides much of the simplicity of options like Heroku without any added cost over configuring AWS directly.
 
@@ -243,7 +240,7 @@ APOS_S3_KEY YOUR-s3-key
 APOS_S3_REGION YOUR-chosen-region
 ```
 
-From here on out, all of your media uploads will go to S3 and persist there. 
+From here on out, all of your media uploads will go to S3 and persist there.
 
 If you have existing files for this website and are migrating them into S3, you can upload them to the appropriate path in your bucket. The [AWS CLI](https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html) can do it:
 

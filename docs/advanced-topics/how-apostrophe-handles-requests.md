@@ -1,8 +1,3 @@
----
-title: How Apostrophe handles requests
-layout: tutorial
----
-
 # How Apostrophe handles requests
 
 This HOWTO describes how Apostrophe handles requests, and in the process, introduces many ways you can intercept that process and modify the response sent to the browser.
@@ -225,4 +220,3 @@ self.apos.app.get('/special-url', function(req, res) {
 Note that the `apostrophe-pages:beforeSend` promise event is emitted, and any handlers are awaited, before the template is rendered.
 
 `sendPage` completes your response to the Express request. There is no need to call `res.send` afterwards and it will not work if you try. If you need to do anything special to the Express `res` object before the response is sent, do that first, accessing it via `req.res`.
-

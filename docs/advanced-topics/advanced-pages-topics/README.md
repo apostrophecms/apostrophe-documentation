@@ -1,10 +1,4 @@
----
-title: "Advanced Pages Topics"
-layout: reference
-children:
-  - custom-schema-fields-for-pages
-  - children-and-joins
----
+# Advanced Pages Topics
 
 In this section, you'll learn more about using custom schemas in pages.
 

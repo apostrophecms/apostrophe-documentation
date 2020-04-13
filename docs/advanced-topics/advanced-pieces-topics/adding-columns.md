@@ -4,8 +4,6 @@ By default, the "manage" modal displays just a few columns: "title," "last updat
 
 You can extend this list and even specify your own sortable columns. Here's how to do that:
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/people/index.js" %}
 ```javascript
 module.exports = {
   // Other configuration options, then...
@@ -41,8 +39,6 @@ module.exports = {
     }
   ]
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 {% hint style="info" %}
 Notice that for `sort` you specify an object exactly like what you'd pass to MongoDB's `sort()` method, or Apostrophe's `sort()` cursor filter. In particular, the actual property you sort on does not have to match the property name displayed in the column. For example, when working with people's names you might sort on `{ lastName: 1, firstName: 1 }` rather than `title`.

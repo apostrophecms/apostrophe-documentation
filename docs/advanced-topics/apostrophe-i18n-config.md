@@ -1,7 +1,4 @@
----
-title: Internationalization and localization
-layout: tutorial
----
+# Internationalization and localization
 
 With Apostrophe, the best solution for internationalization (also known as i18n, or localization) depends on whether you're interested in translating "static" text in your templates and our interface, or dynamic text created by editing on the page, creating pieces, and so on.
 
@@ -27,8 +24,6 @@ Now, when you start the application, you will see files in the `locales` subdire
 
 Any modules you pass to the `apostrophe-i18n` module are automatically passed on to `i18n`.
 
-{% code-tabs %}
-{% code-tabs-item title="app.js" %}
 ```javascript
     ...
     modules:{
@@ -37,8 +32,6 @@ Any modules you pass to the `apostrophe-i18n` module are automatically passed on
         }
     }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 Here is a guide to the available options:
 
@@ -70,8 +63,6 @@ Here is a guide to the available options:
 
 ## Simple configuration
 
-{% code-tabs %}
-{% code-tabs-item title="app.js" %}
 ```javascript
     ...
     modules:{
@@ -86,7 +77,5 @@ Here is a guide to the available options:
     }
     ...
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 There are many more options, which you can read about in the [i18n npm module documentation](https://www.npmjs.com/package/i18n).

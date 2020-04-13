@@ -9,8 +9,6 @@ Sometimes it's desirable to provide links to the "next" and "previous" piece on 
 
 To enable that, just configure your module that subclasses `apostrophe-pieces-pages` appropriately:
 
-{% code-tabs %}
-{% code-tabs-item title="my-articles-pages/index.js" %}
 ```javascript
 module.exports = {
   extend: 'apostrophe-pieces-pages',
@@ -19,8 +17,6 @@ module.exports = {
   // other options, etc.
 };
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 {% hint style="info" %}
 Here we'e assuming that `my-articles` extends `apostrophe-pieces` directly, and `my-articles-pages` extends `apostrophe-pieces-pages`, but you can also do this trick with modules that extend `apostrophe-blog-pages`, `apostrophe-events-pages` and other existing subclasses.
@@ -28,8 +24,6 @@ Here we'e assuming that `my-articles` extends `apostrophe-pieces` directly, and 
 
 Turning on these options causes Apostrophe to load the next and previous documents into `data.previous` and `data.next`, so you can output links like this, often at the bottom of `show.html`:
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/people-pages/views/show.html" %}
 ```markup
 {% if data.previous %}
   <h4>
@@ -43,13 +37,9 @@ Turning on these options causes Apostrophe to load the next and previous documen
   </h4>
 {% endif %}
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 By default you can access any property of `data.previous` or `data.next`. For better performance, you may want to limit them with a projection, much as you would for a join:
 
-{% code-tabs %}
-{% code-tabs-item title="my-articles-pages/index." %}
 ```javascript
 module.exports = {
   extend: 'apostrophe-pieces-pages',
@@ -72,8 +62,6 @@ module.exports = {
   // other options, etc.
 };
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 {% hint style='info' %}
 These are the minimum fields recommended. Except for `title`, all of them play a role in building the dynamic `_url` property correctly.

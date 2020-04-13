@@ -1,8 +1,3 @@
----
-title: Apostrophe Events Handlers
-layout: reference
----
-
 # Apostrophe Event Handlers
 
 ## Apostrophe Promise Events: responding to events on the server side
@@ -26,19 +21,13 @@ If you try out this code yourself you must [register your own openweathermap api
 npm install request-promise
 ```
 
-{% code-tabs %}
-{% code-tabs-item title="app.js" %}
 ```javascript
 modules: {
   // Other modules, then...
   'my-module': {}
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/my-module/index.js" %}
 ```javascript
 const request = require('request-promise');
 
@@ -61,18 +50,12 @@ module.exports = {
   }
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
-{% code-tabs %}
-{% code-tabs-item title="layout.html" %}
 ```markup
 <footer>
   <h4>Current Weather: {{ data.forecast.weather.description }}</h4>
 </footer>
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 > **What's going on in this code?** We use `self.on` to listen to the `apostrophe-pages:beforeSend` promise event, which is sent by the `apostrophe-pages` module just before it renders the page. This is our last chance to do any asynchronous work, like talking to an API. We name our event handler method `addWeather`, so that we can extend it later in a subclass of this module if we choose. And we pass an `async function`, taking advantage of the fact that these automatically return promises in Node 8. Apostrophe will wait for our promise to resolve before rendering the page.
 >
@@ -232,8 +215,6 @@ Here we gave the handler the name `addWeather`.
 
 This is really just a convenience, and is exactly equivalent to:
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/my-module/index.js" %}
 ```javascript
 const request = require('request-promise');
 
@@ -249,8 +230,6 @@ module.exports = {
   }
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 So we can change its behavior by applying the "super pattern" as we do in many places in Apostrophe:
 

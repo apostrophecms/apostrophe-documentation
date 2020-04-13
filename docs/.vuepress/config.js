@@ -100,31 +100,78 @@ module.exports = {
             ]
           }
         ]
+      },
+      {
+        title: 'Advanced Topics',
+        path: '/advanced-topics',
+        collapsable: false,
+        children: [
+          'advanced-topics/schema-guide',
+          {
+            title: 'Advanced Pieces Topics',
+            path: '/advanced-topics/advanced-pieces-topics',
+            children: [
+              'advanced-topics/advanced-pieces-topics/ajax-pieces',
+              'advanced-topics/advanced-pieces-topics/permissions-for-pieces',
+              'advanced-topics/advanced-pieces-topics/adding-filters',
+              'advanced-topics/advanced-pieces-topics/adding-columns',
+              'advanced-topics/advanced-pieces-topics/next-previous-links',
+              'advanced-topics/advanced-pieces-topics/suppressing-pieces-from-a-listing',
+              'advanced-topics/advanced-pieces-topics/adding-fields-to-all-pieces',
+              'advanced-topics/advanced-pieces-topics/adding-new-batch-operations',
+              'advanced-topics/advanced-pieces-topics/extending-the-pieces-editor-modal',
+              'advanced-topics/advanced-pieces-topics/overriding-piece-urls'
+            ]
+          },
+          {
+            title: 'Advanced Pages Topics',
+            path: '/advanced-topics/advanced-pages-topics',
+            children: [
+              'advanced-topics/advanced-pages-topics/custom-schema-fields-for-pages',
+              'advanced-topics/advanced-pages-topics/children-and-joins'
+            ]
+          },
+          'advanced-topics/how-apostrophe-handles-requests',
+          'advanced-topics/how-apostrophe-starts-up',
+          {
+            title: 'Custom Server-side Event Handlers with Promise Events',
+            path: '/advanced-topics/promise-events',
+            children: [
+              'advanced-topics/promise-events/promise-events'
+            ]
+          },
+          'advanced-topics/command-line-tasks',
+          'advanced-topics/apostrophe-i18n-config',
+          {
+            title: 'The Database',
+            path: '/advanced-topics/database',
+            children: [
+              'advanced-topics/database/model-layer',
+              'advanced-topics/database/cursors',
+              'advanced-topics/database/accessing-the-database-directly',
+              'advanced-topics/database/replica-set'
+            ]
+          }
+        ]
+      },
+      {
+        title: 'DevOps',
+        path: '/devops',
+        collapsable: false,
+        children: [
+          {
+            title: 'Deploying Apostrophe for Production',
+            path: '/devops/deployment',
+            children: [
+              'devops/deployment/deployment',
+              'devops/deployment/linode',
+              'devops/deployment/deploying-apostrophe-in-the-cloud-with-heroku',
+              'devops/deployment/deploying-apostrophe-in-the-cloud-with-aws'
+            ]
+          }
+        ]
       }
 
-      // ## Advanced Topics
-
-      // * [Schema Guide](schema-guide/schema-guide.md)
-      // * [Advanced Pieces Topics](advanced-development/advanced-pieces-topics/README.md)
-      //   * [AJAX Features: Enhanced Browsing for Pieces](advanced-development/advanced-pieces-topics/ajax-pieces.md)
-      //   * [Fine-grained Permissions for Pieces](advanced-development/advanced-pieces-topics/permissions-for-pieces.md)
-      //   * [Adding Filters](advanced-development/advanced-pieces-topics/adding-filters.md)
-      //   * [Adding Columns](advanced-development/advanced-pieces-topics/adding-columns.md)
-      //   * [Next and Previous Links](advanced-development/advanced-pieces-topics/next-previous-links.md)
-      //   * [Suppressing Pieces from a Listing](advanced-topics/advanced-pieces-topics/suppressing-pieces-from-a-listing.md)
-      //   * [Adding Fields to All Pieces](advanced-development/advanced-pieces-topics/adding-fields-to-all-pieces.md)
-      //   * [Adding new batch operations for pieces](advanced-development/advanced-pieces-topics/adding-new-batch-operations.md)
-      //   * [Extending the Pieces Editor Modal](advanced-development/advanced-pieces-topics/extending-the-pieces-editor-modal.md)
-      //   * [Understanding and Overriding Piece URLs](advanced-development/advanced-pieces-topics/overriding-piece-urls.md)
-      // * [Advanced Pages Topics](advanced-development/advanced-pages-topics/README.md)
-      //   * [Custom Schemas for Pages](advanced-development/advanced-pages-topics/custom-schema-fields-for-pages.md)
-      //   * [Accessing the children of pages via joins](advanced-development/advanced-pages-topics/children-and-joins.md)
-      // * [How Apostrophe Handles Requests](advanced-development/how-apostrophe-handles-requests.md)
-      // * [How Apostrophe Starts Up](advanced-development/how-apostrophe-starts-up.md)
-      // * [Custom Server-side Event Handlers with Promise Events](advanced-development/promise-events/README.md)
-      //   * [Custom Server-side Event Handlers with Promise Events](advanced-development/promise-events/promise-events.md)
-      // * [Command line tasks](advanced-development/apostrophe-cli/command-line-tasks.md)
-      // * [Internationalization and localization](advanced-development/internationalization-localization/apostrophe-i18n-config.md)
       // * [The Database](advanced-development/database/README.md)
       //   * [Apostrophe's model layer: working with the database](advanced-development/database/model-layer.md)
       //   * [Working with cursors](advanced-development/database/cursors.md)

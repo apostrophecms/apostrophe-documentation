@@ -32,8 +32,6 @@ Let's say we've created a `profiles` module that [extends apostrophe-pieces](/tu
 
 Now let's say we want to fetch the ten most recently updated profiles with a `reputation` value greater than 30 and make sure we have access to that information in every page template:
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/profiles/index.js" %}
 ```javascript
 module.exports = {
   construct: function(self, options) {
@@ -52,8 +50,6 @@ module.exports = {
   }
 };
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 > **"What's going on in this code?"** We've written a [promise event handler](/tutorials/advanced-development/promise-events/README.md) that listens for the `apostrophe-pages:beforeSend` event, which is sent just before Apostrophe renders the page template. We've given it the method name `fetchProfiles`, to distinguish it from other handlers. And we've supplied an `async` function that fetches the profiles.
 >
@@ -130,8 +126,6 @@ addFields: [
 
 We can already write `._jobs('xyz')` to match people that are joined with that particular job `_id`. But let's say we want an easy way to match only people who are joined with **more than one job** - people who are "busy." Here's a custom filter that can do that:
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/profiles/lib/cursor.js" %}
 ```javascript
 module.exports = {
   construct: function(self, options) {
@@ -152,8 +146,6 @@ module.exports = {
   }
 };
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 "What's happening in this code?"
 
@@ -183,18 +175,12 @@ For this trick, you'll need to get slightly more comfortable with Apostrophe's u
 
 But it's still pretty easy:
 
-{% code-tabs %}
-{% code-tabs-item title="app.js" %}
 ```javascript
 modules: {
   'extend-page-cursors': {}
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/extend-page-cursors/index.js" %}
 ```javascript
 module.exports = {
   construct: function(self, options) {
@@ -202,11 +188,7 @@ module.exports = {
   }
 };
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/extend-page-cursors/lib/pagesCursor.js" %}
 ```javascript
 module.exports = {
   construct: function(self, options) {
@@ -214,8 +196,6 @@ module.exports = {
   }
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 What's happening in this code?
 
