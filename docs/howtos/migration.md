@@ -1,7 +1,4 @@
----
-title: Migrating from Apostrophe 0.5
-layout: tutorial
----
+# Migrating from Apostrophe 0.5
 
 Version 2.x is a complete rewrite of Apostrophe. There is some effort involved in moving from 0.5 to 2.x as a developer.
 

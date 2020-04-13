@@ -1,7 +1,4 @@
----
-title: Facebook open graph tags in Apostrophe
-layout: tutorial
----
+# Facebook open graph tags in Apostrophe
 
 Facebook open graph tags can improve the way your pages appear when shared on Facebook, provided you use them correctly. The most frequently requested tag is `og:image`, followed by `og:title`, `og:description` and `og:type`. Often you can get away with just setting `og:image`. We'll look at how to do that.
 

@@ -168,62 +168,31 @@ module.exports = {
               'devops/deployment/deploying-apostrophe-in-the-cloud-with-heroku',
               'devops/deployment/deploying-apostrophe-in-the-cloud-with-aws'
             ]
-          }
+          },
+          'devops/email',
+          'devops/multicore'
+        ]
+      },
+      {
+        title: 'How-Tos',
+        path: '/howtos',
+        // collapsable: false,
+        children: [
+          'howtos/custom-schema-field-types',
+          'howtos/storing-sessions-in-redis',
+          'howtos/windows',
+          'howtos/docker',
+          'howtos/migration',
+          'howtos/forms',
+          'howtos/admin-bar',
+          'howtos/how-do-i-create-a-404-not-found-page',
+          'howtos/intranet',
+          'howtos/ckeditor',
+          'howtos/facebook',
+          'howtos/sending-user-notifications',
+          'howtos/user-redirect'
         ]
       }
-
-      // * [The Database](advanced-development/database/README.md)
-      //   * [Apostrophe's model layer: working with the database](advanced-development/database/model-layer.md)
-      //   * [Working with cursors](advanced-development/database/cursors.md)
-      //   * [Accessing the database directly](advanced-development/database/accessing-the-database-directly.md)
-      //   * [Using MongoDB replica sets with Apostrophe](advanced-development/database/replica-set.md)
-
-      // ## Apostrophe DevOps
-
-      // * [Apostrophe DevOps](devops/README.md)
-      //   * [Hosting Apostrophe in production](devops/deployment/README.md)
-      //     * [Hosting Apostrophe in production](devops/deployment/deployment.md)
-      //     * [Deploying Apostrophe to a Linode linux server quickly](devops/deployment/linode.md)
-      //     * [Deploying Apostrophe in the Cloud with Heroku](devops/deployment/deploying-apostrophe-in-the-cloud-with-heroku.md)
-      //     * [Deploying Apostrophe with AWS and Elastic Beanstalk](devops/deployment/deploying-apostrophe-in-the-cloud-with-aws.md)
-      //   * [Storing Images and Files in the Cloud](devops/cloud/README.md)
-      //     * [Storing images and files in Amazon S3](devops/cloud/storing-images-and-files-in-amazon-s3.md)
-      //     * [Storing images and files in Azure Blob Storage](devops/cloud/storing-images-and-files-in-azure-blob-storage.md)
-      //     * [Storing images and files in Google Cloud Storage](devops/cloud/storing-images-and-files-in-google-cloud-storage.md)
-      //   * [Sending email from your ApostropheCMS site](devops/email.md)
-      //   * [Storing Sessions in Redis](devops/storing-sessions-in-redis.md)
-      //   * [Running Apostrophe on multiple cores and/or servers](devops/multicore.md)
-      //   * [Running Apostrophe on Windows](devops/windows.md)
-      //   * [Building Docker images for Apostrophe projects](devops/docker.md)
-      //   * [Apostrophe Migration Guide](devops/migration.md)
-
-      // ## HOWTOs
-
-      // * [Apostrophe HOWTOs](howtos/README.md)
-      // * [Hosting Apostrophe in production](devops/deployment/README.md)
-      //   * [Hosting Apostrophe in production](devops/deployment/deployment.md)
-      //   * [Deploying Apostrophe to a Linode linux server quickly](devops/deployment/linode.md)
-      //   * [Deploying Apostrophe in the Cloud with Heroku](devops/deployment/deploying-apostrophe-in-the-cloud-with-heroku.md)
-      //   * [Deploying Apostrophe with AWS and Elastic Beanstalk](devops/deployment/deploying-apostrophe-in-the-cloud-with-aws.md)
-      // * [Storing Images and Files in the Cloud](devops/cloud/README.md)
-      //   * [Storing images and files in Amazon S3](devops/cloud/storing-images-and-files-in-amazon-s3.md)
-      //   * [Storing images and files in Azure Blob Storage](devops/cloud/storing-images-and-files-in-azure-blob-storage.md)
-      //   * [Storing images and files in Google Cloud Storage](devops/cloud/storing-images-and-files-in-google-cloud-storage.md)
-      // * [How Do I Create a Custom Schema Field Type?](howtos/custom-schema-field-types.md)
-      // * [Sending email from your ApostropheCMS site](devops/email.md)
-      // * [Storing Sessions in Redis](devops/storing-sessions-in-redis.md)
-      // * [Running Apostrophe on multiple cores and/or servers](devops/multicore.md)
-      // * [Running Apostrophe on Windows](devops/windows.md)
-      // * [Building Docker images for Apostrophe projects](devops/docker.md)
-      // * [Apostrophe Migration Guide](devops/migration.md)
-      // * [Building a contact form in Apostrophe](howtos/forms.md)
-      // * [Building combined menus and custom buttons with the admin bar](howtos/admin-bar.md)
-      // * [How do I create a '404 not found' page?](howtos/how-do-i-create-a-404-not-found-page.md)
-      // * [How do I add an Intranet to My Site?](howtos/intranet.md)
-      // * [Configuring CKEditor in Apostrophe](howtos/ckeditor.md)
-      // * [Facebook open graph tags in Apostrophe](howtos/facebook.md)
-      // * [Sending user notifications](howtos/sending-user-notifications.md)
-      // * [How do I Redirect a User on Login?](howtos/user-redirect.md)
 
       // ## Reference
 

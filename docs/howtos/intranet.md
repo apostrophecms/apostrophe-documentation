@@ -1,7 +1,4 @@
----
-title: "How do I add an Intranet to my site?"
-layout: tutorial
----
+# How do I add an Intranet to my site?
 
 Many websites feature an "Intranet" section which is exclusively for employees. ApostropheCMS offers ways to accomplish this.
 
@@ -37,7 +34,7 @@ In this case, you will need to take two steps:
 1. You must transition to editable groups, if you have not done so already. Remove the `groups` option from your project-level `apostrophe-users` module configuration. For more
 information about this, see the [permissions tutorial](../intermediate/permissions.md).
 
-2. Add users to groups intended to provide access to specific parts of the site, naming the groups to suit your needs. Give each of these groups the "guest" permission.  
+2. Add users to groups intended to provide access to specific parts of the site, naming the groups to suit your needs. Give each of these groups the "guest" permission.
 
 3. Edit the Page Settings of the relevant pages. Click on the "Permissions" tab, then change "Login REquired" to "Certain People."
 

@@ -1,7 +1,4 @@
----
-title: "Building Docker images for Apostrophe projects"
-layout: tutorial
----
+# Building Docker images for Apostrophe projects
 
 [Docker](http://www.docker.com/) is a containerization platform that lets developers build an image for their projects then run it anywhere.
 
@@ -36,7 +33,7 @@ RUN npm install
 VOLUME /app/data
 VOLUME /app/public/uploads
 
-# Add the environment variable 
+# Add the environment variable
 # to copy files rather than use symlinks
 ENV APOS_ALWAYS_COPY_ASSETS=1
 
@@ -70,7 +67,7 @@ services:
       - 'mongo:/data/db'
     ports:
       - '127.0.0.1:27017:27017'
-    restart: always  
+    restart: always
 
   aposcms:
     image: "aposDockerImageFileName:latest"
@@ -149,7 +146,7 @@ $ docker run -d --link=apostrophe-sandbox-db:mongodb -p 3000:3000 myname/apostro
 ## Run as a Docker Compose service
 
 ### Start services
-From the folder that contains your docker-compose.yaml file run the following to start both MongoDB and Apostrophe 
+From the folder that contains your docker-compose.yaml file run the following to start both MongoDB and Apostrophe
 ```
 docker-compose up
 

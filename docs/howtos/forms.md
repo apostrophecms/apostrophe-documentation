@@ -1,8 +1,3 @@
----
-title: "Building Custom Forms with Apostrophe"
-layout: tutorial
----
-
 # Building Forms with Apostrophe
 
 So you want a contact form on your site---a pretty common requirement. Maybe it's not a contact form; maybe you want to accept submissions of stories, or product ideas. The same principles apply. Apostrophe provides several ways to accomplish this.

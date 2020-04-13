@@ -69,14 +69,11 @@ The terminal prompt finds commands in folders listed in an environment variable 
 
 3. Add these two lines to the file and save it:
 
-{% code-tabs %}
-{% code-tabs-item title="\~/.profile" %}
-    ```bash
-    export NODE_PATH="/usr/local/lib/node"
-    export PATH="/usr/local/share/npm/bin:$PATH"
-    ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+```bash
+# ~/.profile
+export NODE_PATH="/usr/local/lib/node"
+export PATH="/usr/local/share/npm/bin:$PATH"
+```
 
 Verify that this worked by opening a _new_ Terminal tab and running:
 

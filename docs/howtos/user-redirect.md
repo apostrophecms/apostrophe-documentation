@@ -8,9 +8,8 @@ You can implement a `loginAfterLogin` method in any module. This method takes `r
 
 Setting req.redirect will cause Apostrophe to redirect the user to that location.
 
-{% code-tabs %}
-{% code-tabs-item title="lib/modules/my-module/index.js" %}
 ```javascript
+// lib/modules/my-module/index.js
 module.exports = {
   construct: function(self, options) {
     self.loginAfterLogin = function(req) {
@@ -23,8 +22,6 @@ module.exports = {
   }
 };
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 *Don't forget to enable your module in `app.js`.*
 

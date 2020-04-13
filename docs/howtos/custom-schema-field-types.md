@@ -1,7 +1,4 @@
----
-title: "How do I Create a Custom schema field type?"
-layout: "tutorial"
----
+# How do I Create a Custom schema field type?
 
 Apostrophe's [schemas](/tutorials/schema-guide/schema-guide.md) provide a simple and powerful way to add new properties to any doc type in Apostrophe, such as a piece or a page. It's a powerful feature. But sometimes you might want to add a field type that doesn't already exist.
 

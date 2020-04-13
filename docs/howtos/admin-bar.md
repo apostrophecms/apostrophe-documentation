@@ -1,7 +1,4 @@
----
-title: Building combined menus and custom buttons with the admin bar
-layout: tutorial
----
+# Building combined menus and custom buttons with the admin bar
 
 ## Grouping admin bar items into dropdown menus
 
@@ -9,9 +6,8 @@ Apostrophe's admin bar automatically contains buttons to manage every subclass o
 
 Here's an example from the `app.js` file of one of our projects in which the buttons to manage several types of pieces are merged together into a dropdown menu or "group" labeled "Content:"
 
-{% code-tabs %}
-{% code-tabs-item title="app.js" %}
 ```javascript
+// app.js
 modules: {
   'apostrophe-admin-bar': {
     addGroups: [
@@ -30,8 +26,6 @@ modules: {
   }
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 *The name of each item is usually the same as the name of the module it came from.* This is always the case for everything derived from `apostrophe-pieces`.
 
@@ -39,9 +33,8 @@ Of course you can put more than one "group" in that array if you wish.
 
 If you're happy using the label of the first item as the label of the dropdown menu, there's a simpler syntax:
 
-{% code-tabs %}
-{% code-tabs-item title="app.js" %}
 ```javascript
+// app.js
 modules: {
   'apostrophe-admin-bar': {
     addGroups: [
@@ -53,8 +46,6 @@ modules: {
   }
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 This merges the `Users` and `Groups` buttons into a single dropdown labeled `Users`.
 

@@ -1,7 +1,4 @@
----
-title: Storing sessions in Redis and other session stores
-layout: tutorial
----
+# Storing sessions in Redis and other session stores
 
 By default, Apostrophe stores sessions in its MongoDB database. That makes it easier to install Apostrophe. But many developers prefer Redis for sessions. Here's how to configure that.
 
