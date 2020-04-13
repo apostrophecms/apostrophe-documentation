@@ -10,6 +10,7 @@ Sometimes it's desirable to provide links to the "next" and "previous" piece on 
 To enable that, just configure your module that subclasses `apostrophe-pieces-pages` appropriately:
 
 ```javascript
+// lib/modules/my-articles-pages/index.js
 module.exports = {
   extend: 'apostrophe-pieces-pages',
   next: true,
@@ -25,6 +26,7 @@ Here we'e assuming that `my-articles` extends `apostrophe-pieces` directly, and 
 Turning on these options causes Apostrophe to load the next and previous documents into `data.previous` and `data.next`, so you can output links like this, often at the bottom of `show.html`:
 
 ```markup
+{# lib/modules/my-articles-pages/views/show.html #}
 {% if data.previous %}
   <h4>
     <a href="{{ data.previous._url }}">Back to {{ data.previous.title }}</a>
@@ -41,6 +43,7 @@ Turning on these options causes Apostrophe to load the next and previous documen
 By default you can access any property of `data.previous` or `data.next`. For better performance, you may want to limit them with a projection, much as you would for a join:
 
 ```javascript
+// lib/modules/my-articles-pages/index.js
 module.exports = {
   extend: 'apostrophe-pieces-pages',
   previous: {

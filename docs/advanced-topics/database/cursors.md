@@ -12,6 +12,7 @@ Still with us? OK, let's talk about programming with cursors.
 Let's say we've created a `profiles` module that [extends apostrophe-pieces](/tutorials/core-concepts/reusable-content-pieces/reusable-content-with-pieces.md). Its configuration looks like this:
 
 ```javascript
+// lib/modules/profiles/index.js
 {
   modules: {
     profiles: {
@@ -33,6 +34,7 @@ Let's say we've created a `profiles` module that [extends apostrophe-pieces](/tu
 Now let's say we want to fetch the ten most recently updated profiles with a `reputation` value greater than 30 and make sure we have access to that information in every page template:
 
 ```javascript
+// lib/modules/profiles/index.js
 module.exports = {
   construct: function(self, options) {
     self.on('apostrophe-pages:beforeSend', 'fetchProfiles', async function(req) {
@@ -127,6 +129,7 @@ addFields: [
 We can already write `._jobs('xyz')` to match people that are joined with that particular job `_id`. But let's say we want an easy way to match only people who are joined with **more than one job** - people who are "busy." Here's a custom filter that can do that:
 
 ```javascript
+// lib/modules/profiles/lib/cursor.js
 module.exports = {
   construct: function(self, options) {
     self.addFilter('busy', {
@@ -176,12 +179,14 @@ For this trick, you'll need to get slightly more comfortable with Apostrophe's u
 But it's still pretty easy:
 
 ```javascript
+// app.js
 modules: {
   'extend-page-cursors': {}
 }
 ```
 
 ```javascript
+// lib/modules/extend-page-cursors/index.js
 module.exports = {
   construct: function(self, options) {
     self.apos.define('apostrophe-pages-cursor', require('./lib/pagesCursor.js'));
@@ -190,6 +195,7 @@ module.exports = {
 ```
 
 ```javascript
+// lib/modules/extend-page-cursors/lib/pagesCursor.js
 module.exports = {
   construct: function(self, options) {
     self.addFilter('yourFilterNameHere', { ... definition ... });
@@ -197,9 +203,8 @@ module.exports = {
 }
 ```
 
-What's happening in this code?
+### What's happening in this code?
 
 * We created a new module, `extend-page-cursors`.
 * In that module, we called `self.apos.define`, a convenience method that invokes `self.apos.synth.define` to define a new type of object. But *since that type already exists, it creates an implicit subclass*, in which *our version replaces the original but does not discard it*. Instead, our `construct` function is called `after` the regular one. This allows us to add additional filters as we see fit.
 * We used `require` to pull in the actual definition from `pagesCursor.js`, just to keep the code tidy.
-

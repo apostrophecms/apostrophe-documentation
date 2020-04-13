@@ -10,7 +10,7 @@ Sometimes you just want to pass some settings from your `app.js` file, or a serv
 First, pass in the settings you want as options to a relevant module. If there is no specifically relevant module, we suggest creating a `settings` module in your project, like this:
 
 ```javascript
-
+// app.js
 modules: {
   settings: {
     // So we can write `apos.settings` in a template

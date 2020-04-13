@@ -30,9 +30,8 @@ When you create an ordinary `form` element with the `POST` method and point it a
 
 If you really want to use a "plain old form submission," you can configure Apostrophe to let your route through:
 
-{% code-tabs %}
-{% code-tabs-item title="app.js" %}
 ```javascript
+// app.js
 modules: {
   apostrophe-express: {
     csrf: {
@@ -41,8 +40,6 @@ modules: {
   }
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 ### Submitting AJAX forms with jQuery
 
@@ -76,7 +73,7 @@ self.route('post', 'submit', function(req, res) {
 });
 ```
 
-That creates a route at `/modules/your-module-name/submit`.
+That creates a route at `/modules/my-module-name/submit`.
 
 Or you can use Express directly:
 

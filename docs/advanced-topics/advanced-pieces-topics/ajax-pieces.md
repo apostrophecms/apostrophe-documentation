@@ -14,7 +14,8 @@ _The value of the attribute must be unique on the page._
 
 Next, refactor your `index.html` template so that the actual list of people and any filters are in an `indexAjax.html` template, which is included at the appropriate point, wrapped in a div that has the `data-apos-ajax-context` attribute:
 
-```markup
+```django
+{# lib/modules/people-pages/index.html #}
 {% extends "layout.html" %}
 <h2>People</h2>
 <div data-apos-ajax-context="people">
@@ -22,7 +23,8 @@ Next, refactor your `index.html` template so that the actual list of people and 
 </div>
 ```
 
-```markup
+```django
+{# lib/modules/people-pages/indexAjax.html #}
 {% for piece in data.pieces %}
   <h4>
     {% set image = apos.images.first(piece.thumbnail) %}
@@ -65,7 +67,8 @@ But this isn't hard to accommodate. All you have to do is:
 
 Here's an example. Here we assume you already set up the `piecesFilters` option as described earlier in this tutorial to enable filtering people by tag.
 
-```markup
+```django
+{# lib/modules/people-pages/index.html #}
 {% extends "layout.html" %}
 <h2>People</h2>
 <div data-apos-ajax-context="people">
@@ -73,7 +76,9 @@ Here's an example. Here we assume you already set up the `piecesFilters` option 
 </div>
 ```
 
-```markup
+```django
+{# lib/modules/people-pages/indexAjax.html #}
+
 {# Filter by tag. Note this is OUTSIDE data-apos-ajax-append, so it gets REFRESHED #}
 <ul class="tag-filters">
   {% for tag in data.piecesFilters.tags %}
@@ -112,7 +117,7 @@ That being said, here's how to make it work:
 1. Implement the "Load More" button, above.
 2. Add a `data-apos-ajax-infinite-scroll` attribute to the button itself:
 
-```markup
+```django
 {# Load More button. Also outside data-apos-ajax-append, so it gets refreshed #}
 {% if data.currentPage < data.totalPages %}
   {# "Load More" button with the "append=1" flag #}

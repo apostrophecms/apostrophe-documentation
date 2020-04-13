@@ -5,6 +5,7 @@ By default, the "manage" modal displays just a few columns: "title," "last updat
 You can extend this list and even specify your own sortable columns. Here's how to do that:
 
 ```javascript
+// lib/modules/your-piece/index.js
 module.exports = {
   // Other configuration options, then...
   addColumns: [
@@ -38,6 +39,7 @@ module.exports = {
       }
     }
   ]
+}
 ```
 
 {% hint style="info" %}

@@ -1,8 +1,3 @@
----
-title: Building Navigation
-layout: tutorial
----
-
 # Building Navigation
 
 The Vikings believed that all of life all connected back to the world tree Yggrasil. Much like Viking mythology, all pages in Apostrophe are part of a "tree" in which every page is a child of another page and all the branches connect back to the Home page. The connection between pages with Home at the root is what makes visualizing and building navigation in Apostrophe work.
@@ -16,7 +11,10 @@ The first and most important link you need is the home page. Most of the time, y
 You can use this code retreive the home URL from any page in Apostrophe:
 
 ```markup
-<h2><a href="{{ data.home._url }}">{{ data.home.title }}</a></h2>
+{# lib/modules/apostrophe-pages/views/home.html #}
+<h2>
+  <a href="{{ data.home._url }}">{{ data.home.title }}</a>
+</h2>
 ```
 
 There are real advantages to doing it this way. If the site has a `prefix` option, you'll still get the right URL. And the title of the home page can change.
@@ -28,7 +26,8 @@ There are real advantages to doing it this way. If the site has a `prefix` optio
 A common navigation design is to have a row of "tabs" at the top. Want to display those no matter where in the site you are? Add this to your `home.html`:
 
 
-```markup
+```django
+{# lib/modules/apostrophe-pages/views/home.html #}
 <ul class="tabs">
   {% for tab in data.home._children %}
     <li><a href="{{ tab._url }}">{{ tab.title }}</a></li>
@@ -39,7 +38,8 @@ A common navigation design is to have a row of "tabs" at the top. Want to displa
 Now let's add a CSS class indicating the current tab \(the one that is the current page, or an ancestor of it\):
 
 
-```markup
+```django
+{# lib/modules/apostrophe-pages/views/home.html #}
 <ul class="tabs">
   {% for tab in data.home._children %}
     <li class="
@@ -61,8 +61,8 @@ First, in `app.js`, let's configure `apostrophe-pages` to retrieve two levels of
 
 
 ```javascript
+// app.js
 modules: {
-
   // ... other configuration ...
 
   'apostrophe-pages': {
@@ -85,8 +85,8 @@ modules: {
 
 Now you can easily output all the markup you'd need for dropdown menus. Add this code to `home.html`:
 
-
-```markup
+```django
+{# lib/modules/apostrophe-pages/views/home.html #}
 <ul class="tabs">
   {% for tab in data.home._children %}
     <li><a href="{{ tab._url }}">{{ tab.title }}</a>
@@ -106,8 +106,8 @@ Now you can easily output all the markup you'd need for dropdown menus. Add this
 
 The current page is `data.page`, and by default, `data.page._ancestors` is available. This will add a breadcrumb link to the page:
 
-
-```markup
+```django
+{# lib/modules/apostrophe-pages/views/home.html #}
 {% if data.page %}
   <ul class="breadcrumbs">
     {% for ancestor in data.page._ancestors %}
@@ -125,8 +125,8 @@ The current page is `data.page`, and by default, `data.page._ancestors` is avail
 
 Want to list the ancestors of the current page along with their subpages? Sure. You can replace your current navigation with this "accordion" nav:
 
-
-```markup
+```django
+{# lib/modules/apostrophe-pages/views/home.html #}
 {% if data.page %}
   <ul class="accordion">
     {% for ancestor in data.page._ancestors %}
@@ -148,8 +148,7 @@ Want to list the ancestors of the current page along with their subpages? Sure. 
 
 That's another easy one:
 
-
-```markup
+```django
 {% if data.page %}
   <ul class="children">
     {% for child in data.page._children %}

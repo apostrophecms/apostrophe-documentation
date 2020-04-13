@@ -11,6 +11,7 @@ Adding a custom batch action is not hard. For simplicity, let's pretend that the
 Set the addBatchOperations option, either for all `apostrophe-pieces` or for a specific subclass of pieces. Decide now, and follow the instructions below accordingly. These examples assume you want to do it for all kinds of pieces.
 
 ```javascript
+// lib/modules/apostrophe-pieces/index.js
 module.exports = {
   addBatchOperations: [
     {
@@ -36,8 +37,8 @@ module.exports = {
 Next, add a route with the same name for your pieces module. (Remember, Apostrophe can already publish things, but we're demonstrating how to create that feature from scratch.)
 
 ```javascript
+// lib/modules/apostrophe-pieces/index.js
 module.exports = {
-
   addBatchOperations: [
     ... See above ...
   ],
@@ -55,11 +56,22 @@ module.exports = {
 
 This little callback does the actual work on the piece:
 
-```javascript
-function(req, piece, callback) {
-  piece.published = true;
-  return self.update(req, piece, callback);
-}
+```javascript{10-13}
+// lib/modules/apostrophe-pieces/index.js
+module.exports = {
+  addBatchOperations: [
+    ... See above ...
+  ],
+
+  construct: function(self, options) {
+    // also inside `construct`
+    self.route('post', 'publish', function(req, res) {
+      return self.batchSimpleRoute(req, 'publish', function(req, piece, data, callback) {
+        piece.published = true;
+        return self.update(req, piece, callback);
+      });
+    });
+  }
 ```
 
 What you do inside that callback is up to you. In this example we publish the piece.
@@ -78,6 +90,7 @@ Alternatively, you can write your own route from scratch. You'll receive the sel
 Let's add a method to `apostrophe-pieces-manager-modal`, the modal dialog type that gets created when we manage pieces:
 
 ```javascript
+// lib/modules/apostrophe-pieces/public/js/manager-modal.js
 apos.define('apostrophe-pieces-manager-modal', {
   construct: function(self, options) {
     self.batchPublish = function() {
@@ -93,7 +106,7 @@ apos.define('apostrophe-pieces-manager-modal', {
 
 `batchSimple` invokes the `publish` route for you, locks the UI, displays errors, and so on. You shouldn't need to bypass it, but if you really want to, check out the `batchSimple` source code as a starting point.
 
-> By implicitly subclassing `apostrophe-pieces-manager-modal` at the project level, we are adding this feature for *all* types of pieces. You could also do this work in the folder for a specific subclass of pieces, in which case you would define `your-module-name-manager-modal` instead. If you do that, make sure you also follow all the server-side steps in the specific module you want, not `apostrophe-pieces`.
+> By implicitly subclassing `apostrophe-pieces-manager-modal` at the project level, we are adding this feature for *all* types of pieces. You could also do this work in the folder for a specific subclass of pieces, in which case you would define `my-module-name-manager-modal` instead. If you do that, make sure you also follow all the server-side steps in the specific module you want, not `apostrophe-pieces`.
 
 Boom! That's it: we now have a batch operation for publishing things. (OK, we already did, but now you know how to do something similar.)
 
@@ -104,6 +117,7 @@ Sometimes you'll want to implement a batch operation that needs input from the u
 Here's how the `tag` batch operation could be implemented, if we didn't already have it:
 
 ```javascript
+// lib/modules/apostrophe-pieces/index.js
   addBatchOperations: [
     {
       name: 'tag',
@@ -127,7 +141,9 @@ Here's how the `tag` batch operation could be implemented, if we didn't already 
 Our module also needs a route to implement the operation on the back end:
 
 ```javascript
-  // Inside construct, add this route
+// lib/modules/apostrophe-pieces/index.js
+
+// Inside construct, add this route
   self.route('post', 'tag', function(req, res) {
     return self.batchSimpleRoute(req, 'tag', function(req, piece, data, callback) {
       if (!piece.tags) {
@@ -142,6 +158,7 @@ Our module also needs a route to implement the operation on the back end:
 On the browser side it's still trivial. Apostrophe's schemas do the hard work of helping the user pick a tag, and `batchSimple` delivers that information to the server for us along with the ids of the pieces.
 
 ```javascript
+// lib/modules/apostrophe-pieces/public/js/user.js
 apos.define('apostrophe-pieces-manager-modal', {
   construct: function(self, options) {
     self.batchTag = function() {

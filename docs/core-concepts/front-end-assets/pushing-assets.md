@@ -10,6 +10,8 @@ If all you have are some basic templates in the default boilerplate project, you
 
 
 ```javascript
+// lib/modules/apostrophe-assets/index.js
+
 // This configures the apostrophe-assets module to push a 'site.less'
 // stylesheet by default:
 
@@ -33,6 +35,7 @@ Your LESS file might look like:
 
 
 ```css
+/* lib/modules/apostrophe-assets/public/css/site.less */
 @import "utils/reset.less";
 
 body
@@ -73,6 +76,7 @@ You can work around this by using import flags:
 
 
 ```javascript
+// lib/modules/apostrophe-assets/index.js
 module.exports = {
   stylesheets: [
     {
@@ -92,11 +96,11 @@ When you use the `inline` import flag, the LESS compiler will import your file a
 You can push JavaScript files to the browser too, as you can see in the `index.js` file above:
 
 ```javascript
-    scripts: [
-      {
-        name: 'site'
-      }
-    ]
+  scripts: [
+    {
+      name: 'site'
+    }
+  ]
 ```
 
 This will push the file `lib/modules/apostrophe-assets/public/js/site.js` to the browser. If you follow our [production deployment tutorial](/tutorials/devops/deployment.md), it will be included in a single minified file along with Apostrophe's JavaScript, for much better performance. Minification is also provided for stylesheets.
@@ -133,6 +137,7 @@ As an example, with `karla.woff` in `lib/modules/my-theme/public/fonts` the @fon
 
 
 ```css
+/* lib/modules/my-theme/public/fonts */
 @font-face {
     font-family: 'Karla';
     src: url('/modules/my-theme/fonts/karla.woff') format('woff');

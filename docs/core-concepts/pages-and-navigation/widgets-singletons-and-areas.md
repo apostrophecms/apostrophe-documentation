@@ -1,8 +1,3 @@
----
-title: Widgets, Singletons, and Areas
-layout: tutorial
----
-
 # Widgets, Singletons, and Areas
 
 Central to Apostrophe is the philosophy that editors can edit their content in context. In order for you to enable this functionality in your templates, Apostrophe provides `singleton` and `area` helpers. Within those singletons and areas, the objects that you add to a page are called `widgets`.
@@ -19,8 +14,8 @@ If you're following along, you created a `default.html` template in the previous
 
 2. Replace the `main` block with this:
 
-
     ```markup
+    {# lib/modules/apostrophe-pages/views/default.html #}
     {% block main %}
       <div class="main-content">
         {{ apos.singleton(data.page, 'textBlock', 'apostrophe-rich-text', {
@@ -64,8 +59,8 @@ To see this in action, add an `apos.area` to a page template.
 
 2. Add this to `default.html` below the Singleton you just added inside the main `div`:
 
-
     ```markup
+    {# lib/modules/apostrophe-pages/views/default.html #}
     {{ apos.area(data.page, 'body', {
       widgets: {
         'apostrophe-rich-text': {

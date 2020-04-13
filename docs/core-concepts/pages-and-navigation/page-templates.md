@@ -1,8 +1,3 @@
----
-title: Page Templates
-layout: tutorial
----
-
 # Page Templates
 
 The first thing you need to do is create a page. You can create the most amazing content in history, but if it doesn't have a page to be displayed on, then no one will ever know.
@@ -26,7 +21,8 @@ If you have an existing Apostrophe project, take a look at the `apostrophe-pages
 In addition to the `home.html` template in `lib/modules/apostrophe-pages`, projects created with our CLI from the `apostrophe-boilerplate` project ship with a simple `layout.html` file in the top-level `views/` folder. Templates  that are not from a specific module are found in `views/`. If you peek inside `layout.html`, you'll find several examples of "blocks":
 
 
-```markup
+```django
+{# views/layout.html #}
 {% block beforeMain %}
   {#
     We recommend you use the beforeMain block for global page components
@@ -62,12 +58,12 @@ To create a page template:
 1. Create new HTML file in `lib/modules/apostrophe-pages/views/pages/` named `default.html`.
 
 2. At the top of the file, extend `layout.html`
-    ```markup
+    ```django
     {% extends "layout.html" %}
     ```
 3. Within the file create the different blocks that you will need.
 
-    ```markup
+    ```django
     {% block main %}
     ...
     {% endblock %}
@@ -96,24 +92,24 @@ In order for any new page template to load, you must add it to `app.js`. When yo
 
 2. Add the registration for your new page template to `app.js`:
 
-
     ```javascript
-        // This configures our default page template
-        'apostrophe-pages': {
-          types: [
-            //This is the new section
-            {
-              name: 'default',
-              label: 'Default'
-            },
-            //The rest is what what was there already
-            {
-              name: 'home',
-              label: 'Home'
-            },
-          ]
+    // app.js
+    // This configures our default page template
+    'apostrophe-pages': {
+      types: [
+        //This is the new section
+        {
+          name: 'default',
+          label: 'Default'
         },
-    ```
+        //The rest is what what was there already
+        {
+          name: 'home',
+          label: 'Home'
+        },
+      ]
+    },
+  ```
 
 Remember, all you're doing here is registering a template. New pages are created in context on your Apostrophe instance.
 

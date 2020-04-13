@@ -6,7 +6,8 @@ Let's look at adding a custom button for use when editing a particular subclass 
 
 For starters, you'll want to override `editorModal.html` for your module.
 
-```markup
+```django
+{# lib/modules/mymodule/views/editorModal.html #}
 {% extends "editorBase.html" %}
 {% import 'apostrophe-ui:components/buttons.html' as buttons with context %}
 
@@ -29,6 +30,7 @@ You can extend this by creating your own `editor-modal.js` file in your own modu
 To extend beforeShow at project level you'll want to follow the "super pattern":
 
 ```javascript
+// lib/modules/mymodule/public/js/editor-modal.js
 apos.define('mymodule-editor-modal', {
   extend: 'apostrophe-pieces-editor-modal',
   construct: function(self, options) {
@@ -57,6 +59,7 @@ self.api will invoke the URL `/modules/modulename/apiname` as a POST and submit 
 On the server side, you'll need to extend your module to implement the API:
 
 ```javascript
+// lib/modules/mymodulename/index.js
 module.exports = {
   construct: function(self, options) {
     self.route('apiname', function(req, res) {

@@ -7,6 +7,7 @@ You must set the `nestedModuleSubdirs` option to `true` in `app.js`, like this:
 
 
 ```javascript
+// app.js
 require('apostrophe')({
   shortName: 'my-project',
   nestedModuleSubdirs: true
@@ -25,6 +26,7 @@ modules that relate to products, making `app.js` shorter:
 
 
 ```javascript
+// lib/modules/products/modules.js
 module.exports = {
   'products': {},
   'products-pages': {},
@@ -37,6 +39,7 @@ And then you can implement those modules in their own sub-subdirectories:
 
 
 ```javascript
+// lib/modules/products/products/index.js
 module.exports = {
   extend: 'apostrophe-pieces',
   name: 'product'
@@ -45,6 +48,7 @@ module.exports = {
 
 
 ```javascript
+// lib/modules/products/products-pages/index.js
 module.exports = {
   extend: 'apostrophe-pieces-pages',
   label: 'Products Page'
@@ -53,6 +57,7 @@ module.exports = {
 
 
 ```javascript
+// lib/modules/products/products-widgets/index.js
 module.exports = {
   extend: 'apostrophe-pieces-widgets',
   label: 'Products'

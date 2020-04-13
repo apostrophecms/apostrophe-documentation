@@ -22,6 +22,7 @@ Generally, you need a dedicated widget to create layout. The Apostrophe team som
 2. Include the layout widget in our `app.js` by adding the following to the `modules` object:
 
     ```javascript
+      // app.js
       modules: {
         // ...,
         'two-column-widgets': {}
@@ -32,6 +33,7 @@ Generally, you need a dedicated widget to create layout. The Apostrophe team som
 
 
     ```javascript
+    // lib/modules/two-column-widgets/index.js
     module.exports = {
       extend: 'apostrophe-widgets',
       label: 'Two Column Layout',
@@ -65,7 +67,8 @@ Now, like any other widget, you need to have a `widget.html` template. In this c
 
 In `lib/modules/two-column-widgets/views/widget.html`
 
-   ```markup
+   ```django
+    {# lib/modules/two-column-widgets/views/widget.html #}
     <div class="two-column">
         <div class="column-left">
             {{ apos.area(data.widget, 'areaLeft', {

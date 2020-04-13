@@ -17,10 +17,10 @@ Apostrophe offers a range of widgets, and you can easily create your own. Here a
 The rich text widget provides a space for to enter text, with various options for formatting that text in a WYSIWYG editor based on CKEditor.
 
 ```markup
-        {{ apos.singleton(data.page, 'textBlock', 'apostrophe-rich-text', {
-          toolbar: [ 'Bold', 'Italic' ]
-        }) }}
-    ```
+  {{ apos.singleton(data.page, 'textBlock', 'apostrophe-rich-text', {
+    toolbar: [ 'Bold', 'Italic' ]
+  }) }}
+```
 
 #### `'textBlock'`
 
@@ -84,8 +84,6 @@ You'll talk about adding custom image sizes in [`apostrophe-attachments`](/modul
 The `apostrophe-files` widget lets you add download links to access various documents, such as PDFs or Word files. If multiple files are added in a single widget, they are presented as a list.
 
 Add this below the `apos.area` to add a simple `apostrophe-files` widget to the page:
-
-
 
 ```markup
   {{ apos.singleton(data.page, 'resume', 'apostrophe-files', {

@@ -5,6 +5,7 @@
 Once you have [created a MongoDB replica set](https://docs.mongodb.com/manual/replication/), you can connect to it by configuring Apostrophe to use the replica set's URI:
 
 ```javascript
+// app.js
 modules: {
   // Other modules, then...
   'apostrophe-db': {

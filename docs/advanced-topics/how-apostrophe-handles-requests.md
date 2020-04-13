@@ -129,7 +129,7 @@ Just remember that the code must be synchronous — it must not involve callback
 Here's how to add a helper via your module:
 
 ```javascript
-// in lib/modules/your-module/index.js
+// in lib/modules/my-module/index.js
 module.exports = {
   alias: 'myModule',
   construct: function(self, options) {
@@ -157,7 +157,7 @@ By default, the output of your helper will be automatically escaped, so that `<`
 If you need to output markup, you can do that with `self.apos.templates.safe`. When you do so, escaping any user-entered text becomes **your responsibility**:
 
 ```javascript
-// in lib/modules/your-module/index.js
+// in lib/modules/my-module/index.js
 module.exports = {
   alias: 'myModule',
   construct: function(self, options) {
@@ -187,7 +187,7 @@ This is safe because template rendering is synchronous. There is no possibility 
 Sometimes it's convenient to render another template from inside a helper. And you can. Just remember that you must use `self.partial`, not `self.render`. `self.render` requires a `req` object, while `self.partial` automatically uses `self.apos.templates.contextReq`. An example:
 
 ```javascript
-// inside lib/modules/your-module/index.js
+// inside lib/modules/my-module/index.js
 self.addHelpers({
   address: function(piece) {
     return self.partial('address', { piece: piece });

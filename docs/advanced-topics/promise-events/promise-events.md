@@ -22,6 +22,7 @@ npm install request-promise
 ```
 
 ```javascript
+// app.js
 modules: {
   // Other modules, then...
   'my-module': {}
@@ -29,6 +30,7 @@ modules: {
 ```
 
 ```javascript
+// lib/modules/my-module/index.js
 const request = require('request-promise');
 
 module.exports = {
@@ -51,7 +53,7 @@ module.exports = {
 }
 ```
 
-```markup
+```django
 <footer>
   <h4>Current Weather: {{ data.forecast.weather.description }}</h4>
 </footer>
@@ -216,6 +218,7 @@ Here we gave the handler the name `addWeather`.
 This is really just a convenience, and is exactly equivalent to:
 
 ```javascript
+// lib/modules/my-module/index.js
 const request = require('request-promise');
 
 module.exports = {

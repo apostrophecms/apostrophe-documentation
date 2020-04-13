@@ -1,8 +1,3 @@
----
-title: Custom widgets
-layout: tutorial
----
-
 # Custom widgets
 
 You've seen a lot of the widgets that come "in the box" with Apostrophe. But you can do much more by creating your own.
@@ -29,6 +24,7 @@ Then you'll include the module in our `app.js` by adding the following to the `m
 
 
 ```javascript
+// app.js
   modules: {
     // ...,
     'link-widgets': {}
@@ -38,6 +34,7 @@ Then you'll include the module in our `app.js` by adding the following to the `m
 Now create an `index.js` in `lib/modules/link-widgets/` and put some code in there:
 
 ```javascript
+// lib/modules/link-widgets/index.js
 module.exports = {
   extend: 'apostrophe-widgets',
   label: 'Link to Anywhere',
@@ -74,7 +71,8 @@ Next you'll need a folder to hold our widget's `widget.html` template, which ren
 
 2. Now create a Nunjucks template in `lib/modules/link-widgets/views/widget.html`:
 
-```markup
+```django
+{# lib/modules/link-widgets/views/widget.html #}
 <h4><a href="{{ data.widget.url }}">{{ data.widget.label }}</a></h4>
 ```
 
@@ -82,7 +80,8 @@ _"Hey, don't You need to escape the label before you output it as HTML?"_ No, Nu
 
 Now you'll want to add this widget to an area in one of our page templates, like you learned in [widgets, areas, and singletons](/tutorials/core-concepts/pages-and-navigation/widgets-singletons-and-areas.md). Let's add the following to the `main` block of our `lib/modules/apostrophe-pages/views/pages/home.html`:
 
-```markup
+```django
+{# lib/modules/apostrophe-pages/views/pages/home.html #}
 {{
   apos.area(data.page, 'navigation', {
     widgets: {
@@ -113,6 +112,7 @@ While it's good to get some experience making all the folders and files yourself
 1\. Now you this new widget to the `modules` object in our app.js:
 
 ```javascript
+// app.js
   modules: {
     /// ...,
     'link-widgets': {},
@@ -123,6 +123,7 @@ While it's good to get some experience making all the folders and files yourself
 2\. And then write `lib/modules/page-link-widgets/index.js`:
 
 ```javascript
+// lib/modules/page-link-widgets/index.js
 module.exports = {
   extend: 'apostrophe-widgets',
   label: 'Link to a Page',
@@ -145,7 +146,8 @@ _"Why does the_ `name` _start with a_ `_`_?" Joins get fetched every time this w
 
 Now you're ready for the Nunjucks template, `lib/modules/page-link-widgets/views/widget.html`:
 
-```markup
+```django
+{# lib/modules/page-link-widgets/views/widget.html #}
 <h4><a href="{{ data.widget._page._url }}">{{ data.widget._page.title }}</a></h4>
 ```
 
@@ -155,7 +157,8 @@ _Whoa! So I can access the other page in my template?"_ Yep. You can access any 
 
 Actually using the widget in an area is just like using the first one. But this time, let's enable both kinds in our area on `home.html`:
 
-```markup
+```django
+{# lib/modules/page-link-widgets/views/home.html #}
 {{
   apos.area(data.page, 'navigation', {
     widgets: {
@@ -181,13 +184,15 @@ All you have to do is access `data.options` in your `widget.html` template for `
 
 1\. Add `data.options` in `widget.html`:
 
-```markup
+```django
+{# lib/modules/page-link-widgets/views/widget.html #}
 <h4 class="{{ 'special' if data.options.special }}"><a href="{{ data.widget._page._url }}">{{ data.widget._page.title }}</a></h4>
 ```
 
 2\. Then pass the option  call in `home.html`:
 
-```markup
+```django
+{# lib/modules/page-link-widgets/views/home.html #}
 {{
   apos.area(data.page, 'navigation', {
     widgets: {
@@ -207,6 +212,7 @@ Now all the page links in this particular area will get the special class. You c
 You can also leave the choice up to the user by adding a `boolean` field to the schema for `page-link-widgets` in its `index.js`:
 
 ```javascript
+// lib/modules/page-link-widgets/index.js
 module.exports = {
   extend: 'apostrophe-widgets',
   label: 'Link to a Page',
@@ -232,9 +238,11 @@ The new bit here is the `special` field.
 
 In your template, access it via `data.widget` rather than `data.options`:
 
-
-```markup
-<h4 class="{{ 'special' if data.widget.special }}"><a href="{{ data.widget._page._url }}">{{ data.widget._page.title }}</a></h4>
+```django
+{# lib/modules/page-link-widgets/views/widget.html #}
+<h4 class="{{ 'special' if data.widget.special }}">
+  <a href="{{ data.widget._page._url }}">{{ data.widget._page.title }}</a>
+</h4>
 ```
 
 {% hint style='info' %}
@@ -250,6 +258,7 @@ Indeed, all you really care about here is the title and the URL. So let's fetch 
 You can rewrite `index.js` to speed up the code:
 
 ```javascript
+// lib/modules/page-link-widgets/index.js
 module.exports = {
   extend: 'apostrophe-widgets',
   label: 'Link to a Page',
@@ -291,6 +300,7 @@ Let's say you want to offer some content in a collapsible "drawer." Clicking on 
 Your module's `index.js` file looks like this:
 
 ```javascript
+// lib/modules/drawer-widget/index.js
 module.exports = {
   extend: 'apostrophe-widgets',
   label: 'Drawer',
@@ -319,8 +329,11 @@ module.exports = {
 
 And your `widget.html` file looks like this:
 
-```javascript
-<h4><a data-drawer-title class="drawer-title" href="#">{{ data.widget.title }}</a></h4>
+```django
+{# lib/modules/drawer-widgets/views/widget.html #}
+<h4>
+  <a data-drawer-title class="drawer-title" href="#">{{ data.widget.title }}</a>
+</h4>
 <div data-drawer class="drawer-body">
   {{ apos.area(data.widget, 'content', { edit: false }) }}
 </div>
@@ -332,7 +345,8 @@ Here you use `data.widget` where you would normally expect `data.page`. This all
 
 Now, in your default page template, let's create an area that allows a series of drawers to be created:
 
-```markup
+```django
+{# lib/modules/apostrophe-pages/views/default.html #}
 {{
   apos.area(data.page, 'drawers', {
     widgets: {
@@ -345,7 +359,7 @@ Now, in your default page template, let's create an area that allows a series of
 And in `app.js`, don't forget to configure the widget:
 
 ```javascript
-// in app.js
+// app.js
 modules: {
   // other widgets, then...
   'drawer-widgets': {}
@@ -361,6 +375,7 @@ First, you'll need to hide the content of the drawer by default. Let's push an `
 In `index.js`, you'll extend the `pushAssets` method, which is already pushing JavaScript, to push a stylesheet as well:
 
 ```javascript
+// lib/modules/drawer-widgets/index.js
 module.exports = {
   extend: 'apostrophe-widgets',
   addFields: [
@@ -383,6 +398,7 @@ The [pushAsset method](/modules/apostrophe-module/README.md#push-asset) can push
 Now you need to supply `always.less` in the right place: the `public/css` subdirectory of your module's directory.
 
 ```css
+/* lib/modules/drawer-widgets/public/css/always.less */
 .drawer-title {
   padding: 2em 0;
   text-align: center;
@@ -399,8 +415,9 @@ With these changes, your drawers are hidden. But you still need a way to toggle 
 For that, you'll need an `always.js` file, in your `public/js` folder:
 
 ```javascript
-// Example of a widget manager with a play method
+// lib/modules/drawer-widgets/public/js/always.js
 
+// Example of a widget manager with a play method
 apos.define('drawer-widgets', {
   extend: 'apostrophe-widgets',
   construct: function(self, options) {
@@ -415,7 +432,7 @@ apos.define('drawer-widgets', {
 });
 ```
 
-What's happening in this code?
+### What's happening in this code?
 
 * You called `apos.define` to define a [moog type](/other/glossary.md#moog-type) for your "widget manager." A widget manager is an object that is responsible for directing everything related to widgets of that type in the browser. Think of it as the browser's half of your module.
 * The first argument to `apos.define` is the name of your new type, which is the same as the name of your module. The second argument is an object that defines the type. Just like your `index.js` file on the server, it contains a `construct` function. That's because Apostrophe uses [moog](/other/glossary.md#moog-type) to manage object-oriented programming in both places. The only difference is that on the server, Apostrophe figures out what type is being defined automatically based on the module's name. Here in browser-land, it's up to you to call `apos.define`.

@@ -11,6 +11,7 @@ Let's say our site has a `gallery` page type. We want to add a `vendor` field to
 Here's how we do that:
 
 ```javascript
+// app.js
 modules: {
   'gallery-pages': {
     extend: 'apostrophe-custom-pages',
@@ -53,6 +54,7 @@ For this maneuver, we'll need to extend the `apostrophe-custom-pages` module its
 To do that, just create `lib/modules/apostrophe-custom-pages/index.js` at project level (do NOT modify `node_modules/apostrophe`):
 
 ```javascript
+// .ib/modules/apostrophe-custom-pages/index.js
 module.exports = {
   beforeConstruct: function(self, options) {
     options.addFields = [

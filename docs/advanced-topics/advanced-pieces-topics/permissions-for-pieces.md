@@ -5,6 +5,7 @@ In our [Permissions section](/tutorials/core-concepts/users-and-permissions/READ
 To enable it for your module, just set `permissionsFields: true` in `lib/modules/people/index.js`:
 
 ```javascript
+// lib/modules/your-piece/index.js
 module.exports = {
   extend: 'apostrophe-pieces',
   permissionsFields: true,

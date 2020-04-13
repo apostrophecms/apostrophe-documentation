@@ -6,6 +6,7 @@ To activate the new lean frontend, configure `apostrophe-assets` like this:
 
 
 ```javascript
+// app.js
 module.exports = {
   modules: {
     'apostrophe-assets': {
@@ -19,6 +20,7 @@ With the lean frontend, **none of Apostrophe's widget players are available by d
 
 
 ```javascript
+// app.js
 module.exports = {
   modules: {
     'apostrophe-assets': {

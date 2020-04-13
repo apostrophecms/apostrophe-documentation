@@ -3,6 +3,7 @@
 In the "manage" modal, enabling a "tags" filter for admins is often handy:
 
 ```javascript
+// lib/modules/your-piece/index.js
 module.exports = {
   // Other configuration options, then...
   addFilters: [
@@ -17,6 +18,7 @@ module.exports = {
 You can also allow multiple tags to be selected, in which case pieces with at least one of those tags are displayed:
 
 ```javascript
+// lib/modules/your-piece/index.js
 module.exports = {
   // Other configuration options, then...
   addFilters: [

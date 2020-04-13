@@ -3,6 +3,7 @@
 Apostrophe has full-text search capabilities built in. You just need to enable the `apostrophe-search` module, and create a "parked page" with the type `apostrophe-search` so that there is a place to display search results.
 
 ```javascript
+// app.js
 // ... other code, then ...
 
   modules: {
@@ -26,7 +27,7 @@ Now you get a search page at /search; it's very bare bones in appearance, so cop
 
 You can create your own "mini" search forms anywhere on the site. Just make sure they target your search page (`/search` in this case) and have the `q` query string variable set to the user's search. It's simple to do with a plain old GET-method form:
 
-```markup
+```django
 <form method="GET" action="/search">
   <input type="text" name="q" /><input type="submit" value="Search" />
 </form>
@@ -48,6 +49,7 @@ You may notice search results for documents that don't have URLs, or are simply 
 The simplest way to limit the results is to set the `types` option to an array containing all of the piece and page types that you *do* want results for:
 
 ```javascript
+// app.js
 'apostrophe-search': {
   types: [
     'home',
@@ -62,6 +64,7 @@ When you do this, *no* other types will be included in the results. So be sure t
 **Alternatively**, you can set a `searchable` property to `false` on piece or page types that you want to exclude from search. Core piece types such as `apostrophe-users` that are not necessarily meant to be public have this set by default.
 
 ```javascript
+// app.js
 'my-piece': {
   searchable: false
 },
@@ -81,6 +84,7 @@ You can also provide the user with convenient filters, for instance to view only
 To do that, configure the `filters` option. The `name` property must match the
 
 ```javascript
+// app.js
 'apostrophe-search': {
   filters: [
     {
@@ -100,6 +104,7 @@ To do that, configure the `filters` option. The `name` property must match the
 However, you can change the label of that extra filter choice by configuring one with the special name `__else`:
 
 ```javascript
+// app.js
 'apostrophe-search': {
   filters: [
     {

@@ -13,8 +13,9 @@ We've seen how we can add fields to these by using the `addFields` option when c
 Our first idea might be to do this in `app.js`:
 
 ```javascript
-// THIS WON'T WORK
+// lib/modules/apostrophe-pieces/index.js
 
+// THIS WON'T WORK
 modules: {
   'apostrophe-pieces': {
     addFields: [
@@ -36,8 +37,9 @@ So instead, we'll write a `beforeConstruct` function in `lib/modules/apostrophe-
 
 
 ```javascript
-// THIS WILL WORK!
+// lib/modules/apostrophe-pieces/index.js
 
+// THIS WILL WORK!
 module.exports = {
 
   beforeConstruct: function(self, options) {

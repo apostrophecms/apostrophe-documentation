@@ -25,12 +25,13 @@ Now, when you start the application, you will see files in the `locales` subdire
 Any modules you pass to the `apostrophe-i18n` module are automatically passed on to `i18n`.
 
 ```javascript
-    ...
-    modules:{
-        'apostrophe-i18n':{
-             locales:['it', 'en']
-        }
-    }
+// app.js
+...
+modules:{
+  'apostrophe-i18n':{
+      locales:['it', 'en']
+  }
+}
 ```
 
 Here is a guide to the available options:
@@ -64,18 +65,17 @@ Here is a guide to the available options:
 ## Simple configuration
 
 ```javascript
-    ...
-    modules:{
-        ...
-        'apostrophe-i18n':{
-            locales: ['it', 'en'],
-            defaultLocale: 'it',
-            queryParameter: 'lang',
-            updateFiles:false
-        }
-        ...
-    }
-    ...
+// app.js
+modules:{
+// ...
+'apostrophe-i18n':{
+    locales: ['it', 'en'],
+    defaultLocale: 'it',
+    queryParameter: 'lang',
+    updateFiles:false
+}
+// ...
+}
 ```
 
 There are many more options, which you can read about in the [i18n npm module documentation](https://www.npmjs.com/package/i18n).
