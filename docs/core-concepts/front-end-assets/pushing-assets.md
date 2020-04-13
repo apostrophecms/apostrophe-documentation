@@ -1,9 +1,4 @@
----
-title: Pushing assets to the browser
-layout: tutorial
----
-
-# Styling Your Content
+# Pushing assets to the browser
 
 The first thing most website visitors see isn't the content or how well the navigation is organized, it's how the website looks. Is it a modern, visually consistent, and readable, or does it look like it hasn't been updated since it was originally hosted by Geocities in 1995?
 
@@ -13,7 +8,7 @@ If all you have are some basic templates in the default boilerplate project, you
 
  Take a peek at your project's `lib/modules/apostrophe-assets/index.js` file and you'll spot some really simple configuration that is already pushing a `site.less` file, as well as a `site.js` file.
 
-{% code-tabs %}
+
 {% code-tabs-item title="lib/modules/apostrophe-assets/index.js" %}
 ```javascript
 // This configures the apostrophe-assets module to push a 'site.less'
@@ -39,7 +34,7 @@ We could have put this configuration inside `app.js`, but that leads to a clutte
 
 Your LESS file might look like:
 
-{% code-tabs %}
+
 {% code-tabs-item title="lib/modules/apostrophe-assets/public/css/site.less" %}
 ```css
 @import "utils/reset.less";
@@ -82,7 +77,7 @@ You can push the output file to Apostrophe just like any other asset, following 
 
 You can work around this by using import flags:
 
-{% code-tabs %}
+
 {% code-tabs-item title="lib/modules/apostrophe-assets/index.js" %}
 ```javascript
 module.exports = {
@@ -145,7 +140,7 @@ In your `my-theme` module, you'll include your assets in `lib/modules/my-theme/p
 
 As an example, with `karla.woff` in `lib/modules/my-theme/public/fonts` the @font-face definition could be as simple as:
 
-{% code-tabs %}
+
 {% code-tabs-item title="lib/modules/my-theme/public/fonts" %}
 ```css
 @font-face {

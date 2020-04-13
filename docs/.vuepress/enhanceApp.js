@@ -1,3 +1,3 @@
 export default ({ router }) => {
-  router.addRoutes([])
-}
+  router.addRoutes([]);
+};

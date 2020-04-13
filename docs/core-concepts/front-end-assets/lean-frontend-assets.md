@@ -1,13 +1,10 @@
----
-title: "Lean frontend assets: Apostrophe without jQuery"
-layout: tutorial
----
+# Lean frontend assets: Apostrophe without jQuery"
 
 By default, Apostrophe 2.x always pushes `jQuery`, `lodash`, `async` and several other large libraries to the browser, even if no one is logged in. Beginning in Apostrophe 2.91.0, you can disable this behavior.
 
 To activate the new lean frontend, configure `apostrophe-assets` like this:
 
-{% code-tabs %}
+
 {% code-tabs-item title="app.js" %}
 ```javascript
 module.exports = {
@@ -23,7 +20,7 @@ module.exports = {
 
 With the lean frontend, **none of Apostrophe's widget players are available by default.** However, a simple video player is available if you choose to turn it on:
 
-{% code-tabs %}
+
 {% code-tabs-item title="app.js" %}
 ```javascript
 module.exports = {

@@ -1,5 +1,5 @@
 ---
-title: Apostrophe Widgets
+title: Standard (Included) Widgets
 layout: tutorial
 ---
 
@@ -86,7 +86,7 @@ The `apostrophe-files` widget lets you add download links to access various docu
 Add this below the `apos.area` to add a simple `apostrophe-files` widget to the page:
 
 
-{% code-tabs %}
+
 {% code-tabs-item title="lib/modules/apostrophe-pages/views/home.html" %}
 ```markup
   {{ apos.singleton(data.page, 'resume', 'apostrophe-files', {

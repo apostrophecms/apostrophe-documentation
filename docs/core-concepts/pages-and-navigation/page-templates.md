@@ -25,7 +25,7 @@ If you have an existing Apostrophe project, take a look at the `apostrophe-pages
 
 In addition to the `home.html` template in `lib/modules/apostrophe-pages`, projects created with our CLI from the `apostrophe-boilerplate` project ship with a simple `layout.html` file in the top-level `views/` folder. Templates  that are not from a specific module are found in `views/`. If you peek inside `layout.html`, you'll find several examples of "blocks":
 
-{% code-tabs %}
+
 {% code-tabs-item title="views/layout.html" %}
 ```markup
 {% block beforeMain %}
@@ -99,7 +99,7 @@ In order for any new page template to load, you must add it to `app.js`. When yo
 
 2. Add the registration for your new page template to `app.js`:
 
-{% code-tabs %}
+
 {% code-tabs-item title="app.js" %}
     ```javascript
         // This configures our default page template

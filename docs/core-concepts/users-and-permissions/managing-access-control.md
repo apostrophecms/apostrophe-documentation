@@ -25,7 +25,7 @@ Apostrophe makes it easy to set this up with minimal configuration, but if that 
 
 2. Find the `modules` section and add an the `editor` group to the groups block like the one below:
 
-{% code-tabs %}
+
 {% code-tabs-item title="index.js" %}
 ```javascript
   module.exports: {

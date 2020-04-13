@@ -13,7 +13,7 @@ Apostrophe includes a "password reset" feature for your users. This feature foll
 
 For security reasons, and because most sites don't have the [apostrophe-email](/tutorials/devops/email.md) module configured yet, this option must be turned on for your site:
 
-{% code-tabs %}
+
 {% code-tabs-item title="app.js" %}
 ```javascript
 modules: {
@@ -49,9 +49,9 @@ As hard as we work to make Apostrophe intuitive and user friendly, you may find 
 
 ### 1. You forgot the password for your account
 
-If your site has the "forgot password" feature enabled, 
+If your site has the "forgot password" feature enabled,
 
-1. Go to `/login` and click the "forgot password" link. 
+1. Go to `/login` and click the "forgot password" link.
 
 2. Complete the form to receive an email with the password recovery instructions.
 
@@ -61,7 +61,7 @@ If your site has the "forgot password" feature enabled,
 Note: If it doesn't come right away be sure to check your spam folder.
 {% endhint %}
 
-If this feature is not enabled for your site or does not work for you, reach out to a coworker whose account is still functioning. If they have the `admin` permission, they will be able to edit your user via the "Users" dropdown and set a new password. 
+If this feature is not enabled for your site or does not work for you, reach out to a coworker whose account is still functioning. If they have the `admin` permission, they will be able to edit your user via the "Users" dropdown and set a new password.
 
 If this option does not work for you, it is possible for you (or your developer) to change your password or add a new admin account via the command line. See #2 below.
 
@@ -99,7 +99,7 @@ Fortunately, Apostrophe has a built-in workaround to disable raw HTML widgets on
 
 If you are currently looking at this URL (just an example):
 
-```url 
+```url
 https://www.example.com/
 ```
 
@@ -115,8 +115,8 @@ If you did paste it correctly, it is most likely incompatible with Apostrophe. C
 
 {% hint style='info' %}
 The following are common problems that embed code developers need to be aware of:
- 
+
 1. Do not use `document.write` in an embed code. This will break any website that loads your markup "on the fly" after the page is first rendered.
- 
+
 2. Do not install `jQuery` globally (do not overwrite `window.$`). Similarly, do not overwrite `lodash` (`window._`). It is easy to wrap your JavaScript in a closure in which it can still see a convenient `$` variable without breaking other versions of these libraries.
 {% endhint %}

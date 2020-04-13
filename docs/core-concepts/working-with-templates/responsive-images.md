@@ -1,7 +1,4 @@
----
-title: "Responsive images"
-layout: tutorial
----
+# Responsive images
 
 The `apostrophe-images-widgets` module provides a powerful way to select and display images on the site, including the ability to manually crop images, or rely on CSS to carry out various automatic responsive cropping approaches.
 
@@ -31,7 +28,7 @@ With this example widget, it's up to the developer to specify the `sizesAttr` op
 
 Now for the actual widget code:
 
-{% code-tabs %}
+
 {% code-tabs-item title="lib/modules/image-widgets/index.js" %}
 ```javascript
 module.exports = {
@@ -59,7 +56,7 @@ module.exports = {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-{% code-tabs %}
+
 {% code-tabs-item title="lib/modules/image-widgets/views/widget.html" %}
 ```markup
 <img src="{{ apos.attachments.url(data.widget._image.attachment, { size: data.options.size or 'full' }) }}" srcset="{{ apos.images.srcset(data.widget._image.attachment) }}" sizes="{{ data.options.sizesAttr or '100vw' }}" alt="{{ data.widget._image.description or data.widget._image.title }}">
@@ -152,7 +149,9 @@ Here's an example of how you can combine that technique with a focal point:
 
 ## Accessing the the focal point data directly
 
+::: v-pre
 If you are not setting `background-position` and wish to use the focal point percentages in another way, you can call `{{ apos.attachments.getFocalPoint(image) }}` to obtain an object with `x` and `y` properties. These numbers will be percentages of the width and height of the image, as cropped by the user.
+:::
 
 ## Focal points for freestanding attachments
 

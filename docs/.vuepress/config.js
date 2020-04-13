@@ -20,123 +20,163 @@ module.exports = {
         children: [
           'core-concepts/technical-overview',
           {
-            title: 'Pages and Nav',
-            path: 'core-concepts/pages-and-navigation',
+            title: 'Pages and Navigation',
+            path: '/core-concepts/pages-and-navigation',
             children: [
               'core-concepts/pages-and-navigation/page-templates',
               'core-concepts/pages-and-navigation/widgets-singletons-and-areas',
-              'core-concepts/pages-and-navigation/connecting-pages',
+              'core-concepts/pages-and-navigation/connecting-pages'
+            ]
+          },
+          {
+            title: 'Widgets',
+            path: '/core-concepts/editable-content-on-pages',
+            children: [
+              'core-concepts/editable-content-on-pages/standard-widgets',
+              'core-concepts/editable-content-on-pages/custom-widgets',
+              'core-concepts/editable-content-on-pages/layout-widgets'
+            ]
+          },
+          {
+            title: 'Pieces',
+            path: '/core-concepts/reusable-content-pieces',
+            children: [
+              'core-concepts/reusable-content-pieces/reusable-content-with-pieces',
+              'core-concepts/reusable-content-pieces/displaying-pieces-with-widgets',
+              'core-concepts/reusable-content-pieces/browsing-directory-of-pieces',
+              'core-concepts/reusable-content-pieces/joins'
+            ]
+          },
+          {
+            title: 'Global settings',
+            path: '/core-concepts/global-settings',
+            children: [
+              'core-concepts/global-settings/settings',
+              'core-concepts/global-settings/global'
+            ]
+          },
+          {
+            title: 'Modules',
+            path: '/core-concepts/modules',
+            children: [
+              'core-concepts/modules/how-apostrophe-modules-are-structured',
+              'core-concepts/modules/nested-module-folders',
+              'core-concepts/modules/more-modules'
+            ]
+          },
+          {
+            title: 'Front End Assets',
+            path: '/core-concepts/front-end-assets',
+            children: [
+              'core-concepts/front-end-assets/pushing-assets',
+              'core-concepts/front-end-assets/lean-frontend-assets'
+            ]
+          },
+          {
+            title: 'Users and Permission',
+            path: '/core-concepts/users-and-permissions',
+            children: [
+              'core-concepts/users-and-permissions/users-and-groups',
+              'core-concepts/users-and-permissions/managing-access-control',
+              'core-concepts/users-and-permissions/apostrophe-passport',
+              'core-concepts/users-and-permissions/user-login-and-password'
+            ]
+          },
+          {
+            title: 'Working with Templates',
+            path: '/core-concepts/working-with-templates',
+            children: [
+              'core-concepts/working-with-templates/nunjucks-filters',
+              'core-concepts/working-with-templates/nunjucks-helper-functions',
+              'core-concepts/working-with-templates/thumbnails-and-areas-of-child-pages',
+              'core-concepts/working-with-templates/responsive-images'
+            ]
+          },
+          {
+            title: 'Search',
+            path: '/core-concepts/apostrophe-search',
+            children: [
+              'core-concepts/apostrophe-search/search'
             ]
           }
         ]
       }
-      // * [Editable Content on the Page: Widgets](tutorials/core-concepts/editable-content-on-pages/README.md)
-      //   * [Standard widgets](tutorials/core-concepts/editable-content-on-pages/standard-widgets.md)
-      //   * [Custom widgets](tutorials/core-concepts/editable-content-on-pages/custom-widgets.md)
-      //   * [Layout / Nested widgets](tutorials/core-concepts/editable-content-on-pages/layout-widgets.md)
-      // * [Reusable content with pieces](tutorials/core-concepts/reusable-content-pieces/README.md)
-      //   * [Reusable content with pieces](tutorials/core-concepts/reusable-content-pieces/reusable-content-with-pieces.md)
-      //   * [Displaying Pieces With Widgets](tutorials/core-concepts/reusable-content-pieces/displaying-pieces-with-widgets.md)
-      //   * [Browsing a Directory of Pieces](tutorials/core-concepts/reusable-content-pieces/browsing-directory-of-pieces.md)
-      //   * [Joins: Connecting Piece Types to One Another](tutorials/core-concepts/reusable-content-pieces/joins.md)
-      // * [Global Settings](tutorials/core-concepts/global-settings/README.md)
-      //   * [Global Settings](tutorials/core-concepts/global-settings/settings.md)
-      //   * [Sharing Content Across Pages](tutorials/core-concepts/global-settings/global.md)
-      // * [Modules](tutorials/core-concepts/modules/README.md)
-      //   * [How Apostrophe Modules are Structured](tutorials/core-concepts/modules/how-apostrophe-modules-are-structured.md)
-      //   * [Nested Module Folders](tutorials/core-concepts/modules/nested-module-folders.md)
-      //   * [More Modules](tutorials/core-concepts/modules/more-modules.md)
-      // * [Front End Assets](tutorials/core-concepts/front-end-assets/README.md)
-      //   * [Pushing assets to the browser](tutorials/core-concepts/front-end-assets/pushing-assets.md)
-      //   * [Lean frontend assets: Apostrophe without jQuery](tutorials/core-concepts/front-end-assets/lean-frontend-assets.md)
-      // * [Users and Permissions](tutorials/core-concepts/users-and-permissions/README.md)
-      //   * [Users and Groups](tutorials/core-concepts/users-and-permissions/users-and-groups.md)
-      //   * [Managing Access Control](tutorials/core-concepts/users-and-permissions/managing-access-control.md)
-      //   * [Single Sign-On with Apostrophe Passport](tutorials/core-concepts/users-and-permissions/apostrophe-passport.md)
-      //   * [User Login and Password Help](tutorials/core-concepts/users-and-permissions/user-login-and-password.md)
-      // * [Working With Templates](tutorials/core-concepts/working-with-templates/README.md)
-      //   * [Nunjucks Filters](tutorials/core-concepts/working-with-templates/nunjucks-filters.md)
-      //   * [Nunjucks Helper Functions](tutorials/core-concepts/working-with-templates/nunjucks-helper-functions.md)
-      //   * [Accessing images inside related pages](tutorials/core-concepts/working-with-templates/thumbnails-and-areas-of-child-pages.md)
-      //   * [Responsive Images](tutorials/core-concepts/working-with-templates/responsive-images.md)
-      // * [Apostrophe Search](tutorials/core-concepts/apostrophe-search/README.md)
-      //   * [Enabling Search](tutorials/core-concepts/apostrophe-search/search.md)
 
       // ## Advanced Topics
 
-      // * [Schema Guide](tutorials/schema-guide/schema-guide.md)
-      // * [Advanced Pieces Topics](tutorials/advanced-development/advanced-pieces-topics/README.md)
-      //   * [AJAX Features: Enhanced Browsing for Pieces](tutorials/advanced-development/advanced-pieces-topics/ajax-pieces.md)
-      //   * [Fine-grained Permissions for Pieces](tutorials/advanced-development/advanced-pieces-topics/permissions-for-pieces.md)
-      //   * [Adding Filters](tutorials/advanced-development/advanced-pieces-topics/adding-filters.md)
-      //   * [Adding Columns](tutorials/advanced-development/advanced-pieces-topics/adding-columns.md)
-      //   * [Next and Previous Links](tutorials/advanced-development/advanced-pieces-topics/next-previous-links.md)
+      // * [Schema Guide](schema-guide/schema-guide.md)
+      // * [Advanced Pieces Topics](advanced-development/advanced-pieces-topics/README.md)
+      //   * [AJAX Features: Enhanced Browsing for Pieces](advanced-development/advanced-pieces-topics/ajax-pieces.md)
+      //   * [Fine-grained Permissions for Pieces](advanced-development/advanced-pieces-topics/permissions-for-pieces.md)
+      //   * [Adding Filters](advanced-development/advanced-pieces-topics/adding-filters.md)
+      //   * [Adding Columns](advanced-development/advanced-pieces-topics/adding-columns.md)
+      //   * [Next and Previous Links](advanced-development/advanced-pieces-topics/next-previous-links.md)
       //   * [Suppressing Pieces from a Listing](advanced-topics/advanced-pieces-topics/suppressing-pieces-from-a-listing.md)
-      //   * [Adding Fields to All Pieces](tutorials/advanced-development/advanced-pieces-topics/adding-fields-to-all-pieces.md)
-      //   * [Adding new batch operations for pieces](tutorials/advanced-development/advanced-pieces-topics/adding-new-batch-operations.md)
-      //   * [Extending the Pieces Editor Modal](tutorials/advanced-development/advanced-pieces-topics/extending-the-pieces-editor-modal.md)
-      //   * [Understanding and Overriding Piece URLs](tutorials/advanced-development/advanced-pieces-topics/overriding-piece-urls.md)
-      // * [Advanced Pages Topics](tutorials/advanced-development/advanced-pages-topics/README.md)
-      //   * [Custom Schemas for Pages](tutorials/advanced-development/advanced-pages-topics/custom-schema-fields-for-pages.md)
-      //   * [Accessing the children of pages via joins](tutorials/advanced-development/advanced-pages-topics/children-and-joins.md)
-      // * [How Apostrophe Handles Requests](tutorials/advanced-development/how-apostrophe-handles-requests.md)
-      // * [How Apostrophe Starts Up](tutorials/advanced-development/how-apostrophe-starts-up.md)
-      // * [Custom Server-side Event Handlers with Promise Events](tutorials/advanced-development/promise-events/README.md)
-      //   * [Custom Server-side Event Handlers with Promise Events](tutorials/advanced-development/promise-events/promise-events.md)
-      // * [Command line tasks](tutorials/advanced-development/apostrophe-cli/command-line-tasks.md)
-      // * [Internationalization and localization](tutorials/advanced-development/internationalization-localization/apostrophe-i18n-config.md)
-      // * [The Database](tutorials/advanced-development/database/README.md)
-      //   * [Apostrophe's model layer: working with the database](tutorials/advanced-development/database/model-layer.md)
-      //   * [Working with cursors](tutorials/advanced-development/database/cursors.md)
-      //   * [Accessing the database directly](tutorials/advanced-development/database/accessing-the-database-directly.md)
-      //   * [Using MongoDB replica sets with Apostrophe](tutorials/advanced-development/database/replica-set.md)
+      //   * [Adding Fields to All Pieces](advanced-development/advanced-pieces-topics/adding-fields-to-all-pieces.md)
+      //   * [Adding new batch operations for pieces](advanced-development/advanced-pieces-topics/adding-new-batch-operations.md)
+      //   * [Extending the Pieces Editor Modal](advanced-development/advanced-pieces-topics/extending-the-pieces-editor-modal.md)
+      //   * [Understanding and Overriding Piece URLs](advanced-development/advanced-pieces-topics/overriding-piece-urls.md)
+      // * [Advanced Pages Topics](advanced-development/advanced-pages-topics/README.md)
+      //   * [Custom Schemas for Pages](advanced-development/advanced-pages-topics/custom-schema-fields-for-pages.md)
+      //   * [Accessing the children of pages via joins](advanced-development/advanced-pages-topics/children-and-joins.md)
+      // * [How Apostrophe Handles Requests](advanced-development/how-apostrophe-handles-requests.md)
+      // * [How Apostrophe Starts Up](advanced-development/how-apostrophe-starts-up.md)
+      // * [Custom Server-side Event Handlers with Promise Events](advanced-development/promise-events/README.md)
+      //   * [Custom Server-side Event Handlers with Promise Events](advanced-development/promise-events/promise-events.md)
+      // * [Command line tasks](advanced-development/apostrophe-cli/command-line-tasks.md)
+      // * [Internationalization and localization](advanced-development/internationalization-localization/apostrophe-i18n-config.md)
+      // * [The Database](advanced-development/database/README.md)
+      //   * [Apostrophe's model layer: working with the database](advanced-development/database/model-layer.md)
+      //   * [Working with cursors](advanced-development/database/cursors.md)
+      //   * [Accessing the database directly](advanced-development/database/accessing-the-database-directly.md)
+      //   * [Using MongoDB replica sets with Apostrophe](advanced-development/database/replica-set.md)
 
       // ## Apostrophe DevOps
 
-      // * [Apostrophe DevOps](tutorials/devops/README.md)
-      //   * [Hosting Apostrophe in production](tutorials/devops/deployment/README.md)
-      //     * [Hosting Apostrophe in production](tutorials/devops/deployment/deployment.md)
-      //     * [Deploying Apostrophe to a Linode linux server quickly](tutorials/devops/deployment/linode.md)
-      //     * [Deploying Apostrophe in the Cloud with Heroku](tutorials/devops/deployment/deploying-apostrophe-in-the-cloud-with-heroku.md)
-      //     * [Deploying Apostrophe with AWS and Elastic Beanstalk](tutorials/devops/deployment/deploying-apostrophe-in-the-cloud-with-aws.md)
-      //   * [Storing Images and Files in the Cloud](tutorials/devops/cloud/README.md)
-      //     * [Storing images and files in Amazon S3](tutorials/devops/cloud/storing-images-and-files-in-amazon-s3.md)
-      //     * [Storing images and files in Azure Blob Storage](tutorials/devops/cloud/storing-images-and-files-in-azure-blob-storage.md)
-      //     * [Storing images and files in Google Cloud Storage](tutorials/devops/cloud/storing-images-and-files-in-google-cloud-storage.md)
-      //   * [Sending email from your ApostropheCMS site](tutorials/devops/email.md)
-      //   * [Storing Sessions in Redis](tutorials/devops/storing-sessions-in-redis.md)
-      //   * [Running Apostrophe on multiple cores and/or servers](tutorials/devops/multicore.md)
-      //   * [Running Apostrophe on Windows](tutorials/devops/windows.md)
-      //   * [Building Docker images for Apostrophe projects](tutorials/devops/docker.md)
-      //   * [Apostrophe Migration Guide](tutorials/devops/migration.md)
+      // * [Apostrophe DevOps](devops/README.md)
+      //   * [Hosting Apostrophe in production](devops/deployment/README.md)
+      //     * [Hosting Apostrophe in production](devops/deployment/deployment.md)
+      //     * [Deploying Apostrophe to a Linode linux server quickly](devops/deployment/linode.md)
+      //     * [Deploying Apostrophe in the Cloud with Heroku](devops/deployment/deploying-apostrophe-in-the-cloud-with-heroku.md)
+      //     * [Deploying Apostrophe with AWS and Elastic Beanstalk](devops/deployment/deploying-apostrophe-in-the-cloud-with-aws.md)
+      //   * [Storing Images and Files in the Cloud](devops/cloud/README.md)
+      //     * [Storing images and files in Amazon S3](devops/cloud/storing-images-and-files-in-amazon-s3.md)
+      //     * [Storing images and files in Azure Blob Storage](devops/cloud/storing-images-and-files-in-azure-blob-storage.md)
+      //     * [Storing images and files in Google Cloud Storage](devops/cloud/storing-images-and-files-in-google-cloud-storage.md)
+      //   * [Sending email from your ApostropheCMS site](devops/email.md)
+      //   * [Storing Sessions in Redis](devops/storing-sessions-in-redis.md)
+      //   * [Running Apostrophe on multiple cores and/or servers](devops/multicore.md)
+      //   * [Running Apostrophe on Windows](devops/windows.md)
+      //   * [Building Docker images for Apostrophe projects](devops/docker.md)
+      //   * [Apostrophe Migration Guide](devops/migration.md)
 
       // ## HOWTOs
 
-      // * [Apostrophe HOWTOs](tutorials/howtos/README.md)
-      // * [Hosting Apostrophe in production](tutorials/devops/deployment/README.md)
-      //   * [Hosting Apostrophe in production](tutorials/devops/deployment/deployment.md)
-      //   * [Deploying Apostrophe to a Linode linux server quickly](tutorials/devops/deployment/linode.md)
-      //   * [Deploying Apostrophe in the Cloud with Heroku](tutorials/devops/deployment/deploying-apostrophe-in-the-cloud-with-heroku.md)
-      //   * [Deploying Apostrophe with AWS and Elastic Beanstalk](tutorials/devops/deployment/deploying-apostrophe-in-the-cloud-with-aws.md)
-      // * [Storing Images and Files in the Cloud](tutorials/devops/cloud/README.md)
-      //   * [Storing images and files in Amazon S3](tutorials/devops/cloud/storing-images-and-files-in-amazon-s3.md)
-      //   * [Storing images and files in Azure Blob Storage](tutorials/devops/cloud/storing-images-and-files-in-azure-blob-storage.md)
-      //   * [Storing images and files in Google Cloud Storage](tutorials/devops/cloud/storing-images-and-files-in-google-cloud-storage.md)
-      // * [How Do I Create a Custom Schema Field Type?](tutorials/howtos/custom-schema-field-types.md)
-      // * [Sending email from your ApostropheCMS site](tutorials/devops/email.md)
-      // * [Storing Sessions in Redis](tutorials/devops/storing-sessions-in-redis.md)
-      // * [Running Apostrophe on multiple cores and/or servers](tutorials/devops/multicore.md)
-      // * [Running Apostrophe on Windows](tutorials/devops/windows.md)
-      // * [Building Docker images for Apostrophe projects](tutorials/devops/docker.md)
-      // * [Apostrophe Migration Guide](tutorials/devops/migration.md)
-      // * [Building a contact form in Apostrophe](tutorials/howtos/forms.md)
-      // * [Building combined menus and custom buttons with the admin bar](tutorials/howtos/admin-bar.md)
-      // * [How do I create a '404 not found' page?](tutorials/howtos/how-do-i-create-a-404-not-found-page.md)
-      // * [How do I add an Intranet to My Site?](tutorials/howtos/intranet.md)
-      // * [Configuring CKEditor in Apostrophe](tutorials/howtos/ckeditor.md)
-      // * [Facebook open graph tags in Apostrophe](tutorials/howtos/facebook.md)
-      // * [Sending user notifications](tutorials/howtos/sending-user-notifications.md)
-      // * [How do I Redirect a User on Login?](tutorials/howtos/user-redirect.md)
+      // * [Apostrophe HOWTOs](howtos/README.md)
+      // * [Hosting Apostrophe in production](devops/deployment/README.md)
+      //   * [Hosting Apostrophe in production](devops/deployment/deployment.md)
+      //   * [Deploying Apostrophe to a Linode linux server quickly](devops/deployment/linode.md)
+      //   * [Deploying Apostrophe in the Cloud with Heroku](devops/deployment/deploying-apostrophe-in-the-cloud-with-heroku.md)
+      //   * [Deploying Apostrophe with AWS and Elastic Beanstalk](devops/deployment/deploying-apostrophe-in-the-cloud-with-aws.md)
+      // * [Storing Images and Files in the Cloud](devops/cloud/README.md)
+      //   * [Storing images and files in Amazon S3](devops/cloud/storing-images-and-files-in-amazon-s3.md)
+      //   * [Storing images and files in Azure Blob Storage](devops/cloud/storing-images-and-files-in-azure-blob-storage.md)
+      //   * [Storing images and files in Google Cloud Storage](devops/cloud/storing-images-and-files-in-google-cloud-storage.md)
+      // * [How Do I Create a Custom Schema Field Type?](howtos/custom-schema-field-types.md)
+      // * [Sending email from your ApostropheCMS site](devops/email.md)
+      // * [Storing Sessions in Redis](devops/storing-sessions-in-redis.md)
+      // * [Running Apostrophe on multiple cores and/or servers](devops/multicore.md)
+      // * [Running Apostrophe on Windows](devops/windows.md)
+      // * [Building Docker images for Apostrophe projects](devops/docker.md)
+      // * [Apostrophe Migration Guide](devops/migration.md)
+      // * [Building a contact form in Apostrophe](howtos/forms.md)
+      // * [Building combined menus and custom buttons with the admin bar](howtos/admin-bar.md)
+      // * [How do I create a '404 not found' page?](howtos/how-do-i-create-a-404-not-found-page.md)
+      // * [How do I add an Intranet to My Site?](howtos/intranet.md)
+      // * [Configuring CKEditor in Apostrophe](howtos/ckeditor.md)
+      // * [Facebook open graph tags in Apostrophe](howtos/facebook.md)
+      // * [Sending user notifications](howtos/sending-user-notifications.md)
+      // * [How do I Redirect a User on Login?](howtos/user-redirect.md)
 
       // ## Reference
 
@@ -347,4 +387,4 @@ module.exports = {
       //     * [apostrophe-widgets-editor \(browser\)](modules/apostrophe-widgets/browser-apostrophe-widgets-editor.md)
     ]
   }
-}
+};

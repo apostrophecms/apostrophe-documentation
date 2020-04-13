@@ -1,7 +1,4 @@
----
-title: Accessing images inside related pages
-layout: tutorial
----
+# Accessing images inside related pages
 
 Out of the box, Apostrophe makes it very easy to access the children of the home page, in order to create "tab" navigation:
 
@@ -36,7 +33,7 @@ So let's try to expand this to display an image that comes from a singleton or a
 
 Maybe you also added that thumbnail singleton to every page's "page settings" dialog box, like this:
 
-{% code-tabs %}
+
 {% code-tabs-item title="lib/modules/apostrophe-custom-pages/index.js" %}
 ```javascript
 module.exports = {
@@ -53,16 +50,16 @@ module.exports = {
       }
     ].concat(options.addFields || []);
   }
-}; 
+};
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-We're very close! But it doesn't quite work yet. For performance, Apostrophe intentionally does not load the images of related pages. 
+We're very close! But it doesn't quite work yet. For performance, Apostrophe intentionally does not load the images of related pages.
 
 Fortunately we can switch this on for the children of the home page:
 
-{% code-tabs %}
+
 {% code-tabs-item title="lib/modules/apostrophe-pages/index.js" %}
 ```javascript
 module.exports = {
@@ -89,7 +86,7 @@ module.exports = {
 
 Yes, you can do that too. But, keep in mind that we're doing extra work here that could slow Apostrophe down a little. The life of a web developer is full of tradeoffs!
 
-{% code-tabs %}
+
 {% code-tabs-item title="lib/modules/apostrophe-pages/index.js" %}
 ```javascript
 module.exports = {
@@ -117,7 +114,7 @@ Adding `depth: 2` tells `apostrophe-pages` to go two levels deep fetching the su
 
 You can do a similar trick for children of the current page:
 
-{% code-tabs %}
+
 {% code-tabs-item title="lib/modules/apostrophe-pages/index.js" %}
 ```javascript
 module.exports = {

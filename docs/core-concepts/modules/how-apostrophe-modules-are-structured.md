@@ -1,7 +1,4 @@
----
-title: How Apostrophe modules are structured
-layout: tutorial
----
+# How Apostrophe modules are structured
 
 ## `lib/modules`: modules in Apostrophze
 
@@ -75,7 +72,7 @@ You can also work directly with `self.apos.app`, which is the Express app object
 
 ```javascript
 $(function() {
-  // You should wait at least for the DOM to be ready, like this  
+  // You should wait at least for the DOM to be ready, like this
 });
 ```
 
@@ -84,7 +81,7 @@ Or a few Apostrophe event handlers:
 ```javascript
 apos.on('ready', function() {
   // The page has been loaded for the first time,
-  // or has just been refreshed after a piece was saved  
+  // or has just been refreshed after a piece was saved
 });
 ```
 

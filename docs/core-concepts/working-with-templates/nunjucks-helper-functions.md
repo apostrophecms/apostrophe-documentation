@@ -15,7 +15,7 @@ Let's take another look at the [link-widgets module you just created in the prev
 
 Let's say you want to make the label optional, and use the URL as a label if no label is provided:
 
-{% code-tabs %}
+
 {% code-tabs-item title="lib/modules/link-widgets/index.js" %}
 ```javascript
 module.exports = {
@@ -42,7 +42,7 @@ module.exports = {
 
 Now, in `views/widget.html`, write:
 
-{% code-tabs %}
+
 {% code-tabs-item title="views/widget.html" %}
 ```markup
 <h4>
@@ -60,7 +60,7 @@ But there's a problem: the URL is a bit clumsy-looking as a label, especially if
 
 You could do string replacement in Nunjucks, but as a general rule, **the more logic you write in templates, the harder they are to maintain.** You should instead move that code up to a JavaScript "helper function" in your `link-widgets` module:
 
-{% code-tabs %}
+
 {% code-tabs-item title="lib/modules/link-widgets/index.js" %}
 ```javascript
 module.exports = {
@@ -95,7 +95,7 @@ module.exports = {
 
 Now, in `widget.html`, write:
 
-{% code-tabs %}
+
 {% code-tabs-item title="views/widget.html" %}
 ```markup
 <h4>
@@ -139,7 +139,7 @@ In addition to functions, you can also pass data as helpers. This can be helpful
 
 For example, in your module you might create a `helpers` module just for sharing helpers like this:
 
-{% code-tabs %}
+
 {% code-tabs-item title="lib/modules/helpers/index.js" %}
 ```javascript
 // (Don't forget to enable this new module in `app.js`)
@@ -177,7 +177,7 @@ You can find a [reference guide to ApostropheCMS nunjucks filters here](https://
 
 You can also add your own Nunjucks filters. Here's another version of `index.js`:
 
-{% code-tabs %}
+
 {% code-tabs-item title="lib/modules/link-widgets/index.js" %}
 ```javascript
 module.exports = {
@@ -212,7 +212,7 @@ module.exports = {
 
 Now, in `widget.html`, use the new filter:
 
-{% code-tabs %}
+
 {% code-tabs-item title="lib/modules/link-widgets/views/widget.html" %}
 ```markup
 <h4>

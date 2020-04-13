@@ -1,7 +1,4 @@
----
-title: How do I enable site-wide full text search?
-layout: tutorial
----
+# How do I enable site-wide full text search?
 
 Apostrophe has full-text search capabilities built in. You just need to enable the `apostrophe-search` module, and create a "parked page" with the type `apostrophe-search` so that there is a place to display search results.
 

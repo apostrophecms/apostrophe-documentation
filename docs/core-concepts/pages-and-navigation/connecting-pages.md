@@ -27,7 +27,7 @@ There are real advantages to doing it this way. If the site has a `prefix` optio
 
 A common navigation design is to have a row of "tabs" at the top. Want to display those no matter where in the site you are? Add this to your `home.html`:
 
-{% code-tabs %}
+
 {% code-tabs-item title="lib/modules/apostrophe-pages/views/home.html" %}
 ```markup
 <ul class="tabs">
@@ -41,7 +41,7 @@ A common navigation design is to have a row of "tabs" at the top. Want to displa
 
 Now let's add a CSS class indicating the current tab \(the one that is the current page, or an ancestor of it\):
 
-{% code-tabs %}
+
 {% code-tabs-item title="lib/modules/apostrophe-pages/views/home.html" %}
 ```markup
 <ul class="tabs">
@@ -65,7 +65,7 @@ Sometimes you'll want to display dropdown menus. Each menu represents a child of
 
 First, in `app.js`, let's configure `apostrophe-pages` to retrieve two levels of children when fetching ancestors of the current page:
 
-{% code-tabs %}
+
 {% code-tabs-item title="app.js" %}
 ```javascript
 modules: {
@@ -94,7 +94,7 @@ modules: {
 
 Now you can easily output all the markup you'd need for dropdown menus. Add this code to `home.html`:
 
-{% code-tabs %}
+
 {% code-tabs-item title="lib/modules/apostrophe-pages/views/home.html" %}
 ```markup
 <ul class="tabs">
@@ -118,7 +118,7 @@ Now you can easily output all the markup you'd need for dropdown menus. Add this
 
 The current page is `data.page`, and by default, `data.page._ancestors` is available. This will add a breadcrumb link to the page:
 
-{% code-tabs %}
+
 {% code-tabs-item title="lib/modules/apostrophe-pages/views/home.html" %}
 ```markup
 {% if data.page %}
@@ -140,7 +140,7 @@ The current page is `data.page`, and by default, `data.page._ancestors` is avail
 
 Want to list the ancestors of the current page along with their subpages? Sure. You can replace your current navigation with this "accordion" nav:
 
-{% code-tabs %}
+
 {% code-tabs-item title="lib/modules/apostrophe-pages/views/home.html" %}
 ```markup
 {% if data.page %}
@@ -166,7 +166,7 @@ Want to list the ancestors of the current page along with their subpages? Sure. 
 
 That's another easy one:
 
-{% code-tabs %}
+
 {% code-tabs-item title="lib/modules/apostrophe-pages/views/home.html" %}
 ```markup
 {% if data.page %}

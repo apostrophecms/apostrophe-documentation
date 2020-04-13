@@ -13,7 +13,7 @@ For a really useful directory, you want to create a page that offers a paginated
 
 Let's add this new module to your `app.js`. Your new module extends the `apostrophe-pieces-pages` module:
 
-{% code-tabs %}
+
 {% code-tabs-item title="app.js" %}
 ```javascript
 modules: {
@@ -32,7 +32,7 @@ modules: {
 
 This module provides a new type of page on the site, `people-page`. This new page type displays an index of pieces. Before it can be used, you need to configure `apostrophe-pages` to add it to the menu of page types that can be given to pages. In `app.js` it might look like this:
 
-{% code-tabs %}
+
 {% code-tabs-item title="app.js" %}
 ```javascript
 modules: {
@@ -115,7 +115,7 @@ If you add a `People` page now, you'll see a plain-vanilla list of people; click
 
 Your final result should look like this:
 
-{% code-tabs %}
+
 {% code-tabs-item title="lib/modules/people-pages/views/index.html" %}
 ```markup
 {% extends "your-project/layout.html" %}
@@ -163,7 +163,7 @@ Next you want to override the `show.html` template of your subclass of `apostrop
 
 `show.html` is the template that displays just one profile in detail:
 
-{% code-tabs %}
+
 {% code-tabs-item title="lib/modules/people-pages/views/show.html" %}
 ```markup
 {% extends "layout.html" %}
@@ -193,7 +193,7 @@ Editing each person's "bio" inside the modal dialog box is okay, but it would be
 You can make this more intuitive by setting the `contextual` flag for your pieces module:
 
 
-{% code-tabs %}
+
 {% code-tabs-item title="lib/modules/people/index.js" %}
 ```javascript
 module.exports = {
@@ -224,7 +224,7 @@ The solution is pretty simple! To get `example.com/cats` to return a 404 error (
 
 In `lib/modules/cats-pages/index.js`, add the following to your `construct` method:
 
-{% code-tabs %}
+
 {% code-tabs-item title="lib/modules/cats-pages/index.js" %}
 ```javascript
 construct: function (self, options) {
@@ -243,7 +243,7 @@ See what we did there? Since `beforeIndex` runs before the index page is loaded,
 
 You might want to allow site admins to create and access those index pages, though. In that case, do [include it as an option in `apostrophe-pages` configuration](/modules/apostrophe-pages/README.md), and make an adjustment to the `beforeIndex` method:
 
-{% code-tabs %}
+
 {% code-tabs-item title="lib/modules/apostrophe-pages/index.js" %}
 ```javascript
 construct: function (self, options) {

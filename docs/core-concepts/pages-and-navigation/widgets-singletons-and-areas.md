@@ -19,7 +19,7 @@ If you're following along, you created a `default.html` template in the previous
 
 2. Replace the `main` block with this:
 
-{% code-tabs %}
+
 {% code-tabs-item title="lib/modules/apostrophe-pages/views/default.html" %}
     ```markup
     {% block main %}
@@ -67,7 +67,7 @@ To see this in action, add an `apos.area` to a page template.
 
 2. Add this to `default.html` below the Singleton you just added inside the main `div`:
 
-{% code-tabs %}
+
 {% code-tabs-item title="lib/modules/apostrophe-pages/views/default.html" %}
     ```markup
     {{ apos.area(data.page, 'body', {
