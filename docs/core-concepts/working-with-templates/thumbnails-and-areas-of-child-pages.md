@@ -2,8 +2,8 @@
 
 Out of the box, Apostrophe makes it very easy to access the children of the home page, in order to create "tab" navigation:
 
-```markup
-{# In your layout template #}
+```django
+{# In your layout template, e.g., views/layout.html #}
 <ul class="tabs">
   {% for tab in data.home._children %}
     <li class="tab">
@@ -15,7 +15,8 @@ Out of the box, Apostrophe makes it very easy to access the children of the home
 
 So let's try to expand this to display an image that comes from a singleton or area inside each subpage of the home page:
 
-```markup
+```django
+{# views/layout.html #}
 <ul class="tabs">
   {% for tab in data.home._children %}
     <li class="tab">
@@ -35,6 +36,7 @@ Maybe you also added that thumbnail singleton to every page's "page settings" di
 
 
 ```javascript
+// lib/modules/apostrophe-custom-pages/index.js
 module.exports = {
   beforeConstruct: function(self, options) {
     options.addFields = [
@@ -58,6 +60,7 @@ Fortunately we can switch this on for the children of the home page:
 
 
 ```javascript
+// lib/modules/apostrophe-pages/index.js
 module.exports = {
   // other configuration, such as the types option, then...
   filters: {
@@ -82,6 +85,7 @@ Yes, you can do that too. But, keep in mind that we're doing extra work here tha
 
 
 ```javascript
+// lib/modules/apostrophe-pages/index.js
 module.exports = {
   // other configuration, such as the types option, then...
   filters: {
@@ -95,7 +99,6 @@ module.exports = {
 };
 ```
 
-
 {% hint style='info' %}
 Adding `depth: 2` tells `apostrophe-pages` to go two levels deep fetching the subpages of each ancestor of the current page. Now you can loop over `_children` two levels deep in your template and produce dropdown menus with images... at the cost of a little speed.
 {% endhint %}
@@ -107,6 +110,7 @@ You can do a similar trick for children of the current page:
 
 
 ```javascript
+// lib/modules/apostrophe-pages/index.js
 module.exports = {
   // other configuration, such as the types option, then...
   filters: {
@@ -120,5 +124,3 @@ module.exports = {
 {% hint style='info' %}
 See the earlier example on this page for how to add `thumbnail`to the schema of every page. You can then access the thumbnails in your templates by looping over `data.page._children` with code similar to the template shown above.
 {% endhint %}
-
-

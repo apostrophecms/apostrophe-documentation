@@ -1,8 +1,3 @@
----
-title: Displaying Pieces With Widgets
-layout: tutorial
----
-
 # Displaying Pieces with Widgets
 
 In the previous example, you learned how to create pieces. Now you'll see how to use display those pieces using widgets.
@@ -13,6 +8,7 @@ So you created pieces, but you don't have a way to display them on your site yet
 
 
 ```javascript
+// app.js
 // other modules, then...
   'people-widgets': {
     extend: 'apostrophe-pieces-widgets'
@@ -27,7 +23,8 @@ So you created pieces, but you don't have a way to display them on your site yet
 Already this is enough to let us add the new widget to any `apos.area` call in a page template, like your `home.html` or `default.html` template:
 
 
-```markup
+```django
+{# lib/modules/apostrophe-pages/views/default.html #}
 apos.area(data.page, 'body', {
     widgets: {
       'apostrophe-rich-text': {},
@@ -48,9 +45,9 @@ Pieces widgets are great, but they are powered by joins, and joins can cause tro
 
 To solve that, you should always add a `projection` filter when configuring a subclass of `apostrophe-pieces-widgets`:
 
-
 ```javascript
-  'people-widgets': {
+  // lib/modules/people-widgets/index.js
+  module.exports = {
     extend: 'apostrophe-pieces-widgets',
     filters: {
       projection: {
@@ -61,9 +58,9 @@ To solve that, you should always add a `projection` filter when configuring a su
         // fetches everything needed to populate it
         _url: 1,
       }
-    }
+    },
+    // etc.
   }
-// etc.
 ```
 
 This way, only the properties you really need are fetched for the widget. This can greatly speed up your site and prevent mysterious refusals to load any more data if things start joining back to themselves.
@@ -77,7 +74,8 @@ _"Which properties do I need in my projection?"_ Just those you'll use in your `
 Your widget isn't very satisfying yet. It just displays full names. Let's improve it by creating your own `lib/modules/people-widgets/views/widget.html` file to provide a more detailed display:
 
 
-```markup
+```django
+{# lib/modules/people-widgets/views/widget.html #}
 {% for piece in data.widget._pieces %}
   <h4>
     {% if piece._url %}<a href="{{ piece._url }}">{% endif %}

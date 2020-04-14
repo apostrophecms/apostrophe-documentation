@@ -1,8 +1,3 @@
----
-title: Managing Access Control
-layout: tutorial
----
-
 # Managing Access Control
 
 In most cases, you essentially have three levels of permissions:
@@ -27,6 +22,7 @@ Apostrophe makes it easy to set this up with minimal configuration, but if that 
 
 
 ```javascript
+  // lib/modules/apostrophe-users/index.js
   module.exports: {
   	...
       groups: [

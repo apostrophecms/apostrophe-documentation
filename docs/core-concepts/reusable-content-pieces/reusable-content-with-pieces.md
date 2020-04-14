@@ -1,8 +1,3 @@
----
-title: Reusable content with pieces
-layout: tutorial
----
-
 # Reusable content with pieces
 
 When you create content with the rich text editor, or images widget, that content is only displayable on the page where it is created. That will work for some cases, but often you need more powerful tools to create different types of content that can be reused in different ways across your site.
@@ -134,7 +129,7 @@ Methods are always added to the module in the `construct` function, which takes 
 When you do this, there is still a separate prompt to enter the full name. Remove that by adding the `contextual` option to the `title` field, which keeps that field out of the modal:
 
 ```javascript
-  // In `addFields`
+  // In the`addFields` array
   {
     name: 'title',
     label: 'Full Name',
@@ -157,6 +152,8 @@ You can use `arrangeFields` to break the schema into multiple tabs in the editor
 
 
 ```javascript
+// lib/modules/people/index.js
+module.exports = {
   addFields: [ ... ],
   arrangeFields: [
     {
@@ -175,7 +172,8 @@ You can use `arrangeFields` to break the schema into multiple tabs in the editor
       fields: [ 'thumbnail', 'body' ]
     }
   ],
+  // ...
+}
 ```
 
 Any non-`contextual` fields excluded from this configuration will be placed in an additional tab.
-

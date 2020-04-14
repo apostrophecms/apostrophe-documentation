@@ -16,7 +16,7 @@ This example assumes that you know how to load and work with custom widgets. If 
 
 With this example widget, it's up to the developer to specify the `sizesAttr` option (which is what we use for the `sizes` attribute on the image). So when you load the widget into an area or singleton, follow this example:
 
-```markup
+```django
 {{ apos.area(data.page, 'content', {
   widgets: {
     'image': {
@@ -30,6 +30,7 @@ Now for the actual widget code:
 
 
 ```javascript
+// lib/modules/my-image-widget/index.js
 module.exports = {
   extend: 'apostrophe-widgets',
   label: 'Image',
@@ -54,7 +55,8 @@ module.exports = {
 ```
 
 
-```markup
+```django
+{# lib/modules/my-image-widget/views/widget.html #}
 <img src="{{ apos.attachments.url(data.widget._image.attachment, { size: data.options.size or 'full' }) }}" srcset="{{ apos.images.srcset(data.widget._image.attachment) }}" sizes="{{ data.options.sizesAttr or '100vw' }}" alt="{{ data.widget._image.description or data.widget._image.title }}">
 ```
 
@@ -73,7 +75,7 @@ Rather than scaling all of the images to have the same height while displaying a
 }
 ```
 
-```markup
+```django
 {# in your own page template #}
 
 <div class="my-marquee">
@@ -98,7 +100,7 @@ Unfortunately, this strategy has a key flaw. Everything is great until the marqu
 
 This problem can be solved with the `focalPoint` option, which gives the user the ability to choose a "focal point" within the image that is guaranteed to be visible:
 
-```markup
+```django
 {# in your own page template #}
 
 <div class="my-marquee">
@@ -130,7 +132,7 @@ This is great if you are rendering the widget normally with `apos.area` or `apos
 
 Here's an example of how you can combine that technique with a focal point:
 
-```markup
+```django
 {% set image = apos.images.first(data.page.main) %}
 {% if image %}
   <div class="focal-point-test" style="

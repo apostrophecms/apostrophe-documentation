@@ -15,6 +15,7 @@ Let's add this new module to your `app.js`. Your new module extends the `apostro
 
 
 ```javascript
+// app.js
 modules: {
   // ... other modules ...,
   'people-pages': {
@@ -31,6 +32,7 @@ This module provides a new type of page on the site, `people-page`. This new pag
 
 
 ```javascript
+// app.js
 modules: {
   // ... other modules ...,
   'apostrophe-pages': {
@@ -70,7 +72,8 @@ If you add a `People` page now, you'll see a plain-vanilla list of people; click
 
 2. Now create `index.html` in that folder. You can copy what's already in `node_modules/apostrophe/lib/modules/apostrophe-pieces-pages/views/index.html` as a starting point:
 
-    ```markup
+    ```django
+    {# lib/modules/people-pages/views/index.html #}
     {% extends "layout.html" %}
     {% block title %}{{ data.page.title }}{% endblock %}
 
@@ -89,13 +92,14 @@ If you add a `People` page now, you'll see a plain-vanilla list of people; click
 
 3.  You probably have a `layout.html` template of your own that you extend in all of your page templates. So you can switch to extending that:
 
-    ```markup
+    ```django
+    {# lib/modules/people-pages/views/index.html #}
     {% extends "your-project/layout.html" %}
     ```
 
 4. Next, let's dress up the people with their headshots by replacing the existing `for` loop with the following:
 
-    ```markup
+    ```django
       {% for piece in data.pieces %}
          <h4>
           {% set image = apos.images.first(piece.thumbnail) %}
@@ -110,7 +114,8 @@ If you add a `People` page now, you'll see a plain-vanilla list of people; click
 Your final result should look like this:
 
 
-```markup
+```django
+{# lib/modules/people-pages/views/index.html #}
 {% extends "your-project/layout.html" %}
 {% block title %}{{ data.page.title }}{% endblock %}
 
@@ -155,7 +160,8 @@ Next you want to override the `show.html` template of your subclass of `apostrop
 `show.html` is the template that displays just one profile in detail:
 
 
-```markup
+```django
+{# lib/modules/people-pages/views/index.html #}
 {% extends "layout.html" %}
 {% block title %}{{ data.piece.title }}{% endblock %}
 
@@ -183,6 +189,7 @@ You can make this more intuitive by setting the `contextual` flag for your piece
 
 
 ```javascript
+// lib/modules/people/index.js
 module.exports = {
   // Other options, then...
   contextual: true
@@ -211,6 +218,7 @@ In `lib/modules/cats-pages/index.js`, add the following to your `construct` meth
 
 
 ```javascript
+// lib/modules/cats-pages/index.js
 construct: function (self, options) {
   self.beforeIndex = function (req, callback) {
     req.notFound = true;
@@ -227,6 +235,7 @@ You might want to allow site admins to create and access those index pages, thou
 
 
 ```javascript
+// lib/modules/apostrophe-pages/index.js
 construct: function (self, options) {
   self.beforeIndex = function (req, callback) {
     if (!req.data.page._edit) {

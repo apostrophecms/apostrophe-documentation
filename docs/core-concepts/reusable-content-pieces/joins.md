@@ -9,6 +9,7 @@ Let's say you have 100 employees, working at 10 different jobs. Many employees m
 So we create a second pieces module, `jobs`. Here's how to set that up in `app.js`. We'll set up a `pieces-pages` module too, to let the public browse the jobs on the site:
 
 ```javascript
+// app.js
 modules: {
   'jobs': {
     extend: 'apostrophe-pieces'
@@ -64,6 +65,7 @@ Great, now you have jobs. But there is no relationship between pieces and jobs y
 Let's add a `joinByOne` schema field to the `people` module, relating it to the new `job` pieces:
 
 ```javascript
+// lib/modules/people/index.js
 module.exports = {
   extend: 'apostrophe-pieces',
   name: 'person',
@@ -91,8 +93,7 @@ Now you have a join between each person and their job. But how do you display th
 
 Here's what that looks like in `lib/modules/people/views/show.html`:
 
-
-```
+```django
 {# As in the earlier example, then... #}
 {% if data.person._job %}
   <h4>
@@ -114,7 +115,8 @@ Earlier, for performance, we showed how to restrict the projection used to fetch
 You can fix this by adding `_job` to the projection:
 
 ```javascript
-  'people-widgets': {
+  // lib/modules/people-widgets/index.js
+  module.exports = {
     extend: 'apostrophe-pieces-widgets',
     filters: {
       projection: {
@@ -138,6 +140,7 @@ Just like `_url`, adding `_job: 1` will fetch everything needed to populate `_jo
 Turns out your employees can have more than one job! Oops. How do we express that?
 
 ```javascript
+// lib/modules/people/index.js
 module.exports = {
   extend: 'apostrophe-pieces',
   name: 'person',
@@ -157,12 +160,12 @@ module.exports = {
 };
 ```
 
-
 Now when editing a person, you can select more than one job.
 
 And in our templates, we can access the array of jobs like this:
 
-```
+```django
+{# lib/modules/people/views/show.html #}
 {% for job in data.piece._jobs %}
   <h4>
     Position: <a href="{{ job._url }}">{{ job.title }}</a>
@@ -200,7 +203,8 @@ Here you're asking `apostrophe-pieces-pages` to automatically populate `req.data
 
 Now you can take advantage of that:
 
-```markup
+```django
+{# lib/modules/people/views/index.html #}
 {# Link to all the tags, adding a parameter to the query string #}
 <ul class="tag-filters">
   {% for tag in data.piecesFilters.tags %}
@@ -228,6 +232,7 @@ You can display counts for the choices, so users know how many items are availab
 
 
 ```javascript
+// lib/modules/people-pages/index.js
 module.exports = {
   piecesFilters: [
     {
@@ -238,7 +243,8 @@ module.exports = {
 }
 ```
 
-```markup
+```django
+{# lib/modules/people-pages/index.html #}
 <ul class="tag-filters">
   {% for tag in data.piecesFilters.tags %}
     <li><a href="{{ data.url | build({ tags: tag.value }) }}">{{ tag.label }} ({{ tag.count }})</a></li>
@@ -252,7 +258,8 @@ Usually you want to indicate the tag the user has already chosen. And, you want 
 
 How can we do that? Again, in `index.html`:
 
-```markup
+```django
+{# lib/modules/people-pages/index.html #}
 {# Link to all the tags, adding a parameter to the query string #}
 <ul class="tag-filters">
   {% for tag in data.piecesFilters.tags %}
@@ -282,6 +289,7 @@ Tags are the simplest example, but you can filter on most schema field types, no
 Add a filter on the `_jobs` schema field we saw earlier:
 
 ```javascript
+// lib/modules/people-pages/index.js
 module.exports = {
   piecesFilters: [
     {
@@ -299,7 +307,8 @@ However, keep in mind that if you change the slug someone's bookmarked links mig
 
 Now you can filter people by job:
 
-```markup
+```django
+{# lib/modules/people-pages/index.html #}
 {# Link to all the tags, adding a parameter to the query string #}
 <ul class="job-filters">
   {% for job in data.piecesFilters.jobs %}
@@ -330,7 +339,8 @@ However, **keep in mind this usually is very frustrating for users because they 
 
 Here's how to build query strings that contain arrays in your template:
 
-```markup
+```django
+{# lib/modules/people-pages/index.html #}
 <ul class="job-filters">
   {% for job in data.piecesFilters.jobs %}
     {% if apos.utils.contains(data.query.jobs, job.value) %}

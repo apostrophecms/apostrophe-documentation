@@ -1,8 +1,3 @@
----
-title: 'Nunjucks helper functions: calling JavaScript functions from templates'
-layout: tutorial
----
-
 # Nunjucks helper functions: calling JavaScript functions from templates
 
 In the ["Building Navigation" tutorial](/tutorials/core-concepts/pages-and-navigation/connecting-pages.md) you called `apos.pages.isAncestorOf` from your template code.
@@ -17,6 +12,7 @@ Let's say you want to make the label optional, and use the URL as a label if no 
 
 
 ```javascript
+// lib/modules/link-widgets/index.js
 module.exports = {
   extend: 'apostrophe-widgets',
   label: 'Link to a Page',
@@ -37,10 +33,10 @@ module.exports = {
 };
 ```
 
-Now, in `views/widget.html`, write:
+Now, in `lib/modules/link-widgets/views/widget.html`, write:
 
 
-```markup
+```django
 <h4>
   <a href="{{ data.widget.url }}">
     {{ data.widget.label or data.widget.url }}
@@ -56,6 +52,7 @@ You could do string replacement in Nunjucks, but as a general rule, **the more l
 
 
 ```javascript
+// lib/modules/link-widgets/index.js
 module.exports = {
   extend: 'apostrophe-widgets',
   label: 'Link to a Page',
@@ -84,10 +81,10 @@ module.exports = {
 };
 ```
 
-Now, in `widget.html`, write:
+Now, in `lib/modules/link-widgets/views/widget.html`, write:
 
 
-```markup
+```django
 <h4>
   <a href="{{ data.widget.url }}">
     {{ data.widget.label or apos.link.stripHttp(data.widget.url) }}
@@ -129,6 +126,7 @@ For example, in your module you might create a `helpers` module just for sharing
 
 
 ```javascript
+// lib/modules/helpers/index.js
 // (Don't forget to enable this new module in `app.js`)
 module.exports = {
   alias: 'helpers',
@@ -141,7 +139,7 @@ module.exports = {
 ```
 
 
-```markup
+```django
 {# In any template you can now write: #}
 {{ apos.singleton(data.page, 'footer', 'apostrophe-rich-text',
   {
@@ -154,7 +152,7 @@ module.exports = {
 
 Helper functions are handy, but Nunjucks also has a "filter" syntax. For example, `upper` is a built-in Nunjucks filter:
 
-```markup
+```django
 <h1>{{ data.page.title | upper }}</h1>
 ```
 
@@ -164,6 +162,7 @@ You can also add your own Nunjucks filters. Here's another version of `index.js`
 
 
 ```javascript
+// lib/modules/link-widgets/index.js
 module.exports = {
   extend: 'apostrophe-widgets',
   label: 'Link to a Page',
@@ -195,7 +194,8 @@ module.exports = {
 Now, in `widget.html`, use the new filter:
 
 
-```markup
+```django
+{# lib/modules/link-widgets/views/widget.html #}
 <h4>
   <a href="{{ data.widget.url }}">
     {{ data.widget.label or (data.widget.url | stripHttp) }}

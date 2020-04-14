@@ -15,6 +15,8 @@ For security reasons, and because most sites don't have the [apostrophe-email](/
 
 
 ```javascript
+// app.js
+//...
 modules: {
   'apostrophe-email': {
     // See the nodemailer documentation, many
@@ -35,7 +37,8 @@ modules: {
       from: 'password-reset@example.com'
     }
   }
-}
+},
+//...
 ```
 
 Once you enable the feature, the user will automatically see a "Reset My Password" link at the bottom of the login form at `/login`. If you don't see that link, make sure you haven't previously overridden your `loginBase.html` template.
