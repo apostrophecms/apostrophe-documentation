@@ -37,7 +37,7 @@ discovered. Frontend moog classes and methods, too.
 
 Here's how to generate the docs:
 
-> First make sure you are not running anything locally on port 8080.
+> First make sure you are not running anything locally on port 3000.
 
 ```
 ./generate
@@ -47,17 +47,15 @@ NOTE: this will `npm update` the version of `apostrophe` being documented first,
 
 Now commit the changes, as you would if you had made them manually.
 
-### 3. Making edits to other docs
+### 3. Making edits to other pages
 
-@TODO: Update this before merging Vuepress work into `master`. Remove other refs
-to Gitbook
+We make changes to other pages by hand and commit them to master.
 
-Right now we're making all edits by hand and committing them to master.
-
-**If you add a new tutorial,** you will need to edit `SUMMARY.md` in the root of the project to add it to the tree structure. Otherwise it will not be discoverable in the navigation.
+**If you add a new page,** you will need to edit `docs/.vuepress/config.js` in the root of the project. Otherwise it will not appear in the sidebar navigation.
 
 ### 4. Deploying
 
+@TODO: TBD - Not gitbook, though.
 After generation or manual edits to the documentation, simply commit the changes to `apostrophe-documentation#master` and check http://docs.apostrophecms.org for the changes. Give Gitbook a minute or so to rebuild the site.
 
 *Note on internal doc links* When creating links in the body of a documentation page that point to another page of documentation, make sure the link is relative and pointing to the `.md` extension. After committing, check the gitbook build to make sure it is correctly linking to the gitbook page and not a file in the `apostrophe-documentation` github repo
