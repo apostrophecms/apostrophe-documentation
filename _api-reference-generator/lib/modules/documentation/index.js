@@ -24,6 +24,12 @@ module.exports = {
       });
     }
 
+    const sidebarJsonPath = '../docs/.vuepress/sidebar.json';
+    const startingNav = JSON.parse(fs.readFileSync(sidebarJsonPath, 'utf8'));
+    const refIndex = startingNav.sidebar.findIndex(item => {
+      return item.path && item.path === '/reference';
+    });
+
     self.apos.tasks.add('documentation', 'generate', 'Usage: node app documentation:generate\n\nRegenerates the module reference documentation.', function(apos, argv, callback) {
       return async.series([
         self.extract,
@@ -85,6 +91,9 @@ module.exports = {
       });
 
       mkdirp('../docs/reference/modules');
+
+      const sidebarJson = JSON.stringify(startingNav, null, 2);
+      fs.writeFileSync(sidebarJsonPath, sidebarJson);
 
       let fragment = _.map(modules, function(module) {
         return `* [${module}](modules/${module}/README.md)` + summarizeSubtypes(module);
@@ -265,6 +274,10 @@ module.exports = {
       }
 
       function documentModule(module) {
+        const refSection = startingNav.sidebar[refIndex];
+        const moduleList = refSection.children[refSection.children.length - 1].children;
+        console.log(moduleList);
+
         var type = types['server-' + module];
         var relatedTypes = _.filter(types, function(type, name) {
           return (type.module === module) && ((type.name !== module) || (type.namespace !== 'server'));
@@ -282,11 +295,19 @@ module.exports = {
             documentHelpers(type) +
             documentRoutes(type)
           );
+
+          moduleList.push(`reference/modules/${module}`);
           return;
         }
 
         var folder = '../docs/reference/modules/' + module;
         mkdirp(folder);
+
+        const navGroup = {
+          title: module,
+          path: `/reference/modules/${module}`,
+          children: []
+        };
 
         var markdownFile = folder + '/README.md';
 
@@ -307,7 +328,10 @@ module.exports = {
             documentMethods(type) +
             documentRoutes(type)
           );
+
+          navGroup.children.push(`reference/modules/${module}/${type.nameNamespaced}`);
         });
+        moduleList.push(navGroup);
       }
 
       function processFile(module, subcategory, file, info, relatedTypes) {
