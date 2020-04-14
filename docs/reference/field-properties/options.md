@@ -1,4 +1,4 @@
-# Options
+# `options`
 
 The `options` property contains additional configuration for configuring a widget `area`.
 

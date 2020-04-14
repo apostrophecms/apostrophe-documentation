@@ -1,10 +1,8 @@
 ---
-title: 'Apostrophe core object, server-side'
-layout: reference
-module: false
+title: 'Core Server'
 ---
 
-# Core Server
+# Apostrophe core object, server-side
 
 This code, found in every Apostrophe project, creates the `apos` object that represents your website on the server side:
 
@@ -85,7 +83,7 @@ modules: {
 module.exports = {
   session: {
     secret: 'my secret here'
-  }  
+  }
 }
 ```
 

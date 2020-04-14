@@ -1,4 +1,4 @@
-# Sortify
+# `sortify`
 
 Any field type which has its value stored as a string can have a "Sortified" version which will make sorting case-insensitive and ignore punctuation.
 

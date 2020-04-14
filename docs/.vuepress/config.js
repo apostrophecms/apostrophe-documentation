@@ -1,7 +1,8 @@
 module.exports = {
   themeConfig: {
     lastUpdated: 'Last updated',
-    // displayAllHeaders: true,
+    nextLinks: true,
+    prevLinks: true,
     sidebar: [
       '/',
       {
@@ -192,43 +193,71 @@ module.exports = {
           'howtos/sending-user-notifications',
           'howtos/user-redirect'
         ]
+      },
+      {
+        title: 'References',
+        path: '/reference',
+        collapsable: false,
+        children: [
+          'reference/glossary',
+          {
+            title: 'Schema Field Types',
+            path: '/reference/field-types',
+            children: [
+              'reference/field-types/area',
+              'reference/field-types/array',
+              'reference/field-types/attachment',
+              'reference/field-types/boolean',
+              'reference/field-types/checkbox',
+              'reference/field-types/color',
+              'reference/field-types/date',
+              'reference/field-types/email',
+              'reference/field-types/float',
+              'reference/field-types/integer',
+              'reference/field-types/joinByArray',
+              'reference/field-types/joinByArrayReverse',
+              'reference/field-types/joinByOne',
+              'reference/field-types/joinByOneReverse',
+              'reference/field-types/object',
+              'reference/field-types/password',
+              'reference/field-types/range',
+              'reference/field-types/select',
+              'reference/field-types/singleton',
+              'reference/field-types/string',
+              'reference/field-types/slug',
+              'reference/field-types/tags',
+              'reference/field-types/time',
+              'reference/field-types/url',
+              'reference/field-types/video'
+            ]
+          },
+          {
+            title: 'Schema Field Properties',
+            path: '/reference/field-properties',
+            children: [
+              'reference/field-properties/choices',
+              'reference/field-properties/options',
+              'reference/field-properties/sortify'
+            ]
+          },
+          'reference/core-browser',
+          'reference/core-server',
+          {
+            title: 'Module Reference',
+            path: '/reference/modules',
+            children: [
+              {
+                title: 'apostrophe-admin-bar',
+                path: '/reference/modules/apostrophe-admin-bar',
+                children: [
+                  'reference/modules/apostrophe-admin-bar/browser-apostrophe-admin-bar'
+                ]
+              },
+              'reference/modules/apostrophe-caches'
+            ]
+          }
+        ]
       }
-
-      // ## Reference
-
-      // * [Glossary](other/glossary.md)
-      // * [Schema Field Types](other/field-types.md)
-      //   * [area](other/field-types/area.md)
-      //   * [array](other/field-types/array.md)
-      //   * [attachment](other/field-types/attachment.md)
-      //   * [boolean](other/field-types/boolean.md)
-      //   * [checkboxes](other/field-types/checkbox.md)
-      //   * [color](other/field-types/color.md)
-      //   * [date](other/field-types/date.md)
-      //   * [email](other/field-types/email.md)
-      //   * [float](other/field-types/float.md)
-      //   * [integer](other/field-types/integer.md)
-      //   * [joinByArray](other/field-types/joinByArray.md)
-      //   * [joinByArrayReverse](other/field-types/joinByArrayReverse.md)
-      //   * [joinByOne](other/field-types/joinByOne.md)
-      //   * [joinByOneReverse](other/field-types/joinByOneReverse.md)
-      //   * [object](other/field-types/object.md)
-      //   * [password](other/field-types/password.md)
-      //   * [range](other/field-types/range.md)
-      //   * [select](other/field-types/select.md)
-      //   * [singleton](other/field-types/singleton.md)
-      //   * [string](other/field-types/string.md)
-      //   * [slug](other/field-types/slug.md)
-      //   * [tags](other/field-types/tags.md)
-      //   * [time](other/field-types/time.md)
-      //   * [url](other/field-types/url.md)
-      //   * [video](other/field-types/video.md)
-      // * [Schema Field Properties](other/field-properties.md)
-      //   * [choices](other/properties/choices.md)
-      //   * [options](other/properties/options.md)
-      //   * [sortify](other/properties/sortify.md)
-      // * [Core Browser](other/core-browser.md)
-      // * [Core Server](other/core-server.md)
 
       // * [Module Reference](modules/README.md)
       //   * [apostrophe-admin-bar](modules/apostrophe-admin-bar/README.md)

@@ -1,4 +1,3 @@
-
 # Schema Field Property Reference
 
 Each [Schema Field Type](/tutorials/advanced-development/schema-guide.md#guide-to-schema-field-types) in Apostrophe can take a number of different properties for configuration and display settings. Below is a reference of the most commonly used properties. You can also view the reference for each individual field for a complete list of properties used by that field and an explanation of what it does.

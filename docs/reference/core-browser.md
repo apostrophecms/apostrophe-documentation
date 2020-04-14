@@ -1,10 +1,8 @@
 ---
-title: 'Apostrophe core object, browser-side'
-layout: reference
-module: false
+title: 'Core Browser'
 ---
 
-# Core Browser
+# Apostrophe core object, browser-side
 
 Apostrophe always creates an `apos` object and attaches it to the `window` object in the browser, making it globally available.
 
