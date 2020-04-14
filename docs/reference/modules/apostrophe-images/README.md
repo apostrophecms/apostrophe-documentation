@@ -1,3 +1,4 @@
+# apostrophe-images
 ## Inherits from: [apostrophe-pieces](../apostrophe-pieces/README.md)
 ### `apos.images`
 A subclass of `apostrophe-pieces`, `apostrophe-images` establishes a library

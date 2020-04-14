@@ -1,3 +1,4 @@
+# apostrophe-docs (browser)
 
 ## Methods
 ### getManager(*type*)

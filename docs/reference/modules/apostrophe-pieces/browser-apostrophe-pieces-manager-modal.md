@@ -1,3 +1,4 @@
+# apostrophe-pieces-manager-modal (browser)
 ## Inherits from: [apostrophe-modal](../apostrophe-modal/browser-apostrophe-modal.md)
 A "manage" modal for pieces, displaying them list and/or grid views and providing
 filtering and sorting features. The manager modal is also extended on the fly

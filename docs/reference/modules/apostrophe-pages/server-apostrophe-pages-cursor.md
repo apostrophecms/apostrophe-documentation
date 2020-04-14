@@ -1,3 +1,4 @@
+# apostrophe-pages-cursor (server)
 ## Inherits from: [apostrophe-cursor](../apostrophe-docs/server-apostrophe-cursor.md)
 
 ## Methods

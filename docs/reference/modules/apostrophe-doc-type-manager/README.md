@@ -1,3 +1,4 @@
+# apostrophe-doc-type-manager
 ## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
 This module is the base class of `apostrophe-custom-pages`, `apostrophe-pieces`,
 `apostrophe-global` and any other module that serves as the manager for a

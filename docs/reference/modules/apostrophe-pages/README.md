@@ -1,3 +1,4 @@
+# apostrophe-pages
 ## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
 ### `apos.pages`
 This module manages the page tree and contains the wildcard

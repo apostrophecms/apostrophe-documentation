@@ -1,3 +1,4 @@
+# apostrophe-notifications (browser)
 ## Inherits from: [apostrophe-context](../apostrophe-utils/browser-apostrophe-context.md)
 
 ## Methods

@@ -1,3 +1,4 @@
+# apostrophe-custom-pages
 ## Inherits from: [apostrophe-doc-type-manager](../apostrophe-doc-type-manager/README.md)
 A base class for modules that enhance the functionality of a page type.
 Extra fields can be added to the page settings modal in the usual way via

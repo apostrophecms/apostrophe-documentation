@@ -1,3 +1,4 @@
+# apostrophe-tags
 ## Inherits from: [apostrophe-pieces](../apostrophe-pieces/README.md)
 ### `apos.tags`
 The `apostrophe-tags` module provides administration tools for managing

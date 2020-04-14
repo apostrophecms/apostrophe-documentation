@@ -1,3 +1,4 @@
+# apostrophe-caches
 ## Inherits from: [apostrophe-module](./apostrophe-module/README.md)
 ### `apos.caches`
 A general purpose cache implementation for improved performance in all areas

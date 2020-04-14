@@ -1,1 +1,2 @@
+# apostrophe-global-cursor (server)
 

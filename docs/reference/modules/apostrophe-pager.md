@@ -1,3 +1,4 @@
+# apostrophe-pager
 ## Inherits from: [apostrophe-module](./apostrophe-module/README.md)
 ### `apos.pager`
 Provides markup, a Nunjucks helper and styles for a simple pager,

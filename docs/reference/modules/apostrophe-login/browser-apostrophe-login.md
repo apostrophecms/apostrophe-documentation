@@ -1,3 +1,4 @@
+# apostrophe-login (browser)
 
 ## Methods
 ### resetKnownPassword()

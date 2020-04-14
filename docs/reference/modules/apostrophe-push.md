@@ -1,3 +1,4 @@
+# apostrophe-push
 ## Inherits from: [apostrophe-module](./apostrophe-module/README.md)
 ### `apos.push`
 This module provides ways to "push" JavaScript calls so that they happen in the

@@ -1,3 +1,4 @@
+# apostrophe-groups
 ## Inherits from: [apostrophe-pieces](../apostrophe-pieces/README.md)
 ### `apos.groups`
 Provide a way to group [apostrophe-users](/modules/apostrophe-users) together

@@ -1,3 +1,4 @@
+# apostrophe-video-widgets
 ## Inherits from: [apostrophe-widgets](../apostrophe-widgets/README.md)
 Provides the `apostrophe-video` widget, which displays videos, powered
 by [apostrophe-video-field](/modules/apostrophe-video-fields) and

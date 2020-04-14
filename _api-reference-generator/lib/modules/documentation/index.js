@@ -95,47 +95,7 @@ module.exports = {
       const sidebarJson = JSON.stringify(startingNav, null, 2);
       fs.writeFileSync(sidebarJsonPath, sidebarJson);
 
-      let fragment = _.map(modules, function(module) {
-        return `* [${module}](modules/${module}/README.md)` + summarizeSubtypes(module);
-      }).join('\n');
-
-      fragment = `* [Module Reference](modules/README.md)\n` + fragment;
-      // console.log(fragment);
-
-      let summary = fs.readFileSync('../SUMMARY.md', 'utf8');
-      summary = summary.replace(/\n## Modules[\s\S]*$/, '\n## Modules\n\n' + fragment + '\n[comment]: <> (DO NOT add anything AFTER the ## Modules heading or it will be lost.)');
-      fs.writeFileSync('../SUMMARY.md', summary);
-
       return callback(null);
-
-      function summarizeSubtypes(module) {
-        const byType = {
-          server: {},
-          browser: {}
-        };
-        _.each(types, function(type, name) {
-          if (type.module !== module) {
-            return;
-          }
-          if ((type.name === module) && (type.namespace === 'server')) {
-            return;
-          }
-          byType[type.namespace][name] = type;
-        });
-        let result = '';
-        const server = _.values(byType.server);
-        const browser = _.values(byType.browser);
-        if (server.length) {
-          result += '\n' + server.map(linkSubtype).join("\n");
-        }
-        if (browser.length) {
-          result += '\n' + browser.map(linkSubtype).join("\n");
-        }
-        return result;
-        function linkSubtype(subtype) {
-          return `  * [${subtype.title}](modules/${subtype.module}/${subtype.nameNamespaced}.md)`;
-        }
-      }
 
       function readAllTypes() {
         serverTypes = JSON.parse(fs.readFileSync(self.apos.rootDir + '/data/server-types.json'));
@@ -276,7 +236,6 @@ module.exports = {
       function documentModule(module) {
         const refSection = startingNav.sidebar[refIndex];
         const moduleList = refSection.children[refSection.children.length - 1].children;
-        console.log(moduleList);
 
         var type = types['server-' + module];
         var relatedTypes = _.filter(types, function(type, name) {
@@ -288,6 +247,7 @@ module.exports = {
         if (relatedTypes.length === 0) {
           const loneFile = `../docs/reference/modules/${module}.md`;
           fs.writeFileSync(loneFile,
+            `# ${module}\n` +
             documentExtend(type, 0) +
             documentAlias(type) +
             documentComments(type.comments) + "\n" +
@@ -312,6 +272,7 @@ module.exports = {
         var markdownFile = folder + '/README.md';
 
         fs.writeFileSync(markdownFile,
+          `# ${module}\n` +
           documentExtend(type) +
           documentAlias(type) +
           documentComments(type.comments) + "\n" +
@@ -323,6 +284,7 @@ module.exports = {
         _.each(relatedTypes, function(type) {
           var markdownFile = folder + '/' + type.nameNamespaced + '.md';
           fs.writeFileSync(markdownFile,
+            `# ${type.title}\n` +
             documentExtend(type) +
             documentComments(type.comments) + "\n" +
             documentMethods(type) +

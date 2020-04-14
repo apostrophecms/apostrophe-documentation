@@ -1,3 +1,4 @@
+# apostrophe-admin-bar
 ## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
 ### `apos.adminBar`
 The admin bar module implements Apostrophe's admin bar at the top of the screen. Any module

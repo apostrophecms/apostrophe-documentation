@@ -1,3 +1,4 @@
+# apostrophe-utils
 ## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
 ### `apos.utils`
 Methods here should be of short, of universal utility, and not

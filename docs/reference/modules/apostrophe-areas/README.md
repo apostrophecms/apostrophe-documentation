@@ -1,3 +1,4 @@
+# apostrophe-areas
 ## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
 ### `apos.areas`
 An area is a series of zero or more widgets, in which users can add

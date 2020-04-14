@@ -1,3 +1,4 @@
+# apostrophe-widgets
 ## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
 The base class for all modules that implement a widget, such as
 [apostrophe-rich-text-widgets](/modules/apostrophe-rich-text-widgets/),

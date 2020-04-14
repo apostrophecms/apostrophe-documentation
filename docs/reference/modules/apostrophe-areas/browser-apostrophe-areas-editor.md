@@ -1,3 +1,4 @@
+# apostrophe-areas-editor (browser)
 ## Inherits from: [apostrophe-context](../apostrophe-utils/browser-apostrophe-context.md)
 editor for an area. See enableAreas() method
 in user.js for where this is invoked.

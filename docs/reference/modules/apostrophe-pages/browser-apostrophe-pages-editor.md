@@ -1,3 +1,4 @@
+# apostrophe-pages-editor (browser)
 Edit page settings.
 
 Typically instantiated by the page settings button, however it can be instantiated

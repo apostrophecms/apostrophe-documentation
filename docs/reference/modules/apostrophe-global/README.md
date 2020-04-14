@@ -1,3 +1,4 @@
+# apostrophe-global
 ## Inherits from: [apostrophe-pieces](../apostrophe-pieces/README.md)
 ### `apos.global`
 Provides req.data.global, an Apostrophe doc

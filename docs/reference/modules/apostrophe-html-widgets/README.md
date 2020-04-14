@@ -1,3 +1,4 @@
+# apostrophe-html-widgets
 ## Inherits from: [apostrophe-widgets](../apostrophe-widgets/README.md)
 Provides the "raw HTML widget" (the `apostrophe-html` widget).
 Use of this widget is not recommended if it can be avoided. The

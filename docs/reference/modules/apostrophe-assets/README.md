@@ -1,3 +1,4 @@
+# apostrophe-assets
 ## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
 ### `apos.assets`
 This module provides minification and delivery of browser-side assets

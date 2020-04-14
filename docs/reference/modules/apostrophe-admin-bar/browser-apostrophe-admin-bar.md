@@ -1,3 +1,4 @@
+# apostrophe-admin-bar (browser)
 
 ## Methods
 ### link(*name*, *callback*)

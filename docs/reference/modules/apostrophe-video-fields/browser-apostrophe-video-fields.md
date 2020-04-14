@@ -1,3 +1,4 @@
+# apostrophe-video-fields (browser)
 
 ## Methods
 ### addFieldType()

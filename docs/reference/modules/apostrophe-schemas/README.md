@@ -1,3 +1,4 @@
+# apostrophe-schemas
 ## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
 ### `apos.schemas`
 This module provides schemas, a flexible and fast way to create new data types

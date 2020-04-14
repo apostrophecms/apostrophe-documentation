@@ -1,3 +1,4 @@
+# apostrophe-cursor (server)
 
 ## Methods
 ### areas(*value*)

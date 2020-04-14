@@ -1,3 +1,4 @@
+# apostrophe-soft-redirects
 ## Inherits from: [apostrophe-module](./apostrophe-module/README.md)
 
 ## Methods

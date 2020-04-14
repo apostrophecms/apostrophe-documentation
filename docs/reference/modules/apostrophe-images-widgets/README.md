@@ -1,3 +1,4 @@
+# apostrophe-images-widgets
 ## Inherits from: [apostrophe-pieces-widgets](../apostrophe-pieces-widgets/README.md)
 Implements widgets that display single images and slideshows.
 
