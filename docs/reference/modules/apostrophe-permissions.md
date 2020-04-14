@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
+## Inherits from: [apostrophe-module](./apostrophe-module/README.md)
 ### `apos.permissions`
 This module manages the permissions of docs in Apostrophe.
 

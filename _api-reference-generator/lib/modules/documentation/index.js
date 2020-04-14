@@ -43,6 +43,7 @@ module.exports = {
 
       console.log('Fetching server side definitions');
       fs.writeFileSync(self.apos.rootDir + '/data/server-types.json', JSON.stringify(self.apos.synth.definitions, null, '  '));
+
       console.log('Fetching browser side definitions');
       self.apos.options.afterListen = function(err) {
         if (err) {
@@ -268,8 +269,25 @@ module.exports = {
         var relatedTypes = _.filter(types, function(type, name) {
           return (type.module === module) && ((type.name !== module) || (type.namespace !== 'server'));
         });
+
+        // Check if there are sub-pages. If not, just make a file named after
+        // the module. If so, make a directory and do it the old way.
+        if (relatedTypes.length === 0) {
+          const loneFile = `../docs/reference/modules/${module}.md`;
+          fs.writeFileSync(loneFile,
+            documentExtend(type, 0) +
+            documentAlias(type) +
+            documentComments(type.comments) + "\n" +
+            documentMethods(type) +
+            documentHelpers(type) +
+            documentRoutes(type)
+          );
+          return;
+        }
+
         var folder = '../docs/reference/modules/' + module;
         mkdirp(folder);
+
         var markdownFile = folder + '/README.md';
 
         fs.writeFileSync(markdownFile,
@@ -486,7 +504,7 @@ module.exports = {
         }
       }
 
-      function documentExtend(type) {
+      function documentExtend(type, nestLevel = 1) {
         if (type.options.extend) {
           if (type.name === 'apostrophe-module') {
             // This is the default base class for modules, it doesn't extend another
@@ -505,9 +523,11 @@ module.exports = {
             return '';
           }
           var extendedType = types[extendNamespaced];
+          const nesting = `${nestLevel === 0 ? '.' : '..'}`;
+
           if ((extendedType.namespace === 'server') && (extendedType.module === extendedType.name)) {
             // It's a module, it has to extend another module
-            return '## Inherits from: [' + extend + '](../' + extend + '/README.md)\n';
+            return `## Inherits from: [${extend}](${nesting}/${extend}/README.md)\n`;
           } else {
             // The type we're extending could live in another module,
             // figure it out as a relative path
@@ -515,7 +535,8 @@ module.exports = {
             if (!types[extendNamespaced]) {
               console.error('NOT FOUND: ', extendNamespaced);
             }
-            return '## Inherits from: [' + extend + '](../' + extendType.module + '/' + extendNamespaced + '.md)\n';
+
+            return `## Inherits from: [${extend}](${nesting}/${extendType.module}/${extendNamespaced}.md)\n`;
           }
         }
         return '';

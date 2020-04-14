@@ -220,7 +220,7 @@ over the default values passed on here for `name`, `label`, `action`
 Implement the command line task that lists all widgets of
 this type found in the database:
 
-`node app my-module-name-here-widgets:list`
+`node app your-module-name-here-widgets:list`
 ### addSearchTexts(*widget*, *texts*)
 
 ### isEmpty(*widget*)

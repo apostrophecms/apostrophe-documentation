@@ -391,9 +391,7 @@ otherwise not.
 The `when` parameter is made available to your page templates, so typically you
 just write this in your base layout template in the head element:
 
-::: v-pre
 `{{ apos.assets.stylesheets(data.when) }}`
-:::
 
 See `outerLayout.html` in the templates module.
 ### scripts(*when*)
@@ -409,9 +407,7 @@ The `when` parameter is made available to your page
 templates, so typically you just write this in
 outerLayout.html:
 
-::: v-pre
 `{{ apos.assets.scripts(data.when) }}`
-:::
 
 See `outerLayout.html` in the templates module.
 

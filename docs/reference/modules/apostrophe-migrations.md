@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
+## Inherits from: [apostrophe-module](./apostrophe-module/README.md)
 ### `apos.migrations`
 Provide services for database migration. The `apostrophe-migrations:migrate` task
 carries out all migrations that have been registered with this module. Migrations

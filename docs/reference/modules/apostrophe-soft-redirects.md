@@ -1,4 +1,4 @@
-## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
+## Inherits from: [apostrophe-module](./apostrophe-module/README.md)
 
 ## Methods
 ### ensureIndexes(*callback*)
