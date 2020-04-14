@@ -1,0 +1,257 @@
+{
+  "sidebar": [
+    "/",
+    {
+      "title": "Getting Started",
+      "path": "/getting-started",
+      "collapsable": false,
+      "children": [
+        "getting-started/setting-up-your-environment",
+        "getting-started/creating-your-first-project"
+      ]
+    },
+    {
+      "title": "Core Concepts",
+      "path": "/core-concepts",
+      "collapsable": false,
+      "children": [
+        "core-concepts/technical-overview",
+        {
+          "title": "Pages and Navigation",
+          "path": "/core-concepts/pages-and-navigation",
+          "children": [
+            "core-concepts/pages-and-navigation/page-templates",
+            "core-concepts/pages-and-navigation/widgets-singletons-and-areas",
+            "core-concepts/pages-and-navigation/connecting-pages"
+          ]
+        },
+        {
+          "title": "Widgets",
+          "path": "/core-concepts/editable-content-on-pages",
+          "children": [
+            "core-concepts/editable-content-on-pages/standard-widgets",
+            "core-concepts/editable-content-on-pages/custom-widgets",
+            "core-concepts/editable-content-on-pages/layout-widgets"
+          ]
+        },
+        {
+          "title": "Pieces",
+          "path": "/core-concepts/reusable-content-pieces",
+          "children": [
+            "core-concepts/reusable-content-pieces/reusable-content-with-pieces",
+            "core-concepts/reusable-content-pieces/displaying-pieces-with-widgets",
+            "core-concepts/reusable-content-pieces/browsing-directory-of-pieces",
+            "core-concepts/reusable-content-pieces/joins"
+          ]
+        },
+        {
+          "title": "Global settings",
+          "path": "/core-concepts/global-settings",
+          "children": [
+            "core-concepts/global-settings/settings",
+            "core-concepts/global-settings/global"
+          ]
+        },
+        {
+          "title": "Modules",
+          "path": "/core-concepts/modules",
+          "children": [
+            "core-concepts/modules/how-apostrophe-modules-are-structured",
+            "core-concepts/modules/nested-module-folders",
+            "core-concepts/modules/more-modules"
+          ]
+        },
+        {
+          "title": "Front End Assets",
+          "path": "/core-concepts/front-end-assets",
+          "children": [
+            "core-concepts/front-end-assets/pushing-assets",
+            "core-concepts/front-end-assets/lean-frontend-assets"
+          ]
+        },
+        {
+          "title": "Users and Permission",
+          "path": "/core-concepts/users-and-permissions",
+          "children": [
+            "core-concepts/users-and-permissions/users-and-groups",
+            "core-concepts/users-and-permissions/managing-access-control",
+            "core-concepts/users-and-permissions/apostrophe-passport",
+            "core-concepts/users-and-permissions/user-login-and-password"
+          ]
+        },
+        {
+          "title": "Working with Templates",
+          "path": "/core-concepts/working-with-templates",
+          "children": [
+            "core-concepts/working-with-templates/nunjucks-filters",
+            "core-concepts/working-with-templates/nunjucks-helper-functions",
+            "core-concepts/working-with-templates/thumbnails-and-areas-of-child-pages",
+            "core-concepts/working-with-templates/responsive-images"
+          ]
+        },
+        {
+          "title": "Search",
+          "path": "/core-concepts/apostrophe-search",
+          "children": [
+            "core-concepts/apostrophe-search/search"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Advanced Topics",
+      "path": "/advanced-topics",
+      "collapsable": false,
+      "children": [
+        "advanced-topics/schema-guide",
+        {
+          "title": "Advanced Pieces Topics",
+          "path": "/advanced-topics/advanced-pieces-topics",
+          "children": [
+            "advanced-topics/advanced-pieces-topics/ajax-pieces",
+            "advanced-topics/advanced-pieces-topics/permissions-for-pieces",
+            "advanced-topics/advanced-pieces-topics/adding-filters",
+            "advanced-topics/advanced-pieces-topics/adding-columns",
+            "advanced-topics/advanced-pieces-topics/next-previous-links",
+            "advanced-topics/advanced-pieces-topics/suppressing-pieces-from-a-listing",
+            "advanced-topics/advanced-pieces-topics/adding-fields-to-all-pieces",
+            "advanced-topics/advanced-pieces-topics/adding-new-batch-operations",
+            "advanced-topics/advanced-pieces-topics/extending-the-pieces-editor-modal",
+            "advanced-topics/advanced-pieces-topics/overriding-piece-urls"
+          ]
+        },
+        {
+          "title": "Advanced Pages Topics",
+          "path": "/advanced-topics/advanced-pages-topics",
+          "children": [
+            "advanced-topics/advanced-pages-topics/custom-schema-fields-for-pages",
+            "advanced-topics/advanced-pages-topics/children-and-joins"
+          ]
+        },
+        "advanced-topics/how-apostrophe-handles-requests",
+        "advanced-topics/how-apostrophe-starts-up",
+        {
+          "title": "Custom Server-side Event Handlers with Promise Events",
+          "path": "/advanced-topics/promise-events",
+          "children": [
+            "advanced-topics/promise-events/promise-events"
+          ]
+        },
+        "advanced-topics/command-line-tasks",
+        "advanced-topics/apostrophe-i18n-config",
+        {
+          "title": "The Database",
+          "path": "/advanced-topics/database",
+          "children": [
+            "advanced-topics/database/model-layer",
+            "advanced-topics/database/cursors",
+            "advanced-topics/database/accessing-the-database-directly",
+            "advanced-topics/database/replica-set"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "DevOps",
+      "path": "/devops",
+      "collapsable": false,
+      "children": [
+        {
+          "title": "Deploying Apostrophe for Production",
+          "path": "/devops/deployment",
+          "children": [
+            "devops/deployment/deployment",
+            "devops/deployment/linode",
+            "devops/deployment/deploying-apostrophe-in-the-cloud-with-heroku",
+            "devops/deployment/deploying-apostrophe-in-the-cloud-with-aws"
+          ]
+        },
+        "devops/email",
+        "devops/multicore"
+      ]
+    },
+    {
+      "title": "How-Tos",
+      "path": "/howtos",
+      "children": [
+        "howtos/custom-schema-field-types",
+        "howtos/storing-sessions-in-redis",
+        "howtos/windows",
+        "howtos/docker",
+        "howtos/migration",
+        "howtos/forms",
+        "howtos/admin-bar",
+        "howtos/how-do-i-create-a-404-not-found-page",
+        "howtos/intranet",
+        "howtos/ckeditor",
+        "howtos/facebook",
+        "howtos/sending-user-notifications",
+        "howtos/user-redirect"
+      ]
+    },
+    {
+      "title": "References",
+      "path": "/reference",
+      "collapsable": false,
+      "children": [
+        "reference/glossary",
+        {
+          "title": "Schema Field Types",
+          "path": "/reference/field-types",
+          "children": [
+            "reference/field-types/area",
+            "reference/field-types/array",
+            "reference/field-types/attachment",
+            "reference/field-types/boolean",
+            "reference/field-types/checkbox",
+            "reference/field-types/color",
+            "reference/field-types/date",
+            "reference/field-types/email",
+            "reference/field-types/float",
+            "reference/field-types/integer",
+            "reference/field-types/joinByArray",
+            "reference/field-types/joinByArrayReverse",
+            "reference/field-types/joinByOne",
+            "reference/field-types/joinByOneReverse",
+            "reference/field-types/object",
+            "reference/field-types/password",
+            "reference/field-types/range",
+            "reference/field-types/select",
+            "reference/field-types/singleton",
+            "reference/field-types/string",
+            "reference/field-types/slug",
+            "reference/field-types/tags",
+            "reference/field-types/time",
+            "reference/field-types/url",
+            "reference/field-types/video"
+          ]
+        },
+        {
+          "title": "Schema Field Properties",
+          "path": "/reference/field-properties",
+          "children": [
+            "reference/field-properties/choices",
+            "reference/field-properties/options",
+            "reference/field-properties/sortify"
+          ]
+        },
+        "reference/core-browser",
+        "reference/core-server",
+        {
+          "title": "Module Reference",
+          "path": "/reference/modules",
+          "children": [
+            {
+              "title": "apostrophe-admin-bar",
+              "path": "/reference/modules/apostrophe-admin-bar",
+              "children": [
+                "reference/modules/apostrophe-admin-bar/browser-apostrophe-admin-bar"
+              ]
+            },
+            "reference/modules/apostrophe-caches"
+          ]
+        }
+      ]
+    }
+  ]
+}
