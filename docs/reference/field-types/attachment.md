@@ -2,9 +2,9 @@
 
 An `attachment` field allows the user to upload a file to the server, or replace a file which was previously [uploaded](../modules/apostrophe-attachments/README.md).
 
-{% hint style='info' %}
+::: tip NOTE
 The uploaded files are stored in a web-accessible folder, however their names are generated in a way which makes them mathematically impossible to guess.
-{% endhint %}
+:::
 
 Once an attachment field has a value, you can obtain a URL to the file by calling `apos.attachments.url(attachment)`. If the file is an image, you can obtain images of any configured size by calling `apos.attachments.url(attachment, { size: 'one-half' })`, etc.
 
@@ -27,14 +27,14 @@ This is often appropriate for resumes, job applications and other attachments re
 
 ## Settings
 
-|  Property | Type   | Default | Description | 
+|  Property | Type   | Default | Description |
 |---|---|---|---|
 |name | `string` | | Sets the name of the field in the database |
 |label | `string` | | Sets the label of the field that the user sees |
 |required | `boolean` | false | If true, the field is mandatory |
 |contextual | `boolean` | false | If true, it will prevent the field from appearing in a dialog box |
-|type | `string` | | Specifies the field type | 
-|readOnly | `boolean` | false | If true, prevents the user from editing the field | 
+|type | `string` | | Specifies the field type |
+|readOnly | `boolean` | false | If true, prevents the user from editing the field |
 |help | `string` | | Help text for the field that will appear with the field's label |
 |htmlHelp | `string` | | Help text with support for HTML markup | universal |
 |group | `string` |  | Can be set to "image" or "office" to limit the file types that can be uploaded. Other groups can be configured via the `fileGroups` option of the [apostrophe-attachments](../../modules/apostrophe-attachments/README.md) module. |

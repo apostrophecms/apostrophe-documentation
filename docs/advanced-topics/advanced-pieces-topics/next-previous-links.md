@@ -19,9 +19,9 @@ module.exports = {
 };
 ```
 
-{% hint style="info" %}
+::: tip NOTE
 Here we'e assuming that `my-articles` extends `apostrophe-pieces` directly, and `my-articles-pages` extends `apostrophe-pieces-pages`, but you can also do this trick with modules that extend `apostrophe-blog-pages`, `apostrophe-events-pages` and other existing subclasses.
-{% endhint %}
+:::
 
 Turning on these options causes Apostrophe to load the next and previous documents into `data.previous` and `data.next`, so you can output links like this, often at the bottom of `show.html`:
 
@@ -66,9 +66,9 @@ module.exports = {
 };
 ```
 
-{% hint style='info' %}
+::: tip
 These are the minimum fields recommended. Except for `title`, all of them play a role in building the dynamic `_url` property correctly.
-{% endhint %}
+:::
 
 
 ### "Next", "previous" and blog posts

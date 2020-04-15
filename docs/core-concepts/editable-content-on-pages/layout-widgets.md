@@ -87,8 +87,8 @@ In `lib/modules/two-column-widgets/views/widget.html`
     </div>
     ```
 
-{% hint style='info' %}
+::: tip NOTE
 "Why are the two columns stacked on top of each other?" You need to write your own CSS to position the `column-left` and `column-right` divs. However, you can find a [complete, working example with CSS here in the apostrophe-samples project](https://github.com/apostrophecms/apostrophe-samples).
-{% endhint %}
+:::
 
 

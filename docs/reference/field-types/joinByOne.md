@@ -4,9 +4,9 @@ A `joinByOne` field expresses a one-to-one relationship between this type of obj
 
 For instance, if `product` pieces have a `joinByOne` field called `_fabric` that relates them to `fabric` pieces, then the related `fabric` object will be available as the `._fabric` property of each product.
 
-{% hint style='info' %}
+::: warning NOTE
 **For performance, it is strongly recommended that you set a projection filter** via the `filters` option, limiting the amount of information fetched about each related doc. You may also call other [cursor filters](../../modules/apostrophe-docs/server-apostrophe-cursor.md) by setting subproperties of the `filters` property. This is a useful way to limit the acceptable choices for the join. _You must have_ `title`_,_ `slug`_,_ `type`_, and_ `tags` _set in the projection to get the_ `_url` _property._
-{% endhint %}
+:::
 
 ## Example
 
@@ -36,7 +36,7 @@ You could separately specify `slug`, `type`, and `tags`, but using `_url` specif
 
 ## Settings
 
-|  Property | Type   | Default | Description | 
+|  Property | Type   | Default | Description |
 |---|---|---|---|
 |name | `string` | | Sets the name of the field in the database |
 |label | `string` | | Sets the label of the field that the user sees |

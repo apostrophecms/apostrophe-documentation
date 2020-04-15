@@ -57,9 +57,9 @@ If your site has the "forgot password" feature enabled,
 
 3. Follow the instructions in the email to recover your password.
 
-{% hint style='info' %}
-Note: If it doesn't come right away be sure to check your spam folder.
-{% endhint %}
+::: tip NOTE
+If it doesn't come right away be sure to check your spam folder.
+:::
 
 If this feature is not enabled for your site or does not work for you, reach out to a coworker whose account is still functioning. If they have the `admin` permission, they will be able to edit your user via the "Users" dropdown and set a new password.
 
@@ -113,10 +113,10 @@ Once you gain editing access, look for the HTML widget on the page. It will be e
 
 If you did paste it correctly, it is most likely incompatible with Apostrophe. Click the icon to delete the widget, or edit it and erase the markup it contains. Then find a better embed code, or work with the provider of the embed code to fix its "antisocial" characteristics.
 
-{% hint style='info' %}
+::: warning NOTE
 The following are common problems that embed code developers need to be aware of:
 
 1. Do not use `document.write` in an embed code. This will break any website that loads your markup "on the fly" after the page is first rendered.
 
 2. Do not install `jQuery` globally (do not overwrite `window.$`). Similarly, do not overwrite `lodash` (`window._`). It is easy to wrap your JavaScript in a closure in which it can still see a convenient `$` variable without breaking other versions of these libraries.
-{% endhint %}
+:::

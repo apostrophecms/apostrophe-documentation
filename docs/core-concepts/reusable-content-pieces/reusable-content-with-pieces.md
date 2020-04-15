@@ -6,9 +6,9 @@ When you create content with the rich text editor, or images widget, that conten
 
 Let's say you want to create a directory of people who work for a company. People are "global content": they are useful to display here and there all over the site, they aren't tied down to one page. The `apostrophe-pieces` module provides a great starting point to create many types of global content. You'll extend it to make your own `people` module. You can extend `apostrophe-pieces` many times in the same project.
 
-{% hint style="info" %}
+::: tip NOTE
 **"What about users?"** Yes, you already have a "Users" menu on your admin bar. And yes, users are powered by pieces. But we've found that confusing website editors with the publicly visible staff directory tends to cause problems in the long run. Plus, this way, it's a teachable moment. :\)
-{% endhint %}
+:::
 
 1\. Create a `lib/modules/people/index.js` file:
 
@@ -70,9 +70,9 @@ module.exports = {
 };
 ```
 
-{% hint style="info" %}
+::: tip NOTE
 **IMPORTANT: note the** `name` **property. This identifies ONE piece in the database, so it is always singular.** Remember: Modules Are Plural \(MAP\), but the things they manage may not be.
-{% endhint %}
+:::
 
 2\. Now turn the module on in `app.js`.
 
@@ -83,9 +83,9 @@ modules: {
 }
 ```
 
-{% hint style="info" %}
-**Note:** When code examples show sections like the `modules` section in `app.js` we're only going to show you the relevant portion that you're currently working on. In many cases you'll have a lot more in those sections, but we don't need to replicate that every time.
-{% endhint %}
+::: tip NOTE
+When code examples show sections like the `modules` section in `app.js` we're only going to show you the relevant portion that you're currently working on. In many cases you'll have a lot more in those sections, but we don't need to replicate that every time.
+:::
 
 Just like that, you'll see a new "People" menu in the admin bar when you log into the site. Pick "New Person" and you'll find that you can give each person a full name, a first name, a last name and a phone number. Pick "Manage Person" to examine and edit existing people.
 

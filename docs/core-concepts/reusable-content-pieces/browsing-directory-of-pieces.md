@@ -24,9 +24,9 @@ modules: {
 }
 ```
 
-{% hint style="info" %}
+::: tip NOTE
 `people-pages` will automatically figure out that its job is to display the pieces that come from the `people` module, by removing `-pages` from its name. If you don't want to follow that pattern, you'll have to set the `piecesModuleName` option, and possibly also set the `name` option to a sensible name for the page type that displays an index of pieces. We usually just follow the pattern.
-{% endhint %}
+:::
 
 This module provides a new type of page on the site, `people-page`. This new page type displays an index of pieces. Before it can be used, you need to configure `apostrophe-pages` to add it to the menu of page types that can be given to pages. In `app.js` it might look like this:
 
