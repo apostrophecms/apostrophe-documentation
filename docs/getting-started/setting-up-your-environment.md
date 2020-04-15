@@ -2,9 +2,9 @@
 
 First you need to get your environment set up. You may already have some of the tools described below installed and configured, but make sure that you read carefully to make sure that you don't miss anything.
 
-{% hint style='info' %}
+::: tip
 MacOS X is the most popular platform for Apostrophe CMS development, but there are plenty of developers using Linux or Windows.  For MacOS 10.9 or newer, continue with the instructions below. Windows users can use this lovely [HOWTO for Windows](/tutorials/devops/windows.md) contributed by Michael Brown to get everything set up, and Linux users can get going by installing the same operating system packages required by our [deployment HOWTO](/tutorials/devops/deployment/README.md).
-{% endhint %}
+:::
 
 Here's what you need to install:
 
@@ -23,9 +23,9 @@ First, you need to install the Xcode Command Line Tools.
 
 2. Go to Xcode &rarr; Preferences &rarr; Locations and set the version for the Command Line Tools Option.
 
-{% hint style='info' %}
+::: tip
 Starting with XCode 6.1 the Command Line tools are automatically installed, and just need to be configured. For older versions of XCode, go to the Downloads tab under Preferences. From there you can select _Install_ for the Command Line Tools options.
-{% endhint %}
+:::
 
 ## Install Homebrew
 
@@ -135,9 +135,9 @@ Apostrophe uses MongoDB as its database. You can install it with Homebrew. In ad
 
 An interactive mongo prompt will start. Press `control+c` to exit.
 
-{% hint style="working" %}
+::: tip
 "Hey, I got a connection failed error!" Make sure you ran `brew services start mongodb-community`.
-{% endhint %}
+:::
 
 ## Install ImageMagick
 

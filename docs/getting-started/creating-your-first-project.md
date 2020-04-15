@@ -36,9 +36,9 @@ You have a test project up and running! Visit `http://localhost:3000` and view y
 
 ![The boilerplate homepage](/images/assets/boilerplate_loggedout.png)
 
-{% hint style="working" %}
+::: tip
 **Did you get a "Permission Denied" error?** On Linux, this would be because global npm packages must be installed as root in a typical setup. Use `sudo npm install` instead. On a Mac, this shouldn't happen if you installed node with Homebrew, because the `/usr/local` folder where Homebrew keeps its files should belong to your personal account. However, if you installed Homebrew with `sudo`, you'll need to be consistent and use `sudo` here too.
-{% endhint %}
+:::
 
 **Important: ** `test-project`** is the name for our example. For your project use your own project's "short name" containing only letters, digits, hyphens and/or underscores. It will be used by default as a MongoDB database name and a basis for cookie names, etc.** \(Hyphens seem more popular than underscores for such purposes.\) We'll continue to use `test-project` for the rest of this example. Alternatively, you can install a robust, themed, fully-baked project with this command:
 
@@ -117,9 +117,9 @@ To avoid manual restarting in the future, you can use [Nodemon](https://nodemon.
 1. Run `npm install -g nodemon` to install it globally.
 2. Run `nodemon` from your project root folder to start your site with watching enabled.
 
-{% hint style='info' %}
+::: tip
 When running `nodemon` from the project root, you don't need to provide any target or arguments. It will start `app.js` automatically by default. The configuration is found in `package.json` which was created when you installed the `apostrophe-cli` tools. You can adjust these settings to your needs.
-{% endhint %}
+:::
 
 Now, every time you change a file in your project, Nodemon will restart your application.
 

@@ -117,9 +117,9 @@ The current page is `data.page`, and by default, `data.page._ancestors` is avail
 {% endif %}
 ```
 
-{% hint style='info' %}
+::: tip
 **Always check whether** `data.page` **exists** when using it in a layout template that might also be extended by `login.html`, `notFound.html` and other places where there is no CMS "page."
-{% endhint %}
+:::
 
 ## "Accordion" navigation
 

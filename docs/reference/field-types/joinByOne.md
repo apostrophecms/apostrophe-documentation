@@ -27,9 +27,9 @@ For instance, if `product` pieces have a `joinByOne` field called `_fabric` that
 }
 ```
 
-{% hint style='info' %}
+::: tip
 You could separately specify `slug`, `type`, and `tags`, but using `_url` specifies sufficient information to generate the `_url` property with less writing. You'll see this in the next example as well.
-{% endhint %}
+:::
 
 
 **Always remember that the** `_fabric` **property of the product may be null at any time.** Perhaps the fabric was moved to the trash, or unpublished. Your code must allow for this possibility.
@@ -52,6 +52,6 @@ You could separately specify `slug`, `type`, and `tags`, but using `_url` specif
 |withJoins | `array` |  | If you need to carry out nested joins, set to an array containing those join field names. You may also use "dot notation" in these names to indicate that you want to follow a series of joins between related types.
 |filters | `object` | | Provide a list of cursor filters to limit acceptable options for the join |
 
-{% hint style='info' %}
+::: tip
 In documents with many joins in play, the `ifOnlyOne` option will avoid running through all the possible joins, and can be used to avoid a heavy performance impact in complex documents.
-{% endhint %}
+:::

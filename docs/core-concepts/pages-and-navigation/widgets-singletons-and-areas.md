@@ -75,8 +75,8 @@ To see this in action, add an `apos.area` to a page template.
 
 The first two arguments for this helper work the same way as for `apos.singleton`. The third option is an options object. We can see that that options object supports a `widgets` option, which takes a key-value map of available widget names and their respective options.
 
-{% hint style='info' %}
+::: tip
 Not sure how to add a second widget? After you're finished editing rich text, click anywhere outside of the rich text widget. Then hover over it and you'll see the "+" signs in each position where you're allowed to add a new widget.
-{% endhint %}
+:::
 
 With this, you've learned how to complete two of the most important tasks in any CMS: creating new pages and adding content to those pages. Next you'll learn how to connect pages with Navigation.

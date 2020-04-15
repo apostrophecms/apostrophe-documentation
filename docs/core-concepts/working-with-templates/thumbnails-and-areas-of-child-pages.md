@@ -99,9 +99,9 @@ module.exports = {
 };
 ```
 
-{% hint style='info' %}
+::: tip
 Adding `depth: 2` tells `apostrophe-pages` to go two levels deep fetching the subpages of each ancestor of the current page. Now you can loop over `_children` two levels deep in your template and produce dropdown menus with images... at the cost of a little speed.
-{% endhint %}
+:::
 
 
 ## Fetching images from children of the current page
@@ -121,6 +121,6 @@ module.exports = {
 };
 ```
 
-{% hint style='info' %}
+::: tip
 See the earlier example on this page for how to add `thumbnail`to the schema of every page. You can then access the thumbnails in your templates by looping over `data.page._children` with code similar to the template shown above.
-{% endhint %}
+:::

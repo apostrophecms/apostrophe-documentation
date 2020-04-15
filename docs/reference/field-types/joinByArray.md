@@ -28,9 +28,9 @@ For instance, if `product` pieces have a `joinByArray` field called `_fabrics` t
 }
 ```
 
-{% hint style='info' %}
+::: tip
 You could separately specify `slug`, `type`, and `tags`, but using `_url` specifies sufficient information to generate the `_url` property with less writing. You'll see this in the next example as well.
-{% endhint %}
+:::
 
 
 ## Relationship properties and `joinByArray`
@@ -112,6 +112,6 @@ If you have a mix of inline and regular fields, you'll still get the option of o
 |relationship | `schema` | | In the presence of relationship, the content of a join is loaded differently. If the join is called \_departments then \_departments[0] will be an object with item and relationship properties, in which `item` is the department and `relationship` contains the relationship properties, rather than a flat array of departments. | `name`, `value`, `type`, `inline` |
 |limit | `int` | | Sets the maximum number of joined documents. | |
 
-{% hint style='info' %}
+::: tip
 Beginning with Apostrophe 2.58.0, you may also set `withType` to an **array** of type names. When you do so, the chooser allows you to pick items of several types via a tabbed interface and create a combined list. These "polymorphic joins" are primarily intended for navigation widgets. They currently do not support pieces filters or `joinByArrayReverse`.
-{% endhint %}
+:::

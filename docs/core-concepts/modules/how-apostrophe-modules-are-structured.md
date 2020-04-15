@@ -24,9 +24,9 @@ Some of this material will reference advanced Apostrophe concepts. You may want 
 
 It's best to carry out any initialization, like connecting to APIs or databases, in `afterConstruct`. This allows time for those subclassing and extending your module to replace and extend methods defined in `construct`.
 
-{% hint style='info' %}
+::: tip
 Anything configured in `app.js` for that module merges with the object exported by `index.js`. However, by convention we don’t put much in `app.js` for each module, to keep it clean. Anything configured in `data/local.js` also merges with the object, which is useful because `data/local.js` is not deployed and can thus vary from server to server.
-{% endhint %}
+:::
 
 ## Breaking it up
 
@@ -58,9 +58,9 @@ So we wind up with: `/modules/module-name/sandwiches`
 
 This dovetails nicely with `self.api` and `self.html` on the browser side, which are available whenever we’re extending `apostrophe-modal` or `apostrophe-context`.
 
-{% hint style='info' %}
+::: tip
 You can also work directly with `self.apos.app`, which is the Express app object, in order to invoke `self.apos.app.get` and create a route with a more public-friendly URL.
-{% endhint %}
+:::
 
 `api.js`, by convention, usually contains all of the other methods we’re adding to the module. This is a bit underwhelming because some methods are likely to get called by project-level developers and/or other modules, and some are obviously implementation details, called automagically, etc.
 

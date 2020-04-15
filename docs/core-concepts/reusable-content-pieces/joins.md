@@ -54,9 +54,9 @@ module.exports = {
 ```
 
 
-{% hint style="info" %}
+::: tip
 You can output this lovely `description` rich text with an `apos.singleton` call in `lib/modules/jobs/views/show.html`. See the example of `show.html` earlier in this tutorial.
-{% endhint %}
+:::
 
 ### Relating people to their jobs
 
@@ -131,9 +131,9 @@ You can fix this by adding `_job` to the projection:
 // etc.
 ```
 
-{% hint style="info" %}
+::: tip
 Just like `_url`, adding `_job: 1` will fetch everything needed to populate `_job`, even though it is not a real database property. Apostrophe takes care of this "under the hood," adding the `jobId` property that contains the actual \_id of the job... and you don't have to worry about it.
-{% endhint %}
+:::
 
 ### `joinByArray`: when people have multiple jobs
 
@@ -179,9 +179,9 @@ Before long you'll start wanting to filter this list of people, taking advantage
 
 To make it easier to browse a listing of pieces, the [apostrophe-pieces-pages](/modules/apostrophe-pieces-pages/README.md) module will *automatically permit you to filter by the value of most schema fields when submitted as query string parameters*, provided they are marked for this purpose as you'll see below.
 
-{% hint style="info" %}
+::: tip
 You can also use `q` or `search` as a query parameter to do a full-text search. *Tip:* often this is all users want.
-{% endhint %}
+:::
 
 Next we'll explore how to add a filter by tag. Later, we'll look at filtering by a join as well.
 
@@ -317,9 +317,9 @@ Now you can filter people by job:
 </ul>
 ```
 
-{% hint style="info" %}
+::: tip
 Notice that this template looks exactly like the one for tags. That's intentional. You could use a single Nunjucks macro for both.
-{% endhint %}
+:::
 
 ### Filtering on multiple values
 
@@ -331,11 +331,11 @@ You're not restricted to filtering on a single value for a join, or for a `tags`
 
 You'll see people with *either* job.
 
-{% hint style="info" %}
+::: tip
 If you want to be more restrictive and only display results that have *all* of the specified values, add `And` to the filter name&mdash;in both the `piecesFilters` array (in the module's `index.js`) and the template references. As before, you can do this with `_` for `_id`, or without for `slug`.For instance, `_jobsAnd` expects ids, while `jobsAnd` expects slugs.
 
 However, **keep in mind this usually is very frustrating for users because they will rarely get any matches.** We recommend the default "or" behavior.
-{% endhint %}
+:::
 
 Here's how to build query strings that contain arrays in your template:
 

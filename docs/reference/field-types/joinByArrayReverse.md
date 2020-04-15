@@ -2,9 +2,9 @@
 
 A `joinByArrayReverse` field allows us to access the other side of a [joinByArray](schema-guide.md#joinByArray) relationship. Since this is the "other end" of the relationship, there is no editing interface. It is just a convenience allowing us to "see" the related objects from the other point of view.
 
-{% hint style='info' %}
+::: tip
 For backwards compatibility, you can set the `idField` option instead to match that in the other join, but this is confusing and hard to maintain. Just use `reverseOf`.
-{% endhint %}
+:::
 
 ## Example
 
@@ -27,7 +27,7 @@ If desired, we can specify `relationship` and `relationshipsField` just as we wo
 
 ## Settings
 
-|  Property | Type   | Default | Description | 
+|  Property | Type   | Default | Description |
 |---|---|---|---|
 |name | `string` | | Sets the name of the field in the database |
 |label | `string` | | Sets the label of the field that the user sees |
@@ -41,6 +41,6 @@ If desired, we can specify `relationship` and `relationshipsField` just as we wo
 |reverseOf | `string` | | Set to the name of the join you are reversing (optional) |
 |ifOnlyOne | `boolean` | false | If true, it will only carry out the join if the query that returned the original document returned only one document. This is useful if the joined information is only to be displayed on the `show.html` page of a piece, for instance, and you don't want the performance impact of loading it on the `index.html` page. |
 
-{% hint style='info' %}
+::: tip
 In documents with many joins in play, the `ifOnlyOne` option will avoid running through all the possible joins, and can be used to avoid a heavy performance impact in complex documents.
-{% endhint %}
+:::
