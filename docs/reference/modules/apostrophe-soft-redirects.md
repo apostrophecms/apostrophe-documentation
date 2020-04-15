@@ -1,4 +1,5 @@
-## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
+# apostrophe-soft-redirects
+## Inherits from: [apostrophe-module](./apostrophe-module/README.md)
 
 ## Methods
 ### ensureIndexes(*callback*)

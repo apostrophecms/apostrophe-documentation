@@ -1,3 +1,4 @@
+# apostrophe-any-page-manager
 ## Inherits from: [apostrophe-doc-type-manager](../apostrophe-doc-type-manager/README.md)
 This module provides a special doc type manager for the `apostrophe-page` type, which
 actually refers to any page in the tree, regardless of type. This

@@ -1,3 +1,4 @@
+# apostrophe-notifications
 ## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
 This module provides a framework for triggering notifications
 within the Apostrophe admin UI. Notifications may be triggered

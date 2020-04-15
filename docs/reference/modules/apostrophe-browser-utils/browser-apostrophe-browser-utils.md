@@ -1,3 +1,4 @@
+# apostrophe-browser-utils (browser)
 
 ## Methods
 ### sslIfNeeded(*url*)

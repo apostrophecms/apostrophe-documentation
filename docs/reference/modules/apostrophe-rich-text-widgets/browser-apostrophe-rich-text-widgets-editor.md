@@ -1,3 +1,4 @@
+# apostrophe-rich-text-widgets-editor (browser)
 
 ## Methods
 ### start()

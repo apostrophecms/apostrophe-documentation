@@ -1,4 +1,5 @@
-## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
+# apostrophe-i18n
+## Inherits from: [apostrophe-module](./apostrophe-module/README.md)
 This module makes an instance of the [i18n](https://npmjs.org/package/i18n) npm module available
 as `apos.i18n`. Apostrophe also makes this available in Nunjucks templates via the
 usual `__ns('apostrophe', )` helper function. Any options passed to this module are passed on to `i18n`.

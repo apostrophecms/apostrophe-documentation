@@ -1,3 +1,4 @@
+# apostrophe-polymorphic-manager-manager-modal (browser)
 ## Inherits from: [apostrophe-modal](../apostrophe-modal/browser-apostrophe-modal.md)
 A "chooser" modal for multiple doc types simultaneously.
 

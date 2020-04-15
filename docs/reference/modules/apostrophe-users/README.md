@@ -1,3 +1,4 @@
+# apostrophe-users
 ## Inherits from: [apostrophe-pieces](../apostrophe-pieces/README.md)
 ### `apos.users`
 The `apostrophe-users` module provides user accounts. It is **not** intended to

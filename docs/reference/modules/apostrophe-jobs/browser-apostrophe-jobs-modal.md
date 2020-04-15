@@ -1,3 +1,4 @@
+# apostrophe-jobs-modal (browser)
 ## Inherits from: [apostrophe-modal](../apostrophe-modal/browser-apostrophe-modal.md)
 A modal for importing pieces
 

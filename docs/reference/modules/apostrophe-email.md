@@ -1,4 +1,5 @@
-## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
+# apostrophe-email
+## Inherits from: [apostrophe-module](./apostrophe-module/README.md)
 
 ## Methods
 ### emailForModule(*req*, *templateName*, *data*, *options*, *module*, *callback*)

@@ -1,3 +1,4 @@
+# apostrophe-search
 ## Inherits from: [apostrophe-custom-pages](../apostrophe-custom-pages/README.md)
 ### `apos.search`
 Implement sitewide search for Apostrophe. Provides the

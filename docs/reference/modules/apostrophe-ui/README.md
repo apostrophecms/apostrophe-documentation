@@ -1,3 +1,4 @@
+# apostrophe-ui
 ## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
 Provides the [apos.ui](browser-apostrophe-ui) singleton on the browser side, which
 implements various general purpose UI features for Apostrophe sites, and also

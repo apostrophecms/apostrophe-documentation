@@ -1,4 +1,5 @@
-## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
+# apostrophe-express
+## Inherits from: [apostrophe-module](./apostrophe-module/README.md)
 This module initializes the Express framework, which Apostrophe
 uses and extends to implement both API routes and page-serving routes.
 The Express `app` object is made available as `apos.app`, and

@@ -1,4 +1,5 @@
-## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
+# apostrophe-locks
+## Inherits from: [apostrophe-module](./apostrophe-module/README.md)
 ### `apos.locks`
 
 ## Methods

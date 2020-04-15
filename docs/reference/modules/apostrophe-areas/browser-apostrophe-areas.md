@@ -1,3 +1,4 @@
+# apostrophe-areas (browser)
 
 ## Methods
 ### setWidgetManager(*name*, *manager*)

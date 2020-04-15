@@ -1,3 +1,4 @@
+# apostrophe-modal (browser)
 ## Inherits from: [apostrophe-context](../apostrophe-utils/browser-apostrophe-context.md)
 `apostrophe-modal` is a base class for modal dialog boxes. Define a new
 type that extends `apostrophe-modal`, set the `source` option to the

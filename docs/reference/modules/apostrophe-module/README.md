@@ -1,3 +1,4 @@
+# apostrophe-module
 This "module" is the base class for all other modules. This module
 is never actually configured and used directly. Instead all other modules
 extend it (or a subclass of it) and benefit from its standard features,

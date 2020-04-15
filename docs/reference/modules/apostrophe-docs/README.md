@@ -1,3 +1,4 @@
+# apostrophe-docs
 ## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
 ### `apos.docs`
 This module is responsible for managing all of the documents (apostrophe "docs")
