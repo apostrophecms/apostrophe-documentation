@@ -29,6 +29,10 @@ module.exports = {
     const refIndex = startingNav.sidebar.findIndex(item => {
       return item.path && item.path === '/reference';
     });
+    const refSection = startingNav.sidebar[refIndex];
+    const moduleList = refSection.children[refSection.children.length - 1].children;
+    // Start the module list fresh.
+    moduleList.length = 0;
 
     self.apos.tasks.add('documentation', 'generate', 'Usage: node app documentation:generate\n\nRegenerates the module reference documentation.', function(apos, argv, callback) {
       return async.series([
@@ -218,7 +222,6 @@ module.exports = {
         });
 
         processFile(module, null, self.apos.rootDir + '/node_modules/apostrophe/lib/modules/' + module + '/index.js');
-        // , null, relatedTypes);
 
         var type = types['server-' + module];
         _.each(type.deferredHelpers || [], function(name) {
@@ -234,9 +237,6 @@ module.exports = {
       }
 
       function documentModule(module) {
-        const refSection = startingNav.sidebar[refIndex];
-        const moduleList = refSection.children[refSection.children.length - 1].children;
-
         var type = types['server-' + module];
         var relatedTypes = _.filter(types, function(type, name) {
           return (type.module === module) && ((type.name !== module) || (type.namespace !== 'server'));
