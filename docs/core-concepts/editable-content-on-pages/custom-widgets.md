@@ -105,9 +105,9 @@ Let's make another module and its views folder in one step:
 mkdir -p lib/modules/page-link-widgets/views
 ```
 
-{% hint style='info' %}
+::: tip
 While it's good to get some experience making all the folders and files yourself, the `apostrophe-cli` pacakage that you installed earlier can easily create basic module structures for you from templates. You can learn more in the [`apostrophe-cli` README](https://github.com/apostrophecms/apostrophe-cli/blob/master/README.md).
-{% endhint %}
+:::
 
 1\. Now you this new widget to the `modules` object in our app.js:
 
@@ -151,9 +151,9 @@ Now you're ready for the Nunjucks template, `lib/modules/page-link-widgets/views
 <h4><a href="{{ data.widget._page._url }}">{{ data.widget._page.title }}</a></h4>
 ```
 
-{% hint style="success" %}
+::: tip
 _Whoa! So I can access the other page in my template?"_ Yep. You can access any property of the other page. You can even make `apos.area` and `apos.singleton` calls with the other page object.
-{% endhint %}
+:::
 
 Actually using the widget in an area is just like using the first one. But this time, let's enable both kinds in our area on `home.html`:
 
@@ -171,9 +171,9 @@ Actually using the widget in an area is just like using the first one. But this 
 
 Now our users have a choice between do-it-yourself links that can point anywhere and "page" links that can only point to a page. Both can be useful.
 
-{% hint style='info' %}
+::: tip
 It is also possible to join with more than one type. And once you check out [pieces](/tutorials/core-concepts/reusable-content-pieces/reusable-content-with-pieces.md), the benefit of doing so will be clear. To do that, set `withType` to an array of type names, which may include `apostrophe-pages`. The user is then able to use a tabbed interface to select items of several types for the same join. These "polymorphic joins" are primarily intended for navigation widgets like this one.
-{% endhint %}
+:::
 
 ### Passing options to widgets
 
@@ -245,9 +245,9 @@ In your template, access it via `data.widget` rather than `data.options`:
 </h4>
 ```
 
-{% hint style='info' %}
+::: tip
 `data.widget` contains the form fields the user can edit. `data.options` contains the options passed to `apos.area` or `apos.singleton` by the frontend developer.
-{% endhint %}
+:::
 
 ### Performance note: limiting joins
 

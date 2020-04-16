@@ -48,9 +48,9 @@ Apostrophe makes it easy to set this up with minimal configuration, but if that 
 
 Now you can create new users in the *editor* group, which will have the ability to create new content and manage the content they create, but will lack the great power -- and great responsibility -- of the admin role.
 
-{% hint style='info' %}
+::: tip
 An admin can lock any piece type as `adminOnly` which will remove the ability of users with the `edit` permission (or otherwise customized permissions) to create or edit pieces of that type. Users and Groups are automatically locked so that they are only editable by admins.
-{% endhint %}
+:::
 
 
 ## Advanced permissions: creating custom groups, assigning permissions for pieces
@@ -67,11 +67,11 @@ In addition to the default groups, Apostrophe has a convention for permissions t
 
 So, for example, if you have an HR coordinator who needs access to upload important documents to an employee portal, but doesn't need any further access, you could provide the "Upload & Crop" permission (which is `edit-attachment` under the hood) to give them permission to upload files.
 
-{% hint style='info' %}
+::: tip
 
 [`apostrophe-worklow`](https://github.com/apostrophecms/apostrophe-workflow) is an optional module which adds workflow features to your site. In order to provide these features, the module modifies aspects of the existing groups, and adds more options for configuring groups. You can learn more about permissions in the [Workflow with permissions section](https://github.com/apostrophecms/apostrophe-workflow#user-content-workflow-with-permissions-limiting-who-can-do-what).
 
-{% endhint %}
+:::
 
 ### Configuring advanced permissions
 
@@ -103,7 +103,7 @@ Now the graphical group management interface is available, and you can create gr
 
 Now the "HR Coordinator" group will be available when creating a user!
 
-{% hint style='info' %}
+::: tip
 #### Creating groups with the CLI
 You don't have to use the `groups` option of `apostrophe-users` at all, not even when you first create your site. If you choose not to use that option, you can "bootstrap" your first group with this command:
 
@@ -112,7 +112,7 @@ node app apostrophe-groups:add admin admin
 ```
 
 This will create a group called `admin` (the first argument), with the `admin` permission (the second argument). You may list as many permissions as you wish, separated by spaces. If a group has the `admin` permission, all other permissions are implied, so don't bother declaring them separately.
-{% endhint %}
+:::
 
 ## Checking permissions in your own code
 

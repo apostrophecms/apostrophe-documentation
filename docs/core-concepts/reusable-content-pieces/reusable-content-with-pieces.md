@@ -6,9 +6,9 @@ When you create content with the rich text editor, or images widget, that conten
 
 Let's say you want to create a directory of people who work for a company. People are "global content": they are useful to display here and there all over the site, they aren't tied down to one page. The `apostrophe-pieces` module provides a great starting point to create many types of global content. You'll extend it to make your own `people` module. You can extend `apostrophe-pieces` many times in the same project.
 
-{% hint style="info" %}
+::: tip NOTE
 **"What about users?"** Yes, you already have a "Users" menu on your admin bar. And yes, users are powered by pieces. But we've found that confusing website editors with the publicly visible staff directory tends to cause problems in the long run. Plus, this way, it's a teachable moment. :\)
-{% endhint %}
+:::
 
 1\. Create a `lib/modules/people/index.js` file:
 
@@ -70,9 +70,9 @@ module.exports = {
 };
 ```
 
-{% hint style="info" %}
+::: tip NOTE
 **IMPORTANT: note the** `name` **property. This identifies ONE piece in the database, so it is always singular.** Remember: Modules Are Plural \(MAP\), but the things they manage may not be.
-{% endhint %}
+:::
 
 2\. Now turn the module on in `app.js`.
 
@@ -83,15 +83,15 @@ modules: {
 }
 ```
 
-{% hint style="info" %}
-**Note:** When code examples show sections like the `modules` section in `app.js` we're only going to show you the relevant portion that you're currently working on. In many cases you'll have a lot more in those sections, but we don't need to replicate that every time.
-{% endhint %}
+::: tip NOTE
+When code examples show sections like the `modules` section in `app.js` we're only going to show you the relevant portion that you're currently working on. In many cases you'll have a lot more in those sections, but we don't need to replicate that every time.
+:::
 
 Just like that, you'll see a new "People" menu in the admin bar when you log into the site. Pick "New Person" and you'll find that you can give each person a full name, a first name, a last name and a phone number. Pick "Manage Person" to examine and edit existing people.
 
-{% hint style="info" %}
+::: tip
 You could have configured the module entirely in `app.js`. But that leads to giant `app.js` files, so we don't recommend it. However, some developers feel it's a good place for high-level properties like `extend` that help give you a quick overview of what the module is and does.
-{% endhint %}
+:::
 
 There are certain additional fields that you get by default with every piece, such as `title` \(the full name of the piece\), `slug` \(used when the piece appears as part of a URL\), and `published` \(which determines whether the public can see the piece, as you'll see below\). But in this case, you re-declared `title` in order to change its label to `Full Name` so that the "New Person" form is not confusing.
 
@@ -120,9 +120,9 @@ module.exports = {
 
 Now the `title` property is set automatically from the first and last name.
 
-{% hint style="info" %}
+::: tip
 Methods are always added to the module in the `construct` function, which takes the module object, `self`, as its first argument. You attach methods directly to `self`. The use of `self` rather than `this` ensures that methods can make asynchronous calls and be passed as callbacks themselves without any confusion about the value of `this`. For more information about object-oriented functional programming in Apostrophe, check out [moog](https://www.npmjs.com/package/moog) and [moog-require](https://www.npmjs.com/package/moog-require).
-{% endhint %}
+:::
 
 #### Using Contextual Fields to Simplify the Form
 
@@ -140,9 +140,9 @@ When you do this, there is still a separate prompt to enter the full name. Remov
 ]
 ```
 
-{% hint style="info" %}
+::: tip
 There are many other methods you can override or extend to change the behavior of pieces. See [the apostrophe-pieces API methods](/modules/apostrophe-pieces/README.md) for more information.
-{% endhint %}
+:::
 
 ### Arranging fields
 

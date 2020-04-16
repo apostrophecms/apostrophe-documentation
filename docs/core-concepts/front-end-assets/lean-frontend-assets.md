@@ -116,9 +116,9 @@ module.exports = {
 
 This just works. This module pushes js and css assets specified in your `apostrophe-assets` configuration as if `when: 'lean'` is set for them, so that these assets are available to everyone, unless `when` is explicitly set to a different value. Note that for legacy reasons, `when: 'always'` *does not* push assets to everyone in the presence of this module.
 
-{% hint style='info' %}
+::: warning NOTE
 **Important:** if your `site.less` refers to LESS variables that come from Apostrophe, i.e. those with an `@apos` prefix, your LESS will not compile successfully since these will not be present. If you see errors of this kind, stop using `@apos` variables in your LESS code.
-{% endhint %}
+:::
 
 ### Tips
 

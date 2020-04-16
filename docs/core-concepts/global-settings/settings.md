@@ -36,9 +36,9 @@ You can also access nested options using dot notation, MongoDB-style.
 
 As seen here, **always use the `json` filter** if you want to push a variable to JavaScript code from inside a Nunjucks template. The `json` filter will automatically quote strings the right way, format objects as objects, format arrays as arrays, and even deal with several edge cases where JSON and JavaScript aren't 100% compatible. So please, **don't try to quote strings yourself.** Let the filter do it.
 
-{% hint style="info" %}
+::: tip
 If you think the default behavior of `getOption` is handy, take a moment to check out the [apostrophe-override-options](https://npmjs.org/package/apostrophe-override-options) module, which really takes it to the limit. Want to change what `getOption` returns based on the current page type or piece type? How about an individual setting of one of the ancestor pages of the current page? You can do all of those things with this optional module.
-{% endhint %}
+:::
 
 ### Changing the value for a specific server only
 
@@ -59,11 +59,11 @@ module.exports = {
 
 This `modules` object will merge with the `modules` object in your `app.js` file. Any value provided for a property, or sub-property, in `data/local.js` will replace the value given in `app.js`, if any.
 
-{% hint style="info" %}
+::: tip
 Please don't repeat everything in `data/local.js`. You only need to include what you want to change. Please keep everything else in `app.js`, or in module-level `lib/modules/module-name/index.js` files.
 
 The file `data/local.js` is excluded from deployment by our standard Stagecoach recipe. If you're not using Stagecoach, make sure you exclude it in another way.
-{% endhint %}
+:::
 
 ### An alternative approach: environment variables
 

@@ -73,9 +73,9 @@ To create a page template:
 
 Now that you have a `default.html` file, you need to register it in `app.js` to make it available.
 
-{% hint style='info' %}
+::: tip NOTE
 Even `layout.html` extends another file. For a typical page load, it extends `outerLayout.html`, which lives in the `lib/modules/apostrophe-templates/views` folder. That file extends the `outerLayoutBase.html` file that ships with Apostrophe. Most of the time you won't need to look there, but it does contain additional blocks you can override, notably `extraHead` which is perfect for adding `link` elements to the `head` element and so on.
-{% endhint %}
+:::
 
 ## Configuring Apostrophe with `app.js`
 

@@ -78,9 +78,9 @@ What you do inside that callback is up to you. In this example we publish the pi
 
 `batchSimpleRoute` takes care of everything else. You can pass the request, the name of the batch operation and the callback.
 
-{% hint style='info' %}
+::: tip
 Alternatively, you can write your own route from scratch. You'll receive the selected piece IDs via `req.body.ids`. However, keep in mind that if you try to get clever and use MongoDB `{ multi: true }` operations, Apostrophe won't know to call `docBeforeUpdate`, `docAfterSave` or any similar methods.
-{% endhint %}
+:::
 
 
 ## Browser side steps

@@ -73,11 +73,11 @@ module.exports = {
 };
 ```
 
-{% hint style='info' %}
+::: tip NOTE
 *"What's happening in this code?"* We're changing the way `apostrophe-pages` loads the ancestors of the current page. By specifying `areas: [ 'thumbnail' ]` for the children of each ancestor, we tell Apostrophe to fully load the widgets in that area, fetching the images we need.
 
 *"What does `filters` mean here?"* It's an advanced topic, but when `apostrophe-pages` fetches the current page, it makes an Apostrophe cursor object. It then loops through all the properties of the `filters` option and calls those methods on the cursor, passing on any arguments given. For more information see [working with cursors](/tutorials/advanced-development/database/cursors.md).
-{% endhint %}
+:::
 
 ## Drop-down menus with pictures: images from second-level pages
 
@@ -99,9 +99,9 @@ module.exports = {
 };
 ```
 
-{% hint style='info' %}
+::: tip
 Adding `depth: 2` tells `apostrophe-pages` to go two levels deep fetching the subpages of each ancestor of the current page. Now you can loop over `_children` two levels deep in your template and produce dropdown menus with images... at the cost of a little speed.
-{% endhint %}
+:::
 
 
 ## Fetching images from children of the current page
@@ -121,6 +121,6 @@ module.exports = {
 };
 ```
 
-{% hint style='info' %}
+::: tip
 See the earlier example on this page for how to add `thumbnail`to the schema of every page. You can then access the thumbnails in your templates by looping over `data.page._children` with code similar to the template shown above.
-{% endhint %}
+:::

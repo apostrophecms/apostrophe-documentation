@@ -4,15 +4,15 @@
 
 Times are stored in 24 hour "HH:MM:SS" format.
 
-The default "local" time format, displayed to the user when editing, is American-style 12 hour time. You may change this by configuring the [`apostrophe-ui`](/modules/apostrophe-ui/README.md) module and setting the `userTimeFormat` option to a different [moment](https://npmjs.org/packages/moment) format string. 
+The default "local" time format, displayed to the user when editing, is American-style 12 hour time. You may change this by configuring the [`apostrophe-ui`](/modules/apostrophe-ui/README.md) module and setting the `userTimeFormat` option to a different [moment](https://npmjs.org/packages/moment) format string.
 
-{% hint style='info' %}
-Note: while "moment" supports many time formats, in Apostrophe you must use a standard 24-hour or 12-hour time separated by colons \(`:`\) for the field to be understood.
-{% endhint %}
+::: warning NOTE
+While "moment" supports many time formats, in Apostrophe you must use a standard 24-hour or 12-hour time separated by colons \(`:`\) for the field to be understood.
+:::
 
 ## Settings
 
-|  Property | Type   | Default | Description | 
+|  Property | Type   | Default | Description |
 |---|---|---|---|
 |name | `string` | | Sets the name of the field in the database |
 |label | `string` | | Sets the label of the field that the user sees |
@@ -25,6 +25,6 @@ Note: while "moment" supports many time formats, in Apostrophe you must use a st
 |userTimeFormat |  |  | Allows configuration of the time format |
 |def | | | Sets the default time that is displayed |
 
-{% hint style='info' %}
+::: warning NOTE
 If you do not set `def: null` or `required: true`, the time defaults to the current time.
-{% endhint %}
+:::

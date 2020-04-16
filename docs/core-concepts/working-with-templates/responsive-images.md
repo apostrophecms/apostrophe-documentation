@@ -10,9 +10,9 @@ The `srcset` attribute was introduced to give developers a way to declaratively 
 
 Apostrophe lets use make use of this browser feature through the `apos.images.srcset` template helper. In the following example, you'll write a simple custom widget that renders an image with both a `srcset` and a `sizes` attribute.
 
-{% hint style='info' %}
+::: tip NOTE
 This example assumes that you know how to load and work with custom widgets. If you're unsure about that, please refer to the [custom widgets tutorial](/tutorials/core-concepts/editable-content-on-pages/custom-widgets.md).
-{% endhint %}
+:::
 
 With this example widget, it's up to the developer to specify the `sizesAttr` option (which is what we use for the `sizes` attribute on the image). So when you load the widget into an area or singleton, follow this example:
 
@@ -90,9 +90,9 @@ Rather than scaling all of the images to have the same height while displaying a
 </div>
 ```
 
-{% hint style='info' %}
+::: tip
 Normally, Apostrophe ensures that all images in a single widget, i.e. a single slideshow, are displayed at the same height and allows their widths to vary. This is done to prevent the rest of the page from "jumping" every time the slideshow advances to a slide with a different aspect ratio. This is great until what you really want is responsive CSS cropping. The `noHeight` option disables this behavior, making you responsible for achieving a consistent height via your CSS.
-{% endhint %}
+:::
 
 ## Everything was great until the boss lost his head
 
@@ -122,9 +122,9 @@ Users will now see an "eyeball" icon in the list of images they have selected fo
 
 The focal point, which is stored as a percentage on the X and Y axes, is output as a `background-position` CSS property. Note that this only makes a difference in practice if `background-size: contain` is not in effect and the `noHeight` option has been passed to the widget.
 
-{% hint style='info' %}
+::: tip
 If you have overridden `widget.html` for the `apostrophe-images` widget, take a look at the latest version of `widgetBase.html` to see how this can be applied in your override.
-{% endhint %}
+:::
 
 ## Other ways to use the focal point data
 

@@ -84,6 +84,6 @@ self.apos.app.post('/my-post-route-url', function(req, res) {
 });
 ```
 
-{% hint style='info' %}
+::: tip
 If you are allowing "plain old form submissions," you'll want to use `res.redirect` afterwards to bring the user back to a useful page. You might want to send along `data.url` in a hidden field in your form for this purpose.
-{% endhint %}
+:::

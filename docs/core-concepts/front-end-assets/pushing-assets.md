@@ -105,9 +105,9 @@ You can push JavaScript files to the browser too, as you can see in the `index.j
 
 This will push the file `lib/modules/apostrophe-assets/public/js/site.js` to the browser. If you follow our [production deployment tutorial](/tutorials/devops/deployment.md), it will be included in a single minified file along with Apostrophe's JavaScript, for much better performance. Minification is also provided for stylesheets.
 
-{% hint style="tip" %}
+::: tip
 Want to use `gulp`, `browserify`, `grunt` and friends? Go for it! Just set up your configuration so that the compiled output file is pushed by Apostrophe. Apostrophe doesn't need to know you are using these tools for you to be successful with them. Separation of concerns is a good thing.
-{% endhint %}
+:::
 
 ## Including webfonts, images, and other assets
 
@@ -144,9 +144,9 @@ As an example, with `karla.woff` in `lib/modules/my-theme/public/fonts` the @fon
 }
 ```
 
-{% hint style="working" %}
+::: tip
 Not working for you yet? Please check out the [complete, working example of a `theme` module in the apostrophe-samples project](https://github.com/apostrophecms/apostrophe-samples). This project is a great place to start if you need more examples of where to put your code "in context" so that everything works!
-{% endhint %}
+:::
 
 ### Assets in apostrophe-assets
 

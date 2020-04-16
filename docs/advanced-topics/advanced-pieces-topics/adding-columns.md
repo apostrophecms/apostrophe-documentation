@@ -42,9 +42,9 @@ module.exports = {
 }
 ```
 
-{% hint style="info" %}
+::: tip
 Notice that for `sort` you specify an object exactly like what you'd pass to MongoDB's `sort()` method, or Apostrophe's `sort()` cursor filter. In particular, the actual property you sort on does not have to match the property name displayed in the column. For example, when working with people's names you might sort on `{ lastName: 1, firstName: 1 }` rather than `title`.
-{% endhint %}
+:::
 
 **If you want to change one of the standard columns, override `defaultColumns`** rather
 than setting `addColumns`.

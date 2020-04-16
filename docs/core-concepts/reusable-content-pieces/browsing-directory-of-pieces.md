@@ -24,9 +24,9 @@ modules: {
 }
 ```
 
-{% hint style="info" %}
+::: tip NOTE
 `people-pages` will automatically figure out that its job is to display the pieces that come from the `people` module, by removing `-pages` from its name. If you don't want to follow that pattern, you'll have to set the `piecesModuleName` option, and possibly also set the `name` option to a sensible name for the page type that displays an index of pieces. We usually just follow the pattern.
-{% endhint %}
+:::
 
 This module provides a new type of page on the site, `people-page`. This new page type displays an index of pieces. Before it can be used, you need to configure `apostrophe-pages` to add it to the menu of page types that can be given to pages. In `app.js` it might look like this:
 
@@ -56,9 +56,9 @@ modules: {
 }
 ```
 
-{% hint style="info" %}
+::: tip
 As with other modules, it's a good idea to create `lib/modules/apostrophe-pages/index.js` and move configuration there to reduce clutter.
-{% endhint %}
+:::
 
 ### Creating custom templates for the index of people
 
@@ -141,7 +141,7 @@ Your final result should look like this:
 
 Add a little CSS and you've got a nice directory.
 
-{% hint style="info" %}
+::: tip
 _We could have used_ `apos.singleton` _to display the thumbnail,_ but sometimes you don't want the extra markup, editing controls, et cetera.
 
 The `apos.images.first` helper can find an image, also known as an "attachment," anywhere in the object you pass to it. You can pass the entire `piece` object if you want to. But, it's slower than than going straight to the thumbnail.
@@ -151,7 +151,7 @@ You can also use `apos.images.all` to fetch an array of attachments.
 **Never assume the editor remembered to pick a thumbnail.** Always use an `if` statement to check.
 
 **Always specify the size.** Loading a large version of the image for an index view like this just slows down your site. See [adding editable content to pages](../editable-content-on-pages/standard-widgets.md) for more information about image sizes.
-{% endhint %}
+:::
 
 ### Creating custom templates for individual people
 
@@ -174,9 +174,9 @@ Next you want to override the `show.html` template of your subclass of `apostrop
 {% endblock %}
 ```
 
-{% hint style="info" %}
+::: tip
 _We didn't pass an options object to_ `apos.area` _or_ `apos.singleton` _because you already specified the options in the_ [_schema_](../../schema-guide/schema-guide.md)_,_ as part of `addFields`. If you _do_ pass an options object to `apos.area` or `apos.singleton`, the original options object passed to the schema is ignored, so be sure to repeat anything that is relevant.
-{% endhint %}
+:::
 
 **For SEO reasons, it is almost always important to have a good `show.html` page and provide `_url` links to reach it in your index pages, even if you are displaying most of the information in the index pages as well.**
 

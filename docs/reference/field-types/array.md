@@ -77,14 +77,14 @@ module.exports = {
 
 ## Settings
 
-|  Property | Type   | Default | Description | 
+|  Property | Type   | Default | Description |
 |---|---|---|---|
 |name | `string` | | Sets the name of the field in the database |
 |label | `string` | | Sets the label of the field that the user sees |
 |required | `boolean` | false | If true, the field is mandatory |
 |contextual | `boolean` | false | If true, it will prevent the field from appearing in a dialog box |
-|type | `string` | | Specifies the field type | 
-|readOnly | `boolean` | false | If true, prevents the user from editing the field | 
+|type | `string` | | Specifies the field type |
+|readOnly | `boolean` | false | If true, prevents the user from editing the field |
 |help | `string` | | Help text for the field that will appear with the field's label |
 |htmlHelp | `string` | | Help text with support for HTML markup | universal |
 |limit | `int` |  | The maximum number of entries in the array |
@@ -92,11 +92,11 @@ module.exports = {
 |titleField | `string` |  | If provided, the editing interface will use the value of that field as a distinguishing label for each entry in the array. Uses "dot notation" to access a nested property just as you would with MongoDB. |
 |listItemTemplate | template name |  | Enter the name of a nunjucks template to customize title output for each value in the array |
 
-{% hint style='info' %}
+::: tip
 Notes on `titlefield`:
 * If there is no `titleField` setting, the items are numbered.
 
 * Setting `titleField` is recommended to improve clarity for content editors.
 
 * `titleField` can access joins beginning with Apostrophe 2.50.0, which is especially useful with dot notation.
-{% endhint %}
+:::
