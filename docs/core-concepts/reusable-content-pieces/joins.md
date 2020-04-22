@@ -358,4 +358,4 @@ Here's how to build query strings that contain arrays in your template:
 **"What's going on in this code?"** Like before, we are using the `build` filter to add and remove query parameters. However, this time, we are using the special `$pull` operator to remove a job from the array without removing the others, and using the special `$addToSet` operator to add a job to the array. In this way, we can manage filter URLs like `/people?jobs[]=doctor&jobs[]=technician` with very little effort.
 :::
 
-Pieces are very powerful and have a lot of depth, for more pieces topics and code samples, see the [Advanced Pieces section](/tutorials/advanced-development/advanced-pieces-topics/README.md).
+Pieces are very powerful and have a lot of depth, for more pieces topics and code samples, see the [Advanced Pieces section](/advanced-topics/advanced-pieces-topics/README.md).

@@ -151,7 +151,7 @@ module.exports = {
 
 Here I assume you're using passwords with mongodb, since your `mongodb` server must be set up to allow connections from other servers.
 
-A single instance of mongodb is smart enough to use multiple cores. For reliability, however, you may wish to set up a [mongodb replica set](/tutorials/advanced-development/database/replica-set.md).
+A single instance of mongodb is smart enough to use multiple cores. For reliability, however, you may wish to set up a [mongodb replica set](/advanced-topics/database/replica-set.md).
 
 If you are doing that in order to achieve high availability, great! It will make sure your mongodb database remains available if one of the servers goes down.
 

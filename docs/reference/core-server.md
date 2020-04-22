@@ -16,7 +16,7 @@ var apos = require('apostrophe')({
 }
 ```
 
-This article is a reference guide to the options and methods of that object. Most of the time you'll be more interested in Apostrophe's [modules](/tutorials/advanced-development/promise-events/promise-events.md) for information on how to "hook in" to the life cycle of pages and documents in Apostrophe.
+This article is a reference guide to the options and methods of that object. Most of the time you'll be more interested in Apostrophe's [modules](/advanced-topics/promise-events/promise-events.md) for information on how to "hook in" to the life cycle of pages and documents in Apostrophe.
 
 This article is not the right place to start learning Apostrophe. For that, see the [tutorials](/README.md).
 
@@ -153,13 +153,13 @@ Core Apostrophe modules, and project-specific modules, usually register an "alia
 
 ### `callAll(methodName, args..., callback)`
 
-**This is a legacy method, all instances of it in the apostrophe core now instead call** `callAllAndEmit` **which also emits an Apostrophe** [**promise event**](/tutorials/advanced-development/promise-events/promise-events.md)**.**
+**This is a legacy method, all instances of it in the apostrophe core now instead call** `callAllAndEmit` **which also emits an Apostrophe** [**promise event**](/advanced-topics/promise-events/promise-events.md)**.**
 
 When `callAll` is invoked with a method name such as `docBeforeSave`, Apostrophe invokes that method on **ALL modules that have one**.
 
 **A callback is required when invoking** `callAll`**, but optional when receiving it.** That is, your code that invokes `callAll` **must** be asynchronous and pass a callback as the last argument to `callAll`. However, some of the modules that implement `methodName` may omit the callback if they do not need to do any asynchronous work. `docBeforeSave` is a good example: some modules only need to copy one property to another, while others might need to consult another database.
 
-For legacy reasons, the `callAll` technique is widely used in core Apostrophe modules. For instance, [page-before-send](../modules/apostrophe-pages/README.md#pageBeforeSend) is invoked just before a page is sent to the browser, allowing all modules one last opportunity to do some asynchronous work and add more information to `req.data`. But new code should listen for the `apostrophe-pages:beforeSend` [promise event](/tutorials/advanced-development/promise-events/promise-events.md) instead.
+For legacy reasons, the `callAll` technique is widely used in core Apostrophe modules. For instance, [page-before-send](../modules/apostrophe-pages/README.md#pageBeforeSend) is invoked just before a page is sent to the browser, allowing all modules one last opportunity to do some asynchronous work and add more information to `req.data`. But new code should listen for the `apostrophe-pages:beforeSend` [promise event](/advanced-topics/promise-events/promise-events.md) instead.
 
 ### `destroy()`
 
@@ -167,11 +167,11 @@ The `destroy` method destroys the `apos` object, freeing resources such as datab
 
 ### `emit(eventName, args...)`
 
-For legacy reasons, Apostrophe provides a simple mechanism for synchronous events. This is separate from [promise events](/tutorials/advanced-development/promise-events/promise-events.html), which support asynchronous programming and are generally preferred in new code. Synchronous events may still be useful in new code when code is invoked so often that no delay can be tolerated.
+For legacy reasons, Apostrophe provides a simple mechanism for synchronous events. This is separate from [promise events](/advanced-topics/promise-events/promise-events.html), which support asynchronous programming and are generally preferred in new code. Synchronous events may still be useful in new code when code is invoked so often that no delay can be tolerated.
 
 The `apos.emit` method takes an event name and additional, optional arguments and invokes all event listeners for that event name. For example, the [apostrophe-search](/modules/apostrophe-search/README.md) module emits a `docSearchIndex` event with a `doc` and an array of `texts`, allowing other modules to potentially add more search texts.
 
-On the server side, Apostrophe emits [promise events](/tutorials/advanced-development/promise-events/promise-events.md) far more often.
+On the server side, Apostrophe emits [promise events](/advanced-topics/promise-events/promise-events.md) far more often.
 
 ### `listen()`
 

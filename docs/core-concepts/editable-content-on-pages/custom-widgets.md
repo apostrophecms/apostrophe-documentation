@@ -287,7 +287,7 @@ The new bit is the `filters` option. By specifying a `projection` filter, you ca
 
 **Watch out for reverse joins! If you have** [**reverse joins**](/tutorials/schema-guide/schema-guide.md) **and your widget doesn't need them,** the `projection` filter can't help you avoid loading them, because they are loaded from "the other side" \(the ids are stored with the documents linking _to_ your documents\). Instead, use the `joins` filter, and specify an array of join field names your widget actually needs — if any.
 
-_What else can I do with_ `filters`_?_ That's an intermediate topic, but you can do anything that [cursor filter methods](/tutorials/advanced-development/database/cursors.md) can do.
+_What else can I do with_ `filters`_?_ That's an intermediate topic, but you can do anything that [cursor filter methods](/advanced-topics/database/cursors.md) can do.
 
 ## Adding a JavaScript widget player on the browser side
 

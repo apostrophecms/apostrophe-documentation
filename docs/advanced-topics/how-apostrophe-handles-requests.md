@@ -92,7 +92,7 @@ Now we can access that data in `views/show.html` within our module.
 
 ## `apostrophe-pages:beforeSend`: your last chance to do async work for a page
 
-When Apostrophe renders a page, the last thing it does is emit the `apostrophe-pages:beforeSend` [promise event](/tutorials/advanced-development/promise-events/promise-events.md).
+When Apostrophe renders a page, the last thing it does is emit the `apostrophe-pages:beforeSend` [promise event](/advanced-topics/promise-events/promise-events.md).
 
 This is your last chance to attach information to `req.data` and your last chance to do anything that requires a callback.
 
@@ -124,7 +124,7 @@ You have one more chance to write JavaScript that is part of the rendering of a 
 
 Apostrophe provides many "template helpers" you've seen before, like `apos.area` or `apos.attachments.url`. Adding helpers is a good way to provide code that would be too ugly, complicated or unmaintainable written in Nunjucks.
 
-Just remember that the code must be synchronous — it must not involve callbacks. If you need callbacks to do your work, write an [apostrophe-pages:beforeSend handler, or another promise event handler](/tutorials/advanced-development/promise-events/promise-events.md).
+Just remember that the code must be synchronous — it must not involve callbacks. If you need callbacks to do your work, write an [apostrophe-pages:beforeSend handler, or another promise event handler](/advanced-topics/promise-events/promise-events.md).
 
 Here's how to add a helper via your module:
 

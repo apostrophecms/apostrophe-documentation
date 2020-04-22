@@ -115,7 +115,7 @@ module.exports = {
 
 ### Sending server-side notifications in tasks
 
-Sending a notification in a [command-line task](/tutorials/advanced-development/apostrophe-cli/command-line-tasks.md) works just as shown above. However, if you wish to send one at the *end* of the task, you should `await` the `apos.notify` call. This ensures that the notification reaches the database before the task process exits.
+Sending a notification in a [command-line task](/advanced-topics/apostrophe-cli/command-line-tasks.md) works just as shown above. However, if you wish to send one at the *end* of the task, you should `await` the `apos.notify` call. This ensures that the notification reaches the database before the task process exits.
 
 Under other circumstances, you don't need to `await` when calling `apos.notify`. It will take care of itself.
 

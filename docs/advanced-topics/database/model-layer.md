@@ -2,7 +2,7 @@
 
 Apostrophe provides a model layer (database layer) that gives you convenient ways to read and write docs programmatically, taking advantage of the same features that underpin modules like `apostrophe-pieces`. Using these features where possible ensures that permissions are respected, widgets are loaded, joins are fetched, versions are recorded for rollback... so many good things.
 
-That being said, you can also [access the database directly](/tutorials/advanced-development/database/accessing-the-database-directly.md) and there's a time and place for that too, most frequently when you must use `$set`, `$inc`, `$unset`, `$push`, `$pull` or `$addToSet` and you are confident you've already determined the user should be allowed to do something.
+That being said, you can also [access the database directly](/advanced-topics/database/accessing-the-database-directly.md) and there's a time and place for that too, most frequently when you must use `$set`, `$inc`, `$unset`, `$push`, `$pull` or `$addToSet` and you are confident you've already determined the user should be allowed to do something.
 
 ## Fetching pieces with Apostrophe
 

@@ -101,7 +101,7 @@ Inside `construct`, we call `self.addHelpers` to add some helper functions that 
 ::: warning NOTE
 **You must not call async functions, await promises, wait for callbacks, make network requests or database calls, etc. from inside a helper function.** Helpers must be synchronous, the value they return is the value you'll get.  Any attempt to use asynchronous code here, or anywhere in a template, **Will not work**.
 
-If you need to do asynchronous work to get data for your template, you should do it **before** the template runs. Write a [promise event handler](/tutorials/advanced-development/promise-events/promise-events.md), or a [widget `load` method](/tutorials/advanced-development/how-apostrophe-handles-requests.md#widget-loaders).
+If you need to do asynchronous work to get data for your template, you should do it **before** the template runs. Write a [promise event handler](/advanced-topics/promise-events/promise-events.md), or a [widget `load` method](/advanced-topics/how-apostrophe-handles-requests.md#widget-loaders).
 :::
 
 ## Returning markup from a helper
