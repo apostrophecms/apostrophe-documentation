@@ -172,7 +172,7 @@ Don't forget the stylesheet! You'll have a tough time seeing the clickable color
 
 Earlier in `afterConstruct` we saw a call to `pushAssets`. That method pushes a stylesheet and a javascript file to the browser when a user is logged in and might need to pick colors.
 
-In addition, we saw a call to `pushCreateSingleton`. This method creates an object to represent our module on the browser side. It'll look for one with a [moog type name](/other/glossary.md#moog-type) that matches the module's name... and our `user.js` file will provide that:
+In addition, we saw a call to `pushCreateSingleton`. This method creates an object to represent our module on the browser side. It'll look for one with a [moog type name](/reference/glossary.md#moog-type) that matches the module's name... and our `user.js` file will provide that:
 
 ```javascript
 // in lib/modules/color-picker/public/js/user.js
@@ -249,7 +249,7 @@ apos.define('color-picker', {
 
 ### What's going on in this code?
 
-We start by calling `apos.define` to create a [moog type](/other/glossary.md#moog-type) on the browser side with the same name as the module. The `pushCreateSingleton` call earlier will take care of calling `apos.create` for us.
+We start by calling `apos.define` to create a [moog type](/reference/glossary.md#moog-type) on the browser side with the same name as the module. The `pushCreateSingleton` call earlier will take care of calling `apos.create` for us.
 
 Next we define an `addFieldType` method in `construct` and call it from `afterConstruct`, just like on the server side.
 

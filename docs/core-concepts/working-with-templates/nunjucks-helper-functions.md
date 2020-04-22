@@ -156,7 +156,7 @@ Helper functions are handy, but Nunjucks also has a "filter" syntax. For example
 <h1>{{ data.page.title | upper }}</h1>
 ```
 
-You can find a [reference guide to ApostropheCMS nunjucks filters here](https://docs.apostrophecms.org/apostrophe/other/nunjucks-filters), and you can [learn about the standard Nunjucks filters here](https://mozilla.github.io/nunjucks/templating.html#builtin-filters). Both require no extra code on your part.
+You can find a [reference guide to ApostropheCMS nunjucks filters here](/core-concepts/working-with-templates/nunjucks-filters.md), and you can [learn about the standard Nunjucks filters here](https://mozilla.github.io/nunjucks/templating.html#builtin-filters). Both require no extra code on your part.
 
 You can also add your own Nunjucks filters. Here's another version of `index.js`:
 

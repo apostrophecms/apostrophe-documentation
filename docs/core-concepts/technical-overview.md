@@ -155,7 +155,7 @@ The moral of the story: _always use a leading \_ when naming a join field_, and 
 
 ## Apostrophe glossary
 
-To speed your understanding, we also recommend reading through the [Apostrophe glossary](/other/glossary.md).
+To speed your understanding, we also recommend reading through the [Apostrophe glossary](/reference/glossary.md).
 
 ## Did this help?
 

@@ -29,8 +29,8 @@ apos.define('apostrophe-areas', {
 **What's going on in this code?**
 
 * By placing the file in `lib/modules/apostrophe-areas/public/js/user.js`, we assure that it is pushed to the browser automatically. That module already pushes `user` as a script, and will push our project-level version too, providing a convenient place to extend a [moog type](other/glossary.md#moog-type).
-* Calling `apos.define('apostrophe-areas', { ... })` adds a new definition for the browser-side object that manages editable areas — basically, the browser's version of the areas module. When we do this, moog gives us an [implicit subclass](/other/glossary.md#implicit-subclassing) of the original type, replacing it with our enhanced version.
-* We then use the [super pattern](/other/glossary.md#super-pattern) to extend the existing `enableCkeditor` method, calling the old version and then adding new functionality.
+* Calling `apos.define('apostrophe-areas', { ... })` adds a new definition for the browser-side object that manages editable areas — basically, the browser's version of the areas module. When we do this, moog gives us an [implicit subclass](/reference/glossary.md#implicit-subclassing) of the original type, replacing it with our enhanced version.
+* We then use the [super pattern](/reference/glossary.md#super-pattern) to extend the existing `enableCkeditor` method, calling the old version and then adding new functionality.
 * Inside that method, we call `CKEDITOR.plugins.addExternal` to add a [CKEditor plugin](http://ckeditor.com/addons/plugins/all). Any toolbar buttons it makes available can now be used when configuring the `toolbar` option for the [apostrophe-rich-text widget](/modules/apostrophe-rich-text-widgets/README.md).
 * The URL of the plugin begins with `/modules/my-apostrophe-areas`. This path will always point to the `public` subdirectory of your project-level extension of the `apostrophe-areas` module (`lib/modules/apostrophe-areas/public` in your project). The `my-` prefix is automatically added to distinguish it from the assets folder of the original `apostrophe-areas` module that ships with Apostrophe.
 
@@ -76,7 +76,7 @@ apos.define('apostrophe-rich-text-widgets-editor', {
 
 > If we want to, we can look at `self.options.templateOptions`, which contains the configuration passed to this widget by `apos.areas` or `apos.singleton`.
 
-> Apostrophe's initial definition of the `beforeCkeditorInline` method is empty (following the [template pattern](https://en.wikipedia.org/wiki/Template_method_pattern)), but if you are using various add-on modules it's possible that some of them define it. If you want to be sure that code is called too, use the [super pattern](/other/glossary.md#super-pattern) rather than just replacing the method outright.
+> Apostrophe's initial definition of the `beforeCkeditorInline` method is empty (following the [template pattern](https://en.wikipedia.org/wiki/Template_method_pattern)), but if you are using various add-on modules it's possible that some of them define it. If you want to be sure that code is called too, use the [super pattern](/reference/glossary.md#super-pattern) rather than just replacing the method outright.
 
 ## Changing the allowed HTML tags in rich text
 

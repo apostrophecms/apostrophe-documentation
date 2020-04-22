@@ -152,7 +152,7 @@ module.exports = {
 
 "What's happening in this code?"
 
-* We placed our code in `lib/modules/profiles/lib/cursor.js`. This is important. Apostrophe will automatically load any code placed here as an [implicit subclass](/other/glossary.md#implicit-subclassing) of our cursor type. That means we can modify the cursor in our own `construct` function.
+* We placed our code in `lib/modules/profiles/lib/cursor.js`. This is important. Apostrophe will automatically load any code placed here as an [implicit subclass](/reference/glossary.md#implicit-subclassing) of our cursor type. That means we can modify the cursor in our own `construct` function.
 * We called `addFilter` and gave the filter the name `busy`. This defines a new, chainable `.busy(true)` method for our cursor type.
 * We set a default value with `def`. By default, we don't want to restrict results to "busy" people.
 * We provided a `launder` function. The `launder` function accepts raw input from the web browser and returns it in a sanitized, "laundered" form. This is indispensable for a filter the public is allowed to use, for instance via the query string on a pieces-page. See the [launder](https://npmjs.org/package/launder) module, always available as `self.apos.launder` inside our cursor code.

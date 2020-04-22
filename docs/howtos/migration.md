@@ -6,7 +6,7 @@ However, you'll quickly discover that the underlying patterns have been preserve
 
 Basically: *we got rid of the cruft*. The minimum `index.js` file for a module used to be around 40 lines; now there is no boilerplate at all.
 
-0.5 developers should definitely [check out the tutorials](/README.md) as well as the [glossary](/other/glossary.md) first! After you've done that, here's a guide to making the jump.
+0.5 developers should definitely [check out the tutorials](/README.md) as well as the [glossary](/reference/glossary.md) first! After you've done that, here's a guide to making the jump.
 
 [Our content migration tool is currently in beta and you can use it today.](https://www.npmjs.com/package/apostrophe-legacy-import) So far it has been tested primarily on cases such as importing snippets like blog posts as pieces for 2.x. This tool will continue to improve and grow more complete as our needs and yours indicate. Pull requests are warmly welcome.
 
@@ -197,7 +197,7 @@ apos.define('apostrophe-images-widgets', {
 
 **We don't have to call `pushAsset`** because `apostrophe-widgets` always pushes `always.js` for any of its subclasses.
 
-**Seem a little magical? Read more about object oriented programming in Apostrophe.** See the glossary entries on [implicit subclassing](/other/glossary.md#implicit-subclassing) and on [moog types in general](/other/glossary.md#moog-type).
+**Seem a little magical? Read more about object oriented programming in Apostrophe.** See the glossary entries on [implicit subclassing](/reference/glossary.md#implicit-subclassing) and on [moog types in general](/reference/glossary.md#moog-type).
 
 ### `snippets` are now `pieces`
 
