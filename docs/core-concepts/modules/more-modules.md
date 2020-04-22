@@ -9,7 +9,7 @@ _This page is about optional modules for Apostrophe. For the standard modules, s
 
 ## More official npm modules for ApostropheCMS
 
-[**Check out our official list of optional modules from the Apostrophe team.**](https://apostrophecms.org/extend) The modules available cover everything: workflow, internationalization, localization, single sign-on \(SSO\), Twitter feeds, redirects, Redis caching, headless APIs for your native, React, Vue and Angular applications, sitemaps and a great deal more.
+[**Check out our official list of optional modules from the Apostrophe team.**](https://apostrophecms.com/extend) The modules available cover everything: workflow, internationalization, localization, single sign-on \(SSO\), Twitter feeds, redirects, Redis caching, headless APIs for your native, React, Vue and Angular applications, sitemaps and a great deal more.
 
 ## Publishing your own npm modules for Apostrophe
 
