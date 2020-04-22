@@ -3,7 +3,7 @@
 First you need to get your environment set up. You may already have some of the tools described below installed and configured, but make sure that you read carefully to make sure that you don't miss anything.
 
 ::: tip
-MacOS X is the most popular platform for Apostrophe CMS development, but there are plenty of developers using Linux or Windows.  For MacOS 10.9 or newer, continue with the instructions below. Windows users can use this lovely [HOWTO for Windows](/tutorials/devops/windows.md) contributed by Michael Brown to get everything set up, and Linux users can get going by installing the same operating system packages required by our [deployment HOWTO](/tutorials/devops/deployment/README.md).
+MacOS X is the most popular platform for Apostrophe CMS development, but there are plenty of developers using Linux or Windows.  For MacOS 10.9 or newer, continue with the instructions below. Windows users can use this lovely [HOWTO for Windows](/howtos/windows.md) contributed by Michael Brown to get everything set up, and Linux users can get going by installing the same operating system packages required by our [deployment HOWTO](/devops/deployment/README.md).
 :::
 
 Here's what you need to install:
@@ -29,7 +29,7 @@ Starting with XCode 6.1 the Command Line tools are automatically installed, and 
 
 ## Install Homebrew
 
-Next, you need to install [Homebrew](http://brew.sh/), a convenient software manager that makes it easier to manage and update your software packages.
+Next, you need to install [Homebrew](https://brew.sh/), a convenient software manager that makes it easier to manage and update your software packages.
 
 ::: tip NOTE
 Throughout the tutorials, anything `formatted like this` is meant to be run at the terminal prompt. Basic familiarity with the terminal is very helpful for node and Apostrophe development.
@@ -147,9 +147,9 @@ Like most of what you've done so far, installing ImageMagick is just a matter of
 brew install imagemagick
 ```
 
-This provides the `convert` and `identify` command line tools, which Apostrophe uses to scale and crop images quickly, with animated GIF support. _If you skip this step, Apostrophe can still handle image uploads more slowly, thanks to_ [_Jimp_](https://npmjs.org/package/jimp)_._
+This provides the `convert` and `identify` command line tools, which Apostrophe uses to scale and crop images quickly, with animated GIF support. _If you skip this step, Apostrophe can still handle image uploads more slowly, thanks to [Jimp](https://npmjs.org/package/jimp)._
 
-# Build a website!
+## Build a website!
 
 Now your environment is configured you're ready to create your first Apostrophe project.
 

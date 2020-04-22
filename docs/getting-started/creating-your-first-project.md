@@ -59,7 +59,7 @@ Next, you should sign on to the site:
 
 Once logged in, we are redirected to the home page once again, but with two additional elements present: an admin bar floating over the top left of the page and a page menu floating over the bottom left.
 
-![Logged in to the boilerplate](/images/assets/boilerplate_loggedin.png)
+![Logged in to the boilerplate](../../images/assets/boilerplate_loggedin.png)
 
 ### Adding a content area
 
