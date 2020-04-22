@@ -1,7 +1,4 @@
----
-title: "Global settings"
-layout: tutorial
----
+# Global settings
 
 ## Hardcoded settings
 
@@ -148,7 +145,7 @@ As seen above, we use the `json` filter to make sure it comes out quoted correct
 
 ## Getting carried away
 
-"Hey, I can do lots of things with the `global` schema. I can even put [joins](../../schema-guide/schema-guide.md) and [pieces-widgets](../reusable-content-pieces/README.md) in there. What if I built my whole site in `global`?"
+"Hey, I can do lots of things with the `global` schema. I can even put [joins](/reference/field-types/joins.md) and [pieces-widgets](../reusable-content-pieces/README.md) in there. What if I built my whole site in `global`?"
 
 Don't do that. Remember, the server must fetch `global` and everything joined to it on **every single page request, whether you really need that content on that particular page or not.**
 

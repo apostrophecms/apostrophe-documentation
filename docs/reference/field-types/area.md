@@ -35,5 +35,5 @@ The properties configured in `options` specify the allowed widget types and the 
 |help | `string` | | Help text for the field that will appear with the field's label | |
 |htmlHelp | `string` | | Help text with support for HTML markup | universal | |
 |limit | `int` | | Sets the number of widgets that can be added to an area |  |
-|[options](../properties/options.md)| `object` | | An object containing options to be passed to `apos.area` | [`widgets`](../properties/options.md#widgets) |
+|[options](/reference/field-properties/options.md)| `object` | | An object containing options to be passed to `apos.area` | [`widgets`](/reference/field-properties/options.md#widgets) |
 

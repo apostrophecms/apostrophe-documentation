@@ -1,8 +1,3 @@
----
-title: Using Pieces Pages to Create a Directory
-layout: tutorial
----
-
 # Using Pieces Pages to Create a Directory
 
 Widgets are not the only way to display pieces. They are designed for displaying a few people here and there in the context of other pages.
@@ -150,7 +145,7 @@ You can also use `apos.images.all` to fetch an array of attachments.
 
 **Never assume the editor remembered to pick a thumbnail.** Always use an `if` statement to check.
 
-**Always specify the size.** Loading a large version of the image for an index view like this just slows down your site. See [adding editable content to pages](../editable-content-on-pages/standard-widgets.md) for more information about image sizes.
+**Always specify the size.** Loading a large version of the image for an index view like this just slows down your site. See [adding editable content to pages](/core-concepts/editable-content-on-pages/standard-widgets.html#apostrophe-images) for more information about image sizes.
 :::
 
 ### Creating custom templates for individual people
@@ -175,7 +170,7 @@ Next you want to override the `show.html` template of your subclass of `apostrop
 ```
 
 ::: tip
-_We didn't pass an options object to_ `apos.area` _or_ `apos.singleton` _because you already specified the options in the_ [_schema_](../../schema-guide/schema-guide.md)_,_ as part of `addFields`. If you _do_ pass an options object to `apos.area` or `apos.singleton`, the original options object passed to the schema is ignored, so be sure to repeat anything that is relevant.
+_We didn't pass an options object to_ `apos.area` _or_ `apos.singleton` _because you already specified the options in the_ [_schema_](/advanced-topics/schema-guide.md)_,_ as part of `addFields`. If you _do_ pass an options object to `apos.area` or `apos.singleton`, the original options object passed to the schema is ignored, so be sure to repeat anything that is relevant.
 :::
 
 **For SEO reasons, it is almost always important to have a good `show.html` page and provide `_url` links to reach it in your index pages, even if you are displaying most of the information in the index pages as well.**
@@ -202,7 +197,7 @@ Note that this only makes sense if you are using `apostrophe-pieces-pages`.
 
 Now that you've made this choice, you might want to switch to calling `apos.singleton` in the page for the profile photo as well.
 
-You can also set `contextual: true` on each of the `body` and `thumbnail` [schema](../../schema-guide/schema-guide.md) fields so that they don't show up in the modal dialog box but are instead only editable on the page. Whether to do that is up to you, but it does help reinforce the idea that you edit this content on the page.
+You can also set [`contextual: true`](/reference/field-properties/README.md) on each of the `body` and `thumbnail` schema fields so that they don't show up in the modal dialog box but are instead only editable on the page. Whether to do that is up to you, but it does help reinforce the idea that you edit this content on the page.
 
 ## Disabling a Pieces Index Page
 

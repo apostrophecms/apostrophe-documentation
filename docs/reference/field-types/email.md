@@ -25,7 +25,7 @@
 
 ## Settings
 
-|  Property | Type   | Default | Description | 
+|  Property | Type   | Default | Description |
 |---|---|---|---|
 |name | `string` | | Sets the name of the field in the database |
 |label | `string` | | Sets the label of the field that the user sees |
@@ -35,4 +35,4 @@
 |readOnly | `boolean` | false | If true, prevents the user from editing the field |
 |help | `string` | | Help text for the field that will appear with the field's label |
 |htmlHelp | `string` | | Help text with support for HTML markup |
-|[sortify](../properties/sortify.md) | `boolean` | false | If true, make sort() operations on the field case insensitive and otherwise more intuitive |
+|[sortify](/reference/field-properties/sortify.md) | `boolean` | false | If true, make sort() operations on the field case insensitive and otherwise more intuitive |
