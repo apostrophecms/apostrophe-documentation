@@ -81,4 +81,4 @@ The same technique works for the other options.
 
 ### Guide to schema field types
 
-You can find a list of all Schema Field Types and a detailed reference for each of them in the [Schema Field Type Reference](/other/field-types.md), and a list of related properties in the [Schema Property Reference](/other/field-properties.md). You can also learn how to create custom schema field types in [How Do I Create a Custom Schema Field Type?](/tutorials/howtos/custom-schema-field-types.md).
+You can find a list of all Schema Field Types and a detailed reference for each of them in the [Schema Field Type Reference](/other/field-types.md), and a list of related properties in the [Schema Property Reference](/other/field-properties.md). You can also learn how to create custom schema field types in [How Do I Create a Custom Schema Field Type?](/howtos/custom-schema-field-types.md).
