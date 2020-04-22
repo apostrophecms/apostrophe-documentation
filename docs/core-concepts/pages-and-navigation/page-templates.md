@@ -81,7 +81,7 @@ Even `layout.html` extends another file. For a typical page load, it extends `ou
 
 `app.js` is Apostrophe's main configuration file. This is the file that fires up Apostrophe with a given configuration, and is where you can specify what modules you want to be present in your project. As you add them, you also configure them by providing options via an object.
 
-Some modules are always a part of Apostrophe whether you configure them or not, and you can create your own modules to meet the needs of your project. To learn more abuou modules, visit the [Modules section](/tutorials/core-concepts/modules/README.md).
+Some modules are always a part of Apostrophe whether you configure them or not, and you can create your own modules to meet the needs of your project. To learn more abuou modules, visit the [Modules section](/core-concepts/modules/README.md).
 
 In order for any new page template to load, you must add it to `app.js`. When you add a new page template to `app.js`, remember, you're not creating a new page: you're registering a page template that can be used to create new pages.
 
@@ -92,7 +92,7 @@ In order for any new page template to load, you must add it to `app.js`. When yo
 
 2. Add the registration for your new page template to `app.js`:
 
-    ```javascript
+  ```javascript
     // app.js
     // This configures our default page template
     'apostrophe-pages': {
@@ -125,7 +125,7 @@ Now that you created the template, use it to create a new page.
 
 4. Enter a Title, a friendly URL, and select your new template under Type.
 
-![Creating a new page](/images/assets/create_new_page2.png)
+![Creating a new page](../../../images/assets/create_new_page2.png)
 
 
 Nice work! You created a new page template, and now you can create as many pages as you like from that template. Next we'll talk about using Widgets, Singletons, and Areas to add content to your page.

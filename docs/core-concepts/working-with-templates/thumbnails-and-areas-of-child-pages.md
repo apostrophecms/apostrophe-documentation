@@ -76,7 +76,7 @@ module.exports = {
 ::: tip NOTE
 *"What's happening in this code?"* We're changing the way `apostrophe-pages` loads the ancestors of the current page. By specifying `areas: [ 'thumbnail' ]` for the children of each ancestor, we tell Apostrophe to fully load the widgets in that area, fetching the images we need.
 
-*"What does `filters` mean here?"* It's an advanced topic, but when `apostrophe-pages` fetches the current page, it makes an Apostrophe cursor object. It then loops through all the properties of the `filters` option and calls those methods on the cursor, passing on any arguments given. For more information see [working with cursors](/tutorials/advanced-development/database/cursors.md).
+*"What does `filters` mean here?"* It's an advanced topic, but when `apostrophe-pages` fetches the current page, it makes an Apostrophe cursor object. It then loops through all the properties of the `filters` option and calls those methods on the cursor, passing on any arguments given. For more information see [working with cursors](/advanced-topics/database/cursors.md).
 :::
 
 ## Drop-down menus with pictures: images from second-level pages

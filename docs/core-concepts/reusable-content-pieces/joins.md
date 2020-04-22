@@ -177,7 +177,7 @@ And in our templates, we can access the array of jobs like this:
 
 Before long you'll start wanting to filter this list of people, taking advantage of joins, tags and other field types. Here's how to do that on the public-facing site. Later in this tutorial we'll also talk about how to do it in the "Manage" view.
 
-To make it easier to browse a listing of pieces, the [apostrophe-pieces-pages](/modules/apostrophe-pieces-pages/README.md) module will *automatically permit you to filter by the value of most schema fields when submitted as query string parameters*, provided they are marked for this purpose as you'll see below.
+To make it easier to browse a listing of pieces, the [apostrophe-pieces-pages](/reference/modules/apostrophe-pieces-pages/README.md) module will *automatically permit you to filter by the value of most schema fields when submitted as query string parameters*, provided they are marked for this purpose as you'll see below.
 
 ::: tip
 You can also use `q` or `search` as a query parameter to do a full-text search. *Tip:* often this is all users want.
@@ -284,7 +284,7 @@ We add a `current` CSS class to the link to remove the current filter. It's up t
 
 ### Filtering on joins and other schema field types
 
-Tags are the simplest example, but you can filter on most schema field types, notably including [`select`](../../schema-guide/schema-guide.md#select) fields and [`joinByOne`](/tutorials/schema-guide/schema-guide.md#joinByOne) or [`joinByArray`](/tutorials/schema-guide/schema-guide.md#joinByArray) fields.
+Tags are the simplest example, but you can filter on most schema field types, notably including [`select`](/reference/field-types/select) fields and [`joinByOne`](/reference/field-types/joinByOne) or [`joinByArray`](/reference/field-types/joinByArray) fields.
 
 Add a filter on the `_jobs` schema field we saw earlier:
 
@@ -358,4 +358,4 @@ Here's how to build query strings that contain arrays in your template:
 **"What's going on in this code?"** Like before, we are using the `build` filter to add and remove query parameters. However, this time, we are using the special `$pull` operator to remove a job from the array without removing the others, and using the special `$addToSet` operator to add a job to the array. In this way, we can manage filter URLs like `/people?jobs[]=doctor&jobs[]=technician` with very little effort.
 :::
 
-Pieces are very powerful and have a lot of depth, for more pieces topics and code samples, see the [Advanced Pieces section](/tutorials/advanced-development/advanced-pieces-topics/README.md).
+Pieces are very powerful and have a lot of depth, for more pieces topics and code samples, see the [Advanced Pieces section](/advanced-topics/advanced-pieces-topics/README.md).

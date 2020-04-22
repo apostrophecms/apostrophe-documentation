@@ -45,7 +45,7 @@ An "options" object that allows us to pass type-specific options to the widget. 
 
 If we restart our server and refresh our site's home page while logged in, we'll see a gray block with a button prompting us to add rich text. Once you start adding text, your edits save automatically. **There is no "save" button because you don't need one.** All edits are saved in the background.
 
-![](/images/assets/boilerplate_singleton.png)
+![](../../../images/assets/boilerplate_singleton.png)
 
 ## Areas
 

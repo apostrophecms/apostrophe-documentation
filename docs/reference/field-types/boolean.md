@@ -1,6 +1,6 @@
 # `boolean`
 
-A `boolean` field is a simple "True/False" choice. The value stored in the database will be either `true` or `false`. To customize the displayed values, use the `label` sub-property of [`choices`](../properties/choices.md). The `value` for each choice must always be "true" or "false".
+A `boolean` field is a simple "True/False" choice. The value stored in the database will be either `true` or `false`. To customize the displayed values, use the `label` sub-property of [`choices`](/reference/field-properties/choices.md). The `value` for each choice must always be "true" or "false".
 
 ## Settings
 
@@ -15,4 +15,4 @@ A `boolean` field is a simple "True/False" choice. The value stored in the datab
 |help | `string` | | Help text for the field that will appear with the field's label | |
 |htmlHelp | `string` | | Help text with support for HTML markup | |
 |mandatory | `string` |  | If set, the string is displayed if the user does not complete the field, often used for Terms and Conditions or similar content | |
-|[choices](../properties/choices.md) | `array` |  | An array of choices that the user can select from. Each must be an object with value and label properties. |  [**showFields**](../properties/choices.md#showfields) |
+|[choices](/reference/field-properties/choices.md) | `array` |  | An array of choices that the user can select from. Each must be an object with value and label properties. |  [**showFields**](/reference/field-properties/choices.md#showfields) |

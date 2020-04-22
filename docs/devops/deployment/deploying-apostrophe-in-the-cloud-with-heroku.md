@@ -2,7 +2,7 @@
 
 There are many cloud hosting services, but they all present the same challenges. Separate servers often don't share a single filesystem. The database usually needs its own scalable cloud hosting. And performing tasks like minifying assets is often best done in your development environment, minimizing what has to be done in production.
 
-> "The cloud" isn't always the easiest solution to your problem. Take a look at our [Linode HOWTO](/tutorials/devops/deployment/linode.md) for a quicker way that is suitable for all but the highest-traffic sites.
+> "The cloud" isn't always the easiest solution to your problem. Take a look at our [Linode HOWTO](/devops/deployment/linode.md) for a quicker way that is suitable for all but the highest-traffic sites.
 
 ## Deploying Apostrophe to Heroku
 
@@ -12,7 +12,7 @@ So for this how-to, we'll stick to free services from Amazon Web Services, Herok
 
 ## Before you begin
 
-First, build an Apostrophe site! See the [getting started tutorial](/tutorials/getting-started/setting-up-your-environment.md).
+First, build an Apostrophe site! See the [getting started tutorial](/getting-started/setting-up-your-environment.md).
 
 Make sure you commit it to a git repository. git is a big part of how Heroku deploys websites.
 

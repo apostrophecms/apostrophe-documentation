@@ -1,12 +1,12 @@
 # Nunjucks helper functions: calling JavaScript functions from templates
 
-In the ["Building Navigation" tutorial](/tutorials/core-concepts/pages-and-navigation/connecting-pages.md) you called `apos.pages.isAncestorOf` from your template code.
+In the ["Building Navigation" tutorial](/core-concepts/pages-and-navigation/connecting-pages.md) you called `apos.pages.isAncestorOf` from your template code.
 
 `isAncestorOf` is a "helper function," made available to templates by the `apostrophe-pages` module.
 
 That's great, but what if you need to add your own helper function?
 
-Let's take another look at the [link-widgets module you just created in the previous tutorial](/tutorials/core-concepts/editable-content-on-pages/custom-widgets.md).
+Let's take another look at the [link-widgets module you just created in the previous tutorial](/core-concepts/editable-content-on-pages/custom-widgets.md).
 
 Let's say you want to make the label optional, and use the URL as a label if no label is provided:
 
@@ -101,7 +101,7 @@ Inside `construct`, we call `self.addHelpers` to add some helper functions that 
 ::: warning NOTE
 **You must not call async functions, await promises, wait for callbacks, make network requests or database calls, etc. from inside a helper function.** Helpers must be synchronous, the value they return is the value you'll get.  Any attempt to use asynchronous code here, or anywhere in a template, **Will not work**.
 
-If you need to do asynchronous work to get data for your template, you should do it **before** the template runs. Write a [promise event handler](/tutorials/advanced-development/promise-events/promise-events.md), or a [widget `load` method](/tutorials/advanced-development/how-apostrophe-handles-requests.md#widget-loaders).
+If you need to do asynchronous work to get data for your template, you should do it **before** the template runs. Write a [promise event handler](/advanced-topics/promise-events/promise-events.md), or a [widget `load` method](/advanced-topics/how-apostrophe-handles-requests.md#widget-loaders).
 :::
 
 ## Returning markup from a helper
@@ -156,7 +156,7 @@ Helper functions are handy, but Nunjucks also has a "filter" syntax. For example
 <h1>{{ data.page.title | upper }}</h1>
 ```
 
-You can find a [reference guide to ApostropheCMS nunjucks filters here](https://docs.apostrophecms.org/apostrophe/other/nunjucks-filters), and you can [learn about the standard Nunjucks filters here](https://mozilla.github.io/nunjucks/templating.html#builtin-filters). Both require no extra code on your part.
+You can find a [reference guide to ApostropheCMS nunjucks filters here](/core-concepts/working-with-templates/nunjucks-filters.md), and you can [learn about the standard Nunjucks filters here](https://mozilla.github.io/nunjucks/templating.html#builtin-filters). Both require no extra code on your part.
 
 You can also add your own Nunjucks filters. Here's another version of `index.js`:
 

@@ -160,5 +160,5 @@ That's another easy one:
 
 ## Custom navigation
 
-For further navigation examples, you can see the [Custom Widgets](/tutorials/core-concepts/editable-content-on-pages/custom-widgets.md) article, or continue reading to learn more about Widgets in general first.
+For further navigation examples, you can see the [Custom Widgets](/core-concepts/editable-content-on-pages/custom-widgets.md) article, or continue reading to learn more about Widgets in general first.
 

@@ -23,7 +23,7 @@ Here in the "Users" dialog box, click "Add User."
 
 Be sure to set the first name, last name, username and password for the user. For the "Permission Group" field, choose "Guest." A "guest" user can view pages that have the "login required" setting, but can't do anything else.
 
-> If you don't see "Permission Group" as a field when editing a user, your site may be configured with editable groups rather than a hardcoded, simplified dropdown list of groups. If your site is set up with editable groups, edit the list of groups associated with the user and select the "Guest" group. If you do not have a "Guest" group yet, create one, and give it the "guest" permission. Then you can add users to that group. For more information, see the [permissions tutorial](../intermediate/permissions.md).
+> If you don't see "Permission Group" as a field when editing a user, your site may be configured with editable groups rather than a hardcoded, simplified dropdown list of groups. If your site is set up with editable groups, edit the list of groups associated with the user and select the "Guest" group. If you do not have a "Guest" group yet, create one, and give it the "guest" permission. Then you can add users to that group. For more information, see the [permissions tutorial](/core-concepts/users-and-permissions/README.md).
 
 Once you save the user, they can log in and browse the `/intranet` pages.
 
@@ -32,7 +32,7 @@ Once you save the user, they can log in and browse the `/intranet` pages.
 In this case, you will need to take two steps:
 
 1. You must transition to editable groups, if you have not done so already. Remove the `groups` option from your project-level `apostrophe-users` module configuration. For more
-information about this, see the [permissions tutorial](../intermediate/permissions.md).
+information about this, see the [permissions tutorial](/core-concepts/users-and-permissions/README.md).
 
 2. Add users to groups intended to provide access to specific parts of the site, naming the groups to suit your needs. Give each of these groups the "guest" permission.
 

@@ -5,7 +5,7 @@ Extra fields can be added to the page settings modal in the usual way via
 the `addFields` option, and Express-style routes can be added to handle
 URLs that extend beyond the slug of the page using the `dispatch` method.
 
-The [apostrophe-pieces-pages](/modules/apostrophe-pieces-pages) module
+The [apostrophe-pieces-pages](/reference/modules/apostrophe-pieces-pages) module
 is a good example of a subclass of this module.
 
 ## Options

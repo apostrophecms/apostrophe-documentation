@@ -57,7 +57,7 @@ Generally, you need a dedicated widget to create layout. The Apostrophe team som
 
 **contextualOnly: true** If your widget contains _only_ other areas and singletons that you want to edit contextually on the page then you don't need the typical manager modal UI popping up when you create the widget. Nor do you need an Edit button UI to edit non-existing configuration. `contextualOnly` will shortcut these and instantly plop your empty widget on the page.
 
-![](/images/assets/ezgif.com-video-to-gif-1.gif)
+![](../../../images/assets/ezgif.com-video-to-gif-1.gif)
 
 **skipInitialModal: true** An alternative to `contextualOnly`, `skipInitialModal` lets you skip the widget manager modal when the widget is created \(like `contextualOnly`\) but preserves the Edit UI for later use. This is useful for widgets that have secondary configuration, like setting a background color.
 

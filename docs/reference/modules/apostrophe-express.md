@@ -6,7 +6,7 @@ The Express `app` object is made available as `apos.app`, and
 the `express` object itself as `apos.express`. You can add
 Express routes directly in your modules via `apos.app.get`,
 `apos.app.post`, etc., however be sure to also check
-out the [route method](/modules/apostrophe-module#route-method-path-fn) available
+out the [route method](/reference/modules/apostrophe-module#route-method-path-fn) available
 in all modules for a cleaner way to implement API routes. Adding
 routes directly to the Express app object is still sometimes useful when
 the URLs will be public.
@@ -186,7 +186,7 @@ to the `apos.middleware` object for your use where appropriate:
 This middleware function accepts file uploads and makes them
 available via `req.files`. See the
 [connect-multiparty](https://npmjs.org/package/connect-multiparty) npm module.
-This middleware is used by [apostrophe-attachments](/modules/apostrophe-attachments).
+This middleware is used by [apostrophe-attachments](/reference/modules/apostrophe-attachments).
 
 ## Module-specific middleware
 

@@ -7,7 +7,7 @@ you'll get a user interface for managing your content for free. Add in the
 for your pieces, and use `apostrophe-pieces-widgets` to allow them to be sprinkled
 into pages all over the site. To learn more, see:
 
-[Reusable content with pieces](/tutorials/core-concepts/reusable-content-pieces/)
+[Reusable content with pieces](/core-concepts/reusable-content-pieces/)
 
 ## Options
 
@@ -19,7 +19,7 @@ conflicts with the slugs of other piece types.
 
 ## More Options
 
-See [reusable content with pieces](/tutorials/core-concepts/reusable-content-pieces/)
+See [reusable content with pieces](/core-concepts/reusable-content-pieces/)
 for many additional options.
 
 
@@ -136,13 +136,13 @@ Enable inclusion of this type in sitewide search results
 ### addUrls(*req*, *pieces*, *callback*) *[api]*
 Add `._url` properties to the given pieces, if possible.
 The default implementation does nothing, however
-[apostrophe-pieces-pages](https://docs.apostrophecms.org/apostrophe/modules/apostrophe-pieces-pages) will
-call `setAddUrls` to point to [its own `addUrlsToPieces` method](https://docs.apostrophecms.org/apostrophe/modules/apostrophe-pieces-pages#addurlstopieces-req-results-callback).
+[apostrophe-pieces-pages](/reference/modules/apostrophe-pieces-pages) will
+call `setAddUrls` to point to [its own `addUrlsToPieces` method](/reference/modules/apostrophe-pieces-pages#addurlstopieces-req-results-callback).
 ### setAddUrls(*fn*) *[api]*
-Called by [apostrophe-pieces-pages](https://docs.apostrophecms.org/apostrophe/modules/apostrophe-pieces-pages) to
+Called by [apostrophe-pieces-pages](/reference/modules/apostrophe-pieces-pages) to
 replace the default `addUrls` method with one that assigns `._url`
 properties to pieces based on the most suitable pages of that type.
-See [the `addUrlsToPieces` method of `apostrophe-pieces-pages`](https://docs.apostrophecms.org/apostrophe/modules/apostrophe-pieces-pages#addurlstopieces-req-results-callback).
+See [the `addUrlsToPieces` method of `apostrophe-pieces-pages`](/reference/modules/apostrophe-pieces-pages#addurlstopieces-req-results-callback).
 ### composeBatchOperations() *[api]*
 
 ### batchSimpleRoute(*req*, *name*, *change*) *[api]*

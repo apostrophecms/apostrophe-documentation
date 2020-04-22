@@ -1,8 +1,3 @@
----
-title: Activating the "password reset" feature of Apostrophe
-layout: tutorial
----
-
 # User Login and Password Help
 
 There are three things that are inevitable in life, death, taxes, and that someone will forget their password. While Apostrophe can't help you with the first two, it does provide features to help when a user forgets their password or has been locked out of their account.
@@ -11,7 +6,7 @@ There are three things that are inevitable in life, death, taxes, and that someo
 
 Apostrophe includes a "password reset" feature for your users. This feature follows a familiar pattern: the user must prove they control the email address associated with their account.
 
-For security reasons, and because most sites don't have the [apostrophe-email](/tutorials/devops/email.md) module configured yet, this option must be turned on for your site:
+For security reasons, and because most sites don't have the [apostrophe-email](/devops/email.md) module configured yet, this option must be turned on for your site:
 
 
 ```javascript

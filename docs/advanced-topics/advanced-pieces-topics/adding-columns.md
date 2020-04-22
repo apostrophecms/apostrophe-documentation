@@ -50,7 +50,7 @@ Notice that for `sort` you specify an object exactly like what you'd pass to Mon
 than setting `addColumns`.
 
 
-[Joins](/tutorials/schema-guide/schema-guide.md#joinbyone) are one of Apostrophe's best features:
+[Joins](/reference/field-types/joinbyone) are one of Apostrophe's best features:
 
 ```javascript
 addFields: [

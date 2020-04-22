@@ -1,8 +1,8 @@
 # Using MongoDB replica sets with Apostrophe
 
-[MongoDB replica sets](https://docs.mongodb.com/manual/replication/) provide redundant, highly available storage. Their purpose is to enhance reliability, not speed. For more information, see the [MongoDB documentation](https://docs.mongodb.com/manual/replication/).
+MongoDB *replica sets* provide redundant, highly available storage. Their purpose is to enhance reliability, not speed. For more information, see the [MongoDB documentation](https://docs.mongodb.com/manual/replication/).
 
-Once you have [created a MongoDB replica set](https://docs.mongodb.com/manual/replication/), you can connect to it by configuring Apostrophe to use the replica set's URI:
+Once you have created a MongoDB replica set, you can connect to it by configuring Apostrophe to use the replica set's URI:
 
 ```javascript
 // app.js
@@ -26,4 +26,4 @@ We do not recommend changing the MongoDB "read preference," and generally speaki
 
 ## Performance improvements
 
-If speed is your concern, replica sets are not the solution to that particular problem. The throughput of MongoDB is quite high, and you will often find that Apostrophe's node processes saturate the CPU before MongoDB does. If so, see the [multiple cores and/or servers](/tutorials/devops/multicore.md) HOWTO.
+If speed is your concern, replica sets are not the solution to that particular problem. The throughput of MongoDB is quite high, and you will often find that Apostrophe's node processes saturate the CPU before MongoDB does. If so, see the [multiple cores and/or servers](/devops/multicore.md) HOWTO.

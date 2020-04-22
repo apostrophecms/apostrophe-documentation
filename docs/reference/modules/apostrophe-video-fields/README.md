@@ -1,7 +1,7 @@
 # apostrophe-video-fields
 ## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
 ### `apos.videoFields`
-Implements the ["video" apostrophe schema field type](/tutorials/advanced-topics/schema-guide).
+Implements the ["video" apostrophe schema field type](/reference/field-types/video.md).
 
 The value of the field is an object with `url`, `title` and `thumbnail` properties, the latter
 two being as obtained by `oembetter` at the time the URL was originally pasted and fetched

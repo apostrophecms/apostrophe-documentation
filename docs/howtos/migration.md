@@ -6,7 +6,7 @@ However, you'll quickly discover that the underlying patterns have been preserve
 
 Basically: *we got rid of the cruft*. The minimum `index.js` file for a module used to be around 40 lines; now there is no boilerplate at all.
 
-0.5 developers should definitely [check out the tutorials](/README.md) as well as the [glossary](/other/glossary.md) first! After you've done that, here's a guide to making the jump.
+0.5 developers should definitely [check out the tutorials](/README.md) as well as the [glossary](/reference/glossary.md) first! After you've done that, here's a guide to making the jump.
 
 [Our content migration tool is currently in beta and you can use it today.](https://www.npmjs.com/package/apostrophe-legacy-import) So far it has been tested primarily on cases such as importing snippets like blog posts as pieces for 2.x. This tool will continue to improve and grow more complete as our needs and yours indicate. Pull requests are warmly welcome.
 
@@ -146,13 +146,13 @@ In a template.
 
 In 0.5, making a new type of widget was a pain. So we created `apostrophe-schema-widgets`, which allowed you to whip up a bunch of custom widgets... but you could only take it so far.
 
-In 2.x, [every widget is powered by a module that extends `apostrophe-widgets`](/modules/apostrophe-widgets/README.md). You can do that too. And all widgets support schemas "out of the box."
+In 2.x, [every widget is powered by a module that extends `apostrophe-widgets`](/reference/modules/apostrophe-widgets/README.md). You can do that too. And all widgets support schemas "out of the box."
 
-See the [custom widget tutorial](/tutorials/core-concepts/editable-content-on-pages/custom-widgets.md) for an example.
+See the [custom widget tutorial](/core-concepts/editable-content-on-pages/custom-widgets.md) for an example.
 
 ### The `slideshow` widget is now the `apostrophe-images` widget
 
-Just for clarity's sake, and for parallelism with the [apostrophe-images](/modules/apostrophe-images/README.md) subclass of [apostrophe-pieces](/modules/apostrophe-pieces/README.md), which it partners with.
+Just for clarity's sake, and for parallelism with the [apostrophe-images](/reference/modules/apostrophe-images/README.md) subclass of [apostrophe-pieces](/reference/modules/apostrophe-pieces/README.md), which it partners with.
 
 ### The `file` widget is now the `apostrophe-files` widget... you get the idea
 
@@ -197,7 +197,7 @@ apos.define('apostrophe-images-widgets', {
 
 **We don't have to call `pushAsset`** because `apostrophe-widgets` always pushes `always.js` for any of its subclasses.
 
-**Seem a little magical? Read more about object oriented programming in Apostrophe.** See the glossary entries on [implicit subclassing](/other/glossary.md#implicit-subclassing) and on [moog types in general](/other/glossary.md#moog-type).
+**Seem a little magical? Read more about object oriented programming in Apostrophe.** See the glossary entries on [implicit subclassing](/reference/glossary.md#implicit-subclassing) and on [moog types in general](/reference/glossary.md#moog-type).
 
 ### `snippets` are now `pieces`
 
@@ -209,7 +209,7 @@ The `apostrophe-snippets` module has been renamed and broken up into three piece
 
 3. `apostrophe-pieces-widgets` implements a widget to display a type of piece anywhere on the site.
 
-See the [resuable content with pieces](/tutorials/core-concepts/reusable-content-pieces/reusable-content-with-pieces.md) tutorial for more information.
+See the [resuable content with pieces](/core-concepts/reusable-content-pieces/reusable-content-with-pieces.md) tutorial for more information.
 
 ### `apostrophe-fancy-page` is now `apostrophe-custom-pages`
 
@@ -225,7 +225,7 @@ In 0.5, the `apostrophe-blog-2` module provided an option for creating "blogs" a
 
 In 2.x, the first problem is easily solved by setting the `contextual` option to `true` when extending `apostrophe-pieces` to create your own module. When you set `contextual: true`, you are redirected to the "show page" for a particular piece as soon as you finish setting its title, et cetera. You can then use `apos.area` calls in the `show.html` template to present an interface for editing the actual body of the blog post "in context."
 
-The second problem has no "baked-in" solution yet in 2.x. We will certainly be examining the issue as we encounter projects that call for it. However, note that you can use [apostrophe-custom-pages](/modules/apostrophe-custom-pages/README.md) to build your own solutions, especially with the new `dispatch` method.
+The second problem has no "baked-in" solution yet in 2.x. We will certainly be examining the issue as we encounter projects that call for it. However, note that you can use [apostrophe-custom-pages](/reference/modules/apostrophe-custom-pages/README.md) to build your own solutions, especially with the new `dispatch` method.
 
 ### The `minify` option has moved
 
@@ -261,7 +261,7 @@ Again... it's always part of configuring a module.
 
 Currently every valid page type *must* appear for the `types` option.
 
-Also check out the new `park` option for the [apostrophe-pages](/modules/apostrophe-pages/README.md) module:
+Also check out the new `park` option for the [apostrophe-pages](/reference/modules/apostrophe-pages/README.md) module:
 
 ```javascript
   park: [

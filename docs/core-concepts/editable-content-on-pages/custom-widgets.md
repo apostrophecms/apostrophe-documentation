@@ -4,7 +4,7 @@ You've seen a lot of the widgets that come "in the box" with Apostrophe. But you
 
 ## Custom navigation
 
-Here's a common case: you want to build your own navigation menu. [Apostrophe's page tree is awesome](/tutorials/core-concepts/pages-and-navigation/connecting-pages.md) but sometimes you want to "cherrypick" pages from all over the tree, perhaps for a special footer.
+Here's a common case: you want to build your own navigation menu. [Apostrophe's page tree is awesome](/core-concepts/pages-and-navigation/connecting-pages.md) but sometimes you want to "cherrypick" pages from all over the tree, perhaps for a special footer.
 
 You could use a rich text widget and just tell users to add links manually, but they'll just break each time a page is moved around the site. It's also easier for users to mess up the formatting that way. You want something more consistent.
 
@@ -57,7 +57,7 @@ module.exports = {
 
 _"What does_ `extend` _mean here?"_ Our module is extending the `apostrophe-widgets` module, which provides almost all the code you need. Yes, `extend` is the correct spelling. Apostrophe uses [moog](https://npmjs.org/package/moog) to handle extending or "subclassing" other modules.
 
-_"What other field types can I add?"_ The `apostrophe-schemas` module provides a powerful way to build forms and structure data with almost no work. You just pass an array of field definitions as the `addFields` option. You'll introduce the details gradually. But if you're in a hurry, check out the [schema guide](/tutorials/schema-guide/schema-guide.md).
+_"What other field types can I add?"_ The `apostrophe-schemas` module provides a powerful way to build forms and structure data with almost no work. You just pass an array of field definitions as the `addFields` option. You'll introduce the details gradually. But if you're in a hurry, check out the [schema guide](/advanced-topics/schema-guide.md).
 
 _"What does the_ `name` _property do?"_ Each field needs to be stored in the widget under its own property name. Play around with `aposDocs.find().pretty()` in the mongodb shell to see what it looks like after you save the widget.
 
@@ -78,7 +78,7 @@ Next you'll need a folder to hold our widget's `widget.html` template, which ren
 
 _"Hey, don't You need to escape the label before you output it as HTML?"_ No, Nunjucks does it automatically. If you need to output content that is already valid, safe markup, you must use the `| safe` filter to output it without escaping.
 
-Now you'll want to add this widget to an area in one of our page templates, like you learned in [widgets, areas, and singletons](/tutorials/core-concepts/pages-and-navigation/widgets-singletons-and-areas.md). Let's add the following to the `main` block of our `lib/modules/apostrophe-pages/views/pages/home.html`:
+Now you'll want to add this widget to an area in one of our page templates, like you learned in [widgets, areas, and singletons](/core-concepts/pages-and-navigation/widgets-singletons-and-areas.md). Let's add the following to the `main` block of our `lib/modules/apostrophe-pages/views/pages/home.html`:
 
 ```django
 {# lib/modules/apostrophe-pages/views/pages/home.html #}
@@ -172,7 +172,7 @@ Actually using the widget in an area is just like using the first one. But this 
 Now our users have a choice between do-it-yourself links that can point anywhere and "page" links that can only point to a page. Both can be useful.
 
 ::: tip
-It is also possible to join with more than one type. And once you check out [pieces](/tutorials/core-concepts/reusable-content-pieces/reusable-content-with-pieces.md), the benefit of doing so will be clear. To do that, set `withType` to an array of type names, which may include `apostrophe-pages`. The user is then able to use a tabbed interface to select items of several types for the same join. These "polymorphic joins" are primarily intended for navigation widgets like this one.
+It is also possible to join with more than one type. And once you check out [pieces](/core-concepts/reusable-content-pieces/reusable-content-with-pieces.md), the benefit of doing so will be clear. To do that, set `withType` to an array of type names, which may include `apostrophe-pages`. The user is then able to use a tabbed interface to select items of several types for the same join. These "polymorphic joins" are primarily intended for navigation widgets like this one.
 :::
 
 ### Passing options to widgets
@@ -285,9 +285,9 @@ The new bit is the `filters` option. By specifying a `projection` filter, you ca
 
 `_url`_,_ `slug`_... what's the difference?_ For most sites, nothing. But for sites with a `prefix` option, the `_url` property might have a folder name prepended to it. And there are other ways to transform `_url` to suit your needs. So always remember to use it instead of `slug` when you output page URLs. And use `_url` in your projection to fetch all the properties Apostrophe knows might be involved in calculating the `_url` property of the page.
 
-**Watch out for reverse joins! If you have** [**reverse joins**](/tutorials/schema-guide/schema-guide.md) **and your widget doesn't need them,** the `projection` filter can't help you avoid loading them, because they are loaded from "the other side" \(the ids are stored with the documents linking _to_ your documents\). Instead, use the `joins` filter, and specify an array of join field names your widget actually needs — if any.
+**Watch out for reverse joins! If you have** [**reverse joins**](/reference/field-types/joinbyonereverse) **and your widget doesn't need them,** the `projection` filter can't help you avoid loading them, because they are loaded from "the other side" \(the ids are stored with the documents linking _to_ your documents\). Instead, use the `joins` filter, and specify an array of join field names your widget actually needs — if any.
 
-_What else can I do with_ `filters`_?_ That's an intermediate topic, but you can do anything that [cursor filter methods](/tutorials/advanced-development/database/cursors.md) can do.
+_What else can I do with_ `filters`_?_ That's an intermediate topic, but you can do anything that [cursor filter methods](/advanced-topics/database/cursors.md) can do.
 
 ## Adding a JavaScript widget player on the browser side
 
@@ -391,9 +391,9 @@ module.exports = {
 };
 ```
 
-In Apostrophe modules, the `construct` function is called to add methods to the module. Here you are following the "super pattern," making a note of the original method you inherited from [apostrophe-widgets](/modules/apostrophe-widgets/README.md), creating your own replacement method, invoking the original from within it, and then pushing your own asset to the browser.
+In Apostrophe modules, the `construct` function is called to add methods to the module. Here you are following the "super pattern," making a note of the original method you inherited from [apostrophe-widgets](/reference/modules/apostrophe-widgets/README.md), creating your own replacement method, invoking the original from within it, and then pushing your own asset to the browser.
 
-The [pushAsset method](/modules/apostrophe-module/README.md#push-asset) can push both stylesheets and scripts. The name `always` is a convention meaning "everyone sees this stylesheet, whether logged in or not." And you make sure of that by setting the `when` option to `always`.
+The [pushAsset method](/reference/modules/apostrophe-module/README.md#push-asset) can push both stylesheets and scripts. The name `always` is a convention meaning "everyone sees this stylesheet, whether logged in or not." And you make sure of that by setting the `when` option to `always`.
 
 Now you need to supply `always.less` in the right place: the `public/css` subdirectory of your module's directory.
 
@@ -434,8 +434,8 @@ apos.define('drawer-widgets', {
 
 ### What's happening in this code?
 
-* You called `apos.define` to define a [moog type](/other/glossary.md#moog-type) for your "widget manager." A widget manager is an object that is responsible for directing everything related to widgets of that type in the browser. Think of it as the browser's half of your module.
-* The first argument to `apos.define` is the name of your new type, which is the same as the name of your module. The second argument is an object that defines the type. Just like your `index.js` file on the server, it contains a `construct` function. That's because Apostrophe uses [moog](/other/glossary.md#moog-type) to manage object-oriented programming in both places. The only difference is that on the server, Apostrophe figures out what type is being defined automatically based on the module's name. Here in browser-land, it's up to you to call `apos.define`.
+* You called `apos.define` to define a [moog type](/reference/glossary.md#moog-type) for your "widget manager." A widget manager is an object that is responsible for directing everything related to widgets of that type in the browser. Think of it as the browser's half of your module.
+* The first argument to `apos.define` is the name of your new type, which is the same as the name of your module. The second argument is an object that defines the type. Just like your `index.js` file on the server, it contains a `construct` function. That's because Apostrophe uses [moog](/reference/glossary.md#moog-type) to manage object-oriented programming in both places. The only difference is that on the server, Apostrophe figures out what type is being defined automatically based on the module's name. Here in browser-land, it's up to you to call `apos.define`.
 * The `extend` property indicates that you want to extend \("subclass" or "inherit from"\) the `apostrophe-widgets` type, which provides most of the plumbing for managing your widget. All you need to do is supply a `play` method.
 * Inside `construct`, you attach a `play` method to the widget manager. Your `play` method accepts `$widget` \(a jQuery object referring to the widget's `div` element\), `data` \(an object containing the properties of your widget, like `title`\), and `options` \(an object containing options that were passed to the widget when `apos.area` or `apos.singleton` was called\).
 * Apostrophe automatically calls the `play` method at appropriate times.

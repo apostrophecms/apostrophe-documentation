@@ -8,11 +8,11 @@ Just to recap, a schema is simply an array of objects that define the fields tha
 
 Schemas don't just power the database on the back end. They also generate friendly user interfaces for creating and editing content in Apostrophe. This is why many projects that are time-consuming when coded from scratch only take half an hour with Apostrophe.
 
-The [apostrophe-schemas](../../modules/apostrophe-schemas/README.md) module provides powerful tools for working with schemas, but 99% of the time we use them automatically by extending [apostrophe-pieces](../../modules/apostrophe-pieces/README.md), [apostrophe-widgets](../../modules/apostrophe-widgets/README.md) or [apostrophe-custom-pages](../../modules/apostrophe-custom-pages/README.md). They can also be used directly in custom projects.
+The [apostrophe-schemas](/reference/modules/apostrophe-schemas/README.md) module provides powerful tools for working with schemas, but 99% of the time we use them automatically by extending [apostrophe-pieces](/reference/modules/apostrophe-pieces/README.md), [apostrophe-widgets](/reference/modules/apostrophe-widgets/README.md) or [apostrophe-custom-pages](/reference/modules/apostrophe-custom-pages/README.md). They can also be used directly in custom projects.
 
 ### Building schemas with `addFields` and friends
 
-Modules like [apostrophe-pieces](../../modules/apostrophe-pieces/README.md) pass on their `addFields`, `removeFields`, `alterFields` and `arrangeFields` options to the `compose` method of [apostrophe-schemas\#compose](../../modules/apostrophe-schemas/README.md#compose). And the beautiful thing about `compose` is how easy it becomes to create the schema you want, adding fields here, removing fields there and arranging them into tabs to suit your needs.
+Modules like [apostrophe-pieces](/reference/modules/apostrophe-pieces/README.md) pass on their `addFields`, `removeFields`, `alterFields` and `arrangeFields` options to the `compose` method of [apostrophe-schemas\#compose](/reference/modules/apostrophe-schemas/README.md#compose). And the beautiful thing about `compose` is how easy it becomes to create the schema you want, adding fields here, removing fields there and arranging them into tabs to suit your needs.
 
 `addFields` is simply an array of field definitions as seen below; if a field appears more than once, the later definition wins.
 
@@ -50,7 +50,7 @@ This makes it easy to arrange and then re-arrange the groups in subclasses witho
 
 ### Using `beforeConstruct` to adjust schemas
 
-When you create a new module that extends [apostrophe-pieces](../../modules/apostrophe-pieces/README.md) at the project level, you will often use these options directly.
+When you create a new module that extends [apostrophe-pieces](/reference/modules/apostrophe-pieces/README.md) at the project level, you will often use these options directly.
 
 But when you're working on a module that other people will extend, you need a little more nuance. You want to configure the schema your way, then honor _their_ settings so that everything is gracefully added to your work.
 
@@ -81,4 +81,4 @@ The same technique works for the other options.
 
 ### Guide to schema field types
 
-You can find a list of all Schema Field Types and a detailed reference for each of them in the [Schema Field Type Reference](/other/field-types.md), and a list of related properties in the [Schema Property Reference](/other/field-properties.md). You can also learn how to create custom schema field types in [How Do I Create a Custom Schema Field Type?](/tutorials/howtos/custom-schema-field-types.md).
+You can find a list of all Schema Field Types and a detailed reference for each of them in the [Schema Field Type Reference](/reference/field-types), and a list of related properties in the [Schema Property Reference](/reference/field-properties). You can also learn how to create custom schema field types in [How Do I Create a Custom Schema Field Type?](/howtos/custom-schema-field-types.md).

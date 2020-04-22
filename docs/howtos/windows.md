@@ -29,7 +29,7 @@ MongoDB should automatically start up and begin operation if you allowed it to i
 
 Be aware of the differences in syntax between Mac OS and Windows terminals. `cp` translates to `copy`, `rm` to `del`, etc.
 
-Otherwise, the tutorial provided by [Apostrophe: Getting Started](/tutorials/getting-started/setting-up-your-environment.md) can be followed.
+Otherwise, the tutorial provided by [Apostrophe: Getting Started](/getting-started/setting-up-your-environment.md) can be followed.
 
 NOTE: if you get permissions errors, you probably first created the site as Administrator. Make up your mind and stick to one user... which should not be Administrator. It is always a good security policy to avoid using an administrator account when you can.
 

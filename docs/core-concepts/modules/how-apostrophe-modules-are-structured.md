@@ -14,7 +14,7 @@ We've already seen two modules that are extended in your test project's `lib/mod
 
 Next, you learn how Apostrophe modules are typically structured. Following these naming conventions will improve your own code.
 
-Some of this material will reference advanced Apostrophe concepts. You may want to read the [Apostrophe glossary](/other/glossary.md) first and complete the basic and intermediate tutorials.
+Some of this material will reference advanced Apostrophe concepts. You may want to read the [Apostrophe glossary](/reference/glossary.md) first and complete the basic and intermediate tutorials.
 
 ## index.js
 

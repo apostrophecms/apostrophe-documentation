@@ -1,6 +1,6 @@
 # How do I Create a Custom schema field type?
 
-Apostrophe's [schemas](/tutorials/schema-guide/schema-guide.md) provide a simple and powerful way to add new properties to any doc type in Apostrophe, such as a piece or a page. It's a powerful feature. But sometimes you might want to add a field type that doesn't already exist.
+Apostrophe's [schemas](/advanced-topics/schema-guide.md) provide a simple and powerful way to add new properties to any doc type in Apostrophe, such as a piece or a page. It's a powerful feature. But sometimes you might want to add a field type that doesn't already exist.
 
 ## A simple color picker: the server side
 
@@ -88,7 +88,7 @@ In `afterConstruct` we invoke `addFieldType`, `pushAssets` and `pushCreateSingle
 
 > We don't have to delay the "real work" until `afterConstruct` like this, but doing so allows anyone extending our module a chance to override first.
 
-`addFieldType` calls the [addFieldType method of the `apostrophe-schemas` module](/modules/apostrophe-schemas/README.md#addfieldtype-type) to add a new schema field type to Apostrophe.
+`addFieldType` calls the [addFieldType method of the `apostrophe-schemas` module](/reference/modules/apostrophe-schemas/README.md#addfieldtype-type) to add a new schema field type to Apostrophe.
 
 The `converters` property covers two cases: CSV import and ordinary form submissions.
 
@@ -119,7 +119,7 @@ When we're done, we copy the cleaned-up value into `object[name]` and invoke the
 
 We also supply a `fieldTypePartial` method and configure the `partial` property of the new field type to use it. This method is responsible for rendering the markup for the field.
 
-> The [self.partial](/modules/apostrophe-module/README.md#partial-name-data) method renders a Nunjucks template in the `views/` folder of this module with the data we pass to it, as *part of* a larger response that is already being generated, such as a complete modal for editing a piece. Since a response is already in progress for a specific request, we don't pass `req` to this method. This is different from [self.render](/modules/apostrophe-module/README.md#render-req-name-data), which is used when you want to generate and send an HTML fragment directly in response to an AJAX request.
+> The [self.partial](/reference/modules/apostrophe-module/README.md#partial-name-data) method renders a Nunjucks template in the `views/` folder of this module with the data we pass to it, as *part of* a larger response that is already being generated, such as a complete modal for editing a piece. Since a response is already in progress for a specific request, we don't pass `req` to this method. This is different from [self.render](/reference/modules/apostrophe-module/README.md#render-req-name-data), which is used when you want to generate and send an HTML fragment directly in response to an AJAX request.
 
 Here's the template file we need:
 
@@ -172,7 +172,7 @@ Don't forget the stylesheet! You'll have a tough time seeing the clickable color
 
 Earlier in `afterConstruct` we saw a call to `pushAssets`. That method pushes a stylesheet and a javascript file to the browser when a user is logged in and might need to pick colors.
 
-In addition, we saw a call to `pushCreateSingleton`. This method creates an object to represent our module on the browser side. It'll look for one with a [moog type name](/other/glossary.md#moog-type) that matches the module's name... and our `user.js` file will provide that:
+In addition, we saw a call to `pushCreateSingleton`. This method creates an object to represent our module on the browser side. It'll look for one with a [moog type name](/reference/glossary.md#moog-type) that matches the module's name... and our `user.js` file will provide that:
 
 ```javascript
 // in lib/modules/color-picker/public/js/user.js
@@ -249,7 +249,7 @@ apos.define('color-picker', {
 
 ### What's going on in this code?
 
-We start by calling `apos.define` to create a [moog type](/other/glossary.md#moog-type) on the browser side with the same name as the module. The `pushCreateSingleton` call earlier will take care of calling `apos.create` for us.
+We start by calling `apos.define` to create a [moog type](/reference/glossary.md#moog-type) on the browser side with the same name as the module. The `pushCreateSingleton` call earlier will take care of calling `apos.create` for us.
 
 Next we define an `addFieldType` method in `construct` and call it from `afterConstruct`, just like on the server side.
 
@@ -325,4 +325,4 @@ Naturally you will also need to add it to `package.json` so that `npm install` k
 
 ## More examples of custom field types
 
-There are two excellent examples of custom field types already built as separate modules in Apostrophe: [apostrophe-attachments](/modules/apostrophe-attachments/) and [apostrophe-video-fields](/modules/apostrophe-video-fields/). You can [learn from the code on github](https://github.com/apostrophecms/apostrophe/tree/master/lib/modules/apostrophe-video-fields). The video field type is the simpler of the two. There's no magic here: if you build a field type using a module in your project in exactly the same way, or publish it to npm, it will work just as well.
+There are two excellent examples of custom field types already built as separate modules in Apostrophe: [apostrophe-attachments](/reference/modules/apostrophe-attachments/) and [apostrophe-video-fields](/reference/modules/apostrophe-video-fields/). You can [learn from the code on github](https://github.com/apostrophecms/apostrophe/tree/master/lib/modules/apostrophe-video-fields). The video field type is the simpler of the two. There's no magic here: if you build a field type using a module in your project in exactly the same way, or publish it to npm, it will work just as well.

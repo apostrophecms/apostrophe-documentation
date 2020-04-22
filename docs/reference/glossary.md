@@ -11,9 +11,9 @@ First, check out the [tutorials](/README.md) if you haven't already. They explai
 
 ## Module
 
-Apostrophe sites are powered by Apostrophe modules. Each module is responsible for providing one feature, such as a type of widget, a type of customized page, or a service like pushing assets to the browser. Apostrophe has many [standard modules](/modules/README.md) which provide its core features.
+Apostrophe sites are powered by Apostrophe modules. Each module is responsible for providing one feature, such as a type of widget, a type of customized page, or a service like pushing assets to the browser. Apostrophe has many [standard modules](/reference/modules/README.md) which provide its core features.
 
-A module can extend \("subclass"\) another module, and most of the modules you create at "project level" will. All modules implicitly extend [apostrophe-module](/modules/apostrophe-module/README.md), which provides a rich set of core conveniences, like rendering templates or pushing assets relative to your module's folder.
+A module can extend \("subclass"\) another module, and most of the modules you create at "project level" will. All modules implicitly extend [apostrophe-module](/reference/modules/apostrophe-module/README.md), which provides a rich set of core conveniences, like rendering templates or pushing assets relative to your module's folder.
 
 Modules created at "project level" live in subdirectories of `/lib/modules`. Code and configuration for a module lives in `/lib/modules/MODULE-NAME/index.js` and can be overridden in `app.js` via the `modules` property of the main Apostrophe configuration object. It is also common to override a few settings on a per-server basis via `data/local.js`, which is merged with that object if it exists.
 
@@ -25,19 +25,19 @@ Each module may have its own `views` folder and easily render templates from it 
 
 A document in Apostrophe's database. Each doc is a MongoDB document in the `aposDocs` collection.
 
-Docs may contain [areas](glossary.md#area), and may also contain other properties, often as described by a schema configured by a doc type manager, such as a module that extends [apostrophe-pieces](../modules/apostrophe-pieces/README.md), [apostrophe-custom-pages](../modules/apostrophe-custom-pages/README.md) or [apostrophe-pieces-pages](../modules/apostrophe-pieces-pages/README.md).
+Docs may contain [areas](glossary.md#area), and may also contain other properties, often as described by a schema configured by a doc type manager, such as a module that extends [apostrophe-pieces](/reference/modules/apostrophe-pieces/README.md), [apostrophe-custom-pages](/reference/modules/apostrophe-custom-pages/README.md) or [apostrophe-pieces-pages](/reference/modules/apostrophe-pieces-pages/README.md).
 
-At a minimum, a doc has unique `_id` and `slug` properties. The `type` property determines what other behaviors it might have. The [apostrophe-docs](../modules/apostrophe-docs/README.md) module provides methods for working with docs, including the `apos.docs.getManager(doc.type)` method, which returns a reference to the module suited to working with that type of document.
+At a minimum, a doc has unique `_id` and `slug` properties. The `type` property determines what other behaviors it might have. The [apostrophe-docs](/reference/modules/apostrophe-docs/README.md) module provides methods for working with docs, including the `apos.docs.getManager(doc.type)` method, which returns a reference to the module suited to working with that type of document.
 
 ## Piece
 
-A doc which does not have a permanent home of its own in the page tree. Pieces are managed by modules that extend [apostrophe-pieces](../modules/apostrophe-pieces/README.md). The `apostrophe-pieces` module is an "abstract base class;" you never use it directly, you always extend it, creating a module that defines a new type of piece.
+A doc which does not have a permanent home of its own in the page tree. Pieces are managed by modules that extend [apostrophe-pieces](/reference/modules/apostrophe-pieces/README.md). The `apostrophe-pieces` module is an "abstract base class;" you never use it directly, you always extend it, creating a module that defines a new type of piece.
 
-See also [apostrophe-pieces-pages](../modules/apostrophe-pieces-pages/README.md), which provides a way to create an "index page" that acts as a public view of pieces. These index pages can be locked down to display only certain pieces based on tags, et cetera.
+See also [apostrophe-pieces-pages](/reference/modules/apostrophe-pieces-pages/README.md), which provides a way to create an "index page" that acts as a public view of pieces. These index pages can be locked down to display only certain pieces based on tags, et cetera.
 
 Think of it this way: the index page is the "calendar," the individual piece is the "event." It may be appropriate to display that event on one or more calendars around the site.
 
-Also see [apostrophe-pieces-widgets](../modules/apostrophe-pieces-widgets/README.md), which makes it easy to introduce widgets on any page that display one or more pieces. Think of a "callout" that displays upcoming events on the home page.
+Also see [apostrophe-pieces-widgets](/reference/modules/apostrophe-pieces-widgets/README.md), which makes it easy to introduce widgets on any page that display one or more pieces. Think of a "callout" that displays upcoming events on the home page.
 
 The schema of each piece can be easily customized with extra fields, and even with "joins" to other types of docs.
 
@@ -47,17 +47,17 @@ A doc which is part of the page tree. It may potentially have child pages. The `
 
 `path` differs from `slug` in that it always reflects the true parent-child relationships between pages in the tree, while `slug` can be edited and shortened if desired so that URLs don't have to contain a lot of slashes to reach a deep page.
 
-All page types that are allowed on the site must be listed as part of the `types` option of the [apostrophe-pages](../modules/apostrophe-pages/README.md) module.
+All page types that are allowed on the site must be listed as part of the `types` option of the [apostrophe-pages](/reference/modules/apostrophe-pages/README.md) module.
 
-Often page types are given extra behavior via the [apostrophe-custom-pages](../modules/apostrophe-custom-pages/README.md) module, which allows the developer to handle the rest of the URL if a page matches just the beginning of a URL. This module is extended by [apostrophe-pieces-pages](../modules/apostrophe-pieces-pages/README.md), used to power blogs and other index views of [apostrophe-pieces](../modules/apostrophe-pieces/README.md).
+Often page types are given extra behavior via the [apostrophe-custom-pages](/reference/modules/apostrophe-custom-pages/README.md) module, which allows the developer to handle the rest of the URL if a page matches just the beginning of a URL. This module is extended by [apostrophe-pieces-pages](/reference/modules/apostrophe-pieces-pages/README.md), used to power blogs and other index views of [apostrophe-pieces](/reference/modules/apostrophe-pieces/README.md).
 
 ## global doc
 
-There is a doc with the slug `global` which is always loaded and available to your page templates as `data.global`. This is useful for shared, site-wide headers and footers that are editable, etc. It is managed by the [apostrophe-global](../modules/apostrophe-global/README.md) module. There is no rule against creating other specialized docs if pieces, pages and `global` don't cover your use cases.
+There is a doc with the slug `global` which is always loaded and available to your page templates as `data.global`. This is useful for shared, site-wide headers and footers that are editable, etc. It is managed by the [apostrophe-global](/reference/modules/apostrophe-global/README.md) module. There is no rule against creating other specialized docs if pieces, pages and `global` don't cover your use cases.
 
 ## Widget
 
-A widget is a single item of content that can be edited, such as a block of rich text, a slideshow, or an RSS feed widget. You can create entirely new types of widgets by extending the [apostrophe-widgets](../modules/apostrophe-widgets/README.md) module. You can also easily create widgets that display a particular type of piece by extending [apostrophe-pieces-widgets](../modules/apostrophe-pieces-widgets/README.md).
+A widget is a single item of content that can be edited, such as a block of rich text, a slideshow, or an RSS feed widget. You can create entirely new types of widgets by extending the [apostrophe-widgets](/reference/modules/apostrophe-widgets/README.md) module. You can also easily create widgets that display a particular type of piece by extending [apostrophe-pieces-widgets](/reference/modules/apostrophe-pieces-widgets/README.md).
 
 ## Area
 
@@ -65,7 +65,7 @@ An area is simply a column in which you can add as many widgets as you like. Eac
 
 Areas are inserted into your templates using the `apos.area` nunjucks helper function.
 
-Areas are implemented by the [apostrophe-areas](../modules/apostrophe-areas/README.md) module.
+Areas are implemented by the [apostrophe-areas](/reference/modules/apostrophe-areas/README.md) module.
 
 ## Singleton
 
@@ -89,7 +89,7 @@ A schema allows you to specify the fields that are part of a particular type of 
 
 Apostrophe's schemas are used both to automatically create an editing interface and to sanitize and save data on the server side. Commonly used field types include strings, integers, floats, select elements and "joins," which allow relationships with other doc types to be defined.
 
-Schemas are built by using the `addFields`, `removeFields`, `arrangeFields` and `alterFields` options when configuring any module that extends [apostrophe-pieces](../modules/apostrophe-pieces/README.md), [apostrophe-custom-pages](../modules/apostrophe-custom-pages/README.md) or [apostrophe-widgets](../modules/apostrophe-widgets/README.md).
+Schemas are built by using the `addFields`, `removeFields`, `arrangeFields` and `alterFields` options when configuring any module that extends [apostrophe-pieces](/reference/modules/apostrophe-pieces/README.md), [apostrophe-custom-pages](/reference/modules/apostrophe-custom-pages/README.md) or [apostrophe-widgets](/reference/modules/apostrophe-widgets/README.md).
 
 Here is a simple example in which we add a required "author" string field to the schema for "stories," a module that extends [apostrophe-pieces](glossary.md#pieces):
 
@@ -108,13 +108,13 @@ module.exports = {
 }
 ```
 
-See the [apostrophe-schemas](../modules/apostrophe-schemas/README.md) module documentation for more information.
+See the [apostrophe-schemas](/reference/modules/apostrophe-schemas/README.md) module documentation for more information.
 
 ## Join
 
-In [Apostrophe schemas](../modules/apostrophe-schemas/README.md), a "join" describes a relationship with another type of doc. Here is an example of a "by array" join, also known as a "one to many" relationship.
+In [Apostrophe schemas](/reference/modules/apostrophe-schemas/README.md), a "join" describes a relationship with another type of doc. Here is an example of a "by array" join, also known as a "one to many" relationship.
 
-Let's say we're implementing a module for a creative agency called "services," a subclass of [apostrophe-pieces](../modules/apostrophe-pieces/README.md) in which each piece represents a service that the agency offers.
+Let's say we're implementing a module for a creative agency called "services," a subclass of [apostrophe-pieces](/reference/modules/apostrophe-pieces/README.md) in which each piece represents a service that the agency offers.
 
 But not every service is offered in every office. So we define a join from services to offices via the `addFields` option:
 
@@ -134,7 +134,7 @@ The editing interface for this join allows the user to pick offices to associate
 
 When writing templates, the developer is then able to access a `._offices` array as a property of each service.
 
-See the [apostrophe-schemas](../modules/apostrophe-schemas/README.md) module documentation for more information about joins.
+See the [apostrophe-schemas](/reference/modules/apostrophe-schemas/README.md) module documentation for more information about joins.
 
 ## Moog type
 
@@ -158,11 +158,11 @@ On the browser side, `apos.define` is the norm, and is used to define types for 
 
 ## Subclass
 
-In Apostrophe, the term "subclass" refers to a module or other [moog type](glossary.md#moog-type) that uses the `extend` property to extend another module, creating a new module that inherits the features of the first module. Almost every module extends another module. Those that don't set the `extend` property default to extending [apostrophe-module](../modules/apostrophe-module/README.md), the "base class" of all modules.
+In Apostrophe, the term "subclass" refers to a module or other [moog type](glossary.md#moog-type) that uses the `extend` property to extend another module, creating a new module that inherits the features of the first module. Almost every module extends another module. Those that don't set the `extend` property default to extending [apostrophe-module](/reference/modules/apostrophe-module/README.md), the "base class" of all modules.
 
 ## Base class
 
-A [moog type](glossary.md#moog-type) that is extended by another, whether explicitly \(using the `extend` property\) or by default \(on the server side, [apostrophe-module](../modules/apostrophe-module/README.md) is the default base class of all modules that don't specify one\).
+A [moog type](glossary.md#moog-type) that is extended by another, whether explicitly \(using the `extend` property\) or by default \(on the server side, [apostrophe-module](/reference/modules/apostrophe-module/README.md) is the default base class of all modules that don't specify one\).
 
 ## Implicit subclassing
 
@@ -198,15 +198,15 @@ While this feature is very useful, on rare occasions you might want to avoid it 
 
 Apostrophe cursors, like MongoDB cursors, help us get docs from the database using convenient, chainable methods. The syntax is very similar to MongoDB, with a few changes for consistency and extensibility.
 
-New chainable methods \("filters"\) for cursors can be conveniently added using the `addFilter` method of cursors. This should be done in a constructor for a subclass. As a convenience, definitions for cursor subclasses are **automatically autoloaded** from the `lib/cursor.js` file of any module that extends [apostrophe-pieces](../modules/apostrophe-pieces/README.md), [apostrophe-pieces-pages](../modules/apostrophe-pieces-pages/README.md) or [apostrophe-doc-type-manager](../modules/apostrophe-doc-type-manager/README.md).
+New chainable methods \("filters"\) for cursors can be conveniently added using the `addFilter` method of cursors. This should be done in a constructor for a subclass. As a convenience, definitions for cursor subclasses are **automatically autoloaded** from the `lib/cursor.js` file of any module that extends [apostrophe-pieces](/reference/modules/apostrophe-pieces/README.md), [apostrophe-pieces-pages](/reference/modules/apostrophe-pieces-pages/README.md) or [apostrophe-doc-type-manager](/reference/modules/apostrophe-doc-type-manager/README.md).
 
-Cursors can also be called automatically. Many cursor filters provide a `sanitize` function and have a `safeFor: 'public'` setting. This allows them to be called automatically by the index view of [apostrophe-pieces-pages](../modules/apostrophe-pieces-pages/README.md) when the appropriate query string parameters appear. Often this is the main motivation for adding a filter.
+Cursors can also be called automatically. Many cursor filters provide a `sanitize` function and have a `safeFor: 'public'` setting. This allows them to be called automatically by the index view of [apostrophe-pieces-pages](/reference/modules/apostrophe-pieces-pages/README.md) when the appropriate query string parameters appear. Often this is the main motivation for adding a filter.
 
-A cursor is always an instance of [apostrophe-cursor](../modules/apostrophe-docs/server-apostrophe-cursor.html) or one of its subclasses. The right way to obtain one is via the `find` method of a doc type manager, such as a module that extends pieces.
+A cursor is always an instance of [apostrophe-cursor](/reference/modules/apostrophe-docs/server-apostrophe-cursor.html) or one of its subclasses. The right way to obtain one is via the `find` method of a doc type manager, such as a module that extends pieces.
 
 **Every cursor object obtained in this way automatically has methods with the same name as each field in the schema.** For instance, you can write `.slug('party').toArray(function(err, docs) { ... })` to find all docs with a slug \(URL\) that contains the word `party`.
 
-See [working with cursors](/tutorials/advanced-development/database/cursors.md) for more information.
+See [working with cursors](/advanced-topics/database/cursors.md) for more information.
 
 ## `req.data` and the `data` object in Nunjucks
 

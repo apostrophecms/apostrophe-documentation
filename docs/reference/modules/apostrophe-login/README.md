@@ -60,7 +60,7 @@ with `resetLegacyPassword: true` (above).
 
 If set to `true`, the user is given the option to reset their password,
 provided they can receive a confirmation email. Not available if `localLogin` is `false`.
-Email delivery must work, which requires more configuration; see [sending email with ApostropheCMS](https://docs.apostrophecms.org/apostrophe/tutorials/howtos/email).
+Email delivery must work, which requires more configuration; see [sending email with ApostropheCMS](/devops/email).
 
 `passwordResetHours`
 
@@ -103,7 +103,7 @@ user by storing their user ID in the session.
 ### enableDeserializeUsers()
 Set the `deserializeUser` method of `passport` to
 deserialize the user by locating the appropriate
-user via the [apostrophe-users](/modules/apostrophe-users)
+user via the [apostrophe-users](/reference/modules/apostrophe-users)
 module. Then invokes the `loginDeserialize` method of
 every module that has one, passing the `user` object. These
 methods may optionally take a callback.
@@ -139,10 +139,10 @@ types that are not restricted to admins only.
 ### enableLocalStrategy()
 Adds the "local strategy" (username/email and password login)
 to Passport. Users are found via the `find` method of the
-[apostrophe-users](/modules/apostrophe-users) module.
+[apostrophe-users](/reference/modules/apostrophe-users) module.
 Users with the `disabled` property set to true may not log in.
 Passwords are verified via the `verifyPassword` method of
-[apostrophe-users](/modules/apostrophe-users), which is
+[apostrophe-users](/reference/modules/apostrophe-users), which is
 powered by the [credential](https://npmjs.org/package/credential) module.
 ### enableTotp()
 
