@@ -34,6 +34,23 @@ apos.define('apostrophe-areas', {
 * Inside that method, we call `CKEDITOR.plugins.addExternal` to add a [CKEditor plugin](http://ckeditor.com/addons/plugins/all). Any toolbar buttons it makes available can now be used when configuring the `toolbar` option for the [apostrophe-rich-text widget](/modules/apostrophe-rich-text-widgets/README.md).
 * The URL of the plugin begins with `/modules/my-apostrophe-areas`. This path will always point to the `public` subdirectory of your project-level extension of the `apostrophe-areas` module (`lib/modules/apostrophe-areas/public` in your project). The `my-` prefix is automatically added to distinguish it from the assets folder of the original `apostrophe-areas` module that ships with Apostrophe.
 
+The CKEditor plugin then needs to be registered in the `apostrophe-rich-text-widgets`
+widget as well:
+
+```javascript
+// lib/modules/apostrophe-rich-text-widgets/public/js/editor.js
+apos.define('apostrophe-rich-text-widgets-editor', {
+  construct: function(self, options) {
+    self.beforeCkeditorInline = function() {
+      // The 'myplugin' name should match what you added in the previous step.
+      // NOTE: Be sure to include `'split'` if you intend to use that feature.
+      // This will become unnecessary in a future release.
+      self.config.extraPlugins = ['myplugin', 'split'];
+    };
+  }
+});
+```
+
 ## Instance-specific CKEditor configuration
 
 It is also possible to do custom configuration at the time a rich text editor is fired up. That allows us to look at the options that were passed to that widget via `apos.area` or `apos.singleton` and decide what to do. It is also the best place do things like changing the list of buttons that CKEditor is currently disabling.
