@@ -10,7 +10,7 @@ In our experience a virtual machine with 2GB of RAM and at least 20GB of free st
 
 Disk space requirements will increase if users routinely upload large files to the media library.
 
-Sites running in a [multicore](/tutorials/devops/multicore.md) configuration will require additional RAM and, of course, CPU cores.
+Sites running in a [multicore](/devops/multicore.md) configuration will require additional RAM and, of course, CPU cores.
 
 ### Packages you'll need
 
@@ -28,7 +28,7 @@ You may also want:
 
 For CentOS 7 or Red Hat Enterprise 7 Linux, these commands will get you there:
 
-> You can skip most of these steps and set up a Linux server with Stagecoach, ready to deploy, with hardly any effort if you use our [Linode stackscript](https://www.linode.com/stackscripts/view/239217-punkave-Apostrophe+CMS). For more information check out our [Linode HOWTO](/tutorials/devops/deployment/linode.md).
+> You can skip most of these steps and set up a Linux server with Stagecoach, ready to deploy, with hardly any effort if you use our [Linode stackscript](https://www.linode.com/stackscripts/view/239217-punkave-Apostrophe+CMS). For more information check out our [Linode HOWTO](/devops/deployment/linode.md).
 
 ```bash
 # Grab some command line basics
@@ -135,4 +135,4 @@ If you are not using Stagecoach, just make sure you run this command line task a
 
 ## Multicore and multiserver configurations
 
-Because node is asynchronous, these single-server, single-core instructions are quite adequate for most clients, including many sites with high traffic at the city scale. However, if performance does become an issue, you may want to check out [running Apostrophe on multiple cores and/or servers](/tutorials/devops/multicore.md) as well. Just be sure to master the above material first.
+Because node is asynchronous, these single-server, single-core instructions are quite adequate for most clients, including many sites with high traffic at the city scale. However, if performance does become an issue, you may want to check out [running Apostrophe on multiple cores and/or servers](/devops/multicore.md) as well. Just be sure to master the above material first.
