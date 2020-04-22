@@ -284,7 +284,7 @@ We add a `current` CSS class to the link to remove the current filter. It's up t
 
 ### Filtering on joins and other schema field types
 
-Tags are the simplest example, but you can filter on most schema field types, notably including [`select`](../../schema-guide/schema-guide.md#select) fields and [`joinByOne`](/tutorials/schema-guide/schema-guide.md#joinByOne) or [`joinByArray`](/tutorials/schema-guide/schema-guide.md#joinByArray) fields.
+Tags are the simplest example, but you can filter on most schema field types, notably including [`select`](/reference/field-types/select) fields and [`joinByOne`](/reference/field-types/joinByOne) or [`joinByArray`](/reference/field-types/joinByArray) fields.
 
 Add a filter on the `_jobs` schema field we saw earlier:
 

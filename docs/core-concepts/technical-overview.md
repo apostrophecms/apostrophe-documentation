@@ -139,11 +139,11 @@ Any module extending `apostrophe-pieces` or `apostrophe-custom-pages` can easily
 
 Schemas are also used to define the editable fields of a widget That allows new widgets to be created very quickly without the need for custom code.
 
-For more information, see the [schema guide](/tutorials/schema-guide/schema-guide.md).
+For more information, see the [schema guide](/advanced-topics/schema-guide.md).
 
 ## Apostrophe joins
 
-Apostrophe also supports robust "joins" between content types. Programmers can define their own relationships between doc types, such as pages or pieces, and even between widgets and pages, or widgets and pieces. Joins are discussed in the [schema guide](/tutorials/schema-guide/schema-guide.md).
+Apostrophe also supports robust "joins" between content types. Programmers can define their own relationships between doc types, such as pages or pieces, and even between widgets and pages, or widgets and pieces. Joins are discussed in the [schema guide](/advanced-topics/schema-guide.md).
 
 ## Dynamic properties and the magic `_`
 

@@ -57,7 +57,7 @@ module.exports = {
 
 _"What does_ `extend` _mean here?"_ Our module is extending the `apostrophe-widgets` module, which provides almost all the code you need. Yes, `extend` is the correct spelling. Apostrophe uses [moog](https://npmjs.org/package/moog) to handle extending or "subclassing" other modules.
 
-_"What other field types can I add?"_ The `apostrophe-schemas` module provides a powerful way to build forms and structure data with almost no work. You just pass an array of field definitions as the `addFields` option. You'll introduce the details gradually. But if you're in a hurry, check out the [schema guide](/tutorials/schema-guide/schema-guide.md).
+_"What other field types can I add?"_ The `apostrophe-schemas` module provides a powerful way to build forms and structure data with almost no work. You just pass an array of field definitions as the `addFields` option. You'll introduce the details gradually. But if you're in a hurry, check out the [schema guide](/advanced-topics/schema-guide.md).
 
 _"What does the_ `name` _property do?"_ Each field needs to be stored in the widget under its own property name. Play around with `aposDocs.find().pretty()` in the mongodb shell to see what it looks like after you save the widget.
 
@@ -285,7 +285,7 @@ The new bit is the `filters` option. By specifying a `projection` filter, you ca
 
 `_url`_,_ `slug`_... what's the difference?_ For most sites, nothing. But for sites with a `prefix` option, the `_url` property might have a folder name prepended to it. And there are other ways to transform `_url` to suit your needs. So always remember to use it instead of `slug` when you output page URLs. And use `_url` in your projection to fetch all the properties Apostrophe knows might be involved in calculating the `_url` property of the page.
 
-**Watch out for reverse joins! If you have** [**reverse joins**](/tutorials/schema-guide/schema-guide.md) **and your widget doesn't need them,** the `projection` filter can't help you avoid loading them, because they are loaded from "the other side" \(the ids are stored with the documents linking _to_ your documents\). Instead, use the `joins` filter, and specify an array of join field names your widget actually needs — if any.
+**Watch out for reverse joins! If you have** [**reverse joins**](/reference/field-types/joinbyonereverse) **and your widget doesn't need them,** the `projection` filter can't help you avoid loading them, because they are loaded from "the other side" \(the ids are stored with the documents linking _to_ your documents\). Instead, use the `joins` filter, and specify an array of join field names your widget actually needs — if any.
 
 _What else can I do with_ `filters`_?_ That's an intermediate topic, but you can do anything that [cursor filter methods](/advanced-topics/database/cursors.md) can do.
 

@@ -11,7 +11,7 @@ and more.
 A schema is simply an array of "plain old objects." Each object describes one field in the schema
 via `type`, `name`, `label` and other properties.
 
-See the [schema guide](/tutorials/schema-guide/schema-guide) for a complete
+See the [schema guide](/advanced-topics/schema-guide) for a complete
 overview and list of schema field types. The methods documented here on this page are most often
 used when you choose to work independently with schemas, such as in a custom project
 that requires forms.
