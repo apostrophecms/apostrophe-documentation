@@ -88,7 +88,7 @@ In `afterConstruct` we invoke `addFieldType`, `pushAssets` and `pushCreateSingle
 
 > We don't have to delay the "real work" until `afterConstruct` like this, but doing so allows anyone extending our module a chance to override first.
 
-`addFieldType` calls the [addFieldType method of the `apostrophe-schemas` module](/modules/apostrophe-schemas/README.md#addfieldtype-type) to add a new schema field type to Apostrophe.
+`addFieldType` calls the [addFieldType method of the `apostrophe-schemas` module](/reference/modules/apostrophe-schemas/README.md#addfieldtype-type) to add a new schema field type to Apostrophe.
 
 The `converters` property covers two cases: CSV import and ordinary form submissions.
 
@@ -119,7 +119,7 @@ When we're done, we copy the cleaned-up value into `object[name]` and invoke the
 
 We also supply a `fieldTypePartial` method and configure the `partial` property of the new field type to use it. This method is responsible for rendering the markup for the field.
 
-> The [self.partial](/modules/apostrophe-module/README.md#partial-name-data) method renders a Nunjucks template in the `views/` folder of this module with the data we pass to it, as *part of* a larger response that is already being generated, such as a complete modal for editing a piece. Since a response is already in progress for a specific request, we don't pass `req` to this method. This is different from [self.render](/modules/apostrophe-module/README.md#render-req-name-data), which is used when you want to generate and send an HTML fragment directly in response to an AJAX request.
+> The [self.partial](/reference/modules/apostrophe-module/README.md#partial-name-data) method renders a Nunjucks template in the `views/` folder of this module with the data we pass to it, as *part of* a larger response that is already being generated, such as a complete modal for editing a piece. Since a response is already in progress for a specific request, we don't pass `req` to this method. This is different from [self.render](/reference/modules/apostrophe-module/README.md#render-req-name-data), which is used when you want to generate and send an HTML fragment directly in response to an AJAX request.
 
 Here's the template file we need:
 
@@ -325,4 +325,4 @@ Naturally you will also need to add it to `package.json` so that `npm install` k
 
 ## More examples of custom field types
 
-There are two excellent examples of custom field types already built as separate modules in Apostrophe: [apostrophe-attachments](/modules/apostrophe-attachments/) and [apostrophe-video-fields](/modules/apostrophe-video-fields/). You can [learn from the code on github](https://github.com/apostrophecms/apostrophe/tree/master/lib/modules/apostrophe-video-fields). The video field type is the simpler of the two. There's no magic here: if you build a field type using a module in your project in exactly the same way, or publish it to npm, it will work just as well.
+There are two excellent examples of custom field types already built as separate modules in Apostrophe: [apostrophe-attachments](/reference/modules/apostrophe-attachments/) and [apostrophe-video-fields](/reference/modules/apostrophe-video-fields/). You can [learn from the code on github](https://github.com/apostrophecms/apostrophe/tree/master/lib/modules/apostrophe-video-fields). The video field type is the simpler of the two. There's no magic here: if you build a field type using a module in your project in exactly the same way, or publish it to npm, it will work just as well.

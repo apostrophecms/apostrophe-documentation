@@ -177,7 +177,7 @@ And in our templates, we can access the array of jobs like this:
 
 Before long you'll start wanting to filter this list of people, taking advantage of joins, tags and other field types. Here's how to do that on the public-facing site. Later in this tutorial we'll also talk about how to do it in the "Manage" view.
 
-To make it easier to browse a listing of pieces, the [apostrophe-pieces-pages](/modules/apostrophe-pieces-pages/README.md) module will *automatically permit you to filter by the value of most schema fields when submitted as query string parameters*, provided they are marked for this purpose as you'll see below.
+To make it easier to browse a listing of pieces, the [apostrophe-pieces-pages](/reference/modules/apostrophe-pieces-pages/README.md) module will *automatically permit you to filter by the value of most schema fields when submitted as query string parameters*, provided they are marked for this purpose as you'll see below.
 
 ::: tip
 You can also use `q` or `search` as a query parameter to do a full-text search. *Tip:* often this is all users want.

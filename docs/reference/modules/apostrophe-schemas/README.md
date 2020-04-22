@@ -3,9 +3,9 @@
 ### `apos.schemas`
 This module provides schemas, a flexible and fast way to create new data types
 by specifying the fields that should make them up. Schemas power
-[apostrophe-pieces](https://docs.apostrophecms.org/apostrophe/modules/apostrophe-pieces),
-[apostrophe-widgets](/modules/apostrophe-widgets), custom field
-types in page settings for [apostrophe-custom-pages](/modules/apostrophe-custom-pages)
+[apostrophe-pieces](/reference/modules/apostrophe-pieces),
+[apostrophe-widgets](/reference/modules/apostrophe-widgets), custom field
+types in page settings for [apostrophe-custom-pages](/reference/modules/apostrophe-custom-pages)
 and more.
 
 A schema is simply an array of "plain old objects." Each object describes one field in the schema

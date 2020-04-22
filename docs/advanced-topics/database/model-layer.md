@@ -81,7 +81,7 @@ Working with the right manager in this way ensures you get the benefit of any ex
 
 ### More about cursors
 
-As you may have noticed, Apostrophe's cursors — the objects returned by `find()` — are pretty great. Check out the [reference documentation](/modules/apostrophe-docs/server-apostrophe-cursor.md) for more information about cursors. *TODO: give examples of adding a refinment to an existing cursor moog type to add more filters correctly. See the `apostrophe-pieces` source*
+As you may have noticed, Apostrophe's cursors — the objects returned by `find()` — are pretty great. Check out the [reference documentation](/reference/modules/apostrophe-docs/server-apostrophe-cursor.md) for more information about cursors. *TODO: give examples of adding a refinment to an existing cursor moog type to add more filters correctly. See the `apostrophe-pieces` source*
 
 ## Working with pages
 

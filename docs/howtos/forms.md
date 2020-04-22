@@ -8,7 +8,7 @@ The **[Apostrophe Forms module](https://www.npmjs.com/package/apostrophe-forms)*
 
 `apostrophe-forms` is a great solution for most cases, but if you would like form submissions to directly translate into pieces in apostrophe, there is an alternative better suited to that use case.
 
-The primary case where this is not desirable is if the website needs only one or two forms and those forms should *never* (or almost never) change. For example, if a form is very tightly coupled to a third-party API, it might be too risky to let website editors change the form. Even this could mostly be avoided by limiting access to forms with [user group permissions](https://docs.apostrophecms.org/apostrophe/tutorials/intermediate/permissions).
+The primary case where this is not desirable is if the website needs only one or two forms and those forms should *never* (or almost never) change. For example, if a form is very tightly coupled to a third-party API, it might be too risky to let website editors change the form. Even this could mostly be avoided by limiting access to forms with [user group permissions](/core-concepts/users-and-permissions/users-and-groups.md).
 
 ## Creating pieces via forms: `apostrophe-pieces-submit-widgets`
 

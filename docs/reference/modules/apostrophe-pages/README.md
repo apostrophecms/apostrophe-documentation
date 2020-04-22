@@ -123,7 +123,7 @@ publishMenu: [
 Again, you can override it by setting `req.publishMenu`.
 
 If you are looking for the schema fields common to all pages in the tree,
-check out the [apostrophe-custom-pages](/modules/apostrophe-custom-pages)
+check out the [apostrophe-custom-pages](/reference/modules/apostrophe-custom-pages)
 module, which all page types extend, including "ordinary" pages.
 
 ### `park`
@@ -207,7 +207,7 @@ and an `_ancestors` property:
 };
 ```
 
-See the [apostrophe-pages-cursor](/modules/apostrophe-pages/server-apostrophe-pages-cursor) type for additional
+See the [apostrophe-pages-cursor](/reference/modules/apostrophe-pages/server-apostrophe-pages-cursor) type for additional
 cursor filters and options you might wish to configure, such as adding
 a `depth` option to `children`.
 

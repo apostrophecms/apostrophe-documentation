@@ -1,8 +1,3 @@
----
-title: Users and Groups
-layout: tutorial
----
-
 # Users and Groups
 
 One of the biggest questions you need to answer in your design is, "Who is going to be doing what?" From there you want to separate concerns for site management and content governance so that each user only has access to what they need is vital from a security perspective. Apostrophe has several options available to help you achieve this.

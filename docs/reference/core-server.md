@@ -28,7 +28,7 @@ It is possible to have more than one `apos` object in a node.js application, for
 
 If present, this function is invoked with a callback, just before Apostrophe either listens for connections or, when arguments are present on the command line, carries out a task.
 
-Note that it is too late to add routes at this point because [apostrophe-pages](modules/apostrophe-pages/README.md) will already be responding to all remaining URLs. If you wish to add routes you should do so in your own Apostrophe modules.
+Note that it is too late to add routes at this point because [apostrophe-pages](/reference/modules/apostrophe-pages/README.md) will already be responding to all remaining URLs. If you wish to add routes you should do so in your own Apostrophe modules.
 
 This function does not receive an error object and is only invoked when Apostrophe has been successful in initialization so far \(see `initFailed`\). This function **must invoke its callback**. If an error is passed to the callback Apostrophe initialization will fail.
 
@@ -52,7 +52,7 @@ For a straightforward example of a moog bundle, check out [apostrophe-blog](http
 
 If set, this string is prepended to all URLs the site generates to refer to itself. It should NOT contain a "path" part \(not even a `/` to begin the path\). It should only contain a protocol, a hostname and on rare occasions a port number. In production, you'll want to set this, for instance to `https://mysite.com`, so that Apostrophe's URLs are absolute which makes them satisfactory for use in Facebook Open Graph tags.
 
-This is NOT the way to configure Apostrophe to run as a "subdirectory" of another website. See [prefix](core-server.md#code-prefix-code).
+This is NOT the way to configure Apostrophe to run as a "subdirectory" of another website. See [prefix](core-server.md#code-prefix).
 
 ### `initFailed`
 
@@ -127,7 +127,7 @@ _You will almost never need this._ A reference to the root directory of the Apos
 
 ### `app`
 
-The [Express app object](https://npmjs.org/express) for the site. If the [prefix](core-server.md#code-prefix-code) option is set there will also be an `apos.baseApp` object which is not prefixed. Generally only `apos.app` is of interest.
+The [Express app object](https://npmjs.org/express) for the site. If the [prefix](core-server.md#prefix) option is set there will also be an `apos.baseApp` object which is not prefixed. Generally only `apos.app` is of interest.
 
 ### `express`
 
@@ -143,7 +143,7 @@ The `apostrophe-express` module sets this property to provide easy access to a f
 
 ### `prefix`
 
-The prefix of the site, for use in enabling Apostrophe to run in a virtual subdirectory of another site. See the [prefix](core-server.md#code-prefix-code) option for details.
+The prefix of the site, for use in enabling Apostrophe to run in a virtual subdirectory of another site. See the [prefix](core-server.md#prefix) option for details.
 
 ### `docs`, `attachments`, etc.
 
@@ -159,7 +159,7 @@ When `callAll` is invoked with a method name such as `docBeforeSave`, Apostrophe
 
 **A callback is required when invoking** `callAll`**, but optional when receiving it.** That is, your code that invokes `callAll` **must** be asynchronous and pass a callback as the last argument to `callAll`. However, some of the modules that implement `methodName` may omit the callback if they do not need to do any asynchronous work. `docBeforeSave` is a good example: some modules only need to copy one property to another, while others might need to consult another database.
 
-For legacy reasons, the `callAll` technique is widely used in core Apostrophe modules. For instance, [page-before-send](../modules/apostrophe-pages/README.md#pageBeforeSend) is invoked just before a page is sent to the browser, allowing all modules one last opportunity to do some asynchronous work and add more information to `req.data`. But new code should listen for the `apostrophe-pages:beforeSend` [promise event](/advanced-topics/promise-events/promise-events.md) instead.
+For legacy reasons, the `callAll` technique is widely used in core Apostrophe modules. For instance, [page-before-send](/reference/modules/apostrophe-pages/README.md#pagebeforesend-req-callback-api) is invoked just before a page is sent to the browser, allowing all modules one last opportunity to do some asynchronous work and add more information to `req.data`. But new code should listen for the `apostrophe-pages:beforeSend` [promise event](/advanced-topics/promise-events/promise-events.md) instead.
 
 ### `destroy()`
 
@@ -169,7 +169,7 @@ The `destroy` method destroys the `apos` object, freeing resources such as datab
 
 For legacy reasons, Apostrophe provides a simple mechanism for synchronous events. This is separate from [promise events](/advanced-topics/promise-events/promise-events.html), which support asynchronous programming and are generally preferred in new code. Synchronous events may still be useful in new code when code is invoked so often that no delay can be tolerated.
 
-The `apos.emit` method takes an event name and additional, optional arguments and invokes all event listeners for that event name. For example, the [apostrophe-search](/modules/apostrophe-search/README.md) module emits a `docSearchIndex` event with a `doc` and an array of `texts`, allowing other modules to potentially add more search texts.
+The `apos.emit` method takes an event name and additional, optional arguments and invokes all event listeners for that event name. For example, the [apostrophe-search](/reference/modules/apostrophe-search/README.md) module emits a `docSearchIndex` event with a `doc` and an array of `texts`, allowing other modules to potentially add more search texts.
 
 On the server side, Apostrophe emits [promise events](/advanced-topics/promise-events/promise-events.md) far more often.
 

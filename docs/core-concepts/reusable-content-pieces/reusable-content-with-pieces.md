@@ -141,7 +141,7 @@ When you do this, there is still a separate prompt to enter the full name. Remov
 ```
 
 ::: tip
-There are many other methods you can override or extend to change the behavior of pieces. See [the apostrophe-pieces API methods](/modules/apostrophe-pieces/README.md) for more information.
+There are many other methods you can override or extend to change the behavior of pieces. See [the apostrophe-pieces API methods](/reference/modules/apostrophe-pieces/README.md) for more information.
 :::
 
 ### Arranging fields

@@ -5,7 +5,7 @@ layout: reference
 
 # More Modules:
 
-_This page is about optional modules for Apostrophe. For the standard modules, see the_ [_reference_](/modules/README.md)_._
+_This page is about optional modules for Apostrophe. For the standard modules, see the_ [_reference_](/reference/modules/README.md)_._
 
 ## More official npm modules for ApostropheCMS
 

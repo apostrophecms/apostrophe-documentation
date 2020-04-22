@@ -1,6 +1,6 @@
 # Programming with cursors
 
-Apostrophe uses cursors to fetch docs from the database. An [apostrophe-cursor](/modules/apostrophe-docs/server-apostrophe-cursor.md) object helps us conveniently fetch docs from
+Apostrophe uses cursors to fetch docs from the database. An [apostrophe-cursor](/reference/modules/apostrophe-docs/server-apostrophe-cursor.md) object helps us conveniently fetch docs from
 the `aposDocs` mongodb collection using chainable "filter" methods, quite similar to those MongoDB developers are used to. Apostrophe's cursors work much like MongoDB or Doctrine cursors, but with many filter methods specific to Apostrophe that add a great deal of convenience, including methods for every field in your schema. And it's possible to add your own filters.
 
 So when do we need to work with cursors? **When we are writing custom queries in our own server-side JavaScript code.** If you are simply adding filters to a pieces page based on your schema fields, or adding filters to the "Manage" view of your pieces, **you do not have to write any custom JavaScript at all.** See [reusable content with pieces](/core-concepts/reusable-content-pieces/reusable-content-with-pieces.md) for more information about how to easily configure the `piecesFilters` option, for example.
@@ -63,7 +63,7 @@ module.exports = {
 
 ## Full text search
 
-So far this looks familiar to MongoDB developers. But Apostrophe adds some [filter methods of its own](/modules/apostrophe-docs/server-apostrophe-cursor.md#methods) that go beyond what you get out of the box with MongoDB.
+So far this looks familiar to MongoDB developers. But Apostrophe adds some [filter methods of its own](/reference/modules/apostrophe-docs/server-apostrophe-cursor.md#methods) that go beyond what you get out of the box with MongoDB.
 
 Let's search for profiles related to shoes, based on the text of each document:
 
@@ -156,7 +156,7 @@ module.exports = {
 * We called `addFilter` and gave the filter the name `busy`. This defines a new, chainable `.busy(true)` method for our cursor type.
 * We set a default value with `def`. By default, we don't want to restrict results to "busy" people.
 * We provided a `launder` function. The `launder` function accepts raw input from the web browser and returns it in a sanitized, "laundered" form. This is indispensable for a filter the public is allowed to use, for instance via the query string on a pieces-page. See the [launder](https://npmjs.org/package/launder) module, always available as `self.apos.launder` inside our cursor code.
-* We set `safeFor` to `public`. With this setting, any subclass of [apostrophe-pieces-pages](/modules/apostrophe-pieces-pages/README.md) we choose to provide for browsing our profiles will *automatically support* a `market` query string parameter and filter results accordingly. *The "slug" property of each doc is a user-friendly label based on the title, suitable for use in URLs.*
+* We set `safeFor` to `public`. With this setting, any subclass of [apostrophe-pieces-pages](/reference/modules/apostrophe-pieces-pages/README.md) we choose to provide for browsing our profiles will *automatically support* a `market` query string parameter and filter results accordingly. *The "slug" property of each doc is a user-friendly label based on the title, suitable for use in URLs.*
 * We provide a `finalize` function. `finalize` does the real work of the filter, as described below.
 * We call `self.and`. The `and` filter says, "this cursor has all the criteria I already gave it... *and* this additional MongoDB criteria object must match too." Behind the scenes, it creates an `{ $and: [ ... ] }` MongoDB criteria object. But we don't have to fuss with that. This is the most commonly used filter when building other filters.
 * The parameter to `self.and` is a MongoDB criteria object that uses "dot notation" to check whether the `jobsIds` array has at least two values. Although we don't see it in the field's schema, **a `joinByArray` field named `_jobs` automatically stores the actual `_id`s being joined with in an array property called `jobsIds`**. We can leverage this knowledge to build the filter we want.
@@ -170,7 +170,7 @@ You can change the behavior of all cursors for pieces. Just put your cursor defi
 
 ## Adding features to all cursors for pages
 
-The [apostrophe-pages-cursor](/modules/apostrophe-pages/server-apostrophe-pages-cursor.md) type is used to fetch the current page for display on the site. It is also used to fetch its ancestors and children, and defines filters for those purposes. You can configure the filters that are called by default when fetching the current page via the [`filters` option to `apostrophe-pages`](/modules/apostrophe-pages/README.md#filters).
+The [apostrophe-pages-cursor](/reference/modules/apostrophe-pages/server-apostrophe-pages-cursor.md) type is used to fetch the current page for display on the site. It is also used to fetch its ancestors and children, and defines filters for those purposes. You can configure the filters that are called by default when fetching the current page via the [`filters` option to `apostrophe-pages`](/reference/modules/apostrophe-pages/README.md#filters).
 
 But what if we want to add new filters to this type?
 

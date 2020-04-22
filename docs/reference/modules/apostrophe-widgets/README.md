@@ -1,9 +1,9 @@
 # apostrophe-widgets
 ## Inherits from: [apostrophe-module](../apostrophe-module/README.md)
 The base class for all modules that implement a widget, such as
-[apostrophe-rich-text-widgets](/modules/apostrophe-rich-text-widgets/),
-[apostrophe-pieces-widgets](/modules/apostrophe-pieces-widgets/) and
-[apostrophe-video-widgets](/modules/apostrophe-video-widgets/).
+[apostrophe-rich-text-widgets](/reference/modules/apostrophe-rich-text-widgets/),
+[apostrophe-pieces-widgets](/reference/modules/apostrophe-pieces-widgets/) and
+[apostrophe-video-widgets](/reference/modules/apostrophe-video-widgets/).
 
 All widgets have a [schema](/advanced-topics/schema-guide.md).
 Many project-specific modules that extend this module consist entirely of an
@@ -104,7 +104,7 @@ the appropriate div, the `data` for the widget, and the `options` that
 were passed to the widget.
 
 For example, here is the `public/js/always.js` file for the
-[apostrophe-video-widgets](/modules/apostrophe-video-widgets) module:
+[apostrophe-video-widgets](/reference/modules/apostrophe-video-widgets) module:
 
 ```javascript
 apos.define('apostrophe-video-widgets', {
