@@ -92,7 +92,7 @@ In order for any new page template to load, you must add it to `app.js`. When yo
 
 2. Add the registration for your new page template to `app.js`:
 
-    ```javascript
+  ```javascript
     // app.js
     // This configures our default page template
     'apostrophe-pages': {
@@ -125,7 +125,7 @@ Now that you created the template, use it to create a new page.
 
 4. Enter a Title, a friendly URL, and select your new template under Type.
 
-![Creating a new page](/images/assets/create_new_page2.png)
+![Creating a new page](../../../images/assets/create_new_page2.png)
 
 
 Nice work! You created a new page template, and now you can create as many pages as you like from that template. Next we'll talk about using Widgets, Singletons, and Areas to add content to your page.
