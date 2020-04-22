@@ -1,12 +1,12 @@
 # Nunjucks helper functions: calling JavaScript functions from templates
 
-In the ["Building Navigation" tutorial](/tutorials/core-concepts/pages-and-navigation/connecting-pages.md) you called `apos.pages.isAncestorOf` from your template code.
+In the ["Building Navigation" tutorial](/core-concepts/pages-and-navigation/connecting-pages.md) you called `apos.pages.isAncestorOf` from your template code.
 
 `isAncestorOf` is a "helper function," made available to templates by the `apostrophe-pages` module.
 
 That's great, but what if you need to add your own helper function?
 
-Let's take another look at the [link-widgets module you just created in the previous tutorial](/tutorials/core-concepts/editable-content-on-pages/custom-widgets.md).
+Let's take another look at the [link-widgets module you just created in the previous tutorial](/core-concepts/editable-content-on-pages/custom-widgets.md).
 
 Let's say you want to make the label optional, and use the URL as a label if no label is provided:
 

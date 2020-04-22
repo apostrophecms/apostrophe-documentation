@@ -148,7 +148,7 @@ In 0.5, making a new type of widget was a pain. So we created `apostrophe-schema
 
 In 2.x, [every widget is powered by a module that extends `apostrophe-widgets`](/modules/apostrophe-widgets/README.md). You can do that too. And all widgets support schemas "out of the box."
 
-See the [custom widget tutorial](/tutorials/core-concepts/editable-content-on-pages/custom-widgets.md) for an example.
+See the [custom widget tutorial](/core-concepts/editable-content-on-pages/custom-widgets.md) for an example.
 
 ### The `slideshow` widget is now the `apostrophe-images` widget
 
@@ -209,7 +209,7 @@ The `apostrophe-snippets` module has been renamed and broken up into three piece
 
 3. `apostrophe-pieces-widgets` implements a widget to display a type of piece anywhere on the site.
 
-See the [resuable content with pieces](/tutorials/core-concepts/reusable-content-pieces/reusable-content-with-pieces.md) tutorial for more information.
+See the [resuable content with pieces](/core-concepts/reusable-content-pieces/reusable-content-with-pieces.md) tutorial for more information.
 
 ### `apostrophe-fancy-page` is now `apostrophe-custom-pages`
 

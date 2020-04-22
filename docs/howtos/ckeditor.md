@@ -2,7 +2,7 @@
 
 Apostrophe uses [CKEditor](http://docs.ckeditor.com/) for rich text editing. It's a great rich text editor that seriously addresses the many cross-browser compatibility issues that come up due to the fact that each browser has its own unique implementation of the underlying rich text edit functionality.
 
-You've [seen how to add a rich text widget to a page and configure styles and toolbar controls](/tutorials/core-concepts/pages-and-navigation/widgets-singletons-and-areas.md), but sometimes you'll want to go beyond that and configure CKEditor in ways we didn't anticipate. Here's how you can do that.
+You've [seen how to add a rich text widget to a page and configure styles and toolbar controls](/core-concepts/pages-and-navigation/widgets-singletons-and-areas.md), but sometimes you'll want to go beyond that and configure CKEditor in ways we didn't anticipate. Here's how you can do that.
 
 ## Global CKeditor configuration
 

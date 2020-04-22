@@ -3,13 +3,13 @@
 Apostrophe uses cursors to fetch docs from the database. An [apostrophe-cursor](/modules/apostrophe-docs/server-apostrophe-cursor.md) object helps us conveniently fetch docs from
 the `aposDocs` mongodb collection using chainable "filter" methods, quite similar to those MongoDB developers are used to. Apostrophe's cursors work much like MongoDB or Doctrine cursors, but with many filter methods specific to Apostrophe that add a great deal of convenience, including methods for every field in your schema. And it's possible to add your own filters.
 
-So when do we need to work with cursors? **When we are writing custom queries in our own server-side JavaScript code.** If you are simply adding filters to a pieces page based on your schema fields, or adding filters to the "Manage" view of your pieces, **you do not have to write any custom JavaScript at all.** See [reusable content with pieces](/tutorials/core-concepts/reusable-content-pieces/reusable-content-with-pieces.md) for more information about how to easily configure the `piecesFilters` option, for example.
+So when do we need to work with cursors? **When we are writing custom queries in our own server-side JavaScript code.** If you are simply adding filters to a pieces page based on your schema fields, or adding filters to the "Manage" view of your pieces, **you do not have to write any custom JavaScript at all.** See [reusable content with pieces](/core-concepts/reusable-content-pieces/reusable-content-with-pieces.md) for more information about how to easily configure the `piecesFilters` option, for example.
 
 Still with us? OK, let's talk about programming with cursors.
 
 ## An illustrated example
 
-Let's say we've created a `profiles` module that [extends apostrophe-pieces](/tutorials/core-concepts/reusable-content-pieces/reusable-content-with-pieces.md). Its configuration looks like this:
+Let's say we've created a `profiles` module that [extends apostrophe-pieces](/core-concepts/reusable-content-pieces/reusable-content-with-pieces.md). Its configuration looks like this:
 
 ```javascript
 // lib/modules/profiles/index.js
@@ -124,7 +124,7 @@ addFields: [
 ]
 ```
 
-> See [reusable content with pieces](/tutorials/core-concepts/reusable-content-pieces/reusable-content-with-pieces.md) for a more complete discussion of this particular example join.
+> See [reusable content with pieces](/core-concepts/reusable-content-pieces/reusable-content-with-pieces.md) for a more complete discussion of this particular example join.
 
 We can already write `._jobs('xyz')` to match people that are joined with that particular job `_id`. But let's say we want an easy way to match only people who are joined with **more than one job** - people who are "busy." Here's a custom filter that can do that:
 

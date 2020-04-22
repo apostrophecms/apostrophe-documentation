@@ -10,7 +10,7 @@ that extend `apostrophe-pieces`.
 
 To learn more and see complete examples, see:
 
-[Reusable content with pieces](/tutorials/core-concepts/reusable-content-pieces)
+[Reusable content with pieces](/core-concepts/reusable-content-pieces)
 
 ## Options
 

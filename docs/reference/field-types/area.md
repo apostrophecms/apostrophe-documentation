@@ -2,7 +2,7 @@
 
 The `area` field type defines an editable content area that allows users to add a series of widgets. It is exactly like calling `apos.area` in a page template.
 
-The properties configured in `options` specify the allowed widget types and the configuration for those widgets. You can learn more about widget configuration in templates in [Nunjucks Helper Functions](/tutorials/core-concepts/working-with-templates/nunjucks-helper-functions.md).
+The properties configured in `options` specify the allowed widget types and the configuration for those widgets. You can learn more about widget configuration in templates in [Nunjucks Helper Functions](/core-concepts/working-with-templates/nunjucks-helper-functions.md).
 
 ## Example
 

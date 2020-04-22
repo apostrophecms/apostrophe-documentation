@@ -4,7 +4,7 @@ You've seen a lot of the widgets that come "in the box" with Apostrophe. But you
 
 ## Custom navigation
 
-Here's a common case: you want to build your own navigation menu. [Apostrophe's page tree is awesome](/tutorials/core-concepts/pages-and-navigation/connecting-pages.md) but sometimes you want to "cherrypick" pages from all over the tree, perhaps for a special footer.
+Here's a common case: you want to build your own navigation menu. [Apostrophe's page tree is awesome](/core-concepts/pages-and-navigation/connecting-pages.md) but sometimes you want to "cherrypick" pages from all over the tree, perhaps for a special footer.
 
 You could use a rich text widget and just tell users to add links manually, but they'll just break each time a page is moved around the site. It's also easier for users to mess up the formatting that way. You want something more consistent.
 
@@ -78,7 +78,7 @@ Next you'll need a folder to hold our widget's `widget.html` template, which ren
 
 _"Hey, don't You need to escape the label before you output it as HTML?"_ No, Nunjucks does it automatically. If you need to output content that is already valid, safe markup, you must use the `| safe` filter to output it without escaping.
 
-Now you'll want to add this widget to an area in one of our page templates, like you learned in [widgets, areas, and singletons](/tutorials/core-concepts/pages-and-navigation/widgets-singletons-and-areas.md). Let's add the following to the `main` block of our `lib/modules/apostrophe-pages/views/pages/home.html`:
+Now you'll want to add this widget to an area in one of our page templates, like you learned in [widgets, areas, and singletons](/core-concepts/pages-and-navigation/widgets-singletons-and-areas.md). Let's add the following to the `main` block of our `lib/modules/apostrophe-pages/views/pages/home.html`:
 
 ```django
 {# lib/modules/apostrophe-pages/views/pages/home.html #}
@@ -172,7 +172,7 @@ Actually using the widget in an area is just like using the first one. But this 
 Now our users have a choice between do-it-yourself links that can point anywhere and "page" links that can only point to a page. Both can be useful.
 
 ::: tip
-It is also possible to join with more than one type. And once you check out [pieces](/tutorials/core-concepts/reusable-content-pieces/reusable-content-with-pieces.md), the benefit of doing so will be clear. To do that, set `withType` to an array of type names, which may include `apostrophe-pages`. The user is then able to use a tabbed interface to select items of several types for the same join. These "polymorphic joins" are primarily intended for navigation widgets like this one.
+It is also possible to join with more than one type. And once you check out [pieces](/core-concepts/reusable-content-pieces/reusable-content-with-pieces.md), the benefit of doing so will be clear. To do that, set `withType` to an array of type names, which may include `apostrophe-pages`. The user is then able to use a tabbed interface to select items of several types for the same join. These "polymorphic joins" are primarily intended for navigation widgets like this one.
 :::
 
 ### Passing options to widgets

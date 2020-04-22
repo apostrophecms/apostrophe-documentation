@@ -9,4 +9,4 @@ children:
 
 Site search is an important tool to help your users find the information they need. Apostrophe provides built in powerful site search to maximize your users' experience.
 
-* [Enabling Search](/tutorials/core-concepts/apostrophe-search/search.md)
+* [Enabling Search](/core-concepts/apostrophe-search/search.md)
