@@ -19,7 +19,7 @@ Next, install the `apostrophe-cli` tool, which makes bootstrapping a new project
     # Create a project
     apostrophe create-project test-project
     ```
-3. With the project created, you just need to jump in, install the dependencies, and start the server. You'll also be prompted to create a passowrd. Make sure you don't forget it --- you'll need it in a minute.
+3. With the project created, you just need to jump in, install the dependencies, and start the server. You'll also be prompted to create a passowrd. Make sure you don't forget it &mdash; you'll need it in a minute.
 
     ```bash
     # cd into the new project

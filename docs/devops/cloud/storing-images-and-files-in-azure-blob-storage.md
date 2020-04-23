@@ -1,7 +1,4 @@
----
-title: Storing images and files in Azure Blob Storage
-layout: tutorial
----
+# Storing images and files in Azure Blob Storage
 
 You can store your images and files in Azure Blob Storage if you wish. You don't have to use the local file system.
 

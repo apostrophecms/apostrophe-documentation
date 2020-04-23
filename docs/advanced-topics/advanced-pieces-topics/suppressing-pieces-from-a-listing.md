@@ -1,8 +1,3 @@
----
-title: Suppressing Pieces from a Listing
-layout: tutorial
----
-
 # Suppressing Pieces from a Listing
 
 In Apostrophe, you'll often display a nice single page or paginated list of pieces, using a module that extends `apostrophe-pieces-pages`. That could include official modules such as `apostrophe-blog-pages` as well as custom modules you create. We refer to these special pages as "index pages."

@@ -1,11 +1,6 @@
----
-title: "Single Sign-On with Apostrophe Passport"
-layout: tutorial
----
-
 # Single Sign-On with Apostrophe Passport
 
-Apostrophe uses Passport to provide single sign-on capabilities. The `apostrophe-passport` module is a "universal bridge" compatible with pretty much all Passport strategies that follow best practices, and allows you to implement login via popular services like Google, Twitter, Facebook, Github, and Gitlab, as well as standards like OpenAuth and SAML. To learn more about Passport in general, see the official site for the [Passport strategy module](http://passportjs.org/). 
+Apostrophe uses Passport to provide single sign-on capabilities. The `apostrophe-passport` module is a "universal bridge" compatible with pretty much all Passport strategies that follow best practices, and allows you to implement login via popular services like Google, Twitter, Facebook, Github, and Gitlab, as well as standards like OpenAuth and SAML. To learn more about Passport in general, see the official site for the [Passport strategy module](http://passportjs.org/).
 
 ## Using Apostrophe Passport
 

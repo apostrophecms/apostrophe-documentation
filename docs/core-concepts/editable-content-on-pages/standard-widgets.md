@@ -1,9 +1,4 @@
----
-title: Standard (Included) Widgets
-layout: tutorial
----
-
-# Apostrophe Widgets
+# Standard (Included) Widgets
 
 Apostrophe comes with a number of widgets built in to help you build out content for your site. Below is a quick reference for some of the most commonly used widgets.
 

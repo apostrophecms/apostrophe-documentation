@@ -1,8 +1,3 @@
----
-title: Apostrophe Nunjucks filters
-layout: reference
----
-
 # Apostrophe Nunjucks Filters
 
 Nunjucks is a designer friendly templating language that Apostrophe uses to provide additional power and responsiveness to HTML templates. You can use a combination of Nunjucks Core Filters, and Apostrophe's custom filters in your projects.
