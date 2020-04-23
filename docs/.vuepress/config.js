@@ -6,6 +6,7 @@ module.exports = {
     nextLinks: true,
     prevLinks: true,
     sidebar,
+    smoothScroll: true,
     logo: '/images/a2-lockup.png',
     nav: [
       {
