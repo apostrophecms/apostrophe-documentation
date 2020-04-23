@@ -420,7 +420,10 @@ Groups by the property named by 'key' on each of the values.
 If the property referred to by the string 'key' is found to be
 an array property of the first object, apos.utils.groupByArray is called.
 
-Usage: {{ apos.utils.groupBy(people, 'age') }} or {{ apos.utils.groupBy(items, 'tags') }}
+::: v-pre
+Usage: `{{ apos.utils.groupBy(people, 'age') }}` or `{{ apos.utils.groupBy(items, 'tags') }}`
+:::
+
 ### object(*key, value, ...*)
 Given a series of alternating keys and values, this
 function returns an object with those values for
