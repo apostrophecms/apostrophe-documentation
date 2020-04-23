@@ -16,7 +16,7 @@ Here is a **complete example**. Here we will use promise events to add the curre
 
 If you try out this code yourself you must [register your own openweathermap api key](https://openweathermap.org/) and substitute it below.
 
-```text
+```
 # Install the request-promise module for fetching data from APIs
 npm install request-promise
 ```

@@ -4,7 +4,7 @@ A `range` field provides [range input](https://developer.mozilla.org/en-US/docs/
 
 ## Example
 
-```text
+```javascript
 {
   type: 'range',
   name: 'fontSize',
@@ -17,7 +17,7 @@ A `range` field provides [range input](https://developer.mozilla.org/en-US/docs/
 
 ## Settings
 
-|  Property | Type   | Default | Description | 
+|  Property | Type   | Default | Description |
 |---|---|---|---|
 |name | `string` | | Sets the name of the field in the database |
 |label | `string` | | Sets the label of the field that the user sees |

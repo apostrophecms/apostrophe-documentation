@@ -121,7 +121,7 @@ When making comprehensive visual changes including css, javascript, web-fonts, a
 
 Your `my-theme` module might look something like the following:
 
-```text
+```
 my-theme
   - public/
     - css/

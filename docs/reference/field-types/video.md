@@ -10,7 +10,7 @@ The value of the property on the object will have `url`, `title` and `thumbnail`
 
 ## Example
 
-```text
+```javascript
 {
   type: 'video',
   name: 'video',

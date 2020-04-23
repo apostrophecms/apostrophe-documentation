@@ -100,7 +100,7 @@ This holds true for implicit subclasses, such as a `lib/modules/apostrophe-piece
 
 So Apostrophe will send them to the browser in this order, if they exist:
 
-```text
+```
 # Original npm module
 node_modules/apostrophe/lib/modules/apostrophe-pieces/public/js/user.js
 # Project-level implicit subclass of all pieces

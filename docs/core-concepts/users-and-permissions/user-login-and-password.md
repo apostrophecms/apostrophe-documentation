@@ -94,13 +94,13 @@ Fortunately, Apostrophe has a built-in workaround to disable raw HTML widgets on
 
 If you are currently looking at this URL (just an example):
 
-```url
+```
 https://www.example.com/
 ```
 
 And the editing interface does not respond, try this URL:
 
-```url
+```
 https://www.example.com/?safemode=1
 ```
 

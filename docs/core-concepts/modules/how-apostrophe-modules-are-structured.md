@@ -103,7 +103,7 @@ Speaking of mirroring, something similar happens on the server side in `cursor.j
 
 `apostrophe-doc-type-manager` uses `self.defineRelatedType` to indicate that there’s another moog type related to that module:
 
-```text
+```javascript
   // Define the related type "cursor", so that all of our subclasses
   // automatically have a cursor type too, and it is autoloaded from
   // ./lib/cursor.js if that exists, otherwise given an empty
