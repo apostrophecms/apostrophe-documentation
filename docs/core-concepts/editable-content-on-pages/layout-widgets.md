@@ -1,9 +1,4 @@
----
-title: Layout (nested) widgets
-layout: tutorial
----
-
-# Layout / Nested widgets
+# Layout/Nested widgets
 
 You’ve built a couple of custom widgets, you’ve got a powerful `area` running down the main column of your template. Awesome! Now you want start pairing widgets up, creating complex layouts of widgets. `singletons` let you enforce particular widgets in particular pieces of layout, but you want the editor to decide where it's appropriate to create these complex arrangements and be able to mix them with simpler widgets.
 

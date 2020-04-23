@@ -1,10 +1,3 @@
----
-title: Glossary
-menu: Documentation
-children: []
-layout: reference
----
-
 # Glossary
 
 First, check out the [tutorials](/README.md) if you haven't already. They explain all of these concepts in greater depth.

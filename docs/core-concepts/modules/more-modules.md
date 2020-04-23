@@ -1,13 +1,12 @@
 ---
 title: More npm modules for ApostropheCMS
-layout: reference
 ---
 
 # More Modules:
 
-_This page is about optional modules for Apostrophe. For the standard modules, see the_ [_reference_](/reference/modules/README.md)_._
+_This page is about optional modules for Apostrophe. For the standard modules, see the [reference](/reference/modules/README.md)._
 
-## More official npm modules for ApostropheCMS
+## More official modules for ApostropheCMS
 
 [**Check out our official list of optional modules from the Apostrophe team.**](https://apostrophecms.com/extend) The modules available cover everything: workflow, internationalization, localization, single sign-on \(SSO\), Twitter feeds, redirects, Redis caching, headless APIs for your native, React, Vue and Angular applications, sitemaps and a great deal more.
 

@@ -1,8 +1,3 @@
----
-title: 'The global doc: sharing content across pages'
-layout: tutorial
----
-
 # The global doc: sharing content across pages
 
 In the [previous global settings section](settings.md) you explored different ways of using global content. But what if your users need more control over their footer?

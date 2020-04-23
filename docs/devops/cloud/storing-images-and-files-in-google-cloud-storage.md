@@ -1,7 +1,4 @@
----
-title: Storing images and files in Google Cloud Storage (GCS)
-layout: tutorial
----
+# Storing images and files in Google Cloud Storage (GCS)
 
 You can store your images and files in Google Cloud Storage (GCS) if you wish. You don't have to use the local file system.
 

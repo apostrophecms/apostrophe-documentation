@@ -1,8 +1,3 @@
----
-title: "Adding Next and Previous Links"
-layout: tutorial
----
-
 # Adding Next and Previous Links
 
 Sometimes it's desirable to provide links to the "next" and "previous" piece on the "show page" for that piece (the `show.html` template).
