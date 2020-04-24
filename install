@@ -1,5 +1,5 @@
 #!/bin/bash
 
 npm install && (cd _api-reference-generator && npm install) &&
-mkdir -p _api-reference-generator/data
+mkdir -p _api-reference-generator/data && cd ..
 
