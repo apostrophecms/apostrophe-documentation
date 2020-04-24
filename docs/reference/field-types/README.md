@@ -14,10 +14,10 @@ Below you can find each of the schema field types available in Apostrophe with l
 |[email](/reference/field-types/email.md) | accepts a valid email address  |
 |[float](/reference/field-types/float.md) | accepts input of a decimal number with stepped parameters |
 |[integer](/reference/field-types/integer.md) | accepts input of an integer |
-|[joinByArray](/reference/field-types/joinByArray.md) | expresses a one-to-many relationship between this document and one or more pieces or pages |
-|[joinByArrayReverse](/reference/field-types/joinByArrayReverse.md) | allows the user to see the "other side" of a joinByArray relationship |
-|[joinByOne](/reference/field-types/joinByOne.md) | expresses a one-to-one relationship between this document and another type of document |
-|[joinByOneReverse](/reference/field-types/joinByOneReverse.md) | allows the user to see the "other side" of a joinByOne relationship |
+|[joinByArray](/reference/field-types/joinbyarray.md) | expresses a one-to-many relationship between this document and one or more pieces or pages |
+|[joinByArrayReverse](/reference/field-types/joinbyarrayreverse.md) | allows the user to see the "other side" of a joinByArray relationship |
+|[joinByOne](/reference/field-types/joinbyone.md) | expresses a one-to-one relationship between this document and another type of document |
+|[joinByOneReverse](/reference/field-types/joinbyonereverse.md) | allows the user to see the "other side" of a joinByOne relationship |
 |[object](/reference/field-types/object.md) | A field which can store a single object with its own schema |
 |[password](/reference/field-types/password.md) | hidden text entry |
 |[range](/reference/field-types/range.md) | "provides an input for selecting a range of numbers" |

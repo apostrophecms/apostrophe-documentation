@@ -4,7 +4,7 @@ An `array` field has its own schema, and allows the user to create one or more o
 
 This is useful for collections that clearly belong to a parent object, such as multiple email addresses for a business or tabs in a widget, and do not have any other relationships to other objects.
 
-If the objects in the array are also related to other doc types, such as pieces or pages, you should be using [joins](joinByOne.md) instead.
+If the objects in the array are also related to other doc types, such as pieces or pages, you should be using [joins](joinbyone.md) instead.
 
 ## Example 1
 

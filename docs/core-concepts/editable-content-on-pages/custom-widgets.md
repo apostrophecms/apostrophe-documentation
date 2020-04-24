@@ -285,7 +285,7 @@ The new bit is the `filters` option. By specifying a `projection` filter, you ca
 
 `_url`_,_ `slug`_... what's the difference?_ For most sites, nothing. But for sites with a `prefix` option, the `_url` property might have a folder name prepended to it. And there are other ways to transform `_url` to suit your needs. So always remember to use it instead of `slug` when you output page URLs. And use `_url` in your projection to fetch all the properties Apostrophe knows might be involved in calculating the `_url` property of the page.
 
-**Watch out for reverse joins! If you have** [**reverse joins**](/reference/field-types/joinbyonereverse.md) **and your widget doesn't need them,** the `projection` filter can't help you avoid loading them, because they are loaded from "the other side" \(the ids are stored with the documents linking _to_ your documents\). Instead, use the `joins` filter, and specify an array of join field names your widget actually needs — if any.
+**Watch out for reverse joins! If you have** [**reverse joins**](/reference/field-types/joinByOneReverse.html) **and your widget doesn't need them,** the `projection` filter can't help you avoid loading them, because they are loaded from "the other side" \(the ids are stored with the documents linking _to_ your documents\). Instead, use the `joins` filter, and specify an array of join field names your widget actually needs — if any.
 
 _What else can I do with_ `filters`_?_ That's an intermediate topic, but you can do anything that [cursor filter methods](/advanced-topics/database/cursors.md) can do.
 
