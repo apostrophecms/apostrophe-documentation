@@ -8,9 +8,9 @@ Practical examples of these concepts are illustrated in the "Open Musuem" projec
 
 [The Core Concepts tutorials](/core-concepts) go through each piece of Apostrophe that you need to understand to build a webite.  They will help you get more comfortable with Apostrophe and node.js.
 
-## Advanced Development
+## Advanced Topics
 
-[Advanced Development](/advanced-developments) dives deepers into the features of Apostrophe and the concepts behind it to provide the knowledge and tools you need to build dynamic, responsive sites.
+[Advanced Topics](/advanced-topics) dives deepers into the features of Apostrophe and the concepts behind it to provide the knowledge and tools you need to build dynamic, responsive sites.
 
 ## DevOps
 
@@ -23,4 +23,4 @@ Practical examples of these concepts are illustrated in the "Open Musuem" projec
 
 ## What's the right level for me?
 
-If you're brand new to Apostrophe, go to [Setting Up Your Environment](/getting-started/setting-up-your-environment.md) first to learn how to set up Apostrophe locally for development and testing, then how to create a project. Once you have Apostrophe set up, [Core Concepts](/core-concepts) will help you get a good grasp on Apostrophe's tools. After that, you can dig deeper with [Advanced Development](/advanced-development) or get ready for production with [DevOps](/devops).
+If you're brand new to Apostrophe, go to [Setting Up Your Environment](/getting-started/setting-up-your-environment.md) first to learn how to set up Apostrophe locally for development and testing, then how to create a project. Once you have Apostrophe set up, [Core Concepts](/core-concepts) will help you get a good grasp on Apostrophe's tools. After that, you can dig deeper with [Advanced Topics](/advanced-topics) or get ready for production with [DevOps](/devops).

@@ -44,7 +44,7 @@ jQuery's AJAX capabilities to prepend that prefix
 to any non-absolute URL. This assists in avoiding the
 need for application code to be specifically prefix-aware
 and allows the prefix to be changed whenever needed.
-See also [apostrophe-express](/reference/modules/apostrophe-express)
+See also [apostrophe-express](/reference/modules/apostrophe-express/)
 ### enableStyledFileButtons()
 Click the original file upload button if the styled
 proxy for it is clicked. Allows indirect styling of

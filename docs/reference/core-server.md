@@ -179,9 +179,9 @@ The `listen` method is invoked automatically when Apostrophe is ready to listen 
 
 ### `on(eventName, fn)`
 
-Registers an event handler to be invoked when the named event is emitted \(see [emit](core-server.md#code-emit)\). The event handler function will receive any additional arguments passed to `emit`. **In most situations this should be regarded as a legacy feature,** see [promise events](events.md).
+Registers an event handler to be invoked when the named event is emitted \(see [emit](core-server.md#code-emit)\). The event handler function will receive any additional arguments passed to `emit`. **In most situations this should be regarded as a legacy feature,** see [promise events](/advanced-topics/promise-events/promise-events.md).
 
 ### `off(eventName, fn)`
 
-Removes the specified event handler from the list of event handlers for the named synchronous event \(see [on](core-server.md#code-on)\). Primarily a legacy feature. See [promise events](events.md).
+Removes the specified event handler from the list of event handlers for the named synchronous event \(see [on](core-server.md#code-on)\). Primarily a legacy feature. See [promise events](/advanced-topics/promise-events/promise-events.md).
 

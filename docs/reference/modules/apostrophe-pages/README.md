@@ -123,7 +123,7 @@ publishMenu: [
 Again, you can override it by setting `req.publishMenu`.
 
 If you are looking for the schema fields common to all pages in the tree,
-check out the [apostrophe-custom-pages](/reference/modules/apostrophe-custom-pages)
+check out the [apostrophe-custom-pages](/reference/modules/apostrophe-custom-pages/)
 module, which all page types extend, including "ordinary" pages.
 
 ### `park`

@@ -90,7 +90,7 @@ in the browser
 Adds the `._url` property to all of the provided pieces,
 which are assumed to be of the appropriate type for this module.
 Aliased as the `addUrls` method of [apostrophe-pieces](/reference/modules/apostrophe-pieces), which
-is invoked by the `addUrls` filter of [apostrophe-cursor](/reference/modules/apostrophe-docs/server-apostrophe-cursor).
+is invoked by the `addUrls` filter of [apostrophe-cursor](/reference/modules/apostrophe-docs/server-apostrophe-cursor.md).
 ### findForAddUrlsToPieces(*req*)
 Returns a cursor suitable for finding pieces-pages for the
 purposes of assigning URLs to pieces based on the best match.

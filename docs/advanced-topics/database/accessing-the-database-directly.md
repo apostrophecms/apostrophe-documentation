@@ -23,7 +23,7 @@ For more information, [see the mongodb-native module documentation](http://mongo
 
 ## Raw access to Apostrophe's docs
 
-Most of the time, you should [use Apostrophe's model layer](/advanced-topics/06-database/model-layer.md) to access Apostrophe's content. That gives you the benefit of permissions, sensible default sorting orders, widget loaders, joins... so, so many good things.
+Most of the time, you should [use Apostrophe's model layer](/advanced-topics/database/model-layer.md) to access Apostrophe's content. That gives you the benefit of permissions, sensible default sorting orders, widget loaders, joins... so, so many good things.
 
 But once in a while, that's *exactly what you don't want.*
 
