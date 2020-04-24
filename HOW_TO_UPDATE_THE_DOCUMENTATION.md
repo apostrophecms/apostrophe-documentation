@@ -4,9 +4,9 @@
 This project contains [the documentation site](https://docs.apostrophecms.org)
 for [ApostropheCMS](https://apostrophecms.com).
 
-You don't need to read this page just to read the documentation! [Read the
-actual documentation here.](https://docs.apostrophecms.org/apostrophe) This page
-is about *contributing* to the documentation.
+You don't need to read this page to read the documentation! [Read the
+actual documentation here.](https://docs.apostrophecms.org) This page
+is about *contributing to* the documentation.
 
 ## Building the docs
 
@@ -20,7 +20,8 @@ $ cd apostrophe-documentation
 ```
 
 Next, install the dependencies for the main Vuepress documentation as well as
-for the module documentation generator (see below).
+for the module documentation generator (see below). The `install` script file
+will do both with single command.
 
 ```
 ./install
@@ -53,10 +54,18 @@ We make changes to other pages by hand and commit them to master.
 
 **If you add a new page,** you will need to edit `docs/.vuepress/config.js` in the root of the project. Otherwise it will not appear in the sidebar navigation.
 
-### 4. Deploying
+### 4. Submit for review
 
-@TODO: TBD - Not gitbook, though.
-After generation or manual edits to the documentation, simply commit the changes to `apostrophe-documentation#master` and check http://docs.apostrophecms.org for the changes. Give Gitbook a minute or so to rebuild the site.
+First, make sure you've run the documentations locally (`npm run dev`) and
+confirmed that your links work properly. Submit your changes as a pull request
+on the [apostrophe-documentation](https://github.com/apostrophecms/apostrophe-documentation/)
+repository. Please include as much context for the change as is reasonable in
+the PR description.
 
-*Note on internal doc links* When creating links in the body of a documentation page that point to another page of documentation, make sure the link is relative and pointing to the `.md` extension. After committing, check the gitbook build to make sure it is correctly linking to the gitbook page and not a file in the `apostrophe-documentation` github repo
+### Note on internal doc links
 
+When creating links in the body of a documentation page that point to another
+page of documentation, either make sure the link is relative and pointing to the
+`.md` extension OR use the file path starting starting after the `docs`
+directory. So you would link to `docs/devops/email.md` with
+`[link text](/devops/email.md)`.
