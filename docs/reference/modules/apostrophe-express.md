@@ -232,7 +232,7 @@ Install all standard middleware:
 * Extended body parser (`req.body` supports nested objects)
 * JSON body parser (useful with `$.jsonCall`)
 * Flash messages (see [connect-flash](https://github.com/jaredhanson/connect-flash))
-* Internationalization (see [apostrophe-i18n](../apostrophe-i18n/index.html))
+* Internationalization (see [apostrophe-i18n](apostrophe-i18n.md))
 * `req.absoluteUrl` always available (also see [baseUrl](#baseUrl))
 
 ### useModuleMiddleware(*when*)

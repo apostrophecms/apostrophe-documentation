@@ -28,8 +28,6 @@ You may also want:
 
 For CentOS 7 or Red Hat Enterprise 7 Linux, these commands will get you there:
 
-> You can skip most of these steps and set up a Linux server with Stagecoach, ready to deploy, with hardly any effort if you use our [Linode stackscript](https://www.linode.com/stackscripts/view/239217-punkave-Apostrophe+CMS). For more information check out our [Linode HOWTO](/devops/deployment/linode.md).
-
 ```bash
 # Grab some command line basics
 yum install wget rsync perl git nano

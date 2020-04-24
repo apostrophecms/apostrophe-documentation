@@ -4,7 +4,7 @@
 
 Times are stored in 24 hour "HH:MM:SS" format.
 
-The default "local" time format, displayed to the user when editing, is American-style 12 hour time. You may change this by configuring the [`apostrophe-ui`](/reference/modules/apostrophe-ui/README.md) module and setting the `userTimeFormat` option to a different [moment](https://npmjs.org/packages/moment) format string.
+The default "local" time format, displayed to the user when editing, is American-style 12 hour time. You may change this by configuring the [`apostrophe-ui`](/reference/modules/apostrophe-ui/README.md) module and setting the `userTimeFormat` option to a different [moment](https://npmjs.org/package/moment) format string.
 
 ::: warning NOTE
 While "moment" supports many time formats, in Apostrophe you must use a standard 24-hour or 12-hour time separated by colons \(`:`\) for the field to be understood.

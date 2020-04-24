@@ -216,7 +216,7 @@ Anything attached to the `req.data` object becomes visible as the `data` object 
 
 ## Promise Events
 
-On the server side, Apostrophe emits [promise events](events.md) at various points in the life cycle of a document or page, such as:
+On the server side, Apostrophe emits [promise events](/advanced-topics/promise-events/promise-events.md) at various points in the life cycle of a document or page, such as:
 
 * Inserting a document
 * Updating a document

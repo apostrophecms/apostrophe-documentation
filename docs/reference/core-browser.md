@@ -109,7 +109,7 @@ Removes the specified event handler from the list of event handlers for the name
 
 ### `pageReady($el)`
 
-The [apostrophe-templates](/reference/modules/apostrophe-templates/README.md) module will push a call to this method automatically, via the `pageReadyWhenCalm` method, when loading a new page or refreshing `data-apos-refreshable`. This method emits the `ready` and `enhance` events.
+The [apostrophe-templates](/reference/modules/apostrophe-templates.md) module will push a call to this method automatically, via the `pageReadyWhenCalm` method, when loading a new page or refreshing `data-apos-refreshable`. This method emits the `ready` and `enhance` events.
 
 ### `pageReadyWhenCalm($el)`
 

@@ -56,7 +56,7 @@ The self pattern does impose a small speed penalty when objects are constructed.
 
 ### More information about modules
 
-For more information, see [how Apostrophe modules are structured](/advanced-topics/how-apostrophe-modules-are-structured.md).
+For more information, see [how Apostrophe modules are structured](/core-concepts/modules/how-apostrophe-modules-are-structured.md).
 
 ## Project level: overriding and extending Apostrophe in your project
 
@@ -119,7 +119,7 @@ This allows us to easily write browser-side code that extends the styles and/or 
 
 ## How Apostrophe handles web requests
 
-Apostrophe responds to web requests via a combination of [Express middleware](http://expressjs.com/en/guide/using-middleware.html), custom Express routes and a "wildcard" route that maps incoming requests to pages in the CMS. For more information, see [how Apostrophe handles requests](how-apostrophe-handles-requests.md).
+Apostrophe responds to web requests via a combination of [Express middleware](http://expressjs.com/en/guide/using-middleware.html), custom Express routes and a "wildcard" route that maps incoming requests to pages in the CMS. For more information, see [how Apostrophe handles requests](/advanced-topics/how-apostrophe-handles-requests.md).
 
 ### Separating async logic from templates
 

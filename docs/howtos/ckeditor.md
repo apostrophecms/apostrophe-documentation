@@ -28,7 +28,7 @@ apos.define('apostrophe-areas', {
 
 **What's going on in this code?**
 
-* By placing the file in `lib/modules/apostrophe-areas/public/js/user.js`, we assure that it is pushed to the browser automatically. That module already pushes `user` as a script, and will push our project-level version too, providing a convenient place to extend a [moog type](other/glossary.md#moog-type).
+* By placing the file in `lib/modules/apostrophe-areas/public/js/user.js`, we assure that it is pushed to the browser automatically. That module already pushes `user` as a script, and will push our project-level version too, providing a convenient place to extend a [moog type](/reference/glossary.md#moog-type).
 * Calling `apos.define('apostrophe-areas', { ... })` adds a new definition for the browser-side object that manages editable areas — basically, the browser's version of the areas module. When we do this, moog gives us an [implicit subclass](/reference/glossary.md#implicit-subclassing) of the original type, replacing it with our enhanced version.
 * We then use the [super pattern](/reference/glossary.md#super-pattern) to extend the existing `enableCkeditor` method, calling the old version and then adding new functionality.
 * Inside that method, we call `CKEDITOR.plugins.addExternal` to add a [CKEditor plugin](http://ckeditor.com/addons/plugins/all). Any toolbar buttons it makes available can now be used when configuring the `toolbar` option for the [apostrophe-rich-text widget](/reference/modules/apostrophe-rich-text-widgets/README.md).
