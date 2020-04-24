@@ -1,0 +1,31 @@
+#!/bin/bash
+
+TARGET="$1"
+if [ -z "$TARGET" ]; then
+  echo "💁‍♀️ Usage: ./deploy staging"
+  echo "(or as appropriate)"
+  echo
+  exit 1
+fi
+
+read -p "THIS WILL CRUSH THE SITE'S CONTENT ON $TARGET. Are you sure? " -n 1 -r
+echo
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+    exit 1
+fi
+
+if [ $TARGET == "staging" ]
+then
+  ipAddress=34.207.22.194
+elif [ $TARGET == "production" ]
+then
+  echo "🚧 Under construction"
+  exit 1
+else
+  echo "🤷‍♀️ Target unknown"
+  exit 1
+fi
+
+rsync -av --delete --exclude '.git' --exclude '**/node_modules' ./ nodeapps@$ipAddress:/opt/static/apos-docs &&
+echo "Synced up to $TARGET"
