@@ -1,3 +1,5 @@
+const { entries } = require('./gitbook-redirects.json');
+
 export default ({ router }) => {
   router.addRoutes([
     // Redirect the old, extra /apostrophe/ path.
@@ -65,5 +67,5 @@ export default ({ router }) => {
       path: '/howtos/cloud/*',
       redirect: '/devops/cloud/*'
     }
-  ]);
+  ].concat(entries));
 };
