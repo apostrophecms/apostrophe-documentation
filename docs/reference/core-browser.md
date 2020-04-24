@@ -113,7 +113,7 @@ The [apostrophe-templates](/reference/modules/apostrophe-templates.md) module wi
 
 ### `pageReadyWhenCalm($el)`
 
-Invokes `pageReady` after first waiting for jQuery's DOMready event and then waiting for "next tick" via `setImmediate`. This allows time for code in your own JavaScript files to run first and potentially patch or replace core functionality. A call to this method is pushed automatically by the [apostrophe-templates](/reference/modules/apostrophe-templates/README.md) module.
+Invokes `pageReady` after first waiting for jQuery's DOMready event and then waiting for "next tick" via `setImmediate`. This allows time for code in your own JavaScript files to run first and potentially patch or replace core functionality. A call to this method is pushed automatically by the [apostrophe-templates](/reference/modules/apostrophe-templates.md) module.
 
 ### `redefine(typeName, definitionObject)`
 

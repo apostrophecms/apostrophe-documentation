@@ -1,6 +1,6 @@
 # `joinByOneReverse`
 
-A `joinByOneReverse` field allows us to access the other side of a [joinByOne](/reference/field-types/joinByOne.md) relationship. Since this is the "other end" of the relationship, there is no editing interface. It is just a convenience allowing us to "see" the related object from the other point of view.
+A `joinByOneReverse` field allows us to access the other side of a [joinByOne](/reference/field-types/joinbyone.md) relationship. Since this is the "other end" of the relationship, there is no editing interface. It is just a convenience allowing us to "see" the related object from the other point of view.
 
 ::: tip
 For backwards compatibility, you can set the `idField` option instead to match that in the other join, but this is confusing and hard to maintain. Just use `reverseOf`.

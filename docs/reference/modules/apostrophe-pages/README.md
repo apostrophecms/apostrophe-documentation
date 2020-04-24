@@ -207,7 +207,7 @@ and an `_ancestors` property:
 };
 ```
 
-See the [apostrophe-pages-cursor](/reference/modules/apostrophe-pages/server-apostrophe-pages-cursor) type for additional
+See the [apostrophe-pages-cursor](/reference/modules/apostrophe-pages/server-apostrophe-pages-cursor.md) type for additional
 cursor filters and options you might wish to configure, such as adding
 a `depth` option to `children`.
 

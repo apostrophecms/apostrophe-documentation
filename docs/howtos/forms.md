@@ -22,7 +22,7 @@ In your own project-level code, you may have reasons to create forms of your own
 
 ### A note on CSRF protection
 
-Just one thing you'll need to know before you wing it: "plain old form submissions" not executed by jQuery aren't going to work, not right out of the box. That's because Apostrophe adds [Cross Site Request Forgery (CSRF)](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_&#40;CSRF&#41;_Prevention_Cheat_Sheet) protection, as standard middleware. Let's look at how to make that work for your code too.
+Just one thing you'll need to know before you wing it: "plain old form submissions" not executed by jQuery aren't going to work, not right out of the box. That's because Apostrophe adds [Cross Site Request Forgery (CSRF)](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html) protection, as standard middleware. Let's look at how to make that work for your code too.
 
 ### Submitting "plain old forms"
 
