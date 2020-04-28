@@ -10,7 +10,7 @@
     "docs:build": "vuepress build docs --dest dist",
     "build": "npm run docs:build",
     "test": "npx eslint .",
-    "deploy": "npm run build && bash ./deploy $1 && rm -r ./dist"
+    "deploy": "npm run build && bash ./deploy && rm -r ./dist"
   },
   "author": "Apostrophe Technologies, Inc.",
   "license": "MIT",
