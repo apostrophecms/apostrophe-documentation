@@ -1,24 +1,24 @@
 #!/bin/bash
 
-TARGET="$1"
-if [ -z "$TARGET" ]; then
-  echo "💁‍♀️ Usage: ./deploy staging"
+if [ -z "$ENV" ]; then
+  echo "💁‍♀️ Usage: ENV=staging npm run deploy"
   echo "(or as appropriate)"
   echo
+  rm -r ./dist
   exit 1
 fi
 
-read -p "THIS WILL CRUSH THE SITE'S CONTENT ON $TARGET. Are you sure? " -n 1 -r
+read -p "THIS WILL CRUSH THE SITE'S CONTENT ON $ENV. Are you sure? " -n 1 -r
 echo
 if [[ ! $REPLY =~ ^[Yy]$ ]]
 then
     exit 1
 fi
 
-if [ $TARGET == "staging" ]
+if [ $ENV == "staging" ]
 then
   ipAddress=34.207.22.194
-elif [ $TARGET == "production" ]
+elif [ $ENV == "production" ]
 then
   echo "🚧 Under construction"
   exit 1
@@ -28,4 +28,4 @@ else
 fi
 
 rsync -av --delete --exclude '.git' --exclude '**/node_modules' ./ nodeapps@$ipAddress:/opt/static/apos-docs &&
-echo "Synced up to $TARGET"
+echo "Synced up to $ENV"
