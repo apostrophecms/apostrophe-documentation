@@ -207,6 +207,8 @@
       "/reference/"
     ],
     "/advanced-topics": [
+      "/getting-started/",
+      "/core-concepts/",
       {
         "title": "Advanced Topics",
         "path": "/advanced-topics",
@@ -260,13 +262,14 @@
           }
         ]
       },
-      "/getting-started/",
-      "/core-concepts/",
       "/devops/",
       "/howtos/",
       "/reference/"
     ],
     "/devops": [
+      "/getting-started/",
+      "/core-concepts/",
+      "/advanced-topics/",
       {
         "title": "DevOps",
         "path": "/devops",
@@ -286,13 +289,14 @@
           "devops/multicore"
         ]
       },
-      "/getting-started/",
-      "/core-concepts/",
-      "/advanced-topics/",
       "/howtos/",
       "/reference/"
     ],
     "/howtos": [
+      "/getting-started/",
+      "/core-concepts/",
+      "/advanced-topics/",
+      "/devops/",
       {
         "title": "How-Tos",
         "path": "/howtos",
@@ -312,15 +316,16 @@
           "howtos/user-redirect"
         ]
       },
+      "/reference/"
+    ],
+    "/reference": [
       "/getting-started/",
       "/core-concepts/",
       "/advanced-topics/",
       "/devops/",
-      "/reference/"
-    ],
-    "/reference": [
+      "/howtos/",
       {
-        "title": "References",
+        "title": "Reference",
         "path": "/reference",
         "collapsable": false,
         "children": [
@@ -735,12 +740,7 @@
             ]
           }
         ]
-      },
-      "/getting-started/",
-      "/core-concepts/",
-      "/advanced-topics/",
-      "/devops/",
-      "/howtos/"
+      }
     ],
     "/": [
       "getting-started/",
