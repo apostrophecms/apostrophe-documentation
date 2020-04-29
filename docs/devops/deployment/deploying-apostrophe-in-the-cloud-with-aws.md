@@ -44,7 +44,7 @@ Say yes to setting up ssh for your instances.
 
 You will be prompted for a keypair name. This is a name for an ssh public and private key to be used to make secure connections to your servers. We suggest one for each project but you could reuse one.
 
-> You must have the `ssh-keygen` utility installed. It is standard in MacOS and most Linux distributions. For Windows it is [possible to obtain it](https://stackoverflow.com/questions/11771378/ssh-keygen-is-not-recognized-as-an-internal-or-external-command). Or you could generate your keypair in a different way.
+> You must have the `ssh-keygen` utility installed. It is standard in macOS and most Linux distributions. For Windows it is [possible to obtain it](https://stackoverflow.com/questions/11771378/ssh-keygen-is-not-recognized-as-an-internal-or-external-command). Or you could generate your keypair in a different way.
 
 > Do not enter a passphrase unless you want to be required to provide it every time you enter a command.
 
