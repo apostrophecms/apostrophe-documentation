@@ -26,10 +26,11 @@ module.exports = {
 
     const sidebarJsonPath = '../docs/.vuepress/sidebar.json';
     const startingNav = JSON.parse(fs.readFileSync(sidebarJsonPath, 'utf8'));
-    const refIndex = startingNav.sidebar.findIndex(item => {
+    const refIndex = startingNav.sidebar['/reference'].findIndex(item => {
       return item.path && item.path === '/reference';
     });
-    const refSection = startingNav.sidebar[refIndex];
+
+    const refSection = startingNav.sidebar['/reference'][refIndex];
     const moduleList = refSection.children[refSection.children.length - 1].children;
     // Start the module list fresh.
     moduleList.length = 0;

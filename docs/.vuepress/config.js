@@ -13,6 +13,14 @@ module.exports = {
         link: '/'
       },
       {
+        text: 'Getting Started',
+        link: '/getting-started/'
+      },
+      {
+        text: 'Reference',
+        link: '/reference/'
+      },
+      {
         text: 'Community',
         link: 'https://apostrophecms.com/community',
         rel: false
