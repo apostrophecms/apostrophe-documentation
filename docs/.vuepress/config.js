@@ -17,10 +17,6 @@ module.exports = {
         link: '/getting-started/'
       },
       {
-        text: 'HOWTOs',
-        link: '/howtos/'
-      },
-      {
         text: 'Reference',
         link: '/reference/'
       },

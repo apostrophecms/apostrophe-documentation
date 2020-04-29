@@ -1,6 +1,7 @@
 {
   "sidebar": {
     "/getting-started": [
+      "/",
       {
         "title": "Getting Started",
         "path": "/getting-started",
@@ -104,6 +105,7 @@
       "/reference/"
     ],
     "/core-concepts": [
+      "/",
       {
         "title": "Getting Started",
         "path": "/getting-started",
@@ -207,6 +209,7 @@
       "/reference/"
     ],
     "/advanced-topics": [
+      "/",
       "/getting-started/",
       "/core-concepts/",
       {
@@ -267,6 +270,7 @@
       "/reference/"
     ],
     "/devops": [
+      "/",
       "/getting-started/",
       "/core-concepts/",
       "/advanced-topics/",
@@ -293,6 +297,7 @@
       "/reference/"
     ],
     "/howtos": [
+      "/",
       "/getting-started/",
       "/core-concepts/",
       "/advanced-topics/",
@@ -319,6 +324,7 @@
       "/reference/"
     ],
     "/reference": [
+      "/",
       "/getting-started/",
       "/core-concepts/",
       "/advanced-topics/",
@@ -743,6 +749,7 @@
       }
     ],
     "/": [
+      "/",
       "getting-started/",
       "core-concepts/",
       "advanced-topics/",

@@ -1,3 +1,7 @@
+---
+title: 'Docs Home'
+---
+
 # ApostropheCMS Documentation
 
 ![ApostropheCMS as an editor](../images/assets/ezgif.com-video-to-gif.gif)
