@@ -1,6 +1,14 @@
 const { sidebar } = require('./sidebar.json');
 
 module.exports = {
+  plugins: [
+    [
+      '@vuepress/google-analytics',
+      {
+        ga: 'UA-106613728-3'
+      }
+    ]
+  ],
   themeConfig: {
     lastUpdated: 'Last updated',
     nextLinks: true,
