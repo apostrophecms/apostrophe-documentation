@@ -3,18 +3,10 @@
   <div class="c-feedback">
     <h3>{{ titleTxt }}</h3>
     <div v-if="!voteSubmitted" class="feedback-actions">
-      <button
-        class="btn btn-primary"
-        :title="yesTxt"
-        v-on:click="sendFeedback(evtYes)"
-      >
+      <button :title="yesTxt" v-on:click="sendFeedback(evtYes)">
         {{ yesTxt }}
       </button>
-      <button
-        class="btn btn-primary"
-        :title="noTxt"
-        v-on:click="sendFeedback(evtNo)"
-      >
+      <button :title="noTxt" v-on:click="sendFeedback(evtNo)">
         {{ noTxt }}
       </button>
     </div>
@@ -105,6 +97,25 @@ export default {
   to {
     opacity: 1;
   }
+}
+
+button {
+  border-width: 0;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  font-size: 16px;
+  justify-content: center;
+  padding: 20px 50px 20px;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #4D4D4D;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  @include t/ransition(all);  line-height: 0.9;
 }
 
 .feedback-edit-or-issue {
