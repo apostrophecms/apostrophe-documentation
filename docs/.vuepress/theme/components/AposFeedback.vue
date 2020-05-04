@@ -1,27 +1,26 @@
 <template>
   <!-- Based on https://github.com/ipfs/ipfs-docs-v2/blob/master/docs/.vuepress/theme/components/Feedback.vue -->
-  <div class="c-feedback">
+  <div class="feedback">
     <h3>{{ titleTxt }}</h3>
     <div v-if="!voteSubmitted" class="feedback-actions">
-      <button :title="yesTxt" v-on:click="sendFeedback(evtYes)">
-        {{ yesTxt }}
+      <button class="feedback-button" :title="yesTxt"
+        v-on:click="sendFeedback(evtYes)"
+      >
+        <span>{{ yesTxt }}</span>
       </button>
-      <button :title="noTxt" v-on:click="sendFeedback(evtNo)">
-        {{ noTxt }}
+      <button class="feedback-button ":title="noTxt"
+        v-on:click="sendFeedback(evtNo)"
+      >
+        <span>{{ noTxt }}</span>
       </button>
     </div>
     <div v-if="voteSubmitted" class="feedback-result">
       <p>{{ thanksTxt }}</p>
     </div>
-    <div v-if="editOrIssueLinks" class="feedback-edit-or-issue">
-      <EditOrIssue />
-    </div>
   </div>
 </template>
 
 <script>
-import EditOrIssue from './EditOrIssue.vue'
-
 export default {
   name: 'AposFeedback',
   data: function() {
@@ -59,15 +58,15 @@ export default {
     },
     thanksTxt: {
       type: String,
-      default: 'Thank you for the feedback.'
+      default: 'Thank you for your feedback.'
     },
     evtYes: {
       type: String,
-      default: 'yes'
+      default: 'helpful'
     },
     evtNo: {
       type: String,
-      default: 'no'
+      default: 'unhelpful'
     },
     yesTxt: {
       type: String,
@@ -76,14 +75,7 @@ export default {
     noTxt: {
       type: String,
       default: 'No'
-    },
-    editOrIssueLinks: {
-      type: Boolean,
-      default: true
     }
-  },
-  components: {
-    EditOrIssue
   }
 }
 </script>
@@ -99,30 +91,7 @@ export default {
   }
 }
 
-button {
-  border-width: 0;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  font-size: 16px;
-  justify-content: center;
-  padding: 20px 50px 20px;
-  border-radius: 5px;
-  color: #fff;
-  background-color: #4D4D4D;
-  text-align: center;
-  cursor: pointer;
-  text-decoration: none;
-  @include t/ransition(all);  line-height: 0.9;
-}
-
-.feedback-edit-or-issue {
-  padding: 1em 0;
-}
-
-.c-feedback {
+.feedback {
   padding: 0rem 2.5rem;
 
   &-result {
@@ -139,21 +108,53 @@ button {
 
 .feedback-actions {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
 
-  button {
-    flex: 1;
+  .feedback-button:last-child {
+    margin-top: 0.5rem;
+  }
+
+  @media (min-width: $MQMobileNarrow) {
+    display: block;
+
+    .feedback-button:last-child {
+      margin-top: 0;
+    }
   }
 }
 
-@media (min-width: $MQMobile) {
-  .illustration {
-    width: 40%;
-    float: right;
+.feedback-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 50px 20px;
+  border-width: 0;
+  border-radius: 5px;
+  background-color: $textColor;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s;
+
+  > span {
+    display: inline-block;
+    border-style: solid;
+    border-width: 1px 0;
+    border-color: transparent;
   }
 
-  .feedback-actions {
-    display: block;
+  &:hover, &:focus, &.is-hover {
+    background-color: #000;
+
+    span {
+      border-bottom: 1px solid #fff;
+    }
   }
 }
 </style>
