@@ -37,4 +37,9 @@ export default {
   padding-bottom: 2rem;
   display: block;
 }
+
+.page-footer {
+  @extend $wrapper;
+  padding-bottom: 0;
+}
 </style>

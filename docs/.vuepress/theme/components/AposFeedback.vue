@@ -1,5 +1,5 @@
 <template>
-  <!-- Based on https://github.com/ipfs/ipfs-docs-v2/blob/master/docs/.vuepress/theme/components/Feedback.vue -->
+  <!-- Based on https://github.com/ipfs/ipfs-docs-v2/blob/2a019d7c8abe99c21a3150752915ed278a4592ff/docs/.vuepress/theme/components/Feedback.vue -->
   <div class="feedback">
     <h3>{{ titleTxt }}</h3>
     <div v-if="!voteSubmitted" class="feedback-actions">
@@ -14,8 +14,8 @@
         <span>{{ noTxt }}</span>
       </button>
     </div>
-    <div v-if="voteSubmitted" class="feedback-result">
-      <p>{{ thanksTxt }}</p>
+    <div v-if="thanksMessage" class="feedback-result">
+      <p>{{ thanksMessage }}</p>
     </div>
   </div>
 </template>
@@ -26,13 +26,16 @@ export default {
   data: function() {
     return {
       voteSubmitted: false,
-      currentPath: this.$route.path
+      currentPath: this.$route.path,
+      thanksMessage: '',
+      thanksTxt: 'Thank you for your feedback.',
+      issueRequest: 'Please open a Github issue with the link below to let us know what should be improved.'
     }
   },
   methods: {
     sendFeedback: function(evtType) {
       this.voteSubmitted = true;
-      console.log(evtType);
+      this.showThanks(evtType);
 
       if (!window.ga) {
         return;
@@ -43,22 +46,23 @@ export default {
         eventAction: 'click',
         eventLabel: this.currentPath
       });
+    },
+    showThanks: function (evtType) {
+      this.thanksMessage = evtType === 'unhelpful' ?
+        `${this.thanksTxt} ${this.issueRequest}` : this.thanksTxt;
     }
   },
   watch: {
     '$route.path': function(path) {
-      this.voteSubmitted = false
-      this.currentPath = path
+      this.voteSubmitted = false;
+      this.thanksMessage = '';
+      this.currentPath = path;
     }
   },
   props: {
     titleTxt: {
       type: String,
       default: 'Was this information helpful?'
-    },
-    thanksTxt: {
-      type: String,
-      default: 'Thank you for your feedback.'
     },
     evtYes: {
       type: String,
@@ -92,8 +96,6 @@ export default {
 }
 
 .feedback {
-  padding: 0rem 2.5rem;
-
   &-result {
     animation: fadein 0.5s;
     min-height: 38px;

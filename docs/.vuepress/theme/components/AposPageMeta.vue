@@ -29,7 +29,7 @@ export default {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 2rem 2.5rem 1rem;
+  padding: 2rem 0 1rem;
   font-size: 90%;
 }
 
