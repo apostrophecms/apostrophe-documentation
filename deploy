@@ -20,8 +20,7 @@ then
   ipAddress=34.207.22.194
 elif [ $ENV == "production" ]
 then
-  echo "🚧 Under construction"
-  exit 1
+  ipAddress=100.24.96.198
 else
   echo "🤷‍♀️ Target unknown"
   exit 1
