@@ -7,6 +7,11 @@ export default ({ router }) => {
       path: '/apostrophe/*',
       redirect: '/*'
     },
+    // Redirect the deprecated /tutorials subdirectory
+    {
+      path: '/tutorials/*',
+      redirect: '/*'
+    },
     // Redirect the funky old devops path.
     {
       path: '/apostrophe-devops/devops/',
