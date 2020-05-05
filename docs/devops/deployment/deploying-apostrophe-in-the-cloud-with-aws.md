@@ -355,7 +355,7 @@ The environment properties are separate for each environment, so be sure to set 
 
 In this setup, images are delivered efficiently via S3, but other static assets like CSS and JS are delivered via the node application. This is not the fastest way to deliver those static assets. Let's look at how to deliver the assets via S3 as well.
 
-> For some, the best option is to set up a simplified CDN like [Cloudflare](https://www.cloudflare.com/lp/ddos-a/?_bt=157293179478&_bk=cloudflare&_bm=e&_bn=g&gclid=CKeuzI3VxtACFZBMDQodZhAMKg) to act as a "frontend reverse proxy" for your site, caching these static assets while leaving the traffic for pages alone so that logins still work normally. Cloudflare makes this easy, and they even offer a free plan, so we suggest giving it a try.
+> For some, the best option is to set up a simplified CDN like [Cloudflare](https://www.cloudflare.com/lp/ddos-a) to act as a "frontend reverse proxy" for your site, caching these static assets while leaving the traffic for pages alone so that logins still work normally. Cloudflare makes this easy, and they even offer a free plan, so we suggest giving it a try.
 
 ### Pushing assets to S3
 
