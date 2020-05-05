@@ -176,7 +176,7 @@ export default {
   }
 
   &:hover, &:focus, &.is-hover {
-    background-color: #000;
+    background-color: $accentDarkColor;
 
     span {
       border-bottom: 1px solid #fff;
