@@ -200,8 +200,6 @@ Add the `user` property to `req.data` when a user is logged in.
 ### pushAssets()
 Push the login stylesheet.
 ### addAdminBarItems()
-Add the logout admin bar item.
-### addAdminBarItems()
 
 ### afterLogin(*req*, *res*)
 Invoked by passport after an authentication strategy succeeds

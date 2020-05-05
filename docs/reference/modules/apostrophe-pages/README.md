@@ -243,11 +243,20 @@ ask for a way to "un-empty the trash," and of course there isn't one. We don't
 recommend enabling the feature on a permanent basis but it can be useful during
 the early stages of site population.
 
+### `infoProjection`
+
+A MongoDB-style projection object indicating which properties of a page will be returned
+by the `info` web API used to refresh information about a page after an editing operation
+in the reorganize view. This was added for security reasons. You probably will not need
+to expand this unless you are overriding the reorganize view code heavily.
+
 
 ## Methods
 ### pushAssets() *[browser]*
 
 ### getCreateSingletonOptions(*req*) *[browser]*
+
+### createRoutes() *[routes]*
 
 ### find(*req*, *criteria*, *projection*) *[api]*
 Obtain a cursor for finding pages. Adds filters useful for
@@ -619,6 +628,15 @@ Given a page and its parent (if any), returns a schema that
 is filtered appropriately to that page's type, taking into
 account whether the page is new and the parent's allowed
 subpage types
+### requireEditor(*req*, *res*, *next*) *[api]*
+User must have some editing privileges for this type
+### getInfoProjection(*req*) *[api]*
+Used to fetch the projection used for the /modules/apostrophe-pages/info route to avoid disclosing
+excessive information. By default, returns the `infoProjection` option. A good extension point;
+be sure to apply the `super` pattern to get the benefit of extensions in other modules,
+like workflow.
+### setInfoProjection(*req*, *cursor*) *[api]*
+Implements setting the projection for the info route, see getInfoProjection.
 ### modulesReady(*callback*)
 When all modules are ready, invoke `registerGenericPageTypes` to register a manager
 for any page type that doesn't already have one via `apostrophe-custom-pages`,

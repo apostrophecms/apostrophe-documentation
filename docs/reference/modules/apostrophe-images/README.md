@@ -9,7 +9,7 @@ this module provides a simple way to add downloadable PDFs and the like to
 a website, and to manage a library of them for reuse.
 
 Each `apostrophe-image` doc has an `attachment` schema field, implemented
-by the [apostrophe-attachments](/reference/modules/apostrophe-images-widgets) module.
+by the [apostrophe-attachments](/reference/modules/apostrophe-attachments) module.
 
 
 ## Methods
@@ -91,6 +91,8 @@ of a `srcset` HTML attribute.
 
 ### afterList(*req*, *results*, *callback*) *[api]*
 Make the minimum size, if any, accessible to the templates
+### getListProjection(*req*) *[api]*
+
 ## Nunjucks template helpers
 ### first(*within*, *options*)
 This method is available as a template helper: apos.images.first

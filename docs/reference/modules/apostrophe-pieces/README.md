@@ -17,6 +17,15 @@ If set this string, which typically should end with `-`, will be prepended
 to the slugs of all pieces of this type in order to prevent needless
 conflicts with the slugs of other piece types.
 
+### `addToListProjection`
+
+A MongoDB-style projection object indicating which additional properties of a piece will be returned
+by the query that populates the list view in the "Manage Pieces" dialog box. This was added
+for security reasons. Note that if you are simply using addColumns then this should happen automatically
+for you. You would mainly need this option if you are overriding the list view template
+altogether and displaying information in a custom way. Negative projections (exclusions) are
+not supported.
+
 ## More Options
 
 See [reusable content with pieces](/core-concepts/reusable-content-pieces/)
@@ -42,6 +51,13 @@ User must have some editing privileges for this type
 options.filters can contain cursor filters. `options.chooser`, `options.format` and
 `options.manageView` are also implemented. For bc, if `options.filters` does not exist,
 all properties of options are treated as cursor filters.
+### getListProjection(*req*) *[api]*
+Used to fetch the projection used for the /modules/yourmodulename/list route to avoid disclosing
+excessive information. By default, returns the `listProjection` option. A good extension point;
+be sure to apply the `super` pattern to get the benefit of extensions in other modules,
+like workflow.
+### setListProjection(*req*, *cursor*) *[api]*
+Implements setting the projection for the list route, see getListProjection.
 ### insert(*req*, *piece*, *options*, *callback*) *[api]*
 Insert a piece. Also invokes the `beforeInsert`, `beforeSave`, `afterInsert` and
 `afterSave` methods of this module.
