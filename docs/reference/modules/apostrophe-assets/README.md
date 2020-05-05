@@ -393,7 +393,7 @@ The `when` parameter is made available to your page templates, so typically you
 just write this in your base layout template in the head element:
 
 ```markup
-{{ apos.assets.stylesheets(data.when) }}`
+{{ apos.assets.stylesheets(data.when) }}
 ```
 
 See `outerLayout.html` in the templates module.
@@ -411,7 +411,7 @@ templates, so typically you just write this in
 outerLayout.html:
 
 ```markup
-{{ apos.assets.scripts(data.when) }}`
+{{ apos.assets.scripts(data.when) }}
 ```
 
 See `outerLayout.html` in the templates module.

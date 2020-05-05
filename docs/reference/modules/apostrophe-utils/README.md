@@ -423,7 +423,6 @@ an array property of the first object, apos.utils.groupByArray is called.
 ::: v-pre
 Usage: `{{ apos.utils.groupBy(people, 'age') }}` or `{{ apos.utils.groupBy(items, 'tags') }}`
 :::
-
 ### object(*key, value, ...*)
 Given a series of alternating keys and values, this
 function returns an object with those values for

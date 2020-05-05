@@ -462,6 +462,13 @@ doc type is used, the `getUrlFields` method of
 that module is called instead. This method is
 used to implement "projections" for the
 `_url` computed property
+### requireEditorOfSomething(*req*, *res*, *next*) *[api]*
+Useful middleware when we want to reject a user who does not at least
+have editing permissions for at least one doc type, but we don't care what
+doc type it is. This is just for defense in depth, of course you still need
+to be sensible about what you return or permit for individual situations.
+It is a good gate for access to the manage view of pages when editing a join
+with pages, for instance
 ### pushAssets() *[browser]*
 
 ### pushCreateSingleton() *[browser]*
