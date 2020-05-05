@@ -1,7 +1,9 @@
 <template>
   <!-- Based on https://github.com/ipfs/ipfs-docs-v2/blob/2a019d7c8abe99c21a3150752915ed278a4592ff/docs/.vuepress/theme/components/Feedback.vue -->
   <div class="feedback">
-    <h3>{{ titleTxt }}</h3>
+    <h3 class="feedback-heading" v-if="!voteSubmitted">
+      {{ titleTxt }}
+    </h3>
     <div v-if="!voteSubmitted" class="feedback-actions">
       <button class="feedback-button" :title="yesTxt"
         v-on:click="sendFeedback(evtYes)"
@@ -96,6 +98,15 @@ export default {
 }
 
 .feedback {
+  @media (min-width: $MQMobileNarrow) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+
   &-result {
     animation: fadein 0.5s;
     min-height: 38px;
@@ -105,6 +116,19 @@ export default {
     * {
       margin: 0;
     }
+  }
+}
+
+.feedback-heading, .feedback-actions {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.feedback-heading {
+  font-weight: 400;
+
+  @media (min-width: $MQMobileNarrow) {
+    flex-shrink: 0;
   }
 }
 
@@ -132,7 +156,7 @@ export default {
   padding: 20px 50px 20px;
   border-width: 0;
   border-radius: 5px;
-  background-color: $textColor;
+  background-color: $accentColor;
   font-size: 16px;
   font-weight: 700;
   line-height: 0.9;
@@ -158,5 +182,10 @@ export default {
       border-bottom: 1px solid #fff;
     }
   }
+}
+
+.feedback-result {
+  /* Constrain the width to prevent overly long text. */
+  max-width: 32em;
 }
 </style>
