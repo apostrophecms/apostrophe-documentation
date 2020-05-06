@@ -1,6 +1,0 @@
-
-## Methods
-### resetKnownPassword()
-
-### enableResetKnownPassword()
-

@@ -1,0 +1,460 @@
+{
+  "entries": [
+    {
+      "path": "/other/events",
+      "redirect": "/advanced-topics/promise-events.html"
+    },
+    {
+      "path": "/other/more-modules",
+      "redirect": "/core-concepts/modules/more-modules.html"
+    },
+    {
+      "path": "/other/nunjucks-filters",
+      "redirect": "/core-concepts/working-with-templates/nunjucks-filters.html"
+    },
+    {
+      "path": "/technical-overviews/technical-overview",
+      "redirect": "/core-concepts/technical-overview.html"
+    },
+    {
+      "path": "/technical-overviews/how-apostrophe-starts-up",
+      "redirect": "/advanced-topics/how-apostrophe-starts-up.html"
+    },
+    {
+      "path": "/technical-overviews/how-apostrophe-handles-requests",
+      "redirect": "/advanced-topics/how-apostrophe-handles-requests.html"
+    },
+    {
+      "path": "/technical-overviews/how-apostrophe-modules-are-structured",
+      "redirect": "/core-concepts/modules/how-apostrophe-modules-are-structured.html"
+    },
+    {
+      "path": "/core-concepts/reusable-content-pieces/children-joins",
+      "redirect": "/core-concepts/reusable-content-pieces/joins.html"
+    },
+    {
+      "path": "/tutorials/howtos/trim-index",
+      "redirect": "/advanced-topics/advanced-pieces-topics/next-previous-links.html"
+    },
+    {
+      "path": "/tutorials/howtos/hide-index-page",
+      "redirect": "/advanced-topics/advanced-pieces-topics/next-previous-links.html"
+    },
+    {
+      "path": "/tutorials/howtos/what-to-do-when-you-are-locked-out-of-apostrophe",
+      "redirect": "/core-concepts/users-and-permissions/user-login-and-password.html"
+    },
+    {
+      "path": "/tutorials/howtos/apostrophe-i18n-config",
+      "redirect": "/advanced-topics/internationalization-localization/apostrophe-i18n-config.html"
+    },
+    {
+      "path": "/tutorials/howtos/nested-module-folders",
+      "redirect": "/core-concepts/modules/nested-module-folders.html"
+    },
+    {
+      "path": "/tutorials/howtos/storing-images-and-files-in-amazon-s3",
+      "redirect": "/devops/cloud/storing-images-and-files-in-amazon-s3.html"
+    },
+    {
+      "path": "/tutorials/howtos/storing-images-and-files-in-azure-blob-storage",
+      "redirect": "/devops/cloud/storing-images-and-files-in-azure-blob-storage.html"
+    },
+    {
+      "path": "/tutorials/howtos/storing-images-and-files-in-google-cloud-storage",
+      "redirect": "/devops/cloud/storing-images-and-files-in-google-cloud-storage.html"
+    },
+    {
+      "path": "/tutorials/howtos/migration",
+      "redirect": "/devops/migration.html"
+    },
+    {
+      "path": "/tutorials/howtos/linode",
+      "redirect": "/devops/deployment/linode.html"
+    },
+    {
+      "path": "/tutorials/howtos/deploying-apostrophe-in-the-cloud-with-heroku",
+      "redirect": "/devops/deployment/deploying-apostrophe-in-the-cloud-with-heroku.html"
+    },
+    {
+      "path": "/tutorials/howtos/deploying-apostrophe-in-the-cloud-with-aws",
+      "redirect": "/devops/deployment/deploying-apostrophe-in-the-cloud-with-aws.html"
+    },
+    {
+      "path": "/tutorials/howtos/multicore",
+      "redirect": "/devops/multicore.html"
+    },
+    {
+      "path": "/tutorials/howtos/windows",
+      "redirect": "/devops/windows.html"
+    },
+    {
+      "path": "/tutorials/howtos/docker",
+      "redirect": " /devops/docker.html"
+    },
+    {
+      "path": "/tutorials/howtos/replica-set",
+      "redirect": "/advanced-topics/database/replica-set.html"
+    },
+    {
+      "path": "/tutorials/howtos/storing-sessions-in-redis",
+      "redirect": "/devops/storing-sessions-in-redis.html"
+    },
+    {
+      "path": "/tutorials/howtos/next-and-previous-pieces",
+      "redirect": "/core-concepts/reusable-content-pieces/browsing-directory-of-pieces.html"
+    },
+    {
+      "path": "/tutorials/howtos/adding-fields-to-all-pieces",
+      "redirect": "/advanced-topics/advanced-pieces-topics/adding-fields-to-all-pieces.html"
+    },
+    {
+      "path": "/tutorials/howtos/lean-frontend-assets",
+      "redirect": "/core-concepts/front-end-assets/lean-frontend-assets.html"
+    },
+    {
+      "path": "/tutorials/howtos/adding-new-batch-operations",
+      "redirect": "/advanced-topics/advanced-pieces-topics/adding-new-batch-operations.html"
+    },
+    {
+      "path": "/tutorials/howtos/extending-the-pieces-editor-modal",
+      "redirect": "/advanced-topics/advanced-pieces-topics/extending-the-pieces-editor-modal.html"
+    },
+    {
+      "path": "/tutorials/howtos/children-and-joins",
+      "redirect": "/advanced-topics/advanced-pages-topics/children-and-joins.html"
+    },
+    {
+      "path": "/tutorials/howtos/responsive-images",
+      "redirect": "/core-concepts/front-end-assets/pushing-assets.html"
+    },
+    {
+      "path": "/tutorials/howtos/email",
+      "redirect": "/devops/email.html"
+    },
+    {
+      "path": "/tutorials/howtos/thumbnails-and-areas-of-child-pages",
+      "redirect": "/core-concepts/working-with-templates/thumbnails-and-areas-of-child-pages.html"
+    },
+    {
+      "path": "/tutorials/howtos/password-reset",
+      "redirect": "/core-concepts/users-and-permissions/user-login-and-password.html"
+    },
+    {
+      "path": "/tutorials/howtos/search",
+      "redirect": "/core-concepts/apostrophe-search/"
+    },
+    {
+      "path": "/tutorials/howtos/redirecting-after-login",
+      "redirect": "/core-concepts/users-and-permissions/user-login-and-password.html"
+    },
+    {
+      "path": "/tutorials/howtos/notfoundpage",
+      "redirect": "/howtos/how-do-i-create-a-404-not-found-page.html"
+    },
+    {
+      "path": "/tutorials/howtos/model-layer",
+      "redirect": "/advanced-topics/database/model-layer.html"
+    },
+    {
+      "path": "/tutorials/getting-started/page-templates",
+      "redirect": "/core-concepts/pages-and-navigation/page-templates.html"
+    },
+    {
+      "path": "/tutorials/getting-started/editing-page-templates",
+      "redirect": "/core-concepts/pages-and-navigation/page-templates.html"
+    },
+    {
+      "path": "/tutorials/getting-started/adding-editable-content-to-pages",
+      "redirect": "/core-concepts/pages-and-navigation/widgets-singletons-and-areas.html"
+    },
+    {
+      "path": "/tutorials/getting-started/building-navigation",
+      "redirect": "/core-concepts/pages-and-navigation/connecting-pages.html"
+    },
+    {
+      "path": "/tutorials/getting-started/custom-widgets",
+      "redirect": "/core-concepts/editable-content-on-pages/custom-widgets.html"
+    },
+    {
+      "path": "/tutorials/getting-started/global",
+      "redirect": "/core-concepts/global-settings/global.html"
+    },
+    {
+      "path": "/tutorials/getting-started/layout-widgets",
+      "redirect": "/core-concepts/editable-content-on-pages/layout-widgets.html"
+    },
+    {
+      "path": "/tutorials/getting-started/nunjucks-helper-functions",
+      "redirect": "/core-concepts/working-with-templates/nunjucks-helper-functions.html"
+    },
+    {
+      "path": "/tutorials/getting-started/pushing-assets",
+      "redirect": "/core-concepts/front-end-assets/pushing-assets.html"
+    },
+    {
+      "path": "/tutorials/getting-started/reusable-content-with-pieces",
+      "redirect": "/core-concepts/reusable-content-pieces/reusable-content-with-pieces.html"
+    },
+    {
+      "path": "/tutorials/getting-started/schema-guide",
+      "redirect": "/schema-guide/schema-guide.html"
+    },
+    {
+      "path": "/tutorials/getting-started/settings",
+      "redirect": "./core-concepts/global-settings/settings.html"
+    },
+    {
+      "path": "/tutorials/intermediate/README",
+      "redirect": "/advanced-topics/advanced-pieces-topics/"
+    },
+    {
+      "path": "/tutorials/intermediate/permissions",
+      "redirect": "/core-concepts/users-and-permissions/users-and-groups.html"
+    },
+    {
+      "path": "/tutorials/intermediate/custom-schema-fields-for-pages",
+      "redirect": "/advanced-topics/advanced-pages-topics/custom-schema-fields-for-pages.html"
+    },
+    {
+      "path": "/tutorials/intermediate/cursors",
+      "redirect": "/advanced-topics/database/cursors.html"
+    },
+    {
+      "path": "/tutorials/intermediate/forms",
+      "redirect": "/howtos/forms.html"
+    },
+    {
+      "path": "/tutorials/intermediate/command-line-tasks",
+      "redirect": "/advanced-topics/apostrophe-cli/command-line-tasks.html"
+    },
+    {
+      "path": "/tutorials/intermediate/accessing-the-database-directly",
+      "redirect": "/advanced-topics/database/accessing-the-database-directly.html"
+    },
+    {
+      "path": "/tutorials/intermediate/custom-schema-field-types",
+      "redirect": "/advanced-topics/database/custom-schema-field-types.html"
+    },
+    {
+      "path": "/tutorials/intermediate/deployment",
+      "redirect": "/devops/deployment/"
+    },
+    {
+      "path": "/tutorials/howtos",
+      "redirect": "/howtos/"
+    },
+    {
+      "path": "/howtos/trim-index",
+      "redirect": "/advanced-topics/advanced-pieces-topics/next-previous-links.html"
+    },
+    {
+      "path": "/howtos/hide-index-page",
+      "redirect": "/advanced-topics/advanced-pieces-topics/next-previous-links.html"
+    },
+    {
+      "path": "/howtos/what-to-do-when-you-are-locked-out-of-apostrophe",
+      "redirect": "/core-concepts/users-and-permissions/user-login-and-password.html"
+    },
+    {
+      "path": "/howtos/apostrophe-i18n-config",
+      "redirect": "/advanced-topics/internationalization-localization/apostrophe-i18n-config.html"
+    },
+    {
+      "path": "/howtos/nested-module-folders",
+      "redirect": "/core-concepts/modules/nested-module-folders.html"
+    },
+    {
+      "path": "/howtos/storing-images-and-files-in-amazon-s3",
+      "redirect": "/devops/cloud/storing-images-and-files-in-amazon-s3.html"
+    },
+    {
+      "path": "/howtos/storing-images-and-files-in-azure-blob-storage",
+      "redirect": "/devops/cloud/storing-images-and-files-in-azure-blob-storage.html"
+    },
+    {
+      "path": "/howtos/storing-images-and-files-in-google-cloud-storage",
+      "redirect": "/devops/cloud/storing-images-and-files-in-google-cloud-storage.html"
+    },
+    {
+      "path": "/howtos/migration",
+      "redirect": "/devops/migration.html"
+    },
+    {
+      "path": "/howtos/linode",
+      "redirect": "/devops/deployment/linode.html"
+    },
+    {
+      "path": "/howtos/deploying-apostrophe-in-the-cloud-with-heroku",
+      "redirect": "/devops/deployment/deploying-apostrophe-in-the-cloud-with-heroku.html"
+    },
+    {
+      "path": "/howtos/deploying-apostrophe-in-the-cloud-with-aws",
+      "redirect": "/devops/deployment/deploying-apostrophe-in-the-cloud-with-aws.html"
+    },
+    {
+      "path": "/howtos/multicore",
+      "redirect": "/devops/multicore.html"
+    },
+    {
+      "path": "/howtos/windows",
+      "redirect": "/devops/windows.html"
+    },
+    {
+      "path": "/howtos/docker",
+      "redirect": " /devops/docker.html"
+    },
+    {
+      "path": "/howtos/replica-set",
+      "redirect": "/advanced-topics/database/replica-set.html"
+    },
+    {
+      "path": "/howtos/storing-sessions-in-redis",
+      "redirect": "/devops/storing-sessions-in-redis.html"
+    },
+    {
+      "path": "/howtos/next-and-previous-pieces",
+      "redirect": "/core-concepts/reusable-content-pieces/browsing-directory-of-pieces.html"
+    },
+    {
+      "path": "/howtos/adding-fields-to-all-pieces",
+      "redirect": "/advanced-topics/advanced-pieces-topics/adding-fields-to-all-pieces.html"
+    },
+    {
+      "path": "/howtos/lean-frontend-assets",
+      "redirect": "/core-concepts/front-end-assets/lean-frontend-assets.html"
+    },
+    {
+      "path": "/howtos/adding-new-batch-operations",
+      "redirect": "/advanced-topics/advanced-pieces-topics/adding-new-batch-operations.html"
+    },
+    {
+      "path": "/howtos/extending-the-pieces-editor-modal",
+      "redirect": "/advanced-topics/advanced-pieces-topics/extending-the-pieces-editor-modal.html"
+    },
+    {
+      "path": "/howtos/children-and-joins",
+      "redirect": "/advanced-topics/advanced-pages-topics/children-and-joins.html"
+    },
+    {
+      "path": "/howtos/responsive-images",
+      "redirect": "/core-concepts/front-end-assets/pushing-assets.html"
+    },
+    {
+      "path": "/howtos/email",
+      "redirect": "/devops/email.html"
+    },
+    {
+      "path": "/howtos/thumbnails-and-areas-of-child-pages",
+      "redirect": "/core-concepts/working-with-templates/thumbnails-and-areas-of-child-pages.html"
+    },
+    {
+      "path": "/howtos/password-reset",
+      "redirect": "/core-concepts/users-and-permissions/user-login-and-password.html"
+    },
+    {
+      "path": "/howtos/search",
+      "redirect": "/core-concepts/apostrophe-search/"
+    },
+    {
+      "path": "/howtos/redirecting-after-login",
+      "redirect": "/core-concepts/users-and-permissions/user-login-and-password.html"
+    },
+    {
+      "path": "/howtos/notfoundpage",
+      "redirect": "/howtos/how-do-i-create-a-404-not-found-page.html"
+    },
+    {
+      "path": "/howtos/model-layer",
+      "redirect": "/advanced-topics/database/model-layer.html"
+    },
+    {
+      "path": "/howtos/google-twitter-and-facebook-login",
+      "redirect": "/core-concepts/users-and-permissions/apostrophe-passport.html"
+    },
+    {
+      "path": "/getting-started/page-templates",
+      "redirect": "/core-concepts/pages-and-navigation/page-templates.html"
+    },
+    {
+      "path": "/getting-started/editing-page-templates",
+      "redirect": "/core-concepts/pages-and-navigation/page-templates.html"
+    },
+    {
+      "path": "/getting-started/adding-editable-content-to-pages",
+      "redirect": "/core-concepts/pages-and-navigation/widgets-singletons-and-areas.html"
+    },
+    {
+      "path": "/getting-started/building-navigation",
+      "redirect": "/core-concepts/pages-and-navigation/connecting-pages.html"
+    },
+    {
+      "path": "/getting-started/custom-widgets",
+      "redirect": "/core-concepts/editable-content-on-pages/custom-widgets.html"
+    },
+    {
+      "path": "/getting-started/global",
+      "redirect": "/core-concepts/global-settings/global.html"
+    },
+    {
+      "path": "/getting-started/layout-widgets",
+      "redirect": "/core-concepts/editable-content-on-pages/layout-widgets.html"
+    },
+    {
+      "path": "/getting-started/nunjucks-helper-functions",
+      "redirect": "/core-concepts/working-with-templates/nunjucks-helper-functions.html"
+    },
+    {
+      "path": "/getting-started/pushing-assets",
+      "redirect": "/core-concepts/front-end-assets/pushing-assets.html"
+    },
+    {
+      "path": "/getting-started/reusable-content-with-pieces",
+      "redirect": "/core-concepts/reusable-content-pieces/reusable-content-with-pieces.html"
+    },
+    {
+      "path": "/getting-started/schema-guide",
+      "redirect": "/schema-guide/schema-guide.html"
+    },
+    {
+      "path": "/getting-started/settings",
+      "redirect": "/core-concepts/global-settings/settings.html"
+    },
+    {
+      "path": "/intermediate/README",
+      "redirect": "/advanced-topics/"
+    },
+    {
+      "path": "/intermediate/permissions",
+      "redirect": "/core-concepts/users-and-permissions/users-and-groups.html"
+    },
+    {
+      "path": "/intermediate/custom-schema-fields-for-pages",
+      "redirect": "/advanced-topics/advanced-pages-topics/custom-schema-fields-for-pages.html"
+    },
+    {
+      "path": "/intermediate/cursors",
+      "redirect": "/advanced-topics/database/cursors.html"
+    },
+    {
+      "path": "/intermediate/forms",
+      "redirect": "/howtos/forms.html"
+    },
+    {
+      "path": "/intermediate/command-line-tasks",
+      "redirect": "/advanced-topics/apostrophe-cli/command-line-tasks.html"
+    },
+    {
+      "path": "/intermediate/accessing-the-database-directly",
+      "redirect": "/advanced-topics/database/accessing-the-database-directly.html"
+    },
+    {
+      "path": "/intermediate/custom-schema-field-types",
+      "redirect": "/advanced-topics/database/custom-schema-field-types.html"
+    },
+    {
+      "path": "/intermediate/deployment",
+      "redirect": "/devops/deployment/"
+    }
+  ]
+}

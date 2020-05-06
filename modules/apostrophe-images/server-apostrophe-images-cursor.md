@@ -1,4 +1,0 @@
-
-## Methods
-### minSize(*value*)
-

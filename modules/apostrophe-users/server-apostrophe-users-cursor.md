@@ -1,4 +1,0 @@
-
-## Methods
-### singleGroup(*value*)
-

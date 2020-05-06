@@ -1,0 +1,29 @@
+{
+  "name": "apostrophe-documentation",
+  "version": "2.0.0-alpha",
+  "description": "",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run docs:dev",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs --dest dist",
+    "build": "npm run docs:build",
+    "test": "npx eslint .",
+    "deploy": "npm run build && bash ./deploy && rm -r ./dist",
+    "generate": "bash ./generate"
+  },
+  "author": "Apostrophe Technologies, Inc.",
+  "license": "MIT",
+  "devDependencies": {
+    "@vuepress/plugin-google-analytics": "^1.4.1",
+    "eslint": "^6.8.0",
+    "eslint-config-apostrophe": "^3.1.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "vuepress": "^1.4.1"
+  }
+}

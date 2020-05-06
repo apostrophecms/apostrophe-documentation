@@ -13,16 +13,16 @@ var apos = require('apostrophe')({
     // Make sure apostrophe-pieces-pages gets activated as a module
     // so it's not missing from the docs. This requires we have
     // a piece type too
-    'dummies': {
+    dummies: {
       extend: 'apostrophe-pieces',
       name: 'dummy',
       label: 'Dummy',
       pluralLabel: 'Dummies'
     },
     'dummies-pages': {
-      extend: 'apostrophe-pieces-pages',
+      extend: 'apostrophe-pieces-pages'
     },
     // Documentation generator
-    'documentation': {}
-  },
+    documentation: {}
+  }
 });

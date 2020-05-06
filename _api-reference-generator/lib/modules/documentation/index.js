@@ -1,6 +1,6 @@
+/* eslint-disable no-console */
 var async = require('async');
 var fs = require('fs');
-var _ = require('lodash');
 
 // The convention now is to prefix the name of all moog types related to
 // a module with a module name, however we need a lookup table for the handful
@@ -24,6 +24,17 @@ module.exports = {
       });
     }
 
+    const sidebarJsonPath = '../docs/.vuepress/sidebar.json';
+    const startingNav = JSON.parse(fs.readFileSync(sidebarJsonPath, 'utf8'));
+    const refIndex = startingNav.sidebar['/reference'].findIndex(item => {
+      return item.path && item.path === '/reference';
+    });
+
+    const refSection = startingNav.sidebar['/reference'][refIndex];
+    const moduleList = refSection.children[refSection.children.length - 1].children;
+    // Start the module list fresh.
+    moduleList.length = 0;
+
     self.apos.tasks.add('documentation', 'generate', 'Usage: node app documentation:generate\n\nRegenerates the module reference documentation.', function(apos, argv, callback) {
       return async.series([
         self.extract,
@@ -43,6 +54,7 @@ module.exports = {
 
       console.log('Fetching server side definitions');
       fs.writeFileSync(self.apos.rootDir + '/data/server-types.json', JSON.stringify(self.apos.synth.definitions, null, '  '));
+
       console.log('Fetching browser side definitions');
       self.apos.options.afterListen = function(err) {
         if (err) {
@@ -65,7 +77,6 @@ module.exports = {
       var fs = require('fs');
       var _ = require('lodash');
       var glob = require('glob');
-      var tokenizer = require('js-tokenizer');
       var path = require('path');
 
       var serverTypes, browserTypes;
@@ -84,55 +95,18 @@ module.exports = {
         documentModule(module);
       });
 
-      mkdirp('../modules');
+      mkdirp('../docs/reference/modules');
 
-      let fragment = _.map(modules, function(module) {
-        return `* [${module}](modules/${module}/README.md)` + summarizeSubtypes(module)
-      }).join('\n');
-
-      fragment = `* [Module Reference](modules/README.md)\n` + fragment
-      // console.log(fragment);
-
-      let summary = fs.readFileSync('../SUMMARY.md', 'utf8');
-      summary = summary.replace(/\n## Modules[\s\S]*$/, '\n## Modules\n\n' + fragment + '\n[comment]: <> (DO NOT add anything AFTER the ## Modules heading or it will be lost.)');
-      fs.writeFileSync('../SUMMARY.md', summary);
+      const sidebarJson = JSON.stringify(startingNav, null, 2);
+      fs.writeFileSync(sidebarJsonPath, sidebarJson);
 
       return callback(null);
-
-      function summarizeSubtypes(module) {
-        const byType = {
-          server: {},
-          browser: {}
-        };
-        _.each(types, function(type, name) {
-          if (type.module !== module) {
-            return;
-          }
-          if ((type.name === module) && (type.namespace === 'server')) {
-            return;
-          }
-          byType[type.namespace][name] = type;
-        });
-        let result = '';
-        const server = _.values(byType.server);
-        const browser = _.values(byType.browser);
-        if (server.length) {
-          result += '\n' + server.map(linkSubtype).join("\n");
-        }
-        if (browser.length) {
-          result += '\n' + browser.map(linkSubtype).join("\n");
-        }
-        return result;
-        function linkSubtype(subtype) {
-          return `  * [${subtype.title}](modules/${subtype.module}/${subtype.nameNamespaced}.md)`;
-        }
-      }
 
       function readAllTypes() {
         serverTypes = JSON.parse(fs.readFileSync(self.apos.rootDir + '/data/server-types.json'));
         browserTypes = JSON.parse(fs.readFileSync(self.apos.rootDir + '/data/browser-types.json'));
         _.each(serverTypes, function(type, name) {
-          if (!name.match(/^apostrophe\-/)) {
+          if (!name.match(/^apostrophe-/)) {
             // A server-side type specific to the reference generator itself, ignore it
             return;
           }
@@ -152,7 +126,7 @@ module.exports = {
           };
         });
         _.each(browserTypes, function(type, name) {
-          if (!name.match(/^apostrophe\-/)) {
+          if (!name.match(/^apostrophe-/)) {
             // A browser-side type specific to the reference generator itself, ignore it
             return;
           }
@@ -192,13 +166,12 @@ module.exports = {
               return 0;
             }
           });
+
           return _.find(moduleNames, function(name) {
             if ((name === typeName) || ((name + '-') === typeName.substr(0, name.length) + '-')) {
               return name;
-            }
+            };
           });
-
-          throw new Error('Cannot guess the module name for the type ' + typeName);
         }
 
         function typeToOptions(type) {
@@ -207,11 +180,14 @@ module.exports = {
             options[name] = {
               def: val,
               comments: ''
-            }
+            };
             if ((name === 'extend') && val) {
               // Sometimes points to the actual type object, turn that back to a name
-              if (typeof(val) === 'object') {
-                options[name] = { def: val.__meta.name, comments: '' };
+              if (typeof (val) === 'object') {
+                options[name] = {
+                  def: val.__meta.name,
+                  comments: ''
+                };
               }
             }
           });
@@ -221,10 +197,6 @@ module.exports = {
 
       function getAllModules() {
         return fs.readdirSync(self.apos.rootDir + '/node_modules/apostrophe/lib/modules');
-      }
-
-      function indentModule(name) {
-        return '  - ' + name;
       }
 
       function processModule(module) {
@@ -251,7 +223,6 @@ module.exports = {
         });
 
         processFile(module, null, self.apos.rootDir + '/node_modules/apostrophe/lib/modules/' + module + '/index.js');
-        // , null, relatedTypes);
 
         var type = types['server-' + module];
         _.each(type.deferredHelpers || [], function(name) {
@@ -271,13 +242,38 @@ module.exports = {
         var relatedTypes = _.filter(types, function(type, name) {
           return (type.module === module) && ((type.name !== module) || (type.namespace !== 'server'));
         });
-        var folder = '../modules/' + module;
+
+        // Check if there are sub-pages. If not, just make a file named after
+        // the module. If so, make a directory and do it the old way.
+        if (relatedTypes.length === 0) {
+          const loneFile = `../docs/reference/modules/${module}.md`;
+          fs.writeFileSync(loneFile,
+            `# ${module}\n` +
+            documentExtend(type, 0) +
+            documentAlias(type) +
+            documentComments(type.comments) + "\n" +
+            documentMethods(type) +
+            documentHelpers(type) +
+            documentRoutes(type)
+          );
+
+          moduleList.push(`reference/modules/${module}`);
+          return;
+        }
+
+        var folder = '../docs/reference/modules/' + module;
         mkdirp(folder);
+
+        const navGroup = {
+          title: module,
+          path: `/reference/modules/${module}`,
+          children: []
+        };
+
         var markdownFile = folder + '/README.md';
 
-        var namespaces = _.uniq(_.map(relatedTypes, 'namespace'));
-
         fs.writeFileSync(markdownFile,
+          `# ${module}\n` +
           documentExtend(type) +
           documentAlias(type) +
           documentComments(type.comments) + "\n" +
@@ -287,45 +283,24 @@ module.exports = {
         );
 
         _.each(relatedTypes, function(type) {
-          var namespace = type.namespace;
           var markdownFile = folder + '/' + type.nameNamespaced + '.md';
           fs.writeFileSync(markdownFile,
+            `# ${type.title}\n` +
             documentExtend(type) +
             documentComments(type.comments) + "\n" +
             documentMethods(type) +
             documentRoutes(type)
           );
-        });
-      }
 
-      function getModuleFiles(module) {
-        var glob = require('glob');
-        return glob.sync(self.apos.rootDir + '/node_modules/apostrophe/lib/modules/' + module + '/**/*.js');
-      }
-
-      function filterOutNodeModules(files) {
-        return _.filter(files, function(file) {
-          return !file.match(/\/node_modules\//);
+          navGroup.children.push(`reference/modules/${module}/${type.nameNamespaced}`);
         });
-      }
-
-      function filterOutVendor(files, vendor) {
-        return _.filter(files, function(file) {
-          var isVendor = file.match(/\/vendor\//);
-          if (isVendor) {
-            vendor.push(file);
-          } else {
-            return !isVendor;
-          }
-        });
+        moduleList.push(navGroup);
       }
 
       function processFile(module, subcategory, file, info, relatedTypes) {
-
         var code = fs.readFileSync(file, 'utf8');
         var matches;
-        var base = file.replace(/\/[^\/]+$/, '');
-        var serverFiles = [];
+        var base = file.replace(/\/[^/]+$/, '');
         var browserFiles = [];
         var routes = [];
         var methods = [];
@@ -337,7 +312,7 @@ module.exports = {
             module: module
           };
         }
-        matches = code.match(/(^|\n)apos\.define\(\'([\w\-]+)\'/);
+        matches = code.match(/(^|\n)apos\.define\('([\w-]+)'/);
         if (matches) {
           info = _.cloneDeep(info);
           if (info.options) {
@@ -372,14 +347,16 @@ module.exports = {
             // Leave it alone, even if explicitly null
             // console.log('leaving it alone: ' + info.type);
           } else if (info.module !== 'apostrophe-module') {
-            info.options.extend = { def: 'apostrophe-module', comments: '' };
+            info.options.extend = {
+              def: 'apostrophe-module',
+              comments: ''
+            };
           }
         }
 
         if (!types[info.type]) {
           console.error('FIRST DEFINE of ' + info.type + ', it was not in the extract');
-          // Shouldn't be needed anymore due to readAllTypes
-          var basename = path.basename(file, '.js');
+
           types[info.type] = {
             module: module,
             title: getTitle(info.type),
@@ -388,7 +365,7 @@ module.exports = {
           };
         }
 
-        var requireRegex = /(apos\.define\(\'([\w\-]+)\',\s*)?require\('(\.\/(lib\/)?([\w\-]+))(\.js)?'\)\s*(\(self)?/g;
+        var requireRegex = /(apos\.define\('([\w-]+)',\s*)?require\('(\.\/(lib\/)?([\w-]+))(\.js)?'\)\s*(\(self)?/g;
 
         while ((matches = requireRegex.exec(code)) !== null) {
           var newType = matches[2];
@@ -429,7 +406,8 @@ module.exports = {
           }
         }
 
-        matches = code.match(/\n( +)self.addHelpers\(require\('(.+?)\'/);
+        matches = code.match(/\n( +)self.addHelpers\(require\('(.+?)'/);
+
         if (matches) {
           // Cope with helpers following the pattern in the utils module:
           // self.addHelpers(require('./lib/helpers.js')(self, options));
@@ -437,8 +415,8 @@ module.exports = {
           helpersCode = fs.readFileSync(path.resolve(base, matches[2]), 'utf8');
           matches = helpersCode.match(/\n(\s+)return \{([\s\S]*)\}/);
           helpersSpaces = matches[1];
-          var helpersCode = matches[2];
-          var helperRegex = new RegExp('\n' + helpersSpaces + '  (\\w+): function\\((.*?)\\)', 'g');
+          helpersCode = matches[2];
+          helperRegex = new RegExp('\n' + helpersSpaces + '  (\\w+): function\\((.*?)\\)', 'g');
           while ((matches = helperRegex.exec(helpersCode)) !== null) {
             helpers.push(processHelper(module, file, matches, helpersCode, info));
           }
@@ -456,7 +434,7 @@ module.exports = {
 
         if (file.match(/cursor/i)) {
           // Make sure it's not commented out
-          var filterRegex = /\n\s+self\.addFilter\(\'(\w+)/g;
+          var filterRegex = /\n\s+self\.addFilter\('(\w+)/g;
           while ((matches = filterRegex.exec(code)) !== null) {
             matches[2] = 'value';
             var method = processMethod(module, subcategory, file, matches, code, info);
@@ -482,7 +460,7 @@ module.exports = {
         }
 
         // Make sure it's not commented out
-        var routeRegex = /\n\s+self\.route\(\'(\w+)\',\s*\'([\w\-]+)\'/g;
+        var routeRegex = /\n\s+self\.route\('(\w+)',\s*'([\w-]+)'/g;
 
         while ((matches = routeRegex.exec(code)) !== null) {
           routes.push({
@@ -494,14 +472,14 @@ module.exports = {
         }
 
         _.merge(types[info.type], {
-          options: info.options,
+          options: info.options
         });
         // This is NOT what _.merge does ):
         appendArrays(types[info.type], {
           routes: routes,
           methods: methods,
           helpers: helpers,
-          files: [ file ],
+          files: [file],
           deferredHelpers: deferredHelpers
         });
 
@@ -513,7 +491,7 @@ module.exports = {
         }
       }
 
-      function documentExtend(type) {
+      function documentExtend(type, nestLevel = 1) {
         if (type.options.extend) {
           if (type.name === 'apostrophe-module') {
             // This is the default base class for modules, it doesn't extend another
@@ -521,7 +499,7 @@ module.exports = {
           }
           var extend = type.options.extend.def;
           var extendNamespaced;
-          extend = extend.replace(/^(my\-)+/, '');
+          extend = extend.replace(/^(my-)+/, '');
           extendNamespaced = type.namespace + '-' + extend;
           if (!type.namespace) {
             throw new Error('no namespace for ' + type.name);
@@ -532,9 +510,11 @@ module.exports = {
             return '';
           }
           var extendedType = types[extendNamespaced];
+          const nesting = `${nestLevel === 0 ? '.' : '..'}`;
+
           if ((extendedType.namespace === 'server') && (extendedType.module === extendedType.name)) {
             // It's a module, it has to extend another module
-            return '## Inherits from: [' + extend + '](../' + extend + '/README.md)\n';
+            return `## Inherits from: [${extend}](${nesting}/${extend}/README.md)\n`;
           } else {
             // The type we're extending could live in another module,
             // figure it out as a relative path
@@ -542,7 +522,8 @@ module.exports = {
             if (!types[extendNamespaced]) {
               console.error('NOT FOUND: ', extendNamespaced);
             }
-            return '## Inherits from: [' + extend + '](../' + extendType.module + '/' + extendNamespaced + '.md)\n';
+
+            return `## Inherits from: [${extend}](${nesting}/${extendType.module}/${extendNamespaced}.md)\n`;
           }
         }
         return '';
@@ -590,7 +571,7 @@ module.exports = {
       }
 
       function getTitle(typeName) {
-        var matches = typeName.match(/^(\w+)\-(.*)$/);
+        var matches = typeName.match(/^(\w+)-(.*)$/);
         if ((types[typeName].namespace === 'server') && (types[typeName].module === types[typeName].name)) {
           return matches[2] + ' (module)';
         }
@@ -616,7 +597,6 @@ module.exports = {
         return '### ' + route.method.toUpperCase() + ' /modules/' + route.module + '/' + route.name + '\n' + documentComments(route.comments);
       }
 
-
       function documentArg(arg) {
         return '*' + arg.replace(/\*/g, '\\*') + '*';
       }
@@ -635,7 +615,7 @@ module.exports = {
         var lines = code.split(/\n/);
         var options = {};
         _.each(lines, function(line, index) {
-          var matches = line.match(/^  (\'.*?\'|\w+)\:\s*(.*)$/);
+          var matches = line.match(/^ {2}('.*?'|\w+):\s*(.*)$/);
           if (matches) {
             // Remove trailing commas
             var def = matches[2].trim().replace(/,$/, '');
@@ -645,6 +625,7 @@ module.exports = {
               return;
             }
             try {
+              // eslint-disable-next-line no-eval
               def = eval(def);
             } catch (e) {
               // Since we're lame and not really grabbing multiline values
@@ -675,7 +656,8 @@ module.exports = {
         if (optional) {
           args.push(optional.substr(2, optional.length - 4).trim());
         }
-        comments = commentsPreceding(code, matches.index);
+        var comments = commentsPreceding(code, matches.index);
+
         return {
           name: name,
           args: args,
@@ -699,7 +681,7 @@ module.exports = {
         if (optional) {
           args.push(optional.substr(2, optional.length - 4).trim());
         }
-        comments = commentsPreceding(code, matches.index);
+        var comments = commentsPreceding(code, matches.index);
         return {
           name: name,
           args: args,
@@ -762,52 +744,8 @@ module.exports = {
         return comments;
       }
 
-      // Find the tokens inside a { ... } block, optionally preceded by the specified array
-      // of tokens. Returns { tokens: tokens, next: i } where i is the offset
-      // of the next token after the block is closed
-
-      function findBlock(tokens, preceding) {
-        var i = 0, match, j;
-        if (preceding) {
-          for (i = 0; (i < tokens.length); i++) {
-            match = true;
-            for (j = 0; (j < preceding.length); j++) {
-              if (tokens[i + j] !== preceding[j]) {
-                match = false;
-                break;
-              }
-            }
-            if (match) {
-              break;
-            }
-          }
-          if (!match) {
-            throw new Exception('preface to block never found');
-          }
-          // To get here we must have just matched it
-          i += preceding.length;
-        }
-        if (tokens[i] !== '{') {
-          throw new Exception('block not found');
-        }
-        var count = 0;
-        var start = i + 1;
-        do {
-          if (tokens[i] === '{') {
-            count++;
-          } else if (tokens[i] === '}') {
-            count--;
-          }
-          i++;
-        } while (count > 0);
-        return {
-          block: tokens.slice(start, i),
-          next: i + 1
-        };
-      }
-
       function mkdirp(s) {
-        require('mkdirp').sync(s, 0700);
+        require('mkdirp').sync(s, 0o777);
       }
 
       function appendArrays(o, i) {
