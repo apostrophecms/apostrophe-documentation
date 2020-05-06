@@ -30,7 +30,7 @@ export default {
   justify-content: space-between;
   flex-wrap: wrap;
   padding: 2rem 0 1rem;
-  font-size: 90%;
+  font-size: 0.875rem;
 }
 
 .meta-updated {

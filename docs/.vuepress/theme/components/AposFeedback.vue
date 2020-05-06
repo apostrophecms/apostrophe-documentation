@@ -150,9 +150,6 @@ export default {
 }
 
 .feedback-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   padding: 20px 50px 20px;
   border-width: 0;
   border-radius: 5px;
