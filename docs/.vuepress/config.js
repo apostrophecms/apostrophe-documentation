@@ -1,6 +1,7 @@
 const { sidebar } = require('./sidebar.json');
 
 module.exports = {
+  title: 'ApostropheCMS Developer Documentation',
   plugins: {
     '@vuepress/google-analytics': {
       ga: 'UA-106613728-3'
