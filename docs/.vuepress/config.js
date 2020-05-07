@@ -51,6 +51,10 @@ module.exports = {
         link: 'https://apostrophecms.com',
         rel: false
       }
-    ]
+    ],
+    algolia: {
+      apiKey: 'e11d95029c6a9ac596343664b7f622e4',
+      indexName: 'apostrophecms'
+    }
   }
 };
