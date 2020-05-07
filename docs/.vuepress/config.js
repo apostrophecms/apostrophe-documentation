@@ -12,7 +12,7 @@ module.exports = {
   themeConfig: {
     repo: 'https://github.com/apostrophecms/apostrophe',
     docsRepo: 'https://github.com/apostrophecms/apostrophe-documentation',
-    docsBranch: 'vuepress', // TODO: Change to master following merge.
+    docsBranch: 'master',
     docsDir: 'docs',
     lastUpdated: 'Last updated',
     nextLinks: true,
