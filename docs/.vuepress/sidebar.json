@@ -8,7 +8,8 @@
         "collapsable": false,
         "children": [
           "getting-started/setting-up-your-environment",
-          "getting-started/creating-your-first-project"
+          "getting-started/creating-your-first-project",
+          "getting-started/contribution"
         ]
       },
       {
@@ -112,7 +113,8 @@
         "collapsable": false,
         "children": [
           "getting-started/setting-up-your-environment",
-          "getting-started/creating-your-first-project"
+          "getting-started/creating-your-first-project",
+          "getting-started/contribution"
         ]
       },
       {
