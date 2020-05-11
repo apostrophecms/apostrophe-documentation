@@ -4,7 +4,7 @@ A `color` field provides a colorpicker interface to the editor for choosing/inse
 
 Valid formats include `name`, `hex`, `hex8`, `rgb`, `hsl`, and `hsv`.
 
-The colorpicker interface is powered by Spectrum and you can provide a custom configuration passing a `spectrumOptions` object as part of the field. [https://bgrins.github.io/spectrum/#options](Options and documentation for Spectrum here.)
+The colorpicker interface is powered by Spectrum and you can provide a custom configuration passing a `spectrumOptions` object as part of the field. [Options and documentation for Spectrum here.](https://bgrins.github.io/spectrum/#options)
 
 ## Example
 
