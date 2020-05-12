@@ -30,7 +30,7 @@ All contributors and community members are expected to abide by the
 [Code of Conduct](https://github.com/apostrophecms/.github/blob/master/CODE_OF_CONDUCT.md).
 In short, be excellent to one another, respect everyone's contribution, and
 never harrass anyone for any reason. Alert the core team at
-[support@apostrophecms.com](mailto:support@apostrophecms.com) if you find
+[security@apostrophecms.com](mailto:security@apostrophecms.com) if you find
 someone failing to abide by the Code of Conduct.
 
 ## How can I contribute?
