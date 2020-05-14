@@ -1,11 +1,11 @@
 # How to update Apostrophe CMS documentation
 ========================
 
-This project contains [the documentation site](https://docs.apostrophecms.org)
+This project contains [the documentation site](https://docs.apostrophecms.com)
 for [ApostropheCMS](https://apostrophecms.com).
 
 You don't need to read this page to read the documentation! [Read the
-actual documentation here.](https://docs.apostrophecms.org) This page
+actual documentation here.](https://docs.apostrophecms.com) This page
 is about *contributing to* the documentation.
 
 ## Building the docs

@@ -82,7 +82,7 @@ forward. Even typo fixes are great!
 Authoring blog posts, giving talks at a meet-up, or otherwise sharing
 experiences using ApostropheCMS help spread the word. When you launch a site on
 ApostropheCMS, contact us in [Discord](https://chat.apostrophecms.org) or on
-[Twitter](https://twitter.com/apostrpohecms). We love a good success story.
+[Twitter](https://twitter.com/apostrophecms). We love a good success story.
 
 ## Should I make a new npm module?
 
@@ -107,4 +107,4 @@ which modules the core team is committed to maintaining.
 - Add `apostrophe`, `apostrophecms` and `apostrophe-cms` to your keywords in
 `package.json` to help people find your module.
 
-See [publishing your own npm modules for Apostrophe](https://docs.apostrophecms.org/core-concepts/modules/more-modules.html#publishing-your-own-npm-modules-for-apostrophe) for more information.
+See [publishing your own npm modules for Apostrophe](/core-concepts/modules/more-modules.md#publishing-your-own-npm-modules-for-apostrophe) for more information.

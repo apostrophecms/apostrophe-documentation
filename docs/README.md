@@ -18,7 +18,7 @@ Our tutorials cover everything you need to know to get started as an Apostrophe 
 
 [The Core Concepts tutorials](/core-concepts/technical-overview.md) go through each feature of Apostrophe that you need to understand to build a webite.  They will help you get more comfortable with Apostrophe and node.js.
 
-Practical examples of these concepts are illustrated in the [Open Musuem project, a fully featured Apostrophe site](https://github.com/apostrophecms/apostrophe-open-museum). [You can access the code](https://github.com/apostrophecms/apostrophe-open-museum) or [try a live demo](http://demo.apostrophecms.org).
+Practical examples of these concepts are illustrated in the [Open Musuem project, a fully featured Apostrophe site](https://github.com/apostrophecms/apostrophe-open-museum). [You can access the code](https://github.com/apostrophecms/apostrophe-open-museum) or [try a live demo](http://demo.apostrophecms.com).
 
 
 ### Advanced Development
