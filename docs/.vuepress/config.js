@@ -7,7 +7,7 @@ module.exports = {
       ga: 'UA-106613728-3'
     },
     sitemap: {
-      hostname: 'https://docs.apostrophecms.org'
+      hostname: 'https://docs.apostrophecms.com'
     }
   },
   themeConfig: {
@@ -44,7 +44,7 @@ module.exports = {
       },
       {
         text: 'Demo',
-        link: 'http://demo.apostrophecms.org',
+        link: 'http://demo.apostrophecms.com',
         rel: false
       },
       {
