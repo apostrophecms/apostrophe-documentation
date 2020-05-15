@@ -10,7 +10,13 @@ export default ({ router }) => {
     // Redirect the deprecated /tutorials subdirectory
     {
       path: '/tutorials/*',
-      redirect: '/*'
+      redirect: to => {
+        if (to.params && to.params.pathMatch) {
+          const leadRegex = /^tutorials/;
+          return to.params.pathMatch.replace(leadRegex, '');
+        }
+        return '/';
+      }
     },
     // Redirect the funky old devops path.
     {
@@ -62,7 +68,13 @@ export default ({ router }) => {
     },
     {
       path: '/howtos/deployment/*',
-      redirect: '/devops/deployment/*'
+      redirect: to => {
+        if (to.params && to.params.pathMatch) {
+          const leadRegex = /^howtos\/deployment/;
+          return to.params.pathMatch.replace(leadRegex, 'devops/deployment');
+        }
+        return '/devops/deployment';
+      }
     },
     {
       path: '/howtos/cloud/',
@@ -70,7 +82,13 @@ export default ({ router }) => {
     },
     {
       path: '/howtos/cloud/*',
-      redirect: '/devops/cloud/*'
+      redirect: to => {
+        if (to.params && to.params.pathMatch) {
+          const leadRegex = /^howtos\/cloud/;
+          return to.params.pathMatch.replace(leadRegex, 'devops/cloud');
+        }
+        return '/devops/cloud';
+      }
     }
   ].concat(entries));
 };
