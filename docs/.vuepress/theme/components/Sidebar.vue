@@ -2,6 +2,8 @@
   <aside class="sidebar">
     <NavLinks />
 
+    <iframe class="gh-stars" src="https://ghbtns.com/github-btn.html?user=apostrophecms&repo=apostrophe&type=star&count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe>
+
     <slot name="top" />
 
     <SidebarLinks
@@ -55,7 +57,7 @@ export default {
   }
 
   & > .sidebar-links {
-    padding: 1.5rem 0;
+    padding: 1rem 0 1.5rem;
 
     & > li > a.sidebar-link {
       font-size: 1.1em;
@@ -83,5 +85,10 @@ export default {
       padding: 1rem 0;
     }
   }
+}
+
+.gh-stars {
+  padding-top: 1.5rem;
+  padding-left: 1.5rem;
 }
 </style>
