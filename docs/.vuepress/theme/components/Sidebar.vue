@@ -2,7 +2,7 @@
   <aside class="sidebar">
     <NavLinks />
 
-    <iframe class="gh-stars" src="https://ghbtns.com/github-btn.html?user=apostrophecms&repo=apostrophe&type=star&count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe>
+    <GithubStars />
 
     <slot name="top" />
 
@@ -17,11 +17,12 @@
 <script>
 import SidebarLinks from '@theme/components/SidebarLinks.vue'
 import NavLinks from '@theme/components/NavLinks.vue'
+import GithubStars from '@theme/components/GithubStars.vue'
 
 export default {
   name: 'Sidebar',
 
-  components: { SidebarLinks, NavLinks },
+  components: { SidebarLinks, NavLinks, GithubStars },
 
   props: ['items']
 }
@@ -85,10 +86,5 @@ export default {
       padding: 1rem 0;
     }
   }
-}
-
-.gh-stars {
-  padding-top: 1.5rem;
-  padding-left: 1.5rem;
 }
 </style>
