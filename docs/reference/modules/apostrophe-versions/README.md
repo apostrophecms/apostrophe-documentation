@@ -28,7 +28,7 @@ difference from the newest version, that version can be
 removed. Thus versions become more sparse as we move back
 through time. However if two consecutive versions have
 different authors we never discard them because
-we don't want to create a false audit trail. -Tom
+we don't want to create a false audit trail.
 ### revert(*req*, *version*, *callback*) *[api]*
 Revert to the specified version. The doc need not be passed
 because it is already in version._doc.

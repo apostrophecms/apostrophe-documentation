@@ -4,7 +4,7 @@ You can store your images and files in Google Cloud Storage (GCS) if you wish. Y
 
 If you host in the Google cloud, this is essential to host an Apostrophe site in a multiserver configuration where the Node processes don't share the same filesystem (hint: they are on separate computers).
 
-Just take advantage of the [uploadfs](https://github.com/punkave/uploadfs) module, which is built into Apostrophe.
+Just take advantage of the [uploadfs](https://github.com/apostrophecms/uploadfs) module, which is built into Apostrophe.
 
 First sign up for [Google Cloud Storage](https://cloud.google.com/storage/) and create a Google Cloud Storage bucket in which to store your files.
 

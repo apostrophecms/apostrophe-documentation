@@ -8,7 +8,7 @@ You want a widget that creates a layout of inner widgets.
 
 Generally, you need a dedicated widget to create layout. The Apostrophe team sometimes refers to these as ‘layout widgets’ that give form and structure to ‘content widgets’ \(widgets whose sole job is to display content\). **In this example we'll make a simple two column layout.**
 
-1. Use the [`apostrophe-cli`](https://github.com/punkave/apostrophe-cli) to quickly build a widget.
+1. Use the [`apostrophe-cli`](https://github.com/apostrophecms/apostrophe-cli) to quickly build a widget.
 
     ```bash
     apostrophe create-widget two-column

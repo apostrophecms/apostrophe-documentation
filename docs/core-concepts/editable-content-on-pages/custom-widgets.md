@@ -106,7 +106,7 @@ mkdir -p lib/modules/page-link-widgets/views
 ```
 
 ::: tip
-While it's good to get some experience making all the folders and files yourself, the `apostrophe-cli` pacakage that you installed earlier can easily create basic module structures for you from templates. You can learn more in the [`apostrophe-cli` README](https://github.com/apostrophecms/apostrophe-cli/blob/master/README.md).
+While it's good to get some experience making all the folders and files yourself, the `apostrophe-cli` package that you installed earlier can easily create basic module structures for you from templates. You can learn more in the [`apostrophe-cli` README](https://github.com/apostrophecms/apostrophe-cli/blob/master/README.md).
 :::
 
 1\. Now you this new widget to the `modules` object in our app.js:
