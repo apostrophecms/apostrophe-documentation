@@ -1,6 +1,6 @@
 # Getting Started
 
-[The "getting started" tutorials](setting-up-your-environment.md) are written for developers who are new to Apostrophe. They will walk you through the process of getting your environment set up and creating a basic website.
+[The "getting started" tutorial](setting-up-your-environment.md) is written for developers who are new to Apostrophe. They will walk you through the process of getting your environment set up and creating a basic website.
 
 Practical examples of these concepts are illustrated in the "Open Musuem" project, a fully featured Apostrophe site. [You can access the code](https://github.com/apostrophecms/apostrophe-open-museum) or [try a live demo](http://demo.apostrophecms.com).
 

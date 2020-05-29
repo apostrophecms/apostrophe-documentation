@@ -8,12 +8,12 @@ macOS is the most popular platform for Apostrophe CMS development, but there are
 
 Here's what you need to install:
 
-* XCode \(required for all compilation on Macs\)
-* Homebrew \(for easy installing\)
+* XCode (required for all compilation on Macs)
+* Homebrew (for easy installing)
 * Git
-* Node & NPM
+* Node & npm
 * MongoDB
-* Optional: Imagemagick \(for fast image manipulation with animated GIF support\)
+* Optional: Imagemagick (for fast image manipulation with animated GIF support)
 
 ## Install XCode and Command Line Tools
 
@@ -83,9 +83,9 @@ echo $PATH
 
 If it worked, it will echo the current PATH setting as a set of colon-separated values, beginning with your additions.
 
-## Install NPM \(Node Package Manager\)
+## Install npm (Node Package Manager)
 
-NPM may or may not have been installed with Node. Try:
+[npm](https://www.npmjs.com/) should have been installed with Node. Try:
 
 ```bash
 npm
