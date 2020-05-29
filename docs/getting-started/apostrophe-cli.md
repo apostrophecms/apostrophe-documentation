@@ -166,24 +166,3 @@ apos create-module <module name>
 ```
 
 Remember to register the module in `apps.js` as with the other module types.
-
-## CLI analytics
-
-To help us better understand how devs are using the CLI, you will have the
-option to *opt-in* to share basic usage information with the maintainers. This
-is limited to:
-1. the command you have executed (only "create-project," "create-piece,"
-"create-module," "create-widget," **not** any Apostrophe task commands);
-2. if that command succeeded ("exec" or "error");
-3. a random, anonymous user ID (IP addresses are anonymized to avoid connecting
-this ID with an individual).
-
-**If you do not explicitly agree to participate, no infomation will be tracked.**
-If you do, we anonymize your IP address, so we know as little as possible about
-you other than what is listed above.
-
-### Why are asking to collect this information?
-
-As we work to grow the Apostrophe community, knowing if, and how much, people
-are finding the CLI useful can tell us about the community's growth. It can also
-help us know if our work to make the CLI *more* useful for everyone is working!
