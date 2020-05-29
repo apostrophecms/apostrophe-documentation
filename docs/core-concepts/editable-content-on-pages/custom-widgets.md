@@ -4,13 +4,17 @@ You've seen a lot of the widgets that come "in the box" with Apostrophe. But you
 
 ## Custom navigation
 
-Here's a common case: you want to build your own navigation menu. [Apostrophe's page tree is awesome](/core-concepts/pages-and-navigation/connecting-pages.md) but sometimes you want to "cherrypick" pages from all over the tree, perhaps for a special footer.
+Here's a common case: you want to build your own navigation menu. [Apostrophe's page tree is awesome](/core-concepts/pages-and-navigation/connecting-pages.md) but sometimes you want to manually choose pages from all over the tree, perhaps for a special website footer.
 
-You could use a rich text widget and just tell users to add links manually, but they'll just break each time a page is moved around the site. It's also easier for users to mess up the formatting that way. You want something more consistent.
+You could use a rich text widget and just tell users to add links manually, but the links will break each time a page is moved around the site, changing its slug. It's also easier for users to mess up the formatting that way. You want something more consistent.
 
 Let's look at some custom widgets that help provide navigation. you'll start with a simple widget that adds a link in a well-formatted way.
 
 ### `link`: the simplest widget
+
+::: tip
+Most of the starting structure of a widget module can be generated for you using the [Apostrophe CLI](/docs/getting-started/apostrophe-cli.md). You could skip a few steps below if you have it installed by running `apos create-widget link`. The following information is still worth reviewing to understand what this does for you.
+:::
 
 First you'll need a folder for the module. In the terminal, from the project root, enter:
 
@@ -112,7 +116,7 @@ create basic module structures for you from templates. You can learn more in the
 [Apostrophe CLI README](https://github.com/apostrophecms/apostrophe-cli/blob/master/README.md).
 :::
 
-1\. Now you this new widget to the `modules` object in our app.js:
+1. Now you this new widget to the `modules` object in our app.js:
 
 ```javascript
 // app.js
@@ -123,7 +127,7 @@ create basic module structures for you from templates. You can learn more in the
   }
 ```
 
-2\. And then write `lib/modules/page-link-widgets/index.js`:
+2. And then write `lib/modules/page-link-widgets/index.js`:
 
 ```javascript
 // lib/modules/page-link-widgets/index.js
@@ -185,14 +189,14 @@ You probably noticed that our widgets don't take any options yet. You can use op
 All you have to do is access `data.options` in your `widget.html` template for `page-link-widgets` and pass the option in the `apos.area` call and `home.html`:
 
 
-1\. Add `data.options` in `widget.html`:
+1. Add `data.options` in `widget.html`:
 
 ```django
 {# lib/modules/page-link-widgets/views/widget.html #}
 <h4 class="{{ 'special' if data.options.special }}"><a href="{{ data.widget._page._url }}">{{ data.widget._page.title }}</a></h4>
 ```
 
-2\. Then pass the option  call in `home.html`:
+2. Then pass the option  call in `home.html`:
 
 ```django
 {# lib/modules/page-link-widgets/views/home.html #}

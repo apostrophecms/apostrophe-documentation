@@ -4,13 +4,19 @@ When you create content with the rich text editor, or images widget, that conten
 
 ## A directory of people: working with pieces
 
-Let's say you want to create a directory of people who work for a company. People are "global content": they are useful to display here and there all over the site, they aren't tied down to one page. The `apostrophe-pieces` module provides a great starting point to create many types of global content. You'll extend it to make your own `people` module. You can extend `apostrophe-pieces` many times in the same project.
+Let's say you want to create a directory of people who work for a company. People are "global content": they are useful to display in multiple places all over the site and they aren't tied down to one page. The `apostrophe-pieces` module provides a great starting point to create many types of global content. You'll extend it to make your own `people` module. You can extend `apostrophe-pieces` many times in the same project.
 
-::: tip NOTE
-**"What about users?"** Yes, you already have a "Users" menu on your admin bar. And yes, users are powered by pieces. But we've found that confusing website editors with the publicly visible staff directory tends to cause problems in the long run. Plus, this way, it's a teachable moment. :\)
+::: details What about "users"?
+Yes, you already have a "Users" menu on your admin bar. And yes, users are powered by pieces. But we've found that confusing website editors with the publicly visible staff directory tends to cause problems in the long run. Plus, this way, it's a teachable moment. 😃
 :::
 
-1\. Create a `lib/modules/people/index.js` file:
+
+::: tip
+Most of the starting structure of a pieces module can be generated for you using the [Apostrophe CLI](/docs/getting-started/apostrophe-cli.md). You could skip a few steps below if you have it installed by running `apos create-piece person` (see the note in the link above about pluralization). The following information is still worth reviewing to understand what this does for you.
+:::
+
+
+1. Create a `lib/modules/people/index.js` file:
 
 ```javascript
 module.exports = {
@@ -71,14 +77,14 @@ module.exports = {
 ```
 
 ::: tip NOTE
-**IMPORTANT: note the** `name` **property. This identifies ONE piece in the database, so it is always singular.** Remember: Modules Are Plural \(MAP\), but the things they manage may not be.
+**IMPORTANT: note the** `name` **property. This identifies ONE piece in the database, so it is always singular.** Remember: Modules Are Plural (MAP), but the things they manage may not be.
 :::
 
-2\. Now turn the module on in `app.js`.
+2. Now turn the module on in `app.js`.
 
 ```javascript
 modules: {
-  // ... other modules ...,
+  // other modules ...
   'people': {}
 }
 ```
