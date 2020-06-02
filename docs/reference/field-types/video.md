@@ -1,6 +1,6 @@
 # `video`
 
-A `video` field allows the user to embed video hosted by any [oembed](http://oembed.com/)—compatible video hosting site, or any site for which you have provided an [oembetter](https://github.com/punkave/oembetter) filter via the [apostrophe-oembed](/reference/modules/apostrophe-oembed/README.md) module.
+A `video` field allows the user to embed video hosted by any [oembed](http://oembed.com/)—compatible video hosting site, or any site for which you have provided an [oembetter](https://github.com/apostrophecms/oembetter) filter via the [apostrophe-oembed](/reference/modules/apostrophe-oembed/README.md) module.
 
 The user pastes a URL and sees an immediate preview.
 

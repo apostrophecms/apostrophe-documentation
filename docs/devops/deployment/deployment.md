@@ -67,9 +67,9 @@ npm install -g --unsafe-perm forever
 npm install -g --unsafe-perm mechanic
 ```
 
-Now you're ready to install the stagecoach deployment system and deploy your Apostrophe site. [Continue by reading the stagecoach documentation.](https://github.com/punkave/stagecoach)
+Now you're ready to install the stagecoach deployment system and deploy your Apostrophe site. [Continue by reading the stagecoach documentation.](https://github.com/apostrophecms/stagecoach)
 
-Once deployment is complete, you're ready to start welcoming traffic to your website. [See the mechanic documentation](https://github.com/punkave/mechanic) for how to painlessly configure nginx as your reverse proxy. Or, if you wish, you can configure any reverse proxy of your choice to forward traffic on port 3000 to your Apostrophe site. You can support multiple sites on a single server; stagecoach assigns each one a distinct port. See the text file `/opt/stagecoach/apps/MYAPPNAME/current/data/port` for the port number.
+Once deployment is complete, you're ready to start welcoming traffic to your website. [See the mechanic documentation](https://github.com/apostrophecms/mechanic) for how to painlessly configure nginx as your reverse proxy. Or, if you wish, you can configure any reverse proxy of your choice to forward traffic on port 3000 to your Apostrophe site. You can support multiple sites on a single server; stagecoach assigns each one a distinct port. See the text file `/opt/stagecoach/apps/MYAPPNAME/current/data/port` for the port number.
 
 ## Minifying assets
 

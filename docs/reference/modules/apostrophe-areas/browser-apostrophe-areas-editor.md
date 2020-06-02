@@ -153,7 +153,7 @@ Override default apostrophe-context functionality because we
 need to use $.onSafe, for the sake of nested areas.
 ### on(*eventType*, *selector*, *fn*)
 This is a wrapper for $.onSafe that avoids events that are actually
-happening in nested areas. -Tom and Sam
+happening in nested areas.
 ### startAutosaving(*callback*)
 Given a method such as `self.addItem`, this method returns
 a new function that will first ensure the user has a session lock

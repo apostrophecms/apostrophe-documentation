@@ -26,7 +26,7 @@ the click event are both automatically stopped.
 Your subclass must set self.$el to use this method.
 
 The word "object" refers to "the object of the sentence."
-It is a STRING, not a javascript object. -Tom and Joel
+It is a *string*, not a javascript object.
 ### api(*route*, *data*, *options*, *success*, *failure*)
 Invoke a JSON API route implemented by the Apostrophe module
 associated with this object, or by another module if the
