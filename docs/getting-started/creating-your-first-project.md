@@ -4,22 +4,13 @@ Now that you have all the dependencies for Apostrophe installed, you can create 
 
 ## Generating a test project
 
-Next, install the `apostrophe-cli` tool, which makes bootstrapping a new project a breeze, and create your project.
-
-1. To install the `apostrophe-cli`, run the following command:
-
-    ```bash
-    # Install the apostrophe-cli module
-    npm install apostrophe-cli -g
-    ```
-
-2. Now create a new project:
+1. Create a new project with the Apostrpohe CLI tool:
 
     ```bash
     # Create a project
-    apostrophe create-project test-project
+    apos create-project test-project
     ```
-3. With the project created, you just need to jump in, install the dependencies, and start the server. You'll also be prompted to create a password. Make sure you don't forget it --- you'll need it in a minute.
+2. With the project created, you just need to jump in, install the dependencies, and start the server. You'll also be prompted to create a password. Make sure you don't forget it --- you'll need it in a minute.
 
     ```bash
     # cd into the new project
@@ -43,7 +34,7 @@ You have a test project up and running! Visit `http://localhost:3000` and view y
 **Important: ** `test-project`** is the name for our example. For your project use your own project's "shortname" containing only letters, digits, hyphens and/or underscores. It will be used by default as a MongoDB database name and a basis for cookie names, etc.** (Hyphens seem more popular than underscores for such purposes.) We'll continue to use `test-project` for the rest of this example. Alternatively, you can install a robust, themed, fully-baked project with this command:
 
 ```bash
-apostrophe create-project --boilerplate https://github.com/apostrophecms/apostrophe-open-museum test-project
+apos create-project --boilerplate https://github.com/apostrophecms/apostrophe-open-museum test-project
 ```
 
 ## Logging in

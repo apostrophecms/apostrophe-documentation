@@ -1,6 +1,6 @@
 # The Apostrophe CLI
 
-As shown [in the previous page](creating-your-first-project.md), ApostropheCMS
+As shown [in "Creating your first project,"](creating-your-first-project.md) ApostropheCMS
 has a command line tool to help take care of potentially repetative tasks such
 as creating projects and modules. Let's take a closer look at some of the
 options. If you aren't interested in using the CLI, simply continue on to the
@@ -91,7 +91,7 @@ apos create-piece vegetable --pages --widgets
 
 ::: tip NOTE
 Be sure to use the *singular* version of the name of your content type. That
-will let the CLI (attempt to) set the piece type's `name`, `label`, and
+will let the CLI attempt to set the piece type's `name`, `label`, and
 `pluralLabel` properties appropriately. The Apostrophe convention is for the
 `type` property of piece documents in the database to be singular (because they
 are a singular thing) and for the `name` of the piece *type* module to be plural
@@ -113,12 +113,7 @@ module.exports = {
 };
 ```
 
-Does this further prioritize English? Yes, unfortunately. Other languages do
-append "s" to pluralize, but certainly not all. Regardless, Apostrophe also uses
-other English namespacing for more functional reasons (e.g., widget modules
-including the `-widgets` suffix).
-
-Do some English words not pluralize using "s"? Yes, that's also true. This
+Do some words not pluralize using "s"? Yes, that's true. This
 function of the CLI is meant to help speed up your process in most cases, but in
 some cases it won't make sense. You can always manually change the module
 directory and those initial properties yourself.
@@ -128,7 +123,7 @@ future work on it.
 :::
 
 ## Create a widget module
-To bootstrap the necessary files and basic configuration for a new Apostrophe
+To generate the necessary files and basic configuration for a new Apostrophe
 widget module, run the following command from within your Apostrophe project's
 root directory:
 
@@ -137,12 +132,13 @@ apos create-widget fancy-button
 ```
 
 ::: tip NOTE
-Apostrophe expects widget modules to end with `-widgets`, so the CLI will
-automatically append `-widgets` to the end of your module name for you.
+The CLI will automatically append `-widgets` to the end of your module name for
+you. Apostrophe expects widget modules to end with `-widgets` when they are used
+in templates.
 :::
 
 You will then need to register this widget module in `app.js` so it is
-available in your project code. The same is true for all commands that generate
+available to your project. The same is true for all commands that generate
 specific or general module types.
 
 ```javascript
@@ -156,9 +152,9 @@ module.exports = {
 }
 ```
 
-## Create a generic Apostrophe module
+## Create a basic Apostrophe module
 Sometimes you may want a module that isn't strictly related to displaying
-content in a template. To bootstrap the necessary files and basic configuration
+content in a template. To generate the necessary files and basic configuration
 for a brand-new Apostrophe module that doesn't extend one of the base types,
 such as pieces or widgets):
 ```bash

@@ -27,6 +27,19 @@ First, you need to install the Xcode Command Line Tools.
 Starting with XCode 6.1 the Command Line tools are automatically installed, and just need to be configured. For older versions of XCode, go to the Downloads tab under Preferences. From there you can select _Install_ for the Command Line Tools options.
 :::
 
+1. Next, install the `apostrophe-cli` tool, which has several commands to make
+building a new project quick and easy. To install the Apostrophe CLI tool, run
+the following command:
+
+```bash
+# Install the apostrophe-cli module
+npm install apostrophe-cli -g
+```
+
+It is completely possible to build Apostrophe projects without the CLI tool.
+This documentation will use it in various places because it does speed up
+development.
+
 ## Install Homebrew
 
 Next, you need to install [Homebrew](https://brew.sh/), a convenient software manager that makes it easier to manage and update your software packages.
