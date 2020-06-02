@@ -10,7 +10,7 @@ Now that you have all the dependencies for Apostrophe installed, you can create 
     # Create a project
     apos create-project test-project
     ```
-2. With the project created, you just need to jump in, install the dependencies, and start the server. You'll also be prompted to create a password. Make sure you don't forget it --- you'll need it in a minute.
+2. With the project created, you should install the dependencies and start the server. You'll also be prompted to create a password. Make sure you don't forget it --- you'll need it in a minute.
 
     ```bash
     # cd into the new project

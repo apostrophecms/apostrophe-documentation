@@ -113,8 +113,8 @@ module.exports = {
 };
 ```
 
-Do some words not pluralize using "s"? Yes, that's true. This
-function of the CLI is meant to help speed up your process in most cases, but in
+It is true that some words do not pluralize using an "s." The automatic
+pluralization is meant to help speed up your process in most cases, but in
 some cases it won't make sense. You can always manually change the module
 directory and those initial properties yourself.
 

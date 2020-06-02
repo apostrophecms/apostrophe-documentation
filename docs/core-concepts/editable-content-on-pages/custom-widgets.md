@@ -115,7 +115,7 @@ module structure for you. You can learn more in the
 [Apostrophe CLI README](https://github.com/apostrophecms/apostrophe-cli/blob/master/README.md).
 :::
 
-1. Now you add this new widget to the `modules` object in our app.js:
+1. Now add this new widget to the `modules` object in our app.js:
 
 ```javascript
 // app.js
