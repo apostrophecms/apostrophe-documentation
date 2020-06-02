@@ -168,12 +168,11 @@ modules: {
 }
 ```
 
-
 ### Sharing one set of uploaded media files
 
 By default Apostrophe writes uploaded files to the server's local hard drive. This is no good if you are load balancing across multiple servers.
 
-Fortunately Apostrophe uses [uploadfs](https://github.com/apostrophecms/uploadfs), which also supports using Amazon S3 as a back end for file storage.
+Apostrophe uses, and maintains, [uploadfs](https://github.com/apostrophecms/uploadfs), which also supports using Amazon S3 as a back end for file storage.
 
 To do that, [check out our separate HOWTO on using Amazon S3 with apostrophe](cloud/storing-images-and-files-in-amazon-s3.md).
 
