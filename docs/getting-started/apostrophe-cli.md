@@ -133,8 +133,7 @@ apos create-widget fancy-button
 
 ::: tip NOTE
 The CLI will automatically append `-widgets` to the end of your module name for
-you. Apostrophe expects widget modules to end with `-widgets` when they are used
-in templates.
+you since Apostrophe expects widget modules to end with `-widgets`.
 :::
 
 You will then need to register this widget module in `app.js` so it is
