@@ -12,7 +12,7 @@ This can be quite a bit to take in for a first-time user, so patience is key. Th
 
 # Apostrophe project setup
 
-Here we will add Docker configuration to an Apostrophe project. We'll be using [apostrophe-sandbox](https://github.com/punkave/apostrophe-sandbox) as an example, but you can apply these steps to your own projects, too.
+Here we will add Docker configuration to an Apostrophe project. We'll be using [apostrophe-sandbox](https://github.com/apostrophecms/apostrophe-sandbox) as an example, but you can apply these steps to your own projects, too.
 
 ## Make a Dockerfile
 

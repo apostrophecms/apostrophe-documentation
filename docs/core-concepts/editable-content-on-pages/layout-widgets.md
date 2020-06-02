@@ -6,7 +6,7 @@ You want a widget that creates a layout of inner widgets.
 
 ## Create a layout widget
 
-Generally, you need a dedicated widget to create layout. The Apostrophe team sometimes refers to these as ‘layout widgets’ that give form and structure to ‘content widgets’ \(widgets whose sole job is to display content\). **In this example we'll make a simple two column layout.**
+You might want a widget to establish consistent layout and structure (e.g., two things side-by-side) but leave the contents of that layout flexible. We like to call these "layout widgets," which give form and structure to "content widgets" (widgets whose sole job is to display content). **In this example we'll make a simple two column layout.**
 
 1. Use the [`apostrophe-cli`](https://github.com/apostrophecms/apostrophe-cli) to quickly build a widget.
 
