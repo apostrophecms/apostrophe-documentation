@@ -8,12 +8,12 @@ macOS is the most popular platform for Apostrophe CMS development, but there are
 
 Here's what you need to install:
 
-* XCode \(required for all compilation on Macs\)
-* Homebrew \(for easy installing\)
+* XCode (required for all compilation on Macs)
+* Homebrew (for easy installing)
 * Git
-* Node & NPM
+* Node & npm
 * MongoDB
-* Optional: Imagemagick \(for fast image manipulation with animated GIF support\)
+* Optional: Imagemagick (for fast image manipulation with animated GIF support)
 
 ## Install XCode and Command Line Tools
 
@@ -26,6 +26,19 @@ First, you need to install the Xcode Command Line Tools.
 ::: tip
 Starting with XCode 6.1 the Command Line tools are automatically installed, and just need to be configured. For older versions of XCode, go to the Downloads tab under Preferences. From there you can select _Install_ for the Command Line Tools options.
 :::
+
+1. Next, install the `apostrophe-cli` tool, which has several commands to make
+building a new project quick and easy. To install the Apostrophe CLI tool, run
+the following command:
+
+```bash
+# Install the apostrophe-cli module
+npm install apostrophe-cli -g
+```
+
+It is completely possible to build Apostrophe projects without the CLI tool.
+This documentation will use it in various places because it does speed up
+development.
 
 ## Install Homebrew
 
@@ -83,9 +96,9 @@ echo $PATH
 
 If it worked, it will echo the current PATH setting as a set of colon-separated values, beginning with your additions.
 
-## Install NPM \(Node Package Manager\)
+## Install npm (Node Package Manager)
 
-NPM may or may not have been installed with Node. Try:
+[npm](https://www.npmjs.com/) should have been installed with Node. Try:
 
 ```bash
 npm

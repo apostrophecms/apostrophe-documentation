@@ -9,6 +9,7 @@
         "children": [
           "getting-started/setting-up-your-environment",
           "getting-started/creating-your-first-project",
+          "getting-started/apostrophe-cli",
           "getting-started/contribution"
         ]
       },
@@ -114,6 +115,7 @@
         "children": [
           "getting-started/setting-up-your-environment",
           "getting-started/creating-your-first-project",
+          "getting-started/apostrophe-cli",
           "getting-started/contribution"
         ]
       },

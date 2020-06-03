@@ -10,19 +10,19 @@ You might want a widget to establish consistent layout and structure (e.g., two 
 
 1. Use the [`apostrophe-cli`](https://github.com/apostrophecms/apostrophe-cli) to quickly build a widget.
 
-    ```bash
-    apostrophe create-widget two-column
-    ```
+  ```bash
+  apos create-widget two-column
+  ```
 
 2. Include the layout widget in our `app.js` by adding the following to the `modules` object:
 
-    ```javascript
-      // app.js
-      modules: {
-        // ...,
-        'two-column-widgets': {}
-      }
-    ```
+  ```javascript
+  // app.js
+  modules: {
+    // ...,
+    'two-column-widgets': {}
+  }
+  ```
 
 3. Define what can be in a `two-column` widget by defining it in `lib/modules/two-column-widgets/index.js`:
 
