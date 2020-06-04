@@ -90,7 +90,7 @@
     },
     {
       "path": "/tutorials/howtos/docker",
-      "redirect": " /devops/docker.html"
+      "redirect": "/howtos/docker.html"
     },
     {
       "path": "/tutorials/howtos/replica-set",
@@ -299,10 +299,6 @@
     {
       "path": "/howtos/windows",
       "redirect": "/devops/windows.html"
-    },
-    {
-      "path": "/howtos/docker",
-      "redirect": " /devops/docker.html"
     },
     {
       "path": "/howtos/replica-set",

@@ -10,6 +10,7 @@ node app apostrophe-migrations:migrate
 Apostrophe is fully initialized before your task is run, except that it does
 not listen for connections. So you may access all of its features in your task.
 
+
 ## Methods
 ### invoke(*name*, *args*, *options*, *callback*)
 For use when you wish to execute an Apostrophe command line task from your code and continue,

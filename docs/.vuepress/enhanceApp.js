@@ -27,6 +27,11 @@ export default ({ router }) => {
       path: '/apostrophe-devops/devops/*',
       redirect: '/devops/*'
     },
+    // Not sure how this one is coming up often.
+    {
+      path: '/devops/apostrophe-devops/devops/*',
+      redirect: '/devops/*'
+    },
     // Redirect the funky old howtos path.
     {
       path: '/howtos/howtos/',
@@ -89,6 +94,18 @@ export default ({ router }) => {
         }
         return '/devops/cloud';
       }
+    },
+    {
+      path: '/other/glossary',
+      redirect: '/reference/glossary'
+    },
+    {
+      path: '/other/core-server',
+      redirect: '/reference/core-server'
+    },
+    {
+      path: '/other/core-browser',
+      redirect: '/reference/core-browser'
     }
   ].concat(entries));
 };
