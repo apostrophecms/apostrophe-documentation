@@ -42,7 +42,7 @@ project-level developer (except for core modules).
 
 ### addShortcutHelper(*name*, *value*)
 The use of this method is restricted to core modules
-and should only be used for apos.area, apos.singleton,
+and should only be used for `apos.area`, `apos.singleton`,
 and anything we later decide is at least that important.
 Everything else should be namespaced at all times,
 at least under its module alias.

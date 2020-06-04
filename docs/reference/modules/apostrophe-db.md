@@ -15,7 +15,6 @@ Query the server status every 10 seconds just to prevent
 the mongodb module version 2.1.19+ or better from allowing
 the connection to time out. That module provides no error messages or clues
 that we need to reconnect it.
-
 ### earlyResetTask(*callback*)
 Remove ALL collections from the database as part of the
 `apostrophe-db:reset` task. Then Apostrophe carries out the usual
