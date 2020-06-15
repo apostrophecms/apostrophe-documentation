@@ -16,41 +16,6 @@ It's easy to change: just set the `sanitizeHtml` option in `lib/modules/apostrop
 
 Here are a few common configurations. For more, [see the `sanitize-html` documentation](https://npmjs.org/package/sanitize-html).
 
-### Allow additional HTML tags
-
-The **default** `allowedTags` configuration from `sanitize-html` is:
-
-```javascript
-  allowedTags: [
-    'h3', 'h4', 'h5', 'h6', 'blockquote',
-    'p', 'a', 'ul', 'ol', 'nl', 'li',
-    'b', 'i', 'strong', 'em', 'strike', 'abbr',
-    'code', 'hr', 'br', 'div', 'caption',
-    'table', 'thead', 'tbody', 'tr', 'th', 'td', 'pre', 'iframe'
-  ],
-```
-
-To add tags to that list, you would include all of those tags you want to keep, then add the new ones.  Here is an example adding `sup` and `sub`:
-
-```javascript
-// lib/modules/apostrophe-rich-text-widgets/index.js
-
-module.exports = {
-  // The standard list copied from the module, plus sup and sub
-  sanitizeHtml: {
-    allowedTags: [
-      'h3', 'h4', 'h5', 'h6', 'blockquote',
-      'p', 'a', 'ul', 'ol', 'nl', 'li',
-      'b', 'i', 'strong', 'em', 'strike', 'abbr',
-      'code', 'hr', 'br', 'div', 'caption',
-      'table', 'thead', 'tbody', 'tr', 'th', 'td', 'pre', 'iframe',
-      'sup', 'sub' // ⬅ The new tags
-    ],
-    // ...,
-  }
-};
-```
-
 ### Add text styles using classes
 
 You will often want to add styles to the rich text editor widget that use classes for visual styling. For example, you may have these configurations in an area with a rich text widget for a basic paragraph and two special styles:
@@ -98,7 +63,9 @@ module.exports = {
 };
 ```
 
+::: tip
 You can open this up to allow the `class` attribute on any element by replacing those individual tag name keys in `allowedAttributes` with an asterisk string (`'*': ['class']`).
+:::
 
 Alternatively, you could only allow specific classes. You may not want to allow people to paste in rich text from somewhere else that includes classes that don't work well in a certain context. In this approach, you would use `allowClasses`:
 
@@ -119,6 +86,41 @@ module.exports = {
 ```
 
 There are no default `allowedClasses` settings, so you don't need to worry about including defaults for this one.
+
+### Allow additional HTML tags
+
+The **default** `allowedTags` configuration from `sanitize-html` is:
+
+```javascript
+  allowedTags: [
+    'h3', 'h4', 'h5', 'h6', 'blockquote',
+    'p', 'a', 'ul', 'ol', 'nl', 'li',
+    'b', 'i', 'strong', 'em', 'strike', 'abbr',
+    'code', 'hr', 'br', 'div', 'caption',
+    'table', 'thead', 'tbody', 'tr', 'th', 'td', 'pre', 'iframe'
+  ],
+```
+
+To add tags to that list, you would include all of those tags you want to keep, then add the new ones.  Here is an example adding `sup` and `sub`:
+
+```javascript
+// lib/modules/apostrophe-rich-text-widgets/index.js
+
+module.exports = {
+  // The standard list copied from the module, plus sup and sub
+  sanitizeHtml: {
+    allowedTags: [
+      'h3', 'h4', 'h5', 'h6', 'blockquote',
+      'p', 'a', 'ul', 'ol', 'nl', 'li',
+      'b', 'i', 'strong', 'em', 'strike', 'abbr',
+      'code', 'hr', 'br', 'div', 'caption',
+      'table', 'thead', 'tbody', 'tr', 'th', 'td', 'pre', 'iframe',
+      'sup', 'sub' // ⬅ The new tags
+    ],
+    // ...,
+  }
+};
+```
 
 There are many other combinations of similar configurations you may need to use. For more, [see the `sanitize-html` documentation](https://npmjs.org/package/sanitize-html).
 
