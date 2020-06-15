@@ -14,7 +14,23 @@ However, sometimes the default configuration isn't working for you, for instance
 
 It's easy to change: just set the `sanitizeHtml` option in `lib/modules/apostrophe-rich-text-widgets/index.js` in your project. Just keep in mind that **if you configure one of the sanitizeHtml options at all, you must configure that option completely.** A common mistake is forgetting to allow `a` elements or the `http` protocol, resulting in very pretty text with no links allowed!
 
-Here is an example of a complete copy of the default `sanitize-html` configuration that also adds `sup` and `sub`:
+Here are a few common configurations. For more, [see the `sanitize-html` documentation](https://npmjs.org/package/sanitize-html).
+
+### Allow additional HTML tags
+
+The **default** `allowedTags` configuration from `sanitize-html` is:
+
+```javascript
+  allowedTags: [
+    'h3', 'h4', 'h5', 'h6', 'blockquote',
+    'p', 'a', 'ul', 'ol', 'nl', 'li',
+    'b', 'i', 'strong', 'em', 'strike', 'abbr',
+    'code', 'hr', 'br', 'div', 'caption',
+    'table', 'thead', 'tbody', 'tr', 'th', 'td', 'pre', 'iframe'
+  ],
+```
+
+To add tags to that list, you would include all of those tags you want to keep, then add the new ones.  Here is an example adding `sup` and `sub`:
 
 ```javascript
 // lib/modules/apostrophe-rich-text-widgets/index.js
@@ -22,26 +38,89 @@ Here is an example of a complete copy of the default `sanitize-html` configurati
 module.exports = {
   // The standard list copied from the module, plus sup and sub
   sanitizeHtml: {
-    allowedTags: [ 'h3', 'h4', 'h5', 'h6', 'blockquote', 'p', 'a', 'ul', 'ol',
-      'li', 'b', 'i', 'strong', 'em', 'strike', 'code', 'hr', 'br', 'div',
-      'table', 'thead', 'caption', 'tbody', 'tr', 'th', 'td', 'pre',
-      'sup', 'sub'
+    allowedTags: [
+      'h3', 'h4', 'h5', 'h6', 'blockquote',
+      'p', 'a', 'ul', 'ol', 'nl', 'li',
+      'b', 'i', 'strong', 'em', 'strike', 'abbr',
+      'code', 'hr', 'br', 'div', 'caption',
+      'table', 'thead', 'tbody', 'tr', 'th', 'td', 'pre', 'iframe',
+      'sup', 'sub' // ⬅ The new tags
     ],
-    allowedAttributes: {
-      a: [ 'href', 'name', 'target' ],
-      // We don't currently allow img itself by default, but this
-      // would make sense if we did
-      img: [ 'src' ]
-    },
-    // Lots of these won't come up by default because we don't allow them
-    selfClosing: [ 'img', 'br', 'hr', 'area', 'base', 'basefont',
-      'input', 'link', 'meta' ],
-    // URL schemes we permit
-    allowedSchemes: [ 'http', 'https', 'ftp', 'mailto' ],
-    allowedSchemesByTag: {}
+    // ...,
   }
 };
 ```
+
+### Add text styles using classes
+
+You will often want to add styles to the rich text editor widget that use classes for visual styling. For example, you may have these configurations in an area with a rich text widget for a basic paragraph and two special styles:
+
+```django
+  {{ apos.area(data.page, 'body', {
+    widgets: {
+      'apostrophe-rich-text': {
+        toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
+        styles: [
+          { element: 'p', name: 'Paragraph' },
+          {
+            element: 'p',
+            name: 'Featured text',
+            attributes: { class: 'featured-text' }
+          },
+          {
+            element: 'h3',
+            name: 'Section title',
+            attributes: { class: 'section-heading' }
+          }
+        ]
+      }
+    }
+  }) }}
+```
+
+You can allow these classes in two ways. First, you could allow all classes on those elements using `allowedAttributes`:
+
+```javascript
+// lib/modules/apostrophe-rich-text-widgets/index.js
+
+module.exports = {
+  // The standard list copied from the module, plus sup and sub
+  sanitizeHtml: {
+    // allowedTags: [...],
+    allowedAttributes: {
+      'p': ['class'],
+      'h3': ['class'],
+      // Include the default setting as well, or else links will break
+      'a': [ 'href', 'name', 'target' ]
+    },
+    // ...,
+  }
+};
+```
+
+You can open this up to allow the `class` attribute on any element by replacing those individual tag name keys in `allowedAttributes` with an asterisk string (`'*': ['class']`).
+
+Alternatively, you could only allow specific classes. You may not want to allow people to paste in rich text from somewhere else that includes classes that don't work well in a certain context. In this approach, you would use `allowClasses`:
+
+```javascript
+// lib/modules/apostrophe-rich-text-widgets/index.js
+
+module.exports = {
+  // The standard list copied from the module, plus sup and sub
+  sanitizeHtml: {
+    // allowedTags: [...],
+    allowedClasses: {
+      'p': [ 'featured-text' ],
+      'h3': [ 'section-heading' ]
+    },
+    // ...,
+  }
+};
+```
+
+There are no default `allowedClasses` settings, so you don't need to worry about including defaults for this one.
+
+There are many other combinations of similar configurations you may need to use. For more, [see the `sanitize-html` documentation](https://npmjs.org/package/sanitize-html).
 
 ## Global CKeditor configuration
 

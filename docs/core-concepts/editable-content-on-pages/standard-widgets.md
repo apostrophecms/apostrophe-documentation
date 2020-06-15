@@ -31,6 +31,8 @@ The name of the area. This denotes what property the singleton will be saved to 
 
 `styles` specifies an array of valid CKEditor styles, which will appear on the "Style" dropdown menu if it is included in the `toolbar`. Each style has a `name` property and an `element` property. Most semantic HTML5 elements are allowed here.
 
+Learn more about connfiguring the rich text widget in [the CKEditor configuration section](/howtos/ckeditor.md).
+
 ### `apostrophe-images`
 
 The `apostrophe-images` widget lets you add one or more images. If multiple images are added in a single widget, they are presented as a slideshow.
