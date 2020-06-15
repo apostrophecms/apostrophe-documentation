@@ -381,7 +381,7 @@ To ensure the contents of the bundle's `data/` subdirectory are still available,
 
 To ensure there are no CORS (Cross-Origin Resource) errors, visit your amazon S3 bucket settings to adjust the CORS configuration:
 
-`Amazon S3 --> [bucket] --> Permissions Tab --> CORS configuration button`
+`Amazon S3 → [bucket] → Permissions Tab → CORS configuration button`
 
 Verify the value of `AllowedOrigin`. It should match the Elastic Beanstalk URL and/or the production URL of your project:
 
