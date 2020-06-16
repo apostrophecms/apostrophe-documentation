@@ -29,9 +29,7 @@ The date picker UI uses [pikaday](https://github.com/dbushell/Pikaday#usage) for
 ```
 
 ::: tip NOTE
-Apostrophe tries its best to convert any date picker format to the above mentioned** `YYYY-MM-DD` friendly sorting format, but very advanced configurations may not work out of the box, so please keep that in mind.
-
-If you do not set `def: null` or `required: true`, the date defaults to the current date.
+Apostrophe tries its best to convert any date picker format to the above mentioned `YYYY-MM-DD` friendly sorting format, but very advanced configurations may not work out of the box, so please keep that in mind.
 :::
 
 ## Settings
