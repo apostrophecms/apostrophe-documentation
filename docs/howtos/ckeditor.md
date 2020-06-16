@@ -67,7 +67,7 @@ module.exports = {
 You can open this up to allow the `class` attribute on any element by replacing those individual tag name keys in `allowedAttributes` with an asterisk string (`'*': ['class']`).
 :::
 
-Alternatively, you could only allow specific classes. You may not want to allow people to paste in rich text from somewhere else that includes classes that don't work well in a certain context. In this approach, you would use `allowClasses`:
+Alternatively, you could only allow specific classes. You may not want to allow people to paste in rich text from somewhere else that includes classes that don't work well in a certain context. In this approach, you would use `allowedClasses`:
 
 ```javascript
 // lib/modules/apostrophe-rich-text-widgets/index.js
