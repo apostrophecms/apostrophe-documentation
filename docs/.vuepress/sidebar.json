@@ -192,6 +192,7 @@
             "title": "Working with Templates",
             "path": "/core-concepts/working-with-templates",
             "children": [
+              "core-concepts/working-with-templates/data-objects",
               "core-concepts/working-with-templates/nunjucks-filters",
               "core-concepts/working-with-templates/nunjucks-helper-functions",
               "core-concepts/working-with-templates/thumbnails-and-areas-of-child-pages",
