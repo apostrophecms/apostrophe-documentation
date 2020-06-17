@@ -1,4 +1,4 @@
-# How do I create a 404 Not Found page?
+# Creating a 404 Not Found Page
 
 To get 404 not found pages to display (instead of an error saying you don't have one), just create:
 

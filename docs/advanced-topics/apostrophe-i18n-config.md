@@ -1,4 +1,4 @@
-# Internationalization and localization
+# Internationalization and Localization
 
 With Apostrophe, the best solution for internationalization (also known as i18n, or localization) depends on whether you're interested in translating "static" text in your templates and our interface, or dynamic text created by editing on the page, creating pieces, and so on.
 

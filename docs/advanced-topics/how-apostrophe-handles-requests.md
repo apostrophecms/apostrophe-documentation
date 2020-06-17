@@ -1,4 +1,4 @@
-# How Apostrophe handles requests
+# How Apostrophe Handles Requests
 
 This HOWTO describes how Apostrophe handles requests, and in the process, introduces many ways you can intercept that process and modify the response sent to the browser.
 

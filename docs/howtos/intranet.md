@@ -1,4 +1,4 @@
-# How do I add an Intranet to my site?
+# Adding an Intranet to Your Site
 
 Many websites feature an "Intranet" section which is exclusively for employees. ApostropheCMS offers ways to accomplish this.
 

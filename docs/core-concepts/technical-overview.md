@@ -1,4 +1,4 @@
-# Technical overview: 30,000 feet
+# Technical Overview: 30,000 feet
 
 Before you dig into core of what makes Apostrophe work, let's take a step back and look at it from a distance. To best understand what you're doing, you need to see how everything connects. Here you can learn more about the decisions that underpin Apostrophe's design. If you need to skip right to the practical stuff, select a topic from the left. If not, read on!
 

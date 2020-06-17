@@ -1,4 +1,4 @@
-# Command line tasks
+# Command Line Tasks
 
 Sometimes, you'll want to do something to your Apostrophe site's content
 via the command line. And there are plenty of built-in command line tasks

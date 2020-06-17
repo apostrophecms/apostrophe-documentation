@@ -1,4 +1,4 @@
-# Creating your first project
+# Creating Your First Project
 
 Now that you have all the dependencies for Apostrophe installed, you can create your first project!
 

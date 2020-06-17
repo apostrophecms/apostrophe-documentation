@@ -1,4 +1,4 @@
-# Sending email from your Apostrophe project
+# Sending Email from Your Apostrophe Project
 
 Any module in an Apostrophe project can send email easily. Here's an example. This example builds on `apostrophe-pieces`, which we have already learned about.
 

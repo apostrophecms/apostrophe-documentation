@@ -1,4 +1,4 @@
-# How Apostrophe starts up
+# How Apostrophe Starts Up
 
 This tutorial covers how Apostrophe initializes itself. In the process, it provides insight into how you can influence that process and the best times to do things in your own modules.
 

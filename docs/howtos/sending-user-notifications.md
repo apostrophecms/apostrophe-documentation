@@ -1,4 +1,4 @@
-# Sending user notifications
+# Sending User Notifications
 
 Apostrophe has very good support for sending notifications to users. This is useful whenever something happens, either in the browser or on the server, that should be called to the user's attention.
 

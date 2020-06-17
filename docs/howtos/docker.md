@@ -1,4 +1,4 @@
-# Building Docker images for Apostrophe projects
+# Building Docker Images for Apostrophe Projects
 
 [Docker](http://www.docker.com/) is a containerization platform that lets developers build an image for their projects then run it anywhere.
 

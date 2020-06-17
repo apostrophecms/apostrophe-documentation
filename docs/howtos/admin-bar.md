@@ -1,4 +1,4 @@
-# Building combined menus and custom buttons with the admin bar
+# Customizing the Admin Bar
 
 ## Grouping admin bar items into dropdown menus
 
