@@ -1,12 +1,12 @@
-# Facebook open graph tags in Apostrophe
+# Open Graph Tags in Apostrophe
 
-Facebook open graph tags can improve the way your pages appear when shared on Facebook, provided you use them correctly. The most frequently requested tag is `og:image`, followed by `og:title`, `og:description` and `og:type`. Often you can get away with just setting `og:image`. We'll look at how to do that.
+Open Graph tags can improve the way your pages appear when shared on social media websites, provided you use them correctly. The most frequently requested tag is `og:image`, followed by `og:title`, `og:description` and `og:type`. Often you can get away with just setting `og:image`. We'll look at how to do that.
 
 However, any URLs you do set must be absolute URLs.
 
 ## Absolute URLs in Apostrophe
 
-For reasons unknown to the rest of the Internet, Facebook has never implemented support for parsing relative URLs, even if they start with a `/`. They consider it an error. Why? Who knows.
+For reasons unknown to the rest of the Internet, the Open Graph protocol has never implemented support for parsing relative URLs, even if they start with a `/`. They consider it an error. Why? Who knows.
 
 You can get absolute URLs just by setting the `baseUrl` option:
 
@@ -55,7 +55,7 @@ It's pretty easy, since `data.page._url` is now absolute, and so are your image 
 {% set context = data.piece or data.page %}
 {% if context %}
   {% set firstImage = apos.images.first(data.context.thumbnail, 'thumbnail') or apos.images.first(data.context.body, 'body') %}
-  {% set fbImage = apos.images.first(data.context, 'facebookImage') %}
+  {% set fbImage = apos.images.first(data.context, 'ogImage') %}
   {% set description = apos.areas.plaintext(data.context.body) %}
   {% block extraHead %}
     {% if fbImage %}
@@ -76,9 +76,9 @@ It's pretty easy, since `data.page._url` is now absolute, and so are your image 
 
 * This is part of our `layout.html` template, which all full-page templates extend when not doing an AJAX refresh. Some of those will just be "regular pages," others might be `show.html` templates for pieces. So we start by deciding if our context is a piece or a page. If it is neither, we don't try to set meta tags.
 
-* If there is a singleton named `facebookImage` in our context (tip: add it to the schema), we use that for `og:url`. If not we use the first image we find in the `thumbnail` or `body` areas. This allows for custom Facebook images, if you want to include them in your page or piece schema, and also allows for Apostrophe to track something down to use instead.
+* If there is a singleton named `ogImage` in our context (tip: add it to the schema), we use that for `og:url`. If not we use the first image we find in the `thumbnail` or `body` areas. This allows for custom social media images, if you want to include them in your page or piece schema, and also allows for Apostrophe to track something down to use instead.
 
-* The body area is converted to plaintext and the first 200 characters are used to create the Facebook meta description. If you wanted, you could add a special Facebook description field to your schema, and output that instead.
+* The body area is converted to plaintext and the first 200 characters are used to create the social media meta description. If you wanted, you could add a special Open Graph description field to your schema, and output that instead.
 
 ### What if I need to construct an absolute URL to assets of my own?
 
