@@ -3,7 +3,7 @@
 Apostrophe makes different data available for you in templates depending on the context. Most of this is covered in other sections as well, but this page serves to collect that information in one place, as well as highlight options not covered elsewhere.
 
 ::: tip
-Anything attached to the `req.data` object becomes visible as the `data` object in Nunjucks templates when rendering pages and other templates. Before a page is rendered, you can add properties onto `req.data` to make any new information that you need available in a template.
+Anything attached to the `req.data` object becomes visible as the `data` object in Nunjucks templates when rendering pages and other templates. Before a page is rendered, you can add properties onto `req.data` to make any new information that you need available in a template. The [`apostrophe-pages:beforeSend` promise event handler](/advanced-topics/promise-events/promise-events.md#apostrophe-pages-beforesend-req) is a good place to do this before the page is rendered.
 :::
 
 ## `data.global`
@@ -12,11 +12,11 @@ Anything attached to the `req.data` object becomes visible as the `data` object 
 
 ## `data.page`
 
-The `data.page` object is available in any page, piece "show page" (e.g., `show.html` -- these aren't "pages" in the sense that they might extend `apostrophe-pages`), and widget template. It contains information about the current page's document (e.g., title, areas). There is a bit more to think about if  you are using it on show page or widget templates, but most of the time you will probably be using this directly on a normal page or index page template.
+The `data.page` object is available in any template rendered in response to loading a page in Apostrophe. This includes [piece show page templates](/core-concepts/reusable-content-pieces/browsing-directory-of-pieces.md#creating-custom-templates-for-individual-people). It contains information about the current page's document (e.g., title, areas). There is a bit more to think about if you are using it on show page or widget templates, but most of the time you will probably be using this directly on a normal page or index page template.
 
-In `show.html` templates it references the index page that the show "page" belongs to at a given URL (if you have one index page for the piece type this is simple, with multiple index pages for a type it's slightly more complicated).
+In `show.html` templates it references the index page that the show "page" belongs to at a given URL (a piece's show page could be a child of different index pages based on the URL).
 
-In widget templates, `data.page` references the page document that the widget is on. If the widget is specifically tied to a "piece," see above.
+`data.page` may be available in widget templates if they are rendered as part of a page. However, as a rule, widgets should only rely on information passed to them as options or contained in the widget itself.
 
 ## `data.piece`
 
@@ -39,9 +39,9 @@ This is used less, but can be very useful. `data.query` contains the contents of
 Other useful properties that are usually or always present include:
 
 - `data.url`: The current URL.
-- `data.slug`: The active page or piece slug.
 - `data.baseUrl`: The `baseUrl` set on the application. Usually the domain of the website.
 - `data.home`: The home page document, typically with a populated `._children` property.
-- `data.permissions`: This will be the contents of `req.user._permissions`, with boolean properties for permissions such as `admin` and `edit` (or `{}` if there is no user).
+- `data.permissions`: This will be the contents of `req.user._permissions`, an object, with boolean properties for permissions such as `admin`, `edit`, and `guest` (or simply `{}` if there is no user).
+- `data.when`: The active "scene." In brief, this is a general context for a user, which is used primarily to identify [which front end assets should be served](/reference/modules/apostrophe-assets/#nunjucks-template-helpers).
 - `data.refreshing`: `true` if an AJAX refresh of the main content area is taking place.
 - `data.outerLayout`: This will be either `apostrophe-templates:outerLayout.html` (for normal page rendering) or `apostrophe-templates:refreshLayout.html` (when refreshing the main content area via AJAX).

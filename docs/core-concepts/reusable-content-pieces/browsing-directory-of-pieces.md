@@ -156,7 +156,7 @@ Next you want to override the `show.html` template of your subclass of `apostrop
 
 
 ```django
-{# lib/modules/people-pages/views/index.html #}
+{# lib/modules/people-pages/views/show.html #}
 {% extends "layout.html" %}
 {% block title %}{{ data.piece.title }}{% endblock %}
 
