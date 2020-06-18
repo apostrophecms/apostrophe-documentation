@@ -44,8 +44,6 @@ All page types that are allowed on the site must be listed as part of the `types
 
 Often page types are given extra behavior via the [apostrophe-custom-pages](/reference/modules/apostrophe-custom-pages/README.md) module, which allows the developer to handle the rest of the URL if a page matches just the beginning of a URL. This module is extended by [apostrophe-pieces-pages](/reference/modules/apostrophe-pieces-pages/README.md), used to power blogs and other index views of [apostrophe-pieces](/reference/modules/apostrophe-pieces/README.md).
 
-
-
 ## Global doc
 
 There is a doc with the slug `global` which is always loaded and available to your page templates as `data.global`. This is useful for shared, site-wide headers and footers that are editable, etc. It is managed by the [apostrophe-global](/reference/modules/apostrophe-global/README.md) module. There is no rule against creating other specialized docs if pieces, pages and `global` don't cover your use cases.
