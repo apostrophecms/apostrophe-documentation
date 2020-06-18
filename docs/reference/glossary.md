@@ -44,7 +44,7 @@ All page types that are allowed on the site must be listed as part of the `types
 
 Often page types are given extra behavior via the [apostrophe-custom-pages](/reference/modules/apostrophe-custom-pages/README.md) module, which allows the developer to handle the rest of the URL if a page matches just the beginning of a URL. This module is extended by [apostrophe-pieces-pages](/reference/modules/apostrophe-pieces-pages/README.md), used to power blogs and other index views of [apostrophe-pieces](/reference/modules/apostrophe-pieces/README.md).
 
-## global doc
+## Global doc
 
 There is a doc with the slug `global` which is always loaded and available to your page templates as `data.global`. This is useful for shared, site-wide headers and footers that are editable, etc. It is managed by the [apostrophe-global](/reference/modules/apostrophe-global/README.md) module. There is no rule against creating other specialized docs if pieces, pages and `global` don't cover your use cases.
 
@@ -200,19 +200,6 @@ A cursor is always an instance of [apostrophe-cursor](/reference/modules/apostro
 **Every cursor object obtained in this way automatically has methods with the same name as each field in the schema.** For instance, you can write `.slug('party').toArray(function(err, docs) { ... })` to find all docs with a slug \(URL\) that contains the word `party`.
 
 See [working with cursors](/advanced-topics/database/cursors.md) for more information.
-
-## `req.data` and the `data` object in Nunjucks
-
-Anything attached to the `req.data` object becomes visible as the `data` object in Nunjucks templates when rendering pages, etc. Interesting properties that are usually or always present include:
-
-* `outerLayout`: will be either `apostrophe-templates:outerLayout.html` \(for normal page rendering\) or `apostrophe-templates:refreshLayout.html` \(when refreshing the main content area via AJAX\)
-* `permissions`: will be the contents of `req.user._permissions`, with boolean properties for permissions such as `admin` and `edit`, or `{}` if there is no user
-* `refreshing`: true if an AJAX refresh of the main content area is taking place
-* `query`: the contents of `req.query`
-* `url`: the current URL
-* `page`: the current page object \(if appropriate; certain routes, like `/login`, render HTML pages but are not tied to any page in Apostrophe\)
-* `home`: the home page, typically with a populated `._children` property
-* `global`: a doc which may be used for elements common to all pages, like global footers
 
 ## Promise Events
 
