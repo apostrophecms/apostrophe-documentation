@@ -74,7 +74,7 @@ Here is an example with the popular options:
 
 If you don't specify a size, the `full` size is displayed.
 
-You'll talk about adding custom image sizes in [`apostrophe-attachments`](/reference/modules/apostrophe-attachments/README.md#addimagesizes) in a later tutorial.
+See [`apostrophe-attachments`](/reference/modules/apostrophe-attachments/README.md#addimagesizes) for information about adding custom image sizes with that module's `addImageSizes` option.
 
 ### `apostrophe-files`
 
