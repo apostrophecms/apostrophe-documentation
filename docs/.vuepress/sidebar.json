@@ -13,94 +13,7 @@
           "getting-started/contribution"
         ]
       },
-      {
-        "title": "Core Concepts",
-        "path": "/core-concepts",
-        "collapsable": false,
-        "children": [
-          "core-concepts/technical-overview",
-          {
-            "title": "Pages and Navigation",
-            "path": "/core-concepts/pages-and-navigation",
-            "children": [
-              "core-concepts/pages-and-navigation/page-templates",
-              "core-concepts/pages-and-navigation/widgets-singletons-and-areas",
-              "core-concepts/pages-and-navigation/connecting-pages"
-            ]
-          },
-          {
-            "title": "Widgets",
-            "path": "/core-concepts/editable-content-on-pages",
-            "children": [
-              "core-concepts/editable-content-on-pages/standard-widgets",
-              "core-concepts/editable-content-on-pages/custom-widgets",
-              "core-concepts/editable-content-on-pages/layout-widgets"
-            ]
-          },
-          {
-            "title": "Pieces",
-            "path": "/core-concepts/reusable-content-pieces",
-            "children": [
-              "core-concepts/reusable-content-pieces/reusable-content-with-pieces",
-              "core-concepts/reusable-content-pieces/displaying-pieces-with-widgets",
-              "core-concepts/reusable-content-pieces/browsing-directory-of-pieces",
-              "core-concepts/reusable-content-pieces/joins"
-            ]
-          },
-          {
-            "title": "Global settings",
-            "path": "/core-concepts/global-settings",
-            "children": [
-              "core-concepts/global-settings/settings",
-              "core-concepts/global-settings/global"
-            ]
-          },
-          {
-            "title": "Modules",
-            "path": "/core-concepts/modules",
-            "children": [
-              "core-concepts/modules/how-apostrophe-modules-are-structured",
-              "core-concepts/modules/nested-module-folders",
-              "core-concepts/modules/more-modules"
-            ]
-          },
-          {
-            "title": "Front End Assets",
-            "path": "/core-concepts/front-end-assets",
-            "children": [
-              "core-concepts/front-end-assets/pushing-assets",
-              "core-concepts/front-end-assets/lean-frontend-assets"
-            ]
-          },
-          {
-            "title": "Users and Permission",
-            "path": "/core-concepts/users-and-permissions",
-            "children": [
-              "core-concepts/users-and-permissions/users-and-groups",
-              "core-concepts/users-and-permissions/managing-access-control",
-              "core-concepts/users-and-permissions/apostrophe-passport",
-              "core-concepts/users-and-permissions/user-login-and-password"
-            ]
-          },
-          {
-            "title": "Working with Templates",
-            "path": "/core-concepts/working-with-templates",
-            "children": [
-              "core-concepts/working-with-templates/nunjucks-filters",
-              "core-concepts/working-with-templates/nunjucks-helper-functions",
-              "core-concepts/working-with-templates/thumbnails-and-areas-of-child-pages",
-              "core-concepts/working-with-templates/responsive-images"
-            ]
-          },
-          {
-            "title": "Search",
-            "path": "/core-concepts/apostrophe-search",
-            "children": [
-              "core-concepts/apostrophe-search/search"
-            ]
-          }
-        ]
-      },
+      "/core-concepts/",
       "/advanced-topics/",
       "/devops/",
       "/howtos/",
@@ -108,17 +21,7 @@
     ],
     "/core-concepts": [
       "/",
-      {
-        "title": "Getting Started",
-        "path": "/getting-started",
-        "collapsable": false,
-        "children": [
-          "getting-started/setting-up-your-environment",
-          "getting-started/creating-your-first-project",
-          "getting-started/apostrophe-cli",
-          "getting-started/contribution"
-        ]
-      },
+      "/getting-started/",
       {
         "title": "Core Concepts",
         "path": "/core-concepts",
@@ -308,8 +211,9 @@
       "/advanced-topics/",
       "/devops/",
       {
-        "title": "How-Tos",
+        "title": "HOWTOs",
         "path": "/howtos",
+        "collapsable": false,
         "children": [
           "howtos/custom-schema-field-types",
           "howtos/storing-sessions-in-redis",
