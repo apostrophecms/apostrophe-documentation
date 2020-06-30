@@ -2,6 +2,8 @@
 
 (
   cd _api-reference-generator/ &&
+  rm package-lock.json
+  rm -rf node_modules
   rm -rf ../docs/reference/modules/ &&
   # Not optional, we need to be documenting the latest published release
   npm update &&
