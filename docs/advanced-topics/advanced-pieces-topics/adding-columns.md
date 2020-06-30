@@ -9,33 +9,12 @@ You can extend this list and even specify your own sortable columns. Here's how 
 module.exports = {
   // Other configuration options, then...
   addColumns: [
-    // These are the standard columns, we would not add
-    // them twice, just using them as an example
     {
-      name: 'title',
-      label: 'Title',
+      name: 'myCustomField',
+      label: 'Custom Field',
       sort: {
         // Sort on this property. The `1` is required
-        title: 1
-      }
-    },
-    {
-      name: 'updatedAt',
-      label: 'Last Updated',
-      sort: {
-        // Sort on this property. The `1` is required
-        updatedAt: 1
-      },
-      // Use a custom nunjucks template to output the
-      // value, rather than outputting the value simply
-      // as a string. The value of the property shows up
-      // as `data.value` in the template
-      partial: function(value) {
-        if (!value) {
-          // Don't crash if updatedAt is missing
-          return '';
-        }
-        return self.partial('manageUpdatedAt.html', { value: value });
+        myCustomField: 1
       }
     }
   ]
@@ -46,8 +25,36 @@ module.exports = {
 Notice that for `sort` you specify an object exactly like what you'd pass to MongoDB's `sort()` method, or Apostrophe's `sort()` cursor filter. In particular, the actual property you sort on does not have to match the property name displayed in the column. For example, when working with people's names you might sort on `{ lastName: 1, firstName: 1 }` rather than `title`.
 :::
 
-**If you want to change one of the standard columns, override `defaultColumns`** rather
-than setting `addColumns`.
+In some cases, the field you are adding in a new column may not display well as it is in the database. Dates are a good example of this. You can use a custom Nunjucks template to output the value instead. We can use the default `updatedAt` field as an example of this. `updatedAt` is a standard column and we would not suggest adding it twice, but it serves as an example since the referenced template is in the code base for you to see.
+
+```javascript
+beforeConstruct: function(self, options) {
+  options.addColumns = [
+    {
+      name: 'updatedAt',
+      label: 'Last Updated',
+      sort: {
+        // Sort on this property. The `1` is required
+        updatedAt: 1
+      },
+      // The value of the property shows up as `data.value` in the template.
+      partial: function(value) {
+        if (!value) {
+          // Don't crash if `updatedAt` is missing
+          return '';
+        }
+        return self.partial('manageUpdatedAt.html', { value: value });
+      }
+    }
+  ]
+}
+```
+
+**It's important to note that this is done in `beforeConstruct`.** The `self` object is not available for the `self.partial` method in the simple `addColumns` option (see the previous example).
+
+::: tip
+If you want to change one of the standard columns, override `defaultColumns` rather than setting `addColumns`.
+:::
 
 
 [Joins](/reference/field-types/joinbyone.md) are one of Apostrophe's best features:
