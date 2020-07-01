@@ -129,6 +129,9 @@ Arrays are cloned as such only if they are true arrays
 (Array.isArray returns true). Otherwise all objects with
 a length property would be treated as arrays, which is
 an unrealistic restriction on apostrophe doc schemas.
+
+If `o` (usually the object) itself is a string, boolean or other scalar
+type it is returned as-is.
 ### orderById(*ids*, *items*, *idProperty*) *[api]*
 `ids` should be an array of mongodb IDs. The elements of the `items` array, which
 should be the result of a mongodb query, are returned in the order specified by `ids`.
