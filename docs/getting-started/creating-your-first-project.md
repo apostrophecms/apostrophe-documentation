@@ -39,7 +39,7 @@ Alternatively, you can install a robust, themed, fully-baked project with this c
 apos create-project --boilerplate https://github.com/apostrophecms/apostrophe-open-museum test-project
 ```
 
-This will download a fully functional Apostrophe application codebase. Please note that while the Open Museum codebase does power [the official demo](http://demo.apostrophecms.org), the demo's uploaded assets and database are not included when using it as a boilerplate.
+This will download a fully functional Apostrophe application codebase. Please note that while the Open Museum codebase does power [the official demo](http://demo.apostrophecms.org), the demo's uploaded assets and database are not included when using it as a boilerplate. The demo website is the best place to test out an Apostrophe website with completed content.
 
 ## Logging in
 
