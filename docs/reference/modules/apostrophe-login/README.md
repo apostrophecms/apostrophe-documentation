@@ -77,6 +77,30 @@ forgotten their passwords. For that, you should enable `passwordReset`
 (see above for concerns). You should bear in mind that this option is not as
 secure as requiring confirmation via email with `passwordReset.
 
+`throttle`
+
+If the `throttle` option is set to `{ allowedAttempts: 3, perMinutes: 1, lockoutMinutes: 10 }` for
+this module then no more than three failed attempts per minute are permitted
+for the same account, after which the user is locked out for 10 minutes. If
+`throttle` exists, `allowedAttempts` defaults to 3, `perMinutes` defaults to 1,
+and `lockoutMinutes` also defaults to 1.
+
+`totp`
+
+If this option is set to `true`, the user will be required to set up two-factor
+authentication via Google Authenticator or a compatible app (TOTP) on their
+next successful login, and all future logins will require the verification code.
+
+If this option is set to an object, you may specify sub-options:
+
+`totp: { groups: true }`
+
+The `groups` sub-option indicates that TOTP is only required for groups
+for which it has been activated. This usually only makes sense when the
+`groups` option for the `apostrophe-user` module is *not* set, allowing
+administrators to edit the configuration for groups, make new ones, and
+check the box to require TOTP.
+
 ## Notable properties of apos.modules['apostrophe-login']
 
 `passport`
@@ -84,12 +108,30 @@ secure as requiring confirmation via email with `passwordReset.
 Apostrophe's instance of the [passport](https://npmjs.org/package/passport) npm module.
 You may access this object if you need to implement additional passport "strategies."
 
-## callAll method: loginAfterLogin
+## Promise events
 
-The method `loginAfterLogin` is invoked on **all modules that have one**. This method
+### after
+
+The promise event `after` is emitted after login succeeds. This
 is a good place to set `req.redirect` to the URL of your choice. If no module sets
-`req.redirect`, the newly logged-in user is redirected to the home page. `loginAfterLogin`
-is invoked with `req` and may also optionally take a callback.
+`req.redirect`, the newly logged-in user is redirected to the home page. The
+event handler receives `req`.
+
+### `before`
+
+The promise event `before` is emitted by the `/login` route,
+before any attempt is made to evaluate the login. It receives `req`. If it
+throws a string as an error, that string is internationalized and reported
+to the user as the login error message. This is useful to implement modules
+like `apostrophe-login-recaptcha`.
+
+### `deserialize`
+
+The promise event `deserialize` is emitted on every HTTP request by a
+logged-in user. It receives `user`, the object found in the database for
+this user. This event is used, for instance, to fetch group information
+related to the user. To avoid degrading the editing experience handlers
+for this event should be as fast as possible.
 
 
 ## Methods
@@ -166,6 +208,17 @@ argument. You MUST check the second argument.
 
 The convention is set this way for compatibility
 with `passport`.
+### verifyPassword(*user*, *password*, *callback*)
+Verify the given password by checking it against the
+hash in the safe. The callback is invoked with an error
+on failure, otherwise with `null`.
+
+`user` is an `apostrophe-user` doc. If `options.throttle` is set to
+`{ allowedAttempts: 3, perMinutes: 1, lockoutMinutes: 10 }` for this module then no more than three failed
+attempts per minute are permitted for the same account, after which the user is locked out
+for 10 minutes. If `options.throttle` exists, `perMinutes` defaults to
+1 minute, `lockoutMinutes` also defaults to 1 minute, and `allowedAttempts` must
+be specified.
 ### verifyTotp(*user*, *done*)
 
 ### disableIfInactive(*user*)
@@ -180,6 +233,8 @@ control of timing relative to other modules.
 ### requireTotp(*req*, *res*, *next*)
 If the user is logged in, require that they also have
 totp, otherwise kick them over to get it
+### totpNeeded(*req*)
+
 ### getLoginUrl()
 return the loginUrl option
 ### addRoutes()

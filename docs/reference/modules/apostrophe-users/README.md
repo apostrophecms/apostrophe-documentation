@@ -143,9 +143,6 @@ password field blank, requesting no change), it is left
 alone and `safeUser` is not updated.
 
 Called automatically by `hashSecrets`, above.
-### verifyPassword(*user*, *password*, *callback*)
-Verify the given password by checking it against the
-hash in the safe. `user` is an `apostrophe-user` doc.
 ### verifySecret(*user*, *secret*, *attempt*, *callback*)
 Check whether the provided value `attempt` matches
 the hash of the secret property `secret`. For security

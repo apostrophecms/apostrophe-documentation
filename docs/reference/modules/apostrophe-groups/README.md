@@ -26,6 +26,8 @@ you may implicitly subclass it at project level to change its behavior.
 
 ### setPermissionsChoices()
 
+### removeTotpFromSchemaIfUnsuitable()
+
 ### addToAdminBar()
 
 ### addToAdminBarIfSuitable()
