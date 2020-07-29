@@ -35,6 +35,8 @@
 |readOnly | `boolean` | false | If true, prevents the user from editing the field |
 |help | `string` | | Help text for the field that will appear with the field's label |
 |htmlHelp | `string` | | Help text with support for HTML markup |
+|pattern | `string` | | Regular expression to validate entries |
+|patternErrorMessage | `string` | | Error message to display if `pattern` does not match |
 |textArea | `boolean` | false | If true, create a larger text areas |
 |searchable | `boolean` | true | If false, content from the area will not appear in search results. |
 |min | `integer` | | Sets the minimum number of characters allowed |
