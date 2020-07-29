@@ -29,9 +29,9 @@ is always in a consistent format.
 
 Examples:
 
-apos.eventName('aposChange', 'blog') ---> aposChangeBlog
-apos.eventName('aposChangeEvents') ---> aposChangeEvents
-apos.eventName('apos-jump-gleefully') ---> aposJumpGleefully
+apos.eventName('aposChange', 'blog') → aposChangeBlog
+apos.eventName('aposChangeEvents') → aposChangeEvents
+apos.eventName('apos-jump-gleefully') → aposJumpGleefully
 
 It doesn't matter how many arguments you pass. Each new argument
 is treated as a word boundary.
