@@ -197,3 +197,17 @@ apos.define('apostrophe-rich-text-widgets-editor', {
 > If we want to, we can look at `self.options.templateOptions`, which contains the configuration passed to this widget by `apos.areas` or `apos.singleton`.
 
 > Apostrophe's initial definition of the `beforeCkeditorInline` method is empty (following the [template pattern](https://en.wikipedia.org/wiki/Template_method_pattern)), but if you are using various add-on modules it's possible that some of them define it. If you want to be sure that code is called too, use the [super pattern](/reference/glossary.md#super-pattern) rather than just replacing the method outright.
+
+## Displaying icons for ckeditor plugins distributed with ckeditor
+
+You will note that if the ckeditor plugin you are trying to add is one that is distributed by the official ckeditor team, but not one that is included in Apostrophe's custom ckeditor theme, you will not see a visible icon in the toolbar for that item.
+
+If this happens you will likely discover that your plugin folder contains a `styles` subdirectory with a suitable `.css` file, but it is not being loaded.
+
+You can address this in your copy of the plugin with the following code:
+
+```javascript
+// in your plugin.js file
+
+CKEDITOR.document.appendStyleSheet(pluginDirectory + 'styles/colorbutton.css');
+```
