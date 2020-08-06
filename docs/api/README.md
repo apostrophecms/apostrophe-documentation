@@ -1,4 +1,4 @@
-# Modules in Apostrophe
+# Module APIs
 
 Every Apostrophe site is made up of modules. You can browse the complete list at left.
 
