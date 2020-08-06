@@ -171,6 +171,20 @@ apos.define('apostrophe-rich-text-widgets-editor', {
 });
 ```
 
+### Displaying icons for ckeditor plugins distributed with ckeditor
+
+You will note that if the ckeditor plugin you are trying to add is one that is distributed by the official ckeditor team, but not one that is included in Apostrophe's custom ckeditor theme, you will not see a visible icon in the toolbar for that item.
+
+If this happens you will likely discover that your plugin folder contains a `styles` subdirectory with a suitable `.css` file, but it is not being loaded.
+
+You can address this in your copy of the plugin with the following code:
+
+```javascript
+// in your plugin.js file
+
+CKEDITOR.document.appendStyleSheet(pluginDirectory + 'styles/colorbutton.css');
+```
+
 ## Instance-specific CKEditor configuration
 
 It is also possible to do custom configuration at the time a rich text editor is fired up. That allows us to look at the options that were passed to that widget via `apos.area` or `apos.singleton` and decide what to do. It is also the best place do things like changing the list of buttons that CKEditor is currently disabling.
@@ -198,16 +212,3 @@ apos.define('apostrophe-rich-text-widgets-editor', {
 
 > Apostrophe's initial definition of the `beforeCkeditorInline` method is empty (following the [template pattern](https://en.wikipedia.org/wiki/Template_method_pattern)), but if you are using various add-on modules it's possible that some of them define it. If you want to be sure that code is called too, use the [super pattern](/reference/glossary.md#super-pattern) rather than just replacing the method outright.
 
-## Displaying icons for ckeditor plugins distributed with ckeditor
-
-You will note that if the ckeditor plugin you are trying to add is one that is distributed by the official ckeditor team, but not one that is included in Apostrophe's custom ckeditor theme, you will not see a visible icon in the toolbar for that item.
-
-If this happens you will likely discover that your plugin folder contains a `styles` subdirectory with a suitable `.css` file, but it is not being loaded.
-
-You can address this in your copy of the plugin with the following code:
-
-```javascript
-// in your plugin.js file
-
-CKEDITOR.document.appendStyleSheet(pluginDirectory + 'styles/colorbutton.css');
-```
