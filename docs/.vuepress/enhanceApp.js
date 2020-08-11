@@ -11,9 +11,9 @@ export default ({ router }) => {
     {
       path: '/tutorials/*',
       redirect: to => {
-        if (to.params && to.params.pathMatch) {
-          const leadRegex = /^tutorials/;
-          return to.params.pathMatch.replace(leadRegex, '');
+        if (to.path) {
+          const leadRegex = /^\/tutorials/;
+          return to.path.replace(leadRegex, '');
         }
         return '/';
       }
@@ -74,9 +74,9 @@ export default ({ router }) => {
     {
       path: '/howtos/deployment/*',
       redirect: to => {
-        if (to.params && to.params.pathMatch) {
-          const leadRegex = /^howtos\/deployment/;
-          return to.params.pathMatch.replace(leadRegex, 'devops/deployment');
+        if (to.path) {
+          const leadRegex = /^\/howtos\/deployment/;
+          return to.path.replace(leadRegex, 'devops/deployment');
         }
         return '/devops/deployment';
       }
@@ -88,9 +88,9 @@ export default ({ router }) => {
     {
       path: '/howtos/cloud/*',
       redirect: to => {
-        if (to.params && to.params.pathMatch) {
-          const leadRegex = /^howtos\/cloud/;
-          return to.params.pathMatch.replace(leadRegex, 'devops/cloud');
+        if (to.path) {
+          const leadRegex = /^\/howtos\/cloud/;
+          return to.path.replace(leadRegex, 'devops/cloud');
         }
         return '/devops/cloud';
       }
@@ -106,6 +106,23 @@ export default ({ router }) => {
     {
       path: '/other/core-browser',
       redirect: '/reference/core-browser'
+    },
+    {
+      path: '/reference/modules/',
+      redirect: '/api/'
+    },
+    {
+      path: '/reference/modules/*',
+      redirect: to => {
+        console.info(to);
+        if (to.path) {
+          const leadRegex = /^\/reference\/modules/;
+          console.info(to.path.replace(leadRegex, 'api'));
+          // return null;
+          return to.path.replace(leadRegex, 'api');
+        }
+        return '/api';
+      }
     }
   ].concat(entries));
 };

@@ -661,30 +661,30 @@ Emit controls section of page editor modal: the cancel/save buttons, etc.
 ### isPage(*page*)
 
 ## API Routes
-### POST /modules/apostrophe-pages/reorganize
+### POST /apostrophe-pages/reorganize
 
-### POST /modules/apostrophe-pages/publish
+### POST /apostrophe-pages/publish
 Implement the publish route, which can publish
 one page (via req.body._id) or many (via req.body.ids).
 The `data` property of the API response will contain the page
 only for the `req.body._id` case.
-### POST /modules/apostrophe-pages/unpublish
+### POST /apostrophe-pages/unpublish
 Implement the unpublish route, which can publish
 one page (via req.body._id) or many (via req.body.ids).
 The `data` property of the API response will contain the page
 only for the `req.body._id` case.
-### POST /modules/apostrophe-pages/tag
+### POST /apostrophe-pages/tag
 Implement the tag route, which can tag
 one page (via `req.body._id`) or many (via `req.body.ids`).
 The tags to be added are in the `req.body.tags` array.
-### POST /modules/apostrophe-pages/untag
+### POST /apostrophe-pages/untag
 Implement the untag route, which can untag
 one page (via `req.body._id`) or many (via `req.body.ids`).
 The tags to be removed are in `req.body.tags`.
-### POST /modules/apostrophe-pages/trash
+### POST /apostrophe-pages/trash
 Implement the batch trash route, which can trash
 many pages (via req.body.ids) and responds with a job id.
-### POST /modules/apostrophe-pages/rescue
+### POST /apostrophe-pages/rescue
 Implement the batch rescue route, which can rescue
 many pages (via req.body.ids) and responds with a job id.
 Cannot be invoked when trashInSchema is false, as there

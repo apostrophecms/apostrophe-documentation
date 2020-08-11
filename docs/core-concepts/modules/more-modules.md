@@ -4,7 +4,7 @@ title: More npm modules for ApostropheCMS
 
 # More Modules:
 
-_This page is about optional modules for Apostrophe. For the standard modules, see the [reference](/reference/modules/README.md)._
+_This page is about optional modules for Apostrophe. For the standard modules, see the [reference](/api/README.md)._
 
 ## More official modules for ApostropheCMS
 

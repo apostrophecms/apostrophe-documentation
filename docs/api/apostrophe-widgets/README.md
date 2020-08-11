@@ -236,6 +236,6 @@ override to add CSS classes to the outer wrapper div of the widget.
 ### getWidgetClasses(*widget*)
 Override to add CSS classes to the div of the widget itself.
 ## API Routes
-### POST /modules/apostrophe-widgets/modal
+### POST /apostrophe-widgets/modal
 A POST route to render `widgetEditor.html`. `data.label` and
 `data.schema` are available to the template.

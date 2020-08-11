@@ -666,8 +666,367 @@
             "title": "apostrophe-widgets",
             "path": "/api/apostrophe-widgets",
             "children": [
-              "api/apostrophe-widgets/browser-apostrophe-widgets",
-              "api/apostrophe-widgets/browser-apostrophe-widgets-editor"
+              {
+                "title": "apostrophe-admin-bar",
+                "path": "/api/apostrophe-admin-bar",
+                "children": [
+                  "api/apostrophe-admin-bar/browser-apostrophe-admin-bar"
+                ]
+              },
+              {
+                "title": "apostrophe-any-page-manager",
+                "path": "/api/apostrophe-any-page-manager",
+                "children": [
+                  "api/apostrophe-any-page-manager/server-apostrophe-any-page-manager-cursor",
+                  "api/apostrophe-any-page-manager/browser-apostrophe-any-page-manager-chooser",
+                  "api/apostrophe-any-page-manager/browser-apostrophe-any-page-manager",
+                  "api/apostrophe-any-page-manager/browser-apostrophe-any-page-manager-relationship-editor"
+                ]
+              },
+              {
+                "title": "apostrophe-areas",
+                "path": "/api/apostrophe-areas",
+                "children": [
+                  "api/apostrophe-areas/browser-apostrophe-areas",
+                  "api/apostrophe-areas/browser-apostrophe-areas-editor"
+                ]
+              },
+              {
+                "title": "apostrophe-assets",
+                "path": "/api/apostrophe-assets",
+                "children": [
+                  "api/apostrophe-assets/browser-apostrophe-assets"
+                ]
+              },
+              {
+                "title": "apostrophe-attachments",
+                "path": "/api/apostrophe-attachments",
+                "children": [
+                  "api/apostrophe-attachments/browser-apostrophe-attachments",
+                  "api/apostrophe-attachments/browser-apostrophe-attachments-crop-editor",
+                  "api/apostrophe-attachments/browser-apostrophe-attachments-focal-point-editor"
+                ]
+              },
+              {
+                "title": "apostrophe-browser-utils",
+                "path": "/api/apostrophe-browser-utils",
+                "children": [
+                  "api/apostrophe-browser-utils/browser-apostrophe-browser-utils"
+                ]
+              },
+              "api/apostrophe-caches",
+              "api/apostrophe-csrf",
+              {
+                "title": "apostrophe-custom-pages",
+                "path": "/api/apostrophe-custom-pages",
+                "children": [
+                  "api/apostrophe-custom-pages/server-apostrophe-custom-pages-cursor",
+                  "api/apostrophe-custom-pages/browser-apostrophe-custom-pages",
+                  "api/apostrophe-custom-pages/browser-apostrophe-custom-pages-chooser",
+                  "api/apostrophe-custom-pages/browser-apostrophe-custom-pages-relationship-editor"
+                ]
+              },
+              "api/apostrophe-db",
+              {
+                "title": "apostrophe-doc-type-manager",
+                "path": "/api/apostrophe-doc-type-manager",
+                "children": [
+                  "api/apostrophe-doc-type-manager/server-apostrophe-doc-type-manager-cursor",
+                  "api/apostrophe-doc-type-manager/browser-apostrophe-doc-type-manager",
+                  "api/apostrophe-doc-type-manager/browser-apostrophe-doc-type-manager-chooser",
+                  "api/apostrophe-doc-type-manager/browser-apostrophe-doc-type-manager-relationship-editor",
+                  "api/apostrophe-doc-type-manager/browser-apostrophe-doc-type-manager-manager-modal"
+                ]
+              },
+              {
+                "title": "apostrophe-docs",
+                "path": "/api/apostrophe-docs",
+                "children": [
+                  "api/apostrophe-docs/server-apostrophe-cursor",
+                  "api/apostrophe-docs/browser-apostrophe-docs"
+                ]
+              },
+              "api/apostrophe-email",
+              "api/apostrophe-express",
+              {
+                "title": "apostrophe-files",
+                "path": "/api/apostrophe-files",
+                "children": [
+                  "api/apostrophe-files/server-apostrophe-files-cursor",
+                  "api/apostrophe-files/browser-apostrophe-files",
+                  "api/apostrophe-files/browser-apostrophe-files-editor-modal",
+                  "api/apostrophe-files/browser-apostrophe-files-chooser",
+                  "api/apostrophe-files/browser-apostrophe-files-relationship-editor",
+                  "api/apostrophe-files/browser-apostrophe-files-manager-modal"
+                ]
+              },
+              {
+                "title": "apostrophe-files-widgets",
+                "path": "/api/apostrophe-files-widgets",
+                "children": [
+                  "api/apostrophe-files-widgets/browser-apostrophe-files-widgets",
+                  "api/apostrophe-files-widgets/browser-apostrophe-files-widgets-editor"
+                ]
+              },
+              {
+                "title": "apostrophe-global",
+                "path": "/api/apostrophe-global",
+                "children": [
+                  "api/apostrophe-global/server-apostrophe-global-cursor",
+                  "api/apostrophe-global/browser-apostrophe-global",
+                  "api/apostrophe-global/browser-apostrophe-global-chooser",
+                  "api/apostrophe-global/browser-apostrophe-global-relationship-editor",
+                  "api/apostrophe-global/browser-apostrophe-global-editor-modal",
+                  "api/apostrophe-global/browser-apostrophe-global-manager-modal"
+                ]
+              },
+              {
+                "title": "apostrophe-groups",
+                "path": "/api/apostrophe-groups",
+                "children": [
+                  "api/apostrophe-groups/server-apostrophe-groups-cursor",
+                  "api/apostrophe-groups/browser-apostrophe-groups",
+                  "api/apostrophe-groups/browser-apostrophe-groups-chooser",
+                  "api/apostrophe-groups/browser-apostrophe-groups-relationship-editor",
+                  "api/apostrophe-groups/browser-apostrophe-groups-editor-modal",
+                  "api/apostrophe-groups/browser-apostrophe-groups-manager-modal"
+                ]
+              },
+              {
+                "title": "apostrophe-html-widgets",
+                "path": "/api/apostrophe-html-widgets",
+                "children": [
+                  "api/apostrophe-html-widgets/browser-apostrophe-html-widgets",
+                  "api/apostrophe-html-widgets/browser-apostrophe-html-widgets-editor"
+                ]
+              },
+              "api/apostrophe-i18n",
+              {
+                "title": "apostrophe-images",
+                "path": "/api/apostrophe-images",
+                "children": [
+                  "api/apostrophe-images/server-apostrophe-images-cursor",
+                  "api/apostrophe-images/browser-apostrophe-images-chooser",
+                  "api/apostrophe-images/browser-apostrophe-images-relationship-editor",
+                  "api/apostrophe-images/browser-apostrophe-images-manager-modal",
+                  "api/apostrophe-images/browser-apostrophe-images-editor-modal",
+                  "api/apostrophe-images/browser-apostrophe-images-focal-point-editor",
+                  "api/apostrophe-images/browser-apostrophe-images"
+                ]
+              },
+              {
+                "title": "apostrophe-images-widgets",
+                "path": "/api/apostrophe-images-widgets",
+                "children": [
+                  "api/apostrophe-images-widgets/browser-apostrophe-images-widgets",
+                  "api/apostrophe-images-widgets/browser-apostrophe-images-widgets-editor"
+                ]
+              },
+              {
+                "title": "apostrophe-jobs",
+                "path": "/api/apostrophe-jobs",
+                "children": [
+                  "api/apostrophe-jobs/browser-apostrophe-jobs",
+                  "api/apostrophe-jobs/browser-apostrophe-jobs-modal"
+                ]
+              },
+              "api/apostrophe-launder",
+              "api/apostrophe-locks",
+              {
+                "title": "apostrophe-login",
+                "path": "/api/apostrophe-login",
+                "children": [
+                  "api/apostrophe-login/browser-apostrophe-login"
+                ]
+              },
+              "api/apostrophe-migrations",
+              {
+                "title": "apostrophe-modal",
+                "path": "/api/apostrophe-modal",
+                "children": [
+                  "api/apostrophe-modal/browser-apostrophe-modal"
+                ]
+              },
+              {
+                "title": "apostrophe-module",
+                "path": "/api/apostrophe-module",
+                "children": [
+                  "api/apostrophe-module/browser-apostrophe-module",
+                  "api/apostrophe-module/browser-apostrophe-module-manager-modal",
+                  "api/apostrophe-module/browser-apostrophe-module-editor"
+                ]
+              },
+              {
+                "title": "apostrophe-notifications",
+                "path": "/api/apostrophe-notifications",
+                "children": [
+                  "api/apostrophe-notifications/browser-apostrophe-notifications"
+                ]
+              },
+              {
+                "title": "apostrophe-oembed",
+                "path": "/api/apostrophe-oembed",
+                "children": [
+                  "api/apostrophe-oembed/browser-apostrophe-oembed"
+                ]
+              },
+              "api/apostrophe-pager",
+              {
+                "title": "apostrophe-pages",
+                "path": "/api/apostrophe-pages",
+                "children": [
+                  "api/apostrophe-pages/server-apostrophe-pages-cursor",
+                  "api/apostrophe-pages/browser-apostrophe-pages",
+                  "api/apostrophe-pages/browser-apostrophe-pages-editor",
+                  "api/apostrophe-pages/browser-apostrophe-pages-editor-update",
+                  "api/apostrophe-pages/browser-apostrophe-pages-editor-copy",
+                  "api/apostrophe-pages/browser-apostrophe-pages-reorganize"
+                ]
+              },
+              "api/apostrophe-permissions",
+              {
+                "title": "apostrophe-pieces",
+                "path": "/api/apostrophe-pieces",
+                "children": [
+                  "api/apostrophe-pieces/server-apostrophe-pieces-cursor",
+                  "api/apostrophe-pieces/browser-apostrophe-pieces",
+                  "api/apostrophe-pieces/browser-apostrophe-pieces-manager-modal",
+                  "api/apostrophe-pieces/browser-apostrophe-pieces-editor-modal",
+                  "api/apostrophe-pieces/browser-apostrophe-pieces-batch-permissions-modal",
+                  "api/apostrophe-pieces/browser-apostrophe-pieces-chooser",
+                  "api/apostrophe-pieces/browser-apostrophe-pieces-relationship-editor"
+                ]
+              },
+              {
+                "title": "apostrophe-pieces-pages",
+                "path": "/api/apostrophe-pieces-pages",
+                "children": [
+                  "api/apostrophe-pieces-pages/server-apostrophe-pieces-pages-cursor",
+                  "api/apostrophe-pieces-pages/browser-apostrophe-pieces-pages",
+                  "api/apostrophe-pieces-pages/browser-apostrophe-pieces-pages-chooser",
+                  "api/apostrophe-pieces-pages/browser-apostrophe-pieces-pages-relationship-editor"
+                ]
+              },
+              {
+                "title": "apostrophe-pieces-widgets",
+                "path": "/api/apostrophe-pieces-widgets",
+                "children": [
+                  "api/apostrophe-pieces-widgets/browser-apostrophe-pieces-widgets-editor",
+                  "api/apostrophe-pieces-widgets/browser-apostrophe-pieces-widgets"
+                ]
+              },
+              {
+                "title": "apostrophe-polymorphic-manager",
+                "path": "/api/apostrophe-polymorphic-manager",
+                "children": [
+                  "api/apostrophe-polymorphic-manager/server-apostrophe-polymorphic-manager-cursor",
+                  "api/apostrophe-polymorphic-manager/browser-apostrophe-polymorphic-manager-manager-modal",
+                  "api/apostrophe-polymorphic-manager/browser-apostrophe-polymorphic-manager-chooser",
+                  "api/apostrophe-polymorphic-manager/browser-apostrophe-polymorphic-manager",
+                  "api/apostrophe-polymorphic-manager/browser-apostrophe-polymorphic-manager-relationship-editor"
+                ]
+              },
+              "api/apostrophe-push",
+              {
+                "title": "apostrophe-rich-text-widgets",
+                "path": "/api/apostrophe-rich-text-widgets",
+                "children": [
+                  "api/apostrophe-rich-text-widgets/browser-apostrophe-rich-text-widgets",
+                  "api/apostrophe-rich-text-widgets/browser-apostrophe-rich-text-widgets-editor"
+                ]
+              },
+              {
+                "title": "apostrophe-schemas",
+                "path": "/api/apostrophe-schemas",
+                "children": [
+                  "api/apostrophe-schemas/browser-apostrophe-schemas",
+                  "api/apostrophe-schemas/browser-apostrophe-array-editor-modal"
+                ]
+              },
+              {
+                "title": "apostrophe-search",
+                "path": "/api/apostrophe-search",
+                "children": [
+                  "api/apostrophe-search/server-apostrophe-search-cursor",
+                  "api/apostrophe-search/browser-apostrophe-search",
+                  "api/apostrophe-search/browser-apostrophe-search-chooser",
+                  "api/apostrophe-search/browser-apostrophe-search-relationship-editor"
+                ]
+              },
+              "api/apostrophe-service-bridge",
+              "api/apostrophe-soft-redirects",
+              {
+                "title": "apostrophe-tags",
+                "path": "/api/apostrophe-tags",
+                "children": [
+                  "api/apostrophe-tags/server-apostrophe-tags-cursor",
+                  "api/apostrophe-tags/browser-apostrophe-tags",
+                  "api/apostrophe-tags/browser-apostrophe-tags-manager-modal",
+                  "api/apostrophe-tags/browser-apostrophe-tags-chooser",
+                  "api/apostrophe-tags/browser-apostrophe-tags-relationship-editor",
+                  "api/apostrophe-tags/browser-apostrophe-tags-editor-modal"
+                ]
+              },
+              "api/apostrophe-tasks",
+              "api/apostrophe-templates",
+              {
+                "title": "apostrophe-ui",
+                "path": "/api/apostrophe-ui",
+                "children": [
+                  "api/apostrophe-ui/browser-apostrophe-ui"
+                ]
+              },
+              "api/apostrophe-urls",
+              {
+                "title": "apostrophe-users",
+                "path": "/api/apostrophe-users",
+                "children": [
+                  "api/apostrophe-users/server-apostrophe-users-cursor",
+                  "api/apostrophe-users/browser-apostrophe-users",
+                  "api/apostrophe-users/browser-apostrophe-users-editor-modal",
+                  "api/apostrophe-users/browser-apostrophe-users-chooser",
+                  "api/apostrophe-users/browser-apostrophe-users-relationship-editor",
+                  "api/apostrophe-users/browser-apostrophe-users-manager-modal"
+                ]
+              },
+              {
+                "title": "apostrophe-utils",
+                "path": "/api/apostrophe-utils",
+                "children": [
+                  "api/apostrophe-utils/browser-apostrophe-context"
+                ]
+              },
+              {
+                "title": "apostrophe-versions",
+                "path": "/api/apostrophe-versions",
+                "children": [
+                  "api/apostrophe-versions/browser-apostrophe-versions",
+                  "api/apostrophe-versions/browser-apostrophe-versions-editor"
+                ]
+              },
+              {
+                "title": "apostrophe-video-fields",
+                "path": "/api/apostrophe-video-fields",
+                "children": [
+                  "api/apostrophe-video-fields/browser-apostrophe-video-fields"
+                ]
+              },
+              {
+                "title": "apostrophe-video-widgets",
+                "path": "/api/apostrophe-video-widgets",
+                "children": [
+                  "api/apostrophe-video-widgets/browser-apostrophe-video-widgets",
+                  "api/apostrophe-video-widgets/browser-apostrophe-video-widgets-editor"
+                ]
+              },
+              {
+                "title": "apostrophe-widgets",
+                "path": "/api/apostrophe-widgets",
+                "children": [
+                  "api/apostrophe-widgets/browser-apostrophe-widgets",
+                  "api/apostrophe-widgets/browser-apostrophe-widgets-editor"
+                ]
+              }
             ]
           }
         ]

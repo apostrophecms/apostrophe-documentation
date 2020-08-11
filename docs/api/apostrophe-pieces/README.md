@@ -241,37 +241,37 @@ for things like testing pagination, see the
 ### addGenerateTask() *[tasks]*
 
 ## API Routes
-### POST /modules/apostrophe-pieces/insert
+### POST /apostrophe-pieces/insert
 
-### POST /modules/apostrophe-pieces/retrieve
+### POST /apostrophe-pieces/retrieve
 
-### POST /modules/apostrophe-pieces/list
+### POST /apostrophe-pieces/list
 
-### POST /modules/apostrophe-pieces/update
+### POST /apostrophe-pieces/update
 
-### POST /modules/apostrophe-pieces/publish
+### POST /apostrophe-pieces/publish
 
-### POST /modules/apostrophe-pieces/unpublish
+### POST /apostrophe-pieces/unpublish
 
-### POST /modules/apostrophe-pieces/tag
+### POST /apostrophe-pieces/tag
 
-### POST /modules/apostrophe-pieces/untag
+### POST /apostrophe-pieces/untag
 
-### POST /modules/apostrophe-pieces/permissions
+### POST /apostrophe-pieces/permissions
 
-### POST /modules/apostrophe-pieces/manager-modal
+### POST /apostrophe-pieces/manager-modal
 
-### POST /modules/apostrophe-pieces/chooser-modal
+### POST /apostrophe-pieces/chooser-modal
 
-### POST /modules/apostrophe-pieces/editor-modal
+### POST /apostrophe-pieces/editor-modal
 
-### POST /modules/apostrophe-pieces/create-modal
+### POST /apostrophe-pieces/create-modal
 
-### POST /modules/apostrophe-pieces/batch-permissions-modal
+### POST /apostrophe-pieces/batch-permissions-modal
 
-### POST /modules/apostrophe-pieces/trash
+### POST /apostrophe-pieces/trash
 
-### POST /modules/apostrophe-pieces/rescue
+### POST /apostrophe-pieces/rescue
 
-### POST /modules/apostrophe-pieces/insert-via-upload
+### POST /apostrophe-pieces/insert-via-upload
 

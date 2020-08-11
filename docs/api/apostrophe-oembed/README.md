@@ -94,7 +94,7 @@ Extend this method to add additional `oembetter` filters.
 ### createRoutes()
 Add oembed query API routes. Called by `afterConstruct`.
 ## API Routes
-### GET /modules/apostrophe-oembed/query
+### GET /apostrophe-oembed/query
 Simple API to self.query, with caching. Accepts url and
 alwaysIframe parameters; alwaysIframe is assumed false
 if not provided. The response is a JSON object as returned

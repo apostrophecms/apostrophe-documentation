@@ -42,6 +42,6 @@ Other useful properties that are usually or always present include:
 - `data.baseUrl`: The `baseUrl` set on the application. Usually the domain of the website.
 - `data.home`: The home page document, typically with a populated `._children` property.
 - `data.permissions`: This will be the contents of `req.user._permissions`, an object, with boolean properties for permissions (e.g., `admin: true` or simply `{}` if there is no user).
-- `data.when`: The active "scene." In brief, this is a general context for a user, which is used primarily to identify [which front end assets should be served](/reference/modules/apostrophe-assets/#nunjucks-template-helpers).
+- `data.when`: The active "scene." In brief, this is a general context for a user, which is used primarily to identify [which front end assets should be served](/api/apostrophe-assets/#nunjucks-template-helpers).
 - `data.refreshing`: `true` if an AJAX refresh of the main content area is taking place.
 - `data.outerLayout`: This will be either `apostrophe-templates:outerLayout.html` (for normal page rendering) or `apostrophe-templates:refreshLayout.html` (when refreshing the main content area via AJAX).

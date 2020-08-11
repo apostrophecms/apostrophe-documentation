@@ -74,7 +74,7 @@ Here is an example with the popular options:
 
 If you don't specify a size, the `full` size is displayed.
 
-See [`apostrophe-attachments`](/reference/modules/apostrophe-attachments/README.md#addimagesizes) for information about adding custom image sizes with that module's `addImageSizes` option.
+See [`apostrophe-attachments`](/api/apostrophe-attachments/README.md#addimagesizes) for information about adding custom image sizes with that module's `addImageSizes` option.
 
 ### `apostrophe-files`
 
@@ -100,7 +100,7 @@ Users editing these widgets have the option of uploading files or reusing them. 
 
 In addition to GIF, JPEG and PNG files.
 
-This can be adjusted by configuring the [apostrophe-attachments](/reference/modules/apostrophe-attachments/README.md) module.
+This can be adjusted by configuring the [apostrophe-attachments](/api/apostrophe-attachments/README.md) module.
 
 ### `apostrophe-html`
 

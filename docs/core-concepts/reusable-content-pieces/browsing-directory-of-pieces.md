@@ -207,7 +207,7 @@ Even if you don't create an `index.html` in your piece's pages module, one will 
 
 For example, let's say you have a `cats` piece type. In my `cats-pages` module (extending `apostrophe-pieces-pages`), my `views` directory has a single `show.html` template file for the cat profile pages. So Oscar the cat can have his page at `example.com/cats/oscar`. If someone decides to try visiting `example.com/cats` you don't want that page to exist, but it will be there, listing cats, probably not looking that great.
 
-The solution is pretty simple! To get `example.com/cats` to return a 404 error (effectively no longer existing), make a small addition to the [`beforeIndex`](/reference/modules/apostrophe-pieces-pages/README.md#beforeindex-req-callback) method.
+The solution is pretty simple! To get `example.com/cats` to return a 404 error (effectively no longer existing), make a small addition to the [`beforeIndex`](/api/apostrophe-pieces-pages/README.md#beforeindex-req-callback) method.
 
 In `lib/modules/cats-pages/index.js`, add the following to your `construct` method:
 
@@ -226,7 +226,7 @@ construct: function (self, options) {
 
 See what we did there? Since `beforeIndex` runs before the index page is loaded, and by setting the request's `notFound` property to `true`, it'll return a 404 error rather than loading the page. This is the case even for site admins, so make sure the `apostrophe-pages` configuration doesn't give admins an option to create those pieces index pages.
 
-You might want to allow site admins to create and access those index pages, though. In that case, do [include it as an option in `apostrophe-pages` configuration](/reference/modules/apostrophe-pages/README.md), and make an adjustment to the `beforeIndex` method:
+You might want to allow site admins to create and access those index pages, though. In that case, do [include it as an option in `apostrophe-pages` configuration](/api/apostrophe-pages/README.md), and make an adjustment to the `beforeIndex` method:
 
 
 ```javascript

@@ -14,7 +14,6 @@ var typeModules = {
 
 module.exports = {
   construct: function(self, options) {
-
     if (self.apos.argv._[0] === 'documentation:generate') {
       // Add a route to dump the browser side type definitions, but
       // only when our task is running
@@ -26,15 +25,14 @@ module.exports = {
 
     const sidebarJsonPath = '../docs/.vuepress/sidebar.json';
     const startingNav = JSON.parse(fs.readFileSync(sidebarJsonPath, 'utf8'));
-    const refIndex = startingNav.sidebar['/reference'].findIndex(item => {
-      return item.path && item.path === '/reference';
+    const refIndex = startingNav.sidebar['/api'].findIndex(item => {
+      return item.path && item.path === '/api';
     });
 
-    const refSection = startingNav.sidebar['/reference'][refIndex];
+    const refSection = startingNav.sidebar['/api'][refIndex];
     const moduleList = refSection.children[refSection.children.length - 1].children;
     // Start the module list fresh.
     moduleList.length = 0;
-
     self.apos.tasks.add('documentation', 'generate', 'Usage: node app documentation:generate\n\nRegenerates the module reference documentation.', function(apos, argv, callback) {
       return async.series([
         self.extract,
@@ -95,7 +93,7 @@ module.exports = {
         documentModule(module);
       });
 
-      mkdirp('../docs/reference/modules');
+      mkdirp('../docs/api');
 
       const sidebarJson = JSON.stringify(startingNav, null, 2);
       fs.writeFileSync(sidebarJsonPath, sidebarJson);
@@ -246,7 +244,7 @@ module.exports = {
         // Check if there are sub-pages. If not, just make a file named after
         // the module. If so, make a directory and do it the old way.
         if (relatedTypes.length === 0) {
-          const loneFile = `../docs/reference/modules/${module}.md`;
+          const loneFile = `../docs/api/${module}.md`;
           fs.writeFileSync(loneFile,
             `# ${module}\n` +
             documentExtend(type, 0) +
@@ -257,16 +255,16 @@ module.exports = {
             documentRoutes(type)
           );
 
-          moduleList.push(`reference/modules/${module}`);
+          moduleList.push(`api/${module}`);
           return;
         }
 
-        var folder = '../docs/reference/modules/' + module;
+        var folder = '../docs/api/' + module;
         mkdirp(folder);
 
         const navGroup = {
           title: module,
-          path: `/reference/modules/${module}`,
+          path: `/api/${module}`,
           children: []
         };
 
@@ -292,7 +290,7 @@ module.exports = {
             documentRoutes(type)
           );
 
-          navGroup.children.push(`reference/modules/${module}/${type.nameNamespaced}`);
+          navGroup.children.push(`api/${module}/${type.nameNamespaced}`);
         });
         moduleList.push(navGroup);
       }
@@ -594,7 +592,7 @@ module.exports = {
       }
 
       function documentRoute(route) {
-        return '### ' + route.method.toUpperCase() + ' /modules/' + route.module + '/' + route.name + '\n' + documentComments(route.comments);
+        return '### ' + route.method.toUpperCase() + ' /' + route.module + '/' + route.name + '\n' + documentComments(route.comments);
       }
 
       function documentArg(arg) {

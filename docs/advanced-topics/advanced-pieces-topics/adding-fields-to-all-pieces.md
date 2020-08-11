@@ -4,7 +4,7 @@ Apostrophe's schemas are a powerful way to add fields to any type of piece or pa
 
 ## Adding a field to all pieces
 
-As explained in the tutorials, the [apostrophe-pieces](/reference/modules/apostrophe-pieces/README.md) module is a great way to create reusable content that appears all over the site — both on [apostrophe-pieces-pages](/reference/modules/apostrophe-pieces-pages/README.md) and in [apostrophe-pieces-widgets](/reference/modules/apostrophe-pieces-widgets/README.md).
+As explained in the tutorials, the [apostrophe-pieces](/api/apostrophe-pieces/README.md) module is a great way to create reusable content that appears all over the site — both on [apostrophe-pieces-pages](/api/apostrophe-pieces-pages/README.md) and in [apostrophe-pieces-widgets](/api/apostrophe-pieces-widgets/README.md).
 
 We've seen how we can add fields to these by using the `addFields` option when configuring each module. But sometimes we want to add a field to `every` type of piece. We can do that by configuring the `apostrophe-pieces` module itself.
 

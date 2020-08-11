@@ -4,9 +4,9 @@
 
 Usually a doc has only one `tags` field, called `tags`. You may create an additional field for storing tags, but the autocomplete feature only uses the original `tags` field.
 
-If the `lock` option of the [`apostrophe-tags`](/reference/modules/apostrophe-tags/README.md) module has been set to `true`, users cannot create brand-new tags when filling out a `tags` field. In this case never-before-seen tags must be created via the "Tags" admin bar button.
+If the `lock` option of the [`apostrophe-tags`](/api/apostrophe-tags/README.md) module has been set to `true`, users cannot create brand-new tags when filling out a `tags` field. In this case never-before-seen tags must be created via the "Tags" admin bar button.
 
-By default, tags are converted to lowercase and leading and trailing whitespace is trimmed. This behavior can be overridden by configuring the [`apostrophe-launder`](/reference/modules/apostrophe-launder.md) module's `filterTag` option to a function that accepts a string, filters it as desired, and returns a new string.
+By default, tags are converted to lowercase and leading and trailing whitespace is trimmed. This behavior can be overridden by configuring the [`apostrophe-launder`](/api/apostrophe-launder.md) module's `filterTag` option to a function that accepts a string, filters it as desired, and returns a new string.
 
 ## Settings
 

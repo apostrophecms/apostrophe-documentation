@@ -218,9 +218,9 @@ for consistency in arrangeFields, batch permissions schemas, etc.
 ### field(*field*, *readOnly*)
 
 ## API Routes
-### POST /modules/apostrophe-schemas/arrayEditor
+### POST /apostrophe-schemas/arrayEditor
 
-### POST /modules/apostrophe-schemas/arrayItems
+### POST /apostrophe-schemas/arrayItems
 
-### POST /modules/apostrophe-schemas/arrayItem
+### POST /apostrophe-schemas/arrayItem
 

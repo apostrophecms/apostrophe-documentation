@@ -54,15 +54,15 @@ Overridable hook
 ### menu()
 
 ## API Routes
-### POST /modules/apostrophe-tags/manager
+### POST /apostrophe-tags/manager
 
-### POST /modules/apostrophe-tags/listTags
+### POST /apostrophe-tags/listTags
 
-### POST /modules/apostrophe-tags/addTag
+### POST /apostrophe-tags/addTag
 
-### POST /modules/apostrophe-tags/renameTag
+### POST /apostrophe-tags/renameTag
 
-### POST /modules/apostrophe-tags/deleteTag
+### POST /apostrophe-tags/deleteTag
 
-### POST /modules/apostrophe-tags/autocomplete
+### POST /apostrophe-tags/autocomplete
 

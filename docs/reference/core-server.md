@@ -28,7 +28,7 @@ It is possible to have more than one `apos` object in a node.js application, for
 
 If present, this function is invoked with a callback, just before Apostrophe either listens for connections or, when arguments are present on the command line, carries out a task.
 
-Note that it is too late to add routes at this point because [apostrophe-pages](/reference/modules/apostrophe-pages/README.md) will already be responding to all remaining URLs. If you wish to add routes you should do so in your own Apostrophe modules.
+Note that it is too late to add routes at this point because [apostrophe-pages](/api/apostrophe-pages/README.md) will already be responding to all remaining URLs. If you wish to add routes you should do so in your own Apostrophe modules.
 
 This function does not receive an error object and is only invoked when Apostrophe has been successful in initialization so far \(see `initFailed`\). This function **must invoke its callback**. If an error is passed to the callback Apostrophe initialization will fail.
 
@@ -159,7 +159,7 @@ When `callAll` is invoked with a method name such as `docBeforeSave`, Apostrophe
 
 **A callback is required when invoking** `callAll`**, but optional when receiving it.** That is, your code that invokes `callAll` **must** be asynchronous and pass a callback as the last argument to `callAll`. However, some of the modules that implement `methodName` may omit the callback if they do not need to do any asynchronous work. `docBeforeSave` is a good example: some modules only need to copy one property to another, while others might need to consult another database.
 
-For legacy reasons, the `callAll` technique is widely used in core Apostrophe modules. For instance, [page-before-send](/reference/modules/apostrophe-pages/README.md#pagebeforesend-req-callback-api) is invoked just before a page is sent to the browser, allowing all modules one last opportunity to do some asynchronous work and add more information to `req.data`. But new code should listen for the `apostrophe-pages:beforeSend` [promise event](/advanced-topics/promise-events/promise-events.md) instead.
+For legacy reasons, the `callAll` technique is widely used in core Apostrophe modules. For instance, [page-before-send](/api/apostrophe-pages/README.md#pagebeforesend-req-callback-api) is invoked just before a page is sent to the browser, allowing all modules one last opportunity to do some asynchronous work and add more information to `req.data`. But new code should listen for the `apostrophe-pages:beforeSend` [promise event](/advanced-topics/promise-events/promise-events.md) instead.
 
 ### `destroy()`
 
@@ -169,7 +169,7 @@ The `destroy` method destroys the `apos` object, freeing resources such as datab
 
 For legacy reasons, Apostrophe provides a simple mechanism for synchronous events. This is separate from [promise events](/advanced-topics/promise-events/promise-events.html), which support asynchronous programming and are generally preferred in new code. Synchronous events may still be useful in new code when code is invoked so often that no delay can be tolerated.
 
-The `apos.emit` method takes an event name and additional, optional arguments and invokes all event listeners for that event name. For example, the [apostrophe-search](/reference/modules/apostrophe-search/README.md) module emits a `docSearchIndex` event with a `doc` and an array of `texts`, allowing other modules to potentially add more search texts.
+The `apos.emit` method takes an event name and additional, optional arguments and invokes all event listeners for that event name. For example, the [apostrophe-search](/api/apostrophe-search/README.md) module emits a `docSearchIndex` event with a `doc` and an array of `texts`, allowing other modules to potentially add more search texts.
 
 On the server side, Apostrophe emits [promise events](/advanced-topics/promise-events/promise-events.md) far more often.
 
