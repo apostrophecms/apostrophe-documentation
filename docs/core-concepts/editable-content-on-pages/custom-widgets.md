@@ -372,7 +372,7 @@ modules: {
 }
 ```
 
-Even if your widget doesn't require any options, you must configure it in `app.js` to `instantiate` it. This is how Apostrophe knows that you actually want to use this module directly. In many projects, some modules only exist to be extended by other modules.
+Even if your widget doesn't require any options, you must configure it in `app.js` to instantiate it. This is how Apostrophe knows that you actually want to use this module directly. In many projects, some modules only exist to be extended by other modules.
 
 So far, so good. you can create a whole column of drawer widgets and their titles and their content areas appear. But right now the "drawer" part is visible at all times.
 

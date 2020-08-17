@@ -1,6 +1,6 @@
 # How Apostrophe modules are structured
 
-## `lib/modules`: modules in Apostrophze
+## `lib/modules`: modules in Apostrophe
 
 Apostrophe is a modular content management system. Each meaningful component is broken into its own module, which can then be interacted with or subclassed \(extended\) by other modules in the system. Under the hood, modules are powered by [moog](https://github.com/apostrophecms/moog) and [moog-require](https://github.com/apostrophecms/moog-require), but you don't have to understand that right away to build a great website.
 
