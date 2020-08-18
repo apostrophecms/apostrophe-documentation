@@ -99,6 +99,8 @@ the chances of success when called during the
 by the current html page as part of that one API call.
 ### enableUnload()
 
+### enableWidgetGroups()
+
 ### markUnsaved()
 
 ### markSavedIfReady()
