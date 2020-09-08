@@ -51,7 +51,9 @@ There are also no widget players, except for modules that allow you to opt in to
 
 Pass options to the [express.static](https://expressjs.com/en/4x/api.html#express.static)
 middleware, such as `Cache-Control` and more. If no options are defined,
-the default options from the middleware will be used. Please note you might want
+the default options from the middleware will be used, except for `index` and `redirect` which are set to `false` to avoid redirect loops caused by Apostrophe's automatic removal of trailing slashes from page slugs.
+
+Please note you might want
 to define different options depending on your environment. You could for example
 set `max-age` only for production to ensure fresh files during development.
 Example:
