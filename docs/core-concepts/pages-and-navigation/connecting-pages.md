@@ -1,6 +1,6 @@
 # Building Navigation
 
-The Vikings believed that all of life all connected back to the world tree Yggrasil. Much like Viking mythology, all pages in Apostrophe are part of a "tree" in which every page is a child of another page and all the branches connect back to the Home page. The connection between pages with Home at the root is what makes visualizing and building navigation in Apostrophe work.
+The Vikings believed that all of life all connected back to the world tree Yggdrasill. Much like Viking mythology, all pages in Apostrophe are part of a "tree" in which every page is a child of another page and all the branches connect back to the Home page. The connection between pages with Home at the root is what makes visualizing and building navigation in Apostrophe work.
 
 Below you can find examples for several core navigation components. To test them out, add them to the `home.html` template of an existing Apostrophe project.
 
