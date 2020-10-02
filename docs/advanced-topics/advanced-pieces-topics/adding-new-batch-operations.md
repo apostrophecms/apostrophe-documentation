@@ -23,7 +23,7 @@ module.exports = {
         published: true
       },
       // If the schema is missing this field, don't offer this operation
-      requiredField: 'publish'
+      requiredField: 'published'
     }
   ]
 }
