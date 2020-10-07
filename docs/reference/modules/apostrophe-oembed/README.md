@@ -13,11 +13,12 @@ display the result.
 Also see the [oembetter](https://www.npmjs.com/package/oembetter) npm module and
 the [oembed](http://oembed.com/) documentation.
 
-Sites to be embedded need to be whitelisted, to avoid XSS attacks. Many
-widely trusted sites are already whitelisted.
+Sites to be embedded need to be added to the `safeList`, to avoid XSS attacks. Many
+widely trusted sites are already on the list. This is troue even when
+falling back to Open Graph, because of port scanning risks.
 
-Your `whitelist` option is concatenated with `oembetter`'s standard
-whitelist, plus wufoo.com, infogr.am, and slideshare.net.
+Your `safeList` option is concatenated with `oembetter`'s standard
+list, plus wufoo.com, infogr.am, and slideshare.net.
 
 Your `endpoints` option is concatenated with `oembetter`'s standard
 endpoints list.

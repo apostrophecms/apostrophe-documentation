@@ -170,6 +170,13 @@ csrf: {
 Do not set the `httpOnly` flag as this will prevent legitimate same-origin
 JavaScript from adding it to requests.
 
+### trustProxy
+
+Enables the ["trust proxy" option for Express](https://expressjs.com/en/api.html#trust.proxy.options.table).
+Set to `true` to tell the Express app to  respect `X-Forwarded-* ` headers.
+This is helpful when Apostrophe is generating `http:` URLs even though a
+proxy like nginx is being used to serve it over `https:`.
+
 ### middleware
 
 If a `middleware` array is present, those functions are added
