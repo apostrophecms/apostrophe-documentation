@@ -70,7 +70,7 @@ module.exports = {
 ```
 
 ```markup
-{# lib/modules/products/listItem.html #}
+{# lib/modules/products/views/listItem.html #}
 
 <div>{{ apos.areas.richText(item.description) }}</div>
 ```
