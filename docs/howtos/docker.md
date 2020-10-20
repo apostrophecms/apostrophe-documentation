@@ -172,7 +172,7 @@ node app.js apostrophe-users:add admin "admin"
 ```
 You'll be prompted to enter the password at the bottom of the log information
 
-Viola! Visit `localhost:3000` in your web browser and the site should be up. Note that you can change the `-p 3000:3000` option to start the server on any port. See the [docker run](https://docs.docker.com/engine/reference/commandline/run/) docs for more details.
+Voila! Visit `localhost:3000` in your web browser and the site should be up. Note that you can change the `-p 3000:3000` option to start the server on any port. See the [docker run](https://docs.docker.com/engine/reference/commandline/run/) docs for more details.
 
 # Deploy
 
