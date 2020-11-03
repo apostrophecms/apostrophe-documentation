@@ -70,7 +70,10 @@ services:
     restart: always
 
   aposcms:
-    image: "aposDockerImageFileName:latest"
+    build:
+      context: ./apostrophe-sandbox/
+      dockerfile: ./Dockerfile
+    image: "my-aposcms-image:latest"
     ports:
       - '3000:3000'
     volumes:
@@ -163,7 +166,7 @@ docker-compose down
 
 Your MongoDB container needs to be running, your Apostrophe container can also be running but is not a requirement.
 ```
-docker run --network="host" -it <YourApostropheContainer:latest> /bin/bash
+docker run --network="host" -it <YourApostropheImage:latest> /bin/bash
 ```
 The above command creates an interactive session in your Apostrophe container where you can issue the following command to add an Apostrophe user. The /bin/bash part may differ depending on your OS
 
