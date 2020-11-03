@@ -23,7 +23,7 @@ module.exports = {
     feedbackWidget: {
       docsRepoIssue: 'apostrophecms/apostrophe-documentation'
     },
-    logo: '/images/a2-lockup.png',
+    logo: '/images/logo-sm.png',
     nav: [
       {
         text: 'Docs Home',
