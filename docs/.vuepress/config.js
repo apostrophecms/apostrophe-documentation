@@ -13,7 +13,7 @@ module.exports = {
   themeConfig: {
     repo: 'https://github.com/apostrophecms/apostrophe',
     docsRepo: 'https://github.com/apostrophecms/apostrophe-documentation',
-    docsBranch: 'master',
+    docsBranch: 'main',
     docsDir: 'docs',
     lastUpdated: 'Last updated',
     nextLinks: true,
