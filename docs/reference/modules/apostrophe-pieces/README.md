@@ -141,6 +141,8 @@ for the newer apiResponder.
 
 ### composeColumns() *[api]*
 
+### validateSchema() *[api]*
+
 ### searchDetermineTypes(*types*) *[api]*
 Enable inclusion of this type in sitewide search results
 ### isAdminOnly() *[api]*
