@@ -238,7 +238,7 @@ So we can change its behavior by applying the "super pattern" as we do in many p
 
 ```javascript
 const superAddWeather = self.addWeather;
-self.addWeather = function() {
+self.addWeather = async function() {
   await superAddWeather(req);
   // We think the forecasted temperatures are low, adjust them
   req.data.forecast.temperature.main.temp += 2.0;
