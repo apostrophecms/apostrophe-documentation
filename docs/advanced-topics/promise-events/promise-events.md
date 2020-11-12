@@ -229,7 +229,7 @@ module.exports = {
     self.addWeather = async function(req) {
       const forecast = await request('http://api.openweathermap.org/data/2.5/forecast?id=5205788&APPID=PUTYOUROWNAPIKEYHERE');
       req.data.forecast = forecast;
-    });
+    };
   }
 }
 ```
