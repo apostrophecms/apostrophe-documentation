@@ -5,7 +5,7 @@ page.onConsoleMessage = function(msg, lineNum, sourceId) {
   console.log(msg);
 };
 page.open(url, function (status) {
-  if (status !== "success") {
+  if (status !== 'success') {
     throw status;
   }
   setTimeout(function() {

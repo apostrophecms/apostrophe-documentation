@@ -229,7 +229,7 @@ module.exports = {
           var method = _.find(type.methods, { name: name });
           if (!method) {
             console.error(type.name);
-            console.error("helper " + name + " was picked but not found");
+            console.error('helper ' + name + ' was picked but not found');
           } else {
             type.helpers.push(method);
           }
@@ -251,7 +251,7 @@ module.exports = {
             `# ${module}\n` +
             documentExtend(type, 0) +
             documentAlias(type) +
-            documentComments(type.comments) + "\n" +
+            documentComments(type.comments) + '\n' +
             documentMethods(type) +
             documentHelpers(type) +
             documentRoutes(type)
@@ -276,7 +276,7 @@ module.exports = {
           `# ${module}\n` +
           documentExtend(type) +
           documentAlias(type) +
-          documentComments(type.comments) + "\n" +
+          documentComments(type.comments) + '\n' +
           documentMethods(type) +
           documentHelpers(type) +
           documentRoutes(type)
@@ -287,7 +287,7 @@ module.exports = {
           fs.writeFileSync(markdownFile,
             `# ${type.title}\n` +
             documentExtend(type) +
-            documentComments(type.comments) + "\n" +
+            documentComments(type.comments) + '\n' +
             documentMethods(type) +
             documentRoutes(type)
           );
@@ -479,7 +479,7 @@ module.exports = {
           routes: routes,
           methods: methods,
           helpers: helpers,
-          files: [file],
+          files: [ file ],
           deferredHelpers: deferredHelpers
         });
 
@@ -707,7 +707,7 @@ module.exports = {
           i--;
         }
         comments.reverse();
-        comments = comments.join("\n");
+        comments = comments.join('\n');
         return comments;
       }
 
