@@ -60,12 +60,12 @@ module.exports = {
   },
   head: [
     // <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/6104347.js"></script>
-    ['script', {
+    [ 'script', {
       type: 'text/javascript',
       id: 'hs-script-loader',
       async: 'true',
       defer: 'true',
       src: '//js.hs-scripts.com/6104347.js'
-    }]
+    } ]
   ]
 };
