@@ -58,7 +58,7 @@ module.exports = {
   construct: (self, options) => {
     self.addUrls = (req, pieces, callback) => {
       for (const piece of pieces) {
-        piece._url = `https://external-site.com/products/${piece}.slug`;
+        piece._url = `https://external-site.com/products/${piece.slug}`;
       }
       return callback(null);
     };
