@@ -121,7 +121,7 @@ That being said, here's how to make it work:
 {# Load More button. Also outside data-apos-ajax-append, so it gets refreshed #}
 {% if data.currentPage < data.totalPages %}
   {# "Load More" button with the "append=1" flag #}
-  <a data-apos-ajax-infinite-scroll href="{{ data.url }} | build({ page: data.currentPage + 1, append: 1 })">Load More...</a>
+  <a data-apos-ajax-infinite-scroll href="{{ data.url | build({ page: data.currentPage + 1, append: 1 }) }}">Load More...</a>
 {% endif %}
 ```
 
