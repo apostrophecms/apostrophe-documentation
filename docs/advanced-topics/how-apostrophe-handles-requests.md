@@ -24,7 +24,7 @@ Express routes are considered after the middleware, in the order added. They are
 
 At the last possible moment, in the `afterInit` method of the `apostrophe-pages` module, a wildcard route \(matching `*`\) is added to Express, which triggers the `serve` method of the `apostrophe-pages`module. This is how requests for pages are handled, if no other route matches the request.
 
-The `server` method of `apostrophe-pages` loads `req.data.bestPage`, which is the page matching at least a prefix component of the URL; it will always be the home page at the very least.
+The `serve` method of `apostrophe-pages` loads `req.data.bestPage`, which is the page matching at least a prefix component of the URL; it will always be the home page at the very least.
 
 `apostrophe-pages` then invokes the `pageServe` method of every module that has one, via `self.apos.callAll`. The most important implementation is in the `apostrophe-custom-pages` module. Every page type has a "manager" object which is an instance of a subclass of this module. Even "ordinary" page types like `home` and `default` automatically receive a subclass of this module.
 
