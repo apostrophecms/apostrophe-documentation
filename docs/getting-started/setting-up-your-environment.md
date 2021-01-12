@@ -137,7 +137,7 @@ Apostrophe uses MongoDB as its database. You can install it with Homebrew. In ad
 3. After it is installed, start the MongoDB service:
 
     ```bash
-    brew services start mongodb-community
+    brew services start mongodb/brew/mongodb-community
     ```
 
 4. Now open a **new terminal window** and try:
