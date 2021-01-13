@@ -94,6 +94,7 @@ pieces for joins overrides this with an empty method and substitutes its
 own implementation.
 ### shrinkGrid()
 shrink and grow make visual reflectments to accommodate the the new Select Everything element
+Not needed anymore with use of flexboxes
 ### growGrid()
 
 ### reflectSelectEverything()

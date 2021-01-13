@@ -314,6 +314,8 @@ out across all sizes and crops.
 
 ### urlsTask(*callback*) *[api]*
 
+### addFixOrientationsMigration() *[api]*
+
 ### pushAssets() *[browser]*
 
 ### pushCreateSingleton() *[browser]*
