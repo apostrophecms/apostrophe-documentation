@@ -190,6 +190,7 @@ Calculates the appropriate modal body height by subtracting
 header, breadcrumb, and footer heights and an additional
 50 pixels from the browser window height. Invoked for you
 by `self.show()`.
+Not needed anymore with use of flexboxes
 ### refreshBreadcrumb()
 Rebuilds the breadcrumb trail of slide titles inside the slideable
 ancestor of the current slide, or the modal itself if it is a
