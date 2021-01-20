@@ -156,7 +156,6 @@ If you included `karla.woff` in `lib/modules/apostrophe-assets/public/fonts`, th
 
 ## Pushing stylesheets and JavaScript from your own modules
 
-Later on, when you start creating your own modules, you might want to "push" assets directly from them. When the time comes, check out the [pushAsset](/reference/modules/apostrophe-module/README.md#push-asset) method, which all modules in Apostrophe provide. This method gives you a powerful way to push assets only if the user is logged in, or all the time. And it allows you to organize your assets with the modules to which they are most relevant.
+Later on, when you start creating your own modules, you might want to "push" assets directly from them. When the time comes, check out the [pushAsset](/reference/modules/apostrophe-module/README.md#pushasset-type-name-options) method, which all modules in Apostrophe provide. This method gives you a powerful way to push assets only if the user is logged in, or all the time. And it allows you to organize your assets with the modules to which they are most relevant.
 
 Just as before, you can optionally use `import` flags by including an `import` object in the options object you pass to `pushAsset`.
-
