@@ -14,6 +14,7 @@ Each [Schema Field Type](/reference/field-types) in Apostrophe can take a number
 |help | `string` | | Help text for the field that will appear with the field's label | universal | |
 |htmlHelp | `string` | | Help text with support for HTML markup | universal | |
 |contextual | `boolean` | false | If true, it will prevent the field from appearing in the dialog box for a widget | universal | |
+|permission | `string` | | Specify the permission level needed to edit this field | universal | |
 |def | depends on field type | | The default value for the field | most fields, excluding areas, singletons, objects, and arrays | |
 |[sortify](sortify.md) | `boolean` | false | If true, make sort() operations on the field case-insensitive and more intuitive  | [string](../field-types/string.md), [email](../field-types/email.md), [slug](../field-types/slug.md), [select](../field-types/select.md) | |
 |searchable | `boolean` | true | If false a field will not inform sitewide search | [string](../field-types/string.md), [area](../field-types/area.md), [singleton](../field-types/singleton.md) | |
