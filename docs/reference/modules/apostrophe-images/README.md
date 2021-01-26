@@ -11,6 +11,23 @@ a website, and to manage a library of them for reuse.
 Each `apostrophe-image` doc has an `attachment` schema field, implemented
 by the [apostrophe-attachments](/reference/modules/apostrophe-attachments) module.
 
+::: warning NOTE
+By default, `apostrophe-images-widgets` take the `title` field of the image piece to fill
+the img tag alt attribute.
+
+We recommend for new projects to pass this option to your `apostrophe-images` module,
+in order to add a new `alt` field to images, it will be used in alt attributes:
+
+```javascript
+  // app.js
+  modules: {
+    'apostrophe-images': {
+      enableAltField: true
+    },
+  }
+```
+(This is by default in `apostrophe-boilerplate`)
+:::
 
 ## Methods
 ### first(*within*, *options*) *[api]*
