@@ -16,7 +16,7 @@ By default, `apostrophe-images-widgets` take the `title` field of the image piec
 the img tag alt attribute.
 
 We recommend for new projects to pass this option to your `apostrophe-images` module,
-in order to add a new `alt` field to images, it will be used in alt attributes:
+in order to add a new `alt` field to images. It will then be used in alt attributes:
 
 ```javascript
   // app.js
@@ -26,7 +26,7 @@ in order to add a new `alt` field to images, it will be used in alt attributes:
     },
   }
 ```
-(This is by default in `apostrophe-boilerplate`)
+This flag is now enabled by default in `apostrophe-boilerplate` for new projects.
 :::
 
 ## Methods
