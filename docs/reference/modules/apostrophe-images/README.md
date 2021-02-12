@@ -11,6 +11,24 @@ a website, and to manage a library of them for reuse.
 Each `apostrophe-image` doc has an `attachment` schema field, implemented
 by the [apostrophe-attachments](/reference/modules/apostrophe-attachments) module.
 
+::: warning NOTE
+By default, `apostrophe-images-widgets` take the `title` field of the image piece to fill
+the `<img>` alt attribute.
+
+We recommend that new projects use the `enableAltField: true` option on the `apostrophe-images` module,
+in order to add a new `alt` field to images. It will then be used in alt attributes:
+
+```javascript
+  // app.js
+  modules: {
+    'apostrophe-images': {
+      enableAltField: true
+    },
+  }
+```
+This flag is now enabled by default in `apostrophe-boilerplate` for new projects.
+:::
+
 
 ## Methods
 ### first(*within*, *options*) *[api]*
@@ -94,6 +112,8 @@ Make the minimum size, if any, accessible to the templates
 ### getListProjection(*req*) *[api]*
 
 ## Nunjucks template helpers
+### getImageAlt(*image*)
+
 ### first(*within*, *options*)
 This method is available as a template helper: apos.images.first
 
