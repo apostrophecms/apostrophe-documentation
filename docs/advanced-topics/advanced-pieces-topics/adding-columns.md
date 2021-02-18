@@ -25,24 +25,6 @@ module.exports = {
 Notice that for `sort` you specify an object exactly like what you'd pass to MongoDB's `sort()` method, or Apostrophe's `sort()` cursor filter. In particular, the actual property you sort on does not have to match the property name displayed in the column. For example, when working with people's names you might sort on `{ lastName: 1, firstName: 1 }` rather than `title`.
 :::
 
-To display the title or another field of a join in a column, include the `partial` method in the `addColumns` options:
-
-```javascript
-  //Other configuration options, then...
-  addColumns: [
-  {
-    name: '_myJoinedField',
-    label: 'Joined Field',
-    partial: function(_myJoinedField) {
-      if (!_myJoinedField) {
-        return 'None';
-      } else {
-        return _myJoinedField.title;
-      }
-    }
-  }
-```
-
 In some cases, the field you are adding in a new column may not display well as it is in the database. Dates are a good example of this. You can use a custom Nunjucks template to output the value instead. We can use the default `updatedAt` field as an example of this. `updatedAt` is a standard column and we would not suggest adding it twice, but it serves as an example since the referenced template is in the code base for you to see.
 
 ```javascript
@@ -66,6 +48,23 @@ beforeConstruct: function(self, options) {
     }
   ]
 }
+```
+To display the title or another field from a join in a column, include the `partial` method in the `addColumns` options:
+
+```javascript
+  // Other configuration options, then...
+  addColumns: [
+  {
+    name: '_myJoinedField',
+    label: 'Joined Field',
+    partial: function(_myJoinedField) {
+      if (!_myJoinedField) {
+        return 'None';
+      } else {
+        return _myJoinedField.title;
+      }
+    }
+  }
 ```
 
 **It's important to note that this is done in `beforeConstruct`.** The `self` object is not available for the `self.partial` method in the simple `addColumns` option (see the previous example).
