@@ -15,6 +15,6 @@ A single-select input field. The contents of the menu are set using the [`choice
 |help | `string` | | Help text for the field that will appear with the field's label | |
 |htmlHelp | `string` | | Help text with support for HTML markup | |
 |[choices](/reference/field-properties/choices.md) | `array` |  | An array of choices that the user can select from. Each must be an object with value and label properties. |  [**showFields**](/reference/field-properties/choices.md#showfields) |
-|widgetContols | `boolean` | false | If true, `select` fields can be edited in line on the page if the field is in a widget | |
+|widgetControls | `boolean` | false | If true, `select` fields can be edited in context on the page if the field is in a widget | |
 |[sortify](/reference/field-properties/sortify.md) | `boolean` | false | If true, creates "sortified" fields |
 
