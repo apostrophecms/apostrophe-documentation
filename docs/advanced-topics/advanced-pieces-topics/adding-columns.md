@@ -49,6 +49,23 @@ beforeConstruct: function(self, options) {
   ]
 }
 ```
+To display the title or another field from a join in a column, include the `partial` method in the `addColumns` options:
+
+```javascript
+  // Other configuration options, then...
+  addColumns: [
+  {
+    name: '_myJoinedField',
+    label: 'Joined Field',
+    partial: function(_myJoinedField) {
+      if (!_myJoinedField) {
+        return 'None';
+      } else {
+        return _myJoinedField.title;
+      }
+    }
+  }
+```
 
 **It's important to note that this is done in `beforeConstruct`.** The `self` object is not available for the `self.partial` method in the simple `addColumns` option (see the previous example).
 
