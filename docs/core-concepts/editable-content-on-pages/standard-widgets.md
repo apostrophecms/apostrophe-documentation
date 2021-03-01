@@ -13,7 +13,13 @@ The rich text widget provides a space for to enter text, with various options fo
 
 ```markup
   {{ apos.singleton(data.page, 'textBlock', 'apostrophe-rich-text', {
-    toolbar: [ 'Bold', 'Italic' ]
+    toolbar: [ 'Styles', 'Bold', 'Italic' ],
+    styles: [
+      { name: 'Paragraph', element: 'p' },
+      { name: 'Section heading', element: 'h2' }
+      { name: 'Sub-section heading', element: 'h3' }
+    ],
+    defaultElement: 'h2'
   }) }}
 ```
 
@@ -30,6 +36,8 @@ The name of the area. This denotes what property the singleton will be saved to 
 #### `styles`
 
 `styles` specifies an array of valid CKEditor styles, which will appear on the "Style" dropdown menu if it is included in the `toolbar`. Each style has a `name` property and an `element` property. Most semantic HTML5 elements are allowed here.
+
+If multiple styles are included, it will default to a paragraph style. If this array only includes one style, that style will be used in the text editor by default.
 
 Learn more about connfiguring the rich text widget in [the CKEditor configuration section](/howtos/ckeditor.md).
 
