@@ -30,13 +30,7 @@ If desired, we can specify `relationship` and `relationshipsField` just as we wo
 |  Property | Type   | Default | Description |
 |---|---|---|---|
 |name | `string` | | Sets the name of the field in the database |
-|label | `string` | | Sets the label of the field that the user sees |
-|required | `boolean` | false | If true, the field is mandatory |
-|contextual | `boolean` | false | If true, it will prevent the field from appearing in a dialog box |
 |type | `string` | | Specifies the field type |
-|readOnly | `boolean` | false | If true, prevents the user from editing the field |
-|help | `string` | | Help text for the field that will appear with the field's label |
-|htmlHelp | `string` | | Help text with support for HTML markup |
 |withType | `string` | | The name of the related type, if it differs from the name of the join. If you do not set `withType`, then the name of the join must match the name of the related type, with a leading `_` added.  |
 |reverseOf | `string` | | Set to the name of the join you are reversing (optional) |
 |ifOnlyOne | `boolean` | false | If true, it will only carry out the join if the query that returned the original document returned only one document. This is useful if the joined information is only to be displayed on the `show.html` page of a piece, for instance, and you don't want the performance impact of loading it on the `index.html` page. |
