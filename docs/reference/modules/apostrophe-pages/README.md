@@ -271,6 +271,12 @@ The `options` argument may be omitted completely. If
 `options.permissions` is set to false, permissions checks
 are bypassed.
 
+If `options.skipAttachments` is true, the operation will be slightly
+faster, however this is only safe to use if both the schema of the document
+and the schemas of any arrays and widgets within the document and its
+areas contain no attachments. This does not include attachments
+reached via joins.
+
 If no callback is supplied, a promise is returned.
 ### withLock(*req*, *fn*) *[api]*
 Takes a function, `fn`, which expects a callback and performs
@@ -437,6 +443,12 @@ Delivers (err, parentSlug) to the callback.
 Update a page. The `options` argument may be omitted entirely.
 if it is present and `options.permissions` is set to `false`,
 permissions are not checked.
+
+If `options.skipAttachments` is true, the operation will be slightly
+faster, however this is only safe to use if both the schema of the document
+and the schemas of any arrays and widgets within the document and its
+areas contain no attachments. This does not include attachments
+reached via joins.
 ### park(*pageOrPages*) *[api]*
 Ensure the existence of a page or array of pages and
 lock them in place in the page tree.
