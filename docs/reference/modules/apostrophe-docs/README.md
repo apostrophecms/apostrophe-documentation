@@ -126,6 +126,12 @@ The `options` object may be omitted completely.
 If `options.permissions` is set explicitly to
 `false`, permissions checks are bypassed.
 
+If `options.skipAttachments` is true, the operation will be slightly
+faster, however this is only safe to use if both the schema of the document
+and the schemas of any arrays and widgets within the document and its
+areas contain no attachments. This does not include attachments
+reached via joins.
+
 If `callback` is omitted, a promise is returned.
 ### update(*req*, *doc*, *options*, *callback*) *[api]*
 **Most often you will insert or update docs via the
@@ -176,6 +182,12 @@ The `options` object may be omitted completely.
 
 If `options.permissions` is set explicitly to
 `false`, permissions checks are bypassed.
+
+If `options.skipAttachments` is true, the operation will be slightly
+faster, however this is only safe to use if both the schema of the document
+and the schemas of any arrays and widgets within the document and its
+areas contain no attachments. This does not include attachments
+reached via joins.
 
 If `callback` is omitted, a promise is returned.
 ### denormalizePermissions(*req*, *doc*, *options*, *callback*) *[api]*
