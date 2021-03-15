@@ -170,7 +170,8 @@
               "advanced-topics/database/accessing-the-database-directly",
               "advanced-topics/database/replica-set"
             ]
-          }
+          },
+          "advanced-topics/migrations"
         ]
       },
       "/devops/",
