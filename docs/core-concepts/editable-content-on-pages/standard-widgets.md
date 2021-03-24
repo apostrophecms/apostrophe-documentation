@@ -16,7 +16,7 @@ The rich text widget provides a space for to enter text, with various options fo
     toolbar: [ 'Styles', 'Bold', 'Italic' ],
     styles: [
       { name: 'Paragraph', element: 'p' },
-      { name: 'Section heading', element: 'h2' }
+      { name: 'Section heading', element: 'h2' },
       { name: 'Sub-section heading', element: 'h3' }
     ],
     defaultElement: 'h2'
