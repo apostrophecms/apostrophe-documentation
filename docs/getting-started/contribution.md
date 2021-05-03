@@ -12,7 +12,7 @@ guide at [in the `@apostrophecms` organization on Github](https://github.com/apo
 In addition to contributing to the project, you can also join the growing
 community on [Discord](https://chat.apostrophecms.org/) for discussion, core
 development updates, and help as you build with Apostrophe. There are also the
-[forum](https://forum.apostrophecms.org/) and
+[Github discussions](https://github.com/apostrophecms/apostrophe/discussions/) and
 [Stack Overflow](https://stackoverflow.com/questions/tagged/apostrophe-cms).
 
 - [Code of Conduct](#code-of-conduct)
@@ -29,7 +29,7 @@ development updates, and help as you build with Apostrophe. There are also the
 All contributors and community members are expected to abide by the
 [Code of Conduct](https://github.com/apostrophecms/.github/blob/master/CODE_OF_CONDUCT.md).
 In short, be excellent to one another, respect everyone's contribution, and
-never harrass anyone for any reason. Alert the core team at
+never harass anyone for any reason. Alert the core team at
 [security@apostrophecms.com](mailto:security@apostrophecms.com) if you find
 someone failing to abide by the Code of Conduct.
 
