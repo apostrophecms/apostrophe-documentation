@@ -176,7 +176,7 @@ node app apostrophe-migrations:migrate || exit 1
 Be sure to make that script executable before committing it in your project:
 
 ```bash
-chmod u+x ./scripts/release-tasks
+chmod u+x ./scripts/heroku-release-tasks
 ```
 
 This script will take care of *both* static asset generation and database migrations just before Heroku starts launching dynos with the latest version of your code.
