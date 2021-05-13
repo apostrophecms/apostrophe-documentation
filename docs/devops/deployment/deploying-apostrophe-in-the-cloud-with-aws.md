@@ -147,9 +147,9 @@ We recommend you give your cluster the same name as your ELB environment.
 
 You will need to set up an administrative user for your cluster. These will be part of your MongoDB database connection credentials. **Be sure to set a secure, separate username and password,** do not use your Atlas login credentials.
 
-### IP address whitelisting
+### IP address allowlisting
 
-MongoDB Atlas requires us to whitelist the IP addresses that should be allowed to talk to the database. **Yes, it is secured by an encrypted password,** but this still helps cut down on potential DOS attacks.
+MongoDB Atlas requires us to allowlist the IP addresses that should be allowed to talk to the database. **Yes, it is secured by an encrypted password,** but this still helps cut down on potential DOS attacks.
 
 This is a problem with Elastic Beanstalk because it may connect from many IP addresses.
 
@@ -314,7 +314,7 @@ Victory!
 
 One thing is not incorporated in our process so far: running database migrations. This is important since Apostrophe itself, as well as your own code, may add migrations from time to time that need to be executed to update the database structure.
 
-Since Atlas allows access from any whitelisted IP with the right credentials, the simplest way to run a database migration is to execute it from your local dev environment, with an environment variable set to communicate with your remote database:
+Since Atlas allows access from any allowlisted IP with the right credentials, the simplest way to run a database migration is to execute it from your local dev environment, with an environment variable set to communicate with your remote database:
 
 ```
 APOS_MONGODB_URI=mongodb://YOUR-uri-goes-here node app apostrophe-migrations:migrate

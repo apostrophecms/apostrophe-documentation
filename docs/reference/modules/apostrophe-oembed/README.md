@@ -86,7 +86,7 @@ Called by `afterConstruct`.
 Create the browser-side object `apos.oembed` for convenient oembed queries
 and display of oembed responses. Called by `afterConstruct`.
 ### createOembetter()
-Creates an instance of the `oembetter` module and adds the standard whitelist.
+Creates an instance of the `oembetter` module and adds the standard allowlist.
 Called by `afterConstruct`.
 ### enhanceOembetter()
 Enhances oembetter to support services better or to support services

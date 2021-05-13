@@ -40,9 +40,9 @@ We recommend you give your cluster the same name as your project.
 
 You will need to set up an administrative MongoDB user for your cluster. These will be part of your MongoDB database connection credentials. **Be sure to set a secure, separate username and password,** do not use your Atlas login credentials.
 
-### IP address whitelisting
+### IP address allowing
 
-MongoDB Atlas requires us to whitelist the IP addresses that should be allowed to talk to the database. **Yes, it is secured by an encrypted password,** but this still helps cut down on potential DOS attacks.
+MongoDB Atlas requires us to allowlist the IP addresses that should be allowed to talk to the database. **Yes, it is secured by an encrypted password,** but this still helps cut down on potential DOS attacks.
 
 This is a problem with Heroku because it may connect from many IP addresses.
 
@@ -52,7 +52,7 @@ If you are buying a larger Atlas plan you may be able to use the "VPC Peering" o
 
 ### Telling Heroku about your database
 
-You will need to set an environment variable in Heroku so that your dynos understand where the datbase is. There's a UI for this, but the command line is much easier in the long run:
+You will need to set an environment variable in Heroku so that your dynos understand where the database is. There's a UI for this, but the command line is much easier in the long run:
 
 ```
 heroku config:set 'APOS_MONGODB_URI=mongodb://YOUR-uri-goes-here'
