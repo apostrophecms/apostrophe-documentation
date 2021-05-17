@@ -81,7 +81,7 @@ This is an option to the `apostrophe-assets` module:
 // in app.js
 modules: {
   // other modules, then...
-  apostrophe-assets: {
+  'apostrophe-assets': {
     minify: true
   }
 }
@@ -96,7 +96,7 @@ One great way is to use a `data/local.js` file on the production server. It look
     // in app.js
     modules: {
       // other modules, then...
-      apostrophe-assets: {
+      'apostrophe-assets': {
         minify: true
       }
     }
@@ -111,7 +111,7 @@ If you are not using Stagecoach, but you can set environment variables when runn
 // in app.js
 modules: {
   // other modules, then...
-  apostrophe-assets: {
+  'apostrophe-assets': {
     minify: (process.env.ENV === 'prod')
   }
 }

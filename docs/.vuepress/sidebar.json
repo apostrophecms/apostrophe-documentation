@@ -193,9 +193,9 @@
             "path": "/devops/deployment",
             "children": [
               "devops/deployment/deployment",
-              "devops/deployment/linode",
               "devops/deployment/deploying-apostrophe-in-the-cloud-with-heroku",
-              "devops/deployment/deploying-apostrophe-in-the-cloud-with-aws"
+              "devops/deployment/deploying-apostrophe-in-the-cloud-with-aws",
+              "devops/deployment/linode"
             ]
           },
           "devops/email",

@@ -54,7 +54,7 @@ such as `apostrophe-signup`.
 
 ### `disableInactiveAccounts` option
 
-If set to true, users from the "admin" group are whitelisted
+If set to true, users from the "admin" group are allowlisted
 and the inactivity period is 90 days. Default values can be changed:
 - `neverDisabledGroups` must be an array of group names that should NOT be disabled due to
 not having logged in recently, like `[ 'admin' ]`.
