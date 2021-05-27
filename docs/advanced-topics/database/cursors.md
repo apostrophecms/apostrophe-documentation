@@ -139,7 +139,7 @@ module.exports = {
       },
       safeFor: 'public',
       finalize: function() {
-        const popular = self.get('popular');
+        const popular = self.get('busy');
         if (popular) {
           // MongoDB dot notation
           self.and({ 'jobsIds.1': { $exists: 1 } });
