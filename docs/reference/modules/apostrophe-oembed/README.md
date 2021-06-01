@@ -20,6 +20,9 @@ falling back to Open Graph, because of port scanning risks.
 Your `safeList` option is concatenated with `oembetter`'s standard
 list, plus wufoo.com, infogr.am, and slideshare.net.
 
+The option name `allowlist` is also permitted for consistency with oembetter
+and other tools.
+
 Your `endpoints` option is concatenated with `oembetter`'s standard
 endpoints list.
 
@@ -86,7 +89,7 @@ Called by `afterConstruct`.
 Create the browser-side object `apos.oembed` for convenient oembed queries
 and display of oembed responses. Called by `afterConstruct`.
 ### createOembetter()
-Creates an instance of the `oembetter` module and adds the standard allowlist.
+Creates an instance of the `oembetter` module and adds the standard whitelist.
 Called by `afterConstruct`.
 ### enhanceOembetter()
 Enhances oembetter to support services better or to support services
