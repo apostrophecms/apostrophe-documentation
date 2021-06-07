@@ -39,7 +39,7 @@ possible new tabs
 
 ### errorOnReload()
 
-### errorOnMove()
+### errorOnMove(*error*)
 
 ### decorate()
 

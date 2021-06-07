@@ -10,10 +10,10 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "apostrophe": "^2.116.1",
+    "apostrophe": "^2.220.0",
     "async": "^2.6.3",
     "boring": "^0.1.0",
-    "glob": "^7.1.6",
+    "glob": "^7.1.7",
     "js-tokenizer": "^1.3.3",
     "lodash": "^4.17.21",
     "mkdirp": "^1.x",
