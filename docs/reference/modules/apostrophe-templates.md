@@ -64,6 +64,11 @@ by Nunjucks. Call this in your helper function
 when your return value contains markup and you
 are absolutely sure that any user input has
 been correctly escaped already.
+### escapeIfNeeded(*s*)
+Escape any HTML markup in the given string and return a new Nunjucks safe string,
+unless it is already marked as safe by Nunjucks. If it is nullish treat it as an
+empty string. If it is not a string convert it with its `toString` method before
+escaping.
 ### renderForModule(*req*, *name*, *data*, *module*)
 Load and render a Nunjucks template, internationalized
 by the given req object. The template with the name
