@@ -22,11 +22,11 @@ modules: {
     types: [
       ... other page types here ...
       {
-        name: 'people-page',
+        name: 'people-pages',
         label: 'People'
       },
       {
-        name: 'jobs-page',
+        name: 'jobs-pages',
         label: 'Jobs'
       },
     ]
