@@ -30,7 +30,8 @@ module.exports = {
         items: [
           {
             text: 'Apostrophe 3',
-            link: 'https://v3.docs.apostrophecms.org'
+            link: 'https://v3.docs.apostrophecms.org',
+            target: '_self'
           },
           {
             text: 'Apostrophe 2',
