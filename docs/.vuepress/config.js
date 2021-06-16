@@ -11,7 +11,6 @@ module.exports = {
     }
   },
   themeConfig: {
-    repo: 'https://github.com/apostrophecms/apostrophe/tree/2.0',
     docsRepo: 'https://github.com/apostrophecms/apostrophe-documentation',
     docsBranch: 'main',
     docsDir: 'docs',
@@ -26,8 +25,18 @@ module.exports = {
     logo: '/images/apos-dark.png',
     nav: [
       {
-        text: 'v3 Docs',
-        link: 'https://v3.docs.apostrophecms.org'
+        text: 'Versions',
+        ariaLabel: 'Apostrophe versions',
+        items: [
+          {
+            text: 'Apostrophe 3',
+            link: 'https://v3.docs.apostrophecms.org'
+          },
+          {
+            text: 'Apostrophe 2',
+            link: '/'
+          }
+        ]
       },
       {
         text: 'Sections',
@@ -55,6 +64,11 @@ module.exports = {
             text: 'Main site',
             link: 'https://apostrophecms.com',
             rel: false
+          },
+          {
+            text: 'GitHub',
+            link: 'https://github.com/apostrophecms/apostrophe',
+            re: false
           },
           {
             text: 'Discord',
