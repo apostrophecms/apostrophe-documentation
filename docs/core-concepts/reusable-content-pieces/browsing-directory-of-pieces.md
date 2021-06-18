@@ -43,7 +43,7 @@ modules: {
       },
       // Our new page type for displaying people
       {
-        name: 'people-pages',
+        name: 'people-page',
         label: 'People'
       }
     ]
