@@ -95,9 +95,9 @@ Here's what that looks like in `lib/modules/people/views/show.html`:
 
 ```django
 {# As in the earlier example, then... #}
-{% if data.person._job %}
+{% if data.piece._job %}
   <h4>
-    Position: <a href="{{ data.person._job._url }}">{{ data.person._job.title }}</a>
+    Position: <a href="{{ data.piece._job._url }}">{{ data.piece._job.title }}</a>
   </h4>
 {% endif %}
 ```
