@@ -2,14 +2,21 @@ const { sidebar } = require('./sidebar.json');
 
 module.exports = {
   title: 'Apostrophe 2 Documentation',
-  plugins: {
-    '@vuepress/google-analytics': {
-      ga: 'UA-106613728-3'
-    },
-    sitemap: {
-      hostname: 'https://docs.apostrophecms.com'
-    }
-  },
+  theme: 'apostrophe',
+  plugins: [
+    [
+      '@vuepress/google-analytics',
+      {
+        ga: 'UA-106613728-3'
+      }
+    ],
+    [
+      'sitemap',
+      {
+        hostname: 'https://v2.docs.apostrophecms.org'
+      }
+    ]
+  ],
   themeConfig: {
     docsRepo: 'https://github.com/apostrophecms/apostrophe-documentation',
     docsBranch: 'main',
