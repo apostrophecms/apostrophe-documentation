@@ -3,6 +3,20 @@ const { sidebar } = require('./sidebar.json');
 module.exports = {
   title: 'Apostrophe 2 Documentation',
   theme: 'apostrophe',
+  plugins: [
+    [
+      '@vuepress/google-analytics',
+      {
+        ga: 'UA-106613728-3'
+      }
+    ],
+    [
+      'sitemap',
+      {
+        hostname: 'https://v2.docs.apostrophecms.org'
+      }
+    ]
+  ],
   themeConfig: {
     docsRepo: 'https://github.com/apostrophecms/apostrophe-documentation',
     docsBranch: 'main',
