@@ -31,6 +31,6 @@ Below you can find each of the schema field types available in Apostrophe with l
 |[video](/reference/field-types/video.md) | allows the user to embed a video by pasting a link |
 
 ::: tip
-You can also add more field types to the system; check out the source code of the [`apostrophe-attachments`](https://github.com/apostrophecms/apostrophe/tree/master/lib/modules/apostrophe-attachments) module for a good example.
+You can also add more field types to the system; check out the source code of the [`apostrophe-attachments`](https://github.com/apostrophecms/apostrophe/tree/2.0/lib/modules/apostrophe-attachments) module for a good example.
 :::
 

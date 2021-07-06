@@ -75,7 +75,7 @@ module.exports = {
           },
           {
             text: 'GitHub',
-            link: 'https://github.com/apostrophecms/apostrophe',
+            link: 'https://github.com/apostrophecms/apostrophe/tree/2.0',
             re: false
           },
           {
