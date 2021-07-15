@@ -14,7 +14,7 @@ Also see the [oembetter](https://www.npmjs.com/package/oembetter) npm module and
 the [oembed](http://oembed.com/) documentation.
 
 Sites to be embedded need to be added to the `safeList`, to avoid XSS attacks. Many
-widely trusted sites are already on the list. This is troue even when
+widely trusted sites are already on the list. This is true even when
 falling back to Open Graph, because of port scanning risks.
 
 Your `safeList` option is concatenated with `oembetter`'s standard
