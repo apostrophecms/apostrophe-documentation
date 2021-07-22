@@ -14,7 +14,8 @@ Let's add this new module to your `app.js`. Your new module extends the `apostro
 modules: {
   // ... other modules ...,
   'people-pages': {
-    extend: 'apostrophe-pieces-pages'
+    extend: 'apostrophe-pieces-pages',
+    name: 'people-page'
   }
 }
 ```
@@ -43,7 +44,7 @@ modules: {
       },
       // Our new page type for displaying people
       {
-        name: 'people-pages',
+        name: 'people-page',
         label: 'People'
       }
     ]
