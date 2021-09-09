@@ -6,7 +6,7 @@ The user pastes a URL and sees an immediate preview.
 
 The value of the property on the object will have `url`, `title` and `thumbnail` properties. `title` and `thumbnail` are snapshots from the oembed response at the time the field was saved. `thumbnail` is the URL of a thumbnail image as provided by the oembed response.
 
-**The video field is primarily intended to be used as part of the core video widget**, however [apostrophe-oembed](/reference/modules/apostrophe-oembed/README.md) provides browser-side methods to display the video via client-side JavaScript. See the [apostrophe-video-widgets](/reference/modules/apostrophe-video-widgets/README.md) source code for an example of using these methods to play a video in a `div` element.
+**The video field is primarily intended to be used as part of the core video widget rather than in custom schema**, however [apostrophe-oembed](/reference/modules/apostrophe-oembed/README.md) provides browser-side methods to display the video via client-side JavaScript. See the [apostrophe-video-widgets](/reference/modules/apostrophe-video-widgets/README.md) source code for an example of using these methods to play a video in a `div` element.
 
 ## Example
 
