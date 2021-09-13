@@ -23,8 +23,9 @@
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.1.0",
-    "vuepress": "^1.8.2",
     "esm": "^3.2.25",
-    "vuepress-theme-apostrophe": "git://github.com/apostrophecms/vuepress-theme-apostrophe.git"
+    "vuepress": "^1.8.2",
+    "vuepress-plugin-sitemap": "^2.3.1",
+    "vuepress-theme-apostrophe": "^1.1.0"
   }
 }
