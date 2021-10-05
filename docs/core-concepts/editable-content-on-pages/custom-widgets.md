@@ -13,7 +13,7 @@ Let's look at some custom widgets that help provide navigation. you'll start wit
 ### `link`: the simplest widget
 
 ::: tip
-You can use the [Apostrophe CLI](/docs/getting-started/apostrophe-cli.md) to set up your new widget quickly. You could skip a few steps below if you have it installed by running `apos create-widget link`. The following information is still worth reviewing to understand what this does for you.
+You can use the [Apostrophe CLI](/docs/getting-started/apostrophe-cli.md) to set up your new widget quickly. You could skip a few steps below if you have it installed by running `apos add widget link`. The following information is still worth reviewing to understand what this does for you.
 :::
 
 First you'll need a folder for the module. In the terminal, from the project root, enter:
