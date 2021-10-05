@@ -4,11 +4,11 @@ Now that you have all the dependencies for Apostrophe installed, you can create 
 
 ## Generating a test project
 
-1. Create a new project with the Apostrpohe CLI tool:
+1. Create a new project with the [Apostrophe CLI tool](https://www.npmjs.com/package/@apostrophecms/cli):
 
     ```bash
     # Create a project
-    apos create-project test-project
+    apos create test-project
     ```
 2. With the project created, you should install the dependencies and start the server. You'll also be prompted to create a password. Make sure you don't forget it --- you'll need it in a minute.
 
@@ -36,7 +36,7 @@ You have a test project up and running! Visit `http://localhost:3000` and view y
 Alternatively, you can install a robust, themed, fully-baked project with this command:
 
 ```bash
-apos create-project --boilerplate https://github.com/apostrophecms/apostrophe-open-museum test-project
+apos create test-project --starter https://github.com/apostrophecms/apostrophe-open-museum
 ```
 
 This will download a fully functional Apostrophe application codebase. Please note that while the Open Museum codebase does power [the official demo](http://demo.apostrophecms.org), the demo's uploaded assets and database are not included when using it as a boilerplate. The demo website is the best place to test out an Apostrophe website with completed content.

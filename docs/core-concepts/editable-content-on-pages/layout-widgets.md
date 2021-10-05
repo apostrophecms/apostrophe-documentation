@@ -8,10 +8,10 @@ You want a widget that creates a layout of inner widgets.
 
 You might want a widget to establish consistent layout and structure (e.g., two things side-by-side) but leave the contents of that layout flexible. We like to call these "layout widgets," which give form and structure to "content widgets" (widgets whose sole job is to display content). **In this example we'll make a simple two column layout.**
 
-1. Use the [`apostrophe-cli`](https://github.com/apostrophecms/apostrophe-cli) to quickly build a widget.
+1. Use the [Apostrophe CLI tool](https://www.npmjs.com/package/@apostrophecms/cli) to quickly build a widget.
 
   ```bash
-  apos create-widget two-column
+  apos add widget two-column
   ```
 
 2. Include the layout widget in our `app.js` by adding the following to the `modules` object:

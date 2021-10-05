@@ -14,7 +14,7 @@ content types. You'll extend it to make your own `people` module. You can extend
 ::: tip
 You can use the [Apostrophe CLI](/docs/getting-started/apostrophe-cli.md). To
 generate the initial pieces module structure. You could skip a few steps below
-if you have it installed by running `apos create-piece person` (see the note in
+if you have it installed by running `apos add piece person` (see the note in
 the link above about pluralization). The following information is still worth
 reviewing to understand what this does for you.
 :::
