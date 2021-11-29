@@ -84,13 +84,13 @@ this module then no more than three failed attempts per minute are permitted
 for the same account, after which the user is locked out for 10 minutes. If
 `throttle` exists, `allowedAttempts` defaults to 3, `perMinutes` defaults to 1,
 and `lockoutMinutes` also defaults to 1.
+This throttle is used for classic login requests as well as for totp login requests.
 
 `totp`
 
 If this option is set to `true`, the user will be required to set up two-factor
 authentication via Google Authenticator or a compatible app (TOTP) on their
 next successful login, and all future logins will require the verification code.
-
 If this option is set to an object, you may specify sub-options:
 
 `totp: { groups: true }`
@@ -208,6 +208,8 @@ argument. You MUST check the second argument.
 
 The convention is set this way for compatibility
 with `passport`.
+### getThrottleLoginErr(*req*, *minutes*)
+
 ### verifyPassword(*user*, *password*, *callback*)
 Verify the given password by checking it against the
 hash in the safe. The callback is invoked with an error
