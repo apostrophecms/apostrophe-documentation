@@ -25,6 +25,7 @@ module.exports = {
     nextLinks: true,
     prevLinks: true,
     editLinks: true,
+    latestVersionPromo: true,
     sidebar,
     feedbackWidget: {
       docsRepoIssue: 'apostrophecms/apostrophe-documentation'
