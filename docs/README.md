@@ -2,6 +2,11 @@
 title: 'Docs Home'
 ---
 
+::: note
+If starting a new project, we recommend using the latest major version, Apostrophe 3. <a href="https://v3.docs.apostrophecms.org/">See the A3 documentation for more information.</a>
+:::
+
+
 # ApostropheCMS Documentation
 
 ![ApostropheCMS as an editor](../images/assets/ezgif.com-video-to-gif.gif)
