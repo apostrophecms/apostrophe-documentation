@@ -11,7 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "apostrophe": "^2.220.7",
-    "async": "^2.6.3",
+    "async": "^3.2.2",
     "boring": "^0.1.0",
     "glob": "^7.2.0",
     "js-tokenizer": "^1.3.3",
