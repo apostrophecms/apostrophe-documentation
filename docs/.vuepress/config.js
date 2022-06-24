@@ -113,6 +113,14 @@ module.exports = {
       async: 'true',
       defer: 'true',
       src: '//js.hs-scripts.com/6104347.js'
-    } ]
+    } ],
+
+    ['link', {rel: 'icon', type: 'image/png', sizes: "32x32", href: '/images/favicon/favicon-32.png'}],
+    ['link', {rel: 'icon', type: 'image/png', sizes: "128x128", href: '/images/favicon/favicon-128.png'}],
+    ['link', {rel: 'icon', type: 'image/png', sizes: "192x192", href: 'images/favicon/favicon-192.png'}],
+    ['link', {rel: 'shortcut icon', type: 'image/png', sizes: "196x196", href: '/images/favicon/favicon-196.png'}],
+    ['link', {rel: 'apple-touch-icon', type: 'image/png', sizes: "152x152", href: '/images/favicon/favicon-152.png'}],
+    ['link', {rel: 'apple-touch-icon', type: 'image/png', sizes: "167x167", href: '/images/favicon/favicon-167.png'}],
+    ['link', {rel: 'apple-touch-icon', type: 'image/png', sizes: "180x180", href: '/images/favicon/favicon-180.png'}]
   ]
 };
