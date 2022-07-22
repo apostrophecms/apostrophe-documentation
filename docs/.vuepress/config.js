@@ -124,7 +124,7 @@ module.exports = {
         rel: 'icon',
         type: 'image/png',
         sizes: '32x32',
-        href: '/images/favicon/favicon-32.png'
+        href: '../../images/favicon/favicon-32.png'
       }
     ],
     [
@@ -133,7 +133,7 @@ module.exports = {
         rel: 'icon',
         type: 'image/png',
         sizes: '128x128',
-        href: '/images/favicon/favicon-128.png'
+        href: '../../images/favicon/favicon-128.png'
       }
     ],
     [
@@ -142,7 +142,7 @@ module.exports = {
         rel: 'icon',
         type: 'image/png',
         sizes: '192x192',
-        href: 'images/favicon/favicon-192.png'
+        href: '../../images/favicon/favicon-192.png'
       }
     ],
     [
@@ -151,7 +151,7 @@ module.exports = {
         rel: 'shortcut icon',
         type: 'image/png',
         sizes: '196x196',
-        href: '/images/favicon/favicon-196.png'
+        href: '../../images/favicon/favicon-196.png'
       }
     ],
     [
@@ -160,7 +160,7 @@ module.exports = {
         rel: 'apple-touch-icon',
         type: 'image/png',
         sizes: '152x152',
-        href: '/images/favicon/favicon-152.png'
+        href: '../../images/favicon/favicon-152.png'
       }
     ],
     [
@@ -169,7 +169,7 @@ module.exports = {
         rel: 'apple-touch-icon',
         type: 'image/png',
         sizes: '167x167',
-        href: '/images/favicon/favicon-167.png'
+        href: '../../images/favicon/favicon-167.png'
       }
     ],
     [
@@ -178,7 +178,7 @@ module.exports = {
         rel: 'apple-touch-icon',
         type: 'image/png',
         sizes: '180x180',
-        href: '/images/favicon/favicon-180.png'
+        href: '../../images/favicon/favicon-180.png'
       }
     ]
   ]
