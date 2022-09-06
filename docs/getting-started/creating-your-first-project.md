@@ -8,7 +8,7 @@ Now that you have all the dependencies for Apostrophe installed, you can create 
 
     ```bash
     # Create a project
-    apos create test-project
+    apos create test-project --a2
     ```
 2. With the project created, you should install the dependencies and start the server. You'll also be prompted to create a password. Make sure you don't forget it --- you'll need it in a minute.
 
