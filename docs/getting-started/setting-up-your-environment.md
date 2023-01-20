@@ -11,7 +11,7 @@ Here's what you need to install:
 * XCode (required for all compilation on Macs)
 * Homebrew (for easy installing)
 * Git
-* Node (version 12.x) & npm 
+* Node (version 14.x) & npm 
 * MongoDB
 * Optional: Imagemagick (for fast image manipulation with animated GIF support)
 
