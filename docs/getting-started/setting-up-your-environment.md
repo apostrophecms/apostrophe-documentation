@@ -11,7 +11,7 @@ Here's what you need to install:
 * XCode (required for all compilation on Macs)
 * Homebrew (for easy installing)
 * Git
-* Node & npm
+* Node (version 14.x) & npm 
 * MongoDB
 * Optional: Imagemagick (for fast image manipulation with animated GIF support)
 
@@ -59,7 +59,7 @@ Throughout the tutorials, anything `formatted like this` is meant to be run at t
 
 ## Install Node
 
-Now that you have Homebrew installed it only takes one command to install Node:
+Now that you have Homebrew installed it only takes one command to install Node: 
 
 ```bash
 brew install node
