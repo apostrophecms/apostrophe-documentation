@@ -604,7 +604,7 @@ any `slug` field named `slug`. If not, return the schema unmodified.
 
 ### getBaseUrl(*req*) *[api]*
 Returns the effective base URL for the given request.
-If Apostrophe's top-level `baseUrl` option is set, it is returned,
+If Apostrophe's top-level `baseUrl` option or `APOS_BASE_URL` environment variable is set, it is returned,
 otherwise the empty string. This makes it easier to build absolute
 URLs (when `baseUrl` is configured), or to harmlessly prepend
 the empty string (when it is not configured). The

@@ -21,7 +21,7 @@ and implements the server side of CSRF protection for Apostrophe.
 As a convenience, `req.absoluteUrl` is set to the absolute URL of
 the current request. If the `baseUrl` option **at the top level,
 not for this specific module** is set to a string
-such as `http://mysite.com`, any site-wide prefix and `req.url` are
+such as `http://mysite.com`, or the `APOS_BASE_URL` environment variable is used to pass in the URL string, any site-wide prefix and `req.url` are
 appended to that. Otherwise the absolute URL is constructed based
 on the browser's request. Setting the `baseUrl` global option is
 necessary for reasonable URLs when generating markup from a
@@ -285,13 +285,13 @@ Invoked by `callAll` when `apos.destroy` is called.
 Destroys the HTTP server object, freeing the port.
 ### absoluteUrl(*req*, *res*, *next*)
 Standard middleware. Sets the `req.absoluteUrl` property for all requests,
-based on the `baseUrl` option if available, otherwise based on the user's
+based on the `baseUrl` option or `APOS_BASE_URL` environment variable if available, otherwise based on the user's
 request headers. The global `prefix` option and `req.url` are then appended.
 
 `req.baseUrl` and `req.baseUrlWithPrefix` are also made available, and all three
 properties are also added to `req.data` if not already present.
 
-The `baseUrl` option should be configured at the top level, for Apostrophe itself,
+The `baseUrl` option should be configured at the top level or through the `APOS_BASE_URL` environment variable, for Apostrophe itself,
 NOT specifically for this module, but for bc the latter is also accepted in this
 one case. For a satisfyingly global result, set it at the top level instead.
 ### htmlPageId(*req*, *res*, *next*)
@@ -314,12 +314,12 @@ request headers. The global `prefix` option and `req.url` are then appended.
 `req.baseUrl` and `req.baseUrlWithPrefix` are also made available, and all three
 properties are also added to `req.data` if not already present.
 
-The `baseUrl` option should be configured at the top level, for Apostrophe itself,
+The `baseUrl` option should be configured at the top level, for Apostrophe itself or with the `APOS_BASE_URL` environment variable,
 NOT specifically for this module, but for bc the latter is also accepted in this
 one case. For a satisfyingly global result, set it at the top level instead.
 
 If you want reasonable URLs in req objects used in tasks you must
-set the `baseUrl` option for Apostrophe.
+set the `baseUrl` option or the `APOS_BASE_URL` environment variable for Apostrophe.
 ### afterInit()
 Locate modules with middleware and add it to the list.
 Also compile the CSRF exceptions, late, so that other

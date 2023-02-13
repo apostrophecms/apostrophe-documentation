@@ -50,9 +50,10 @@ For a straightforward example of a moog bundle, check out [apostrophe-blog](http
 
 ### `baseUrl`
 
-If set, this string is prepended to all URLs the site generates to refer to itself. It should NOT contain a "path" part \(not even a `/` to begin the path\). It should only contain a protocol, a hostname and on rare occasions a port number. In production, you'll want to set this, for instance to `https://mysite.com`, so that Apostrophe's URLs are absolute which makes them satisfactory for use in Facebook Open Graph tags.
+If set, this string is prepended to all URLs the site generates to refer to itself. It should NOT contain a "path" part \(not even a `/` to begin the path\). It should only contain a protocol, a hostname and on rare occasions a port number. In production, you'll want to set this, for instance to `https://mysite.com`, so that Apostrophe's URLs are absolute which makes them satisfactory for use in Facebook Open Graph tags. This option can also be set or overridden using the `APOS_BASE_URL` environment variable.
 
 This is NOT the way to configure Apostrophe to run as a "subdirectory" of another website. See [prefix](core-server.md#code-prefix).
+
 
 ### `initFailed`
 
