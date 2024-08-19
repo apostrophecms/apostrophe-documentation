@@ -255,7 +255,7 @@ apos.define('apostrophe-rich-text-widgets-editor', {
     };
     ```
     
-* enable the font plugin as `extraPlugin` in `lib/modules/apostrophe-rich-text-widgets/public/js/editor.js`
+* enable the font plugin as an `extraPlugin` in `lib/modules/apostrophe-rich-text-widgets/public/js/editor.js`
     
     ```javascript
     // in lib/modules/apostrophe-rich-text-widgets/public/js/editor.js in your project folder
