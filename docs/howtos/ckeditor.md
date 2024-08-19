@@ -235,7 +235,7 @@ apos.define('apostrophe-rich-text-widgets-editor', {
     });
     ```
     
-* add `style` to `allowedAttributes` for `span` tags in `lib/modules/apostrophe-rich-text-widgets/index.js`. *Be aware this increases potential for unexpected results when content is copied and pasted from other sites*
+* add `style` to `allowedAttributes` for `span` tags in `lib/modules/apostrophe-rich-text-widgets/index.js`. *Be aware this increases the potential for unexpected results when content is copied and pasted from other sites*
 
     ::: warning NOTE
     If the file does not exist, please use the snippet below to use the default values
