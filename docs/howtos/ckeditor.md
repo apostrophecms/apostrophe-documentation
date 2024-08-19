@@ -217,7 +217,7 @@ apos.define('apostrophe-rich-text-widgets-editor', {
 ## How to add the CKEditor font plugin
 
 * download font plugin version, specifically [4.14.0](https://download.ckeditor.com/font/releases/font_4.14.0.zip)  for compatibility
-* unzip into the `lib/modules/apostrophe-areas/public/js/ckeditorPlugins/font` subdirectory **of your project, never modify node_modules** (the folder should contains `plugin.js` and a `lang/` folder)
+* unzip into the `lib/modules/apostrophe-areas/public/js/ckeditorPlugins/font` subdirectory **of your project, never modify node_modules**. This folder should already contain a `plugin.js` and a `lang/` folder)
 * create or edit `lib/modules/apostrophe-areas/public/js/user.js` as follow
     
     ```javascript
