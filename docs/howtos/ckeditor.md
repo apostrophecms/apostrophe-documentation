@@ -214,3 +214,61 @@ apos.define('apostrophe-rich-text-widgets-editor', {
 
 > Apostrophe's initial definition of the `beforeCkeditorInline` method is empty (following the [template pattern](https://en.wikipedia.org/wiki/Template_method_pattern)), but if you are using various add-on modules it's possible that some of them define it. If you want to be sure that code is called too, use the [super pattern](/reference/glossary.md#super-pattern) rather than just replacing the method outright.
 
+## How to add the CKEditor font plugin
+
+* download font plugin version, specifically [4.14.0](https://download.ckeditor.com/font/releases/font_4.14.0.zip)  for compatibility
+* unzip into the `lib/modules/apostrophe-areas/public/js/ckeditorPlugins/font` subdirectory **of your project, never modify node_modules** (the folder should contains `plugin.js` and a `lang/` folder)
+* create or edit `lib/modules/apostrophe-areas/public/js/user.js` as follow
+    
+    ```javascript
+    // in lib/modules/apostrophe-areas/public/js/user.js in your project folder
+
+    apos.define('apostrophe-areas', {
+      construct: function(self, options) {
+        var superEnableCkeditor = self.enableCkeditor;
+        self.enableCkeditor = function() {
+          superEnableCkeditor();
+          // "my-" is important and makes sure the project-level folder is used
+          CKEDITOR.plugins.addExternal('font', '/modules/my-apostrophe-areas/js/ckeditorPlugins/font/', 'plugin.js');
+        };
+      }
+    });
+    ```
+    
+* add `style` to `allowedAttributes` for `span` tags in `lib/modules/apostrophe-rich-text-widgets/index.js`. *Be aware this increases potential for unexpected results when content is copied and pasted from other sites*
+
+    ::: warning NOTE
+    If the file does not exist, please use the snippet below to use the default values
+    :::
+    
+    ```javascript
+    // in lib/modules/apostrophe-rich-text-widgets/index.js in your project folder
+
+    module.exports = {
+      sanitizeHtml: {
+        allowedAttributes: {
+          a: [ 'href', 'name', 'target' ],
+          img: [ 'src', 'srcset', 'alt', 'title', 'width', 'height', 'loading' ],
+          span: [ 'style' ]
+        }
+      }
+    };
+    ```
+    
+* enable the font plugin as `extraPlugin` in `lib/modules/apostrophe-rich-text-widgets/public/js/editor.js`
+    
+    ```javascript
+    // in lib/modules/apostrophe-rich-text-widgets/public/js/editor.js in your project folder
+
+    apos.define('apostrophe-rich-text-widgets-editor', {
+      construct: function(self, options) {
+        self.beforeCkeditorInline = function() {
+          // The "split" plugin is also present for Apostrophe's native
+          // "split this rich text widget into two" functionality
+          self.config.extraPlugins = ['font', 'split'];
+        };
+      }
+    });
+    ```
+    
+* add the `Font` and `FontSize` tools in your rich-text  `toolbar` option for your [apostrophe-rich-text widget](/core-concepts/editable-content-on-pages/standard-widgets.html#widget-types)
