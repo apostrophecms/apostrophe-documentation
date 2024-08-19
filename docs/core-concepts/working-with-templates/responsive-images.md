@@ -57,8 +57,19 @@ module.exports = {
 
 ```django
 {# lib/modules/my-image-widget/views/widget.html #}
-<img src="{{ apos.attachments.url(data.widget._image.attachment, { size: data.options.size or 'full' }) }}" srcset="{{ apos.images.srcset(data.widget._image.attachment) }}" sizes="{{ data.options.sizesAttr or '100vw' }}" alt="{{ data.widget._image.description or data.widget._image.title }}">
+  <img 
+    src="{{ apos.attachments.url(data.widget._image.attachment, { size: data.options.size or 'full' }) }}" 
+    srcset="{{ apos.images.srcset(data.widget._image.attachment) }}" 
+    sizes="{{ data.options.sizesAttr or '100vw' }}" 
+    alt="{{ data.widget._image.description or data.widget._image.title }}"
+   >
 ```
+
+The `apos.images.srcset` helper even offers cropping. If you add `relationship` you can use `apostrophe-attachment` cropping functions effectively.
+
+`srcset="{{ apos.images.srcset(data.widget._image.attachment, relationship) }}"`
+
+Images now have coordinates attached to their url's and this is really useful for responsive images.
 
 
 ## Responsive images can meet mobile design needs
@@ -142,6 +153,9 @@ Here's an example of how you can combine that technique with a focal point:
     background-image: url({{ apos.attachments.url(image, { size: 'one-half' }) }})"></div>
 {% endif %}
 ```
+
+You should decide if you want to show you image as `background-image` or in an img tag with `src` and `srcset`.
+
 
 ## Accessing the the focal point data directly
 
